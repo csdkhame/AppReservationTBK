@@ -556,9 +556,9 @@ a[href^="https://www.google.com/maps"] {
     padding: 0px;
     margin-left: -13px;
     z-index: 100;
-    border-bottom: 1px solid rgb(221, 221, 221);
+   /* border-bottom: 1px solid rgb(221, 221, 221);
     border-right: 1px solid rgb(221, 221, 221);
-    border-left: 1px solid rgb(221, 221, 221);
+    border-left: 1px solid rgb(221, 221, 221);*/
     border-radius: 0px 5px 5px;
     overflow-y: scroll;
     overflow-x: none;
@@ -579,9 +579,9 @@ a[href^="https://www.google.com/maps"] {
     padding: 0px;
     margin-left: -13px;
     z-index: 100;
-    border-bottom: 1px solid rgb(221, 221, 221);
+    /*border-bottom: 1px solid rgb(221, 221, 221);
     border-right: 1px solid rgb(221, 221, 221);
-    border-left: 1px solid rgb(221, 221, 221);
+    border-left: 1px solid rgb(221, 221, 221);*/
     border-radius: 0px 5px 5px;
     overflow-y: scroll;
     overflow-x: none;
