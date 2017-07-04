@@ -547,7 +547,7 @@ a[href^="https://www.google.com/maps"] {
 .box-plancefrom{
     padding-left: 0;
     display: none;
-    height: 255px;
+    max-height: 385px;
     position: absolute;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -570,7 +570,7 @@ a[href^="https://www.google.com/maps"] {
 .box-planceto{
     padding-left: 0;
     display: none;
-    height: 255px;
+    max-height: 385px;
     position: absolute;
     overflow-x: hidden;
     overflow-y: scroll;
