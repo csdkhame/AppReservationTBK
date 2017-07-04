@@ -29,19 +29,27 @@ $(document).ready(function() {
 
     });
     $('.btn-realtime').click(function() {
-        $('#loading').css('display', 'block');
-        //$('#content').css('display','none');
-        setTimeout(function() {
-            // $('#map').css('display', 'none');
 
+       $('#loading').css('display', 'block');
+//       $('#btn-real-res').css('display', 'none');
+        $('.gm-fullscreen-control').remove();
+        //$('#content').css('display','none');
+       setTimeout(function() {
+            // $('#map').css('display', 'none');
+		
             // $('#map2').css('display', 'block');
             $('#loading').css('display', 'none');
             $('#search-show').css('display', 'none')
+            $('#pac-input').css('display', '');
             $('#search-raeltime').css('display', 'block');
-
+           
+          
+          	
+		
             //$('#content').css('display','block'); 
-        }, 2000);
+       }, 2000);
 
+/*	 $( "#maps" ).html( "1111" );*/
 
     });
     // $('body').addClass('loaded');

@@ -4,22 +4,33 @@
         <div class="btn-reservation" > Reservation</div>
         <div class="btn-realtime" >Realtime</div>
     </div>
-    <div id="search-raeltime" style=" position: absolute; margin-top: 100px; width: 100%; z-index: 20; display: none;">
-        <div class='input-group date' id='picker2'>
-            <input type='date' class="form-control date" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-        </div>
-            
-            <script type="text/javascript">
-            $(function () {
-                $('#picker2').datetimepicker({
-                    locale: 'ru'
-                });
-            });
-        </script>
-            <!--<input type="date" id="myDate" value="2014-02-09">-->
+     <div id="search-raeltime" style=" position: absolute;
+        margin-top: 112px;
+        width: 100%;
+        z-index: 20;
+        display: none;">
+         <div class="col-md-12 " >
+         	  <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
+       					  <div class="box-search">
+                                <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/>
+ <!-- -->                        <div style="border-bottom: 1px solid #333;"></div>
+                                       
+                                <div class="box-plancefrom" id="users" style="">
+                                    <ul  class="list" id="box-plancefrom" name="character">
+                                                
+                                    </ul>
+                                </div>
+                                        
+                                    <input  type='text' class="form-control" placeholder="To Type airport,hotel name, or location." id="pac-input" style="border: none !important;" />
+                                                
+                                    <div class="box-planceto"  style="">
+                                        <ul  class="list" id="box-planceto" name="character">
+                                        </ul>
+                                    </div>
+                            </div>
+                </div>
+      	</div>
+
         </div>
         <div style=" position: absolute;  margin-top: 112px;width: 100%; z-index: 20; display: none;" id="search-show">            
             <div class="col-md-12 " >
