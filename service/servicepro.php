@@ -7,20 +7,21 @@ header('Content-type: text/html; charset=utf-8');
 // }';
 //$request = stripslashes( $_POST[request]);
 //$field = stripslashes( $_POST[field]);
-$curl_post_data = '{"request":{},
+$curl_post_data = '{"like":{"topic":"'.$_POST[input].'"},
 					"field":{"0":"id","1":"aum","2":"pro","3":"topic"},
-					"from": "web_transferplace_new"
+					"from": "web_transferplace_new",
+					"where": {"status":"1"}
 					}';
 $curl_response = '';
 //$data = json_decode(file_get_contents('php://input'), true);
-//print_r($data);
+//print_r($curl_post_data);
 //$curl_post_data = json_decode(file_get_contents('php://input'), true);
 
 
 $headers = array();
 //$headers[] = 'Content-Type: application/json';
 //$headers[] = 'API-KEY: ea1b6d331a20b66041369a63251410d4ec748f27';
-$url = "http://www.services.t-booking.com/service";
+$url = "http://www.services.t-booking.com/service/search_keyword";
 //echo $url;
                                 
 $curl = curl_init();

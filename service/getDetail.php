@@ -42,8 +42,8 @@ curl_close($curl);
 
 $message = iconv("incoming-charset", "utf-8", $curl_response);
 $aaaa = json_decode($curl_response);
-///print_r('1111');
-// echo $aaaa;
+//print_r($aaaa);
+//echo $aaaa;
 // foreach ($aaaa as $data ) {
 // 	// $data->id.' ' .$data->name. "<Br>";
 // 	$row_data[] = $data;

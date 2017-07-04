@@ -8,7 +8,7 @@ header('Content-type: text/html; charset=utf-8');
 //$request = stripslashes( $_POST[request]);
 //$field = stripslashes( $_POST[field]);
 // $curl_post_data = '{"place_default":"'.$_POST[place_default].'","stay":"'.$_POST[stay].'", "aum_from":"'.$_POST[aum_from].'", "place_default_to":"'.$_POST[place_default_to].'", "stay_to":"'.$_POST[stay_to].'", "aum_to":"'.$_POST[aum_to].'"}';
-$curl_post_data = '{"place_default":"'.$_POST[place_default].'","stay":"'.$_POST[stay].'", "aum_from":"'.$_POST[aum_from].'", "place_default_to":"'.$_POST[place_default_to].'", "stay_to":"'.$_POST[stay_to].'", "aum_to":"'.$_POST[aum_to].'"}';
+$curl_post_data = '{"from":"'.$_POST[place_default].'","stay":"'.$_POST[stay].'", "aum_from":"'.$_POST[aum_from].'", "to":"'.$_POST[place_default_to].'", "stay_to":"'.$_POST[stay_to].'", "aum_to":"'.$_POST[aum_to].'"}';
 $curl_response = '';
 //$data = json_decode(file_get_contents('php://input'), true);
 //print_r($data);
