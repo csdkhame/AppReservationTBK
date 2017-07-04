@@ -521,7 +521,7 @@ a[href^="https://www.google.com/maps"] {
 }
 #box-plancefrom li{
             list-style: none;
-    padding: 8px 8px;
+    padding: 15px 8px;
     /* padding-left: 0; */
     font-size: 15px;
 }
@@ -565,7 +565,7 @@ a[href^="https://www.google.com/maps"] {
 }
 .list li{
      background: rgb(255, 255, 255);
-     margin-bottom: 5px;
+     margin-bottom: 8px;
 }
 .box-planceto{
     padding-left: 0;
