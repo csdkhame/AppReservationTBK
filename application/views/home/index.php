@@ -1,28 +1,16 @@
 
 <div class="">
-    <div class="btn-real-res col-lg-12" id="btn-real-res">                    
-        <!-- <div class="col-md-6" align="center" style=""> -->
-                <div class="btn-reservation" > Reservation</div>
-        <!-- </div> -->
-        <!-- <div class="col-md-6" align="center" style=""> -->
-                <div class="btn-realtime" >Realtime</div>
-        <!-- </div> -->
-                   
-               
+    <div class="btn-real-res col-lg-12" id="btn-real-res">
+        <div class="btn-reservation" > Reservation</div>
+        <div class="btn-realtime" >Realtime</div>
     </div>
-        <div id="search-raeltime" style=" position: absolute;
-        margin-top: 100px;
-        width: 100%;
-        z-index: 20;
-        display: none;">
-        
-                <div class='input-group date' id='picker2'>
-                    <input type='date' class="form-control date" />
-                    <!--<input type='date'  id="myDate" value="" class="form-control " class="date" />-->
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+    <div id="search-raeltime" style=" position: absolute; margin-top: 100px; width: 100%; z-index: 20; display: none;">
+        <div class='input-group date' id='picker2'>
+            <input type='date' class="form-control date" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+        </div>
             
             <script type="text/javascript">
             $(function () {
@@ -36,20 +24,15 @@
         <div style=" position: absolute;  margin-top: 112px;width: 100%; z-index: 20; display: none;" id="search-show">            
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
-                            <div class="box-search">
-                                <button class="btn btn-success btn-xs" style="color: #fff;
-    background-color: #28a745;
-    background-image: -webkit-linear-gradient(270deg, #34d058 0%, #28a745 90%);
-    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);">Current position</button>
-                                <input type='text' class="search form-control" placeholder="From Type airport,hotel name, or location."  id='search-from' style="border: none !important;"/>
- <!-- -->                           <div style="border-bottom: 1px solid #333;"></div>
-                                       
+                    <div class="box-search">
+                        <button class="btn btn-success btn-xs" style=" color: #fff; z-index: 1;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius: 50%; background-color: #3b5998;"><i class="material-icons">gps_fixed</i></button>
+                            <input type='text' class="search form-control" placeholder="From Type airport,hotel name, or location."  id='search-from' style="border: none !important;"/>
+ <!-- -->                       <div style="border-bottom: 1px solid #333;"></div>
                                 <div class="box-plancefrom" id="users" style="">
                                     <ul  class="list" id="box-plancefrom" name="character">
                                                 
                                     </ul>
-                                </div>
-                                        
+                                </div>                                        
                                 <input  type='text' class="form-control" placeholder="To Type airport,hotel name, or location." id='search-to' style="border: none !important;" />
                                                 
                                 <div class="box-planceto"  style="">
@@ -218,8 +201,21 @@
                         </div>
                     </div>
                 </div>
-
-    <style>
+		</div>
+<style>
+.card-content:after {
+    border-bottom: 11px solid #FFFFFF;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 80px;
+    top: -10px;
+}
+.box-search{
+        padding: 0 12px;
+    }
     .box-search .form-group{
         margin: 0;
     }
@@ -258,19 +254,6 @@
         width: 100%;
         z-index: 20;
     }
-        
-    </style> 
-	<!-- <div class="container" style="   margin: auto; padding: 25px 8px;position: relative;"> -->
-    <!--  <div class="z-30 city__cta-bit ">                    
-            </div>   
-        <div id="map" style="height: 500px">
-                
-        </div> -->
-        
-
-				
-		</div>
-        <style>
 .facebook-login-auth {
     color: #3b5998;
     border: 1px solid #3b5998;
@@ -331,9 +314,7 @@ div.banner {
     position: relative;
     min-height: 339px;
 }
-</style>
-<style>
-            .city__cta-bit {
+.city__cta-bit {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -362,9 +343,9 @@ a[href^="https://www.google.com/maps"] {
     display: none;
 }
         </style>
-		
-	<style>
-	.nav-tabs {
+        
+    <style>
+    .nav-tabs {
     background: #ffffff;
     border: 0;
     border-radius: 3px;
@@ -378,7 +359,7 @@ a[href^="https://www.google.com/maps"] {
       user-select: initial;
      } 
 .tm-home-box-1{
-	/*background-image: -webkit-linear-gradient(269deg, #ffd000 0%, #ffb300 100%);
+    /*background-image: -webkit-linear-gradient(269deg, #ffd000 0%, #ffb300 100%);
     background-image: linear-gradient(-179deg, #ffd000 0%, #ffb300 100%);*/
        width: 100%;
     padding: 40px 20px;
@@ -535,12 +516,12 @@ a[href^="https://www.google.com/maps"] {
     margin-bottom: 0;
 }
 .type-t{
-	 position: absolute;
-	 margin-top: 15px;
+     position: absolute;
+     margin-top: 15px;
 }
 #box-plancefrom li{
             list-style: none;
-    padding: 8px 35px;
+    padding: 8px 8px;
     /* padding-left: 0; */
     font-size: 15px;
 }
@@ -568,38 +549,42 @@ a[href^="https://www.google.com/maps"] {
     display: none;
     height: 255px;
     position: absolute;
-    background: rgb(255, 255, 255);
     overflow-x: hidden;
     overflow-y: scroll;
     overflow: hidden;
-    width: 86%;
+    width: 92%;
     padding: 0px;
-    /*margin-left: -19.5px;*/
+    margin-left: -13px;
     z-index: 100;
     border-bottom: 1px solid rgb(221, 221, 221);
     border-right: 1px solid rgb(221, 221, 221);
     border-left: 1px solid rgb(221, 221, 221);
     border-radius: 0px 5px 5px;
-    overflow-y: scroll; 
+    overflow-y: scroll;
+    overflow-x: none;
+}
+.list li{
+     background: rgb(255, 255, 255);
+     margin-bottom: 5px;
 }
 .box-planceto{
-    padding-left: 0; 
+    padding-left: 0;
     display: none;
     height: 255px;
     position: absolute;
-    background: rgb(255, 255, 255);
     overflow-x: hidden;
     overflow-y: scroll;
-    width: 86%;
-    padding: 0px;
     overflow: hidden;
-    /*margin-left: -19.5px;*/
+    width: 92%;
+    padding: 0px;
+    margin-left: -13px;
     z-index: 100;
     border-bottom: 1px solid rgb(221, 221, 221);
     border-right: 1px solid rgb(221, 221, 221);
     border-left: 1px solid rgb(221, 221, 221);
     border-radius: 0px 5px 5px;
     overflow-y: scroll;
+    overflow-x: none;
 }
 #box-plancefrom{
     padding-left: 0;
@@ -633,16 +618,15 @@ a[href^="https://www.google.com/maps"] {
       
 }
 .search-transfer-product {
-   background-image: -webkit-linear-gradient(91deg, #9c1000 0%, #ca0018 100%);
-    background-image: linear-gradient(-1deg, #9c1000 0%, #F44336 100%);
-    color: #000;
+   margin-top: 20px;
+    color: #fff;
+    background: #3b5998;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    /* width: 30%; */
-    /* text-transform: uppercase; */
     float: right;
     font-weight: 400;
+    margin-right: -12px; 
     
     
 }
@@ -782,8 +766,9 @@ div.banner{
     max-height: 100px;
 }
 }
-		/*.tm-yellow-gradient-bg{
-			background: linear-gradient(to bottom, #f5d11d 0%,#f3d10e 1%,#efcf1c 2%,#fccd0d 4%,#f7ca0d 5%,#f9cb1e 6%,#f7cb10 7%,#f8cc14 8%,#f0c40c 54%,#edc50c 55%,#e9c108 71%,#ecc008 78%,#e6be06 91%,#e9bd06 93%,#e8bc06 100%);
-		}*/
-	</style>
+        /*.tm-yellow-gradient-bg{
+            background: linear-gradient(to bottom, #f5d11d 0%,#f3d10e 1%,#efcf1c 2%,#fccd0d 4%,#f7ca0d 5%,#f9cb1e 6%,#f7cb10 7%,#f8cc14 8%,#f0c40c 54%,#edc50c 55%,#e9c108 71%,#ecc008 78%,#e6be06 91%,#e9bd06 93%,#e8bc06 100%);
+        }*/
+</style>
+
 

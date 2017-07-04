@@ -195,7 +195,7 @@ $(document).ready(function() {
                             //$('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
 
                             //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-                            setvaluebox += '<li class="send-value" id="transferplace' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValue(\'' + data[i].id + '\');"><span class="name">' + data[i].topic + '</span></li>';
+                            setvaluebox += '<li class="send-value" id="transferplace' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValue(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">'+data[i].address+'</div></li>';
 
 
                         });
@@ -285,7 +285,7 @@ $(document).ready(function() {
                             //$('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
 
                             //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-                            setvalueboxto += '<li class="send-value" id="transferplaceto' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValueto(\'' + data[i].id + '\');"><span class="name">' + data[i].topic + '</span></li>';
+                            setvalueboxto += '<li class="send-value" id="transferplaceto' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValueto(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">'+data[i].address+'</div></li>';
 
 
                         });

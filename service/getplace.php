@@ -7,7 +7,7 @@ header('Content-type: text/html; charset=utf-8');
 // }';
 //$request = stripslashes( $_POST[request]);
 //$field = stripslashes( $_POST[field]);
-$curl_post_data = '{"field":{ "0":"id","1":"topic","2":"aum"},
+$curl_post_data = '{"field":{ "0":"id","1":"topic","2":"aum","3":"address"},
 					"place_from": "'.$_POST[from].'",
 					"place_to": "'.$_POST[to].'"}';
 //echo $curl_post_data;					
