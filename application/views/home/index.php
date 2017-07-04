@@ -37,8 +37,12 @@
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
                             <div class="box-search">
+                                <button class="btn btn-success btn-xs" style="color: #fff;
+    background-color: #28a745;
+    background-image: -webkit-linear-gradient(270deg, #34d058 0%, #28a745 90%);
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);">Current position</button>
                                 <input type='text' class="search form-control" placeholder="From Type airport,hotel name, or location."  id='search-from' style="border: none !important;"/>
- <!-- -->                        <div style="border-bottom: 1px solid #333;"></div>
+ <!-- -->                           <div style="border-bottom: 1px solid #333;"></div>
                                        
                                 <div class="box-plancefrom" id="users" style="">
                                     <ul  class="list" id="box-plancefrom" name="character">
