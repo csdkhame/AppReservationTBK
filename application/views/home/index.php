@@ -15,18 +15,11 @@
                                 <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/>
  <!-- -->                        <div style="border-bottom: 1px solid #333;"></div>
                                        
-                                <div class="box-plancefrom" id="users" style="">
-                                    <ul  class="list" id="box-plancefrom" name="character">
-                                                
-                                    </ul>
-                                </div>
+                                
                                         
                                     <input  type='text' class="form-control" placeholder="To Type airport,hotel name, or location." id="pac-input" style="border: none !important;" />
                                                 
-                                    <div class="box-planceto"  style="">
-                                        <ul  class="list" id="box-planceto" name="character">
-                                        </ul>
-                                    </div>
+                                   
                             </div>
                 </div>
       	</div>
