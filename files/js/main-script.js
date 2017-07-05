@@ -980,13 +980,11 @@ function initAutocomplete(map){
     /*console.log(results);*/
     if (status === google.maps.GeocoderStatus.OK) {
       if (results[1]) {
-<<<<<<< HEAD
+
         console.log(results)
         console.log(results[1])
         console.log(results[1].place_id);
-=======
-//        console.log(results[1].place_id);
->>>>>>> dc3b221061acef7ee51a82e7be3dfb055d4acfa6
+
         console.log(results[1].formatted_address);
         //getAddress(results[1].formatted_address);
         addr = results[1].formatted_address;
