@@ -1,4 +1,4 @@
-
+<button class="btn" id="open_map" style="display: none;">Open Map</button>
 <div class="">
     <div class="btn-real-res col-lg-12" id="btn-real-res">
         <div class="btn-reservation" > Reservation</div>
@@ -60,9 +60,10 @@
           
                         
         </div>
-	<div class="" style="" >
+
        <div id="map" style="width: 100%;height: 100vh;"></div>         
-    </div>
+    
+
     <div class="container" style="display:none;margin-top: -130px;" id="container-product">
 			<div class="row">
 				<div class="col-md-9">

@@ -1,4 +1,9 @@
 $(document).ready(function() {
+	 setTimeout(function() {
+         $('#open_map').trigger('click');
+        }, 3500);
+	
+	
     $("myDate").on("change", function() {
         this.setAttribute(
             "data-date",
@@ -28,12 +33,12 @@ $(document).ready(function() {
 
 
     });
-    $('.btn-realtime').on('click',initialize);
+    
     $('.btn-realtime').click(function() {
 
        $('#loading').css('display', 'block');
 //       $('#btn-real-res').css('display', 'none');
-        $('.gm-fullscreen-control').remove();
+        
         //$('#content').css('display','none');
        setTimeout(function() {
             // $('#map').css('display', 'none');
@@ -882,6 +887,11 @@ function login() {
 }
 
 
+$('#open_map').on('click',initialize);
+$('#open_map').click(function(){
+	console.log('Now Open Map!');
+	$('.gm-fullscreen-control').remove();
+});
 // function initMap() {
 //     var uluru = { lat: 7.9038781, lng: 98.3033694 };
 //     var map = new google.maps.Map(document.getElementById('map'), {
