@@ -28,6 +28,7 @@ $(document).ready(function() {
 
 
     });
+    $('.btn-realtime').on('click',initialize);
     $('.btn-realtime').click(function() {
 
        $('#loading').css('display', 'block');
@@ -221,6 +222,10 @@ $(document).ready(function() {
                 }
 
             });
+        }
+        else{
+             $('#box-plancefrom').html('');
+              $('.box-plancefrom').css('display', 'none');
         }
         //  var filter;//console.log(dataProvince)
         // String(filter);
@@ -877,15 +882,133 @@ function login() {
 }
 
 
-function initMap() {
-    var uluru = { lat: 7.9038781, lng: 98.3033694 };
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 11,
-        center: uluru
-    });
-    var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-    });
-}
+// function initMap() {
+//     var uluru = { lat: 7.9038781, lng: 98.3033694 };
+//     var map = new google.maps.Map(document.getElementById('map'), {
+//         zoom: 11,
+//         center: uluru
+//     });
+//     var marker = new google.maps.Marker({
+//         position: uluru,
+//         map: map
+//     });
+// }
+function initialize() {
+        
+        var start;
+        var end;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 7.9038781, lng: 98.3033694},
+          zoom: 16,
+          mapTypeControl: false,
+          mapTypeId: 'roadmap'
+        });
+        initAutocomplete(map,start);
+        // Create the search box and link it to the UI element.
+      }
+      
+      
+      function initAutocomplete(map){
+           var current_marker = {
+              url: 'http://dotdotdottrip.com/pic/icon_marker.png',
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(35, 35)
+            };
+         
+         var marker2 = new google.maps.Marker({
+//           icon : current_marker,
+              draggable: false,
+              animation: google.maps.Animation.DROP,
+              map: map
+             
+            });
+            
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            start = pos;
+            //marker2.setAnimation(google.maps.Animation.BOUNCE);
+            marker2.setPosition(pos);
+            map.setCenter(pos);
+            
+            var geocoder = new google.maps.Geocoder;
+            //console.log(pos);
+            latitude=position.coords.latitude;               
+            longitude= position.coords.longitude;
+            var latlng = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
+
+            geocoder.geocode({'location': latlng}, function(results, status)                                                                                                                                                {
+    /*console.log(results);*/
+    if (status === google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        console.log(results[1].place_id);
+        console.log(results[1].formatted_address);
+        document.getElementById("current").value = results[1].formatted_address;
+      } else {
+        window.alert('No results found');
+      }
+    } else {
+      window.alert('Geocoder failed due to: ' + status);
+    }
+  });
+
+        
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } 
+
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer();
+               var input = document.getElementById('pac-input');
+            
+        var searchBox = new google.maps.places.SearchBox(input);
+//        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+         var autocomplete = new google.maps.places.Autocomplete(input);
+         autocomplete.bindTo('bounds', map);
+         
+        var marker = new google.maps.Marker({
+          map: map,
+          animation: google.maps.Animation.DROP,
+          anchorPoint: new google.maps.Point(0, -29)
+        });
+        
+          autocomplete.addListener('place_changed', function() {
+             marker.setVisible(false);
+            var place = autocomplete.getPlace();
+
+         if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+              map.setZoom(13); 
+              console.log(place.geometry);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+           marker.setPosition(place.geometry.location);
+           end = place.geometry.location;
+           marker.setVisible(true);
+           var request = {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            //console.log(request);
+            directionsDisplay.setMap(map);
+            directionsService.route(request, function (response, status) {
+                
+                 directionsDisplay.setDirections(response);
+                    directionsDisplay.setOptions({
+                        suppressMarkers: true,
+                        preserveViewport: true
+                    });
+            });
+        }); 
+      }
 

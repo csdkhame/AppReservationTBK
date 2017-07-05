@@ -29,17 +29,15 @@
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
                     <div class="box-search">
-                        <button class="btn btn-success btn-xs" style=" color: #fff; z-index: 1;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius: 50%; background-color: #3b5998;"><i class="material-icons">gps_fixed</i></button>
-                            <input type='text' class="" placeholder="From Type airport,hotel name, or location."  id='search-from' style="border: none !important;padding: 10px;
-    width: 100%;"/>
+                        <button class="btn btn-success btn-xs" style=" color: #fff; z-index: 1;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius: 50%; background-color: #3b5998;    margin: 5px 0;"><i class="material-icons">gps_fixed</i></button>
+                            <input type='text' class="" placeholder="From Type airport,hotel name, or location."  id='search-from' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
  <!-- -->                       <div style="border-bottom: 1px solid #333;"></div>
                                 <div class="box-plancefrom" id="users" style="">
                                     <ul  class="list" id="box-plancefrom" name="character">
                                                 
                                     </ul>
                                 </div>                                        
-                                <input  type='text' class="" placeholder="To Type airport,hotel name, or location." id='search-to' style="border: none !important;padding: 10px;
-    width: 100%;" />
+                                <input  type='text' class="" placeholder="To Type airport,hotel name, or location." id='search-to' style="border: none !important;padding: 10px; width: 100%;background: #fff;" />
                                                 
                                 <div class="box-planceto"  style="">
                                     <ul  class="list" id="box-planceto" name="character">
