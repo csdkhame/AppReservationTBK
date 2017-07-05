@@ -10,7 +10,7 @@
         z-index: 20;
         display: none;">
          <div class="col-md-12 " >
-         	  <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
+         	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
        					  <div class="box-search">
                                 <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/>
  <!-- -->                        <div style="border-bottom: 1px solid #333;"></div>
@@ -216,6 +216,16 @@
     display: inline-block;
     position: absolute;
     left: 80px;
+    top: -10px;
+}
+.card-contentrealtime:after {
+    border-bottom: 11px solid #FFFFFF;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 260px;
     top: -10px;
 }
 .box-search{

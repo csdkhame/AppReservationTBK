@@ -73,6 +73,7 @@
 	<!--     *********    END PRICING 5      *********      -->
 </body>
 	<!--   Core JS Files   -->
+	
 	<script src="<?php echo base_url(); ?>files/js/jquery.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>files/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>files/js/material.min.js"></script>
@@ -111,6 +112,7 @@
 	<!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEiDYwHpd4fR3h1QfTcHmFRCAF4NjVxmM&libraries=places&callback=initAutocomplete"async defer> </script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time()?>"></script> 
 	<script src="<?php echo base_url(); ?>files/js/list.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>files/js/list.js" type="text/javascript"></script>
@@ -127,6 +129,7 @@
 	</script>
 
 	<style>
+
 		.index-page .header-filter:after, .presentation-page .header-filter:after {
     background: rgba(132,13,121,.88);
     background: linear-gradient(45deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%);
@@ -148,7 +151,7 @@
 	</style>
 
 
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEiDYwHpd4fR3h1QfTcHmFRCAF4NjVxmM&libraries=places&callback=initAutocomplete"async defer> </script>
+
 
 </html>
 

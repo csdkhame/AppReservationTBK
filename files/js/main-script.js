@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	 setTimeout(function() {
          $('#open_map').trigger('click');
+         
         }, 3500);
 	
 	
@@ -42,7 +43,7 @@ $(document).ready(function() {
         //$('#content').css('display','none');
        setTimeout(function() {
             // $('#map').css('display', 'none');
-		
+			 
             // $('#map2').css('display', 'block');
             $('#loading').css('display', 'none');
             $('#search-show').css('display', 'none')
@@ -890,7 +891,8 @@ function login() {
 $('#open_map').on('click',initialize);
 $('#open_map').click(function(){
 	console.log('Now Open Map!');
-	$('.gm-fullscreen-control').remove();
+	
+	
 });
 // function initMap() {
 //     var uluru = { lat: 7.9038781, lng: 98.3033694 };
@@ -904,7 +906,7 @@ $('#open_map').click(function(){
 //     });
 // }
 function initialize() {
-        
+       
         var start;
         var end;
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -915,6 +917,7 @@ function initialize() {
         });
         initAutocomplete(map,start);
         // Create the search box and link it to the UI element.
+        $('.gm-fullscreen-control').remove();
       }
       
       
