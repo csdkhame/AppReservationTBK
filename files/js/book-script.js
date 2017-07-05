@@ -76,20 +76,25 @@ $(document).ready(function(){
         if (this.checked) {
             console.log('in case user')
             console.log(datauser)
+            console.log( $('#email').val(datauser[0].s_email))
             $('#s_username').val(datauser[0].s_email);
+            $('#email').val(datauser[0].s_email);
             $('#phone').val(+' '+datauser[0].s_phone);
             $('#phonecode').html('+'+datauser[0].s_phone_code);
             $('#guestcountry').val(datauser[0].i_country);
             $('#name_lastname').val(datauser[0].s_first_name+' '+datauser[0].s_last_name);
             $('.label-floating').addClass('is-focused');
+             $('#summaryphone').html('+'+datauser[0].s_phone_code+datauser[0].s_phone);
+            $('#summaryemail').html(datauser[0].s_email);
 
         } else {
+            $('#email').val('');
             $('#s_username').val('');
             $('#phone').val('');
             $('#phonecode').html('').ass;
             $('#guestcountry').val('');
             $('#name_lastname').val('');
-             $('.label-floating').removeClass('is-focused');
+            $('.label-floating').removeClass('is-focused');
         }
     })
     $('#btn-logout-user').on('click',function(){
@@ -162,8 +167,7 @@ $(document).ready(function(){
           console.log(data)
           //datacountry = data;
          // $('#codecountry').modal('show');
-           $.each(data , function(i, val) { 
-                
+           $.each(data , function(i, val) {                
                  $('#guestcountry').append('<option value="'+data[i].name_en+'" label="'+data[i].name_en+'" none=""></option>');
                   //dataProvince.push(data[i])
                  //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
@@ -229,6 +233,7 @@ $(document).ready(function(){
 
         costproduct = data[0].cost_a_agent_all;
         type = data[0].type;
+        console.log(type)
         if (data[0].type == 'Private' && data[0].area == 'In') {
            $('#datetext').html('Arrival date:')
            $('#texttime').html('Arrival time:')
