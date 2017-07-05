@@ -32,7 +32,13 @@
           zoom: 6
         });
         infoWindow = new google.maps.InfoWindow;
-
+		var marker2 = new google.maps.Marker({
+//		 	 icon : current_marker,
+	          draggable: false,
+              animation: google.maps.Animation.DROP,
+	          map: map
+	         
+	        });
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -45,6 +51,7 @@
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
             map.setCenter(pos);
+            marker2.setPosition(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -63,7 +70,7 @@
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEiDYwHpd4fR3h1QfTcHmFRCAF4NjVxmM&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&callback=initMap">
     </script>
   </body>
 </html>
