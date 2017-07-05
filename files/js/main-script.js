@@ -323,6 +323,10 @@ $(document).ready(function() {
 
             });
         }
+         else{
+             $('#box-planceto').html('');
+              $('.box-planceto').css('display', 'none');
+        }
 
 
     });
@@ -472,7 +476,7 @@ function search() {
                 console.log(data.length)
                 dataproduct = data;
                 var urlicon = 'http://t-booking.com/pic/carmodelicon/';
-                if (data[0].data1.length != 0) {
+                //if (data[0].data1.length != 0) {
                     $.each(compae1private, function(i, val) {
                         var indexs = parseInt(i) + 1;
 
@@ -561,11 +565,11 @@ function search() {
 
 
                     });
-                } else if (data[0].data1.length == 0) {
-                    console.log('data[0].data1.length');
-                    $('#product_a').append('<div class="a-link-item col-lg-12" > not data</div>'
+                //}
+                    // console.log('data[0].data1.length');
+                    // $('#product_a').append('<div class="a-link-item col-lg-12" > not data</div>'
 
-                    );
+                    // );
                     // $('#product_c').append('<div class="a-link-item col-lg-12" > not data</div>'
 
                     // );
@@ -656,7 +660,7 @@ function search() {
 
 
                     });
-                }
+                
             }
 
 
@@ -905,13 +909,16 @@ $('#open_map').click(function(){
 //         map: map
 //     });
 // }
-var addr,latitude,longitude;
+var addr,latitude,longitude,addrcurent;
 $('#current-addr').on('click',getAddress);
  function getAddress(address){
     $('#search-from').val(addr)
     console.log(latitude)
     console.log(longitude)
+    console.log(addrcurent)
+    
  }
+
 
 function initialize() {
        
@@ -967,10 +974,13 @@ function initialize() {
     /*console.log(results);*/
     if (status === google.maps.GeocoderStatus.OK) {
       if (results[1]) {
+        console.log(results)
+        console.log(results[1])
         console.log(results[1].place_id);
         console.log(results[1].formatted_address);
         //getAddress(results[1].formatted_address);
         addr = results[1].formatted_address;
+        addrcurent = results[0].formatted_address;
         document.getElementById("current").value = results[1].formatted_address;
       } else {
         window.alert('No results found');
