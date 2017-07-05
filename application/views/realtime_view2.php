@@ -140,10 +140,15 @@
       	var end;
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 7.9038781, lng: 98.3033694},
-          zoom: 17,
+          zoom: 15,
           mapTypeControl: false,
           mapTypeId: 'roadmap'
+          
         });
+        
+        
+        
+//        map.setMyLocationEnabled(true);
          var current_marker = {
               url: 'http://dotdotdottrip.com/pic/icon_marker.png',
               size: new google.maps.Size(71, 71),
@@ -160,6 +165,7 @@
 	         
 	        });
 	        
+	        addYourLocationButton(map, marker2);
 	        
 		if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -171,7 +177,7 @@
 			//marker2.setAnimation(google.maps.Animation.BOUNCE);
             marker2.setPosition(pos);
             map.setCenter(pos);
-            
+//            smoothZoom(map, 17, map.getZoom());
 			var geocoder = new google.maps.Geocoder;
 			//console.log(pos);
 			latitude=position.coords.latitude;               
@@ -211,18 +217,19 @@
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-         var autocomplete = new google.maps.places.Autocomplete(input);
-         autocomplete.bindTo('bounds', map);
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
          
-          autocomplete.addListener('place_changed', function() {
+    	autocomplete.addListener('place_changed', function() {
           	 marker.setVisible(false);
           	var place = autocomplete.getPlace();
 
          if (place.geometry.viewport) {
             map.fitBounds(place.geometry.viewport);
-              map.setZoom(13); 
+            map.setZoom(17); 
           } else {
             map.setCenter(place.geometry.location);
+         
             map.setZoom(17);  // Why 17? Because it looks good.
           }
            marker.setPosition(place.geometry.location);
@@ -244,11 +251,86 @@
                     });
         	});
         });
-
-		
-        
-		
       }
+      
+      
+      
+   function addYourLocationButton(map, marker) 
+{
+	var controlDiv = document.createElement('div');
+	
+	var firstChild = document.createElement('button');
+	firstChild.style.backgroundColor = '#fff';
+	firstChild.style.border = 'none';
+	firstChild.style.outline = 'none';
+	firstChild.style.width = '28px';
+	firstChild.style.height = '28px';
+	firstChild.style.borderRadius = '2px';
+	firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+	firstChild.style.cursor = 'pointer';
+	firstChild.style.marginRight = '10px';
+	firstChild.style.padding = '0px';
+	firstChild.title = 'Your Location';
+	controlDiv.appendChild(firstChild);
+	
+	var secondChild = document.createElement('div');
+	secondChild.style.margin = '5px';
+	secondChild.style.width = '18px';
+	secondChild.style.height = '18px';
+	secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
+	secondChild.style.backgroundSize = '180px 18px';
+	secondChild.style.backgroundPosition = '0px 0px';
+	secondChild.style.backgroundRepeat = 'no-repeat';
+	secondChild.id = 'you_location_img';
+	firstChild.appendChild(secondChild);
+	
+	google.maps.event.addListener(map, 'dragend', function() {
+		$('#you_location_img').css('background-position', '0px 0px');
+	});
+
+	firstChild.addEventListener('click', function() {
+		var imgX = '0';
+		var animationInterval = setInterval(function(){
+			if(imgX == '-18') imgX = '0';
+			else imgX = '-18';
+			$('#you_location_img').css('background-position', imgX+'px 0px');
+		}, 500);
+		if(navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+//				marker.setPosition(latlng);
+				map.setCenter(latlng);
+				clearInterval(animationInterval);
+//				$('#you_location_img').css('background-position', '-144px 0px');
+			});
+		}
+		else{
+			clearInterval(animationInterval);
+//			$('#you_location_img').css('background-position', '0px 0px');
+		}
+	});
+	
+	controlDiv.index = 1;
+	map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+}
+      
+      
+/*      function smoothZoom (map, max, cnt) {
+    if (cnt >= max) {
+        return;
+    }
+    else {
+        z = google.maps.event.addListener(map, 'zoom_changed', function(event){
+            google.maps.event.removeListener(z);
+            smoothZoom(map, max, cnt + 1);
+        });
+        setTimeout(function(){map.setZoom(cnt)}, 90); // 80ms is what I found to work well on my system -- it might not work well on all systems
+    }
+}  
+      */
+      
+      
+      
 
     </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places&callback=initAutocomplete"

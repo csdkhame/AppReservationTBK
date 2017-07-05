@@ -127,7 +127,7 @@
 		});
 
 	</script>
-
+<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
 	<style>
 
 		.index-page .header-filter:after, .presentation-page .header-filter:after {
@@ -156,8 +156,7 @@
 
       
 </script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEiDYwHpd4fR3h1QfTcHmFRCAF4NjVxmM&libraries=places&callback=initAutocomplete" async defer> </script>
-
+ 
 
 </html>
 
