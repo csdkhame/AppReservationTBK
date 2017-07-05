@@ -127,7 +127,7 @@
 		});
 
 	</script>
-
+<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
 	<style>
 
 		.index-page .header-filter:after, .presentation-page .header-filter:after {
@@ -157,8 +157,7 @@
 
       
 </script>
-
-
+ 
 
 </html>
 
