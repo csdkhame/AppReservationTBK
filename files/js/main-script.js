@@ -905,6 +905,14 @@ $('#open_map').click(function(){
 //         map: map
 //     });
 // }
+var addr,latitude,longitude;
+$('#current-addr').on('click',getAddress);
+ function getAddress(address){
+    $('#search-from').val(addr)
+    console.log(latitude)
+    console.log(longitude)
+ }
+
 function initialize() {
 	
        	var mapMinZoom = 12;
@@ -967,6 +975,8 @@ function initAutocomplete(map){
       if (results[1]) {
 //        console.log(results[1].place_id);
         console.log(results[1].formatted_address);
+        //getAddress(results[1].formatted_address);
+        addr = results[1].formatted_address;
         document.getElementById("current").value = results[1].formatted_address;
       } else {
         window.alert('No results found');
