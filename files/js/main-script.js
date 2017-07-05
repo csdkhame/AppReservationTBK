@@ -931,7 +931,7 @@ function initialize() {
             };
          
          var marker2 = new google.maps.Marker({
-//           icon : current_marker,
+           icon : current_marker,
               draggable: false,
               animation: google.maps.Animation.DROP,
               map: map
