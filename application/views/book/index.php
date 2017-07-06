@@ -409,7 +409,7 @@
                                                 </td>
                                                 <td >
                                                 <div class='input-group '  style="width: 100%">
-                                                    <input type='date' id="on_date" class="form-control asd" value="<?php echo date("Y-m-d");?>" data-date-format="d-M-yyyy">
+                                                    <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy">
                                                    <!--  <span class=""> -->
                                                         <!-- <i class="fa fa-calendar input-group-addon" id="calen" aria-hidden="true" style="color: #9E9E9E"></i> -->
                                                     <!-- </span> -->
@@ -868,22 +868,22 @@
                                 <div class="toppic">
                                     <p>Product name:</p>
                                     <span>
-                                            <span id="name_product"></span><span style="color: #FF9800;" >(Transport)</span>
+                                            <span style="color: #fb833f;" id="name_product"></span><span style="color: #FF9800;" >(Transport)</span>
                                     </span>
                                 </div>
 
                                 <div class="toppic" >
                                     <p>Car type:</p>
-                                    <span id="cars_type"></span>
+                                    <span style="color: #fb833f;" id="cars_type"></span>
                                     
                                 </div>
                                 <div class="toppic" >
                                     <p>Pick up from: </p>
-                                    <span id="pickup_from"></span><span style="margin-left: 100px;"></span>
+                                    <span style="color: #fb833f;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
                                 </div>
                                 <div class="toppic" >
                                     <p>Pick up to:</p>
-                                    <span id="pickup_to"></span><span style="margin-left: 100px;"></span>
+                                    <span style="color: #fb833f;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
                                 </div>
                                 
                                
@@ -891,11 +891,11 @@
                                                  
                                 <div class="toppic">
                                     <p id="date-final"></p>
-                                    <span class="ng-binding" id="ondate_samary"></span>
+                                    <span style="color: #fb833f;" class="" id="ondate_samary"></span>
                                 </div>
                                 <div class="toppic">
                                     <p id="time-final"></p>
-                                    <span class="ng-binding" id="ontime_samary"></span>
+                                    <span style="color: #fb833f;" class="" id="ontime_samary"></span>
                                 </div> 
                                
                             </div>
@@ -930,7 +930,7 @@
                                             <span >Email :</span>
                                             
                                            </div>         
-                                        <label id="summaryemail"></label>
+                                        <label  id="summaryemail"></label>
                                     </div>
                                    <!--  <div class="section06-line02-email">     
                                         <div class="email">
@@ -966,12 +966,12 @@
                                 <!-- <div class="topic_ens">
                                     <span >Phuket Airport-Phuket Hotel All Area</span>
                                 </div> -->
-                                <div class="adult ng-scope" >
+                                <div  >
                                     <div id="book-info">
                                        <span>cars:</span>
                                        
                                     </div>
-                                    <span style="color: #fb833f;" id="carsummary"></span><span>:</span>
+                                    <span style="color: #fb833f;" id="carsummary"></span><span></span>
                                     <span style="color: #fb833f;float:right;" id="costsummary"></span>
                                 </div>
                                <div >
@@ -1343,9 +1343,9 @@
                         </div>
                     </div>
                 </div>
-    <footer class="footer footer-white" >
+    <!-- <footer class="footer footer-white" >
         <div class="container">
-            <!-- <a class="footer-brand" href="http://www.creative-tim.com">Material Kit PRO</a> -->
+            
 
             <ul class="pull-left">
                 <li>
@@ -1380,7 +1380,7 @@
             </ul>
 
         </div>
-    </footer>
+    </footer> -->
     </div>
 
     <!--     *********    END PRICING 5      *********      -->
