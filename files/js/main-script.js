@@ -1116,7 +1116,7 @@ function initAutocomplete(map,start,end){
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            
+            console.log("current : "+pos);
             start = pos;
             //marker2.setAnimation(google.maps.Animation.BOUNCE);
             marker2.setPosition(pos);
