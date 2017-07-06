@@ -329,9 +329,6 @@
 }  
       */
       
-      
-      
-
     </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places&callback=initAutocomplete"
          async defer></script> 

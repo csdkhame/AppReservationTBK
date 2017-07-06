@@ -23,11 +23,11 @@ public function test()
 	
 	}
 	
-public function point()
+public function current()
 	{
 		
 	
-		$this->load->view('realtime_view3');
+		$this->load->view('realtime_view_current');
 	
 	}
 public function point2()
