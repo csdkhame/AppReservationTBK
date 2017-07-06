@@ -5,7 +5,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="">
 	<link rel="icon" type="image/png" href="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 	<title>App booking</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -33,6 +33,7 @@
 </head>
 
 <body class="presentation-page" >
+
 <div id="loading" style="    z-index: 9999;
     position: fixed;
     width: 100vw;
@@ -65,6 +66,11 @@
         
     </div>
 </div>
+
+
+<button id="show_pd" class="btn"></button>
+
+
 
 <div id="content" >
 

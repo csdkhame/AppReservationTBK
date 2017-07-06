@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	 $('#show_pd_dialog').css('display', 'none');
 	 setTimeout(function() {
          $('#open_map').trigger('click');
          
@@ -912,6 +913,12 @@ $('#current-addr').on('click',getAddress);
     console.log(latitude)
     console.log(longitude)
  }
+ 
+$('#show_pd').click(function(){
+	
+	 $('#show_pd_dialog').show(1000);
+	
+});
 
 function initialize() {
 	
@@ -923,7 +930,9 @@ function initialize() {
           center: {lat: 7.9038781, lng: 98.3033694},
           zoom: 17,
           mapTypeControl: false,
-          mapTypeId: 'roadmap'
+          mapTypeId: 'roadmap',
+//          gestureHandling: 'coopergreedyative'
+          gestureHandling: 'greedy'
         });
         var geoloccontrol = new klokantech.GeolocationControl(map, mapMaxZoom);
         initAutocomplete(map,start);
@@ -943,7 +952,7 @@ function initAutocomplete(map){
             };
          
          var marker2 = new google.maps.Marker({
-           icon : current_marker,
+//           icon : current_marker,
               draggable: false,
               animation: google.maps.Animation.DROP,
               map: map
@@ -969,8 +978,8 @@ function initAutocomplete(map){
             longitude= position.coords.longitude;
             var latlng = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
 
-            geocoder.geocode({'location': latlng}, function(results, status)                                                                                                                                                {
-    /*console.log(results);*/
+            geocoder.geocode({'location': latlng}, function(results, status){
+            	
     if (status === google.maps.GeocoderStatus.OK) {
       if (results[1]) {
 //        console.log(results[1].place_id);
@@ -985,8 +994,6 @@ function initAutocomplete(map){
       window.alert('Geocoder failed due to: ' + status);
     }
   });
-
-        
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -1009,9 +1016,10 @@ function initAutocomplete(map){
         });
         
           autocomplete.addListener('place_changed', function() {
+          	
              marker.setVisible(false);
             var place = autocomplete.getPlace();
-
+		
          if (place.geometry.viewport) {
             map.fitBounds(place.geometry.viewport);
               map.setZoom(17); 

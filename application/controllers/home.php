@@ -26,6 +26,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('home/index');
+//		$this->load->view('realtime_view');
 		$this->load->view('footer');
 	}
 	 
