@@ -45,8 +45,9 @@
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
             map.setCenter(pos);
-          }, function() {
+          }, function(status) {
             handleLocationError(true, infoWindow, map.getCenter());
+            alert(status);
           });
         } else {
           // Browser doesn't support Geolocation
