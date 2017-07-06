@@ -1,4 +1,129 @@
 <button class="btn" id="open_map" style="display: none;">Open Map</button>
+<div style="height: 36px; 
+    border-radius: 100%;
+    /* background: #fff; */
+        border: 2px solid rgb(255, 255, 255);
+    min-width: 2rem;
+    /* height: auto; */
+    z-index: 55555;
+    left: 50vw;
+    top: 86vh;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    display: none;" id="show-hide-pro">
+    <i class="material-icons" style="    color: #fff;
+    font-size: 35px;">keyboard_arrow_down</i>
+    </div>
+    <div style="height: 36px; 
+    border-radius: 100%;
+    /* background: #fff; */
+       border: 2px solid rgb(59, 89, 152);
+    min-width: 2rem;
+    /* height: auto; */
+    z-index: 55555;
+    left: 50vw;
+    top: 86vh;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    position: fixed;
+     display: none;" id="show-hide-pro2">
+
+    <i class="material-icons" style="    color: rgb(59, 89, 152);;
+    font-size: 35px;">keyboard_arrow_up</i>
+    </div>
+    <div id="pro-search" style="    z-index: 200;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+        padding: 15px;
+    background: rgba(0, 0, 0, 0.79);
+    display: none;">
+    <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
+                            <div class="active" align="center" style="display: inline-block;">
+                                <button class="btn btn-warning" id="private-btn" style="padding: 12px 55px;" href="#private" data-toggle="tab" aria-expanded="true"> Private</button>
+                            </div>
+                            <div class="" align="center" style="display: inline-block;">
+                                <button style="padding: 12px 60px; background-color:#333" id="join-btn" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false">Join</button>
+                            </div>
+
+                          <div class="form-group form-inline required " style="    padding: 9px 9px;
+    text-align: center;
+    /*border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;*/
+    margin-bottom: 12px;
+    background: #fff;
+   
+    margin: auto;">
+                                                            <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
+                                                                <select class="form-control" name="cartype" id="cartype" class="" style="     margin: auto;">
+                                                                    <option value="" >Car Type</option>
+                                                                
+                                                              </select>
+                                                        </div>             
+                        </div>
+                        
+    <div id="box-prosearch" style="height: 364px;
+    border-radius: 4px;
+    background: #fff;
+    /*min-width: 33rem;*/
+    overflow: hidden;
+    z-index: 10;
+    overflow-y: scroll;
+    margin-top: 15px;">
+
+
+        <div>
+
+             <div class="container" style="display:none;" id="container-product">
+            <div class="row">
+                <div class="col-md-9" style="    padding-top: 15px;">
+                    <div class="col-lg-12">
+                        <div class="row">
+                        
+                         
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="tab-content" id="move-product">
+                        <div class="tab-pane active" id="private" >
+                                <div id="product_a">
+                                    
+                                </div>
+                                <div id="product_b">
+                                    
+                                </div>
+                        </div>
+                        <div class="tab-pane "  id="join">
+                                <div id="product_c">
+                                    
+                                </div>
+                                <div id="product_d">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3"> 
+                        <div class="box-info">
+                            <div class="menu-city">
+                                
+                            </div>
+                        </div>
+                </div> -->
+            </div>
+        </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
 <div class="">
     <div class="btn-real-res col-lg-12" id="btn-real-res">
         <div class="btn-reservation" > Reservation</div>
@@ -52,10 +177,9 @@
                 </div>                          
             </div>            
         </div>
-        
-		<div>
-       <div id="map" style="width: 100%;height: 100vh;"></div>         
-    	</div>
+
+       <div id="map" style="width: 100%;height: 89vh;"></div>         
+
 
    
          <div class="modal fade" id="login">
@@ -158,6 +282,13 @@
                 </div>
 		</div>
 <style>
+#search-show{
+    position: absolute;
+    margin-top: 112px;
+    width: 100%;
+    z-index: 5;
+    display: none;
+}
 .card-content:after {
     border-bottom: 11px solid #FFFFFF;
     border-left: 11px solid transparent;
@@ -217,7 +348,7 @@
         position: absolute;
         margin-top: 50px;
         width: 100%;
-        z-index: 20;
+        z-index: 5;
     }
 .facebook-login-auth {
     color: #3b5998;
@@ -615,7 +746,7 @@ a[href^="https://www.google.com/maps"] {
     /* border-radius: 5px 5px 0 0; */
     border-radius: 4px 4px 0 0;
     display: none;
-    margin-bottom: 12px;
+    /*margin-bottom: 12px;*/
     background: #fff;
 }
 @media screen and (max-width: 767px){
@@ -706,6 +837,16 @@ div.banner{
 }
 @media only screen and (max-device-width: 568px) and (min-device-width: 320px) and (orientation: portrait){
 
+#private-btn{
+    padding: 12px 44px !important;
+}
+#join-btn{
+        padding: 12px 50px !important;
+
+}
+#pro-item{
+    height: 315px !important;
+}
 
 
 .hotel_num {

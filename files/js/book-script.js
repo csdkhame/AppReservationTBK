@@ -826,7 +826,7 @@ $('#addbook').on('click',function(){
  }
 });
  function sendCountry(x){
-  var url ='http://dotdotdottrip.com/appbooking/';
+  var url ='http://dotdotdottrip.com/';
   console.log(x)
    $.cookie("phonecode",x);
   $('#codecountry').modal('hide');

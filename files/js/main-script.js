@@ -10,7 +10,24 @@ $(document).ready(function() {
          
         }, 3500);
 	
-	
+	$("#show-hide-pro").click(function(){
+            //alert("aaa")
+        //$("#first").animate({'width': 0}, 'slow', function(){ 
+            $(this).hide(); 
+            $('#show-hide-pro2').show(); 
+            $("#pro-search").animate({'margin-top':'100vh'});
+        //});
+    //$("#pro-search").fadeOut(4000);
+    });
+    $("#show-hide-pro2").click(function(){
+            //alert("aaa")
+        //$("#first").animate({'width': 0}, 'slow', function(){ 
+             $(this).hide(); 
+            $('#show-hide-pro').show(); 
+            $("#pro-search").animate({'margin-top': '0vh'});
+        //});
+    //$("#pro-search").fadeOut(4000);
+    });
     $("myDate").on("change", function() {
         this.setAttribute(
             "data-date",
@@ -42,6 +59,7 @@ $(document).ready(function() {
     });
     $('#cartype').on('change', function() {
         $('.a-link-item').remove();
+        $('#box-prosearch').css('display','none');
         $('#product_a').css('display','none');
         $('#loading').css('display', 'block');
    
@@ -49,6 +67,7 @@ $(document).ready(function() {
         console.log("aaaaa")
         $('#loading').css('display', 'none');
         $('#product_a').css('display', 'block');
+        $('#box-prosearch').css('display','block');
     }, 2000);
         compae1private = [];
     compae1join = [];
@@ -200,7 +219,7 @@ $(document).ready(function() {
     $('.search-transfer-product').click(function() {
        
     $('.a-link-item').remove();
-    
+
     // $('#product_b').remove();
     // $('#product_c').remove();
     // $('#product_d').remove();
@@ -220,13 +239,16 @@ $(document).ready(function() {
             if (data != null) {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
-        $('#pro-search').css('display', 'block');
+       // $('#pro-search').css('display', 'block');
                  $('#loading').css('display', 'block');
                 //$('#content').css('display','none');
                 setTimeout(function() {
                     //$('#search-raeltime').css('display', 'none');
                     // $('#map').css('display', 'none');
                     $('#loading').css('display', 'none');
+                    $('#show-hide-pro').css('display', 'block');
+
+                    $("#pro-search").slideDown('4000');//fadeIn(4000);
                     // $('#search-show').css('display', 'block')
                     //$('#content').css('display','block'); 
                 }, 2000);
