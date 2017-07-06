@@ -64,50 +64,7 @@
        <div id="map" style="width: 100%;height: 100vh;"></div>         
     
 
-    <div class="container" style="display:none;margin-top: -130px;" id="container-product">
-			<div class="row">
-				<div class="col-md-9">
-                    <div class="col-lg-12">
-                        <div class="row">
-                        <div class="nav nav-pills nav-pills-warning" id="ul-header2" >
-                            <div class="active" align="center" style="display: inline-block;">
-                                <button class="btn btn-warning" style="padding: 12px 55px;" href="#private" data-toggle="tab" aria-expanded="true"> Private</button>
-                            </div>
-                            <div class="" align="center" style="display: inline-block;">
-                                <button style="padding: 12px 60px; background-color:#333" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false">Join</button>
-                            </div>
-                                       
-                        </div>
-                        </div>
-                    </div>
-                    <div class="tab-content" id="move-product">
-    					<div class="tab-pane active" id="private" >
-                                <div id="product_a">
-                                    
-                                </div>
-                                <div id="product_b">
-                                    
-                                </div>
-                        </div>
-                        <div class="tab-pane "  id="join">
-                                <div id="product_c">
-                                    
-                                </div>
-                                <div id="product_d">
-                                    
-                                </div>
-                        </div>
-                    </div>
-				</div>
-                <!-- <div class="col-lg-3"> 
-                        <div class="box-info">
-                            <div class="menu-city">
-                                
-                            </div>
-                        </div>
-                </div> -->
-			</div>
-		</div>
+   
          <div class="modal fade" id="login">
                     <div class="modal-dialog col-md-8">
                         <!-- Modal content-->
@@ -659,11 +616,11 @@ a[href^="https://www.google.com/maps"] {
         padding: 3px 0;
     text-align: center;
     /* padding-top: 35px; */
-    border-top: 1px solid #ddd;
+    /* border-top: 1px solid #ddd; */
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
     /* border-radius: 5px 5px 0 0; */
-    border-radius: 4px;
+    border-radius: 4px 4px 0 0;
     display: none;
     margin-bottom: 12px;
     background: #fff;
@@ -746,6 +703,12 @@ div.banner{
     height: 100px;
     margin-left: 10px;
     /*margin-top: -8px;*/
+}
+.views-item {
+   
+    padding: 10px 45px;
+    
+   
 }
 }
 @media only screen and (max-device-width: 568px) and (min-device-width: 320px) and (orientation: portrait){
