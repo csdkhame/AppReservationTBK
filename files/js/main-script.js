@@ -1087,14 +1087,15 @@ function initialize() {
           gestureHandling: 'greedy'
         });
         var geoloccontrol = new klokantech.GeolocationControl(map, mapMaxZoom);
-        initAutocomplete(map,start);
+        initAutocomplete(map,start,end);
        
         // Create the search box and link it to the UI element.
         $('.gm-fullscreen-control').remove();
       }
       
       
-function initAutocomplete(map){
+function initAutocomplete(map,start,end){
+		var tst ;
            var current_marker = {
               url: 'http://dotdotdottrip.com/pic/icon_marker.png',
               size: new google.maps.Size(71, 71),
@@ -1119,38 +1120,36 @@ function initAutocomplete(map){
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
+            
             start = pos;
             //marker2.setAnimation(google.maps.Animation.BOUNCE);
             marker2.setPosition(pos);
             map.setCenter(pos);
             
             var geocoder = new google.maps.Geocoder;
-            //console.log(pos);
+            
             latitude=position.coords.latitude;               
             longitude= position.coords.longitude;
             var latlng = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
-
+			tst = latlng;
             geocoder.geocode({'location': latlng}, function(results, status){
-            	
-    if (status === google.maps.GeocoderStatus.OK) {
-      if (results[1]) {
+            	console.log(status);
+			    if (status === google.maps.GeocoderStatus.OK) {
+			      if (results[1]) {
 
-        console.log(results)
-        console.log(results[1])
-        console.log(results[1].place_id);
-
-        console.log(results[1].formatted_address);
-        //getAddress(results[1].formatted_address);
-        addr = results[1].formatted_address;
-        addrcurent = results[0].formatted_address;
-        document.getElementById("current").value = results[1].formatted_address;
-      } else {
-        window.alert('No results found');
-      }
-    } else {
-      window.alert('Geocoder failed due to: ' + status);
-    }
-  });
+			        //getAddress(results[1].formatted_address);
+			        addr = results[1].formatted_address;
+			        console.log(addr);
+			        addrcurent = results[0].formatted_address;
+			        document.getElementById("current").value = addr;
+			      } else {
+			        window.alert('No results found');
+			      }
+			    } else {
+			      window.alert('Geocoder failed due to: ' + status);
+			    }
+			  });
+			  
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -1173,27 +1172,30 @@ function initAutocomplete(map){
         });
         
           autocomplete.addListener('place_changed', function() {
+//          	console.log(tst);
           	
              marker.setVisible(false);
             var place = autocomplete.getPlace();
 		
          if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
+              map.fitBounds(place.geometry.viewport);
               map.setZoom(17); 
-              console.log(place.geometry);
           } else {
             map.setCenter(place.geometry.location);
             map.setZoom(17);  // Why 17? Because it looks good.
           }
+
            marker.setPosition(place.geometry.location);
            end = place.geometry.location;
+          
            marker.setVisible(true);
            var request = {
                 origin: start,
                 destination: end,
                 travelMode: google.maps.TravelMode.DRIVING
             };
-            //console.log(request);
+           
+          
             directionsDisplay.setMap(map);
             directionsService.route(request, function (response, status) {
                 
@@ -1203,12 +1205,13 @@ function initAutocomplete(map){
                         preserveViewport: true
                     });
             });
+            
+            getProduct(start,end);
+            
         }); 
+        
       }
-
-
-function addYourLocationButton(map, marker) 
-{
+function addYourLocationButton(map, marker) {
 	var controlDiv = document.createElement('div');
 	
 	var firstChild = document.createElement('button');
@@ -1273,4 +1276,25 @@ function addYourLocationButton(map, marker)
 	
 	controlDiv.index = 1;
 	map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+}
+
+function getProduct(start,end){
+/*	var json = {
+		start : start,
+		end : end
+	}*/
+	
+$.ajax({
+   type: "POST",
+   data: {start:start,end:end.toJSON()},
+   url: "http://localhost/AppReservationTBK/service/getProduct_realtime.php",
+   success: function(msg){
+    alert(msg);
+   }
+});
+	
+/*$.post( "http://localhost/AppReservationTBK/service/getProduct_realtime.php",{data : json[]}, function( data ) {
+alert(data);
+});*/
+
 }
