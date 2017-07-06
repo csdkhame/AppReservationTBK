@@ -174,20 +174,12 @@
                                     <a href="#move-product"><div  class="search-transfer-product col-md-5" onclick="search()" align="center"><i class="fa fa-search" aria-hidden="true" style="padding-right: 8px"></i><span>Search</span></div></a>
                                 </div>
                     </div>
-                </div>
-                    
-
-
-                                            
-            </div>
-           
-                
-          
-                        
+                </div>                          
+            </div>            
         </div>
 
        <div id="map" style="width: 100%;height: 89vh;"></div>         
-    
+
 
    
          <div class="modal fade" id="login">
