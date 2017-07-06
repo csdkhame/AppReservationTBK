@@ -1024,10 +1024,6 @@ function login() {
                         $('#message').html('Login not complete').css('color', 'red');
                     }
 
-
-
-
-
                 }
             });
 

@@ -3,7 +3,7 @@ header('Content-type: text/html; charset=utf-8');
 $to_end = $_POST[end];
 $to_start = $_POST[start];
 
-https://www.google.co.th/maps/place/
+/*https://www.google.co.th/maps/place/*/
 
 $curl_post_data = '{"start" : '.json_encode($to_start).',"end" : '.json_encode($to_end).'}';
 $curl_response = '';
