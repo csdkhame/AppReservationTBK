@@ -66,6 +66,126 @@
         
     </div>
 </div>
+<div id="pro-search" style="    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.79);
+    display: none;">
+    <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="min-width: 33rem;
+    left: 50vw;
+    top: 8vh;
+    transform: translate(-50%, -50%);
+    position: fixed;" >
+                            <div class="active" align="center" style="display: inline-block;">
+                                <button class="btn btn-warning" style="padding: 12px 55px;" href="#private" data-toggle="tab" aria-expanded="true"> Private</button>
+                            </div>
+                            <div class="" align="center" style="display: inline-block;">
+                                <button style="padding: 12px 60px; background-color:#333" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false">Join</button>
+                            </div>
+
+                                       
+                        </div>
+                        <div class="form-group form-inline required " style="padding: 9px 9px;
+    text-align: center;
+    /* padding-top: 35px; */
+    /* border-top: 1px solid #ddd; */
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    /* border-radius: 5px 5px 0 0; */
+       border-radius: 0 0 4px 4px;
+    /* display: none; */
+    margin-bottom: 12px;
+    background: #fff;
+    /* margin-top: 0; */
+    min-width: 33rem;
+    left: 50vw;
+    top: 12vh;
+    transform: translate(-50%, -50%);
+    position: fixed;">
+                                                            <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
+                                                                <select class="form-control" name="cartype" id="cartype" class="" style="     margin: auto;">
+                                                                    <option value="" >Car Type</option>
+                                                                
+                                                              </select>
+                                                        </div>
+    <div style="height: 364px;
+    border-radius: 4px;
+    background: #fff;
+    min-width: 33rem;
+    /* height: auto; */
+    left: 50vw;
+    top: 52vh;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 10000;
+    overflow-y: scroll; ">
+
+
+        <div>
+
+             <div class="container" style="display:none;" id="container-product">
+            <div class="row">
+                <div class="col-md-9" style="    padding-top: 15px;">
+                    <div class="col-lg-12">
+                        <div class="row">
+                        
+                         
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="tab-content" id="move-product">
+                        <div class="tab-pane active" id="private" >
+                                <div id="product_a">
+                                    
+                                </div>
+                                <div id="product_b">
+                                    
+                                </div>
+                        </div>
+                        <div class="tab-pane "  id="join">
+                                <div id="product_c">
+                                    
+                                </div>
+                                <div id="product_d">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3"> 
+                        <div class="box-info">
+                            <div class="menu-city">
+                                
+                            </div>
+                        </div>
+                </div> -->
+            </div>
+        </div>
+            
+        </div>
+        
+    </div>
+    <div style="height: 35px;
+    border-radius: 100%;
+    /* background: #fff; */
+    border: 2px solid #fff;
+    min-width: 2rem;
+    /* height: auto; */
+    left: 50vw;
+    top: 85vh;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    position: fixed;">
+    <i class="material-icons" style="    color: #fff;
+    font-size: 35px;">keyboard_arrow_down</i>
+    </div>
+</div>
 
 
 <button id="show_pd" class="btn"></button>
