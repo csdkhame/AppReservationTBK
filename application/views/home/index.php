@@ -154,7 +154,7 @@
                                        
                                 
                                         
-                                    <input  type='text' class="form-control" placeholder="To Type airport,hotel name, or location." id="pac-input" style="border: none !important;" />
+                                    <input  type='text' class="form-control" placeholder="To Type airport,hotel name, or location." id="pac-input" style="border: none !important;" value="" />
                                                 
                                    
                             </div>
