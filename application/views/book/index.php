@@ -88,24 +88,32 @@
 
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown" id="btnusers">
+                    
+                    <li id="btnlogin">
+                        <a href="https://dotdotdottrip.com/register">
+                        <i class="material-icons">account_circle</i>
+                          <span class="lng-login"></span><span> / </span><span class="lng-register"></span>
+                
+                        </a>
+                    </li>
+                     <li class="dropdown" id="btnusers">
                         <a  class="dropdown-toggle" data-toggle="dropdown">
                             <!-- <div style="width: 100%;text-align: center;"> -->
-                               <i class="material-icons">shopping_basket</i><span style="text-transform: initial;">Product</span>
+                               <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product"></span>
                             
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
                                 <a href="" >
-                               <i class="material-icons">directions_car</i>Transports
+                               <i class="material-icons">directions_car</i><span class="lng-transports"></span>
                 
                                 </a>
                             </li>
                            
                             <li id="btn-logout-user">
                                 <a>
-                                    <i class="material-icons">style</i><span >Tours</span>
+                                    <i class="material-icons">style</i><span class="lng-tours"></span>
                 
                                 </a>
                             </li>
@@ -118,28 +126,28 @@
                 
                         </a>
                     </li>
-                    <li class="dropdown" id="btnusers">
+                     <li class="dropdown" id="btnusers">
                         <a  class="dropdown-toggle" data-toggle="dropdown">
                             <!-- <div style="width: 100%;text-align: center;"> -->
-                               <i class="material-icons">language</i><span style="text-transform: initial;">Language</span>
+                               <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language"></span>
                             
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
-                                <a href="" >
-                               <img src="<?php echo base_url(); ?>/files/img/china.ico" style="width: 30px;margin-right: 15px;">简体中文 
+                                <a  onclick="language('cn')">
+                                    <img src="<?php echo base_url(); ?>/files/img/china.ico" style="width: 30px;margin-right: 15px;">简体中文 
                 
                                 </a>
                             </li>
                             <li>
-                                <a href="" >
+                                <a  onclick="language('en')">
                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
                 
                                 </a>
                             </li>
                             <li>
-                                <a href="" >
+                                <a onclick="language('th')">
                                <img src="<?php echo base_url(); ?>/files/img/thai.ico" style="width: 30px;margin-right: 15px;">ภาษาไทย
                 
                                 </a>
@@ -149,13 +157,7 @@
                     
                         </ul>
                     </li>
-                    <li id="btnlogin">
-                        <a href="http://dotdotdottrip.com/register">
-                           <span>Login / Register</span>
-                
-                        </a>
-                    </li>
-
+                   
                     
                    <li class="dropdown" id="btnuser">
                         <a  class="dropdown-toggle" data-toggle="dropdown">
@@ -180,7 +182,7 @@
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
                                 <a href="" >
-                                <i class="material-icons">build</i>Settings Account
+                                <i class="material-icons" >build</i><span class="lng-settings-account"></span>
                 
                                 </a>
                             </li>
@@ -190,16 +192,23 @@
                 
                                 </a>
                             </li> -->
-                            <li >
+                            <li id="btn-logout-user">
                                 <a>
-                                    <i class="material-icons">power_settings_new</i><span id="btn-logout-user">Logout</span>
+                                    <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
                 
                                 </a>
                             </li>
-                            
-                        </ul>
+                    
+        </ul>
                     </li>
-                    <style >
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+<style >
                         .notification {
     position: absolute;
     top: 2px;
@@ -232,15 +241,6 @@
     top: -10px;
 }
                     </style>
-                    
-                    
-
-                    
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<?php echo base_url(); ?>files/images/bg2.jpeg');">
         <!-- <div class="container">
             <div class="row">
@@ -1469,6 +1469,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js"></script> 
    
     <!-- <script src="<?php echo base_url(); ?>files/js/modernizr-2.6.2.min.js"></script> -->
   
