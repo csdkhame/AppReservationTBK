@@ -134,7 +134,7 @@ $(document).ready(function() {
         }
 
     })
-    var urlicon = 'http://t-booking.com/pic/carmodelicon/';
+    var urlicon = 'https://t-booking.com/pic/carmodelicon/';
                 //if (data[0].data1.length != 0) {
                     $.each(compae1private, function(i, val) {
                         var indexs = parseInt(i) + 1;
@@ -154,7 +154,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="http://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -199,7 +199,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="http://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -261,7 +261,7 @@ $(document).ready(function() {
     var quotations = [];
     $('#btn-logout-user').on('click', function() {
             $.removeCookie("login");
-            window.location.href = "http://dotdotdottrip.com/register";
+            window.location.href = "httpss://dotdotdottrip.com/register";
         })
     $('.search-transfer-product').click(function() {
        
@@ -345,7 +345,7 @@ $(document).ready(function() {
                     // });
                 console.log(data.length)
                 dataproduct = data;
-                var urlicon = 'http://t-booking.com/pic/carmodelicon/';
+                var urlicon = 'https://t-booking.com/pic/carmodelicon/';
                 //if (data[0].data1.length != 0) {
                     $.each(compae1private, function(i, val) {
                         var indexs = parseInt(i) + 1;
@@ -365,7 +365,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="http://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -410,7 +410,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="http://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -460,7 +460,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="http://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -504,7 +504,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="http://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -550,7 +550,7 @@ $(document).ready(function() {
         console.log($.cookie("login"))
         $.ajax({
             type: 'POST',
-            url: 'http://dotdotdottrip.com/getuser_control/mainpage',
+            url: 'https://dotdotdottrip.com/getuser_control/mainpage',
             data: { 'id': $.cookie("login") },
             //contentType: "application/json",
             dataType: 'json',
@@ -585,7 +585,7 @@ $(document).ready(function() {
     $('#btn-logout-user').click(function() {
 
         $.removeCookie("login");
-        window.location.href = "http://dotdotdottrip.com/register";
+        window.location.href = "https://dotdotdottrip.com/register";
     });
     $('#join').click(function() {
 
@@ -1077,7 +1077,7 @@ function login() {
                 // $.cookie("idface", response.id);
             $.ajax({
                 type: 'POST',
-                url: 'http://dotdotdottrip.com/login_control/processsocial',
+                url: 'https://dotdotdottrip.com/login_control/processsocial',
                 data: { 'username': response.email, 'name': response.name, 'password': response.id },
                 //contentType: "application/json",
                 dataType: 'json',
@@ -1085,7 +1085,7 @@ function login() {
                     console.log(res)
                     if (res.status == 0) {
                         $.cookie("login", res.username);
-                        window.location.href = "http://dotdotdottrip.com";
+                        window.location.href = "https://dotdotdottrip.com";
 
 
                     } else {
