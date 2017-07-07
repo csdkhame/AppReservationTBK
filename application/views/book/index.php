@@ -112,6 +112,43 @@
                     
                         </ul>
                     </li>
+                     <li>
+                        <a href="<?php echo base_url(); ?>dashboard/view_user">
+                            <i class="material-icons">dashboard</i><span style="text-transform: initial;">Dashboard</span>
+                
+                        </a>
+                    </li>
+                    <li class="dropdown" id="btnusers">
+                        <a  class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- <div style="width: 100%;text-align: center;"> -->
+                               <i class="material-icons">language</i><span style="text-transform: initial;">Language</span>
+                            
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="" >
+                               <img src="<?php echo base_url(); ?>/files/img/china.ico" style="width: 30px;margin-right: 15px;">简体中文 
+                
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" >
+                               <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
+                
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" >
+                               <img src="<?php echo base_url(); ?>/files/img/thai.ico" style="width: 30px;margin-right: 15px;">ภาษาไทย
+                
+                                </a>
+                            </li>
+                           
+                            
+                    
+                        </ul>
+                    </li>
                     <li id="btnlogin">
                         <a href="http://dotdotdottrip.com/register">
                            <span>Login / Register</span>

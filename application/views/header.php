@@ -94,28 +94,29 @@
     				
                     <li id="btnlogin">
                         <a href="http://dotdotdottrip.com/register">
-                          <span> Login / Register</span>
+                        <i class="material-icons">account_circle</i>
+                          <span class="lng-login"></span><span> / </span><span class="lng-register"></span>
                 
                         </a>
                     </li>
                      <li class="dropdown" id="btnusers">
                         <a  class="dropdown-toggle" data-toggle="dropdown">
                             <!-- <div style="width: 100%;text-align: center;"> -->
-                               <i class="material-icons">shopping_basket</i><span style="text-transform: initial;">Product</span>
+                               <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product"></span>
                             
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
                                 <a href="" >
-                               <i class="material-icons">directions_car</i>Transports
+                               <i class="material-icons">directions_car</i><span class="lng-transports"></span>
                 
                                 </a>
                             </li>
                            
                             <li id="btn-logout-user">
                                 <a>
-                                    <i class="material-icons">style</i><span >Tours</span>
+                                    <i class="material-icons">style</i><span class="lng-tours"></span>
                 
                                 </a>
                             </li>
@@ -127,6 +128,37 @@
                             <i class="material-icons">dashboard</i><span style="text-transform: initial;">Dashboard</span>
                 
                         </a>
+                    </li>
+                     <li class="dropdown" id="btnusers">
+                        <a  class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- <div style="width: 100%;text-align: center;"> -->
+                               <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language"></span>
+                            
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a  onclick="language('cn')">
+                                    <img src="<?php echo base_url(); ?>/files/img/china.ico" style="width: 30px;margin-right: 15px;">简体中文 
+                
+                                </a>
+                            </li>
+                            <li>
+                                <a  onclick="language('en')">
+                               <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
+                
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="language('th')">
+                               <img src="<?php echo base_url(); ?>/files/img/thai.ico" style="width: 30px;margin-right: 15px;">ภาษาไทย
+                
+                                </a>
+                            </li>
+                           
+                            
+                    
+                        </ul>
                     </li>
                    
                     
@@ -153,7 +185,7 @@
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
                                 <a href="" >
-                                <i class="material-icons">build</i>Settings Account
+                                <i class="material-icons" >build</i><span class="lng-settings-account"></span>
                 
                                 </a>
                             </li>
@@ -165,7 +197,7 @@
                             </li> -->
                             <li id="btn-logout-user">
                                 <a>
-                                    <i class="material-icons">power_settings_new</i><span >Logout</span>
+                                    <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
                 
                                 </a>
                             </li>
