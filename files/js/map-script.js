@@ -43,9 +43,9 @@ function initialize() {
 		    }});
 
         var closeButton = document.querySelector('#close_streetview');
-//        controlPosition = google.maps.ControlPosition.LEFT_CENTER;
+        controlPosition = google.maps.ControlPosition.LEFT_CENTER;
         
-//        thePanorama.controls[ controlPosition ].push( closeButton );
+        thePanorama.controls[ controlPosition ].push( closeButton );
         google.maps.event.addDomListener(closeButton, 'click', function(){
 		$('#close_streetview').css('display','none');
         thePanorama.setVisible(false);
