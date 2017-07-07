@@ -9,7 +9,11 @@ $(document).ready(function() {
          $('#open_map').trigger('click');
          
         }, 3500);
-	
+	// $(".btn-reservation").click(function(){
+ //            //alert("aaa")
+        
+ //    //$("#pro-search").fadeOut(4000);
+ //    });
 	$("#show-hide-pro").click(function(){
             //alert("aaa")
         //$("#first").animate({'width': 0}, 'slow', function(){ 
@@ -42,12 +46,40 @@ $(document).ready(function() {
         $('#loading').css('display', 'none');
         $('#content').css('display', 'block');
     }, 3000);
+    $('#iconleft').click(function() {
+        $(this).hide(); 
+        $("#iconleft2").hide(); 
+        $("#search-show").hide(); 
+        $("#search-raeltime").hide(); 
 
+        $(".btn-reservation").show();
+        $(".btn-realtime").show();
+
+        
+    });
+    $('#iconleft2').click(function() {
+        $(this).hide(); 
+        $("#iconleft").hide(); 
+        $("#search-show").hide(); 
+        $("#search-raeltime").hide(); 
+         $(".btn-reservation").show();
+        
+        $(".btn-realtime").show();
+    });
     $('.btn-reservation').click(function() {
         // alert("aaaa")
         $('#loading').css('display', 'block');
         //$('#content').css('display','none');
         setTimeout(function() {
+           // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
+            //$(this).hide(); 
+            $("#iconleft").show();
+             $("#iconleft2").hide();  
+            //$('#show-hide-pro2').show(); 
+            $(".btn-real-res").css({'text-align':'center'});
+             $(".btn-realtime").hide(); 
+
+        //});
             $('#search-raeltime').css('display', 'none');
             // $('#map').css('display', 'none');
             $('#loading').css('display', 'none');
@@ -193,7 +225,11 @@ $(document).ready(function() {
         //$('#content').css('display','none');
        setTimeout(function() {
             // $('#map').css('display', 'none');
-			 
+             $("#iconleft2").show(); 
+             $("#iconleft").hide(); 
+             $("#pro-search").hide(); 
+             
+			 $(".btn-reservation").hide(); 
             // $('#map2').css('display', 'block');
             $('#loading').css('display', 'none');
             $('#search-show').css('display', 'none')

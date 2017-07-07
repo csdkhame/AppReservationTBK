@@ -126,8 +126,19 @@
 </div>
 <div class="">
     <div class="btn-real-res col-lg-12" id="btn-real-res">
-        <div class="btn-reservation" > Reservation</div>
-        <div class="btn-realtime" >Realtime</div>
+         <i class="material-icons" id="iconleft" >navigate_before</i> 
+         <i class="material-icons" id="iconleft2" >navigate_before</i> 
+             
+                     <div class="btn-reservation" > Advance use</div>
+              
+               
+            
+                    <div class="btn-realtime" >Now use</div>
+                                     
+               
+            
+    
+       
     </div>
      <div id="search-raeltime" style=" position: absolute;
         margin-top: 112px;
@@ -154,7 +165,7 @@
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
                     <div class="box-search">
-                        <button class="btn btn-success btn-xs" id="current-addr" style=" color: #fff; z-index: 1;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius: 50%; background-color: #3b5998;    margin: 5px 0;"><i class="material-icons">gps_fixed</i></button>
+                        <button class="btn btn-success btn-xs" id="current-addr" style=" color: #fff; z-index: 1;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><i class="material-icons">gps_fixed</i></button>
                             <input type='text' class="" placeholder="From Type airport,hotel name, or location."  id='search-from' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
  <!-- -->                       <div style="border-bottom: 1px solid #333;"></div>
                                 <div class="box-plancefrom" id="users" style="">
@@ -282,6 +293,24 @@
                 </div>
 		</div>
 <style>
+#iconleft{
+    background: #333;
+    font-size: 45px;
+    color: #fff;
+    position: absolute;
+    border-radius: 4px 0 0 4px;
+    display: none;
+    margin-bottom: 12px;
+}
+#iconleft2{
+    background: #ff9800;
+    font-size: 45px;
+    color: #fff;
+    position: absolute;
+    border-radius: 4px 0 0 4px;
+    display: none;
+    margin-bottom: 12px;
+}
 #search-show{
     position: absolute;
     margin-top: 112px;
@@ -321,18 +350,19 @@
         display: inline-block;
         /* position: absolute; */
          z-index: 1; 
-        width: 48%;
+        width: 100%;
         margin-right: 2%;
         border-radius: 4px;
         padding: 12px;
         text-align: center;
         background-color: #ff9800;
+        margin-bottom: 12px;
     }
     .btn-realtime{
         font-size: 16px;
         font-weight: 400;
-       position: absolute;
-        width: 46%;
+       /*position: absolute;*/
+        width: 100%;
         border-radius: 4px;
         padding: 12px;
         color: #fff;
@@ -349,6 +379,7 @@
         margin-top: 50px;
         width: 100%;
         z-index: 5;
+        text-align: center;
     }
 .facebook-login-auth {
     color: #3b5998;
