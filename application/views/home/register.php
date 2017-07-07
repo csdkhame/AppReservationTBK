@@ -1108,50 +1108,50 @@ window.fbAsyncInit = function() {
 
        $('.box-signin').css('display','block');
     })
-     function loginwithgoogle() 
-        {
-          var myParams = {
-            'clientid' : 'YOUR_CLIENT_ID.apps.googleusercontent.com',
-            'cookiepolicy' : 'single_host_origin',
-            'callback' : 'loginCallback',
-            'approvalprompt':'force',
-            'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
-          };
-          gapi.auth.signIn(myParams);
-        }
+     // function loginwithgoogle() 
+     //    {
+     //      var myParams = {
+     //        'clientid' : 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+     //        'cookiepolicy' : 'single_host_origin',
+     //        'callback' : 'loginCallback',
+     //        'approvalprompt':'force',
+     //        'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+     //      };
+     //      gapi.auth.signIn(myParams);
+     //    }
 
-        function loginCallback(result)
-        {
-            if(result['status']['signed_in'])
-            {
-                var request = gapi.client.plus.people.get(
-                {
-                    'userId': 'me'
-                });
-                request.execute(function (resp)
-                {
-                    /* console.log(resp);
-                    console.log(resp['id']); */
-                    var email = '';
-                    if(resp['emails'])
-                    {
-                        for(i = 0; i < resp['emails'].length; i++)
-                        {
-                            if(resp['emails'][i]['type'] == 'account')
-                            {
-                                email = resp['emails'][i]['value'];//here is required email id
-                            }
-                        }
-                    }
-                   var usersname = resp['displayName'];//required name
-                });
-            }
-        }
-        function onLoadCallback()
-        {
-            gapi.client.setApiKey('YOUR_API_KEY');
-            gapi.client.load('plus', 'v1',function(){});
-        }
+     //    function loginCallback(result)
+     //    {
+     //        if(result['status']['signed_in'])
+     //        {
+     //            var request = gapi.client.plus.people.get(
+     //            {
+     //                'userId': 'me'
+     //            });
+     //            request.execute(function (resp)
+     //            {
+     //                 console.log(resp);
+     //                console.log(resp['id']); 
+     //                var email = '';
+     //                if(resp['emails'])
+     //                {
+     //                    for(i = 0; i < resp['emails'].length; i++)
+     //                    {
+     //                        if(resp['emails'][i]['type'] == 'account')
+     //                        {
+     //                            email = resp['emails'][i]['value'];//here is required email id
+     //                        }
+     //                    }
+     //                }
+     //               var usersname = resp['displayName'];//required name
+     //            });
+     //        }
+     //    }
+     //    function onLoadCallback()
+     //    {
+     //        gapi.client.setApiKey('YOUR_API_KEY');
+     //        gapi.client.load('plus', 'v1',function(){});
+     //    }
 </script>
 
 

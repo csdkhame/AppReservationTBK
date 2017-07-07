@@ -62,6 +62,24 @@ $(document).ready(function() {
 
                 	
     }
+    else{
+        $('.lng-private').html('Private')
+        $('.lng-join').html('Join')
+        //menu
+        $('.lng-register').html('Register')
+        $('.lng-login').html('Login')
+        $('.lng-product').html('Product')
+        $('.lng-transports').html('Transports')
+        $('.lng-tours').html('Transports')
+        $('.lng-language').html('Transports')
+        $('.lng-settings-account').html('Settings Account')
+        $('.lng-logout').html('Logout')
+        //home
+        $('.lng-advance-use').html('Advance use')
+        $('.lng-now-use').html('Now use')
+        $('.lng-search').html('Search')
+
+    }
 //     $.ajax({
 //             type: 'POST',
 //             url: '../service/getLanguage.php',
@@ -78,7 +96,7 @@ $(document).ready(function() {
 function language(lng){
     console.log(lng);
     $.cookie("lng", lng);
-    window.location.reload();
+    location.reload();
     if (lng == 'cn') {
        	$('.lng-private').html('Private')
         $('.lng-join').html('Join')
