@@ -25,7 +25,7 @@ function initialize() {
         // Create the search box and link it to the UI element.
         $('.gm-fullscreen-control').remove();
       }
-      
+     
       
 function initAutocomplete(map,start,end){
 		  var tst ;
