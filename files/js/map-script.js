@@ -1,9 +1,10 @@
-$(document).ready(function() {
+
 	$('#open_map').on('click',initialize);
 	$('#open_map').click(function(){
 		console.log('Now Open Map!');
+		
 	});
-});
+
 
 function initialize() {
 	
@@ -28,6 +29,7 @@ function initialize() {
      
       
 function initAutocomplete(map,start,end){
+	
 		  var tst ;
            var current_marker = {
               url: 'http://dotdotdottrip.com/pic/icon_marker.png',
@@ -139,8 +141,8 @@ function initAutocomplete(map,start,end){
                     });
             });
             
-//            getProduct(start,end);
-            
+          getProduct(start,end);
+			
         }); 
         
       }
@@ -218,6 +220,8 @@ function getProduct(start,end){
 		end : end
 	}*/
 	
+alert(123);
+
 $.ajax({
    type: "POST",
    data: {start:start,end:end.toJSON()},
@@ -227,9 +231,7 @@ $.ajax({
    }
 });
 	
-/*$.post( "http://localhost/AppReservationTBK/service/getProduct_realtime.php",{data : json[]}, function( data ) {
-alert(data);
-});*/
+
 
 }
 
