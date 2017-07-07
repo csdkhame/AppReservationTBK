@@ -9,12 +9,18 @@ $(document).ready(function() {
          $('#open_map').trigger('click');
          
         }, 3500);
-	
+	// $(".btn-reservation").click(function(){
+ //            //alert("aaa")
+        
+ //    //$("#pro-search").fadeOut(4000);
+ //    });
 	$("#show-hide-pro").click(function(){
             //alert("aaa")
         //$("#first").animate({'width': 0}, 'slow', function(){ 
-            $(this).hide(); 
-            $('#show-hide-pro2').show(); 
+            //$().hide(); 
+            $(this).fadeOut(2000);
+            $("#show-hide-pro2").fadeIn(1000);
+            //$('#').show(); 
             $("#pro-search").animate({'margin-top':'100vh'});
         //});
     //$("#pro-search").fadeOut(4000);
@@ -22,8 +28,10 @@ $(document).ready(function() {
     $("#show-hide-pro2").click(function(){
             //alert("aaa")
         //$("#first").animate({'width': 0}, 'slow', function(){ 
-             $(this).hide(); 
-            $('#show-hide-pro').show(); 
+             $(this).fadeOut(2000);
+            $("#show-hide-pro").fadeIn(1000);
+
+            //$('#').show(); 
             $("#pro-search").animate({'margin-top': '0vh'});
         //});
     //$("#pro-search").fadeOut(4000);
@@ -42,16 +50,50 @@ $(document).ready(function() {
         $('#loading').css('display', 'none');
         $('#content').css('display', 'block');
     }, 3000);
+    $('#iconleft').click(function() {
+        $(this).hide(); 
+        $("#iconleft2").hide(); 
+        $("#search-show").hide(); 
+        $("#search-raeltime").hide(); 
 
+        //$("").show();
+        //$("").show();
+        $(".btn-realtime").fadeIn(1000);
+
+
+
+        
+    });
+    $('#iconleft2').click(function() {
+        $(this).hide(); 
+        $("#iconleft").hide(); 
+        $("#search-show").hide(); 
+        $("#search-raeltime").hide(); 
+         //$(".btn-reservation").show();
+        
+        //$("").show();
+        $(".btn-reservation").fadeIn(1000);
+
+    });
     $('.btn-reservation').click(function() {
         // alert("aaaa")
         $('#loading').css('display', 'block');
         //$('#content').css('display','none');
         setTimeout(function() {
+           // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
+            //$(this).hide(); 
+            $("#iconleft").show();
+             $("#iconleft2").hide();  
+            //$('#show-hide-pro2').show(); 
+            $(".btn-real-res").css({'text-align':'center'});
+             $(".btn-realtime").hide(); 
+             $("#search-show").fadeIn(1000);
+
+        //});
             $('#search-raeltime').css('display', 'none');
             // $('#map').css('display', 'none');
             $('#loading').css('display', 'none');
-            $('#search-show').css('display', 'block')
+            //$('').css('display', 'block')
                 //$('#content').css('display','block'); 
         }, 2000);
 
@@ -193,13 +235,18 @@ $(document).ready(function() {
         //$('#content').css('display','none');
        setTimeout(function() {
             // $('#map').css('display', 'none');
-			 
+             $("#iconleft2").show(); 
+             $("#iconleft").hide(); 
+             $("#pro-search").hide(); 
+
+			 $(".btn-reservation").hide(); 
             // $('#map2').css('display', 'block');
             $('#loading').css('display', 'none');
             $('#search-show').css('display', 'none')
             $('#pac-input').css('display', '');
-            $('#search-raeltime').css('display', 'block');
+            //$('#search-raeltime').css('display', 'block');
            
+             $("#search-raeltime").fadeIn(1000);
           
           	
 		
