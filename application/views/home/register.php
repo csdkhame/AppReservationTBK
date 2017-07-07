@@ -731,6 +731,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
     <!-- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js"></script>  -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js"></script> 
   
     
     <style>
