@@ -165,8 +165,12 @@
 
       
 </script>
- <div style="">
- <div dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; cursor: pointer; left: 96px; top: 610px; display: none;width: 30px;" id="close_streetview" >
+
+<div id="close_streetview" dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; left: 0px; top: 0px;"><div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container"> <div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back"> <div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> </div> </div> </div> </div></div>
+
+
+<!-- <div style="">
+ <div dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; cursor: pointer; left: 96px; top: 610px; display: nones; width: 30px;" id="close_streetview" >
 		<div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container" style="    height: 43px!important;"> 
 			<div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back"> 
 				<div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> 
@@ -175,7 +179,7 @@
 		</div> 
 	</div>
 </div>
-</div>
+</div>-->
 
 </html>
 
