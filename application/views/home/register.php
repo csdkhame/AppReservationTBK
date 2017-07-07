@@ -24,7 +24,7 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <?php echo link_tag('files/assets/css/demo.css'); ?>
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -69,7 +69,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://dotdotdottrip.com">app booking<!-- <img src="files/images/logo.png"> --></a>
+                <a class="navbar-brand" href="https://dotdotdottrip.com">app booking<!-- <img src="files/images/logo.png"> --></a>
             </div>
 
             <!-- <div class="navbar-collapse">
@@ -1047,7 +1047,7 @@ window.fbAsyncInit = function() {
         // $.cookie("idface", response.id);
         $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/login_control/processsocial',
+        url: 'https://www.dotdotdottrip.com/login_control/processsocial',
         data: {'username': response.email,'name':response.name,'password':response.id},
         //contentType: "application/json",
         dataType: 'json',
@@ -1056,7 +1056,7 @@ window.fbAsyncInit = function() {
           if(res.status == 0)
               {
                  $.cookie("login",res.username);
-                    window.location.href = "https://dotdotdottrip.com";
+                    window.location.href = "https://www.dotdotdottrip.com";
                 
                
               }
@@ -1156,13 +1156,13 @@ window.fbAsyncInit = function() {
 
             </script>
 
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
               (function() {
                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
                po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
              })();
-        </script>
+        </script> -->
 </html>
 
 

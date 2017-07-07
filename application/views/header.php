@@ -93,7 +93,7 @@
         		<ul class="nav navbar-nav navbar-right">
     				
                     <li id="btnlogin">
-                        <a href="http://dotdotdottrip.com/register">
+                        <a href="https://dotdotdottrip.com/register">
                         <i class="material-icons">account_circle</i>
                           <span class="lng-login"></span><span> / </span><span class="lng-register"></span>
                 

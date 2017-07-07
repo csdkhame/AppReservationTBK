@@ -83,7 +83,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://dotdotdottrip.com">App<!-- <img src="files/images/logo.png"> --></a>
+                <a class="navbar-brand" href="https://dotdotdottrip.com">App<!-- <img src="files/images/logo.png"> --></a>
             </div>
 
             <div class="navbar-collapse">

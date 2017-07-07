@@ -1,16 +1,5 @@
 $(document).ready(function() {
-    console.log($.cookie("lng"));
-    $.ajax({
-            type: 'POST',
-            url: '../service/getLanguage.php',
-            data: { 'id': $.cookie("login") },
-            //contentType: "application/json",
-            dataType: 'json',
-            success: function(data) {
-                console.log(data)
 
-            }
-        });
     var data1,data2;
     compae1private = [];
     compae1join = [];
@@ -284,6 +273,7 @@ $(document).ready(function() {
     //          $('#text-load').css('display','none') 
     var quotations = [];
     $('#btn-logout-user').on('click', function() {
+        console.log('logout')
             $.removeCookie("login");
             window.location.href = "https://dotdotdottrip.com/register";
         })
@@ -1154,9 +1144,6 @@ $('#show_pd').click(function(){
 	 $('#show_pd_dialog').show(1000);
 	
 });
-function language(lng){
-    console.log(lng);
-    $.cookie("lng", lng);
-}
+
 
 
