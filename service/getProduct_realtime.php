@@ -10,7 +10,7 @@ $curl_response = '';
 //echo $curl_post_data;
 
             
-echo json_encode($curl_post_data);
+echo $curl_post_data;
 
 
 /*

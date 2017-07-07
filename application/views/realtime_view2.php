@@ -133,7 +133,7 @@
     
     <script>
  
-      function initAutocomplete() {
+     function initAutocomplete() {
       	var directionsService = new google.maps.DirectionsService;
       	var directionsDisplay = new google.maps.DirectionsRenderer();
       	var start;
@@ -142,10 +142,10 @@
           center: {lat: 7.9038781, lng: 98.3033694},
           zoom: 15,
           mapTypeControl: false,
-          mapTypeId: 'roadmap'
-          
+          mapTypeId: 'roadmap',
+          streetViewControl: true
         });
-        
+
         
         
 //        map.setMyLocationEnabled(true);
@@ -255,7 +255,7 @@
         });
       }
       
-      
+
       
    function addYourLocationButton(map, marker) 
    {

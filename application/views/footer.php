@@ -154,6 +154,9 @@
     box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
     margin-bottom: 50px;
 }
+.bottom-300{
+	bottom: 300px !important;
+}
 	</style>
 
 <script>
@@ -162,7 +165,17 @@
 
       
 </script>
- 
+ <div style="">
+ <div dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; cursor: pointer; left: 96px; top: 610px; display: none;width: 30px;" id="close_streetview" >
+		<div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container" style="    height: 43px!important;"> 
+			<div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back"> 
+				<div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> 
+				</div> 
+			</div> 
+		</div> 
+	</div>
+</div>
+</div>
 
 </html>
 
