@@ -1,7 +1,8 @@
 $(document).ready(function() {
-$('#open_map').on('click',initialize);
-$('#open_map').click(function(){
-	console.log('Now Open Map!');
+	$('#open_map').on('click',initialize);
+	$('#open_map').click(function(){
+		console.log('Now Open Map!');
+	});
 });
 
 function initialize() {
@@ -18,7 +19,7 @@ function initialize() {
 //          gestureHandling: 'coopergreedyative'
           gestureHandling: 'greedy'
         });
-//        var geoloccontrol = new klokantech.GeolocationControl(map, mapMaxZoom);
+
         initAutocomplete(map,start,end);
        
         // Create the search box and link it to the UI element.
@@ -234,4 +235,3 @@ alert(data);
 
 
 
-});
