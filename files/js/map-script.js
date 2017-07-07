@@ -19,7 +19,7 @@ function initialize() {
 //          gestureHandling: 'coopergreedyative'
           gestureHandling: 'greedy'
         });
-        var geoloccontrol = new klokantech.GeolocationControl(map, mapMaxZoom);
+//        var geoloccontrol = new klokantech.GeolocationControl(map, mapMaxZoom);
         initAutocomplete(map,start,end);
        
         // Create the search box and link it to the UI element.
@@ -28,7 +28,7 @@ function initialize() {
       
       
 function initAutocomplete(map,start,end){
-		var tst ;
+		  var tst ;
            var current_marker = {
               url: 'http://dotdotdottrip.com/pic/icon_marker.png',
               size: new google.maps.Size(71, 71),
@@ -84,7 +84,7 @@ function initAutocomplete(map,start,end){
 			  });
 			  
           }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
+//            handleLocationError(true, infoWindow, map.getCenter());
           });
         } 
 
@@ -139,7 +139,7 @@ function initAutocomplete(map,start,end){
                     });
             });
             
-            getProduct(start,end);
+//            getProduct(start,end);
             
         }); 
         
@@ -233,12 +233,6 @@ alert(data);
 
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-}
+
 
 });

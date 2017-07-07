@@ -169,11 +169,13 @@
 	        
 		if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
+
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
             start = pos;
+            console.log(start.toString());
 			//marker2.setAnimation(google.maps.Animation.BOUNCE);
             marker2.setPosition(pos);
             map.setCenter(pos);
@@ -202,7 +204,7 @@
 
         
           }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
+            handleLocationError(true, map.getCenter());
           });
           
         }
@@ -256,7 +258,7 @@
       
       
    function addYourLocationButton(map, marker) 
-{
+   {
 	var controlDiv = document.createElement('div');
 	
 	var firstChild = document.createElement('button');
@@ -314,6 +316,16 @@
 	map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
 }
       
+      function handleLocationError(browserHasGeolocation, pos) {
+       /* infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);*/
+        console.log(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
       
 /*      function smoothZoom (map, max, cnt) {
     if (cnt >= max) {
