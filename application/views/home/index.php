@@ -126,7 +126,8 @@
 </div>
 <div class="">
     <div class="btn-real-res col-lg-12" id="btn-real-res">
-         <i class="material-icons" id="iconleft" >navigate_before</i> 
+    <!-- <i class="material-icons">keyboard_arrow_right</i> -->
+         <i class="material-icons" id="iconleft" >keyboard_arrow_right</i> 
          <i class="material-icons" id="iconleft2" >navigate_before</i> 
              
                      <div class="btn-reservation" > Advance use</div>
@@ -294,12 +295,13 @@
 		</div>
 <style>
 #iconleft{
-    background: #333;
+    background: #2196f3;
     font-size: 45px;
     color: #fff;
     position: absolute;
-    border-radius: 4px 0 0 4px;
+    border-radius: 0 4px 4px 0;
     display: none;
+    right: 15px;
     margin-bottom: 12px;
 }
 #iconleft2{
@@ -368,7 +370,7 @@
         color: #fff;
         text-align: center;
         display: inline-block;
-        background-color: #333;
+        background-color: #2196f3;
         z-index: 1; 
     }
     /*.btn-reservation:hover{

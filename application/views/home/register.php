@@ -380,6 +380,7 @@
 .social-column .google-wrapper {
     text-align: center;
     margin-top: 20px;
+    display: none;
 }
 .social-column .social-inner {
     display: table-cell;
@@ -639,9 +640,9 @@
                         </div>
                     </div>
                 </div> -->
-    <footer class="footer footer-white">
+    <!-- <footer class="footer footer-white">
         <div class="container" style="border-top: 1px solid #C8E1F5;">
-            <!-- <a class="footer-brand" href="http://www.creative-tim.com">Material Kit PRO</a> -->
+           
 
             <ul class="pull-left">
                 <li>
@@ -676,7 +677,7 @@
             </ul>
 
         </div>
-    </footer>
+    </footer> -->
 
     <!--     *********    END PRICING 5      *********      -->
 </body>
