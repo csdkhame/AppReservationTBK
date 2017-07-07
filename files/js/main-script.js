@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     var data1,data2;
     compae1private = [];
     compae1join = [];
@@ -51,28 +50,41 @@ $(document).ready(function() {
         $('#content').css('display', 'block');
     }, 3000);
     $('#iconleft').click(function() {
-        $(this).hide(); 
-        $("#iconleft2").hide(); 
-        $("#search-show").hide(); 
-        $("#search-raeltime").hide(); 
+        $("#iconleft2").fadeIn(1000);
+        //$("").css('display','block');//.fadeIn(1000);
 
+         $("#iconleft").css('display','none');//.fadeIn(1000);
+        //$(this).hide(); 
+       
+        $("#search-show").hide(); 
+        $("#search-raeltime").fadeIn(1000); 
+        //$(".btn-realtime").hide(); 
+        $("#search-show").fadeOut(1000);
         //$("").show();
         //$("").show();
         $(".btn-realtime").fadeIn(1000);
+        $(".btn-reservation").hide();
+        //$(".btn-realtime").hide();
 
 
 
         
     });
     $('#iconleft2').click(function() {
-        $(this).hide(); 
-        $("#iconleft").hide(); 
-        $("#search-show").hide(); 
+        //$(this).css('display','none'); 
+        $("#iconleft").fadeIn(1000);
+
+        //$("#iconleft").css('display','block');
+         $("#iconleft2").css('display','none');//.fadeIn(1000);
+        
+        $("#search-show").fadeIn(1000); 
         $("#search-raeltime").hide(); 
          //$(".btn-reservation").show();
-        
+         $("#pro-search").hide(); 
+        $("#search-raeltime").fadeOut(1000);
         //$("").show();
         $(".btn-reservation").fadeIn(1000);
+        $(".btn-realtime").hide();
 
     });
     $('.btn-reservation').click(function() {
@@ -154,7 +166,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -199,7 +211,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -238,6 +250,7 @@ $(document).ready(function() {
              $("#iconleft2").show(); 
              $("#iconleft").hide(); 
              $("#pro-search").hide(); 
+              $("#search-raeltime").fadeIn(1000);
 
 			 $(".btn-reservation").hide(); 
             // $('#map2').css('display', 'block');
@@ -246,7 +259,7 @@ $(document).ready(function() {
             $('#pac-input').css('display', '');
             //$('#search-raeltime').css('display', 'block');
            
-             $("#search-raeltime").fadeIn(1000);
+            
           
           	
 		
@@ -260,8 +273,9 @@ $(document).ready(function() {
     //          $('#text-load').css('display','none') 
     var quotations = [];
     $('#btn-logout-user').on('click', function() {
+        console.log('logout')
             $.removeCookie("login");
-            window.location.href = "httpss://dotdotdottrip.com/register";
+            window.location.href = "https://dotdotdottrip.com/register";
         })
     $('.search-transfer-product').click(function() {
        
@@ -365,7 +379,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -410,7 +424,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -460,7 +474,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -504,7 +518,7 @@ $(document).ready(function() {
 
                             '<p id="facilities">' +
                             '<span >  Facilities : </span>' +
-                            '<img src="https://gh-travel.com:8080/icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                            '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
                             '</div>' +
@@ -1130,5 +1144,6 @@ $('#show_pd').click(function(){
 	 $('#show_pd_dialog').show(1000);
 	
 });
+
 
 

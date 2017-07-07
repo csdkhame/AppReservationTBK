@@ -24,7 +24,7 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <?php echo link_tag('files/assets/css/demo.css'); ?>
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -69,7 +69,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://dotdotdottrip.com">app booking<!-- <img src="files/images/logo.png"> --></a>
+                <a class="navbar-brand" href="https://dotdotdottrip.com">app booking<!-- <img src="files/images/logo.png"> --></a>
             </div>
 
             <!-- <div class="navbar-collapse">
@@ -380,6 +380,7 @@
 .social-column .google-wrapper {
     text-align: center;
     margin-top: 20px;
+    /*display: none;*/
 }
 .social-column .social-inner {
     display: table-cell;
@@ -639,9 +640,9 @@
                         </div>
                     </div>
                 </div> -->
-    <footer class="footer footer-white">
+    <!-- <footer class="footer footer-white">
         <div class="container" style="border-top: 1px solid #C8E1F5;">
-            <!-- <a class="footer-brand" href="http://www.creative-tim.com">Material Kit PRO</a> -->
+           
 
             <ul class="pull-left">
                 <li>
@@ -676,7 +677,7 @@
             </ul>
 
         </div>
-    </footer>
+    </footer> -->
 
     <!--     *********    END PRICING 5      *********      -->
 </body>
@@ -688,7 +689,10 @@
     <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
 
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
      <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" type="text/javascript"></script>
+      
+
 
 
     <!--    Plugin for Date Time Picker and Full Calendar Plugin   -->
@@ -843,7 +847,7 @@ $(document).ready(function(){
     var username, password , username_signup ,password_signup,text_check;
 $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/getuserlog_control/process',
+        url: 'https://dotdotdottrip.com/getuserlog_control/process',
        // data: {'from': getParameterByName('from'),'to': getParameterByName('to')},
         //contentType: "application/json",
         dataType: 'json',
@@ -872,7 +876,7 @@ $.ajax({
        console.log(password+username)
         $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/login_control/process',
+        url: 'https://dotdotdottrip.com/login_control/process',
         data: {'username': username,'password':password},
         //contentType: "application/json",
         dataType: 'json',
@@ -882,7 +886,7 @@ $.ajax({
               {
                  console.log('login status 0');
                  $.cookie("login",res.username);
-                 window.location.href = "http://dotdotdottrip.com";
+                 window.location.href = "https://dotdotdottrip.com";
                 
                
               }
@@ -923,7 +927,7 @@ $.ajax({
         console.log('in case')
         $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/login_control/checkmail',
+        url: 'https://dotdotdottrip.com/login_control/checkmail',
         data: {'username': username_signup,'password':password_signup},
         //contentType: "application/json",
         dataType: 'json',
@@ -956,7 +960,7 @@ $.ajax({
         if (text_check == 1) {
             $.ajax({
             type: 'POST',
-            url: 'http://dotdotdottrip.com/login_control/signup',
+            url: 'https://dotdotdottrip.com/login_control/signup',
             data: {'username': username_signup,'password':password_signup},
             //contentType: "application/json",
             dataType: 'json',
@@ -964,7 +968,7 @@ $.ajax({
                 console.log(res)
                 if(res.status == 0){
                     $.cookie("login",res.username);
-                    window.location.href = "http://dotdotdottrip.com";
+                    window.location.href = "https://dotdotdottrip.com";
                     
                    
                 }
@@ -1043,7 +1047,7 @@ window.fbAsyncInit = function() {
         // $.cookie("idface", response.id);
         $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/login_control/processsocial',
+        url: 'https://www.dotdotdottrip.com/login_control/processsocial',
         data: {'username': response.email,'name':response.name,'password':response.id},
         //contentType: "application/json",
         dataType: 'json',
@@ -1052,7 +1056,7 @@ window.fbAsyncInit = function() {
           if(res.status == 0)
               {
                  $.cookie("login",res.username);
-                    window.location.href = "http://dotdotdottrip.com";
+                    window.location.href = "https://www.dotdotdottrip.com";
                 
                
               }
@@ -1103,10 +1107,62 @@ window.fbAsyncInit = function() {
 
        $('.box-signin').css('display','block');
     })
+     function loginwithgoogle() 
+        {
+          var myParams = {
+            'clientid' : 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+            'cookiepolicy' : 'single_host_origin',
+            'callback' : 'loginCallback',
+            'approvalprompt':'force',
+            'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+          };
+          gapi.auth.signIn(myParams);
+        }
+
+        function loginCallback(result)
+        {
+            if(result['status']['signed_in'])
+            {
+                var request = gapi.client.plus.people.get(
+                {
+                    'userId': 'me'
+                });
+                request.execute(function (resp)
+                {
+                    /* console.log(resp);
+                    console.log(resp['id']); */
+                    var email = '';
+                    if(resp['emails'])
+                    {
+                        for(i = 0; i < resp['emails'].length; i++)
+                        {
+                            if(resp['emails'][i]['type'] == 'account')
+                            {
+                                email = resp['emails'][i]['value'];//here is required email id
+                            }
+                        }
+                    }
+                   var usersname = resp['displayName'];//required name
+                });
+            }
+        }
+        function onLoadCallback()
+        {
+            gapi.client.setApiKey('YOUR_API_KEY');
+            gapi.client.load('plus', 'v1',function(){});
+        }
 </script>
-<script>
-  
-</script>
+
+
+            </script>
+
+        <!-- <script type="text/javascript">
+              (function() {
+               var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+               po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+             })();
+        </script> -->
 </html>
 
 

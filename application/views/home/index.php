@@ -43,10 +43,10 @@
     display: none;">
     <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
                             <div class="active" align="center" style="display: inline-block;">
-                                <button class="btn btn-warning" id="private-btn" style="padding: 12px 55px;" href="#private" data-toggle="tab" aria-expanded="true"> Private</button>
+                                <button class="btn btn-warning" id="private-btn" style="padding: 12px 55px;" href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </button>
                             </div>
                             <div class="" align="center" style="display: inline-block;">
-                                <button style="padding: 12px 60px; background-color:#333" id="join-btn" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false">Join</button>
+                                <button style="padding: 12px 60px; background-color:#333" id="join-btn" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></button>
                             </div>
 
                           <div class="form-group form-inline required " style="    padding: 9px 9px;
@@ -126,14 +126,15 @@
 </div>
 <div class="">
     <div class="btn-real-res col-lg-12" id="btn-real-res">
-         <i class="material-icons" id="iconleft" >navigate_before</i> 
+    <!-- <i class="material-icons">keyboard_arrow_right</i> -->
+         <i class="material-icons" id="iconleft" >keyboard_arrow_right</i> 
          <i class="material-icons" id="iconleft2" >navigate_before</i> 
              
-                     <div class="btn-reservation" > Advance use</div>
+                     <div class="btn-reservation" ><span class="lng-advance-use"></span></div>
               
                
             
-                    <div class="btn-realtime" >Now use</div>
+                    <div class="btn-realtime" ><span class="lng-now-use"></span></div>
                                      
                
             
@@ -143,7 +144,7 @@
      <div id="search-raeltime" style=" position: absolute;
         margin-top: 112px;
         width: 100%;
-        z-index: 20;
+        z-index: 5;
         display: none;">
          <div class="col-md-12 " >
          	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
@@ -161,7 +162,7 @@
       	</div>
 
         </div>
-        <div style=" position: absolute;  margin-top: 112px;width: 100%; z-index: 20; display: none;" id="search-show">            
+        <div style=" position: absolute;  margin-top: 112px;width: 100%; z-index: 5; display: none;" id="search-show">            
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
                     <div class="box-search">
@@ -182,7 +183,7 @@
                                         
                                                                 
                                 <div class=" tm-yellow-gradient-bg text-center  " align="center" style="width: 100%">
-                                    <a href="#move-product"><div  class="search-transfer-product col-md-5" onclick="search()" align="center"><i class="fa fa-search" aria-hidden="true" style="padding-right: 8px"></i><span>Search</span></div></a>
+                                    <a href="#move-product"><div  class="search-transfer-product col-md-5" onclick="search()" align="center"><i class="fa fa-search" aria-hidden="true" style="padding-right: 8px"></i><span class="lng-search"></span></div></a>
                                 </div>
                     </div>
                 </div>                          
@@ -294,12 +295,13 @@
 		</div>
 <style>
 #iconleft{
-    background: #333;
+    background: #2196f3;
     font-size: 45px;
     color: #fff;
     position: absolute;
-    border-radius: 4px 0 0 4px;
+    border-radius: 0 4px 4px 0;
     display: none;
+    right: 15px;
     margin-bottom: 12px;
 }
 #iconleft2{
@@ -368,7 +370,7 @@
         color: #fff;
         text-align: center;
         display: inline-block;
-        background-color: #333;
+        background-color: #2196f3;
         z-index: 1; 
     }
     /*.btn-reservation:hover{
