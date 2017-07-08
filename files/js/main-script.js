@@ -321,7 +321,7 @@ $(document).ready(function() {
                             '</h2>' +
                             '<div class="box-province">' +
                             '<p class="type-t">' +
-                            '<span class="car-type" >' + cartype + pax + '</span>' +
+                            '<span class="car-type" >' + cartype + pax  + '</span>' +
                             '</p>' +
 
                             '<p id="facilities">' +
