@@ -60,7 +60,7 @@
     margin: auto;">
                                                             <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
                                                                 <select class="form-control" name="cartype" id="cartype" class="" style="     margin: auto;">
-                                                                    <option value="" >Car Type</option>
+                                                                    <option value="All" ></option>
                                                                 
                                                               </select>
                                                         </div>             
@@ -194,104 +194,7 @@
 
 
    
-         <div class="modal fade" id="login">
-                    <div class="modal-dialog col-md-8">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <!-- <h4 class="modal-title" >Logout</h4> -->
-                            </div>
-                            <div class="modal-body">
-                               <div class="row">
-                        <div class="">
-                            <form >
-                                
-                                    <div class="card-header text-center" data-background-color="green">
-                                        <h4 class="card-title">Login</h4>
-                                        <!-- <div class="social-line">
-                                            <a href="#btn" class="btn btn-just-icon btn-simple" style="">
-                                                <i class="fa fa-facebook-square"></i>
-                                            </a>
-                                            <a href="#pablo" class="btn btn-just-icon btn-simple">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#eugen" class="btn btn-just-icon btn-simple">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </div> -->
-                                    </div>
-                                    
-                                    <div align="text-center">
-                                        <p id="message" style="text-align: center;"></p>
-                                    </div>
-                                    <div class="card-content col-sm-8 col-sm-offset-2" >
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">face</i>
-                                            </span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Email or Phone</label>
-                                                <input type="text" class="form-control" ng-model="username" style="border: 0;
-    background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
-    background-size: 0 2px, 100% 1px;
-    background-repeat: no-repeat;
-    background-position: center bottom, center calc(100% - 1px);
-    background-color: transparent;
-    transition: background 0s ease-out;
-    float: none;
-    box-shadow: none;
-    border-radius: 0;
-    font-weight: 400;
-    border: none !important">
-                                            </div>
-                                        </div>
-                                        <!-- <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">email</i>
-                                            </span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Email address</label>
-                                                <input type="email" class="form-control">
-                                            </div>
-                                        </div> -->
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">lock_outline</i>
-                                            </span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Password</label>
-                                                <input type="password" class="form-control" ng-model="password" style="    border: 0;
-    background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
-    background-size: 0 2px, 100% 1px;
-    background-repeat: no-repeat;
-    background-position: center bottom, center calc(100% - 1px);
-    background-color: transparent;
-    transition: background 0s ease-out;
-    float: none;
-    box-shadow: none;
-    border-radius: 0;
-    font-weight: 400;
-    border: none !important">
-                                            </div>
-                                        </div>
-                                        <div class="footer text-center">
-                                        <button type="submit" class="btn btn-rose btn-simple btn-wd btn-lg" ng-click="login()">Login</button>
-                                    </div>
-                                    </div>
-                                    
-                                
-                            </form>
-                        </div>
-                    </div>
-                            </div>
-                            <!-- <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="logout()">Yes</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
+        
 		</div>
 <style>
 #iconleft{

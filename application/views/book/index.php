@@ -122,7 +122,7 @@
                     </li>
                      <li>
                         <a href="<?php echo base_url(); ?>dashboard/view_user">
-                            <i class="material-icons">dashboard</i><span style="text-transform: initial;">Dashboard</span>
+                            <i class="material-icons">dashboard</i><span style="text-transform: initial; " class="lng-dashboard"></span>
                 
                         </a>
                     </li>
@@ -182,7 +182,7 @@
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
                                 <a href="" >
-                                <i class="material-icons" >build</i><span class="lng-settings-account"></span>
+                                <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
                 
                                 </a>
                             </li>
