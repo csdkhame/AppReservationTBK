@@ -5,7 +5,7 @@
         border: 2px solid rgb(255, 255, 255);
     min-width: 2rem;
     /* height: auto; */
-    z-index: 55555;
+    z-index: 100;
     left: 50vw;
     top: 86vh;
     overflow: hidden;
@@ -21,7 +21,7 @@
        border: 2px solid rgb(59, 89, 152);
     min-width: 2rem;
     /* height: auto; */
-    z-index: 55555;
+    z-index: 100;
     left: 50vw;
     top: 86vh;
     overflow: hidden;
@@ -127,6 +127,7 @@
 <div class="">
     <div class="btn-real-res col-lg-12" id="btn-real-res">
     <!-- <i class="material-icons">keyboard_arrow_right</i> -->
+    <i class="material-icons" id="iconhome" >home</i> 
          <i class="material-icons" id="iconleft" >keyboard_arrow_right</i> 
          <i class="material-icons" id="iconleft2" >navigate_before</i> 
              
@@ -197,6 +198,15 @@
         
 		</div>
 <style>
+#iconhome{
+    font-size: 32px;
+    color: #555;
+    position: absolute;
+    border-radius: 4px;
+    left: 15px;
+    top: -38px;
+    display: none;
+}
 #iconleft{
     background: #2196f3;
     font-size: 45px;
@@ -686,7 +696,9 @@ a[href^="https://www.google.com/maps"] {
     background: #fff;
 }
 @media screen and (max-width: 767px){
-
+#bodyClick{
+        right: 229px !important;
+}
 
 .a-link-item {
     padding-left: 0px;

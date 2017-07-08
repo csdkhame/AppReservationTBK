@@ -11,7 +11,7 @@ $(document).ready(function() {
         $('.lng-product').html('产品')
         $('.lng-transports').html('交通用车')
         $('.lng-tours').html('景点玩乐')
-        $('.lng-language').html('語')
+        $('.lng-language').html('语言')
         $('.lng-settings-account').html('设置帐户')
         $('.lng-logout').html('登出')
         $('.lng-advance-use').html('提前使用')

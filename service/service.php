@@ -40,13 +40,27 @@ $curl_response = curl_exec($curl);
 curl_close($curl);
 
 $message = iconv("incoming-charset", "utf-8", $curl_response);
-$aaaa = json_decode($curl_response);
+$res = json_decode($curl_response);
 //print_r($aaaa);
 //echo $aaaa;
 // foreach ($aaaa as $data ) {
 // 	// $data->id.' ' .$data->name. "<Br>";
 // 	$row_data[] = $data;
 // }
-echo json_encode($aaaa);
+foreach ($res as $data ) {
+
+         //while($row = $result->fetch_assoc()) {
+        $rows[] = $row;
+        $file_name = $data->transfer_icon; 
+        $remote_file_url = 'http://t-booking.com/pic/carmodelicon/'.$file_name.'.png';
+        //$remote_file_url = 'http://t-booking.com/data/qr/vc/7050498_7849160235.png';
+         
+
+         $local_file = '../files/img/imgicon/'.$file_name.'.png';
+        //$local_file = '../data/qr/vc/7050498_7849160235.png';
+        
+        copy( $remote_file_url, $local_file );
+    }
+echo json_encode($data);
 
 ?>

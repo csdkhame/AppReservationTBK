@@ -50,6 +50,8 @@ $(document).ready(function() {
         $('#content').css('display', 'block');
     }, 3000);
     $('#iconleft').click(function() {
+        $("#iconhome").fadeIn(1000);
+
         $("#iconleft2").fadeIn(1000);
         //$("").css('display','block');//.fadeIn(1000);
 
@@ -70,8 +72,10 @@ $(document).ready(function() {
 
         
     });
+    
     $('#iconleft2').click(function() {
-        //$(this).css('display','none'); 
+        //$(this).css('display','none');
+         $("#iconhome").fadeIn(1000); 
         $("#iconleft").fadeIn(1000);
 
         //$("#iconleft").css('display','block');
@@ -87,14 +91,41 @@ $(document).ready(function() {
         $(".btn-realtime").hide();
 
     });
+    $('#iconhome').click(function() {
+        $("#iconhome").fadeOut(1000);
+
+        $("#iconleft2").fadeOut(1000);
+        $("#iconleft").fadeOut(1000);
+        //$("").css('display','block');//.fadeIn(1000);
+
+         //$("#iconleft").css('display','none');//.fadeIn(1000);
+        //$(this).hide(); 
+       
+        $("#search-show").hide(); 
+        $("#search-raeltime").fadeIn(500); 
+        //$(".btn-realtime").hide(); 
+        $("#search-show").fadeOut(500);
+        $("#search-raeltime").fadeOut(1000); 
+        //$("").show();
+        //$("").show();
+        $(".btn-realtime").fadeIn(1000);
+        $(".btn-reservation").fadeIn(1000);
+        //$(".btn-realtime").hide();
+
+
+
+        
+    });
     $('.btn-reservation').click(function() {
         // alert("aaaa")
+        
         $('#loading').css('display', 'block');
         //$('#content').css('display','none');
         setTimeout(function() {
            // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
             //$(this).hide(); 
-            $("#iconleft").show();
+            $("#iconhome").fadeIn(1000);
+            $("#iconleft").fadeIn(1000);
              $("#iconleft2").hide();  
             //$('#show-hide-pro2').show(); 
             $(".btn-real-res").css({'text-align':'center'});
@@ -109,6 +140,37 @@ $(document).ready(function() {
                 //$('#content').css('display','block'); 
         }, 2000);
 
+
+    });
+    $('.btn-realtime').click(function() {
+
+       $('#loading').css('display', 'block');
+//       $('#btn-real-res').css('display', 'none');
+        
+        //$('#content').css('display','none');
+       setTimeout(function() {
+        $("#iconhome").fadeIn(1000);
+            // $('#map').css('display', 'none');
+             $("#iconleft2").fadeIn(1000); 
+             $("#iconleft").hide(); 
+             $("#pro-search").hide(); 
+              $("#search-raeltime").fadeIn(1000);
+
+             $(".btn-reservation").hide(); 
+            // $('#map2').css('display', 'block');
+            $('#loading').css('display', 'none');
+            $('#search-show').css('display', 'none')
+            $('#pac-input').css('display', '');
+            //$('#search-raeltime').css('display', 'block');
+           
+            
+          
+            
+        
+            //$('#content').css('display','block'); 
+       }, 2000);
+
+/*   $( "#maps" ).html( "1111" );*/
 
     });
     $('#cartype').on('change', function() {
@@ -292,36 +354,7 @@ $(document).ready(function() {
     
     });
     
-    $('.btn-realtime').click(function() {
 
-       $('#loading').css('display', 'block');
-//       $('#btn-real-res').css('display', 'none');
-        
-        //$('#content').css('display','none');
-       setTimeout(function() {
-            // $('#map').css('display', 'none');
-             $("#iconleft2").show(); 
-             $("#iconleft").hide(); 
-             $("#pro-search").hide(); 
-              $("#search-raeltime").fadeIn(1000);
-
-			 $(".btn-reservation").hide(); 
-            // $('#map2').css('display', 'block');
-            $('#loading').css('display', 'none');
-            $('#search-show').css('display', 'none')
-            $('#pac-input').css('display', '');
-            //$('#search-raeltime').css('display', 'block');
-           
-            
-          
-          	
-		
-            //$('#content').css('display','block'); 
-       }, 2000);
-
-/*	 $( "#maps" ).html( "1111" );*/
-
-    });
     // $('body').addClass('loaded');
     //          $('#text-load').css('display','none') 
     var quotations = [];
