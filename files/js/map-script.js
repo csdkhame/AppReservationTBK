@@ -22,19 +22,19 @@ $('pac-input').css('display','none');
 
 function initialize() {
 	
-       	var mapMinZoom = 12;
+       	var mapMinZoom = 14;
     	var mapMaxZoom = 18;
         var start;
         var end;
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 7.9038781, lng: 98.3033694},
-          zoom: 17,
+          zoom: mapMinZoom,
           mapTypeControl: false,
           mapTypeId: 'roadmap',
 //          gestureHandling: 'coopergreedyative'
           gestureHandling: 'greedy',
           streetViewControl: true,
-         fullscreenControl: false
+         fullscreenControl: true
 
         });
         
