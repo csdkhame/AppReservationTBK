@@ -149,17 +149,17 @@
          <div class="col-md-12 " >
          	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
        					  <div class="box-search">
-                                <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/>
- <!-- -->                        <div style="border-bottom: 1px solid #333;"></div>
-                                       
-                                
-                                        
-                                    <input  type='text' class="form-control" placeholder="To Type airport,hotel name, or location." id="pac-input" style="border: none !important;" value="" />
-                                                
-                                   
+                              <!--  <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/> <button class="current-submit">Yes</button>-->
+                              <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Yes</span></button>
+                            <input type='text' disabled class="" placeholder="Current your position"  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
+			                        <div style="display: none;" id="open-search">
+			                        <div style="border-bottom: 1px solid #333;"></div>
+                                    <input  type='text' class="form-control" placeholder="To Type airport,hotel name, or location." id="pac-input" style="border: none !important;" value="" />   
+                                    </div>          
                             </div>
                 </div>
       	</div>
+<input type="hidden" id="chk_val_search" value="0" />
 
         </div>
         <div style=" position: absolute;  margin-top: 112px;width: 100%; z-index: 5; display: none;" id="search-show">            

@@ -1,10 +1,24 @@
-
+$('pac-input').css('display','none');
 	$('#open_map').on('click',initialize);
 	$('#open_map').click(function(){
 		console.log('Now Open Map!');
 		
 	});
 
+	$('#start_yes-change').click(function(){
+		
+		
+ 			var chk_val_search = $('#chk_val_search').val();
+            if (chk_val_search == 1) {
+                $('#chk_val_search').val(0);
+                $('#open-search').hide(700);
+               $('#start_yes-change span').text('Yes');
+            } else {
+                $('#chk_val_search').val(1);
+                $('#open-search').show(700);
+                $('#start_yes-change span').text('Change');
+            }
+	});
 
 function initialize() {
 	
@@ -19,7 +33,9 @@ function initialize() {
           mapTypeId: 'roadmap',
 //          gestureHandling: 'coopergreedyative'
           gestureHandling: 'greedy',
-          streetViewControl: true
+          streetViewControl: true,
+         fullscreenControl: false
+
         });
         
 		map.get('streetView').setOptions({
@@ -54,7 +70,7 @@ function initialize() {
         initAutocomplete(map,start,end);
        
         // Create the search box and link it to the UI element.
-        $('.gm-fullscreen-control').remove();
+        /*$('.gm-fullscreen-control').remove();*/
       }
 
       
@@ -62,7 +78,7 @@ function initAutocomplete(map,start,end){
 	
 		  var tst ;
            var current_marker = {
-              url: 'http://dotdotdottrip.com/pic/icon_marker.png',
+              url: 'https://dotdotdottrip.com/pic/icon_marker.png',
               size: new google.maps.Size(71, 71),
               origin: new google.maps.Point(0, 0),
               anchor: new google.maps.Point(17, 34),
@@ -85,7 +101,7 @@ function initAutocomplete(map,start,end){
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            console.log("current : "+pos);
+//            console.log("current : "+pos);
             start = pos;
             //marker2.setAnimation(google.maps.Animation.BOUNCE);
             marker2.setPosition(pos);
@@ -98,6 +114,7 @@ function initAutocomplete(map,start,end){
             var latlng = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
 			tst = latlng;
             geocoder.geocode({'location': latlng}, function(results, status){
+            	document.getElementById("current").value = "Loading...";
             	console.log(status);
 			    if (status === google.maps.GeocoderStatus.OK) {
 			      if (results[1]) {
@@ -122,7 +139,7 @@ function initAutocomplete(map,start,end){
 
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer();
-        var input = document.getElementById('pac-input');
+       var input = document.getElementById('pac-input');
             
         var searchBox = new google.maps.places.SearchBox(input);
 //        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -159,8 +176,6 @@ function initAutocomplete(map,start,end){
                 destination: end,
                 travelMode: google.maps.TravelMode.DRIVING
             };
-           
-          
             directionsDisplay.setMap(map);
             directionsService.route(request, function (response, status) {
                 
@@ -250,8 +265,6 @@ function getProduct(start,end){
 		start : start,
 		end : end
 	}*/
-	
-alert(123);
 
 $.ajax({
    type: "POST",
