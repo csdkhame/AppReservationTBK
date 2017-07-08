@@ -47,6 +47,7 @@ function initialize() {
         
         thePanorama.controls[ controlPosition ].push( closeButton );
         google.maps.event.addDomListener(closeButton, 'click', function(){
+        	
 		$('#close_streetview').css('display','none');
         thePanorama.setVisible(false);
     });
