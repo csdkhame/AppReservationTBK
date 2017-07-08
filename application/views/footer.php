@@ -116,7 +116,7 @@
 	<!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places&callback=initAutocomplete"async defer> </script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places"async defer> </script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 
 	
   <script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
@@ -161,6 +161,15 @@
 .bottom-300{
 	bottom: 300px !important;
 }
+ .floating-panel {
+        background: #fff;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Arial;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        display: none;
+      }
 	</style>
 
 <script>
@@ -173,17 +182,7 @@
 <div id="close_streetview" dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; left: 0px; top: 0px;"><div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container"> <div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back"> <div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> </div> </div> </div> </div></div>
 
 
-<!-- <div style="">
- <div dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; cursor: pointer; left: 96px; top: 610px; display: nones; width: 30px;" id="close_streetview" >
-		<div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container" style="    height: 43px!important;"> 
-			<div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back"> 
-				<div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> 
-				</div> 
-			</div> 
-		</div> 
-	</div>
-</div>
-</div>-->
+
 
 </html>
 

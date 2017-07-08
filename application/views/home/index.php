@@ -142,6 +142,67 @@
     
        
     </div>
+
+<style>
+.card-style {
+    display: block;
+    background-color: #fff;
+    height: 140px;
+    width: 250px;
+    margin: 20px 0px;
+    box-shadow: 1px 1px 8px #999;
+    cursor: pointer;
+}
+
+.media-heading {
+    margin-top: 10px;
+    color: #444;
+}
+.media-heading:hover, a:link {
+    color: #00C853;
+    text-decoration: none;
+}
+.members {
+    margin-top: 20px;
+    color: #999;
+    float: left;
+ }
+ .btn-part {
+     display: inline-block;
+     margin: 10px;
+     float: right;
+ }
+ .badge {
+     display: inline-block;
+     background: #00C853;
+     float: right;
+     padding: 7px;
+     border-radius: 50px;
+     margin: 10px;
+ }
+</style>
+<!--<i class="material-icons">keyboard_arrow_right</i>-->
+
+		<div id="list_place" style="z-index: 0; position: absolute;   left: -16px;  /*top: 202px;*/ display: nones;">
+            <div class="row">
+                <div class="col-md-3 col-sm-5">
+                    <div class="card-style" style=" overflow: scroll !important;">
+                        <!--<div class="media">-->
+                 
+                            <div class="media-body">
+                               <!-- <a href="#"><h5 class="media-heading">Disc. Programação Internet Rica - 2016.2</h5></a>
+                                <div class="members pull-left"><small>1.235 Members</small></div><div class="btn btn-sm btn-danger pull-right btn-part">Join Group</div>-->
+                               <ul class="list-group" id="list_place_push" >
+
+								</ul>
+                                
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
      <div id="search-raeltime" style=" position: absolute;
         margin-top: 112px;
         width: 100%;
