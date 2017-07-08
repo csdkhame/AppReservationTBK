@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var bodyClick = document.getElementById("bodyClick")
     var collapse = $(".navbar-collapse")
-       Hammer(bodyClick).on("swipeleft",function(){
+       Hammer('#bodyClick').on("swipeleft",function(){
         $('html').removeClass('nav-open');
              setTimeout(function(){
                        $toggle.removeClass('toggled');
