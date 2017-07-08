@@ -78,6 +78,10 @@
 	<script src="<?php echo base_url(); ?>files/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>files/js/material.min.js"></script>
     <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> 
+     <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
+     <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
+      <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
 
 	<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.12.0.js"></script>
 
