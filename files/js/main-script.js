@@ -245,12 +245,12 @@ $(document).ready(function() {
                             '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
                             '</div>' +
                             '<h2 class="searchresult_name" title="product name">' +
-                            '<span >' + compae1private[i].topic_en + '</span>' +
+                            '<span >' + car_topic + '</span>' +
                             '<span class="hotel_num">' + indexs + '</span>' +
                             '</h2>' +
                             '<div class="box-province">' +
                             '<p class="type-t">' +
-                            '<span class="car-type" >' + compae1private[i].car_topic_en + compae1private[i].pax_en + '</span>' +
+                            '<span class="car-type" >' + cartype + pax + '</span>' +
                             '</p>' +
 
                             '<p id="facilities">' +
@@ -316,12 +316,12 @@ $(document).ready(function() {
                             '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
                             '</div>' +
                             '<h2 class="searchresult_name" title="product name">' +
-                            '<span >' + compae1join[i].topic_en + '</span>' +
+                            '<span >' + car_topic + '</span>' +
                             '<span class="hotel_num">' + indexs + '</span>' +
                             '</h2>' +
                             '<div class="box-province">' +
                             '<p class="type-t">' +
-                            '<span class="car-type" >' + compae1join[i].car_topic_en + compae1join[i].pax_en + '</span>' +
+                            '<span class="car-type" >' + cartype + pax + '</span>' +
                             '</p>' +
 
                             '<p id="facilities">' +
@@ -374,7 +374,7 @@ $(document).ready(function() {
     compae1join = [];
     compae2private = [];
     compae2join = [];
-    data1 = [];
+    data1;
     $.ajax({
         type: 'POST',
         url: '../service/service.php',
@@ -383,6 +383,7 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(data) {
             console.log(data)
+            console.log(data.length)
             if (data != null) {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
@@ -400,8 +401,8 @@ $(document).ready(function() {
                     //$('#content').css('display','block'); 
                 }, 2000);
 
-               data1 = data[0].data1;
-                var cartype = data[0].cartype;
+               data1 = data.data1;
+                var cartype = data.cartype;
                 console.log(data1)
                 console.log(cartype)
 

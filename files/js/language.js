@@ -1,39 +1,61 @@
 $(document).ready(function() {
-    var bodyClick = document.getElementById("bodyClick")
-    var collapse = $(".navbar-collapse")
-       Hammer('#bodyClick').on("swipeleft",function(){
-        $('html').removeClass('nav-open');
+   
+      // Hammer('#bodyClick').on("swiperight",function(){
+
+      //     alert("aaaa");
+      //     $('html').removeClass('nav-open');
+      //        setTimeout(function(){
+      //                  $toggle.removeClass('toggled');
+      //                  $('#bodyClick').remove();
+      //              }, 550);
+      //       // if(event.gesture.direction === "right") {
+                 
+      //       //  }
+       
+            
+      //  });
+    
+   
+  
+    
+    
+    $(".navbar-nav").swipe({
+              swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                  {
+                      if (phase=="move" && direction =="lng-register") {
+                        alert("aaaa")
+                           $(".navbar-toggle").addClass("toggled");
+                           return false;
+                      }
+                      if (phase=="move" && direction =="right") {
+                        $('html').removeClass('nav-open');
              setTimeout(function(){
                        $toggle.removeClass('toggled');
                        $('#bodyClick').remove();
-                   }, 550);
-            
-       })
-    // });
-    
-    //hammer.js
-    
-    //Swipe
-    // });
-    
-    // });
-    
-    
-    // $("#bodyClick").swipe({
-    //           swipeStatus:function(event, phase, direction, distance, duration, fingers)
-    //               {
-    //                   if (phase=="move" && direction =="lng-register") {
-    //                     alert("aaaa")
-    //                        $(".navbar-toggle").addClass("toggled");
-    //                        return false;
-    //                   }
-    //                   if (phase=="move" && direction =="right") {
-    //                     alert('bbbb')
-    //                        $(".navbar-toggle").removeClass("toggled");
-    //                        return false;
-    //                   }
-    //               }
-    //       }); 
+                   }, 250);
+                           return false;
+                      }
+                  }
+          }); 
+
+    $("#bodyClick").swipe({
+              swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                  {
+                      if (phase=="move" && direction =="lng-register") {
+                        alert("aaaa")
+                           $(".navbar-toggle").addClass("toggled");
+                           return false;
+                      }
+                      if (phase=="move" && direction =="right") {
+                        $('html').removeClass('nav-open');
+             setTimeout(function(){
+                       $toggle.removeClass('toggled');
+                       $('#bodyClick').remove();
+                   }, 250);
+                           return false;
+                      }
+                  }
+          }); 
 
 	console.log($.cookie("lng"));
 	if ($.cookie("lng") == 'cn') {
