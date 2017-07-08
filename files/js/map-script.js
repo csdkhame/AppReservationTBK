@@ -61,7 +61,15 @@ function initialize() {
         var closeButton = document.querySelector('#close_streetview');
         controlPosition = google.maps.ControlPosition.LEFT_CENTER;
         
+        var list = document.getElementById('list_place');
+        controlList = google.maps.ControlPosition.LEFT_BOTTOM;
+//        controlList = google.maps.ControlPosition.LEFT_CENTER;
+        
+        
         thePanorama.controls[ controlPosition ].push( closeButton );
+        
+        map.controls[controlList].push(list);
+        
         google.maps.event.addDomListener(closeButton, 'click', function(){
         	
 		$('#close_streetview').css('display','none');
@@ -131,7 +139,8 @@ function initAutocomplete(map,start,end){
 			      window.alert('Geocoder failed due to: ' + status);
 			    }
 			  });
-			  
+			console.log("currentLocation : "+pos);
+			nearbyPlace(map,pos);
           }, function() {
 //            handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -139,12 +148,12 @@ function initAutocomplete(map,start,end){
 
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer();
-       var input = document.getElementById('pac-input');
+        var input = document.getElementById('pac-input');
             
         var searchBox = new google.maps.places.SearchBox(input);
 //        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-         var autocomplete = new google.maps.places.Autocomplete(input);
+        var autocomplete = new google.maps.places.Autocomplete(input);
          autocomplete.bindTo('bounds', map);
          
         var marker = new google.maps.Marker({
@@ -153,8 +162,7 @@ function initAutocomplete(map,start,end){
           anchorPoint: new google.maps.Point(0, -29)
         });
         
-          autocomplete.addListener('place_changed', function() {
-//          	console.log(tst);
+        autocomplete.addListener('place_changed', function() {
           	
              marker.setVisible(false);
             var place = autocomplete.getPlace();
@@ -189,6 +197,7 @@ function initAutocomplete(map,start,end){
           getProduct(start,end);
 			
         }); 
+
         
       }
 
@@ -235,14 +244,18 @@ function addYourLocationButton(map, marker) {
 			navigator.geolocation.getCurrentPosition(function(position) {
 				var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 //				marker.setPosition(latlng);
-				map.setCenter(latlng);
-				map.setZoom(16);
+//				map.setCenter(latlng);
+				
+				map.panTo(latlng);
+				
+//				map.setZoom(14);
 			   
 			setTimeout(function() {
-//			  map.panTo(latLng:latlng);
+			  
 			  marker.setAnimation(google.maps.Animation.BOUNCE);
-	          map.setZoom(17);
-	       }, 1000);
+			  smoothZoom(map, 18, map.getZoom());
+//	          map.setZoom(16);
+	       }, 1000)
 				
 				clearInterval(animationInterval);
 				$('#you_location_img').css('background-position', '-223px 0px');
@@ -279,5 +292,41 @@ $.ajax({
 
 }
 
+function smoothZoom (map, max, cnt) {
+    if (cnt >= max) {
+        return;
+    }
+    else {
+        z = google.maps.event.addListener(map, 'zoom_changed', function(event){
+            google.maps.event.removeListener(z);
+            smoothZoom(map, max, cnt + 1);
+        });
+        setTimeout(function(){map.setZoom(cnt)}, 150); // 80ms is what I found to work well on my system -- it might not work well on all systems
+    }
+}  
 
+function  nearbyPlace(map,location){
+	var service = new google.maps.places.PlacesService(map);
+	 service.nearbySearch({
+          location: location,
+          radius: 500,
+          type: ['store']
+        }, callback);
+}
 
+function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            appendPlace(results[i]);
+            
+          }
+        }else{
+			console.log(status);
+		}
+      }
+      
+function appendPlace(place) {
+       /* var placeLoc = place.geometry.location;*/
+        console.log(place.name);
+        $('#list_place_push').append('<li class="list-group-item">'+place.name+'</li>');
+      }      
