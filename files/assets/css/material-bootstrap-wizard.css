@@ -290,11 +290,11 @@ h2.title {
 .wizard-card .moving-tab {
   position: absolute;
   text-align: center;
-  padding: 12px;
+  padding: 2px;
   font-size: 12px;
   text-transform: uppercase;
   -webkit-font-smoothing: subpixel-antialiased;
-  top: -4px;
+  /*top: -4px;*/
   left: 0px;
   border-radius: 4px;
   color: #FFFFFF;
@@ -371,7 +371,7 @@ h2.title {
   border-color: #00bcd4;
 }
 .wizard-card[data-color="orange"] .moving-tab {
-  background-color: #000000;
+  background-color: #ff9800;
   box-shadow: 0 16px 26px -10px rgba(0,0,0), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(236, 236, 236);
   /*background-color: #ff9800;
   box-shadow: 0 16px 26px -10px rgba(255, 152, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(255, 152, 0, 0.2);*/
@@ -398,7 +398,7 @@ h2.title {
   border-color: #ff9800;
 }
 .wizard-card[data-color="red"] .moving-tab {
-  background-color: #f44336;
+  background-color: #ff9800;
   box-shadow: 0 16px 26px -10px rgba(244, 67, 54, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2);
 }
 .wizard-card[data-color="red"] .picture:hover {
@@ -1358,9 +1358,10 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 
 /*            Navigation menu                */
 .nav-pills {
+      padding-top: 8px;
       /* background-color: rgba(158, 158, 158, 0.14); */
     /* border-bottom: 1px solid #ddd; */
-    border-top: 1px solid #ddd;
+    /*border-top: 1px solid #ddd;*/
     background-color: rgba(200, 200, 200, 0.2);
 }
 .nav-pills > li + li {

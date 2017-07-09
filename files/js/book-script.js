@@ -235,79 +235,276 @@ $(document).ready(function(){
         type = data[0].type;
         console.log(type)
         if (data[0].type == 'Private' && data[0].area == 'In') {
-           $('#datetext').html('Arrival date:')
-           $('#texttime').html('Arrival time:')
+           if ($.cookie("lng") == 'cn') {
+                $('#datetext').html('Arrival date:')
+                $('#texttime').html('Arrival time:')
+                $('#date-final').html('Arrival date:')
+                $('#time-final').html('Arrival time:')
+            }
+            else if($.cookie("lng") == 'en'){
+                $('#datetext').html('Arrival date:')
+                $('#texttime').html('Arrival time:')
+                $('#date-final').html('Arrival date:')
+                $('#time-final').html('Arrival time:')
+               
+            }
+            else if($.cookie("lng") == 'th'){
+                $('#datetext').html('Arrival date:')
+                $('#texttime').html('Arrival time:')
+                $('#date-final').html('Arrival date:')
+                $('#time-final').html('Arrival time:')
+            }
+            else{
+                $('#datetext').html('Arrival date:')
+                $('#texttime').html('Arrival time:')
+                $('#date-final').html('Arrival date:')
+                $('#time-final').html('Arrival time:')
 
-            $('#date-final').html('Arrival date:')
-           $('#time-final').html('Arrival time:')
+            }
+           
 
         }
         if (data[0].type == 'Join' && data[0].area == 'In') {
+            if ($.cookie("lng") == 'cn') {
+                $('#datetext').html('Arrival date:')
+                $('#texttime').html('Arrival time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Arrival date:')
+                $('#time-final').html('Arrival time:')
+               
+            }
+            else if($.cookie("lng") == 'en'){
+                $('#datetext').html('Arrival date:')
+                $('#texttime').html('Arrival time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Arrival date:')
+                $('#time-final').html('Arrival time:')
+               
+               
+            }
+            else if($.cookie("lng") == 'th'){
+                $('#datetext').html('Arrival date:')
+                $('#texttime').html('Arrival time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Arrival date:')
+                $('#time-final').html('Arrival time:')
+                
+            }
+            else{
+                $('#datetext').html('Arrival date:')
+                $('#texttime').html('Arrival time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Arrival date:')
+                $('#time-final').html('Arrival time:')
+                
 
-           $('#datetext').html('Arrival date:')
-           $('#texttime').html('Arrival time:')
-           $('#visa-show').css('display','none')
-
-            $('#date-final').html('Arrival date:')
-           $('#time-final').html('Arrival time:')
+            }
+          
 
         }
         if (data[0].type == 'Join' && data[0].area == 'Out') {
-           $('#datetext').html('Departure date:')
-           $('#texttime').html('Departure time:')
-           $('#visa-show').css('display','none')
-           $('#car-show').css('display','none')
-           $('#box-terminal').css('display','block')
+           if ($.cookie("lng") == 'cn') {
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#box-terminal').css('display','block')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+            }
+            else if($.cookie("lng") == 'en'){
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#box-terminal').css('display','block')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+               
+            }
+            else if($.cookie("lng") == 'th'){
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#box-terminal').css('display','block')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+            }
+            else{
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#box-terminal').css('display','block')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
 
-
-
-            $('#date-final').html('Departure date:')
-           $('#time-final').html('Departure time:')
+            }
+           
 
 
 
         }
         if (data[0].type == 'Private' && data[0].area == 'Point') {
-           $('#datetext').html('Service date:')
-           $('#texttime').html('Service time:')
-           $('#visa-show').css('display','none')
+            if ($.cookie("lng") == 'cn') {
+                $('#datetext').html('Service date:')
+                $('#texttime').html('Service time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Service date:')
+                $('#time-final').html('Service time:')
 
-            $('#date-final').html('Service date:')
-           $('#time-final').html('Service time:')
+            }
+            else if($.cookie("lng") == 'en'){
+                $('#datetext').html('Service date:')
+                $('#texttime').html('Service time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Service date:')
+                $('#time-final').html('Service time:')
 
+               
+            }
+            else if($.cookie("lng") == 'th'){
+                $('#datetext').html('Service date:')
+                $('#texttime').html('Service time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Service date:')
+                $('#time-final').html('Service time:')
+
+            }
+            else{
+                $('#datetext').html('Service date:')
+                $('#texttime').html('Service time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Service date:')
+                $('#time-final').html('Service time:')
+                
+
+            }
+          
            
         }
         if (data[0].type == 'Private' && data[0].area == 'Service') {
-           $('#datetext').html('Service date:')
-           $('#texttime').html('Service time:')
-           $('#visa-show').css('display','none')
+            if ($.cookie("lng") == 'cn') {
+                $('#datetext').html('Service date:')
+                $('#texttime').html('Service time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Service date:')
+                $('#time-final').html('Service time:')
+            }
+            else if($.cookie("lng") == 'en'){
+                $('#datetext').html('Service date:')
+                $('#texttime').html('Service time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Service date:')
+                $('#time-final').html('Service time:')
+               
+               
+            }
+            else if($.cookie("lng") == 'th'){
+                $('#datetext').html('Service date:')
+                $('#texttime').html('Service time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Service date:')
+                $('#time-final').html('Service time:')
+                
+            }
+            else{
+                $('#datetext').html('Service date:')
+                $('#texttime').html('Service time:')
+                $('#visa-show').css('display','none')
+                $('#date-final').html('Service date:')
+                $('#time-final').html('Service time:')
+                
 
-            $('#date-final').html('Service date:')
-           $('#time-final').html('Service time:')
+            }
+           
 
 
            
         }
         if (data[0].type == 'Join' && data[0].area == 'Point')  {
-            $('#datetext').html('Departure date:')
-           $('#texttime').html('Departure time:')
-           $('#visa-show').css('display','none')
-           $('#car-show').css('display','none')
+            if ($.cookie("lng") == 'cn') {
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+            }
+            else if($.cookie("lng") == 'en'){
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+               
+            }
+            else if($.cookie("lng") == 'th'){
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+            }
+            else{
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
 
-           $('#date-final').html('Departure date:')
-           $('#time-final').html('Departure time:')
+            }
+           
 
            
         }
         if (data[0].type == 'Private' && data[0].area == 'Out')  {
-            $('#datetext').html('Departure date:')
-           $('#texttime').html('Departure time:')
-           $('#visa-show').css('display','none')
-           $('#car-show').css('display','none')
+            if ($.cookie("lng") == 'cn') {
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+                $('#box-terminal').css('display','block')
+            }
+            else if($.cookie("lng") == 'en'){
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+                $('#box-terminal').css('display','block')
+               
+               
+            }
+            else if($.cookie("lng") == 'th'){
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+                $('#box-terminal').css('display','block')
+                
+            }
+            else{
+                $('#datetext').html('Departure date:')
+                $('#texttime').html('Departure time:')
+                $('#visa-show').css('display','none')
+                $('#car-show').css('display','none')
+                $('#date-final').html('Departure date:')
+                $('#time-final').html('Departure time:')
+                $('#box-terminal').css('display','block')
+                
 
-           $('#date-final').html('Departure date:')
-           $('#time-final').html('Departure time:')
-           $('#box-terminal').css('display','block')
+            }
+            
 
 
            
