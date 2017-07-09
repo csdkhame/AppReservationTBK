@@ -147,13 +147,21 @@
 .card-style {
     display: block;
     background-color: #fff;
-    height: 140px;
-    width: 250px;
+    height: 350px;
+    width: 350px;
     margin: 20px 0px;
     box-shadow: 1px 1px 8px #999;
     cursor: pointer;
 }
-
+.btn-hide-show {
+    display: block;
+    background-color: #ddd;
+    height: 350px;
+    width: 23px;
+    margin: 20px 0px;
+    box-shadow: 1px 1px 8px #999;
+    cursor: pointer;
+}
 .media-heading {
     margin-top: 10px;
     color: #444;
@@ -181,28 +189,37 @@
      margin: 10px;
  }
 </style>
-<!--<i class="material-icons">keyboard_arrow_right</i>-->
 
-		<div id="list_place" style="z-index: 0; position: absolute;   left: -16px;  /*top: 202px;*/ display: nones;">
+		<div id="list_place" style="z-index: 10; position: absolute;   left: 1px; display: none;  /*top: 202px;*/">
             <div class="row">
                 <div class="col-md-3 col-sm-5">
-                    <div class="card-style" style=" overflow: scroll !important;">
+                	<table><tr><td>
+                    <div class="card-style" style=" overflow: scroll !important; display: none;" id="card-style" >
                         <!--<div class="media">-->
-                 
-                            <div class="media-body">
+                            <div class="media-body">             
                                <!-- <a href="#"><h5 class="media-heading">Disc. Programação Internet Rica - 2016.2</h5></a>
                                 <div class="members pull-left"><small>1.235 Members</small></div><div class="btn btn-sm btn-danger pull-right btn-part">Join Group</div>-->
-                               <ul class="list-group" id="list_place_push" >
+                               <ul class="list-group" id="list_place_push" style="font-size: 15px;" >
 
-								</ul>
-                                
-                            <!--</div>-->
-                        </div>
+								</ul>                            
+                           </div>
+                     <!--   </div>-->
                     </div>
+					</td>
+					<td>
+						<div class="btn-hide-show" id="btn_hide-show" style="z-index: 11;">
+						<div style="height: 90px; line-height:150px;margin-left: -1px;" id="change_icon">
+						<i class="material-icons">keyboard_arrow_right</i>		
+						</div>
+					</div>
+					</td>
+					</tr></table>
                 </div>
             </div>
         </div>
-        
+
+
+   
      <div id="search-raeltime" style=" position: absolute;
         margin-top: 112px;
         width: 100%;

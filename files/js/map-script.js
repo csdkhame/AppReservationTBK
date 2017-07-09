@@ -6,20 +6,34 @@ $('pac-input').css('display','none');
 	});
 
 	$('#start_yes-change').click(function(){
-		
-		
+			
  			var chk_val_search = $('#chk_val_search').val();
             if (chk_val_search == 1) {
                 $('#chk_val_search').val(0);
                 $('#open-search').hide(700);
-               $('#start_yes-change span').text('Yes');
+                $('#start_yes-change span').text('Yes');
             } else {
                 $('#chk_val_search').val(1);
                 $('#open-search').show(700);
                 $('#start_yes-change span').text('Change');
             }
 	});
-
+	
+	$('#btn_hide-show').click(function(){
+		var chk_val_search = $('#chk_val_search').val();
+            if (chk_val_search == 1) {
+                $('#chk_val_search').val(0);
+                $('#change_icon').html('<i class="material-icons">keyboard_arrow_right</i>	');
+              
+            } else {
+                $('#chk_val_search').val(1);
+                $('#change_icon').html('<i class="material-icons">keyboard_arrow_left</i>');
+               
+            }
+		 $("#card-style").animate({width: 'toggle'}, "slow");
+		 
+		 
+	});
 function initialize() {
 	
        	var mapMinZoom = 14;
@@ -61,14 +75,14 @@ function initialize() {
         var closeButton = document.querySelector('#close_streetview');
         controlPosition = google.maps.ControlPosition.LEFT_CENTER;
         
+      /*  var openPlace = document.getElementById('btn_hide-show');
+        map.controls[ google.maps.ControlPosition.LEFT_BOTTOM ].push( openPlace );*/
+        
         var list = document.getElementById('list_place');
-        controlList = google.maps.ControlPosition.LEFT_BOTTOM;
+         map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(list)
 //        controlList = google.maps.ControlPosition.LEFT_CENTER;
-        
-        
+           
         thePanorama.controls[ controlPosition ].push( closeButton );
-        
-        map.controls[controlList].push(list);
         
         google.maps.event.addDomListener(closeButton, 'click', function(){
         	

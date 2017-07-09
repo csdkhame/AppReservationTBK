@@ -117,8 +117,7 @@ $(document).ready(function() {
         
     });
     $('.btn-reservation').click(function() {
-        // alert("aaaa")
-        
+        // alert("aaaa");
         $('#loading').css('display', 'block');
         //$('#content').css('display','none');
         setTimeout(function() {
@@ -143,7 +142,7 @@ $(document).ready(function() {
 
     });
     $('.btn-realtime').click(function() {
-
+	  
        $('#loading').css('display', 'block');
 //       $('#btn-real-res').css('display', 'none');
         
@@ -155,7 +154,8 @@ $(document).ready(function() {
              $("#iconleft").hide(); 
              $("#pro-search").hide(); 
               $("#search-raeltime").fadeIn(1000);
-
+			
+			$("#list_place").fadeIn(1000);
              $(".btn-reservation").hide(); 
             // $('#map2').css('display', 'block');
             $('#loading').css('display', 'none');
