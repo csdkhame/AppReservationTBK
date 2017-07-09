@@ -239,6 +239,15 @@ $(document).ready(function() {
                             $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
                                         
                         }
+                        else{
+                             car_topic = compae1private[i].topic_en;
+                            cartype = compae1private[i].car_topic_en;
+                            pax = compae1private[i].pax_en;
+                            $('.lng-book').html('Book')
+                            $('.lng-capacity-info').html('Capacity info')
+                            $('.lng-facilities').html('Facilities')
+
+                        }
 
                         $('#product_a').append('<div class="a-link-item col-lg-12" >' +
                             '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
@@ -310,6 +319,14 @@ $(document).ready(function() {
                             $('.lng-capacity-info').html('ข้อมูลความจุ')
                             $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
                                         
+                        }
+                        else{
+                           car_topic = compae1join[i].topic_en;
+                            cartype = compae1join[i].car_topic_en;
+                            pax = compae1join[i].pax_en;
+                             $('.lng-book').html('Book')
+                            $('.lng-capacity-info').html('Capacity info')
+                            $('.lng-facilities').html('Facilities') 
                         }
                         $('#product_c').append('<div class="a-link-item col-lg-12" >' +
                             '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
@@ -404,7 +421,7 @@ $(document).ready(function() {
                data1 = data.data1;
                 var cartype = data.cartype;
                 console.log(data1)
-                console.log(cartype)
+                //console.log(cartype)
 
                 $.each(cartype , function(i, val) { 
                 var index2 = parseInt(i) + 1;               
@@ -477,6 +494,15 @@ $(document).ready(function() {
                             $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
                                         
                         }
+                        else{
+                            car_topic = compae1private[i].topic_en;
+                            cartype = compae1private[i].car_topic_en;
+                            pax = compae1private[i].pax_en;
+                            $('.lng-book').html('Book')
+                            $('.lng-capacity-info').html('Capacity info')
+                            $('.lng-facilities').html('Facilities')
+
+                        }
                         $('#product_a').append('<div class="a-link-item col-lg-12" >' +
                             '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
                             '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
@@ -547,6 +573,14 @@ $(document).ready(function() {
                             $('.lng-capacity-info').html('ข้อมูลความจุ')
                             $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
                                         
+                        }
+                        else{
+                            car_topic = compae1join[i].topic_en;
+                            cartype = compae1join[i].car_topic_en;
+                            pax = compae1join[i].pax_en;
+                            $('.lng-book').html('Book')
+                            $('.lng-capacity-info').html('Capacity info')
+                            $('.lng-facilities').html('Facilities')
                         }
                         $('#product_c').append('<div class="a-link-item col-lg-12" >' +
                             '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +

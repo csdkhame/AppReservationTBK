@@ -276,6 +276,12 @@
         
 		</div>
 <style>
+.media-heading:hover, a:link{
+    color: #333 !important;
+}
+.lng-book{
+     color: #333 !important;
+}
 #iconhome{
     font-size: 32px;
     color: #555;
@@ -783,8 +789,8 @@ a[href^="https://www.google.com/maps"] {
     min-height: 340px;
 }
 #i-list {
-    margin-left: 57% !important;
-    margin-top: 25px !important;
+   margin-left: 63% !important;
+    margin-top: 15px !important;
     float: right;
 }
 .main-raised {
@@ -856,7 +862,7 @@ div.banner{
 }
 .views-item {
    
-    padding: 10px 45px;
+    padding: 5px 30px;
     
    
 }

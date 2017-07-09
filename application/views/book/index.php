@@ -1172,6 +1172,7 @@
     width: 100%;
     padding: 0 30px;
 }
+
 /*.btn-books {
     background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
     background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);
