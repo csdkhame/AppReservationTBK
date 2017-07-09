@@ -156,7 +156,7 @@
 .btn-hide-show {
     display: block;
     background-color: #ddd;
-    height: 350px;
+    height: 150px;
     width: 23px;
     margin: 20px 0px;
     box-shadow: 1px 1px 8px #999;

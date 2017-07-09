@@ -77,7 +77,9 @@ $(document).ready(function() {
         //$(this).css('display','none');
          $("#iconhome").fadeIn(1000); 
         $("#iconleft").fadeIn(1000);
-
+        
+		$("#list_place").hide(); 
+		
         //$("#iconleft").css('display','block');
          $("#iconleft2").css('display','none');//.fadeIn(1000);
         
