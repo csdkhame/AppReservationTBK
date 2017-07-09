@@ -356,17 +356,17 @@
                     <!--      Wizard container        -->
                     <div class="wizard-container">
                         <div class="card wizard-card" data-color="orange" id="wizardProfile">
-                            <form action="" method="">
+                            <form >
                         <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
 
                                 <div class="wizard-header">
                                     
-                                    <h5>Booking infomation.</h5>
+                                    <h5 class="lng-booking-infomation"></h5>
                                 </div>
                                 <div class="wizard-navigation">
                                     <ul>
                                         <li><a href="#about" data-toggle="tab"></a><span class="lng-product"></span></li>
-                                        <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li>
+                                       <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> <!-- <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> -->
                                         <li><a href="#address" data-toggle="tab" ></a><span class="lng-summary"></span></li>
                                     </ul>
                                 </div>
@@ -429,7 +429,7 @@
                                                              &nbsp; &nbsp;
                                                             <span id="numsumprice"></span>
                                                         </p>
-                                                        <div class="box-list-cars" ng-style="list" style="display: block;"><span class="lng-you-choose"></span> 
+                                                        <div class="box-list-cars" ><span class="lng-you-choose"></span> 
                                     <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>)</span> <span class="lng-car"></span>
                                     <span style="color:#000" class="ng-binding">1- <span id="checksum"></span><span class="lng-person"></span> </span>
                                 </div>
@@ -716,11 +716,11 @@
                                     <div class="form-person form-group col-md-12" id="visa-show">
                                         <table width="100%">
                                             <tr>
-                                                <td width="20%"  style="padding-right: 10px;">
+                                                <td  style="padding-right: 10px;">
                                                     <label style="text-align:left" ><span class="lng-visa"></span><span>:</span></label>
                                                     
                                                 </td>
-                                                <td width="80%">
+                                                <td >
                                                     <table width="100%">
                                                         <tr >
                                                             <td align="center">
@@ -1057,6 +1057,16 @@
                           <p class="ng-binding"></p>
                         </div>
 <style>
+.moving-tab:after{
+    /*border-bottom: 11px solid #FFFFFF;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50px;
+    top: -10px;*/
+}
 .nav>li>a{
     padding: 0px;
 }
@@ -1172,6 +1182,7 @@
     width: 100%;
     padding: 0 30px;
 }
+
 /*.btn-books {
     background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
     background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);
@@ -1273,7 +1284,7 @@
                   <div class="modal fade" id="codecountry" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
-                        <div class="modal-content" style="    max-height: 700px;
+                        <div class="modal-content" style="    max-height: 640px;
     overflow: hidden;
     overflow-y: scroll;">
                             <div class="modal-header">
@@ -1475,8 +1486,8 @@
     <!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js"></script> 
-    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js?v=<?=time()?>"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
    
     <!-- <script src="<?php echo base_url(); ?>files/js/modernizr-2.6.2.min.js"></script> -->
   
@@ -1505,7 +1516,7 @@
     margin-right: 15px;
 }
 .modal .modal-dialog {
-    margin-top: 20px !important;
+    margin-top: 10px !important;
 }
 #box-image{
     width: 100%;

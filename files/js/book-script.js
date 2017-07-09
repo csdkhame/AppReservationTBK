@@ -234,12 +234,13 @@ $(document).ready(function(){
         costproduct = data[0].cost_a_agent_all;
         type = data[0].type;
         console.log(type)
+        console.log($.cookie("lng"))
         if (data[0].type == 'Private' && data[0].area == 'In') {
            if ($.cookie("lng") == 'cn') {
-                $('#datetext').html('Arrival date:')
-                $('#texttime').html('Arrival time:')
-                $('#date-final').html('Arrival date:')
-                $('#time-final').html('Arrival time:')
+                $('#datetext').html('到达日期:')
+                $('#texttime').html('到达时间:')
+                $('#date-final').html('到达日期:')
+                $('#time-final').html('到达时间:')
             }
             else if($.cookie("lng") == 'en'){
                 $('#datetext').html('Arrival date:')
@@ -249,12 +250,12 @@ $(document).ready(function(){
                
             }
             else if($.cookie("lng") == 'th'){
-                $('#datetext').html('Arrival date:')
-                $('#texttime').html('Arrival time:')
-                $('#date-final').html('Arrival date:')
-                $('#time-final').html('Arrival time:')
+                $('#datetext').html('วันที่มาถึง:')
+                $('#texttime').html('เวลาถึง:')
+                $('#date-final').html('วันที่มาถึง:')
+                $('#time-final').html('เวลาถึง:')
             }
-            else{
+            else if($.cookie("lng") == undefined){
                 $('#datetext').html('Arrival date:')
                 $('#texttime').html('Arrival time:')
                 $('#date-final').html('Arrival date:')
@@ -266,11 +267,11 @@ $(document).ready(function(){
         }
         if (data[0].type == 'Join' && data[0].area == 'In') {
             if ($.cookie("lng") == 'cn') {
-                $('#datetext').html('Arrival date:')
-                $('#texttime').html('Arrival time:')
+                $('#datetext').html(' 到达日期:')
+                $('#texttime').html(' 到达时间:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Arrival date:')
-                $('#time-final').html('Arrival time:')
+                $('#date-final').html(' 到达日期:')
+                $('#time-final').html(' 到达时间:')
                
             }
             else if($.cookie("lng") == 'en'){
@@ -283,14 +284,14 @@ $(document).ready(function(){
                
             }
             else if($.cookie("lng") == 'th'){
-                $('#datetext').html('Arrival date:')
-                $('#texttime').html('Arrival time:')
+                $('#datetext').html('วันที่มาถึง:')
+                $('#texttime').html(' เวลาถึง:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Arrival date:')
-                $('#time-final').html('Arrival time:')
+                $('#date-final').html('วันที่มาถึง:')
+                $('#time-final').html('เวลาถึง:')
                 
             }
-            else{
+           else if($.cookie("lng") == undefined){
                 $('#datetext').html('Arrival date:')
                 $('#texttime').html('Arrival time:')
                 $('#visa-show').css('display','none')
@@ -304,13 +305,13 @@ $(document).ready(function(){
         }
         if (data[0].type == 'Join' && data[0].area == 'Out') {
            if ($.cookie("lng") == 'cn') {
-                $('#datetext').html('Departure date:')
-                $('#texttime').html('Departure time:')
+                $('#datetext').html(' 出发日期:')
+                $('#texttime').html(' 出发时间:')
                 $('#visa-show').css('display','none')
                 $('#car-show').css('display','none')
                 $('#box-terminal').css('display','block')
-                $('#date-final').html('Departure date:')
-                $('#time-final').html('Departure time:')
+                $('#date-final').html('出发日期:')
+                $('#time-final').html('出发时间:')
             }
             else if($.cookie("lng") == 'en'){
                 $('#datetext').html('Departure date:')
@@ -323,15 +324,15 @@ $(document).ready(function(){
                
             }
             else if($.cookie("lng") == 'th'){
-                $('#datetext').html('Departure date:')
-                $('#texttime').html('Departure time:')
+                $('#datetext').html('วันเดินทาง:')
+                $('#texttime').html('เวลาออกเดินทาง:')
                 $('#visa-show').css('display','none')
                 $('#car-show').css('display','none')
                 $('#box-terminal').css('display','block')
-                $('#date-final').html('Departure date:')
-                $('#time-final').html('Departure time:')
+                $('#date-final').html('วันเดินทาง:')
+                $('#time-final').html('เวลาออกเดินทาง:')
             }
-            else{
+            else if($.cookie("lng") == undefined){
                 $('#datetext').html('Departure date:')
                 $('#texttime').html('Departure time:')
                 $('#visa-show').css('display','none')
@@ -372,7 +373,7 @@ $(document).ready(function(){
                 $('#time-final').html('Service time:')
 
             }
-            else{
+            else if($.cookie("lng") == undefined){
                 $('#datetext').html('Service date:')
                 $('#texttime').html('Service time:')
                 $('#visa-show').css('display','none')
@@ -409,7 +410,7 @@ $(document).ready(function(){
                 $('#time-final').html('Service time:')
                 
             }
-            else{
+            else if($.cookie("lng") == undefined){
                 $('#datetext').html('Service date:')
                 $('#texttime').html('Service time:')
                 $('#visa-show').css('display','none')
@@ -425,12 +426,12 @@ $(document).ready(function(){
         }
         if (data[0].type == 'Join' && data[0].area == 'Point')  {
             if ($.cookie("lng") == 'cn') {
-                $('#datetext').html('Departure date:')
-                $('#texttime').html('Departure time:')
+                $('#datetext').html('出发日期:')
+                $('#texttime').html('出发时间:')
                 $('#visa-show').css('display','none')
                 $('#car-show').css('display','none')
-                $('#date-final').html('Departure date:')
-                $('#time-final').html('Departure time:')
+                $('#date-final').html('出发日期:')
+                $('#time-final').html(' 出发时间:')
             }
             else if($.cookie("lng") == 'en'){
                 $('#datetext').html('Departure date:')
@@ -442,14 +443,14 @@ $(document).ready(function(){
                
             }
             else if($.cookie("lng") == 'th'){
-                $('#datetext').html('Departure date:')
-                $('#texttime').html('Departure time:')
+                $('#datetext').html('วันเดินทาง:')
+                $('#texttime').html('เวลาออกเดินทาง:')
                 $('#visa-show').css('display','none')
                 $('#car-show').css('display','none')
-                $('#date-final').html('Departure date:')
-                $('#time-final').html('Departure time:')
+                $('#date-final').html('วันเดินทาง:')
+                $('#time-final').html('เวลาออกเดินทาง:')
             }
-            else{
+            else if($.cookie("lng") == undefined){
                 $('#datetext').html('Departure date:')
                 $('#texttime').html('Departure time:')
                 $('#visa-show').css('display','none')
@@ -464,12 +465,12 @@ $(document).ready(function(){
         }
         if (data[0].type == 'Private' && data[0].area == 'Out')  {
             if ($.cookie("lng") == 'cn') {
-                $('#datetext').html('Departure date:')
-                $('#texttime').html('Departure time:')
+                 $('#datetext').html('出发日期:')
+                $('#texttime').html('出发时间:')
                 $('#visa-show').css('display','none')
                 $('#car-show').css('display','none')
-                $('#date-final').html('Departure date:')
-                $('#time-final').html('Departure time:')
+                $('#date-final').html('出发日期:')
+                $('#time-final').html('出发时间:')
                 $('#box-terminal').css('display','block')
             }
             else if($.cookie("lng") == 'en'){
@@ -484,16 +485,16 @@ $(document).ready(function(){
                
             }
             else if($.cookie("lng") == 'th'){
-                $('#datetext').html('Departure date:')
-                $('#texttime').html('Departure time:')
+                $('#datetext').html('วันเดินทาง:')
+                $('#texttime').html('เวลาออกเดินทาง:')
                 $('#visa-show').css('display','none')
                 $('#car-show').css('display','none')
-                $('#date-final').html('Departure date:')
-                $('#time-final').html('Departure time:')
+                $('#date-final').html('วันเดินทาง:')
+                $('#time-final').html('เวลาออกเดินทาง:')
                 $('#box-terminal').css('display','block')
                 
             }
-            else{
+            else if($.cookie("lng") == undefined){
                 $('#datetext').html('Departure date:')
                 $('#texttime').html('Departure time:')
                 $('#visa-show').css('display','none')

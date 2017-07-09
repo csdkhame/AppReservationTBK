@@ -79,21 +79,21 @@ $(document).ready(function() {
         $('.lng-capacity-info').html('容量信息')
         $('.lng-facilities').html('设施')
         $('.lng-summary').html('总结')
-        $('.lng-contact-infomation').html('Contact infomation')
+        $('.lng-contact-infomation').html('联系信息')
         $('.lng-from').html('从')
         $('.lng-to').html('至')
         $('.lng-type').html('类型')
         $('.lng-price').html('价格')
         $('.lng-total-prices').html('总价')
-        $('.lng-person').html('Person')
+        $('.lng-person').html('人')
         $('.lng-car').html('车')
-        $('.lng-you-choose').html('You choose')
+        $('.lng-you-choose').html('你选择')
         $('.lng-adult').html('成人')
         $('.lng-child').html('儿童')
-        $('.lng-visa').html('Visa')
-        $('.lng-departure-terminal').html('Departure terminal')
+        $('.lng-visa').html('落地签证')
+        $('.lng-departure-terminal').html('出发航站楼')
         $('.lng-get-detail').html('获取注册的详细信息')
-        $('.lng-product-name').html('Product name')
+        $('.lng-product-name').html('产品')
         $('.lng-pick-up-from').html('接客地点')
         $('.lng-pick-up-to').html('送客地点')
         $('.lng-first-name').html('名')
@@ -103,6 +103,8 @@ $(document).ready(function() {
         $('.lng-flight').html('航班')
         $('.lng-sum-total').html('总计')
         $('.lng-acceptance-of-terms').html('接受条款')
+        $('.lng-booking-infomation').html('预订信息')
+
 
 
 
@@ -149,7 +151,7 @@ $(document).ready(function() {
         $('.lng-you-choose').html('You choose')
         $('.lng-adult').html('Adult')
         $('.lng-child').html('Child')
-        $('.lng-visa').html('Visa')
+        $('.lng-visa').html('Visa on Arrival')
         $('.lng-departure-terminal').html('Departure terminal')
         $('.lng-get-detail').html('Get Detail for register')
         $('.lng-product-name').html('Product name')
@@ -162,6 +164,8 @@ $(document).ready(function() {
         $('.lng-flight').html('Flight')
         $('.lng-sum-total').html('Sum total')
         $('.lng-acceptance-of-terms').html('Acceptance of terms')
+        $('.lng-booking-infomation').html('Booking infomation')
+
 
 
 
@@ -196,21 +200,21 @@ $(document).ready(function() {
         $('.lng-capacity-info').html('ข้อมูลความจุ')
         $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
         $('.lng-summary').html('สรุป')
-        $('.lng-contact-infomation').html('Contact infomation')
+        $('.lng-contact-infomation').html('ข้อมูลติดต่อ')
         $('.lng-from').html('จาก')
         $('.lng-to').html('ไปยัง')
         $('.lng-type').html('ประเภท')
         $('.lng-price').html('ราคา')
         $('.lng-total-prices').html('ราคารวม')
-        $('.lng-person').html('Person')
+        $('.lng-person').html('คน')
         $('.lng-car').html('รถ')
-        $('.lng-you-choose').html('You choose')
+        $('.lng-you-choose').html('คุณเลือก')
         $('.lng-adult').html('ผู้ใหญ่')
         $('.lng-child').html('เด็ก')
-        $('.lng-visa').html('Visa')
-        $('.lng-departure-terminal').html('Departure terminal')
+        $('.lng-visa').html('วีซ่า')
+        $('.lng-departure-terminal').html('อาคารขาออก')
         $('.lng-get-detail').html('รับรายละเอียดเพื่อลงทะเบียน')
-        $('.lng-product-name').html('Product name')
+        $('.lng-product-name').html('สินค้า')
         $('.lng-pick-up-from').html('รับจาก')
         $('.lng-pick-up-to').html('สถานที่ส่ง')
         $('.lng-first-name').html('ชื่อ')
@@ -220,6 +224,8 @@ $(document).ready(function() {
         $('.lng-flight').html('เที่ยวบิน')
         $('.lng-sum-total').html('ยอดรวม')
         $('.lng-acceptance-of-terms').html('การยอมรับข้อตกลง')
+        $('.lng-booking-infomation').html('ข้อมูลการจอง')
+
 
 
 
@@ -234,7 +240,7 @@ $(document).ready(function() {
 
                 	
     }
-    else{
+    else if($.cookie("lng") == undefined){
         $('.lng-private').html('Private')
         $('.lng-join').html('Join')
         //menu
@@ -243,7 +249,7 @@ $(document).ready(function() {
         $('.lng-product').html('Product')
         $('.lng-transports').html('Transports')
         $('.lng-tours').html('Transports')
-        $('.lng-language').html('Transports')
+        $('.lng-language').html('Language')
         $('.lng-settings-account').html('Settings Account')
         $('.lng-logout').html('Logout')
         //home
@@ -267,7 +273,7 @@ $(document).ready(function() {
         $('.lng-you-choose').html('You choose')
         $('.lng-adult').html('Adult')
         $('.lng-child').html('Child')
-        $('.lng-visa').html('Visa')
+        $('.lng-visa').html('Visa on Arrival')
         $('.lng-departure-terminal').html('Departure terminal')
         $('.lng-get-detail').html('Get Detail for register')
         $('.lng-product-name').html('Product name')
@@ -280,6 +286,9 @@ $(document).ready(function() {
         $('.lng-flight').html('Flight')
         $('.lng-sum-total').html('Sum total')
         $('.lng-acceptance-of-terms').html('Acceptance of terms')
+        $('.lng-booking-infomation').html('Booking infomation')
+
+
 
 
 
