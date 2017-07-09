@@ -5,7 +5,7 @@
         border: 2px solid rgb(255, 255, 255);
     min-width: 2rem;
     /* height: auto; */
-    z-index: 100;
+    z-index: 201;
     left: 50vw;
     top: 86vh;
     overflow: hidden;
@@ -21,7 +21,7 @@
        border: 2px solid rgb(59, 89, 152);
     min-width: 2rem;
     /* height: auto; */
-    z-index: 100;
+    z-index: 201;
     left: 50vw;
     top: 86vh;
     overflow: hidden;

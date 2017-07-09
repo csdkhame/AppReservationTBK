@@ -365,9 +365,9 @@
                                 </div>
                                 <div class="wizard-navigation">
                                     <ul>
-                                        <li><a href="#about" data-toggle="tab">Product</a></li>
-                                        <li><a href="#account" data-toggle="tab">Contact infomation</a></li>
-                                        <li><a href="#address" data-toggle="tab">Summary</a></li>
+                                        <li><a href="#about" data-toggle="tab"></a><span class="lng-product"></span></li>
+                                        <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li>
+                                        <li><a href="#address" data-toggle="tab" ></a><span class="lng-summary"></span></li>
                                     </ul>
                                 </div>
 
@@ -386,20 +386,20 @@
                                                     </div>
                                                     <div class="box-name">
                                                         <p>
-                                                            <label style="text-align:left" >Program:</label>   &nbsp;&nbsp;
+                                                            <label style="text-align:left" ><span class="lng-product"></span></span><span>:</span></label>   &nbsp;&nbsp;
                                                             <span id="product" style="text-align: center;"></span>
                                                         </p>
                                                     </div>                           
                                                         <div class="province">
                                                             <p style="">
-                                                            <label style="text-align:left" >From:</label>
+                                                            <label style="text-align:left" ><span class="lng-from"></span><span>:</span></label>
                                                                 &nbsp;&nbsp;
                                                                 
                                                                 <span id="province" style="color: #000;"></span>
                                                                 
                                                                 </p>
                                                             <p style="">
-                                                    <label style="text-align:left" >To:</label>
+                                                    <label style="text-align:left" ><span class="lng-to"></span><span>:</span></label>
 
                                                               
                                                                 &nbsp;&nbsp;
@@ -410,7 +410,7 @@
                                                             </p>
                                                         </div>
                                                         <p style="">
-                                                            <label style="text-align:left" >Type:</label>
+                                                            <label style="text-align:left" ><span class="lng-type"></span><span>:</span></label>
 
                                                             <!-- <span ></span> -->
                                                            &nbsp;&nbsp;
@@ -418,20 +418,20 @@
                                                             
                                                         </p>
                                                         <p class="prices">
-                                                            <label style="text-align:left" >Price:</label>
+                                                            <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>
                                                             
                                                             &nbsp;&nbsp;
                                                             <span style="color: #fb833f;" id="price"></span>
                                                         </p>
                                                         <p class="sumprice">
-                                                             <label style="text-align:left" >Total prices :</label>
+                                                             <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>
                                                            
                                                              &nbsp; &nbsp;
                                                             <span id="numsumprice"></span>
                                                         </p>
-                                                        <div class="box-list-cars" ng-style="list" style="display: block;">You choose 
-                                    <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>)</span> cars 
-                                    <span style="color:#000" class="ng-binding">1- <span id="checksum"></span> person</span>
+                                                        <div class="box-list-cars" ng-style="list" style="display: block;"><span class="lng-you-choose"></span> 
+                                    <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>)</span> <span class="lng-car"></span>
+                                    <span style="color:#000" class="ng-binding">1- <span id="checksum"></span><span class="lng-person"></span> </span>
                                 </div>
                                 <div class="row">
                                     
@@ -595,7 +595,7 @@
                                         <table width="100%">
                                             <tr>
                                                 <td width="20%"  style="padding-right: 10px;">
-                                                    <label style="text-align:left" >Cars:</label>
+                                                    <label style="text-align:left" ><span class="lng-car"></span><span>:</span></label>
                                                 </td>
                                                 <td width="80%">
                                                     <table width="100%">
@@ -631,7 +631,7 @@
                                                     <table width="100%">
                                                         <tr>
                                                             <td width="40%">
-                                                                <label style="text-align:left" >Adult(s):</label>
+                                                                <label style="text-align:left" ><span class="lng-adult"></span><span>:</span></label>
                                                                     
                                                                 
                                                             </td>
@@ -680,7 +680,7 @@
                                                     <table width="100%">
                                                         <tr>
                                                             <td width="40%">
-                                                                <label style="text-align:left" >Child(s):</label>
+                                                                <label style="text-align:left" ><span class="lng-child"></span><span>:</span></label>
                                                                 
                                                                 
                                                             </td>
@@ -717,7 +717,7 @@
                                         <table width="100%">
                                             <tr>
                                                 <td width="20%"  style="padding-right: 10px;">
-                                                    <label style="text-align:left" >Visa:</label>
+                                                    <label style="text-align:left" ><span class="lng-visa"></span><span>:</span></label>
                                                     
                                                 </td>
                                                 <td width="80%">
@@ -726,7 +726,7 @@
                                                             <td align="center">
                                                             <select class="form-control form-inline asd" id="visa"  name="visa" style="width: 100%" >
                                                                         
-                                                              <option value="">none</option>            
+                                                              <option value="" >none</option>            
                                                               <option value="1">Yes</option>            
                                                               <option value="0">No</option>            
                                                                         
@@ -742,7 +742,7 @@
                                         <table width="100%">
                                             <tr>
                                                 <td width=""  style="padding-right: 10px;">
-                                                    <label style="text-align:left" >Departure terminal:</label>
+                                                    <label style="text-align:left" ><span class="lng-departure-terminal"></span><span>:</span></label>
 
                                                 </td>
                                                 <td width="">
@@ -776,7 +776,7 @@
                                         <div class="checkbox" style="margin-bottom: 30px;">
                                             <label>
                                                 <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
-                                                Get Detail for register
+                                                <span class="lng-get-detail"></span>
                                             </label>
                                         </div>
                                     </div>    
@@ -903,23 +903,23 @@
                         <div class="box-info-item">
                             <div >
                                 <div class="toppic">
-                                    <p>Product name:</p>
+                                    <p><span class="lng-product-name"></span><span>:</span></p>
                                     <span>
-                                            <span style="color: #fb833f;" id="name_product"></span><span style="color: #FF9800;" >(Transport)</span>
+                                            <span style="color: #fb833f;" id="name_product"></span><span style="color: #FF9800;" ><span>(</span><span class="lng-transports"></span><span>)</span></span>
                                     </span>
                                 </div>
 
                                 <div class="toppic" >
-                                    <p>Car type:</p>
+                                    <p><span class="lng->car-type"></span><span>:</span></p>
                                     <span style="color: #fb833f;" id="cars_type"></span>
                                     
                                 </div>
                                 <div class="toppic" >
-                                    <p>Pick up from: </p>
+                                    <p><span class="lng-pick-up-from"></span><span>:</span></p>
                                     <span style="color: #fb833f;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
                                 </div>
                                 <div class="toppic" >
-                                    <p>Pick up to:</p>
+                                    <p><span class="lng-pick-up-to"></span><span>:</span></p>
                                     <span style="color: #fb833f;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
                                 </div>
                                 
@@ -940,10 +940,10 @@
                                 <div class="col-lg-6" style="padding: 0">
                                     <div class="section06-detail-line02-firstname">             
                                         <div class="firstname ">
-                                           <span >First Name :</span>
+                                           <span class="lng-first-name"></span><span>:</span>
                                             
                                         </div>
-                                        <label id="summaryname">ozaman</label>
+                                        <label id="summaryname"></label>
                                     </div>
                                    <!--  <div class="section06-line02-lastname">
                                         <div class="lastname">
@@ -954,7 +954,7 @@
                                     </div> -->
                                     <div class="section06-line02-phone">
                                         <div class="phone">
-                                           <span >Phone :</span>
+                                           <span class="lng-phone"></span><span>:</span>
                                             </div>         
                                         <label id="summaryphone" ></label>
                                     </div>                         
@@ -964,7 +964,7 @@
                                     
                                     <div class="section06-line02-email">     
                                         <div class="email">
-                                            <span >Email :</span>
+                                            <span class="lng-email"></span><span >:</span>
                                             
                                            </div>         
                                         <label  id="summaryemail"></label>
@@ -979,13 +979,13 @@
 
                                     <div class="section06-line02-email">     
                                         <div class="email">
-                                           <span >Other :</span>
+                                           <span class="lng-other"></span><span >:</span>
                                             </div>         
                                         <label id="summaryother"></label>
                                     </div>
                                      <div class="section06-line02-email">     
                                         <div class="email">
-                                           <span >Flight :</span>
+                                           <span class="lng-flight"></span><span >:</span>
                                             </div>         
                                         <label id="textflight"></label>
                                     </div>
@@ -1005,7 +1005,7 @@
                                 </div> -->
                                 <div  >
                                     <div id="book-info">
-                                       <span>cars:</span>
+                                       <span class="lng-car"></span><span>:</span>
                                        
                                     </div>
                                     <span style="color: #fb833f;" id="carsummary"></span><span></span>
@@ -1013,7 +1013,7 @@
                                 </div>
                                <div >
                                     <div id="book-info">
-                                        <span >price/cars:</span>
+                                        <span class="lng-price"></span><span>/</span><span class="lng-car"></span><span>:</span>
                                         
                                     </div>
                                     
@@ -1023,7 +1023,7 @@
                                
                                <div >
                                     <div id="book-info">
-                                        <span >Adult:</span>
+                                        <span class="lng-adult"></span><span >:</span>
                                        
                                     </div>
                                     <span style="color: #fb833f;" id="adultsummary"></span>
@@ -1031,7 +1031,7 @@
                                 </div>
                                 <div >
                                     <div id="book-info">
-                                        <span >Child:</span>
+                                        <span class="lng-child"></span><span >:</span>
                                         
                                     </div>
                                         <span style="color: #fb833f;" id="childsummary"></span>
@@ -1043,21 +1043,24 @@
                             </div>
                                 <div class="summtotal">
                                 
-                                   <span style="color: #000000">Sum total :</span>
+                                   <span style="color: #000000"><span class="lng-sum-total"></span><span>:</span></span>
                                     
                                
                                 <span style="color: #fb833f;float: right;" id="totalprice"></span> 
                             </div> 
                         <div class="box-book-pay"> 
                             <div class="btn-books" >
-                               <span >Book</span>
+                               <span class="lng-book"></span>
                                
                             </div>
                          
                           <p class="ng-binding"></p>
                         </div>
-                        <style>
-                            .toppic p {
+<style>
+.nav>li>a{
+    padding: 0px;
+}
+.toppic p {
     display: inline-block;
 }
 .toppic p {
@@ -1195,7 +1198,7 @@
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
-                                                Acceptance of terms
+                                                <span class="lng-acceptance-of-terms"></span>
                                             </label>
                                         </div>
                                     
@@ -1430,6 +1433,10 @@
       <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
 
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> 
+     <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
+     <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
+      <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
      <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" type="text/javascript"></script>
 
 
