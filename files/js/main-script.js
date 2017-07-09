@@ -49,12 +49,14 @@ $(document).ready(function() {
         $('#loading').css('display', 'none');
         $('#content').css('display', 'block');
     }, 3000);
+    
+    
     $('#iconleft').click(function() {
         $("#iconhome").fadeIn(1000);
-
+        $("#list_place").show(700); 
         $("#iconleft2").fadeIn(1000);
         //$("").css('display','block');//.fadeIn(1000);
-
+		
          $("#iconleft").css('display','none');//.fadeIn(1000);
         //$(this).hide(); 
        
@@ -77,11 +79,13 @@ $(document).ready(function() {
         //$(this).css('display','none');
          $("#iconhome").fadeIn(1000); 
         $("#iconleft").fadeIn(1000);
-        
-		$("#list_place").hide(); 
+        $("#list_place").hide(700); 
+		
 		
         //$("#iconleft").css('display','block');
          $("#iconleft2").css('display','none');//.fadeIn(1000);
+        
+        
         
         $("#search-show").fadeIn(1000); 
         $("#search-raeltime").hide(); 
@@ -95,7 +99,7 @@ $(document).ready(function() {
     });
     $('#iconhome').click(function() {
         $("#iconhome").fadeOut(1000);
-
+		$("#list_place").hide(700); 
         $("#iconleft2").fadeOut(1000);
         $("#iconleft").fadeOut(1000);
         //$("").css('display','block');//.fadeIn(1000);

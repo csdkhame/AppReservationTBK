@@ -144,11 +144,26 @@
     </div>
 
 <style>
+.select-type-place{
+	border: 1px solid #E0E0E0 !important;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+}
 .card-style {
     display: block;
     background-color: #fff;
-    height: 350px;
-    width: 350px;
+    height: 410px;
+    width: 100%;
     margin: 20px 0px;
     box-shadow: 1px 1px 8px #999;
     cursor: pointer;
@@ -190,7 +205,7 @@
  }
 </style>
 
-		<div id="list_place" style="z-index: 10; position: absolute;   left: 1px; display: none;  /*top: 202px;*/">
+		<div id="list_place" style="z-index: 10; position: absolute;   left: 0px !important; display: none;">
             <div class="row">
                 <div class="col-md-3 col-sm-5">
                 	<table><tr><td>
@@ -199,8 +214,19 @@
                             <div class="media-body">             
                                <!-- <a href="#"><h5 class="media-heading">Disc. Programação Internet Rica - 2016.2</h5></a>
                                 <div class="members pull-left"><small>1.235 Members</small></div><div class="btn btn-sm btn-danger pull-right btn-part">Join Group</div>-->
+                                <select class="select-type-place" id="types_ofPlace">
+								  <option value="">Select Types</option>
+								  <option value="hospital">Hospital</option>
+								  <option value="store">Store</option>
+								  <option value="airport">Airport</option>
+								  <option value="cafe">Cafe</option>
+								  <option value="spa">Spa</option>
+								  <option value="bank">Bank</option>
+								  <option value="department_store">Department Store</option>
+								  <option value="lodging">Hotel,Resort</option>
+								</select>
                                <ul class="list-group" id="list_place_push" style="font-size: 15px;" >
-
+								
 								</ul>                            
                            </div>
                      <!--   </div>-->
