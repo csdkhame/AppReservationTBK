@@ -356,17 +356,17 @@
                     <!--      Wizard container        -->
                     <div class="wizard-container">
                         <div class="card wizard-card" data-color="orange" id="wizardProfile">
-                            <form action="" method="">
+                            <form >
                         <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
 
                                 <div class="wizard-header">
                                     
-                                    <h5>Booking infomation.</h5>
+                                    <h5 class="lng-booking-infomation"></h5>
                                 </div>
                                 <div class="wizard-navigation">
                                     <ul>
                                         <li><a href="#about" data-toggle="tab"></a><span class="lng-product"></span></li>
-                                        <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li>
+                                       <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> <!-- <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> -->
                                         <li><a href="#address" data-toggle="tab" ></a><span class="lng-summary"></span></li>
                                     </ul>
                                 </div>

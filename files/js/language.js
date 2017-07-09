@@ -103,6 +103,8 @@ $(document).ready(function() {
         $('.lng-flight').html('航班')
         $('.lng-sum-total').html('总计')
         $('.lng-acceptance-of-terms').html('接受条款')
+        $('.lng-booking-infomation').html('预订信息')
+
 
 
 
@@ -162,6 +164,8 @@ $(document).ready(function() {
         $('.lng-flight').html('Flight')
         $('.lng-sum-total').html('Sum total')
         $('.lng-acceptance-of-terms').html('Acceptance of terms')
+        $('.lng-booking-infomation').html('Booking infomation')
+
 
 
 
@@ -196,7 +200,7 @@ $(document).ready(function() {
         $('.lng-capacity-info').html('ข้อมูลความจุ')
         $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
         $('.lng-summary').html('สรุป')
-        $('.lng-contact-infomation').html('ข้อมูลติดต่อ')
+        // $('.lng-contact-infomation').html('ข้อมูลติดต่อ')
         $('.lng-from').html('จาก')
         $('.lng-to').html('ไปยัง')
         $('.lng-type').html('ประเภท')
@@ -220,6 +224,8 @@ $(document).ready(function() {
         $('.lng-flight').html('เที่ยวบิน')
         $('.lng-sum-total').html('ยอดรวม')
         $('.lng-acceptance-of-terms').html('การยอมรับข้อตกลง')
+        $('.lng-booking-infomation').html('ข้อมูลการจอง')
+
 
 
 
@@ -280,6 +286,9 @@ $(document).ready(function() {
         $('.lng-flight').html('Flight')
         $('.lng-sum-total').html('Sum total')
         $('.lng-acceptance-of-terms').html('Acceptance of terms')
+        $('.lng-booking-infomation').html('Booking infomation')
+
+
 
 
 
