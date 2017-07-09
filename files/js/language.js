@@ -90,7 +90,7 @@ $(document).ready(function() {
         $('.lng-you-choose').html('你选择')
         $('.lng-adult').html('成人')
         $('.lng-child').html('儿童')
-        $('.lng-visa').html('   落地签证')
+        $('.lng-visa').html('落地签证')
         $('.lng-departure-terminal').html('出发航站楼')
         $('.lng-get-detail').html('获取注册的详细信息')
         $('.lng-product-name').html('产品')
@@ -200,7 +200,7 @@ $(document).ready(function() {
         $('.lng-capacity-info').html('ข้อมูลความจุ')
         $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
         $('.lng-summary').html('สรุป')
-        // $('.lng-contact-infomation').html('ข้อมูลติดต่อ')
+        $('.lng-contact-infomation').html('ข้อมูลติดต่อ')
         $('.lng-from').html('จาก')
         $('.lng-to').html('ไปยัง')
         $('.lng-type').html('ประเภท')
@@ -240,7 +240,7 @@ $(document).ready(function() {
 
                 	
     }
-    else{
+    else if($.cookie("lng") == undefined){
         $('.lng-private').html('Private')
         $('.lng-join').html('Join')
         //menu

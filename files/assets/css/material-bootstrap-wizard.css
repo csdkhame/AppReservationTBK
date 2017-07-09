@@ -1359,6 +1359,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 /*            Navigation menu                */
 .nav-pills {
       padding-top: 8px;
+      padding-bottom: 8px;
       /* background-color: rgba(158, 158, 158, 0.14); */
     /* border-bottom: 1px solid #ddd; */
     /*border-top: 1px solid #ddd;*/
