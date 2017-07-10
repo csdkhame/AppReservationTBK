@@ -104,6 +104,9 @@ $(document).ready(function() {
         $('.lng-sum-total').html('总计')
         $('.lng-acceptance-of-terms').html('接受条款')
         $('.lng-booking-infomation').html('预订信息')
+        $('.lng-none').html('没有')
+        $('.lng-yes').html('是的')
+        $('.lng-no').html('不是')
 
 
 
@@ -165,6 +168,9 @@ $(document).ready(function() {
         $('.lng-sum-total').html('Sum total')
         $('.lng-acceptance-of-terms').html('Acceptance of terms')
         $('.lng-booking-infomation').html('Booking infomation')
+        $('.lng-none').html('None')
+        $('.lng-yes').html('Yes')
+        $('.lng-no').html('No')
 
 
 
@@ -225,6 +231,9 @@ $(document).ready(function() {
         $('.lng-sum-total').html('ยอดรวม')
         $('.lng-acceptance-of-terms').html('การยอมรับข้อตกลง')
         $('.lng-booking-infomation').html('ข้อมูลการจอง')
+        $('.lng-none').html('ไม่มี')
+        $('.lng-yes').html('ใช่')
+        $('.lng-no').html('ไม่')
 
 
 
@@ -287,6 +296,9 @@ $(document).ready(function() {
         $('.lng-sum-total').html('Sum total')
         $('.lng-acceptance-of-terms').html('Acceptance of terms')
         $('.lng-booking-infomation').html('Booking infomation')
+        $('.lng-none').html('None   ')
+        $('.lng-yes').html('Yes')
+        $('.lng-no').html('No')
 
 
 
