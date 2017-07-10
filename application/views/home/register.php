@@ -227,7 +227,7 @@
            
                 
                
-        <div class="loginReg__or"><span class="lng-or"></span></div>
+        <div class="loginReg__or lng-or"><span class=""></span></div>
             </div>
 
             <div class="col-md-6">

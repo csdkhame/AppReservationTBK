@@ -269,7 +269,7 @@ $(document).ready(function() {
         $('.lng-sum-total').html('ยอดรวม')
         $('.lng-acceptance-of-terms').html('การยอมรับข้อตกลง')
         $('.lng-booking-infomation').html('ข้อมูลการจอง')
-        $('.lng-none').html('ไม่มี')0
+        $('.lng-none').html('ไม่มี')
         $('.lng-yes').html('ใช่')
         $('.lng-no').html('ไม่')
         $('.lng-or').html('หรือ')
