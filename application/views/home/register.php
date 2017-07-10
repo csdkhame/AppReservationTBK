@@ -161,8 +161,8 @@
                         <div class="col2">
                         <div class="col-sign">
                                         <div class="text-sign" >
-                                            <span>Have a member?</span>
-                                        <a class="mtm sign-up" id="sign-in" style="cursor: pointer;">Registered customers</a>
+                                            <span class="lng-have-member"></span>
+                                        <a class="mtm sign-up" id="sign-in" style="cursor: pointer;"><span class="lng-registered-customers"></span></a>
                                         </div>
                                         <div id="status"></div>
                         </div>
@@ -173,7 +173,7 @@
             </div>
              <div class="box-signin">
                     <div class="card-header text-center" data-background-color="green">
-                        <h4 class="card-title" style="margin-bottom: 20px;" >Login</h4>                                       
+                        <h4 class="card-title" style="margin-bottom: 20px;" ><span class="lng-login"></span></h4>                                       
                     </div>
                         <form>
                             
@@ -189,7 +189,7 @@
                                         </span>
                                        
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Email or Phone</label>
+                                            <label class="control-label"><span class="lng-email"> </span> <span class="lng-or"></span> <span class="lng-phone"></span></label>
                                             <input type="text" class="form-control" id="username" size="80">
                                         </div>
                                         
@@ -199,20 +199,20 @@
                                             <i class="material-icons">lock_outline</i>
                                         </span>
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Password</label>
+                                            <label class="control-label"><span class="lng-password"></span></label>
                                             <input type="password" class="form-control" id="password" >
                                         </div>
                                     </div>
                                     <div id="message" style="text-align: center;"></div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div  type="submit" class=" btn-login " id="login" style="">Login</div>
+                                        <div  type="submit" class=" btn-login " id="login" style=""><span class="lng-login"> </span></div>
                                     </div>
                                         
                                         <div class="col2">
                                         <div class="text-sign" >
-                                            <span>Not a member?</span>
-                                        <a class="sign-up" id="sign-up" style="cursor: pointer;" >Sign Up Now</a>
+                                            <span class="lng-not-member"></span>
+                                        <a class="sign-up" id="sign-up" style="cursor: pointer;" ><span class="lng-sign-up-now"></span></a>
                                         </div>
                                         
                                     </div>
@@ -225,28 +225,28 @@
            
                 
                
-        <div class="loginReg__or">Or</div>
+        <div class="loginReg__or"><span class="lng-or"></span></div>
             </div>
 
             <div class="col-md-6">
                     <div class="box-regispro" style="display: none;">
-                                          <h3 id="title-info">Why become a App Booking member?</h3>
+                                          <h3 id="title-info" class="lng-why-become"></h3>
 
                                           <div class="special">
                                               <div class="box-icon"><i class="fa fa-tags" style="font-size: 30px;"></i><!-- <i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"> </i>--></div><!-- <img src="<?php echo base_url(); ?>files/images/special.png" id="special"> -->
-                                                <h4>Special Product Price</h4>
+                                                <h4 class="lng-special-product"></h4>
                                                 <p>You'll get lower price for every Product booking, as a member.</p>
                                           </div>
                                             <div class="exclusive">
                                             <div class="box-icon"><i class="fa fa-user-md" aria-hidden="true" style="font-size: 30px;"></i></div>
                                               <!-- <img src="<?php echo base_url(); ?>files/images/exclusive.png" id="exclusive"> -->
-                                                <h4>Exclusive Discount via Email</h4>
+                                                <h4 class="lng-exclusive discount"></h4>
                                                 <p>You'll get the latest promo info and special member discount.</p>
                                             </div>
                                             <div class="fast">
                                             <div class="box-icon"><i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"></i></div>
                                               <!-- <img src="<?php echo base_url(); ?>files/images/fast.png" id="fast"> -->
-                                                <h4>Fast Booking with Only One-Click</h4>
+                                                <h4 class="lng-fast-booking"></h4>
                                                 <p>As a member using Go HolidayQuick, your booking is our priority.</p>
                                         </div>
                     </div>
@@ -690,6 +690,10 @@
 
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> 
+     <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
+     <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
+      <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
      <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" type="text/javascript"></script>
       
 

@@ -74,7 +74,7 @@ $(document).ready(function() {
         $('.lng-now-use').html('现在使用')
         $('.lng-search').html('搜索')
         $('.lng-dashboard').html('报告与管理')
-        $('.lng-lng-car-type').html('车型')
+        $('.lng-car-type').html('车型')
         $('.lng-book').html('預訂')
         $('.lng-capacity-info').html('容量信息')
         $('.lng-facilities').html('设施')
@@ -107,6 +107,25 @@ $(document).ready(function() {
         $('.lng-none').html('没有')
         $('.lng-yes').html('是的')
         $('.lng-no').html('不是')
+        $('.lng-or').html('或者')
+        $('.lng-password').html('Password')
+        $('.lng-not-member').html('非会员？')
+        $('.lng-sign-up-now').html('立即注册')
+        $('.lng-why-become').html('为什么成为App Booking会员？')
+        $('.lng-special-product').html('特价商品')
+        $('.lng-exclusive discount').html('优惠通过电子邮件')
+        $('.lng-fast-booking').html('快速预约只需一键即可')
+        $('.lng-have-member').html('有会员？')
+        $('.lng-registered-customers').html('注册客户')
+
+
+
+
+
+
+
+
+
 
 
 
@@ -138,7 +157,7 @@ $(document).ready(function() {
         $('.lng-now-use').html('Now use')
         $('.lng-search').html('Search')
         $('.lng-dashboard').html('Report&management')
-        $('.lng-lng-car-type').html('Car type')
+        $('.lng-car-type').html('Car type')
         $('.lng-book').html('Book')
         $('.lng-capacity-info').html('Capacity info')
         $('.lng-facilities').html('Capacity info')
@@ -171,6 +190,25 @@ $(document).ready(function() {
         $('.lng-none').html('None')
         $('.lng-yes').html('Yes')
         $('.lng-no').html('No')
+        $('.lng-or').html('or')
+        $('.lng-password').html('Password')
+        $('.lng-not-member').html('Not a member?')
+        $('.lng-sign-up-now').html('Sign Up Now')
+        $('.lng-why-become').html('Why become a App Booking member?')
+        $('.lng-special-product').html('Special Product Price')
+        $('.lng-exclusive discount').html('Exclusive Discount via Email')
+        $('.lng-fast-booking').html('Fast Booking with Only One-Click')
+        $('.lng-have-member').html('Have a member?')
+        $('.lng-registered-customers').html('Registered customers')
+
+
+
+
+
+
+
+
+
 
 
 
@@ -201,7 +239,7 @@ $(document).ready(function() {
         $('.lng-now-use').html('เรียกรถตอนนี้')
         $('.lng-search').html(' ค้นหา')
         $('.lng-dashboard').html('รายงานและการจัดการ')
-        $('.lng-lng-car-type').html('ประเภทรถ')
+        $('.lng-car-type').html('ประเภทรถ')
         $('.lng-book').html('จอง')
         $('.lng-capacity-info').html('ข้อมูลความจุ')
         $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
@@ -217,7 +255,7 @@ $(document).ready(function() {
         $('.lng-you-choose').html('คุณเลือก')
         $('.lng-adult').html('ผู้ใหญ่')
         $('.lng-child').html('เด็ก')
-        $('.lng-visa').html('วีซ่า')
+        $('.lng-visa').html('วีซ่าเมื่อมาถึง')
         $('.lng-departure-terminal').html('อาคารขาออก')
         $('.lng-get-detail').html('รับรายละเอียดเพื่อลงทะเบียน')
         $('.lng-product-name').html('สินค้า')
@@ -231,9 +269,28 @@ $(document).ready(function() {
         $('.lng-sum-total').html('ยอดรวม')
         $('.lng-acceptance-of-terms').html('การยอมรับข้อตกลง')
         $('.lng-booking-infomation').html('ข้อมูลการจอง')
-        $('.lng-none').html('ไม่มี')
+        $('.lng-none').html('ไม่มี')0
         $('.lng-yes').html('ใช่')
         $('.lng-no').html('ไม่')
+        $('.lng-or').html('หรือ')
+        $('.lng-password').html('Password')
+        $('.lng-not-member').html('ไม่ใช่สมาชิก?')
+        $('.lng-sign-up-now').html('สมัครตอนนี้เลย')
+        $('.lng-why-become').html('ทำไมต้องเป็นสมาชิกการจองแอ็พ')
+        $('.lng-special-product').html('ราคาสินค้าพิเศษ')
+        $('.lng-exclusive discount').html('ส่วนลดพิเศษทางอีเมล')
+        $('.lng-fast-booking').html('จองได้อย่างรวดเร็วด้วยการคลิกเพียงครั้งเดียว')
+        $('.lng-have-member').html('มีสมาชิกหรือไม่? ')
+        $('.lng-registered-customers').html('ลูกค้าที่ลงทะเบียน')
+
+
+
+
+
+
+
+
+
 
 
 
@@ -266,7 +323,7 @@ $(document).ready(function() {
         $('.lng-now-use').html('Now use')
         $('.lng-search').html('Search')
         $('.lng-dashboard').html('Report&management')
-        $('.lng-lng-car-type').html('Car type')
+        $('.lng-car-type').html('Car type')
         $('.lng-book').html('Book')
         $('.lng-capacity-info').html('Capacity info')
         $('.lng-facilities').html('Facilities')
@@ -299,6 +356,25 @@ $(document).ready(function() {
         $('.lng-none').html('None   ')
         $('.lng-yes').html('Yes')
         $('.lng-no').html('No')
+        $('.lng-or').html('or')
+        $('.lng-password').html('Password')
+        $('.lng-not-member').html('Not a member? ')
+        $('.lng-sign-up-now').html('Sign Up Now')
+        $('.lng-why-become').html('Why become a App Booking member?')
+        $('.lng-special-product').html('Special Product Price')
+        $('.lng-exclusive discount').html('Exclusive Discount via Email')
+        $('.lng-fast-booking').html('Fast Booking with Only One-Click')
+        $('.lng-have-member').html('Have a member?')
+        $('.lng-registered-customers').html('Registered customers')
+
+
+
+
+
+
+
+
+
 
 
 
