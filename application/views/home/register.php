@@ -117,9 +117,9 @@
             
             <div class="box-signup" style="display: none;">
                 <div id="section_title" class="section_title">
-                    <h3 id="title-regis" style="">Sign In or Create an Account</h3>
+                    <h3 id="title-regis" class="lng-sign-create"></h3>
                 
-                    <h4 style="font-size: 14px;">What is your email (phone for mobile accounts)?</h4>
+                    <h4 style="font-size: 14px;" class="lng-what-is-your-email"></h4>
                 </div>
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2" style="padding:0;    margin-top: 20px;">
@@ -133,9 +133,9 @@
     right: 0;
     z-index: 100;
     margin-top: 2px;
-    padding: 5px 10px;">check</button>
+    padding: 5px 10px;"><span class="lng-check"></span></button>
                             <div class="form-group label-floating is-empty">
-                                <label class="control-label"> E-mail or mobile number
+                                <label class="control-label"> <span class="lng-email"></span> <span class="lng-or"></span> <span class="lng-phonr"></span>
                                     <!-- <small>(required)</small> -->
                                 </label>
                                 <input name="firstname" type="text" class="form-control" id="username-signup">
@@ -146,7 +146,7 @@
                                 <i class="material-icons">lock_outline</i>
                             </span>
                             <div class="form-group label-floating is-empty">
-                                <label class="control-label">Password
+                                <label class="control-label"><span class="lng-password"></span>
                                     <!-- <small>(required)</small> -->
                                 </label>
                                 <input name="lastname" type="text" class="form-control" id="password-signup">
@@ -156,7 +156,7 @@
 
                         </div>
                          <div class="col-md-12">
-                            <div class="btn-signup" style="" id="registered">Sign in</div>
+                            <div class="btn-signup" style="" id="registered" ><span class="lng-sign-in"></span></div>
                         </div>
                         <div class="col2">
                         <div class="col-sign">
@@ -242,7 +242,7 @@
                                             <div class="exclusive">
                                             <div class="box-icon"><i class="fa fa-user-md" aria-hidden="true" style="font-size: 30px;"></i></div>
                                               <!-- <img src="<?php echo base_url(); ?>files/images/exclusive.png" id="exclusive"> -->
-                                                <h4 class="lng-exclusive discount"></h4>
+                                                <h4 class="lng-exclusive-discount"></h4>
                                                 <p>You'll get the latest promo info and special member discount.</p>
                                             </div>
                                             <div class="fast">
@@ -737,7 +737,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
     <!-- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js"></script>  -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
   
     
     <style>

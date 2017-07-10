@@ -88,34 +88,19 @@ $(document).ready(function() {
         $('.lng-yes').html('是的');
         $('.lng-no').html('不是');
         $('.lng-or').html('或者');
-        $('.lng-password').html('Password');
+        $('.lng-password').html('密碼');
         $('.lng-not-member').html('非会员？');
         $('.lng-sign-up-now').html('立即注册');
         $('.lng-why-become').html('为什么成为App Booking会员？');
         $('.lng-special-product').html('特价商品');
-        $('.lng-exclusive discount').html('优惠通过电子邮件');
+        $('.lng-exclusive-discount').html('优惠通过电子邮件');
         $('.lng-fast-booking').html('快速预约只需一键即可');
         $('.lng-have-member').html('有会员？');
         $('.lng-registered-customers').html('注册客户');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        $('.lng-sign-create').html('登录或创建帐户');
+        $('.lng-what-is-your-email').html('你的电子邮件是什么（手机帐号的手机）？');
+         $('.lng-sign-in').html('登入');
+        $('.lng-check').html('检查');
 
 
 
@@ -180,25 +165,10 @@ $(document).ready(function() {
         $('.lng-fast-booking').html('Fast Booking with Only One-Click');
         $('.lng-have-member').html('Have a member?');
         $('.lng-registered-customers').html('Registered customers');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        $('.lng-sign-create').html('Sign In or Create an Account');
+        $('.lng-what-is-your-email').html(' What is your email (phone for mobile accounts)?');
+         $('.lng-sign-in').html('Sign in');
+        $('.lng-check').html('Check');
 
 
 
@@ -253,7 +223,7 @@ $(document).ready(function() {
         $('.lng-yes').html('ใช่');
         $('.lng-no').html('ไม่');
         $('.lng-or').html('หรือ');
-        $('.lng-password').html('Password');
+        $('.lng-password').html('รหัสผ่าน');
         $('.lng-not-member').html('ไม่ใช่สมาชิก?');
         $('.lng-sign-up-now').html('สมัครตอนนี้เลย');
         $('.lng-why-become').html('ทำไมต้องเป็นสมาชิกการจองแอ็พ');
@@ -262,26 +232,10 @@ $(document).ready(function() {
         $('.lng-fast-booking').html('จองได้อย่างรวดเร็วด้วยการคลิกเพียงครั้งเดียว');
         $('.lng-have-member').html('มีสมาชิกหรือไม่? ');
         $('.lng-registered-customers').html('ลูกค้าที่ลงทะเบียน');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        $('.lng-sign-create').html('เข้าสู่ระบบหรือสร้างบัญชี');
+        $('.lng-what-is-your-email').html('อีเมลของคุณคืออะไร (โทรศัพท์สำหรับบัญชีมือถือ)?');
+         $('.lng-sign-in').html('ลงชื่อเข้าใช้');
+        $('.lng-check').html('ตรวจสอบ');
 
 
                 	
@@ -346,6 +300,13 @@ $(document).ready(function() {
         $('.lng-fast-booking').html('Fast Booking with Only One-Click');
         $('.lng-have-member').html('Have a member?');
         $('.lng-registered-customers').html('Registered customers');
+        $('.lng-sign-create').html('Sign In or Create an Account');
+        $('.lng-what-is-your-email').html(' What is your email (phone for mobile accounts)?');
+         $('.lng-sign-in').html('Sign in');
+
+        $('.lng-check').html('Check');
+
+
 
 
 
