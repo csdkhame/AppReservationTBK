@@ -726,9 +726,9 @@
                                                             <td align="center">
                                                             <select class="form-control form-inline asd" id="visa"  name="visa" style="width: 100%" >
                                                                         
-                                                              <option value="" >none</option>            
-                                                              <option value="1">Yes</option>            
-                                                              <option value="0">No</option>            
+                                                              <option value="" ><font class="lng-none">None</font></option>            
+                                                              <option value="1"><font class="lng-yes">Yes</font></option>            
+                                                              <option value="0"><font class="lng-no">No</font></option>            
                                                                         
                                                             </select>
                                                             </td>
@@ -905,22 +905,24 @@
                                 <div class="toppic">
                                     <p><span class="lng-product-name"></span><span>:</span></p>
                                     <span>
-                                            <span style="color: #fb833f;" id="name_product"></span><span style="color: #FF9800;" ><span>(</span><span class="lng-transports"></span><span>)</span></span>
+                                            <span  id="name_product"></span>
+                                            <span>(</span>
+                                            <span class="lng-transports" style="color: #fb833f;" ></span><span>)</span>
                                     </span>
                                 </div>
 
                                 <div class="toppic" >
-                                    <p><span class="lng->car-type"></span><span>:</span></p>
-                                    <span style="color: #fb833f;" id="cars_type"></span>
+                                    <p><span class="lng-car-type"></span><span>:</span></p>
+                                    <span style="color: #333;" id="cars_type"></span>
                                     
                                 </div>
                                 <div class="toppic" >
                                     <p><span class="lng-pick-up-from"></span><span>:</span></p>
-                                    <span style="color: #fb833f;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
+                                    <span style="color: #333;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
                                 </div>
                                 <div class="toppic" >
                                     <p><span class="lng-pick-up-to"></span><span>:</span></p>
-                                    <span style="color: #fb833f;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
+                                    <span style="color: #333;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
                                 </div>
                                 
                                
@@ -928,11 +930,11 @@
                                                  
                                 <div class="toppic">
                                     <p id="date-final"></p>
-                                    <span style="color: #fb833f;" class="" id="ondate_samary"></span>
+                                    <span style="color: #333;" class="" id="ondate_samary"></span>
                                 </div>
                                 <div class="toppic">
                                     <p id="time-final"></p>
-                                    <span style="color: #fb833f;" class="" id="ontime_samary"></span>
+                                    <span style="color: #333;" class="" id="ontime_samary"></span>
                                 </div> 
                                
                             </div>
