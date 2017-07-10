@@ -189,7 +189,9 @@
                                         </span>
                                        
                                         <div class="form-group label-floating">
-                                            <label class="control-label"><span class="lng-email"> </span> <span class="lng-or"></span> <span class="lng-phone"></span></label>
+                                            <label class="control-label"><span class="lng-email"> </span>
+                                            <span class="lng-or"></span>
+                                            <span class="lng-phone"></span></label>
                                             <input type="text" class="form-control" id="username" size="80">
                                         </div>
                                         

@@ -353,7 +353,7 @@ $(document).ready(function() {
         $('.lng-sum-total').html('Sum total')
         $('.lng-acceptance-of-terms').html('Acceptance of terms')
         $('.lng-booking-infomation').html('Booking infomation')
-        $('.lng-none').html('None   ')
+        $('.lng-none').html('None')
         $('.lng-yes').html('Yes')
         $('.lng-no').html('No')
         $('.lng-or').html('or')
