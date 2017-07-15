@@ -263,8 +263,7 @@
 								  <option value="lodging">Hotel,Resort</option>
 								</select>
                                <ul class="list-group" id="list_place_push" style="font-size: 15px;overflow-y: scroll !important; " >
-			<li class="list-group-item-header" id="" onclick="eventPlace();" style="background-color: #ffecec;" ><table width="100%"><tr><td>Home</td><td align="right"><i class="fa fa-home fa-2x" aria-hidden="true"></i></td></tr></table></li>
-			<li class="list-group-item-header" id="" onclick="eventPlace();" style="background-color: #ebffe6;" ><table width="100%"><tr><td>Office</td><td align="right"><i class="fa fa-building-o fa-2x" aria-hidden="true"></i></td></tr></table></li>
+                               
 								</ul>                            
                            </div>
                      <!--   </div>-->

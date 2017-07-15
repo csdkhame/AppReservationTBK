@@ -30,6 +30,13 @@ class Getuser_control extends CI_Controller {
 	  //$array = array($age);
 	  echo json_encode($data);
 
+	}	
+	function place_often(){
+
+      $data = $this->Getuser_model->get_place_often();
+	  //$array = array($age);
+	  echo json_encode($data);
+
 	}
 	
 	

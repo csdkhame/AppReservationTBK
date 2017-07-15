@@ -25,7 +25,8 @@ class Getuser_model extends CI_Model {
     }
     return FALSE;
   }
-    public function getuser_pass_id($id) { 
+
+  public function getuser_pass_id($id) { 
      
       $this->db->select('*');      
       $this->db->from('ap_users');
@@ -38,6 +39,26 @@ class Getuser_model extends CI_Model {
       return $data;
     }
     return FALSE;
+  }   
+
+  public function get_place_often() { 
+     
+     $id = $this->input->post('id');
+     
+      $this->db->select('*');      
+      $this->db->from('ap_location_often');
+      $this->db->where('i_id_user',''.$id.'');
+      $query = $this->db->get();
+    if($query->num_rows() > 0) {
+	      foreach($query->result() as $row) {
+	        $data[] = $row;
+	      }
+      return $data;
+    }
+    else{
+    	  return FALSE;
+	}
+    
   }
 
 
