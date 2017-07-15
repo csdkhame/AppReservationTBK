@@ -430,10 +430,8 @@ function placeRecord(){
 			if(data){
 				var obj = JSON.parse(data);
 				$.each(obj, function (key, data) {
-				    	alert(data.s_name);	
+//				    	alert(data.s_name);	
 				});
-			}else{
-				alert(8888);
 			}
 			
 			

@@ -174,14 +174,23 @@
     .card-style {
     	height: 450px;
     }
+    #list_place_push {
+    	height: 450px;
+    }
 }
 @media screen and (min-height: 660px) {
     .card-style {
     	height: 500px;
     }
+    #list_place_push {
+    	height: 500px;
+    }
 }
 @media screen and (min-height: 730px) {
     .card-style {
+    	height: 550px;
+    }
+    #list_place_push {
     	height: 550px;
     }
 }
@@ -232,7 +241,7 @@
     border: 1px solid #ddd;
 }
 </style>
-		<div id="list_place" style="z-index: 10; position: absolute;   left: 0px !important; display: none;" class="">
+		<div id="list_place" style="z-index: 10; position: absolute;   left: 0px !important; display: none;" >
             <div class="row">
                 <div class="col-md-12" >
                 	
@@ -253,7 +262,7 @@
 								  <option value="department_store">Department Store</option>
 								  <option value="lodging">Hotel,Resort</option>
 								</select>
-                               <ul class="list-group" id="list_place_push" style="font-size: 15px; overflow-y: scroll !important;" >
+                               <ul class="list-group" id="list_place_push" style="font-size: 15px;overflow-y: scroll !important; " >
 			<li class="list-group-item-header" id="" onclick="eventPlace();" style="background-color: #ffecec;" ><table width="100%"><tr><td>Home</td><td align="right"><i class="fa fa-home fa-2x" aria-hidden="true"></i></td></tr></table></li>
 			<li class="list-group-item-header" id="" onclick="eventPlace();" style="background-color: #ebffe6;" ><table width="100%"><tr><td>Office</td><td align="right"><i class="fa fa-building-o fa-2x" aria-hidden="true"></i></td></tr></table></li>
 								</ul>                            
