@@ -162,12 +162,30 @@
 .card-style {
     display: block;
     background-color: #fff;
-    height: 410px;
+/*    height: 410px;*/
+/*    height: 100%;*/
+	height: 400px;
     width: 100%;
     margin: 20px 0px;
     box-shadow: 1px 1px 8px #999;
     cursor: pointer;
 }
+@media screen and (min-height: 600px) {
+    .card-style {
+    	height: 450px;
+    }
+}
+@media screen and (min-height: 660px) {
+    .card-style {
+    	height: 500px;
+    }
+}
+@media screen and (min-height: 730px) {
+    .card-style {
+    	height: 550px;
+    }
+}
+
 .btn-hide-show {
     display: block;
     background-color: #ddd;
@@ -204,12 +222,22 @@
      margin: 10px;
  }
 </style>
-
-		<div id="list_place" style="z-index: 10; position: absolute;   left: 0px !important; display: none;">
+<style>
+	.list-group-item-header {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+/*    background-color: #fff;*/
+    border: 1px solid #ddd;
+}
+</style>
+		<div id="list_place" style="z-index: 10; position: absolute;   left: 0px !important; display: none;" class="">
             <div class="row">
-                <div class="col-md-3 col-sm-5">
+                <div class="col-md-12" >
+                	
                 	<table><tr><td>
-                    <div class="card-style" style=" overflow: scroll !important; display: none;" id="card-style" >
+                    <div class="card-style" style="display: none;" id="card-style" >
                         <!--<div class="media">-->
                             <div class="media-body">             
                                <!-- <a href="#"><h5 class="media-heading">Disc. Programação Internet Rica - 2016.2</h5></a>
@@ -225,8 +253,9 @@
 								  <option value="department_store">Department Store</option>
 								  <option value="lodging">Hotel,Resort</option>
 								</select>
-                               <ul class="list-group" id="list_place_push" style="font-size: 15px;" >
-								
+                               <ul class="list-group" id="list_place_push" style="font-size: 15px; overflow-y: scroll !important;" >
+			<li class="list-group-item-header" id="" onclick="eventPlace();" style="background-color: #ffecec;" ><table width="100%"><tr><td>Home</td><td align="right"><i class="fa fa-home fa-2x" aria-hidden="true"></i></td></tr></table></li>
+			<li class="list-group-item-header" id="" onclick="eventPlace();" style="background-color: #ebffe6;" ><table width="100%"><tr><td>Office</td><td align="right"><i class="fa fa-building-o fa-2x" aria-hidden="true"></i></td></tr></table></li>
 								</ul>                            
                            </div>
                      <!--   </div>-->
@@ -244,7 +273,7 @@
             </div>
         </div>
 
-
+		
    
      <div id="search-raeltime" style=" position: absolute;
         margin-top: 112px;
@@ -255,11 +284,11 @@
          	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
        					  <div class="box-search">
                               <!--  <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/> <button class="current-submit">Yes</button>-->
-                              <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Yes</span></button>
-                            <input type='text' disabled class="" placeholder="Current your position"  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
-			                        <div style="display: none;" id="open-search">
-			                        <div style="border-bottom: 1px solid #333;"></div>
-                                    <input  type='text' class="form-control" placeholder="To Type airport,hotel name, or location." id="pac-input" style="border: none !important;" value="" />   
+                              <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Yes</span></button>
+                            <input type='text' disabled class="" placeholder="Current your position"  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:none;"/>
+			                        <div style="display: nones;" id="open-search">
+			                        <!--<div style="border-bottom: 1px solid #333;"></div>-->
+                                    <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />   
                                     </div>          
                             </div>
                 </div>
@@ -362,6 +391,16 @@
     position: absolute;
     left: 260px;
     top: -10px;
+}
+.card-contentrealtime.hidden5:after {
+    border-bottom: 0px solid #FFFFFF;
+    /*border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 260px;
+    top: -10px;*/
 }
 .box-search{
         padding: 0 12px;

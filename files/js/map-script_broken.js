@@ -1,8 +1,8 @@
-	$('pac-input').css('display','none');
-		$('#open_map').on('click',initialize);
-		$('#open_map').click(function(){
-			console.log('Now Open Map!');
-			 placeRecord();
+$('pac-input').css('display','none');
+	$('#open_map').on('click',initialize);
+	$('#open_map').click(function(){
+		console.log('Now Open Map!');
+		
 	});
 
 	$('#start_yes-change').click(function(){
@@ -24,31 +24,30 @@
             if (chk_val_search == 1) {
                 $('#chk_val_search').val(0);
                 $('#change_icon').html('<i class="material-icons">keyboard_arrow_right</i>	');
-                $('#btn-real-res').show(700);
-                $('.card-contentrealtime').show(700);
-				$('.card-contentrealtime').removeClass('hidden5');
-			   $('#search-raeltime').css('margin-top','112px');
+              
             } else {
                 $('#chk_val_search').val(1);
                 $('#change_icon').html('<i class="material-icons">keyboard_arrow_left</i>');
-
-				$('#search-raeltime').css('margin-top','10px');
-				$('#btn-real-res').hide(700);
-				$('.card-contentrealtime').addClass('hidden5');
-
+               
             }
 		 $("#card-style").animate({width: 'toggle'}, "slow");
-		
+		 
 		 
 	});
 
+
+	function seachPlace(){
+//		alert(123);
+//$('#btn-real-res').hide(700);
+$('#card-style').show();
+	}
 
 var map;
 var marker2;
 var markerCircle;
 
 function initialize() {
-//		placeRecord();
+		
        	var mapMinZoom = 14;
     	var mapMaxZoom = 18;
         var start;
@@ -184,8 +183,8 @@ function initAutocomplete(map,start,end){
 			    }
 			  });
 			console.log("currentLocation : "+pos);
-			nearbyPlace(map,pos,"");
-			filterPlace(map,pos);
+//			nearbyPlace(map,pos,"");
+//			filterPlace(map,pos);
           }, function() {
 //            handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -200,6 +199,22 @@ function initAutocomplete(map,start,end){
 
         var autocomplete = new google.maps.places.Autocomplete(input);
          autocomplete.bindTo('bounds', map);
+         
+         var service = new google.maps.places.AutocompleteService();
+         service.getQueryPredictions({ input: 'pizza near Syd' }, displaySuggestions);
+         
+         var displaySuggestions = function(predictions, status) {
+          if (status != google.maps.places.PlacesServiceStatus.OK) {
+            alert(status);
+            return;
+          }
+
+          predictions.forEach(function(prediction) {
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(prediction.description));
+            document.getElementById('list_place_push').appendChild(li);
+          });
+        };
          
         var marker = new google.maps.Marker({
           map: map,
@@ -392,7 +407,6 @@ function appendPlace(place) {
         var lo = place.geometry.location.toJSON();
 		var lat = lo.lat;
 		var lng = lo.lng;
-		
         $('#list_place_push').append('<li class="list-group-item" id="'+place.id+'" onclick="eventPlace('+lat+','+lng+');" ><table width="100%"><tr><td>'+place.name+'</td><td align="right">'+icon+'</td></tr></table></li>');
 
       }    
@@ -416,26 +430,6 @@ function eventPlace(lat,lng){
 		marker.setAnimation(google.maps.Animation.BOUNCE);
 		smoothZoom(map, 18, map.getZoom());
 	 }, 1000);
-	 $('#chk_val_search').val(0);
 	 $('#card-style').hide('500');
-	 $('#change_icon').html('<i class="material-icons">keyboard_arrow_right</i>	');
 }
 
-function placeRecord(){
-//	var id = getCookie('login');
-	var id = 2;
-//	alert(id);
-	$.post( "getuser_control/process",{"id":id},function( data ) {
-			console.log(data);
-			if(data){
-				var obj = JSON.parse(data);
-				$.each(obj, function (key, data) {
-				    	alert(data.s_name);	
-				});
-			}else{
-				alert(8888);
-			}
-			
-			
-    	});
-}
