@@ -97,7 +97,7 @@ $(document).ready(function(){
             $('.label-floating').removeClass('is-focused');
         }
     })
-    $('#btn-logout-user').on('click',function(){
+    $('#btn-logout-user').click(function(){
         alert("logout");
         $.removeCookie("login");
         window.location.reload();//href = "https://dotdotdottrip.com/register";
