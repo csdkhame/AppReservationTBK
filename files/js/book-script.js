@@ -98,8 +98,9 @@ $(document).ready(function(){
         }
     })
     $('#btn-logout-user').on('click',function(){
+        alert("logout");
         $.removeCookie("login");
-        window.location.href = "https://dotdotdottrip.com/register";
+        window.location.reload();//href = "https://dotdotdottrip.com/register";
     })
     console.log( "readysss!" );
     //console.log($.cookie("login"))
