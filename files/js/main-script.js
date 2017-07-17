@@ -1132,6 +1132,7 @@ function getcondition(i) {
 }
 
 function updatelatlng(id){
+    console.log(id)
      $.ajax({
             type: 'POST',
             url: 'https://dotdotdottrip.com/laglng_control/getlaglng',

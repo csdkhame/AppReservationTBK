@@ -40,7 +40,7 @@ class Getlaglng_model extends CI_Model {
 
                 }
             }
-            return  $data;
+            return  $arr;
         }
         else{
             return FALSE;
