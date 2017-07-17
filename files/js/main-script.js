@@ -668,6 +668,23 @@ $(document).ready(function() {
 
             }
         });
+        $.ajax({
+            type: 'POST',
+            url: 'https://dotdotdottrip.com/getuser_control/getlaglng',
+            data: { 'id': $.cookie("login") },
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+                
+
+
+
+
+
+
+            }
+        });
     } else {
         //$('#usernamess').html("Login")
         // $('#textlogout').html("Login/Register")
