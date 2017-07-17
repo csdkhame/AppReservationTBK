@@ -1,5 +1,21 @@
 $(document).ready(function() {
+  // $.ajax({
+  //           type: 'POST',
+  //           url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+  //           data: { 'id': 193 },
+  //           //contentType: "application/json",
+  //           dataType: 'json',
+  //           success: function(data) {
+  //               console.log(data)
+                
 
+
+
+
+
+
+  //           }
+  //       });
     var data1,data2;
     compae1private = [];
     compae1join = [];
