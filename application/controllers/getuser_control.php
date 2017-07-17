@@ -38,15 +38,6 @@ class Getuser_control extends CI_Controller {
 	  echo json_encode($data);
 
 	}
-	function getlaglng(){
-	 	 $data = $this->Getuser_model->getlaglng();
-	  //$array = array($age);
-	  echo json_encode($data);
-// 		$this->load->view('header');
-// 		$this->load->view('home/index');
-// //		$this->load->view('realtime_view');
-// 		$this->load->view('footer');
-	}
 	
 	
 	

@@ -60,25 +60,6 @@ class Getuser_model extends CI_Model {
 	}
     
   }
-  public function getlaglng() { 
-     
-     $id = $this->input->post('id');
-     
-      $this->db->select('address');      
-      $this->db->from('web_transferplace_new');
-      //$this->db->where('i_id_user',''.$id.'');
-      $query = $this->db->get();
-    if($query->num_rows() > 0) {
-        foreach($query->result() as $row) {
-          $data[] = $row;
-        }
-      return $data;
-    }
-    else{
-        return FALSE;
-  }
-    
-  }
 
 
 }

@@ -393,7 +393,7 @@ function callback(results, status) {
       
 function appendPlace(place) {
        /* var placeLoc = place.geometry.location;*/
-        console.log(place);
+        //console.log(place);
         var icon = '<img src="'+place.icon+'" width="30"/>';
         var lo = place.geometry.location.toJSON();
 		var lat = lo.lat;

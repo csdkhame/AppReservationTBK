@@ -1,4 +1,6 @@
-<button class="btn" id="open_map" style="display: none;">Open Map</button>
+<button class="btn" id="open_map"  style="display: none;">Open Map</button>
+<button class="btn" id="open_mapsss" data-toggle="modal" data-target="#updatelat" style="display: nones;">updatelat-lng</button>
+
 <div style="height: 36px; 
     border-radius: 100%;
     /* background: #fff; */
@@ -338,6 +340,30 @@
    
         
 		</div>
+        <div class="modal fade" id="updatelat" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content" style="    max-height: 640px;
+    overflow: hidden;
+    overflow-y: scroll;">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <!-- <h4 class="modal-title">Gallery</h4> -->
+                            </div>
+                            
+                            <div class="modal-body" style="padding: 0">                                    
+                                <div class="box-country">
+                                    <div id="latlng">                                                                     
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 <style>
 .media-heading:hover, a:link{
     color: #333 !important;
