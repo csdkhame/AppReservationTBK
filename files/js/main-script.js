@@ -739,7 +739,7 @@ $(document).ready(function() {
             console.log(data[0])
             var values = [];
             $.each(data , function(i, val) {
-                
+
                 //console.log(data[i].id)
                      // $.ajax({
                      //        type: 'POST',
@@ -1292,6 +1292,8 @@ $('#current-addr').on('click',getAddress);
     console.log(latitude)
     console.log(longitude)
     console.log(addrcurent)
+    var x = Math.PI * (latitude/180);
+    console.log(x)
     
  }
  
