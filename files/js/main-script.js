@@ -231,7 +231,7 @@ $(document).ready(function() {
 
     })
     var car_topic,cartype,pax;
-    var urlicon = 'https://t-booking.com/pic/carmodelicon/';
+    var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
                 //if (data[0].data1.length != 0) {
                     $.each(compae1private, function(i, val) {
                         var indexs = parseInt(i) + 1;
@@ -485,7 +485,8 @@ $(document).ready(function() {
                     // });
                 console.log(data.length)
                 dataproduct = data;
-                var urlicon = 'https://t-booking.com/pic/carmodelicon/';
+                var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
+                
                 //if (data[0].data1.length != 0) {
                     var car_topic,cartype,pax;
                     $.each(compae1private, function(i, val) {
