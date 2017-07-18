@@ -738,7 +738,26 @@ $(document).ready(function() {
             dataplace = data
             console.log(data[0])
             var values = [];
-            $.each(data , function(i, val) { 
+            $.each(data , function(i, val) {
+
+                //console.log(data[i].id)
+                     // $.ajax({
+                     //        type: 'POST',
+                     //        url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+                     //        data: { 'id': data[i].id },
+                     //        //contentType: "application/json",
+                     //        dataType: 'json',
+                     //        success: function(data) {
+                     //            console.log(data)
+                                
+
+
+
+
+
+
+                     //        }
+                     //    });
 
                        //alert('aaa')
                       $('#latlng').append('<button type="button" class="btn btn-default"  onclick="updatelatlng(\''+data[i].id+'\')">'+data[i].topic+'</button>');
@@ -1273,6 +1292,8 @@ $('#current-addr').on('click',getAddress);
     console.log(latitude)
     console.log(longitude)
     console.log(addrcurent)
+    var x = Math.PI * (latitude/180);
+    console.log(x)
     
  }
  

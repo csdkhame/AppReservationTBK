@@ -745,8 +745,8 @@ a[href^="https://www.google.com/maps"] {
 }
 #i-list {
     position: absolute;
-    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
-    background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);
+   /* background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);*/
     border: 1px solid #E68E00;
     font-size: 20px;
     text-align: center;
@@ -967,7 +967,7 @@ div.banner{
   display: inline-block;
     width: 64%;
     margin-left: -28px;
-    margin-top: 135px;
+    margin-top: 140px;
     float: left;
 }
 #box-cost-view {
@@ -980,9 +980,9 @@ div.banner{
     min-height: 260px;
 }
 .item-thumbnail2 {
-    width: 130px;
-    height: 100px;
-    margin-left: 10px;
+    width: 170px;
+    height: 110px;
+    /*margin-left: 10px;*/
     /*margin-top: -8px;*/
 }
 .views-item {
