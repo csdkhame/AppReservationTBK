@@ -1,5 +1,5 @@
 <button class="btn" id="open_map"  style="display: none;">Open Map</button>
-<button class="btn" id="open_mapsss" data-toggle="modal" data-target="#updatelat" style="display: nones;">updatelat-lng</button>
+<!-- <button class="btn" id="open_mapsss" data-toggle="modal" data-target="#updatelat" style="display: nones;">updatelat-lng</button> -->
 
 <div style="height: 36px; 
     border-radius: 100%;

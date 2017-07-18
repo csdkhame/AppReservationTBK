@@ -21,7 +21,7 @@ class Getlaglng_model extends CI_Model {
                 $getid = $row->id;
                 //$data[] = $row->topic;
                 //$fAddress = urlencode($Address);
-                $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&Key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&sensor=true";
+                $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&Key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90";
                // $jsonData   = file_get_contents($request_url);
                // $data = json_decode($jsonData);
                 // $ch = curl_init();
