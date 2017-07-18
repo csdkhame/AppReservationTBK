@@ -242,6 +242,31 @@
 /*    background-color: #fff;*/
     border: 1px solid #ddd;
 }
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
 </style>
 		<div id="list_place" style="z-index: 10; position: absolute;   left: 0px !important; display: none;" >
             <div class="row">
@@ -276,7 +301,8 @@
 						<div style="height: 90px; line-height:150px;margin-left: -1px;" id="change_icon">
 						<i class="material-icons">keyboard_arrow_right</i>		
 						</div>
-					</div>
+						</div>
+						<!--<button type="button" class="btn btn-info btn-circle btn-lg" id="btn_hide-show"><div id="change_icon"><i class="material-icons">keyboard_arrow_right</i></div></button>-->
 					</td>
 					</tr></table>
                 </div>
