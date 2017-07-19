@@ -1,10 +1,15 @@
 	$('pac-input').css('display','none');
-//	placeRecord();
+
 		$('#open_map').on('click',initialize);
+		
+	
+		
 		$('#open_map').click(function(){
 			console.log('Now Open Map!');
 			 
 	});
+
+
 
 	$('#start_yes-change').click(function(){
 			
@@ -38,6 +43,18 @@
 	}
 	
  $('.material-button-toggle').on("click", function () {
+ 	    var check =  $('#chk_val_search').val();
+ 	    if(check==0){
+			
+			 $('#chk_val_search').val(1);
+			 alert(check);
+			 showHeader();
+		}else{
+			
+			 $('#chk_val_search').val(0);
+			 alert(check);
+			 
+		}
         $(this).toggleClass('open');
         $('.option').toggleClass('scale-on');
         $('.list-inline').toggleClass('fix');
@@ -425,8 +442,8 @@ $('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" on
 }
 
 function selectSavePlaceOfften(type_place){
- $('.material-button-toggle').click();
- 
+// $('.material-button-toggle').click();
+ 	$('#btn-home').css('background','#d2d2d2');
 // markerPlaceOfften.setAnimation(google.maps.Animation.DROP); 
 var infowindow = new google.maps.InfoWindow({maxWidth: 200});	 
 	$('#chk_val_search').val(0);

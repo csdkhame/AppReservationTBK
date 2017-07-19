@@ -102,7 +102,7 @@ $(document).ready(function() {
          $("#iconleft2").css('display','none');//.fadeIn(1000);
         
         
-        
+          $('#selectPlace').css('z-index','-1');
         $("#search-show").fadeIn(1000); 
         $("#search-raeltime").hide(); 
          //$(".btn-reservation").show();
@@ -119,7 +119,7 @@ $(document).ready(function() {
         $("#iconleft2").fadeOut(1000);
         $("#iconleft").fadeOut(1000);
         //$("").css('display','block');//.fadeIn(1000);
-
+          $('#selectPlace').css('z-index','1');
          //$("#iconleft").css('display','none');//.fadeIn(1000);
         //$(this).hide(); 
        
@@ -167,7 +167,7 @@ $(document).ready(function() {
 	  $('#selectPlace').show();
        $('#loading').css('display', 'block');
 //       $('#btn-real-res').css('display', 'none');
-        
+        $('#opennut').click();
         //$('#content').css('display','none');
        setTimeout(function() {
         $("#iconhome").fadeIn(1000);
@@ -179,7 +179,7 @@ $(document).ready(function() {
 			
 			$("#list_place").fadeIn(1000);
              $(".btn-reservation").hide(); 
-            // $('#map2').css('display', 'block');
+             $('#selectPlace').css('z-index','1');
             $('#loading').css('display', 'none');
             $('#search-show').css('display', 'none')
             $('#pac-input').css('display', '');
