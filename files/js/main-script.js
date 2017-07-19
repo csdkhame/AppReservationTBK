@@ -164,7 +164,7 @@ $(document).ready(function() {
 
     });
     $('.btn-realtime').click(function() {
-	  
+	  $('#selectPlace').show();
        $('#loading').css('display', 'block');
 //       $('#btn-real-res').css('display', 'none');
         

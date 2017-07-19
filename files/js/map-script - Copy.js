@@ -1,5 +1,5 @@
 	$('pac-input').css('display','none');
-	placeRecord();
+//	placeRecord();
 		$('#open_map').on('click',initialize);
 		$('#open_map').click(function(){
 			console.log('Now Open Map!');
@@ -42,14 +42,23 @@
 		
 		 
 	});
-
-
+	
+	
+ $('.material-button-toggle').on("click", function () {
+        $(this).toggleClass('open');
+        $('.option').toggleClass('scale-on');
+        $('.list-inline').toggleClass('fix');
+        
+    });
+    
+    
 var map; //main map
 var marker2; // current position
 var markerPlaceOfften; // for pan to place offten
 var markerCircle; // point cerrtent locatont
 var current_marker,home_marker; // img marker
 var pos; // current location (lat,lng)
+var geocoder ;
  
 function initialize() {
 //		placeRecord();
@@ -69,7 +78,10 @@ function initialize() {
 
         });
          var list = document.getElementById('list_place');
-         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(list);
+         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(list); 
+         
+         var home = document.getElementById('homePlace');
+         map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(home);
          
         // StreetView //
 		map.get('streetView').setOptions({
@@ -148,26 +160,11 @@ function initAutocomplete(map,start,end){
         });
         
          addYourLocationButton(map, marker2);  
-         google.maps.event.addListener(map, 'dragend', function() { 
+        google.maps.event.addListener(map, 'dragend', function() { 
          $('#btn_CurrentLocation').show('500');
          marker2.setAnimation(null); 
          
          } );
-         
-/*     google.maps.event.addListener(map, 'center_changed', function() { 
-       
-        var Newlat = map.getCenter().lat();
-        var Newlng = map.getCenter().lng();
-        var newPos = {
-              lat: Newlat,
-              lng: Newlng
-            };
-		marker2.setPosition(newPos);
- 		  console.log(newPos);
-         
-         } );*/
-         
-         
          
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -180,7 +177,8 @@ function initAutocomplete(map,start,end){
             marker2.setPosition(pos);
             map.setCenter(pos);
             markerCircle.setPosition(pos);
-            var geocoder = new google.maps.Geocoder;
+            
+            geocoder = new google.maps.Geocoder;
             
             latitude=position.coords.latitude;               
             longitude= position.coords.longitude;
@@ -191,7 +189,7 @@ function initAutocomplete(map,start,end){
             	console.log(status);
 			    if (status === google.maps.GeocoderStatus.OK) {
 			      if (results[1]) {
-
+					console.log(results);
 			        //getAddress(results[1].formatted_address);
 			        addr = results[1].formatted_address;
 			        console.log(addr);
@@ -376,7 +374,7 @@ function smoothZoom (map, max, cnt) {
 }  
 
 function nearbyPlace(map,location,value){
-	
+	placeRecord();
 	var service = new google.maps.places.PlacesService(map);
 	if(value!=""){
 		service.nearbySearch({
@@ -448,52 +446,74 @@ function placeRecord(){
 
 	$.post( "getuser_control/place_often",{"id":id},function( data ) {
 		if(data==='false'){
-console.log('no have record');
-$('#list_place_push').append('<li class="list-group-item-header" id="home_place" onclick="selectSavePlaceOfften();" style="background-color: #ffecec;" ><table width="100%"><tr><td>Home</td><td align="right"><i class="fa fa-home fa-2x" aria-hidden="true"></i></td></tr></table></li>');
-$('#list_place_push').append('<li class="list-group-item-header" id="office_place" onclick="selectSavePlaceOfften();" style="background-color: #ebffe6;" ><table width="100%"><tr><td>Office</td><td align="right"><i class="fa fa-building-o fa-2x" aria-hidden="true"></i></td></tr></table></li>');
+$('#list_place_push').append('<li class="list-group-item-header" id="home_place" onclick="selectSavePlaceOfften(1);" style="background-color: #ffecec;" ><table width="100%"><tr><td>Home</td><td align="right"><i class="fa fa-home fa-2x" aria-hidden="true"></i></td></tr></table></li>');
+$('#list_place_push').append('<li class="list-group-item-header" id="office_place" onclick="selectSavePlaceOfften(2);" style="background-color: #ebffe6;" ><table width="100%"><tr><td>Office</td><td align="right"><i class="fa fa-building-o fa-2x" aria-hidden="true"></i></td></tr></table></li>');
 
 		}else{
 				if(data){
 				var obj = JSON.parse(data);
 				$.each(obj, function (key, data) {
-//				    	alert(data.s_name);	
+$('#list_place_push').append('<li class="list-group-item-header" id="home_place" onclick="selectMyPlace(1);" style="background-color: #ffecec;" ><table width="100%"><tr><td>Home</td><td align="right"><i class="fa fa-home fa-2x" aria-hidden="true"></i></td></tr></table></li>');
+$('#list_place_push').append('<li class="list-group-item-header" id="office_place" onclick="selectMyPlace(2);" style="background-color: #ebffe6;" ><table width="100%"><tr><td>Office</td><td align="right"><i class="fa fa-building-o fa-2x" aria-hidden="true"></i></td></tr></table></li>');
 				});
 			}
 		}
 
     	});
-    	
-    	
 }
 
-function selectSavePlaceOfften(){
-//	marker2.setDraggable(true);
+function selectSavePlaceOfften(type_place){
+
+var infowindow = new google.maps.InfoWindow({maxWidth: 200});	 
 	$('#chk_val_search').val(0);
 	$('#card-style').hide(500);
 	$('#btn_CurrentLocation').show(500);
 	 marker2.setVisible(false);
-	/* markerPlaceOfften = new google.maps.Marker({
+	 markerPlaceOfften = new google.maps.Marker({
 //              icon : home_marker,
               draggable: true,
               animation: google.maps.Animation.DROP,
               map: map,
               position: pos     
-            });*/
-markerPlaceOfften = new google.maps.Marker({
-    map: map
-  });
+            });
+
     $('#change_icon').html('<i class="material-icons">keyboard_arrow_right</i>	');
-/*     google.maps.event.addListener(map, 'center_changed', function() { 
-       
-        var Newlat = map.getCenter().lat();
-        var Newlng = map.getCenter().lng();
+
+    	var url;
+    	var Newlat;
+    	var Newlng;
+    google.maps.event.addListener(map, 'center_changed', function() {    
+        Newlat = map.getCenter().lat();
+        Newlng = map.getCenter().lng();
         var newPos = {
               lat: Newlat,
               lng: Newlng
             };
 		markerPlaceOfften.setPosition(newPos);
  		  console.log(newPos);
-         
-         } );*/
-//    markerPlaceOfften.bindTo('position', map, 'center');
+ 		 url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+Newlat+','+Newlng+'&sensor=true';
+			
+    });
+
+	   google.maps.event.addListener(map, 'dragend', function() {    
+		
+          $.post( url, function( data ) {
+					console.log(data.results[0].formatted_address);
+					infowindow.setContent('<div>'+data.results[0].formatted_address+'</div><div class="btn btn-sm btn-danger pull-right btn-part" onclick="savePlaceOften(1,'+Newlat+','+Newlng+',\'' + data.results[0].place_id+ '\',\'' +type_place+'\')">Save</div>');
+					infowindow.open(map, markerPlaceOfften);   
+			});
+          });
+}
+
+function savePlaceOften(type,lat,lng,place_id,type_place){
+	if(type==1){
+		var url_placeoften = 'my_place_often/save';
+		$.post( url_placeoften,{lat:lat,lng:lng,place_id:place_id,type_place:type_place},function( data ) {
+					alert(data);
+			});
+	}
+}
+
+function selectMyPlace(lat,lng){
+	
 }

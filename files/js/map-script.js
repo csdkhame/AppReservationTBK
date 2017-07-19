@@ -20,30 +20,31 @@
             }
 	});
 	
-	$('#btn_hide-show').click(function(){
-		var chk_val_search = $('#chk_val_search').val();
-            if (chk_val_search == 1) {
-                $('#chk_val_search').val(0);
-                $('#change_icon').html('<i class="material-icons">keyboard_arrow_right</i>	');
-                $('#btn-real-res').show(700);
+	$('#selectPlaceNearby').click(function(){
+		$('#btn_hide-show').click();
+	});
+	
+	
+	function showHeader(){
+		 $('#btn-real-res').show(700);
                 $('.card-contentrealtime').show(700);
 				$('.card-contentrealtime').removeClass('hidden5');
 			   $('#search-raeltime').css('margin-top','112px');
-            } else {
-                $('#chk_val_search').val(1);
-                $('#change_icon').html('<i class="material-icons">keyboard_arrow_left</i>');
-
+	}
+	function hideHeader(){
 				$('#search-raeltime').css('margin-top','10px');
 				$('#btn-real-res').hide(700);
 				$('.card-contentrealtime').addClass('hidden5');
-
-            }
-		 $("#card-style").animate({width: 'toggle'}, "slow");
-		
-		 
-	});
-
-
+	}
+	
+ $('.material-button-toggle').on("click", function () {
+        $(this).toggleClass('open');
+        $('.option').toggleClass('scale-on');
+        $('.list-inline').toggleClass('fix');
+        
+    });
+    
+    
 var map; //main map
 var marker2; // current position
 var markerPlaceOfften; // for pan to place offten
@@ -53,7 +54,7 @@ var pos; // current location (lat,lng)
 var geocoder ;
  
 function initialize() {
-//		placeRecord();
+
        	var mapMinZoom = 14;
     	var mapMaxZoom = 18;
         var start;
@@ -70,7 +71,10 @@ function initialize() {
 
         });
          var list = document.getElementById('list_place');
-         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(list);
+         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(list); 
+         
+         var btnOp = document.getElementById('selectPlace');
+         map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(btnOp);
          
         // StreetView //
 		map.get('streetView').setOptions({
@@ -111,42 +115,8 @@ function initialize() {
 function initAutocomplete(map,start,end){
 	
 		  var tst ;
-         current_marker = {
-              url: 'https://dotdotdottrip.com/pic/icon_marker.png',
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(35, 35)
-            };
-         
-         home_marker = {
-              url: 'https://dotdotdottrip.com/pic/home.png',
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 44),
-              scaledSize: new google.maps.Size(35, 40)
-            };
-         
-         marker2 = new google.maps.Marker({
-//           icon : current_marker,
-              draggable: true,
-              animation: google.maps.Animation.DROP,
-              map: map             
-            });
-            
-         markerCircle = new google.maps.Marker({
-          position: map.getCenter(),
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 6,
-            fillOpacity: 2,
-            strokeWeight: 2,
-            fillColor: '#01a6fe',
-            strokeColor: '#01a6fe'
-          },
-          draggable: true,
-          map: map
-        });
+		 createAllMarker(); 
+		
         
          addYourLocationButton(map, marker2);  
         google.maps.event.addListener(map, 'dragend', function() { 
@@ -191,7 +161,7 @@ function initAutocomplete(map,start,end){
 			      window.alert('Geocoder failed due to: ' + status);
 			    }
 			  });
-			console.log("currentLocation : "+pos);
+			
 			nearbyPlace(map,pos,"");
 			filterPlace(map,pos);
           }, function() {
@@ -424,9 +394,11 @@ function eventPlace(lat,lng,placeName){
 	 smoothZoom(map, 18, map.getZoom());
 	 $('#pac-input').val(placeName);
 	 $('#chk_val_search').val(0);
-	 $('#card-style').hide(500);
+//	 $('#card-style').hide(500);
+	 $('#showPlace').modal('toggle')
 	 $('#btn_CurrentLocation').show(500);
-	 $('#change_icon').html('<i class="material-icons">keyboard_arrow_right</i>	');
+	  $('.material-button-toggle').click();
+//	 $('#change_icon').html('<i class="material-icons">keyboard_arrow_right</i>	');
 }
 
 function placeRecord(){
@@ -435,15 +407,16 @@ function placeRecord(){
 
 	$.post( "getuser_control/place_often",{"id":id},function( data ) {
 		if(data==='false'){
-$('#list_place_push').append('<li class="list-group-item-header" id="home_place" onclick="selectSavePlaceOfften(1);" style="background-color: #ffecec;" ><table width="100%"><tr><td>Home</td><td align="right"><i class="fa fa-home fa-2x" aria-hidden="true"></i></td></tr></table></li>');
-$('#list_place_push').append('<li class="list-group-item-header" id="office_place" onclick="selectSavePlaceOfften(2);" style="background-color: #ebffe6;" ><table width="100%"><tr><td>Office</td><td align="right"><i class="fa fa-building-o fa-2x" aria-hidden="true"></i></td></tr></table></li>');
+//$('#selectHome').html('<span id="home_place" onclick="selectSavePlaceOfften(1); class="fa fa-home fa-2x" aria-hidden="true"></span>');
+ $('#selectHome').html('<i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i>');
+
+$('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i>');
 
 		}else{
 				if(data){
 				var obj = JSON.parse(data);
 				$.each(obj, function (key, data) {
-$('#list_place_push').append('<li class="list-group-item-header" id="home_place" onclick="selectMyPlace(1);" style="background-color: #ffecec;" ><table width="100%"><tr><td>Home</td><td align="right"><i class="fa fa-home fa-2x" aria-hidden="true"></i></td></tr></table></li>');
-$('#list_place_push').append('<li class="list-group-item-header" id="office_place" onclick="selectMyPlace(2);" style="background-color: #ebffe6;" ><table width="100%"><tr><td>Office</td><td align="right"><i class="fa fa-building-o fa-2x" aria-hidden="true"></i></td></tr></table></li>');
+
 				});
 			}
 		}
@@ -452,21 +425,16 @@ $('#list_place_push').append('<li class="list-group-item-header" id="office_plac
 }
 
 function selectSavePlaceOfften(type_place){
-
+ $('.material-button-toggle').click();
+ 
+// markerPlaceOfften.setAnimation(google.maps.Animation.DROP); 
 var infowindow = new google.maps.InfoWindow({maxWidth: 200});	 
 	$('#chk_val_search').val(0);
-	$('#card-style').hide(500);
+    hideHeader();
+    $('#search-raeltime').hide(700);
 	$('#btn_CurrentLocation').show(500);
 	 marker2.setVisible(false);
-	 markerPlaceOfften = new google.maps.Marker({
-//              icon : home_marker,
-              draggable: true,
-              animation: google.maps.Animation.DROP,
-              map: map,
-              position: pos     
-            });
-
-    $('#change_icon').html('<i class="material-icons">keyboard_arrow_right</i>	');
+	 
 
     	var url;
     	var Newlat;
@@ -478,9 +446,10 @@ var infowindow = new google.maps.InfoWindow({maxWidth: 200});
               lat: Newlat,
               lng: Newlng
             };
+            
 		markerPlaceOfften.setPosition(newPos);
  		  console.log(newPos);
- 		 url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+Newlat+','+Newlng+'&sensor=true';
+ 		 url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+Newlat+','+Newlng+'&sensor=true';
 			
     });
 
@@ -492,6 +461,53 @@ var infowindow = new google.maps.InfoWindow({maxWidth: 200});
 					infowindow.open(map, markerPlaceOfften);   
 			});
           });
+}
+
+function createAllMarker(){
+	 markerPlaceOfften = new google.maps.Marker({
+//              icon : home_marker,
+              draggable: true,
+              animation: google.maps.Animation.DROP,
+              map: map,
+              position: pos     
+            });
+             
+         current_marker = {
+              url: 'https://dotdotdottrip.com/pic/icon_marker.png',
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(35, 35)
+            };
+         
+         home_marker = {
+              url: 'https://dotdotdottrip.com/pic/home.png',
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 44),
+              scaledSize: new google.maps.Size(35, 40)
+            };
+         
+         marker2 = new google.maps.Marker({
+//           icon : current_marker,
+              draggable: true,
+              animation: google.maps.Animation.DROP,
+              map: map             
+            });
+            
+         markerCircle = new google.maps.Marker({
+          position: map.getCenter(),
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 6,
+            fillOpacity: 2,
+            strokeWeight: 2,
+            fillColor: '#01a6fe',
+            strokeColor: '#01a6fe'
+          },
+          draggable: true,
+          map: map
+        });
 }
 
 function savePlaceOften(type,lat,lng,place_id,type_place){

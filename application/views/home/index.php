@@ -161,124 +161,39 @@
     border-radius: 4px;
     position: relative;
 }
-.card-style {
-    display: block;
-    background-color: #fff;
-/*    height: 410px;*/
-/*    height: 100%;*/
-	height: 400px;
-    width: 100%;
-    margin: 20px 0px;
-    box-shadow: 1px 1px 8px #999;
-    cursor: pointer;
-}
 @media screen and (min-height: 600px) {
-    .card-style {
-    	height: 450px;
+    .media-scroll {
+    	height: 300px;
     }
-    #list_place_push {
-    	height: 450px;
-    }
+   
 }
 @media screen and (min-height: 660px) {
-    .card-style {
-    	height: 500px;
+    .media-scroll{
+    	height: 350px;
     }
-    #list_place_push {
-    	height: 500px;
-    }
+  
 }
 @media screen and (min-height: 730px) {
-    .card-style {
-    	height: 550px;
+   .media-scroll {
+    	height: 400px;
     }
-    #list_place_push {
-    	height: 550px;
-    }
-}
-
-.btn-hide-show {
-    display: block;
-    background-color: #ddd;
-    height: 150px;
-    width: 23px;
-    margin: 20px 0px;
-    box-shadow: 1px 1px 8px #999;
-    cursor: pointer;
-}
-.media-heading {
-    margin-top: 10px;
-    color: #444;
-}
-.media-heading:hover, a:link {
-    color: #00C853;
-    text-decoration: none;
-}
-.members {
-    margin-top: 20px;
-    color: #999;
-    float: left;
- }
- .btn-part {
-     display: inline-block;
-     margin: 10px;
-     float: right;
- }
- .badge {
-     display: inline-block;
-     background: #00C853;
-     float: right;
-     padding: 7px;
-     border-radius: 50px;
-     margin: 10px;
- }
-</style>
-<style>
-	.list-group-item-header {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    margin-bottom: -1px;
-/*    background-color: #fff;*/
-    border: 1px solid #ddd;
-}
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
-.btn-circle.btn-lg {
-  width: 50px;
-  height: 50px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 25px;
-}
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
+   
 }
 </style>
-		<div id="list_place" style="z-index: 10; position: absolute;   left: 0px !important; display: none;" >
-            <div class="row">
-                <div class="col-md-12" >
-                	
-                	<table><tr><td>
-                    <div class="card-style" style="display: none;" id="card-style" >
-                        <!--<div class="media">-->
-                            <div class="media-body">             
-                               <!-- <a href="#"><h5 class="media-heading">Disc. Programação Internet Rica - 2016.2</h5></a>
-                                <div class="members pull-left"><small>1.235 Members</small></div><div class="btn btn-sm btn-danger pull-right btn-part">Join Group</div>-->
-                                <select class="select-type-place" id="types_ofPlace">
+ <!-- Modal -->
+  <div class="modal fade" id="showPlace" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" style="display: none;">&times;</button>
+           
+        </div>
+        	
+         					 <div class="media-body">             
+         					
+                               <select class="select-type-place" id="types_ofPlace">
 								  <option value="">Select Types</option>
 								  <option value="hospital">Hospital</option>
 								  <option value="store">Store</option>
@@ -289,27 +204,189 @@
 								  <option value="department_store">Department Store</option>
 								  <option value="lodging">Hotel,Resort</option>
 								</select>
-                               <ul class="list-group" id="list_place_push" style="font-size: 15px;overflow-y: scroll !important; " >
+								<div style="overflow-y: scroll !important; " class="media-scroll" >
+                               <ul class="list-group" id="list_place_push" style="font-size: 15px;" >
                                
-								</ul>                            
-                           </div>
-                     <!--   </div>-->
-                    </div>
-					</td>
-					<td>
-						<div class="btn-hide-show" id="btn_hide-show" style="z-index: 11;">
-						<div style="height: 90px; line-height:150px;margin-left: -1px;" id="change_icon">
-						<i class="material-icons">keyboard_arrow_right</i>		
-						</div>
-						</div>
-						<!--<button type="button" class="btn btn-info btn-circle btn-lg" id="btn_hide-show"><div id="change_icon"><i class="material-icons">keyboard_arrow_right</i></div></button>-->
-					</td>
-					</tr></table>
-                </div>
-            </div>
+								</ul>
+								</div>                            
+                           </div>  
+        	
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button>
         </div>
+      </div>
+      
+    </div>
+  </div>
+  
 
-		
+
+<style>
+	.material-button-anim {
+  position: relative;
+  padding: 0px 17px 27px;
+  text-align: center;
+  max-width: 320px;
+  margin: 0 auto 20px;
+      height: 90px;
+}
+
+.material-button {
+    position: relative;
+    top: 0;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    color: #fff;
+    background: #2C98DE;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,.275);
+    outline: none;
+}
+.material-button-toggle {
+    z-index: 3;
+    width: 55px;
+    height: 55px;
+    margin: 0 auto;
+}
+.material-button-toggle span {
+    -webkit-transform: none;
+    transform:         none;
+    -webkit-transition: -webkit-transform .175s cubic-bazier(.175,.67,.83,.67);
+    transition:         transform .175s cubic-bazier(.175,.67,.83,.67);
+}
+.material-button-toggle.open {
+    -webkit-transform: scale(1.3,1.3);
+    transform:         scale(1.3,1.3);
+    -webkit-animation: toggleBtnAnim .175s;
+    animation:         toggleBtnAnim .175s;
+}
+.material-button-toggle.open span {
+    -webkit-transform: rotate(45deg);
+    transform:         rotate(45deg);
+    -webkit-transition: -webkit-transform .175s cubic-bazier(.175,.67,.83,.67);
+    transition:         transform .175s cubic-bazier(.175,.67,.83,.67);
+}
+
+#options {
+  height: 70px;
+/*  margin-bottom: 10px;*/
+}
+.fix{
+	    margin-bottom: -10px !important;
+}
+.option {
+    position: relative;
+}
+.option .option1,
+.option .option2,
+.option .option3 {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -webkit-transition: all .175s;
+    transition:         all .175s;
+}
+.option .option1 {
+    -webkit-transform: translate3d(90px,90px,0) scale(.8,.8);
+    transform:         translate3d(90px,90px,0) scale(.8,.8);
+}
+.option .option2 {
+    -webkit-transform: translate3d(0,90px,0) scale(.8,.8);
+    transform:         translate3d(0,90px,0) scale(.8,.8);
+}
+.option .option3 {
+    -webkit-transform: translate3d(-90px,90px,0) scale(.8,.8);
+    transform:         translate3d(-90px,90px,0) scale(.8,.8);
+}
+.option.scale-on .option1, 
+.option.scale-on .option2,
+.option.scale-on .option3 {
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    -webkit-transform: none;
+    transform:         none;
+    -webkit-transition: all .175s;
+    transition:         all .175s;
+    left: 0px !important;
+    margin-bottom: -10px;
+}
+.option.scale-on .option2 {
+    -webkit-transform: translateY(-28px) translateZ(0);
+    transform:         translateY(-28px) translateZ(0);
+    -webkit-transition: all .175s;
+    transition:         all .175s;
+}
+
+@keyframes toggleBtnAnim {
+    0% {
+        -webkit-transform: scale(1,1);
+        transform:         scale(1,1);
+    }
+    25% {
+        -webkit-transform: scale(1.4,1.4);
+        transform:         scale(1.4,1.4); 
+    }
+    75% {
+        -webkit-transform: scale(1.2,1.2);
+        transform:         scale(1.2,1.2);
+    }
+    100% {
+        -webkit-transform: scale(1.3,1.3);
+        transform:         scale(1.3,1.3);
+    }
+}
+@-webkit-keyframes toggleBtnAnim {
+    0% {
+        -webkit-transform: scale(1,1);
+        transform:         scale(1,1);
+    }
+    25% {
+        -webkit-transform: scale(1.4,1.4);
+        transform:         scale(1.4,1.4); 
+    }
+    75% {
+        -webkit-transform: scale(1.2,1.2);
+        transform:         scale(1.2,1.2);
+    }
+    100% {
+        -webkit-transform: scale(1.3,1.3);
+        transform:         scale(1.3,1.3);
+    }
+}
+</style>
+
+
+	<div class="row" id="selectPlace" style="height: 170px !important;display: none;">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="material-button-anim" >
+          <ul class="list-inline" id="options">
+            <li class="option">
+              <button class="material-button option1" type="button" style="left: -30px;" >
+                <!--<span class="fa fa-phone" aria-hidden="true"></span>-->
+                <span id="selectHome"></span>
+              </button>
+            </li>
+            <li class="option">
+              <button class="material-button option2" type="button">
+                <!--<span class="fa fa-building-o fa-2x" aria-hidden="true"></span>-->
+                <span id="selectOffice"></span>
+              </button>
+            </li>
+            <li class="option">
+              <button class="material-button option3" type="button" style="left: 30px;">
+                <span id="selectPlaceNearby"><i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#showPlace"></i></span>
+              </button>
+            </li>
+          </ul>
+          <button class="material-button material-button-toggle" type="button" >
+            <span class="fa fa-plus" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+	</div>
+
    
      <div id="search-raeltime" style=" position: absolute;
         margin-top: 112px;
