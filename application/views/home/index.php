@@ -358,7 +358,7 @@
 </style>
 
 
-	<div class="row" id="selectPlace" style="height: 170px !important;display: none;">
+	<div class="row" id="selectPlace" style="height: 170px !important;display: noneห;">
       <div class="col-md-4 col-md-offset-4">
         <div class="material-button-anim" >
           <ul class="list-inline" id="options">
