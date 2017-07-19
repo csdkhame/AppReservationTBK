@@ -88,7 +88,50 @@
 
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" id="btnuser">
+                        <div class="user">
+                            <div class="photo">
+                                <img src="<?php echo base_url(); ?>/files/img/about-7.jpg">
+                            </div>                    
+                        </div>
+                        <a  class="dropdown-toggle" data-toggle="dropdown">
+                            <div id="usernamess"></div> 
+                            
+                            <b class="caret"></b>
+                        </a>
+                        
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="" >
+                                <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
+                
+                                </a>
+                            </li>
+                            
+                            <li id="btn-logout-user">
+                                <a>
+                                    <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
+                
+                                </a>
+                            </li>
                     
+                        </ul>
+                    <style>
+                    .user {
+                        padding-bottom: 20px;
+                        margin: 25px auto 0;
+                        position: relative;
+                    }
+                    .user .photo {
+                        width: 80px;
+                        height: 80px;
+                        overflow: hidden;
+                        border-radius: 50%;
+                        margin: 0 auto;
+                        /*box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);*/
+                    }
+                    </style>
+                    </li>
                     <li id="btnlogin">
                         <a href="https://dotdotdottrip.com/register">
                         <i class="material-icons">account_circle</i>
@@ -96,30 +139,7 @@
                 
                         </a>
                     </li>
-                     <li class="dropdown" id="btnusers">
-                        <a  class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- <div style="width: 100%;text-align: center;"> -->
-                               <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product"></span>
-                            
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="" >
-                               <i class="material-icons">directions_car</i><span class="lng-transports"></span>
-                
-                                </a>
-                            </li>
-                           
-                            <li id="btn-logout-user">
-                                <a>
-                                    <i class="material-icons">style</i><span class="lng-tours"></span>
-                
-                                </a>
-                            </li>
-                    
-                        </ul>
-                    </li>
+                     
                      <li>
                         <a href="<?php echo base_url(); ?>dashboard/view_user">
                             <i class="material-icons">dashboard</i><span style="text-transform: initial; " class="lng-dashboard"></span>

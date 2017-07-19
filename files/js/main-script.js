@@ -740,15 +740,15 @@ $(document).ready(function() {
             var values = [];
             $.each(data , function(i, val) {
 
-                //console.log(data[i].id)
-                     // $.ajax({
-                     //        type: 'POST',
-                     //        url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
-                     //        data: { 'id': data[i].id },
-                     //        //contentType: "application/json",
-                     //        dataType: 'json',
-                     //        success: function(data) {
-                     //            console.log(data)
+                // console.log(data[i].id)
+                //      $.ajax({
+                //             type: 'POST',
+                //             url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+                //             data: { 'id': data[i].id },
+                //             //contentType: "application/json",
+                //             dataType: 'json',
+                //             success: function(data) {
+                //                 console.log(data)
                                 
 
 
@@ -756,8 +756,8 @@ $(document).ready(function() {
 
 
 
-                     //        }
-                     //    });
+                //             }
+                //         });
 
                        //alert('aaa')
                       $('#latlng').append('<button type="button" class="btn btn-default"  onclick="updatelatlng(\''+data[i].id+'\')">'+data[i].topic+'</button>');
@@ -1293,7 +1293,19 @@ $('#current-addr').on('click',getAddress);
     console.log(longitude)
     console.log(addrcurent)
     var x = Math.PI * (latitude/180);
-    console.log(x)
+    var y = Math.PI * (longitude/180);
+    console.log('Math.PI'+'-'+Math.PI);
+    console.log(latitude/180)
+    console.log(longitude/180)
+
+    console.log('latitude'+x)
+    console.log('longitude'+y)
+    var s = 7.8926326;
+    var d = 98.3005206;
+    var r = 6371;
+    var d = 6371*Math.PI;
+    console.log(d*d)
+    console.log(Math.cos(98.3005206))
     
  }
  
