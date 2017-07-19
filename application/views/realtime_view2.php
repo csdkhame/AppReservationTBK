@@ -164,7 +164,18 @@
 	          map: map
 	         
 	        });
-	        
+	        google.maps.event.addListener(map, 'center_changed', function() { 
+       
+        var Newlat = map.getCenter().lat();
+        var Newlng = map.getCenter().lng();
+        var newPos = {
+              lat: Newlat,
+              lng: Newlng
+            };
+		marker2.setPosition(newPos);
+ 		  console.log(newPos);
+         
+         } );
 	        addYourLocationButton(map, marker2);
 	        
 		if (navigator.geolocation) {
