@@ -10,7 +10,7 @@ class Getlaglng_model extends CI_Model {
         //$arr = array();
         $id = $this->input->post('id');    
         //$id = '193';    
-        $this->db->select('address,id,topic');      
+        $this->db->select('address,id,topic,update_map');      
         //$this->db->from('');
         $this->db->where('id',''.$id.'');
         //$query = $this->db->get();
@@ -19,6 +19,7 @@ class Getlaglng_model extends CI_Model {
             foreach($query->result() as $row) {
                 $Address = $row->topic;
                 $getid = $row->id;
+                $map = $row->update_map;
                 //$data[] = $row->topic;
                 //$fAddress = urlencode($Address);
                 $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&Key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90";
@@ -43,11 +44,14 @@ class Getlaglng_model extends CI_Model {
                 if ($status=="OK") {
                     $Lat = $xml->result->geometry->location->lat;
                     $Lon = $xml->result->geometry->location->lng;
+                    $placeid = $xml->result->place_id;
                     //$LatLng = "$Lat,$Lon";
                     //array_push($arr, $Lat.'-'.$Lon);
                     $arr = $Lat.'-'.$Lon;
                     $data['lat'] =$Lat;
                     $data['lng'] =$Lon;
+                    $data['place_id'] =$placeid;
+                    $data['place_id'] =$placeid;
                     $this->db->where('id', $getid);
                     $this->db->update('ap_transferplace', $data);
                     // if ($this->db->affected_rows() > 0) {
@@ -61,7 +65,7 @@ class Getlaglng_model extends CI_Model {
                   return $status;
                 }
             }
-            return  $jsonData.'--'.$data.'--'.$arr;
+            return  $placeid.'--'.$arr;
         }
         else{
             return FALSE;

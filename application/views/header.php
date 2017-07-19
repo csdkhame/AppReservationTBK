@@ -90,8 +90,57 @@
         		<a class="navbar-brand" href="">app<!-- <img src="files/images/logo.png"> --></a>
         	</div>
 
-        	<div class="navbar-collapse">
+        	<div class="navbar-collapse">            
         		<ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" id="btnuser">
+                        <div class="user">
+                            <div class="photo">
+                                <img src="<?php echo base_url(); ?>/files/img/about-7.jpg">
+                            </div>                    
+                        </div>
+                        <a  class="dropdown-toggle" data-toggle="dropdown">
+                            <div id="usernamess"></div> 
+                            
+                            <b class="caret"></b>
+                        </a>
+                        
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="" >
+                                <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
+                
+                                </a>
+                            </li>
+                            
+                            <li id="btn-logout-user">
+                                <a>
+                                    <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
+                
+                                </a>
+                            </li>
+                    
+                        </ul>
+                    <style>
+                    .user {
+                        text-align: center;
+                        padding-bottom: 20px;
+                        margin: 25px auto 0;
+                        position: relative;
+                    }
+                    .user .photo {
+                        /*width: 80px;*/
+                        /*height: 80px;*/
+                        overflow: hidden;
+                            border-radius: 4px;
+                        /*margin: 0 auto;*/
+                        /*box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);*/
+                    }
+                    .user .photo img {
+                        width:140px;
+                        
+                    }
+                    </style>
+                    </li>
     				
                     <li id="btnlogin">
                         <a href="https://dotdotdottrip.com/register">
@@ -163,48 +212,7 @@
                     </li>
                    
                     
-                   <li class="dropdown" id="btnuser">
-                        <a  class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- <div style="width: 100%;text-align: center;">
-                                <i class="material-icons center" align="center" >person_pin</i>
-                            </div> -->
-                            
-                            <div id="usernamess"></div> 
-                            <!-- <div class="user">
-                                <div class="photo">
-                                    <img src="./Material Dashboard PRO by Creative Tim _ Premium Bootstrap Admin Template_files/avatar.jpg">
-                                </div>
-                                <div class="info">
-                                    <a data-toggle="collapse" href="http://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html#collapseExample" class="collapsed" aria-expanded="false">
-                                        USERS ADMIN
-                                        <b class="caret"></b>
-                                    </a>
-                                </div>
-                            </div> -->
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="" >
-                                <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
-                
-                                </a>
-                            </li>
-                            <!-- <li>
-                                <a href="" >
-                                    <i class="material-icons">power_settings_new</i>Logout
-                
-                                </a>
-                            </li> -->
-                            <li id="btn-logout-user">
-                                <a>
-                                    <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
-                
-                                </a>
-                            </li>
-					
-		</ul>
-					</li>
+                   
 					
 
 					
