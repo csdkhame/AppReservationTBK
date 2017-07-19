@@ -122,17 +122,22 @@
                         </ul>
                     <style>
                     .user {
+                        text-align: center;
                         padding-bottom: 20px;
                         margin: 25px auto 0;
                         position: relative;
                     }
                     .user .photo {
-                        width: 80px;
-                        height: 80px;
+                        /*width: 80px;*/
+                        /*height: 80px;*/
                         overflow: hidden;
-                        border-radius: 50%;
-                        margin: 0 auto;
+                            border-radius: 4px;
+                        /*margin: 0 auto;*/
                         /*box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);*/
+                    }
+                    .user .photo img {
+                        width:140px;
+                        
                     }
                     </style>
                     </li>
