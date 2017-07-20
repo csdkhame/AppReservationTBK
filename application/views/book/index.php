@@ -73,21 +73,27 @@
     </div>
 </div>
 <div id="content">
-    <nav class="navbar" id="sectionsNav" style="margin: auto;z-index: 1030">
+    <nav class="navbar" id="sectionsNav" style="position: absolute;
+    background: rgba(255, 255, 255, 0) !important;
+    margin: auto;
+    z-index: 20;
+    width: 100%;
+    padding-top: 0;
+    box-shadow: none;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important;color: #fff">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://dotdotdottrip.com">App<!-- <img src="files/images/logo.png"> --></a>
+                <a class="navbar-brand" href="https://dotdotdottrip.com"><!-- <img src="files/images/logo.png"> --></a>
             </div>
 
             <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" style="padding-top: 15px;">
                     <li class="dropdown" id="btnuser">
                         <div class="user">
                             <div class="photo">
@@ -1520,14 +1526,7 @@
   
     
     <style>
-        .index-page .header-filter:after, .presentation-page .header-filter:after {
-    background: rgba(132,13,121,.88);
-    background: linear-gradient(45deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%);
-    background: -moz-linear-gradient(135deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%);
-    /* background: -webkit-linear-gradient(135deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%); */
-    /* background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgb(16, 15, 204)); */
-    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-}
+       
 .index-page .page-header, .presentation-page .page-header {
     height:30vh;
     overflow: hidden;

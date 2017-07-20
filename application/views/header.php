@@ -97,7 +97,7 @@
         	</div>
 
         	<div class="navbar-collapse">            
-        		<ul class="nav navbar-nav navbar-right">
+        		<ul class="nav navbar-nav navbar-right" style="padding-top: 15px;">
                     <li class="dropdown" id="btnuser">
                         <div class="user">
                             <div class="photo">
