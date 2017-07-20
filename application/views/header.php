@@ -93,7 +93,7 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-        		<a class="navbar-brand" href="">app<!-- <img src="files/images/logo.png"> --></a>
+        		<a class="navbar-brand" href=""><!-- <img src="files/images/logo.png"> --></a>
         	</div>
 
         	<div class="navbar-collapse">            
