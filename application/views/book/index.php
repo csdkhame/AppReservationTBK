@@ -78,12 +78,12 @@
     margin: auto;
     z-index: 20;
     width: 100%;
-    padding-top: 0;
+   
     box-shadow: none;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important;color: #fff">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" >
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -123,6 +123,9 @@
                     
                         </ul>
                    <style>
+                   .navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
+    background-color: rgb(255, 255, 255) !important;
+}
                     .user {
                         text-align: center;
                         padding-bottom: 20px;
