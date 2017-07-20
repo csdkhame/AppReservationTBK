@@ -22,7 +22,7 @@ class Getlaglng_model extends CI_Model {
                 //$map = $row->update_map;
                 //$data[] = $row->topic;
                 //$fAddress = urlencode($Address);
-                $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&Key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90";
+                $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&sensor=false";
                // $jsonData   = file_get_contents($request_url);
                // $data = json_decode($jsonData);
                 // $ch = curl_init();
@@ -48,9 +48,9 @@ class Getlaglng_model extends CI_Model {
                     //$LatLng = "$Lat,$Lon";
                     //array_push($arr, $Lat.'-'.$Lon);
                     $arr = $Lat.'-'.$Lon;
-                    $data['lat'] =$Lat;
-                    $data['lng'] =$Lon;                   
-                    $data['placeid'] = $placeid;
+                    $data['lat'] = $Lat;
+                    $data['lng'] = $Lon;                   
+                    //$data['place_id'] = $placeid;
                     $this->db->where('id', $getid);
                     $this->db->update('ap_transferplace', $data);
                     // if ($this->db->affected_rows() > 0) {

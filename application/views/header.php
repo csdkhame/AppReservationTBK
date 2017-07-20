@@ -75,13 +75,19 @@
 
 
 <div id="content" >
-
-	<nav class="navbar " id="sectionsNav" style="margin: auto;z-index: 20">
+<!-- navbar -->
+	<nav class=" navbar" id="sectionsNav" style="position: absolute;
+    background: rgba(255, 255, 255, 0) !important;
+    margin: auto;
+    z-index: 20;
+    width: 100%;
+    padding-top: 0;
+    box-shadow: none;">
     	<div class="container" style="margin-bottom: 0 ">
         <!-- navbar-default navbar-transparent navbar-fixed-top -->
         	<!-- Brand and toggle get grouped for better mobile display -->
         	<div class="navbar-header">
-        		<button type="button" class="navbar-toggle" data-toggle="collapse">
+        		<button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important;">
             		<span class="sr-only">Toggle navigation</span>
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
