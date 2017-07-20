@@ -355,15 +355,15 @@
         transform:         scale(1.3,1.3);
     }
 }
+
 </style>
 
-
-	<div class="row" id="selectPlace" style="height: 170px !important;display: noneห;">
+	<div class="row" id="selectPlace" style="height: 170px !important;z-index: -1 !important;">
       <div class="col-md-4 col-md-offset-4">
         <div class="material-button-anim" >
           <ul class="list-inline" id="options">
             <li class="option">
-              <button class="material-button option1" type="button" style="left: -30px;" >
+              <button class="material-button option1" type="button" style="left: -30px;" id="btn-home" >
                 <!--<span class="fa fa-phone" aria-hidden="true"></span>-->
                 <span id="selectHome"></span>
               </button>
