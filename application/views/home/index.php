@@ -1059,8 +1059,8 @@ div.banner{
     min-height: 260px;
 }
 .item-thumbnail2 {
-    width: 170px;
-    height: 110px;
+    width: 150px;
+    height: 100px;
     /*margin-left: 10px;*/
     /*margin-top: -8px;*/
 }
