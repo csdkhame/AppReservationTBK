@@ -75,7 +75,7 @@ $(document).ready(function() {
 		
          $("#iconleft").css('display','none');//.fadeIn(1000);
         //$(this).hide(); 
-       
+       $('#selectPlace').css('z-index','1');
         $("#search-show").hide(); 
         $("#search-raeltime").fadeIn(1000); 
         //$(".btn-realtime").hide(); 
@@ -119,7 +119,7 @@ $(document).ready(function() {
         $("#iconleft2").fadeOut(1000);
         $("#iconleft").fadeOut(1000);
         //$("").css('display','block');//.fadeIn(1000);
-          $('#selectPlace').css('z-index','1');
+          $('#selectPlace').css('z-index','2');
          //$("#iconleft").css('display','none');//.fadeIn(1000);
         //$(this).hide(); 
        
