@@ -88,7 +88,7 @@ function initialize() {
 //          gestureHandling: 'coopergreedyative'
           gestureHandling: 'greedy',
           streetViewControl: true,
-          fullscreenControl: true
+          fullscreenControl: false
 
         });
          var list = document.getElementById('list_place');
