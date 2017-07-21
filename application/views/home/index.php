@@ -398,8 +398,8 @@
          	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
        					  <div class="box-search">
                               <!--  <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/> <button class="current-submit">Yes</button>-->
-                              <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:nones;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
-                            <input type='text' disabled  class="" placeholder="Current your position"  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;"/>
+                              <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
+                            <input type='text'   class="" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;"/>
 			                        <div style="display: nones;" id="open-search">
 			                        <div style="border-bottom: 1px solid #333;"></div>
                                     <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />   
