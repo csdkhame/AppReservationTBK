@@ -1,3 +1,4 @@
+var rel =false;
 $(document).ready(function() {
   // $.ajax({
   //           type: 'POST',
@@ -403,7 +404,7 @@ $(document).ready(function() {
             window.location.href = "https://dotdotdottrip.com/register";
         })
     $('.search-transfer-product').click(function() {
-       
+       console.log("relllllllllllllllllllllllllllllllllll"+'--'+rel)
     $('.a-link-item').remove();
 
     // $('#product_b').remove();
@@ -1288,6 +1289,7 @@ function login() {
 var addr,latitude,longitude,addrcurent;
 $('#current-addr').on('click',getAddress);
  function getAddress(address){
+    rel = true;
     $('#search-from').val(addr)
     console.log(latitude)
     console.log(longitude)
