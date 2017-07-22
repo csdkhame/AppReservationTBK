@@ -1071,7 +1071,8 @@ div.banner{
    
 }
 }
-@media only screen and (max-device-width: 568px) and (min-device-width: 320px) and (orientation: portrait){
+@media screen and (max-width:320px){
+/*@media only screen and (max-device-width: 568px) and (min-device-width: 320px) and (orientation: portrait){*/
 
 #private-btn{
     padding: 12px 44px !important;
@@ -1112,6 +1113,11 @@ div.banner{
 }
 .box-info{
     max-height: 100px;
+}
+#box-cost-view {
+    margin-right: 0px !important;
+    margin-top: 100px !important;
+    padding: 0;
 }
 }
         /*.tm-yellow-gradient-bg{
