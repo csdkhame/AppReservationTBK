@@ -727,19 +727,19 @@ $(document).ready(function() {
 
     //     }
     // });
-    $.ajax({
-        type: 'POST',
-        url: '../service/servicepro.php',
-        //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(data) {
-            console.log(data)
-            console.log(data.length)
-            dataplace = data
-            console.log(data[0])
-            var values = [];
-            $.each(data , function(i, val) {
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '../service/servicepro.php',
+    //     //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
+    //     //contentType: "application/json",
+    //     dataType: 'json',
+    //     success: function(data) {
+    //         console.log(data)
+    //         console.log(data.length)
+    //         dataplace = data
+    //         console.log(data[0])
+    //         var values = [];
+    //         $.each(data , function(i, val) {
 
                 // console.log(data[i].id)
                 //      $.ajax({
@@ -761,13 +761,13 @@ $(document).ready(function() {
                 //         });
 
                        //alert('aaa')
-                      $('#latlng').append('<button type="button" class="btn btn-default"  onclick="updatelatlng(\''+data[i].id+'\')">'+data[i].topic+'</button>');
+                      // $('#latlng').append('<button type="button" class="btn btn-default"  onclick="updatelatlng(\''+data[i].id+'\')">'+data[i].topic+'</button>');
 
                        //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
                      // $('#box-plancefrom').append('<li class="send-value" id="transferplace'+data[i].id+'" dataname ="'+data[i].topic+'" datapro="'+data[i].pro+'" dataaum="'+data[i].pro+'"onclick="sendValue(\''+data[i].id+'\');"><span class="name">'+data[i].topic+'</span></li>');
 
 
-                 });
+                 // });
             // $.each(data , function(i, val) { 
 
             //       var values = data[i];
@@ -803,9 +803,9 @@ $(document).ready(function() {
 
             // var userList = new +('users', options);
             //  $('.box-plancefrom').css('display','block');
-        }
+        // }
 
-    });
+    // });
 
     $('#search-from').keyup(function() {
         dataplace = '';
