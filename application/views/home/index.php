@@ -183,11 +183,11 @@
 </style>
  <!-- Modal -->
   <div class="modal fade" id="showPlace" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="margin-top: 15px;    margin: 15px;">
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style="display: none;">
           <button type="button" class="close" data-dismiss="modal" style="display: none;">&times;</button>
            
         </div>
@@ -376,7 +376,7 @@
               </button>
             </li>
             <li class="option">
-              <button class="material-button option3" type="button" style="left: 30px;">
+              <button class="material-button option3" type="button" style="left: 30px;" id="btn-other">
                 <span id="selectPlaceNearby"><i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#showPlace"></i></span>
               </button>
             </li>
@@ -398,9 +398,9 @@
          	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
        					  <div class="box-search">
                               <!--  <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/> <button class="current-submit">Yes</button>-->
-                              <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:nones;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Yes</span></button>
-                            <input type='text'  class="" placeholder="Current your position"  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;"/>
-			                        <div style="display: none;" id="open-search">
+                              <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
+                            <input type='text'   class="" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;"/>
+			                        <div style="display: nones;" id="open-search">
 			                        <div style="border-bottom: 1px solid #333;"></div>
                                     <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />   
                                     </div>          
@@ -408,7 +408,7 @@
                 </div>
       	</div>
 <input type="hidden" id="chk_val_search" value="0" />
-<input type="hidden" id="chk_val_boxsearch" value="0" />
+<input type="hidden" id="chk_val_boxsearch" value="1" />
 
         </div>
         <div style=" position: absolute;  margin-top: 112px;width: 100%; z-index: 5; display: none;" id="search-show">            
