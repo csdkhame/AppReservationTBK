@@ -23,4 +23,12 @@ public function save()
 //		 echo $data;
 //		 echo 555555555;
 	}
+	
+	function place_often(){
+
+      $data = $this->Often_model->get_place_often();
+	  //$array = array($age);
+	  echo json_encode($data);
+
+	}	
 }?>

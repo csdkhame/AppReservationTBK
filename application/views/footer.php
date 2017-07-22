@@ -91,7 +91,8 @@
 	<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/   -->
 	<script src="<?php echo base_url(); ?>files/js/nouislider.min.js" type="text/javascript"></script>
 	
-
+		<script src="<?php echo base_url(); ?>files/sweetalert-master/dist/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>files/sweetalert-master/dist/sweetalert.css">
 	<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker   -->
 	<!-- <script src="<?php echo base_url(); ?>files/js/bootstrap-datetimepicker.js" type="text/javascript"></script> -->
 

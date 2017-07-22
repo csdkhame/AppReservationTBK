@@ -248,7 +248,25 @@
     box-shadow: 0 3px 6px rgba(0,0,0,.275);
     outline: none;
 }
+.blinks {
+  width: 50px;
+  height: 50px;
+ -webkit-animation: NAME-YOUR-ANIMATION 1s infinite; /* Safari 4+ */
+  -moz-animation:    NAME-YOUR-ANIMATION 1s infinite; /* Fx 5+ */
+  -o-animation:      NAME-YOUR-ANIMATION 1s infinite; /* Opera 12+ */
+  animation:         NAME-YOUR-ANIMATION 1s infinite; /* IE 10+, Fx 29+ */
+}
 
+@-webkit-keyframes NAME-YOUR-ANIMATION {
+0%, 49% {
+    background-color: #d2d2d2;
+/*    border: 3px solid #e50000;*/
+}
+50%, 100% {
+    background-color: #2C98DE;
+/*    border: 3px solid rgb(117,209,63);*/
+}
+}
 </style>
 
 	<div class="row" id="selectPlace" style="z-index: -1 !important;">
@@ -258,13 +276,13 @@
         
               <button class="material-button option1" type="button" style="left: -30px;" id="btn-home" >
                 <!--<span class="fa fa-phone" aria-hidden="true"></span>-->
-                <span id="selectHome"></span>
+                <span id="selectHome"><i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i></span>
               </button>
     
            
               <button class="material-button option2" type="button" id="btn-office">
                 <!--<span class="fa fa-building-o fa-2x" aria-hidden="true"></span>-->
-                <span id="selectOffice"></span>
+                <span id="selectOffice"><i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(2);"></i></span>
               </button>
    
        
