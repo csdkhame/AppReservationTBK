@@ -24,9 +24,12 @@ class Often_model extends CI_Model {
 	$data['s_type'] = $this->input->post('type_place');
 	$data['d_last_update'] = $current;
 	 
-//	$result = $this->db->insert('ap_location_often', $data);
+	$result = $this->db->insert('ap_location_often', $data);
 	
-	return $data;
+	$array['status']= $result;
+	$array['data']=$data;
+	
+	return $array;
 
 	}
   

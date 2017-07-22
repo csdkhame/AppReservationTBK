@@ -62,25 +62,18 @@ var geocoder ;
 var marker; //result end place
 var placeStart = [];
 var placeEnd = [];
- $('.material-button-toggle').on("click", function () {
+ $('.material-button').on("click", function () {
  	    var check =  $('#chk_val_search').val();
  	    if(check==0){
 			
 			 $('#chk_val_search').val(1);
-//			 alert(check);
-			 showHeader();
-			 
-//			 google.maps.event.clearListeners(map, 'center_changed');
+
 		}else{
 			
 			 $('#chk_val_search').val(0);
-//			 alert(check);
-			 
+
 		}
-        $(this).toggleClass('open');
-        $('.option').toggleClass('scale-on');
-        $('.list-inline').toggleClass('fix');
-        
+
     });
 
  
@@ -482,10 +475,8 @@ function selectSavePlaceOfften(type_place){
 
 	
  	$('#btn-home').css('background','#d2d2d2');
-// markerPlaceOfften.setAnimation(google.maps.Animation.DROP); 
 var infowindow = new google.maps.InfoWindow({maxWidth: 200});	 
 
-    hideHeader();
     $('#search-raeltime').hide(700);
 	$('#btn_CurrentLocation').show(500);
 	 marker2.setVisible(false);
@@ -516,30 +507,7 @@ var infowindow = new google.maps.InfoWindow({maxWidth: 200});
 			});
           });
           
-        $('.material-button-toggle').on("click", function () {
- 	    var check =  $('#chk_val_search').val();
- 	    if(check==0){
-			
-			 $('#chk_val_search').val(1);
-			 
-			 showHeader();
-			  $('#search-raeltime').show(700);
-			 google.maps.event.clearListeners(map, 'center_changed');
-//			 markerPlaceOfften.setMap(null);
-			markerPlaceOfften.setVisible(false);
-			 marker2.setVisible(true);
-			   infowindow.close();
-			  map.panTo(pos);
-			  $('#btn-home').css('background','#2C98DE');
-			    google.maps.event.clearListeners(map, 'dragend');
-		}else{
-			
-			 $('#chk_val_search').val(0);
-			 
-			 
-		}
-        
-    });
+
 }
 
 function createAllMarker(){
