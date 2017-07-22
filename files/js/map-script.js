@@ -597,7 +597,8 @@ function savePlaceOften(type,lat,lng,place_id,type_place){
 	if(type==1){
 		var url_placeoften = 'my_place_often/save';
 		$.post( url_placeoften,{lat:lat,lng:lng,place_id:place_id,type_place:type_place},function( data ) {
-					alert(data);
+//					alert(data);
+console.log(data);
 			});
 	}
 }
