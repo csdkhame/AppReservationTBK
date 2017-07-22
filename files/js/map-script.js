@@ -62,19 +62,21 @@ var geocoder ;
 var marker; //result end place
 var placeStart = [];
 var placeEnd = [];
+var infowindow;
  $('.material-button').on("click", function () {
  	    var check =  $('#chk_val_search').val();
  	    if(check==0){
-			
+//			console.log('inclick '+check);
 			 $('#chk_val_search').val(1);
 
 		}else{
-			
+//			 alert(1);
 			 $('#chk_val_search').val(0);
-
+			 resetMap();
 		}
 
     });
+
 
  
 function initialize() {
@@ -324,8 +326,10 @@ function addYourLocationButton(map, marker2) {
 			 
 			  document.getElementById("current").value =  placeStart[1].formatted_address;
 			  $('#start_yes-change').click();
+			  marker2.setPosition(latlng);
 			  marker2.setAnimation(google.maps.Animation.BOUNCE);
 			  smoothZoom(map, 17, map.getZoom());
+			  
 //	          map.setZoom(16);
 			  $('#btn_CurrentLocation').hide('500');
 	       }, 1000)
@@ -457,7 +461,7 @@ function placeRecord(){
 //$('#selectHome').html('<span id="home_place" onclick="selectSavePlaceOfften(1); class="fa fa-home fa-2x" aria-hidden="true"></span>');
  $('#selectHome').html('<i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i>');
 
-$('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i>');
+$('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(2);"></i>');
 
 		}else{
 				if(data){
@@ -473,12 +477,11 @@ $('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" on
 
 function selectSavePlaceOfften(type_place){
 
-	
- 	$('#btn-home').css('background','#d2d2d2');
-var infowindow = new google.maps.InfoWindow({maxWidth: 200});	 
-
+	hideHeader();
+	infowindow = new google.maps.InfoWindow({maxWidth: 200});	 
     $('#search-raeltime').hide(700);
 	$('#btn_CurrentLocation').show(500);
+	markerPlaceOfften.setMap(map);
 	 marker2.setVisible(false);
 	markerPlaceOfften.setVisible(true);
     	var url;
@@ -497,16 +500,23 @@ var infowindow = new google.maps.InfoWindow({maxWidth: 200});
  		  url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+Newlat+','+Newlng+'&sensor=true';
 			
     });
-
+	if(type_place==1){
+		$('#btn-home').css('background','#d2d2d2');
+	}else if(type_place==2){
+		$('#btn-office').css('background','#d2d2d2');
+	}
+ 	
 	   google.maps.event.addListener(map, 'dragend', function() {    
 		
           $.post( url, function( data ) {
 					console.log(data.results[0].formatted_address);
 					infowindow.setContent('<div>'+data.results[0].formatted_address+'</div><div class="btn btn-sm btn-danger pull-right btn-part" onclick="savePlaceOften(1,'+Newlat+','+Newlng+',\'' + data.results[0].place_id+ '\',\'' +type_place+'\')">Save</div>');
 					infowindow.open(map, markerPlaceOfften);   
+					
+    
 			});
           });
-          
+         
 
 }
 
@@ -572,5 +582,22 @@ console.log(data);
 }
 
 function selectMyPlace(lat,lng){
+	
+}
+
+function resetMap(){
+//	console.log(placeStart);
+$('.material-button').css('background','#2C98DE');
+showHeader();
+$('#search-raeltime').show(700);
+infowindow = new google.maps.InfoWindow();
+map.panTo(pos);
+marker2.setVisible(true);
+markerPlaceOfften.setMap(null);
+ marker2.setAnimation(null);
+//markerPlaceOfften.setVisible(true);
+google.maps.event.clearListeners(map, 'center_changed');
+google.maps.event.clearListeners(map, 'dragend');
+//	map.fitBounds(placeStart.geometry.location);
 	
 }

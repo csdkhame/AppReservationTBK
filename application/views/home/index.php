@@ -242,7 +242,7 @@
     font-size: 1.5em;
     color: #fff;
     background: #2C98DE;
-        opacity: 0.75;
+        opacity: 0.85;
     border: none;
     border-radius: 50%;
     box-shadow: 0 3px 6px rgba(0,0,0,.275);
@@ -262,7 +262,7 @@
               </button>
     
            
-              <button class="material-button option2" type="button">
+              <button class="material-button option2" type="button" id="btn-office">
                 <!--<span class="fa fa-building-o fa-2x" aria-hidden="true"></span>-->
                 <span id="selectOffice"></span>
               </button>
