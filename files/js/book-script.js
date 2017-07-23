@@ -39,6 +39,8 @@ $(document).ready(function(){
           $('#btnlogin').css('display','none')
           $('#btnuser').css('display','block')
           $('.caret').css('display','inline-block')
+          $('#acceptancecheck').css('display','block')
+
       
         
            
@@ -53,6 +55,8 @@ $(document).ready(function(){
       $('#btnlogin').css('display','block')
           $('#btnuser').css('display','none')
           $('.caret').css('display','none')
+          $('#acceptancecheck').css('display','none')
+
 
 
      // $('.dropdown-menu').css('display','none')
