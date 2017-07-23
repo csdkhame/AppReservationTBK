@@ -963,11 +963,11 @@
                                 
                                                  
                                 <div class="toppic">
-                                    <p id="date-final"></p>
+                                    <p ><span id="date-final"></span></p>
                                     <span style="color: #333;" class="" id="ondate_samary"></span>
                                 </div>
                                 <div class="toppic">
-                                    <p id="time-final"></p>
+                                    <p ><span id="time-final"></span></p>
                                     <span style="color: #333;" class="" id="ontime_samary"></span>
                                 </div> 
                                

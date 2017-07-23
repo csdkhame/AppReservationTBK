@@ -8,12 +8,12 @@
 						<img src="<?php echo base_url(); ?>boot/img/world-map.png" alt="image" class="contact-image" />
 						<div class="contact-text">
 							<h1>Not Found</h1>
-							<div class="slider-social">
+							<!-- <div class="slider-social">
 								<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
 								<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
 								<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
 								<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-							</div>
+							</div> -->
 						</div>			      
 					</li>
 				</ul>
