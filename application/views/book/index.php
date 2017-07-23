@@ -806,7 +806,7 @@
                                              
                            
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" id="acceptancecheck">
                                         <div class="checkbox" style="margin-bottom: 30px;">
                                             <label>
                                                 <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
