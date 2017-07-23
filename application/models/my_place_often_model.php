@@ -1,11 +1,13 @@
 <?php
-class Place_often_model extends CI_Model {
+
+class My_place_often_model extends CI_Model {
 
   public function __construct() {
     parent::__construct();
   }
 
-	function save($id){
+
+  	public function save($id){
 	$lat = $this->input->post('lat');
 	$lag = $this->input->post('lng');
 	$place_id = $this->input->post('place_id');
@@ -23,4 +25,6 @@ class Place_often_model extends CI_Model {
 	return $result;
 
 	}
-}?>       	
+  
+}
+?>

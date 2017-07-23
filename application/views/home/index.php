@@ -230,6 +230,7 @@
   max-width: 320px;
   margin: 0 auto 20px;
       height: 90px;
+      
 }
 
 .material-button {
@@ -241,149 +242,54 @@
     font-size: 1.5em;
     color: #fff;
     background: #2C98DE;
+        opacity: 0.85;
     border: none;
     border-radius: 50%;
     box-shadow: 0 3px 6px rgba(0,0,0,.275);
     outline: none;
 }
-.material-button-toggle {
-    z-index: 3;
-    width: 55px;
-    height: 55px;
-    margin: 0 auto;
-}
-.material-button-toggle span {
-    -webkit-transform: none;
-    transform:         none;
-    -webkit-transition: -webkit-transform .175s cubic-bazier(.175,.67,.83,.67);
-    transition:         transform .175s cubic-bazier(.175,.67,.83,.67);
-}
-.material-button-toggle.open {
-    -webkit-transform: scale(1.3,1.3);
-    transform:         scale(1.3,1.3);
-    -webkit-animation: toggleBtnAnim .175s;
-    animation:         toggleBtnAnim .175s;
-}
-.material-button-toggle.open span {
-    -webkit-transform: rotate(45deg);
-    transform:         rotate(45deg);
-    -webkit-transition: -webkit-transform .175s cubic-bazier(.175,.67,.83,.67);
-    transition:         transform .175s cubic-bazier(.175,.67,.83,.67);
+.blinks {
+  width: 50px;
+  height: 50px;
+ -webkit-animation: NAME-YOUR-ANIMATION 1s infinite; /* Safari 4+ */
+  -moz-animation:    NAME-YOUR-ANIMATION 1s infinite; /* Fx 5+ */
+  -o-animation:      NAME-YOUR-ANIMATION 1s infinite; /* Opera 12+ */
+  animation:         NAME-YOUR-ANIMATION 1s infinite; /* IE 10+, Fx 29+ */
 }
 
-#options {
-  height: 70px;
-/*  margin-bottom: 10px;*/
+@-webkit-keyframes NAME-YOUR-ANIMATION {
+0%, 49% {
+    background-color: #d2d2d2;
+/*    border: 3px solid #e50000;*/
 }
-.fix{
-	    margin-bottom: -10px !important;
+50%, 100% {
+    background-color: #2C98DE;
+/*    border: 3px solid rgb(117,209,63);*/
 }
-.option {
-    position: relative;
 }
-.option .option1,
-.option .option2,
-.option .option3 {
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    -webkit-transition: all .175s;
-    transition:         all .175s;
-}
-.option .option1 {
-    -webkit-transform: translate3d(90px,90px,0) scale(.8,.8);
-    transform:         translate3d(90px,90px,0) scale(.8,.8);
-}
-.option .option2 {
-    -webkit-transform: translate3d(0,90px,0) scale(.8,.8);
-    transform:         translate3d(0,90px,0) scale(.8,.8);
-}
-.option .option3 {
-    -webkit-transform: translate3d(-90px,90px,0) scale(.8,.8);
-    transform:         translate3d(-90px,90px,0) scale(.8,.8);
-}
-.option.scale-on .option1, 
-.option.scale-on .option2,
-.option.scale-on .option3 {
-    filter: blur(0);
-    -webkit-filter: blur(0);
-    -webkit-transform: none;
-    transform:         none;
-    -webkit-transition: all .175s;
-    transition:         all .175s;
-    left: 0px !important;
-    margin-bottom: -10px;
-}
-.option.scale-on .option2 {
-    -webkit-transform: translateY(-28px) translateZ(0);
-    transform:         translateY(-28px) translateZ(0);
-    -webkit-transition: all .175s;
-    transition:         all .175s;
-}
-
-@keyframes toggleBtnAnim {
-    0% {
-        -webkit-transform: scale(1,1);
-        transform:         scale(1,1);
-    }
-    25% {
-        -webkit-transform: scale(1.4,1.4);
-        transform:         scale(1.4,1.4); 
-    }
-    75% {
-        -webkit-transform: scale(1.2,1.2);
-        transform:         scale(1.2,1.2);
-    }
-    100% {
-        -webkit-transform: scale(1.3,1.3);
-        transform:         scale(1.3,1.3);
-    }
-}
-@-webkit-keyframes toggleBtnAnim {
-    0% {
-        -webkit-transform: scale(1,1);
-        transform:         scale(1,1);
-    }
-    25% {
-        -webkit-transform: scale(1.4,1.4);
-        transform:         scale(1.4,1.4); 
-    }
-    75% {
-        -webkit-transform: scale(1.2,1.2);
-        transform:         scale(1.2,1.2);
-    }
-    100% {
-        -webkit-transform: scale(1.3,1.3);
-        transform:         scale(1.3,1.3);
-    }
-}
-
 </style>
 
-	<div class="row" id="selectPlace" style="height: 170px !important;z-index: -1 !important;">
+	<div class="row" id="selectPlace" style="z-index: -1 !important;">
       <div class="col-md-4 col-md-offset-4">
         <div class="material-button-anim" >
-          <ul class="list-inline" id="options">
-            <li class="option">
+         
+        
               <button class="material-button option1" type="button" style="left: -30px;" id="btn-home" >
                 <!--<span class="fa fa-phone" aria-hidden="true"></span>-->
-                <span id="selectHome"></span>
+                <span id="selectHome"><i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i></span>
               </button>
-            </li>
-            <li class="option">
-              <button class="material-button option2" type="button">
+    
+           
+              <button class="material-button option2" type="button" id="btn-office">
                 <!--<span class="fa fa-building-o fa-2x" aria-hidden="true"></span>-->
-                <span id="selectOffice"></span>
+                <span id="selectOffice"><i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(2);"></i></span>
               </button>
-            </li>
-            <li class="option">
-              <button class="material-button option3" type="button" style="left: 30px;" id="btn-other">
+   
+       
+              <button class="material-button option3" type="button" style="left: 30px; top: -5px;" id="btn-other">
                 <span id="selectPlaceNearby"><i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#showPlace"></i></span>
               </button>
-            </li>
-          </ul>
-          <button class="material-button material-button-toggle" type="button" >
-            <span class="fa fa-plus" aria-hidden="true"></span>
-          </button>
+         
         </div>
       </div>
 	</div>
