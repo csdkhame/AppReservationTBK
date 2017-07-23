@@ -267,6 +267,28 @@
 /*    border: 3px solid rgb(117,209,63);*/
 }
 }
+.pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+    background-image: none !important;
+    height: 0px;
+    
+}
+.pac-container{
+	z-index: 10000000 !important;
+}
+/*.pac-container {
+    background-color: #fff;
+    border-radius: 2px;
+    font-size: 11px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: scroll;
+    width: 350px !important;
+    display: block !important;
+}*/
 </style>
 
 	<div class="row" id="selectPlace" style="z-index: -1 !important;">
@@ -305,10 +327,11 @@
        					  <div class="box-search">
                               <!--  <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/> <button class="current-submit">Yes</button>-->
                               <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
-                            <input type='text'   class="" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;"/>
+                            <!--<input type='text'   class="" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:none;"/>-->
 			                        <div style="display: nones;" id="open-search">
-			                        <div style="border-bottom: 1px solid #333;"></div>
-                                    <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />   
+			                        <div style="border-bottom: 1px solid #333;display:none;"></div>
+                               <!--     <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />  --> 
+                                    <input  type='text' class="form-control" placeholder="where you go ?" id="openSearch" style="border: none !important;" value="" />   
                                     </div>          
                             </div>
                 </div>
@@ -436,6 +459,7 @@
     position: absolute;
     left: 260px;
     top: -10px;
+    display: none;
 }
 .card-contentrealtime.hidden5:after {
     border-bottom: 0px solid #FFFFFF;
@@ -580,7 +604,7 @@ a[href^="https://www.google.com/maps"] {
 }
         </style>
         
-    <style>
+<style>
     .nav-tabs {
     background: #ffffff;
     border: 0;
@@ -1031,4 +1055,77 @@ div.banner{
         }*/
 </style>
 
+<style>
 
+.form-control2 {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.form-control2,
+.form-group .form-control2 {
+  border: 0;
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-size: 0 2px, 100% 1px;
+  background-repeat: no-repeat;
+  background-position: center bottom, center calc(100% - 1px);
+  background-color: transparent;
+  transition: background 0s ease-out;
+  float: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-weight: 400;
+}
+</style>
+<div id="testImo" class="modal fade" role="dialog">
+  <div class="modal-dialog" style=" width: 100%;
+  height: 60%;
+  margin: 0;
+  padding: 0;">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="  height: auto;
+  min-height: 100%;
+  border-radius: 0;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--        <h4 class="modal-title">Modal Header</h4>-->
+      </div>
+      <div class="modal-body">
+							  <div class="card-content">
+                            
+                                        <div class="form-group label-floating is-empty" id="startPut">
+                                            <label class="control-label">Current location</label>
+                                            <input type="text" class="form-control2" id="current" placeholder="">
+                                        <span class="material-input"></span></div>
+                                        <div class="form-group label-floating is-empty" id="endPut">
+                                            <label class="control-label">Where are you go?</label>
+                                            <input type="text" class="form-control2" id="pac-input" placeholder="">
+                                        <span class="material-input"></span></div>
+                                        
+                                       <!-- <button type="submit" class="btn btn-fill btn-rose">Submit</button>-->
+                                </div>
+                                <div id="resultSearch" style="margin-top: 25px;">
+                                12	
+                                </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
