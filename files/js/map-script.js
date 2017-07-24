@@ -12,13 +12,15 @@ $('#pac-input').focusout(function() {
    $('#endPut').removeClass( "is-focused" );
   });
 */
-/*		$('#boxRealtime input').focus(function(){
-			 $('#selectPlace').css('z-index','1');
-		});*/
-/*        $('#boxRealtime input').focusout(function() {
-		   $('#selectPlace').css('z-index','-1');  
-		  });*/
-		
+		$('#boxRealtime input').focus(function(){
+			 $('#chk_val_boxsearch').val(1);
+			 $('#chk_val_boxsearch').addClass(this.id);
+		});
+        $('#boxRealtime input').focusout(function() {
+        	 $('#chk_val_boxsearch').removeClass(this.id);
+		   $('#chk_val_boxsearch').val(0);
+		  });
+//		$('#boxRealtime input').click()
 
 
 		$('#open_map').on('click',initialize);	
@@ -87,21 +89,21 @@ var marker; //result end place
 var placeStart = [];
 var placeEnd = [];
 var infowindow;
- $('.material-button').on("click", function () {
+/* $('.material-button').on("click", function () {
 
  	    var check =  $('#chk_val_search').val();
  	    if(check==0){
 //			console.log('inclick '+check);
 			 $('#chk_val_search').val(1);
 //			 $(".thisclass:not(#thisid)").doAction();
-			 $( ".material-button:not(.blinks)" ).hide(500);
+//			 $( ".material-button:not(.blinks)" ).hide(500);
 		}else{
 //			 alert(1);
 			 $('#chk_val_search').val(0);
 			 resetMap();
 		}
 
-    });
+    });*/
 
 
  
@@ -485,14 +487,15 @@ $('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" on
 				var obj = JSON.parse(results);
 				$.each(obj, function (key, data) {
 					console.log(data);
+					url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+data.i_lat+','+data.i_lng+'&sensor=true';
 					if(data.s_type=='1'){
 
-						$('#selectHome').html('<i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectMyPlace(1,\'' + data.i_place_id + '\');"></i>');
+						$('#selectHome').html('<i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectMyPlace(1,\'' + url + '\');"></i>');
 						$('#btn-home').css('background','#f44336');
 					}
 					if(data.s_type=='2'){
 
-						$('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectMyPlace(2,\'' + data.i_place_id + '\');"></i>');
+						$('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectMyPlace(2,\'' + url + '\');"></i>');
 						$('#btn-office').css('background','#f44336');
 					}
 
@@ -508,8 +511,14 @@ $('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" on
 }
 
 function selectSavePlaceOfften(type_place){
-
-	hideHeader();
+	 var check =  $('#chk_val_search').val();
+ 	    if(check==0){
+//			console.log('inclick '+check);
+			 $('#chk_val_search').val(1);
+//			 $(".thisclass:not(#thisid)").doAction();
+//			 $( ".material-button:not(.blinks)" ).hide(500);
+			
+			hideHeader();
 	infowindow = new google.maps.InfoWindow({maxWidth: 200});	 
     $('#search-raeltime').hide(700);
 	$('#btn_CurrentLocation').show(500);
@@ -543,12 +552,20 @@ function selectSavePlaceOfften(type_place){
 	   google.maps.event.addListener(map, 'dragend', function() {    
 		
           $.post( url, function( data ) {
-					console.log(data.results[0].formatted_address);
+//					console.log(data.results[0].formatted_address);
 					infowindow.setContent('<div>'+data.results[0].formatted_address+'</div><div class="btn btn-sm btn-danger pull-right btn-part" onclick="savePlaceOften(1,'+Newlat+','+Newlng+',\'' + data.results[0].place_id+ '\',\'' +type_place+'\')">Save</div>');
 					infowindow.open(map, markerPlaceOfften);   
 					
 			});
           });
+
+
+		}else{
+//			 alert(1);
+			 $('#chk_val_search').val(0);
+			 resetMap();
+		}
+	
          
 
 }
@@ -619,46 +636,35 @@ function savePlaceOften(type,lat,lng,place_id,type_place){
 	}
 }
 
-function selectMyPlace(type_place,place_id){
-	console.log(place_id+' ;;');
-		if(type_place==1){
-//		$('#btn-home').css('background','#d2d2d2');
-		$('#btn-home').addClass('blinks');
-	}else if(type_place==2){
-		$('#btn-office').addClass('blinks');
-//		$('#btn-office').css('background','#d2d2d2');
+function selectMyPlace(type_place,url){
+	var chk_val_boxsearch = $('#chk_val_boxsearch').val();
+	
+	var nameInputFocus = $('#chk_val_boxsearch').attr('class');
+	if(chk_val_boxsearch==0){
+		alert('Pleace select search');
+	}else{
+
+	console.log(url);
+
+	 $.post( url, function( data ) {
+	console.log(data);	 
+	var add = data.results[0].formatted_address;
+	var location = data.results[0].geometry.location;
+	map.panTo(location);	
+	marker2.setPosition(location);
+	$('#btn_CurrentLocation').show('500');
+	 });
+	
+		$('#'+nameInputFocus).val(add);
+	
+	
 	}
-	var geocoder = new google.maps.Geocoder;
-    
-        geocoder.geocode({'placeId': place_id}, function(results, status) {
-          if (status === 'OK') {
-	            if (results[0]) {
-
-				  var lo = results[0].geometry.location.toJSON();
-					map.panTo(lo);
-					var address = place.name+" "+place.vicinity;
-					
-				  console.log(address);
-
-	         
-	            } else 			{
-             
-              console.log('No results found');
-
-            }
-          } else {
-            console.log('Geocoder failed due to: ' + status);
-          }
-        });
-	$('#current').click(function(){
-		$(this).val();
-	});
 }
 
 function resetMap(){
 //	console.log(placeStart);
 $('.material-button').css('background','#2C98DE');
-$('.material-button').show(500);
+//$('.material-button').show(500);
 $('.material-button').removeClass('blinks');
 showHeader();
 $('#search-raeltime').show(700);

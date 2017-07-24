@@ -338,7 +338,7 @@
                 </div>
       	</div>
 <input type="text" id="chk_val_search" value="0" />
-<input type="hidden" id="chk_val_boxsearch" value="1" />
+<input type="text" id="chk_val_boxsearch" value="0" />
 
         </div>
         <div style=" position: absolute;  margin-top: 112px;width: 100%; z-index: 5; display: none;" id="search-show">            
