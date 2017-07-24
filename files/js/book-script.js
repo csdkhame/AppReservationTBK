@@ -800,7 +800,7 @@ $('#addbook').on('click',function(){
 
 
       },
-        //contentType: "application/json",
+        contentType: "application/json",
         dataType: 'json',
         success: function(data) { 
         console.log(data)

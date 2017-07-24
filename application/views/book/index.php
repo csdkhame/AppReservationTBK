@@ -918,98 +918,186 @@
                 <div class="col-md-8">                  
                     <div class="" id="view-product-all-item">
                         <div class="box-info-item">
-                            <div >
-                                <div class="toppic">
-                                    <p><span class="lng-product-name"></span><span>:</span></p>
-                                    <span>
+                        <div>
+                            <table width="100%">
+                                <tr>
+                                    <td valign="top" width="100px" style="padding: 5px 0;"> 
+                                        <span class="lng-product-name"></span><span>:</span>
+
+                                    </td>
+                                    <td>
+                                        <span>
                                             <span  id="name_product"></span>
                                             <span>(</span>
                                             <span class="lng-transports" style="color: #fb833f;" ></span><span>)</span>
-                                    </span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" width="100px" style="padding: 5px 0;">
+                                       <span class="lng-car-type"></span><span>:</span>
+                                    </td>
+                                    <td >
+                                        <span style="color: #333;" id="cars_type"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" width="100px" style="padding: 5px 0;">
+                                        <span class="lng-pick-up-from"></span><span>:</span>
+                                    </td>
+                                    <td>
+                                        <span style="color: #333;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" width="100px" style="padding: 5px 0;">
+                                        <span class="lng-pick-up-to"></span><span>:</span>
+                                        
+                                    </td>
+                                    <td>
+                                    <span style="color: #333;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" width="100px" style="padding: 5px 0;">
+                                        <span id="date-final"></span>
+                                        
+                                    </td>
+                                    <td>
+                                        <span style="color: #333;" class="" id="ondate_samary"></span>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" width="100px" style="padding: 5px 0;">
+                                       <span id="time-final"></span>
+                                    </td>
+                                    <td>
+                                         <span style="color: #333;" class="" id="ontime_samary"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                            </div>
+                            <!-- <div >
+                                <div class="toppic">
+                                   
+                                    
                                 </div>
 
                                 <div class="toppic" >
-                                    <p><span class="lng-car-type"></span><span>:</span></p>
-                                    <span style="color: #333;" id="cars_type"></span>
+                                    
+                                    
                                     
                                 </div>
                                 <div class="toppic" >
-                                    <p><span class="lng-pick-up-from"></span><span>:</span></p>
-                                    <span style="color: #333;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
+                                    
+                                    
                                 </div>
                                 <div class="toppic" >
-                                    <p><span class="lng-pick-up-to"></span><span>:</span></p>
-                                    <span style="color: #333;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
                                 </div>
                                 
                                
                                 
                                                  
                                 <div class="toppic">
-                                    <p ><span id="date-final"></span></p>
-                                    <span style="color: #333;" class="" id="ondate_samary"></span>
                                 </div>
                                 <div class="toppic">
-                                    <p ><span id="time-final"></span></p>
-                                    <span style="color: #333;" class="" id="ontime_samary"></span>
+                                    
+                                   
                                 </div> 
                                
-                            </div>
+                            </div> -->
                             <div class="orderBoxdetail">
-                                <div class="col-lg-6" style="padding: 0">
+                                <table width="100%">
+                                    <tr>
+                                       <td valign="top" width="100px" style="padding: 5px 0;">
+                                           
+                                                <span class="lng-first-name"></span><span>:</span>
+                                            
+                                            
+                                       </td>
+                                       <td>
+                                           <span id="summaryname"></span>
+                                       </td> 
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" width="100px" style="padding: 5px 0;">
+                                            
+                                                <span class="lng-phone"></span><span>:</span>
+                                           
+                                        </td>
+                                        <td>
+                                             <span id="summaryphone" ></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" width="100px" style="padding: 5px 0;">
+                                           
+                                                <span class="lng-email"></span><span >:</span>                                            
+                                          
+                                        </td>
+                                        <td>
+                                            <span  id="summaryemail"></span>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td valign="top" width="100px" style="padding: 5px 0;">
+                                            
+                                                <span class="lng-flight"></span><span >:</span>
+                                               
+                                        </td>
+                                        <td>
+                                            <span id="textflight"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" width="100px" style="padding: 5px 0;">
+                                            
+                                                <span class="lng-other"></span><span >:</span>                                          
+                                           
+                                        </td>
+                                        <td>
+                                            <span id="summaryother"></span>
+                                        </td>
+                                    </tr>
+                                   
+                                </table>
+                                <!-- <div class="col-lg-6" style="padding: 0">
                                     <div class="section06-detail-line02-firstname">             
                                         <div class="firstname ">
                                            <span class="lng-first-name"></span><span>:</span>
                                             
                                         </div>
-                                        <label id="summaryname"></label>
+                                        
                                     </div>
-                                   <!--  <div class="section06-line02-lastname">
-                                        <div class="lastname">
-                                           <span ng-if="flagcheck == 1" class="ng-scope">Last Name :</span>
-                                           
-                                        </div>                                
-                                        <label class="ng-binding" ng-bind="lname">haha</label>
-                                    </div> -->
+                                   
                                     <div class="section06-line02-phone">
-                                        <div class="phone">
-                                           <span class="lng-phone"></span><span>:</span>
-                                            </div>         
-                                        <label id="summaryphone" ></label>
+                                                 
+                                       
                                     </div>                         
                                     
                                 </div>
                                 <div class="col-lg-6" style="padding: 0">
                                     
                                     <div class="section06-line02-email">     
-                                        <div class="email">
-                                            <span class="lng-email"></span><span >:</span>
-                                            
-                                           </div>         
-                                        <label  id="summaryemail"></label>
+                                                
+                                        
                                     </div>
-                                   <!--  <div class="section06-line02-email">     
-                                        <div class="email">
-                                            <span ng-if="flagcheck == 1" class="ng-scope">Address :</span>
-                                            
-                                           </div>         
-                                        <label class="ng-binding">ozaclever@gmail.com</label>
-                                    </div> -->
+                                  
 
                                     <div class="section06-line02-email">     
                                         <div class="email">
-                                           <span class="lng-other"></span><span >:</span>
+                                           
                                             </div>         
-                                        <label id="summaryother"></label>
+                                        
                                     </div>
                                      <div class="section06-line02-email">     
-                                        <div class="email">
-                                           <span class="lng-flight"></span><span >:</span>
-                                            </div>         
-                                        <label id="textflight"></label>
+                                             
+                                        
                                     </div>
                                     
-                                </div>
+                                </div> -->
                             </div>
                         </div>  
                     </div> 
