@@ -669,7 +669,7 @@
     <!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js?v=<?=time()?>"></script> 
+    <!-- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js?v=<?=time()?>"></script>  -->
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
    
     <!-- <script src="<?php echo base_url(); ?>files/js/modernizr-2.6.2.min.js"></script> -->
@@ -771,6 +771,169 @@
                 }
 
 </style>
+<script>
+$(document).ready(function(){
+  $('#loading').css('display', 'block');
+    $('#content').css('display', 'none');
+    setTimeout(function() {
+        console.log("aaaaa")
+        $('#loading').css('display', 'none');
+        $('#content').css('display', 'block');
+    }, 3000);
+     
+ 
+
+  if ($.cookie("login")) {
+        console.log($.cookie("login"))
+        $.ajax({
+        type: 'POST',
+        url: 'https://dotdotdottrip.com/getuser_control/mainpage',
+        data: {'id': $.cookie("login")},
+        //contentType: "application/json",
+        dataType: 'json',
+        success: function(data) { 
+          console.log(data)
+          datauser = data;
+          $('#usernamess').html(data[0].s_username)
+          //$('#textlogout').html("Logout")
+          $('#btnlogin').css('display','none')
+          $('#btnuser').css('display','block')
+          $('.caret').css('display','inline-block')
+          $('#acceptancecheck').css('display','block')
+
+      
+        
+           
+          
+        }
+    });
+    
+    }
+    else{
+      //$('#usernamess').html("Login")
+     // $('#textlogout').html("Login/Register")
+      $('#btnlogin').css('display','block')
+          $('#btnuser').css('display','none')
+          $('.caret').css('display','none')
+          $('#acceptancecheck').css('display','none')
+
+
+
+     // $('.dropdown-menu').css('display','none')
+
+
+
+    }
+    
+    $('#btn-logout-user').click(function(){
+        alert("logout");
+        $.removeCookie("login");
+        window.location.reload();//href = "https://dotdotdottrip.com/register";
+    })
+    console.log( "readysss!" );
+    //console.log($.cookie("login"))
+    $('#selectcar').html('1')
+    var costproduct ,costdotcars,type,costdotcars,pro_id,place,to_place;
+    function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+    console.log(getParameterByName('data'))
+    console.log(getParameterByName('from'))
+    console.log(getParameterByName('to'))
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '../service/getplace.php',
+    //     data: {'from': getParameterByName('from'),'to': getParameterByName('to')},
+    //     //contentType: "application/json",
+    //     dataType: 'json',
+    //     success: function(data) { 
+    //       console.log(data[0])
+    //       console.log(data[1])
+    //       $('#pickup_from').html(data[0].topic+'('+data[0].name+')');
+    //       $('#pickup_to').html(data[1].topic+'('+data[1].name+')');
+    //        place = data[0].id;
+    //         to_place = data[1].id;
+    //         place_name = data[0].topic;
+    //         toplace_name = data[1].topic;
+    //         adresss = data[0].address;
+    //         adress_to = data[1].address;
+    //         $('#placefrom').html(data[0].topic);
+    //         $('#placeto').html(data[1].topic);
+    //         $('#province').html(data[0].name);
+    //     $('#province_to').html(data[1].name);
+        
+           
+          
+    //     }
+    // });
+    // $.ajax({
+    //     type: 'POST',
+    //     url: 'https://dotdotdottrip.com/getuser_control/process',
+    //    // data: {'from': getParameterByName('from'),'to': getParameterByName('to')},
+    //     //contentType: "application/json",
+    //     dataType: 'json',
+    //     success: function(data) { 
+    //       console.log(data)
+          
+        
+           
+          
+    //     }
+    // });
+    
+   $('#numbercountry').append('<span id="textcountry">-Please select country-</span>');
+   $('#code').append('<span id="textcode">code country</span>');
+     
+            $('#datetimepicker11').datetimepicker({
+               format: 'YYYY-MM-DD'
+              
+                // daysOfWeekDisabled: [0, 6]
+            });
+       
+    //$('#numbercountry').html('');
+   //$('#code').html('code country')
+    $('#select-country').click(function(){
+      var url ='https://dotdotdottrip.com/';
+        $.ajax({
+        type: 'POST',
+        url: 'https://dotdotdottrip.com/getcountry_control/process',
+        //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
+        //contentType: "application/json",
+        dataType: 'json',
+        success: function(data) { 
+          console.log(data)
+          datacountry = data;
+          $('#codecountry').modal('show');
+           $.each(data , function(i, val) { 
+                
+                  //alert('aaa')
+                  //dataProvince.push(data[i])
+                 $('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+            
+                
+            });
+          
+        }
+    });
+        
+    });
+    });
+     
+ 
+  // function selectcars(x){
+  //     console.log(x)
+  //    }
+
+
+
+
+</script>
 
 </html>
 

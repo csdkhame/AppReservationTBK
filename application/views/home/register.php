@@ -1064,7 +1064,7 @@ window.fbAsyncInit = function() {
           if(res.status == 0)
               {
                  $.cookie("login",res.username);
-                   window.location.href = "https://www.dotdotdottrip.com";
+                   window.location.href = "https://dotdotdottrip.com";
                 
                
               }
