@@ -276,7 +276,8 @@
 }
 .pac-container{
 	z-index: 10000000 !important;
-	width: 
+	width: 100% !important;
+	left: 0px !important;
 }
 /*.pac-container {
     background-color: #fff;
@@ -325,14 +326,14 @@
         display: none;">
          <div class="col-md-12 " >
          	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
-       					  <div class="box-search" id='boxRealtime'>
+       					  <div class="box-search">
                               <!--  <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/> <button class="current-submit">Yes</button>-->
                               <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
-                            <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;"/>
+                            <!--<input type='text'   class="" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:none;"/>-->
 			                        <div style="display: nones;" id="open-search">
-			                        <div style="border-bottom: 1px solid #333;display:nones;"></div>
-                                    <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />   
-                                   <!-- <input  type='text' class="form-control" placeholder="where you go ?" id="openSearch" style="border: none !important;" value="" />   -->
+			                        <div style="border-bottom: 1px solid #333;display:none;"></div>
+                               <!--     <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />  --> 
+                                    <input  type='text' class="form-control" placeholder="where you go ?" id="openSearch" style="border: none !important;" value="" />   
                                     </div>          
                             </div>
                 </div>
@@ -1093,7 +1094,7 @@ div.banner{
 </style>
 <div id="testImo" class="modal fade" role="dialog">
   <div class="modal-dialog" style=" width: 100%;
-  height: 60%;
+  height: 100%;
   margin: 0;
   padding: 0;">
 
@@ -1110,21 +1111,22 @@ div.banner{
                             
                                         <div class="form-group label-floating is-empty" id="startPut">
                                             <label class="control-label">Current location</label>
-                                     <!--       <input type="text" class="form-control2" id="current" placeholder="">-->
+                                            <input type="text" class="form-control2" id="current" placeholder="">
                                         <span class="material-input"></span></div>
                                         <div class="form-group label-floating is-empty" id="endPut">
                                             <label class="control-label">Where are you go?</label>
-                                           <!-- <input type="text" class="form-control2" id="pac-input" placeholder="">-->
+                                            <input type="text" class="form-control2" id="pac-input" placeholder="">
                                         <span class="material-input"></span></div>
                                         
-                                       <!-- <button type="submit" class="btn btn-fill btn-rose">Submit</button>-->
+                                    
                                 </div>
                                 <div id="resultSearch" style="margin-top: 25px;">
                                 12	
                                 </div>
+             
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="modal-footer" id="foot_modal">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
       </div>
     </div>
 
