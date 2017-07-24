@@ -1,4 +1,5 @@
-<?php
+<?php 
+header('Access-Control-Allow-Origin: *');
 
 class Login_model extends CI_Model {
 

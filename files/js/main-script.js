@@ -1,5 +1,45 @@
 var rel =false;
 $(document).ready(function() {
+    console.log("readysss!");
+    console.log($.cookie("login"))
+     if ($.cookie("login")) {
+        console.log($.cookie("login"))
+        $.ajax({
+        type: 'POST',
+        url: 'https://dotdotdottrip.com/getuser_control/mainpage',
+        data: {'id': $.cookie("login")},
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+                $('#usernamess').html(data[0].s_username)
+                    //$('#textlogout').html("Logout")
+                $('#btnlogin').css('display', 'none')
+                $('#btnuser').css('display', 'block')
+                $('.caret').css('display', 'inline-block')
+
+
+
+
+
+
+            }
+        });
+        
+    } else {
+        //$('#usernamess').html("Login")
+        // $('#textlogout').html("Login/Register")
+        $('#btnlogin').css('display', 'block')
+        $('#btnuser').css('display', 'none')
+        $('.caret').css('display', 'none')
+
+
+        // $('.dropdown-menu').css('display','none')
+
+
+
+    }
+
   // $.ajax({
   //           type: 'POST',
   //           url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
@@ -662,53 +702,16 @@ $(document).ready(function() {
         // setTimeout(function(){
 
     //   }, 1000);
-    console.log("readysss!");
-    if ($.cookie("login")) {
-        console.log($.cookie("login"))
-        $.ajax({
-            type: 'POST',
-            url: 'https://dotdotdottrip.com/getuser_control/mainpage',
-            data: { 'id': $.cookie("login") },
-            //contentType: "application/json",
-            dataType: 'json',
-            success: function(data) {
-                console.log(data)
-                $('#usernamess').html(data[0].s_username)
-                    //$('#textlogout').html("Logout")
-                $('#btnlogin').css('display', 'none')
-                $('#btnuser').css('display', 'block')
-                $('.caret').css('display', 'inline-block')
-
-
-
-
-
-
-            }
-        });
-        
-    } else {
-        //$('#usernamess').html("Login")
-        // $('#textlogout').html("Login/Register")
-        $('#btnlogin').css('display', 'block')
-        $('#btnuser').css('display', 'none')
-        $('.caret').css('display', 'none')
-
-
-        // $('.dropdown-menu').css('display','none')
-
-
-
-    }
+    
     //$('#updatelatlng').click(function() {
         
     //})
    
-    $('#btn-logout-user').click(function() {
+    // $('#btn-logout-user').click(function() {
 
-        $.removeCookie("login");
-        window.location.href = "https://dotdotdottrip.com/register";
-    });
+    //     $.removeCookie("login");
+    //     window.location.href = "https://dotdotdottrip.com/register";
+    // });
     $('#join').click(function() {
 
     })

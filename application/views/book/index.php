@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>App</title>
+    <title>Booking</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -152,6 +152,30 @@
                           <span class="lng-login"></span><span> / </span><span class="lng-register"></span>
                 
                         </a>
+                    </li>
+                     <li class="dropdown" id="btnusers">
+                        <a  class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- <div style="width: 100%;text-align: center;"> -->
+                               <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product"></span>
+                            
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="https://dotdotdottrip.com" >
+                               <i class="material-icons">directions_car</i><span class="lng-transports"></span>
+                
+                                </a >
+                            </li>
+                           
+                            <li id="btn-logout-user">
+                                <a href="https://dotdotdottrip.com/tour">
+                                    <i class="material-icons">style</i><span class="lng-tours"></span>
+                
+                                </a>
+                            </li>
+                    
+                        </ul>
                     </li>
                      
                      <li>

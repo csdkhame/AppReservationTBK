@@ -1056,14 +1056,15 @@ window.fbAsyncInit = function() {
         type: 'POST',
         url: 'https://www.dotdotdottrip.com/login_control/processsocial',
         data: {'username': response.email,'name':response.name,'password':response.id},
-        //contentType: "application/json",
+        //contentType: "application/json; application/x-www-form-urlencoded; charset=UTF-8",
         dataType: 'json',
         success: function(res) { 
           console.log(res)
+          console.log(res.status)
           if(res.status == 0)
               {
                  $.cookie("login",res.username);
-                    window.location.href = "https://www.dotdotdottrip.com";
+                   window.location.href = "https://www.dotdotdottrip.com";
                 
                
               }
