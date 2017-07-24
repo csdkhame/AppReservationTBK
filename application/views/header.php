@@ -164,14 +164,14 @@
                         </a>
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
-                                <a href="" >
+                                <a href="https://dotdotdottrip.com" >
                                <i class="material-icons">directions_car</i><span class="lng-transports"></span>
                 
                                 </a>
                             </li>
                            
                             <li id="btn-logout-user">
-                                <a>
+                                <a href="https://dotdotdottrip.com/tour">
                                     <i class="material-icons">style</i><span class="lng-tours"></span>
                 
                                 </a>
