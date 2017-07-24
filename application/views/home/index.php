@@ -292,7 +292,7 @@
 }*/
 </style>
 
-	<div class="row" id="selectPlace" style="z-index: -1 !important;">
+	<div class="row" id="selectPlace" style="z-index: 1 !important;">
       <div class="col-md-4 col-md-offset-4">
         <div class="material-button-anim" >
          
@@ -337,7 +337,7 @@
                             </div>
                 </div>
       	</div>
-<input type="hidden" id="chk_val_search" value="0" />
+<input type="text" id="chk_val_search" value="0" />
 <input type="hidden" id="chk_val_boxsearch" value="1" />
 
         </div>
