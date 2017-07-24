@@ -1,4 +1,4 @@
-$('#current').focus(function(){
+/*$('#current').focus(function(){
 	$('#startPut').addClass( "is-focused" );
 });
 $('#current').focusout(function() {
@@ -11,9 +11,15 @@ $('#current').focusout(function() {
 $('#pac-input').focusout(function() {
    $('#endPut').removeClass( "is-focused" );
   });
+*/
+		$('#boxRealtime input').focus(function(){
+			 $('#selectPlace').css('z-index','1');
+		});
+/*        $('#boxRealtime input').focusout(function() {
+		   $('#selectPlace').css('z-index','-1');  
+		  });*/
+		
 
-
-//	$('pac-input').css('display','none');
 
 		$('#open_map').on('click',initialize);	
 		$('#open_map').click(function(){
@@ -82,6 +88,7 @@ var placeStart = [];
 var placeEnd = [];
 var infowindow;
  $('.material-button').on("click", function () {
+
  	    var check =  $('#chk_val_search').val();
  	    if(check==0){
 //			console.log('inclick '+check);
@@ -170,30 +177,24 @@ function initAutocomplete(map,start,end){
         
         var inputStart = document.getElementById("current");
         inputStart.addEventListener('click', function() {
-//        	$('#start_yes-change').click();
+
         	document.getElementById("current").value = "";
 
-       		 var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
+        });
+        
+          		 var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
          	 autocompleteStart.bindTo('bounds', map);
          	  autocompleteStart.addListener('place_changed', function() {
-//         	  	$('#start_yes-change').click();
+//         	 
          	  		 placeStart = autocompleteStart.getPlace();
          	  		 console.log(placeStart);
          	  		 map.panTo(placeStart.geometry.location);
          	  		 marker2.setPosition(placeStart.geometry.location);
          	  		 start = placeStart.geometry.location;
 
-         	  		 /*if (place.geometry.viewport) {
-			              map.fitBounds(place.geometry.viewport);
-			              map.setZoom(16); 
-			          } 
-					 else {
-			            map.setCenter(place.geometry.location);
-			            map.setZoom(16);  // Why 17? Because it looks good.
-			          }*/
          	  });
-        });
         
+
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
           pos = {
@@ -219,9 +220,8 @@ function initAutocomplete(map,start,end){
 			      	placeStart = results;
 					console.log(placeStart);
 			        addr = placeStart[1].formatted_address;
-//			        console.log(addr);
-//			        addrcurent = results[0].formatted_address;
-					$('#startPut').addClass('is-focused');
+
+//					$('#startPut').addClass('is-focused');
 			        document.getElementById("current").value = addr;
 			      }
 			    } 
@@ -234,23 +234,14 @@ function initAutocomplete(map,start,end){
           });
         } 
 		
-        
-		
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer();
-        var input = document.getElementById('pac-input');
-        var openSearch = document.getElementById('openSearch');
-          openSearch.addEventListener('click', function() {
-          		$('#testImo').modal('toggle');
-//				alert();
-          });   
-        var searchBox = new google.maps.places.SearchBox(input);
-        var autocomplete = new google.maps.places.Autocomplete(input);
+        var inputEnd = document.getElementById('pac-input');
+       
+//        var searchBox = new google.maps.places.SearchBox(input);
+        var autocomplete = new google.maps.places.Autocomplete(inputEnd);
          autocomplete.bindTo('bounds', map);
-    
-        $(".pac-container.pac-logo.hdpi").insertAfter("#resultSearch");
-        	var controlDiv = document.createElement('div');
-		
+
         autocomplete.addListener('place_changed', function() {
           	
         marker.setVisible(false);
