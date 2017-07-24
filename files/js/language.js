@@ -11,6 +11,7 @@ $(document).ready(function() {
                         $('html').removeClass('nav-open');
              setTimeout(function(){
                        $toggle.removeClass('toggled');
+                        alert("aaaa")
                        $('#bodyClick').remove();
                    }, 250);
                            return false;

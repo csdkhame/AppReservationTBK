@@ -217,48 +217,7 @@
                     </li>
                    
                     
-                   <li class="dropdown" id="btnuser">
-                        <a  class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- <div style="width: 100%;text-align: center;">
-                                <i class="material-icons center" align="center" >person_pin</i>
-                            </div> -->
-                            
-                            <div id="usernamess"></div> 
-                            <!-- <div class="user">
-                                <div class="photo">
-                                    <img src="./Material Dashboard PRO by Creative Tim _ Premium Bootstrap Admin Template_files/avatar.jpg">
-                                </div>
-                                <div class="info">
-                                    <a data-toggle="collapse" href="http://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html#collapseExample" class="collapsed" aria-expanded="false">
-                                        USERS ADMIN
-                                        <b class="caret"></b>
-                                    </a>
-                                </div>
-                            </div> -->
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="" >
-                                <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
-                
-                                </a>
-                            </li>
-                            <!-- <li>
-                                <a href="" >
-                                    <i class="material-icons">power_settings_new</i>Logout
-                
-                                </a>
-                            </li> -->
-                            <li id="btn-logout-user">
-                                <a>
-                                    <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
-                
-                                </a>
-                            </li>
-                    
-        </ul>
-                    </li>
+                   
                     
 
                     
