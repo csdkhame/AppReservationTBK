@@ -630,7 +630,7 @@ function selectMyPlace(type_place,place_id){
 	}
 	var geocoder = new google.maps.Geocoder;
     
-        geocoder.geocode({'placeId': place_id}, function(results, status) {
+        geocoder.geocode({'placeId': place_id'}, function(results, status) {
           if (status === 'OK') {
 	            if (results[0]) {
 
