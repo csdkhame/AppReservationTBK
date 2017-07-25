@@ -142,7 +142,7 @@ $(document).ready(function(){
             $('#placefrom').html(data[0].topic);
             $('#placeto').html(data[1].topic);
             $('#province').html(data[0].name);
-        $('#province_to').html(data[1].name);
+            $('#province_to').html(data[1].name);
         
            
           
@@ -228,7 +228,7 @@ $(document).ready(function(){
         console.log(data)
         console.log(data[0].province_name_en)
         if ($.cookie("lng") == 'cn') {
-            $('#cars_persion').html(data[0].car_topic_en+data[0].pax_cn)
+            $('#cars_persion').html(data[0].car_topic_cn+data[0].pax_cn)
             $('#price').html(data[0].cost_a_agent_all+' '+ '฿')
             $('#product').html(data[0].topic_cn)
             $('#name_product').html(data[0].topic_car)
@@ -246,7 +246,7 @@ $(document).ready(function(){
             $('#numsumprice').html(data[0].cost_a_agent_all+' '+ '฿')
         }
         else if($.cookie("lng") == 'th'){
-            $('#cars_persion').html(data[0].car_topic_en+data[0].pax_th)
+            $('#cars_persion').html(data[0].car_topic_th+data[0].pax_th)
             $('#price').html(data[0].cost_a_agent_all+' '+ '฿')
             $('#product').html(data[0].topic_th)
             $('#name_product').html(data[0].topic_car)
@@ -384,36 +384,36 @@ $(document).ready(function(){
         }
         if (data[0].type == 'Private' && data[0].area == 'Point') {
             if ($.cookie("lng") == 'cn') {
-                $('#datetext').html('Service date:')
-                $('#texttime').html('Service time:')
+                $('#datetext').html('使用日期:')
+                $('#texttime').html('使用时间:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Service date:')
-                $('#time-final').html('Service time:')
+                $('#date-final').html('使用日期:')
+                $('#time-final').html('使用时间:')
 
             }
             else if($.cookie("lng") == 'en'){
-                $('#datetext').html('Service date:')
-                $('#texttime').html('Service time:')
+                $('#datetext').html('Use date:')
+                $('#texttime').html('Use time:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Service date:')
-                $('#time-final').html('Service time:')
+                $('#date-final').html('Use date:')
+                $('#time-final').html('Use time:')
 
                
             }
             else if($.cookie("lng") == 'th'){
-                $('#datetext').html('Service date:')
-                $('#texttime').html('Service time:')
+                $('#datetext').html('วันที่ใช้บริการ:')
+                $('#texttime').html('เวลาใช้บริการ:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Service date:')
-                $('#time-final').html('Service time:')
+                $('#date-final').html('วันที่ใช้บริการ:')
+                $('#time-final').html('เวลาใช้บริการ:')
 
             }
             else if($.cookie("lng") == undefined){
-                $('#datetext').html('Service date:')
-                $('#texttime').html('Service time:')
+                 $('#datetext').html('Use date:')
+                $('#texttime').html('Use time:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Service date:')
-                $('#time-final').html('Service time:')
+                $('#date-final').html('Use date:')
+                $('#time-final').html('Use time:')
                 
 
             }
@@ -422,35 +422,36 @@ $(document).ready(function(){
         }
         if (data[0].type == 'Private' && data[0].area == 'Service') {
             if ($.cookie("lng") == 'cn') {
-                $('#datetext').html('Service date:')
-                $('#texttime').html('Service time:')
+                $('#datetext').html('使用日期:')
+                $('#texttime').html('使用时间:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Service date:')
-                $('#time-final').html('Service time:')
+                $('#date-final').html('使用日期:')
+                $('#time-final').html('使用时间:')
+
             }
             else if($.cookie("lng") == 'en'){
-                $('#datetext').html('Service date:')
-                $('#texttime').html('Service time:')
+                $('#datetext').html('Use date:')
+                $('#texttime').html('Use time:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Service date:')
-                $('#time-final').html('Service time:')
-               
+                $('#date-final').html('Use date:')
+                $('#time-final').html('Use time:')
+
                
             }
             else if($.cookie("lng") == 'th'){
-                $('#datetext').html('Service date:')
-                $('#texttime').html('Service time:')
+                $('#datetext').html('วันที่ใช้บริการ:')
+                $('#texttime').html('เวลาใช้บริการ:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Service date:')
-                $('#time-final').html('Service time:')
-                
+                $('#date-final').html('วันที่ใช้บริการ:')
+                $('#time-final').html('เวลาใช้บริการ:')
+
             }
             else if($.cookie("lng") == undefined){
-                $('#datetext').html('Service date:')
-                $('#texttime').html('Service time:')
+                 $('#datetext').html('Use date:')
+                $('#texttime').html('Use time:')
                 $('#visa-show').css('display','none')
-                $('#date-final').html('Service date:')
-                $('#time-final').html('Service time:')
+                $('#date-final').html('Use date:')
+                $('#time-final').html('Use time:')
                 
 
             }
@@ -799,7 +800,7 @@ $('#addbook').on('click',function(){
 
 
       },
-        //contentType: "application/json",
+        contentType: "application/json",
         dataType: 'json',
         success: function(data) { 
         console.log(data)
