@@ -1,13 +1,13 @@
-var rel =false;
+var rel = false;
 $(document).ready(function() {
     console.log("readysss!");
     console.log($.cookie("login"))
-     if ($.cookie("login")) {
+    if ($.cookie("login")) {
         console.log($.cookie("login"))
         $.ajax({
-        type: 'POST',
-        url: 'https://dotdotdottrip.com/getuser_control/mainpage',
-        data: {'id': $.cookie("login")},
+            type: 'POST',
+            url: 'https://dotdotdottrip.com/getuser_control/mainpage',
+            data: { 'id': $.cookie("login") },
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
             }
         });
-        
+
     } else {
         //$('#usernamess').html("Login")
         // $('#textlogout').html("Login/Register")
@@ -40,57 +40,57 @@ $(document).ready(function() {
 
     }
 
-  // $.ajax({
-  //           type: 'POST',
-  //           url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
-  //           data: { 'id': 193 },
-  //           //contentType: "application/json",
-  //           dataType: 'json',
-  //           success: function(data) {
-  //               console.log(data)
-                
+    // $.ajax({
+    //           type: 'POST',
+    //           url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+    //           data: { 'id': 193 },
+    //           //contentType: "application/json",
+    //           dataType: 'json',
+    //           success: function(data) {
+    //               console.log(data)
 
 
 
 
 
 
-  //           }
-  //       });
-    var data1,data2;
+
+    //           }
+    //       });
+    var data1, data2;
     compae1private = [];
     compae1join = [];
 
-	 setTimeout(function() {
-         $('#open_map').trigger('click');
-         
-        }, 3500);
-	// $(".btn-reservation").click(function(){
- //            //alert("aaa")
-        
- //    //$("#pro-search").fadeOut(4000);
- //    });
-	$("#show-hide-pro").click(function(){
-            //alert("aaa")
-        //$("#first").animate({'width': 0}, 'slow', function(){ 
-            //$().hide(); 
-            $(this).fadeOut(2000);
-            $("#show-hide-pro2").fadeIn(1000);
-            //$('#').show(); 
-            $("#pro-search").animate({'margin-top':'100vh'});
-        //});
-    //$("#pro-search").fadeOut(4000);
-    });
-    $("#show-hide-pro2").click(function(){
-            //alert("aaa")
-        //$("#first").animate({'width': 0}, 'slow', function(){ 
-             $(this).fadeOut(2000);
-            $("#show-hide-pro").fadeIn(1000);
+    setTimeout(function() {
+        $('#open_map').trigger('click');
 
-            //$('#').show(); 
-            $("#pro-search").animate({'margin-top': '0vh'});
+    }, 3500);
+    // $(".btn-reservation").click(function(){
+    //            //alert("aaa")
+
+    //    //$("#pro-search").fadeOut(4000);
+    //    });
+    $("#show-hide-pro").click(function() {
+        //alert("aaa")
+        //$("#first").animate({'width': 0}, 'slow', function(){ 
+        //$().hide(); 
+        $(this).fadeOut(2000);
+        $("#show-hide-pro2").fadeIn(1000);
+        //$('#').show(); 
+        $("#pro-search").animate({ 'margin-top': '100vh' });
         //});
-    //$("#pro-search").fadeOut(4000);
+        //$("#pro-search").fadeOut(4000);
+    });
+    $("#show-hide-pro2").click(function() {
+        //alert("aaa")
+        //$("#first").animate({'width': 0}, 'slow', function(){ 
+        $(this).fadeOut(2000);
+        $("#show-hide-pro").fadeIn(1000);
+
+        //$('#').show(); 
+        $("#pro-search").animate({ 'margin-top': '0vh' });
+        //});
+        //$("#pro-search").fadeOut(4000);
     });
     $("myDate").on("change", function() {
         this.setAttribute(
@@ -106,19 +106,19 @@ $(document).ready(function() {
         $('#loading').css('display', 'none');
         $('#content').css('display', 'block');
     }, 3000);
-    
-    
+
+
     $('#iconleft').click(function() {
         $("#iconhome").fadeIn(1000);
-        $("#list_place").show(700); 
+        $("#list_place").show(700);
         $("#iconleft2").fadeIn(1000);
         //$("").css('display','block');//.fadeIn(1000);
-		
-         $("#iconleft").css('display','none');//.fadeIn(1000);
+
+        $("#iconleft").css('display', 'none'); //.fadeIn(1000);
         //$(this).hide(); 
-//       $('#selectPlace').css('z-index','1');
-        $("#search-show").hide(); 
-        $("#search-raeltime").fadeIn(1000); 
+        //       $('#selectPlace').css('z-index','1');
+        $("#search-show").hide();
+        $("#search-raeltime").fadeIn(1000);
         //$(".btn-realtime").hide(); 
         $("#search-show").fadeOut(1000);
         //$("").show();
@@ -129,25 +129,25 @@ $(document).ready(function() {
 
 
 
-        
+
     });
-    
+
     $('#iconleft2').click(function() {
         //$(this).css('display','none');
-         $("#iconhome").fadeIn(1000); 
+        $("#iconhome").fadeIn(1000);
         $("#iconleft").fadeIn(1000);
-        $("#list_place").hide(700); 
-		
-		
+        $("#list_place").hide(700);
+
+
         //$("#iconleft").css('display','block');
-         $("#iconleft2").css('display','none');//.fadeIn(1000);
-        
-        
-//          $('#selectPlace').css('z-index','-1');
-        $("#search-show").fadeIn(1000); 
-        $("#search-raeltime").hide(); 
-         //$(".btn-reservation").show();
-         $("#pro-search").hide(); 
+        $("#iconleft2").css('display', 'none'); //.fadeIn(1000);
+
+
+        //          $('#selectPlace').css('z-index','-1');
+        $("#search-show").fadeIn(1000);
+        $("#search-raeltime").hide();
+        //$(".btn-reservation").show();
+        $("#pro-search").hide();
         $("#search-raeltime").fadeOut(1000);
         //$("").show();
         $(".btn-reservation").fadeIn(1000);
@@ -156,19 +156,19 @@ $(document).ready(function() {
     });
     $('#iconhome').click(function() {
         $("#iconhome").fadeOut(1000);
-		$("#list_place").hide(700); 
+        $("#list_place").hide(700);
         $("#iconleft2").fadeOut(1000);
         $("#iconleft").fadeOut(1000);
         //$("").css('display','block');//.fadeIn(1000);
-//          $('#selectPlace').css('z-index','2');
-         //$("#iconleft").css('display','none');//.fadeIn(1000);
+        //          $('#selectPlace').css('z-index','2');
+        //$("#iconleft").css('display','none');//.fadeIn(1000);
         //$(this).hide(); 
-       
-        $("#search-show").hide(); 
-        $("#search-raeltime").fadeIn(500); 
+
+        $("#search-show").hide();
+        $("#search-raeltime").fadeIn(500);
         //$(".btn-realtime").hide(); 
         $("#search-show").fadeOut(500);
-        $("#search-raeltime").fadeOut(1000); 
+        $("#search-raeltime").fadeOut(1000);
         //$("").show();
         //$("").show();
         $(".btn-realtime").fadeIn(1000);
@@ -177,359 +177,353 @@ $(document).ready(function() {
 
 
 
-        
+
     });
     $('.btn-reservation').click(function() {
         // alert("aaaa");
         $('#loading').css('display', 'block');
         //$('#content').css('display','none');
         setTimeout(function() {
-           // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
+            // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
             //$(this).hide(); 
             $("#iconhome").fadeIn(1000);
             $("#iconleft").fadeIn(1000);
-             $("#iconleft2").hide();  
+            $("#iconleft2").hide();
             //$('#show-hide-pro2').show(); 
-            $(".btn-real-res").css({'text-align':'center'});
-             $(".btn-realtime").hide(); 
-             $("#search-show").fadeIn(1000);
+            $(".btn-real-res").css({ 'text-align': 'center' });
+            $(".btn-realtime").hide();
+            $("#search-show").fadeIn(1000);
 
-        //});
+            //});
             $('#search-raeltime').css('display', 'none');
             // $('#map').css('display', 'none');
             $('#loading').css('display', 'none');
             //$('').css('display', 'block')
-                //$('#content').css('display','block'); 
+            //$('#content').css('display','block'); 
         }, 2000);
 
 
     });
     $('.btn-realtime').click(function() {
-//	  $('#selectPlace').show();
-       $('#loading').css('display', 'block');
-//       $('#btn-real-res').css('display', 'none');
+        //	  $('#selectPlace').show();
+        $('#loading').css('display', 'block');
+        //       $('#btn-real-res').css('display', 'none');
         $('#opennut').click();
         //$('#content').css('display','none');
-       setTimeout(function() {
-        $("#iconhome").fadeIn(1000);
+        setTimeout(function() {
+            $("#iconhome").fadeIn(1000);
             // $('#map').css('display', 'none');
-             $("#iconleft2").fadeIn(1000); 
-             $("#iconleft").hide(); 
-             $("#pro-search").hide(); 
-              $("#search-raeltime").fadeIn(1000);
-			
-			$("#list_place").fadeIn(1000);
-             $(".btn-reservation").hide(); 
-//             $('#selectPlace').css('z-index','1');
+            $("#iconleft2").fadeIn(1000);
+            $("#iconleft").hide();
+            $("#pro-search").hide();
+            $("#search-raeltime").fadeIn(1000);
+
+            $("#list_place").fadeIn(1000);
+            $(".btn-reservation").hide();
+            //             $('#selectPlace').css('z-index','1');
             $('#loading').css('display', 'none');
             $('#search-show').css('display', 'none')
             $('#pac-input').css('display', '');
             //$('#search-raeltime').css('display', 'block');
-           
-            
-          
-            
-        
-            //$('#content').css('display','block'); 
-       }, 2000);
 
-/*   $( "#maps" ).html( "1111" );*/
+
+
+
+
+            //$('#content').css('display','block'); 
+        }, 2000);
+
+        /*   $( "#maps" ).html( "1111" );*/
 
     });
     $('#cartype').on('change', function() {
         $('.a-link-item').remove();
-        $('#box-prosearch').css('display','none');
-        $('#product_a').css('display','none');
+        $('#box-prosearch').css('display', 'none');
+        $('#product_a').css('display', 'none');
         $('#loading').css('display', 'block');
-   
-    setTimeout(function() {
-        console.log("aaaaa")
-        $('#loading').css('display', 'none');
-        $('#product_a').css('display', 'block');
-        $('#box-prosearch').css('display','block');
-    }, 2000);
+
+        setTimeout(function() {
+            console.log("aaaaa")
+            $('#loading').css('display', 'none');
+            $('#product_a').css('display', 'block');
+            $('#box-prosearch').css('display', 'block');
+        }, 2000);
         compae1private = [];
-    compae1join = [];
-    data2 = [];
-    ctype = this.value ;
-    console.log(ctype)
-    console.log(data1)
-    $.each(data1, function(i, val) {
-        if (data1[i].car_topic_en == ctype) {
+        compae1join = [];
+        data2 = [];
+        ctype = this.value;
+        console.log(ctype)
+        console.log(data1)
+        $.each(data1, function(i, val) {
+            if (data1[i].car_topic_en == ctype) {
                 data2.push(data1[i])
             }
 
         })
-    console.log(data2)
-    $.each(data2, function(i, val) {
-        if (data2[i].type == 'Private') {
-            compae1private.push(data2[i])
-        }
+        console.log(data2)
+        $.each(data2, function(i, val) {
+            if (data2[i].type == 'Private') {
+                compae1private.push(data2[i])
+            }
 
-        if (data2[i].type == 'Join') {
-            compae1join.push(data2[i])
-        }
+            if (data2[i].type == 'Join') {
+                compae1join.push(data2[i])
+            }
 
-    })
-    var car_topic,cartype,pax;
-    var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
-                //if (data[0].data1.length != 0) {
-                    $.each(compae1private, function(i, val) {
-                        var indexs = parseInt(i) + 1;
-                        if ($.cookie("lng") == 'cn') {
-                            car_topic = compae1private[i].topic_cn;
-                            cartype = compae1private[i].car_topic_cn;
-                            pax = compae1private[i].pax_cn;
-                            $('.lng-book').html('預訂')
-                            $('.lng-capacity-info').html('容量信息')
-                            $('.lng-facilities').html('设施')
-                        }
-                        else if($.cookie("lng") == 'en'){
-                            car_topic = compae1private[i].topic_en;
-                            cartype = compae1private[i].car_topic_en;
-                            pax = compae1private[i].pax_en;
-                            $('.lng-book').html('Book')
-                            $('.lng-capacity-info').html('Capacity info')
-                            $('.lng-facilities').html('Facilities')
+        })
+        var car_topic, cartype, pax;
+        var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
+        //if (data[0].data1.length != 0) {
+        $.each(compae1private, function(i, val) {
+            var indexs = parseInt(i) + 1;
+            if ($.cookie("lng") == 'cn') {
+                car_topic = compae1private[i].topic_cn;
+                cartype = compae1private[i].car_topic_cn;
+                pax = compae1private[i].pax_cn;
+                $('.lng-book').html('預訂')
+                $('.lng-capacity-info').html('容量信息')
+                $('.lng-facilities').html('设施')
+            } else if ($.cookie("lng") == 'en') {
+                car_topic = compae1private[i].topic_en;
+                cartype = compae1private[i].car_topic_en;
+                pax = compae1private[i].pax_en;
+                $('.lng-book').html('Book')
+                $('.lng-capacity-info').html('Capacity info')
+                $('.lng-facilities').html('Facilities')
 
-                        }
-                        else if($.cookie("lng") == 'th'){
-                            car_topic = compae1private[i].topic_th;
-                            cartype = compae1private[i].car_topic_th;
-                            pax = compae1private[i].pax_th;
-                            $('.lng-book').html('จอง')
-                            $('.lng-capacity-info').html('ข้อมูลความจุ')
-                            $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-                                        
-                        }
-                        else{
-                             car_topic = compae1private[i].topic_en;
-                            cartype = compae1private[i].car_topic_en;
-                            pax = compae1private[i].pax_en;
-                            $('.lng-book').html('Book')
-                            $('.lng-capacity-info').html('Capacity info')
-                            $('.lng-facilities').html('Facilities')
+            } else if ($.cookie("lng") == 'th') {
+                car_topic = compae1private[i].topic_th;
+                cartype = compae1private[i].car_topic_th;
+                pax = compae1private[i].pax_th;
+                $('.lng-book').html('จอง')
+                $('.lng-capacity-info').html('ข้อมูลความจุ')
+                $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
 
-                        }
+            } else {
+                car_topic = compae1private[i].topic_en;
+                cartype = compae1private[i].car_topic_en;
+                pax = compae1private[i].pax_en;
+                $('.lng-book').html('Book')
+                $('.lng-capacity-info').html('Capacity info')
+                $('.lng-facilities').html('Facilities')
 
-                        $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-                            '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
-                            '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
-                            '</div>' +
-                            '<h2 class="searchresult_name" title="product name">' +
-                            '<span >' + car_topic + '</span>' +
-                            '<span class="hotel_num">' + indexs + '</span>' +
-                            '</h2>' +
-                            '<div class="box-province">' +
-                            '<p class="type-t">' +
-                            '<span class="car-type" >' + cartype + pax + '</span>' +
-                            '</p>' +
+            }
 
-                            '<p id="facilities">' +
-                            '<span class="lng-facilities"></span>'  +
-                            '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
-                            '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
-                            '</p>' +
-                            '</div>' +
-                            '<div id="box-cost-view">' +
-                            '<div class="product_r">' +
-                            '<span class="base_price"></span>' +
-                            '<span class="sala">' + compae1private[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+            $('#product_a').append('<div class="a-link-item col-lg-12" >' +
+                '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
+                '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
+                '</div>' +
+                '<h2 class="searchresult_name" title="product name">' +
+                '<span >' + car_topic + '</span>' +
+                '<span class="hotel_num">' + indexs + '</span>' +
+                '</h2>' +
+                '<div class="box-province">' +
+                '<p class="type-t">' +
+                '<span class="car-type" >' + cartype + pax + '</span>' +
+                '</p>' +
 
-                            '</div>' +
-                            '<div class="views-item" >' +
-                            '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
+                '<p id="facilities">' +
+                '<span class="lng-facilities"></span>' +
+                '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
+                '</p>' +
+                '</div>' +
+                '<div id="box-cost-view">' +
+                '<div class="product_r">' +
+                '<span class="base_price"></span>' +
+                '<span class="sala">' + compae1private[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
-                            '</div>' +
-                            '</div>' +
-                            '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-                            '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
-                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                            '</div>' +
-                            '</div>'
+                '</div>' +
+                '<div class="views-item" >' +
+                '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
 
-                        );
+                '</div>' +
+                '</div>' +
+                '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
+                '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
+                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                '</div>' +
+                '</div>'
+
+            );
 
 
-                    }); //end private
-
-                    
-
-                    $.each(compae1join, function(i, val) {
-                        var indexs = parseInt(i) + 1;
-                        if ($.cookie("lng") == 'cn') {
-                            car_topic = compae1join[i].topic_cn;
-                            cartype = compae1join[i].car_topic_cn;
-                            pax = compae1join[i].pax_cn;
-                            $('.lng-book').html('預訂')
-                            $('.lng-capacity-info').html('容量信息')
-                            $('.lng-facilities').html('设施')
-                        }
-                        else if($.cookie("lng") == 'en'){
-                            car_topic = compae1join[i].topic_en;
-                            cartype = compae1join[i].car_topic_en;
-                            pax = compae1join[i].pax_en;
-                             $('.lng-book').html('Book')
-                            $('.lng-capacity-info').html('Capacity info')
-                            $('.lng-facilities').html('Facilities')
-
-                        }
-                        else if($.cookie("lng") == 'th'){
-                            car_topic = compae1join[i].topic_th;
-                            cartype = compae1join[i].car_topic_th;
-                            pax = compae1join[i].pax_th;
-                            $('.lng-book').html('จอง')
-                            $('.lng-capacity-info').html('ข้อมูลความจุ')
-                            $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-                                        
-                        }
-                        else{
-                           car_topic = compae1join[i].topic_en;
-                            cartype = compae1join[i].car_topic_en;
-                            pax = compae1join[i].pax_en;
-                             $('.lng-book').html('Book')
-                            $('.lng-capacity-info').html('Capacity info')
-                            $('.lng-facilities').html('Facilities') 
-                        }
-                        $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                            '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
-                            '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
-                            '</div>' +
-                            '<h2 class="searchresult_name" title="product name">' +
-                            '<span >' + car_topic + '</span>' +
-                            '<span class="hotel_num">' + indexs + '</span>' +
-                            '</h2>' +
-                            '<div class="box-province">' +
-                            '<p class="type-t">' +
-                            '<span class="car-type" >' + cartype + pax  + '</span>' +
-                            '</p>' +
-
-                            '<p id="facilities">' +
-                            '<span class="lng-facilities"></span>'  +
-                            '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
-                            '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
-                            '</p>' +
-                            '</div>' +
-                            '<div id="box-cost-view">' +
-                            '<div class="product_r">' +
-                            '<span class="base_price"></span>' +
-                            '<span class="sala">' + compae1join[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-
-                            '</div>' +
-                            '<div class="views-item" >' +
-                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
-
-                            '</div>' +
-                            '</div>' +
-                            '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-                            '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
-                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                            '</div>' +
-                            '</div>'
-
-                        );
+        }); //end private
 
 
-                    });
-    
+
+        $.each(compae1join, function(i, val) {
+            var indexs = parseInt(i) + 1;
+            if ($.cookie("lng") == 'cn') {
+                car_topic = compae1join[i].topic_cn;
+                cartype = compae1join[i].car_topic_cn;
+                pax = compae1join[i].pax_cn;
+                $('.lng-book').html('預訂')
+                $('.lng-capacity-info').html('容量信息')
+                $('.lng-facilities').html('设施')
+            } else if ($.cookie("lng") == 'en') {
+                car_topic = compae1join[i].topic_en;
+                cartype = compae1join[i].car_topic_en;
+                pax = compae1join[i].pax_en;
+                $('.lng-book').html('Book')
+                $('.lng-capacity-info').html('Capacity info')
+                $('.lng-facilities').html('Facilities')
+
+            } else if ($.cookie("lng") == 'th') {
+                car_topic = compae1join[i].topic_th;
+                cartype = compae1join[i].car_topic_th;
+                pax = compae1join[i].pax_th;
+                $('.lng-book').html('จอง')
+                $('.lng-capacity-info').html('ข้อมูลความจุ')
+                $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+
+            } else {
+                car_topic = compae1join[i].topic_en;
+                cartype = compae1join[i].car_topic_en;
+                pax = compae1join[i].pax_en;
+                $('.lng-book').html('Book')
+                $('.lng-capacity-info').html('Capacity info')
+                $('.lng-facilities').html('Facilities')
+            }
+            $('#product_c').append('<div class="a-link-item col-lg-12" >' +
+                '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
+                '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
+                '</div>' +
+                '<h2 class="searchresult_name" title="product name">' +
+                '<span >' + car_topic + '</span>' +
+                '<span class="hotel_num">' + indexs + '</span>' +
+                '</h2>' +
+                '<div class="box-province">' +
+                '<p class="type-t">' +
+                '<span class="car-type" >' + cartype + pax + '</span>' +
+                '</p>' +
+
+                '<p id="facilities">' +
+                '<span class="lng-facilities"></span>' +
+                '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
+                '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
+                '</p>' +
+                '</div>' +
+                '<div id="box-cost-view">' +
+                '<div class="product_r">' +
+                '<span class="base_price"></span>' +
+                '<span class="sala">' + compae1join[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+                '</div>' +
+                '<div class="views-item" >' +
+                '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
+
+                '</div>' +
+                '</div>' +
+                '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
+                '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
+                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                '</div>' +
+                '</div>'
+
+            );
+
+
+        });
+
     });
-    
+
 
     // $('body').addClass('loaded');
     //          $('#text-load').css('display','none') 
     var quotations = [];
     $('#btn-logout-user').on('click', function() {
         console.log('logout')
-            $.removeCookie("login");
-            window.location.href = "https://dotdotdottrip.com/register";
-        })
+        $.removeCookie("login");
+        window.location.href = "https://dotdotdottrip.com/register";
+    })
     $('.search-transfer-product').click(function() {
-       console.log("relllllllllllllllllllllllllllllllllll"+'--'+rel)
-    $('.a-link-item').remove();
+        console.log("relllllllllllllllllllllllllllllllllll" + '--' + rel)
+        $('.a-link-item').remove();
 
-    // $('#product_b').remove();
-    // $('#product_c').remove();
-    // $('#product_d').remove();
-    compae1private = [];
-    compae1join = [];
-    compae2private = [];
-    compae2join = [];
-    data1;
-    $.ajax({
-        type: 'POST',
-        url: '../service/service.php',
-        data: parame,
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(data) {
-            console.log(data)
-            console.log(data.length)
-            if (data != null) {
-                $('#ul-header2').css('display', 'block');
-                $('#container-product').css('display', 'block');
-       // $('#pro-search').css('display', 'block');
-                 $('#loading').css('display', 'block');
-                //$('#content').css('display','none');
-                setTimeout(function() {
-                    //$('#search-raeltime').css('display', 'none');
-                    // $('#map').css('display', 'none');
-                    $('#loading').css('display', 'none');
-                    $('#show-hide-pro').css('display', 'block');
-
-                    $("#pro-search").slideDown('4000');//fadeIn(4000);
-                    // $('#search-show').css('display', 'block')
-                    //$('#content').css('display','block'); 
-                }, 2000);
-
-               data1 = data.data1;
-                var cartype = data.cartype;
-                console.log(data1)
-                //console.log(cartype)
-
-                $.each(cartype , function(i, val) { 
-                var index2 = parseInt(i) + 1;               
-                 $('#cartype').append('<option value="'+cartype[i]+'" label="'+cartype[i]+'" none=""></option>');
-                  //dataProvince.push(data[i])
-                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-            
-                
-            });
-                $.each(data1, function(i, val) {
-                    if (data1[i].type == 'Private') {
-                        compae1private.push(data1[i])
-                    }
-
-                    if (data1[i].type == 'Join') {
-                        compae1join.push(data1[i])
-                    }
-
-                })
-                // $.each(data2, function(i, val) {
-                //     if (data2[i].type == 'Private') {
-                //         compae2private.push(data2[i])
-                //     }
-
-                //     if (data2[i].type == 'Join') {
-                //         compae2join.push(data2[i])
-                //     }
-
-                // })
-                console.log(compae2private.length)
-                    //if (true) {}
-                    // console.log(data2[0])
-                    // console.log(data[1])
-                    // console.log(data[2])
-                    // console.log(data[3])
-                    // console.log(data[4])
-                    // $.each(data, function(i, item) {
-                    //       console.log(data[2])
-                    // });
+        // $('#product_b').remove();
+        // $('#product_c').remove();
+        // $('#product_d').remove();
+        compae1private = [];
+        compae1join = [];
+        compae2private = [];
+        compae2join = [];
+        data1;
+        $.ajax({
+            type: 'POST',
+            url: '../service/service.php',
+            data: parame,
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
                 console.log(data.length)
-                dataproduct = data;
-                var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
-                
-                //if (data[0].data1.length != 0) {
-                    var car_topic,cartype,pax;
+                if (data != null) {
+                    $('#ul-header2').css('display', 'block');
+                    $('#container-product').css('display', 'block');
+                    // $('#pro-search').css('display', 'block');
+                    $('#loading').css('display', 'block');
+                    //$('#content').css('display','none');
+                    setTimeout(function() {
+                        //$('#search-raeltime').css('display', 'none');
+                        // $('#map').css('display', 'none');
+                        $('#loading').css('display', 'none');
+                        $('#show-hide-pro').css('display', 'block');
+
+                        $("#pro-search").slideDown('4000'); //fadeIn(4000);
+                        // $('#search-show').css('display', 'block')
+                        //$('#content').css('display','block'); 
+                    }, 2000);
+
+                    data1 = data.data1;
+                    var cartype = data.cartype;
+                    console.log(data1)
+                    console.log(cartype)
+
+                    $.each(cartype, function(i, val) {
+                        var index2 = parseInt(i) + 1;
+                        $('#cartype').append('<option value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                    $.each(data1, function(i, val) {
+                            if (data1[i].type == 'Private') {
+                                compae1private.push(data1[i])
+                            }
+
+                            if (data1[i].type == 'Join') {
+                                compae1join.push(data1[i])
+                            }
+
+                        })
+                        // $.each(data2, function(i, val) {
+                        //     if (data2[i].type == 'Private') {
+                        //         compae2private.push(data2[i])
+                        //     }
+
+                    //     if (data2[i].type == 'Join') {
+                    //         compae2join.push(data2[i])
+                    //     }
+
+                    // })
+                    console.log(compae2private.length)
+                        //if (true) {}
+                        // console.log(data2[0])
+                        // console.log(data[1])
+                        // console.log(data[2])
+                        // console.log(data[3])
+                        // console.log(data[4])
+                        // $.each(data, function(i, item) {
+                        //       console.log(data[2])
+                        // });
+                    console.log(data.length)
+                    dataproduct = data;
+                    var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
+
+                    //if (data[0].data1.length != 0) {
+                    var car_topic, cartype, pax;
                     $.each(compae1private, function(i, val) {
                         var indexs = parseInt(i) + 1;
                         if ($.cookie("lng") == 'cn') {
@@ -539,8 +533,7 @@ $(document).ready(function() {
                             $('.lng-book').html('預訂')
                             $('.lng-capacity-info').html('容量信息')
                             $('.lng-facilities').html('设施')
-                        }
-                        else if($.cookie("lng") == 'en'){
+                        } else if ($.cookie("lng") == 'en') {
                             car_topic = compae1private[i].topic_en;
                             cartype = compae1private[i].car_topic_en;
                             pax = compae1private[i].pax_en;
@@ -548,17 +541,15 @@ $(document).ready(function() {
                             $('.lng-capacity-info').html('Capacity info')
                             $('.lng-facilities').html('Facilities')
 
-                        }
-                        else if($.cookie("lng") == 'th'){
+                        } else if ($.cookie("lng") == 'th') {
                             car_topic = compae1private[i].topic_th;
                             cartype = compae1private[i].car_topic_th;
                             pax = compae1private[i].pax_th;
                             $('.lng-book').html('จอง')
                             $('.lng-capacity-info').html('ข้อมูลความจุ')
                             $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-                                        
-                        }
-                        else{
+
+                        } else {
                             car_topic = compae1private[i].topic_en;
                             cartype = compae1private[i].car_topic_en;
                             pax = compae1private[i].pax_en;
@@ -608,7 +599,7 @@ $(document).ready(function() {
 
                     }); //end private
 
-                    var car_topic,cartype,pax;
+                    var car_topic, cartype, pax;
 
                     $.each(compae1join, function(i, val) {
                         var indexs = parseInt(i) + 1;
@@ -619,8 +610,7 @@ $(document).ready(function() {
                             $('.lng-book').html('預訂')
                             $('.lng-capacity-info').html('容量信息')
                             $('.lng-facilities').html('设施')
-                        }
-                        else if($.cookie("lng") == 'en'){
+                        } else if ($.cookie("lng") == 'en') {
                             car_topic = compae1join[i].topic_en;
                             cartype = compae1join[i].car_topic_en;
                             pax = compae1join[i].pax_en;
@@ -628,17 +618,15 @@ $(document).ready(function() {
                             $('.lng-capacity-info').html('Capacity info')
                             $('.lng-facilities').html('Facilities')
 
-                        }
-                        else if($.cookie("lng") == 'th'){
+                        } else if ($.cookie("lng") == 'th') {
                             car_topic = compae1join[i].topic_th;
                             cartype = compae1join[i].car_topic_th;
                             pax = compae1join[i].pax_th;
                             $('.lng-book').html('จอง')
                             $('.lng-capacity-info').html('ข้อมูลความจุ')
                             $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-                                        
-                        }
-                        else{
+
+                        } else {
                             car_topic = compae1join[i].topic_en;
                             cartype = compae1join[i].car_topic_en;
                             pax = compae1join[i].pax_en;
@@ -656,11 +644,11 @@ $(document).ready(function() {
                             '</h2>' +
                             '<div class="box-province">' +
                             '<p class="type-t">' +
-                            '<span class="car-type" >' + cartype+ pax + '</span>' +
+                            '<span class="car-type" >' + cartype + pax + '</span>' +
                             '</p>' +
 
                             '<p id="facilities">' +
-                             '<span class="lng-facilities"></span>' +
+                            '<span class="lng-facilities"></span>' +
                             '<img src="https://dotdotdottrip.com/files/img/air.png" alt="Air Conditioner" >&nbsp;&nbsp;' +
                             '<i class="fa fa-music" aria-hidden="true" alt="Audio Player" ></i>' +
                             '</p>' +
@@ -687,26 +675,26 @@ $(document).ready(function() {
 
                     });
 
-                
+
+                }
+
+
+
+
+            },
+            error: function(err) {
+                console.log(err)
             }
-
-
-
-
-        },
-        error: function(err) {
-            console.log(err)
-        }
+        });
     });
-    });
-        // setTimeout(function(){
+    // setTimeout(function(){
 
     //   }, 1000);
-    
+
     //$('#updatelatlng').click(function() {
-        
+
     //})
-   
+
     // $('#btn-logout-user').click(function() {
 
     //     $.removeCookie("login");
@@ -744,69 +732,69 @@ $(document).ready(function() {
     //         var values = [];
     //         $.each(data , function(i, val) {
 
-                // console.log(data[i].id)
-                //      $.ajax({
-                //             type: 'POST',
-                //             url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
-                //             data: { 'id': data[i].id },
-                //             //contentType: "application/json",
-                //             dataType: 'json',
-                //             success: function(data) {
-                //                 console.log(data)
-                                
+    // console.log(data[i].id)
+    //      $.ajax({
+    //             type: 'POST',
+    //             url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+    //             data: { 'id': data[i].id },
+    //             //contentType: "application/json",
+    //             dataType: 'json',
+    //             success: function(data) {
+    //                 console.log(data)
 
 
 
 
 
 
-                //             }
-                //         });
 
-                       //alert('aaa')
-                      // $('#latlng').append('<button type="button" class="btn btn-default"  onclick="updatelatlng(\''+data[i].id+'\')">'+data[i].topic+'</button>');
+    //             }
+    //         });
 
-                       //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-                     // $('#box-plancefrom').append('<li class="send-value" id="transferplace'+data[i].id+'" dataname ="'+data[i].topic+'" datapro="'+data[i].pro+'" dataaum="'+data[i].pro+'"onclick="sendValue(\''+data[i].id+'\');"><span class="name">'+data[i].topic+'</span></li>');
+    //alert('aaa')
+    // $('#latlng').append('<button type="button" class="btn btn-default"  onclick="updatelatlng(\''+data[i].id+'\')">'+data[i].topic+'</button>');
 
-
-                 // });
-            // $.each(data , function(i, val) { 
-
-            //       var values = data[i];
+    //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
+    // $('#box-plancefrom').append('<li class="send-value" id="transferplace'+data[i].id+'" dataname ="'+data[i].topic+'" datapro="'+data[i].pro+'" dataaum="'+data[i].pro+'"onclick="sendValue(\''+data[i].id+'\');"><span class="name">'+data[i].topic+'</span></li>');
 
 
-            //   quotations.push(data[i])
+    // });
+    // $.each(data , function(i, val) { 
 
-            //   });
-            // for (var x= 0; x < quotations.length; x++) {
-            //          values.push(quotations[x])
-            //       }
-            // console.log(quotations.length) 
-            // console.log(quotations[0])
-
-            // console.log(values)
-
-            // $('body').addClass('loaded');
-            // $('#text-load').css('display','none') 
-            //        sendValuetojs(data);   
-            //       $.each(data , function(i, val) { 
-
-            //            //alert('aaa')
-            //           $('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
-
-            //            //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-            //          // $('#box-plancefrom').append('<li class="send-value" id="transferplace'+data[i].id+'" dataname ="'+data[i].topic+'" datapro="'+data[i].pro+'" dataaum="'+data[i].pro+'"onclick="sendValue(\''+data[i].id+'\');"><span class="name">'+data[i].topic+'</span></li>');
+    //       var values = data[i];
 
 
-            //      });
-            //              var options = {
-            //               valueNames: [ 'name']
-            //             };
+    //   quotations.push(data[i])
 
-            // var userList = new +('users', options);
-            //  $('.box-plancefrom').css('display','block');
-        // }
+    //   });
+    // for (var x= 0; x < quotations.length; x++) {
+    //          values.push(quotations[x])
+    //       }
+    // console.log(quotations.length) 
+    // console.log(quotations[0])
+
+    // console.log(values)
+
+    // $('body').addClass('loaded');
+    // $('#text-load').css('display','none') 
+    //        sendValuetojs(data);   
+    //       $.each(data , function(i, val) { 
+
+    //            //alert('aaa')
+    //           $('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
+
+    //            //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
+    //          // $('#box-plancefrom').append('<li class="send-value" id="transferplace'+data[i].id+'" dataname ="'+data[i].topic+'" datapro="'+data[i].pro+'" dataaum="'+data[i].pro+'"onclick="sendValue(\''+data[i].id+'\');"><span class="name">'+data[i].topic+'</span></li>');
+
+
+    //      });
+    //              var options = {
+    //               valueNames: [ 'name']
+    //             };
+
+    // var userList = new +('users', options);
+    //  $('.box-plancefrom').css('display','block');
+    // }
 
     // });
 
@@ -840,7 +828,7 @@ $(document).ready(function() {
                             //$('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
 
                             //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-                            setvaluebox += '<li class="send-value" id="transferplace' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValue(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">'+data[i].address+'</div></li>';
+                            setvaluebox += '<li class="send-value" id="transferplace' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValue(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">' + data[i].address + '</div></li>';
 
 
                         });
@@ -858,10 +846,9 @@ $(document).ready(function() {
                 }
 
             });
-        }
-        else{
-             $('#box-plancefrom').html('');
-              $('.box-plancefrom').css('display', 'none');
+        } else {
+            $('#box-plancefrom').html('');
+            $('.box-plancefrom').css('display', 'none');
         }
         //  var filter;//console.log(dataProvince)
         // String(filter);
@@ -934,7 +921,7 @@ $(document).ready(function() {
                             //$('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
 
                             //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-                            setvalueboxto += '<li class="send-value" id="transferplaceto' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValueto(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">'+data[i].address+'</div></li>';
+                            setvalueboxto += '<li class="send-value" id="transferplaceto' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValueto(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">' + data[i].address + '</div></li>';
 
 
                         });
@@ -952,10 +939,9 @@ $(document).ready(function() {
                 }
 
             });
-        }
-         else{
-             $('#box-planceto').html('');
-              $('.box-planceto').css('display', 'none');
+        } else {
+            $('#box-planceto').html('');
+            $('.box-planceto').css('display', 'none');
         }
 
 
@@ -1039,7 +1025,7 @@ function sendValueto(x) {
 
 function search() {
     //alert("aaaaaa")
-    
+
 }
 
 function getcondition(i) {
@@ -1171,26 +1157,27 @@ function getcondition(i) {
     });
 }
 
-function updatelatlng(id){
+function updatelatlng(id) {
     console.log(id)
-     $.ajax({
-            type: 'POST',
-            url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
-            data: { 'id': id },
-            //contentType: "application/json",
-            dataType: 'json',
-            success: function(data) {
-                console.log(data)
-                
+    $.ajax({
+        type: 'POST',
+        url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+        data: { 'id': id },
+        //contentType: "application/json",
+        dataType: 'json',
+        success: function(data) {
+            console.log(data)
 
 
 
 
 
 
-            }
-        });
+
+        }
+    });
 }
+
 function book(x) {
     window.location.href = '/test';
     alert(x);
@@ -1289,36 +1276,34 @@ function login() {
 //         map: map
 //     });
 // }
-var addr,latitude,longitude,addrcurent;
-$('#current-addr').on('click',getAddress);
- function getAddress(address){
+var addr, latitude, longitude, addrcurent;
+$('#current-addr').on('click', getAddress);
+
+function getAddress(address) {
     rel = true;
     $('#search-from').val(addr)
     console.log(latitude)
     console.log(longitude)
     console.log(addrcurent)
-    var x = Math.PI * (latitude/180);
-    var y = Math.PI * (longitude/180);
-    console.log('Math.PI'+'-'+Math.PI);
-    console.log(latitude/180)
-    console.log(longitude/180)
+    var x = Math.PI * (latitude / 180);
+    var y = Math.PI * (longitude / 180);
+    console.log('Math.PI' + '-' + Math.PI);
+    console.log(latitude / 180)
+    console.log(longitude / 180)
 
-    console.log('latitude'+x)
-    console.log('longitude'+y)
+    console.log('latitude' + x)
+    console.log('longitude' + y)
     var s = 7.8926326;
     var d = 98.3005206;
     var r = 6371;
-    var d = 6371*Math.PI;
-    console.log(d*d)
+    var d = 6371 * Math.PI;
+    console.log(d * d)
     console.log(Math.cos(98.3005206))
-    
- }
- 
-$('#show_pd').click(function(){
-	
-	 $('#show_pd_dialog').show(1000);
-	
+
+}
+
+$('#show_pd').click(function() {
+
+    $('#show_pd_dialog').show(1000);
+
 });
-
-
-

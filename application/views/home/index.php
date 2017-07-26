@@ -641,8 +641,8 @@ a[href^="https://www.google.com/maps"] {
     position: absolute;
     display: inline-block;
     float: left;
-    border-radius: 13px;
-    margin-top:50px;
+    /* border-radius: 13px; */
+    margin-top:60px;
      width: 235px; 
      height: 150px; 
     margin-bottom: 3px;
@@ -909,7 +909,7 @@ a[href^="https://www.google.com/maps"] {
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
     /* border-radius: 5px 5px 0 0; */
-    border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px;
     display: none;
     /*margin-bottom: 12px;*/
     background: #fff;
@@ -924,7 +924,7 @@ a[href^="https://www.google.com/maps"] {
     min-height: 340px;
 }
 #i-list {
-   margin-left: 63% !important;
+   margin-left: 64% !important;
     margin-top: 15px !important;
     float: right;
 }
