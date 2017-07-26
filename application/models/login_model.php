@@ -159,11 +159,20 @@ class Login_model extends CI_Model {
       // $password = '123';
       $username = $this->input->post('username');
       $password = $this->input->post('password');
+      
+      $num0 = (rand(10,100));
+      $num1 = date("Ymd");
+      //$num2 = (rand(100,1000));
+      //$num3 = time();
+      $randnum = $num0 . $num1 . $num2 . $num3;
+      //echo $randnum;
+      
       $data['s_username'] = $this->input->post('username');
       $data['s_password'] = $this->input->post('password');
-      $data['i_rating'] = '2';
-      $this->db->insert('ap_users',$data);      
+      $data['i_rating'] = '2';      
+      $data['s_code'] = $randnum;      
       //$this->db->limit(100);
+      $this->db->insert('ap_users',$data);
       $getid = $this->db->insert_id();
       if ($getid) {
        

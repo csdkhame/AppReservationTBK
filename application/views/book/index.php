@@ -50,7 +50,7 @@
     display: nones;">
     <div style="height: 115px;
     border-radius: 4px;
-    background: #fff;
+    background: fff;
     min-width: 15rem;
     /* height: auto; */
     left: 50vw;

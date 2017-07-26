@@ -135,7 +135,7 @@
     margin-top: 2px;
     padding: 5px 10px;"><span class="lng-check"></span></button>
                             <div class="form-group label-floating is-empty">
-                                <label class="control-label"> <span class="lng-email"></span> <span class="lng-or"></span> <span class="lng-phonr"></span>
+                                <label class="control-label"> <span class="lng-email"></span> <span class="lng-or"></span> <span class="lng-phone"></span>
                                     <!-- <small>(required)</small> -->
                                 </label>
                                 <input name="firstname" type="text" class="form-control" id="username-signup">
@@ -149,7 +149,7 @@
                                 <label class="control-label"><span class="lng-password"></span>
                                     <!-- <small>(required)</small> -->
                                 </label>
-                                <input name="lastname" type="text" class="form-control" id="password-signup">
+                                <input name="lastname" type="password" class="form-control" id="password-signup">
                              <span class="material-input"></span></div>
                         </div>
                         <div id="messagecheck" style="text-align: center;"></div>
@@ -964,6 +964,7 @@ $.ajax({
     });
      $('#registered').on('click', function() {
         console.log('in case signup')
+        console.log(text_check)
         if (text_check == 1) {
             $.ajax({
             type: 'POST',

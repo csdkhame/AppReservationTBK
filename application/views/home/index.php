@@ -5,7 +5,7 @@
 <div style="height: 36px; 
     border-radius: 100%;
     /* background: #fff; */
-        border: 2px solid rgb(255, 255, 255);
+        border: 2px solid rgb(59, 89, 152);
     min-width: 2rem;
     /* height: auto; */
     z-index: 201;
@@ -15,7 +15,7 @@
     transform: translate(-50%,-50%);
     position: fixed;
     display: none;" id="show-hide-pro">
-    <i class="material-icons" style="    color: #fff;
+    <i class="material-icons" style="    color: rgb(59, 89, 152);;
     font-size: 35px;">keyboard_arrow_down</i>
     </div>
     <div style="height: 36px; 
@@ -46,10 +46,10 @@
     display: none;">
     <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
                             <div class="active" align="center" style="display: inline-block;">
-                                <button class="btn btn-warning" id="private-btn" style="padding: 12px 55px;" href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </button>
+                                <button class="btn btn-warning" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </button>
                             </div>
                             <div class="" align="center" style="display: inline-block;">
-                                <button style="padding: 12px 60px; background-color:#333" id="join-btn" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></button>
+                                <button style=" background-color:#333" id="join-btn" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></button>
                             </div>
 
                           <div class="form-group form-inline required " style="    padding: 9px 9px;
@@ -63,7 +63,7 @@
     margin: auto;">
                                                             <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
                                                                 <select class="form-control" name="cartype" id="cartype" class="" style="     margin: auto;">
-                                                                    <option value="All" ></option>
+                                                                    <option value="" >car type</option>
                                                                 
                                                               </select>
                                                         </div>             
@@ -728,15 +728,15 @@ a[href^="https://www.google.com/maps"] {
     line-height: 1.2;
 }
 .sala {
-    /* display: block; */
-    font-family: 'Open Sans',sans-serif;
-    font-weight: 100;
-    color: #757575;
-    font-size: 24px;
+    display: block; 
+    /* font-family: 'Open Sans',sans-serif; */
+    font-weight: 400;
+    /* color: #757575; */
+    font-size: 18px;
     /* font-weight: 600; */
     /* margin-top: 30px; */
     /* padding: 0 19px; */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .views-item {
     background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
@@ -1001,15 +1001,21 @@ div.banner{
     
    
 }
+#join-btn{
+    padding: 12px 50px;
+}
+#private-btn{
+    padding: 12px 55px;
+}
 }
 @media screen and (max-width:320px){
 /*@media only screen and (max-device-width: 568px) and (min-device-width: 320px) and (orientation: portrait){*/
 
 #private-btn{
-    padding: 12px 44px !important;
+    padding: 12px 40px !important;
 }
 #join-btn{
-        padding: 12px 50px !important;
+        padding: 12px 38px !important;
 
 }
 #pro-item{
