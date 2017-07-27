@@ -1,27 +1,8 @@
-<div class="modal fade" id="capacityss" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <!-- <h4 class="modal-title">Gallery</h4> -->
-                            </div>
-                            
-                            <div class="modal-body">                                    
-                                <div id="getcapa"></div>
-                                <div id="getcapa2"></div>
 
-                            </div>
-                            <div class="modal-footer">
-                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <style>
                 	#getcapa{
                 		background-color: #ddd;
-                		height: 35px;
+                		/* height: 35px; */
                 	}
                 	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
                 		border-top: none;

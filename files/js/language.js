@@ -1,45 +1,43 @@
 $(document).ready(function() {
     $(".navbar-nav").swipe({
-              swipeStatus:function(event, phase, direction, distance, duration, fingers)
-                  {
-                      if (phase=="move" && direction =="lng-register") {
-                        alert("aaaa")
-                           $(".navbar-toggle").addClass("toggled");
-                           return false;
-                      }
-                      if (phase=="move" && direction =="right") {
-                        $('html').removeClass('nav-open');
-             setTimeout(function(){
-                       $toggle.removeClass('toggled');
-                       $('#bodyClick').remove();
-                   }, 250);
-                           return false;
-                      }
-                  }
-          }); 
+        swipeStatus: function(event, phase, direction, distance, duration, fingers) {
+            if (phase == "move" && direction == "lng-register") {
+                alert("aaaa")
+                $(".navbar-toggle").addClass("toggled");
+                return false;
+            }
+            if (phase == "move" && direction == "right") {
+                $('html').removeClass('nav-open');
+                setTimeout(function() {
+                    $toggle.removeClass('toggled');
+                    $('#bodyClick').remove();
+                }, 250);
+                return false;
+            }
+        }
+    });
 
     $("#bodyClick").swipe({
-              swipeStatus:function(event, phase, direction, distance, duration, fingers)
-                  {
-                      if (phase=="move" && direction =="lng-register") {
-                        alert("aaaa")
-                           $(".navbar-toggle").addClass("toggled");
-                           return false;
-             ;         }
-                      if (phase=="move" && direction =="right") {
-                        $('html').removeClass('nav-open');
-             setTimeout(function(){
-                       $toggle.removeClass('toggled');
-                       $('#bodyClick').remove();
-                   }, 250);
-                           return false;
-                      }
-                  }
-          }); 
+        swipeStatus: function(event, phase, direction, distance, duration, fingers) {
+            if (phase == "move" && direction == "lng-register") {
+                alert("aaaa")
+                $(".navbar-toggle").addClass("toggled");
+                return false;;
+            }
+            if (phase == "move" && direction == "right") {
+                $('html').removeClass('nav-open');
+                setTimeout(function() {
+                    $toggle.removeClass('toggled');
+                    $('#bodyClick').remove();
+                }, 250);
+                return false;
+            }
+        }
+    });
 
-	console.log($.cookie("lng"));
-	if ($.cookie("lng") == 'cn') {
-       $('.lng-private').html('专车');
+    console.log($.cookie("lng"));
+    if ($.cookie("lng") == 'cn') {
+        $('.lng-private').html('专车');
         $('.lng-join').html('拼车');
         //menu
         $('.lng-register').html('登記');
@@ -99,13 +97,21 @@ $(document).ready(function() {
         $('.lng-registered-customers').html('注册客户');
         $('.lng-sign-create').html('登录或创建帐户');
         $('.lng-what-is-your-email').html('你的电子邮件是什么（手机帐号的手机）？');
-         $('.lng-sign-in').html('登入');
+        $('.lng-sign-in').html('登入');
         $('.lng-check').html('检查');
+        $('.lng-facilitiy').html('设施');
+        $('.lng-conditioner').html('空調');
+        $('.lng-audio-player').html('音頻播放器');
+        $('.lng-cancel').html('取消');
+        $('.lng-seating').html('座位数');
+        $('.lng-terms-of-use').html('服务条款');
 
 
 
-    }
-    else if($.cookie("lng") == 'en'){
+
+
+
+    } else if ($.cookie("lng") == 'en') {
         $('.lng-private').html('Private');
         $('.lng-join').html('Join');
         //menu
@@ -167,19 +173,27 @@ $(document).ready(function() {
         $('.lng-registered-customers').html('Registered customers');
         $('.lng-sign-create').html('Sign In or Create an Account');
         $('.lng-what-is-your-email').html(' What is your email (phone for mobile accounts)?');
-         $('.lng-sign-in').html('Sign in');
+        $('.lng-sign-in').html('Sign in');
         $('.lng-check').html('Check');
+        $('.lng-facilitiy').html('Facilitiy');
+        $('.lng-conditioner').html('Air Conditioner');
+        $('.lng-audio-player').html('Audio Player');
+        $('.lng-cancel').html('Cancel');
+        $('.lng-seating').html('Seating');
+        $('.lng-terms-of-use').html('Terms of Use');
 
 
 
-    }
-    else if($.cookie("lng") == 'th'){
+
+
+
+    } else if ($.cookie("lng") == 'th') {
         $('.lng-private').html('รถส่วนตัว');
-        $('.lng-join').html('รถร่วมบริการ') ;
+        $('.lng-join').html('รถร่วมบริการ');
         //menu
         $('.lng-register').html('ลงทะเบียน');
         $('.lng-login').html('  เข้าสู่ระบบ');
-        $('.lng-product').html('สินค้า') ;
+        $('.lng-product').html('สินค้า');
         $('.lng-transports').html(' รถให้บริการ');
         $('.lng-tours').html('ทัวร์');
         $('.lng-language').html('ภาษา');
@@ -234,14 +248,22 @@ $(document).ready(function() {
         $('.lng-registered-customers').html('ลูกค้าที่ลงทะเบียน');
         $('.lng-sign-create').html('เข้าสู่ระบบหรือสร้างบัญชี');
         $('.lng-what-is-your-email').html('อีเมลของคุณคืออะไร (โทรศัพท์สำหรับบัญชีมือถือ)?');
-         $('.lng-sign-in').html('ลงชื่อเข้าใช้');
+        $('.lng-sign-in').html('ลงชื่อเข้าใช้');
         $('.lng-check').html('ตรวจสอบ');
+        $('.lng-facilitiy').html('ความสะดวก');
+        $('.lng-conditioner').html('เครื่องปรับอากาศ');
+        $('.lng-audio-player').html('เครื่องเสียง');
+        $('.lng-cancel').html('ยกเลิก')
+        $('.lng-seating').html('ที่นั่ง');
+        $('.lng-terms-of-use').html('ข้อกำหนดการใช้งาน');
 
 
-                	
-    }
-    else if($.cookie("lng") == undefined){
-         $('.lng-private').html('Private');
+
+
+
+
+    } else if ($.cookie("lng") == undefined) {
+        $('.lng-private').html('Private');
         $('.lng-join').html('Join');
         //menu
         $('.lng-register').html('Register');
@@ -302,9 +324,18 @@ $(document).ready(function() {
         $('.lng-registered-customers').html('Registered customers');
         $('.lng-sign-create').html('Sign In or Create an Account');
         $('.lng-what-is-your-email').html(' What is your email (phone for mobile accounts)?');
-         $('.lng-sign-in').html('Sign in');
+        $('.lng-sign-in').html('Sign in');
 
         $('.lng-check').html('Check');
+        $('.lng-facilitiy').html('Facilitiy')
+        $('.lng-conditioner').html('Air Conditioner');
+        $('.lng-audio-player').html('Audio Player');
+        $('.lng-cancel').html('Cancel')
+        $('.lng-seating').html('Seating');
+        $('.lng-terms-of-use').html('Terms of Use');
+
+
+
 
 
 
@@ -335,23 +366,24 @@ $(document).ready(function() {
 
 
     }
-//     $.ajax({
-//             type: 'POST',
-//             url: '../service/getLanguage.php',
-//             data: { 'id': $.cookie("login") },
-//             //contentType: "application/json",
-//             dataType: 'json',
-//             success: function(data) {
-//                 console.log(data)
-                
+    //     $.ajax({
+    //             type: 'POST',
+    //             url: '../service/getLanguage.php',
+    //             data: { 'id': $.cookie("login") },
+    //             //contentType: "application/json",
+    //             dataType: 'json',
+    //             success: function(data) {
+    //                 console.log(data)
 
-//         }
-//     });
-// });
+
+    //         }
+    //     });
+    // });
 });
-function language(lng){
+
+function language(lng) {
     console.log(lng);
     $.cookie("lng", lng);
     window.location.reload();
-    
+
 }

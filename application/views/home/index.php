@@ -69,26 +69,13 @@
                                                         </div>             
                         </div>
                         
-    <div id="box-prosearch" style="height: 364px;
-    border-radius: 4px;
-    background: #fff;
-    /*min-width: 33rem;*/
-    overflow: hidden;
-    z-index: 10;
-    overflow-y: scroll;
-    margin-top: 15px;">
-
-
+    <div id="box-prosearch">
         <div>
-
              <div class="container" style="display:none;" id="container-product">
             <div class="row">
-                <div class="col-md-9" style="    padding-top: 15px;">
+                <div class="col-md-9" style="    padding: 10px;">
                     <div class="col-lg-12">
                         <div class="row">
-                        
-                         
-
                         </div>
                         
                     </div>
@@ -376,30 +363,94 @@
         
 		</div>
         <div class="modal fade" id="updatelat" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content" style="    max-height: 640px;
-    overflow: hidden;
-    overflow-y: scroll;">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <!-- <h4 class="modal-title">Gallery</h4> -->
-                            </div>
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" style="max-height: 640px; overflow: hidden; overflow-y: scroll;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <!-- <h4 class="modal-title">Gallery</h4> -->
+                    </div>
                             
-                            <div class="modal-body" style="padding: 0">                                    
-                                <div class="box-country">
-                                    <div id="latlng">                                                                     
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
+                    <div class="modal-body" style="padding: 0">                                    
+                        <div class="box-country">
+                            <div id="latlng">                                                                    
                             </div>
                         </div>
+
+                    </div>
+                    <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="modal fade" id="capacityss" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <!-- <div class="modal-header"> -->
+                        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                <!-- <h4 class="modal-title">Gallery</h4> -->
+                    <!-- </div>                             -->
+                    <div class="modal-body">
+                    <div align="left" style="padding: 2px 5px;font-size: 15px;text-shadow: none">
+			                    <span class="lng-seating"></span>
+			                        
+			                </div>                                    
+                        <div id="getcapa"></div>
+                        <div id="getcapa2"></div>
+                        <div id="facilities">
+                            <div align="left" style="padding: 2px 5px;font-size: 15px;text-shadow: none" >
+			                    <span class="lng-facilitiy"> </span>
+			                   
+			                </div>
+			                <div style="padding: 3px 3px;  border-radius: 8px; background: #fff;">
+			                    <div style="margin-left: 3%; padding-top: 9px;">
+			                            <B >1.</B>
+			                             <!-- <B ng-if="flagcheck == 3">一. </B>      -->
+                                         <img src="https://dotdotdottrip.com/files/img/air.png"  style="margin: 8px;"> 
+			                            <span class="lng-conditioner"></span>
+			                            
+			                    </div>
+			                    <div style="margin-left: 3%;padding-bottom: 9px;">
+			                            <B >2.</B>
+			                             <!-- <B ng-if="flagcheck == 3">二. </B> -->
+                                         <i class="fa fa-music" aria-hidden="true"  style="margin: 8px;"></i> 
+			                            <span class="lng-audio-player"></span>
+			                            
+			                    </div>
+			                </div>
+
+                          
+                        </div>
+                        <div style="padding: 2px 5px;font-size: 15px;">
+                            <span  class="lng-terms-of-use" >Terms of Use</span>
+                            <!-- <span  ng-if="flagcheck == 2" >ข้อกำหนดการใช้งาน</span>
+                            <span  ng-if="flagcheck == 3" >服务条款</span> -->
+				        </div>
+                         <div style="padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    border: 1px solid rgb(59, 89, 152);    
+    margin-top: 5px;" id="terms-of-use"></div>
+                    </div>
+                    <div class="modal-footer">
+                    
+                                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="logout()">Yes</button> -->
+                                <button type="button" class="btn btn-default lng-cancel" data-dismiss="modal" ></button>
+                            
+                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
 <style>
+.modal-content .modal-body {
+    padding: 24px 10px 16px !important;
+}
+.modal .modal-dialog {
+    margin-top: 10px !important;
+}
 .media-heading:hover, a:link{
     color: #333 !important;
 }
@@ -627,15 +678,27 @@ a[href^="https://www.google.com/maps"] {
     border-radius: 0 0 5px 5px;
     min-height: 255px;
 }
-.a-link-item {
-    width: 100%;
-    padding-top: 20px;
-    height: 240px;
-    margin-top: 0px;
-    margin-bottom: 20px;
+#box-prosearch{
+    height: 364px;
     border-radius: 4px;
+    background: #fff;
+    /* min-width: 33rem; */
+    overflow: hidden;
+    z-index: 10;
+    overflow-y: scroll;
+    margin-top: 15px;
+}
+.a-link-item {
+      width: 100%;
+    /* padding-top: 20px; */
+    /* height: 240px; */
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    padding: 10px;
     box-shadow: 0px 2px 3px rgba(0,0,0,0.15);
-    background: #f5f5f5;
+    /* background: #f5f5f5; */
 }
 .item-thumbnail2 {
     position: absolute;
@@ -682,20 +745,20 @@ a[href^="https://www.google.com/maps"] {
 }
 .box-province {
     display: inline-block;
-    margin-left: 52%;
+    /* margin-left: 52%; */
     width: 30%;
     color: #100f0f;
     /* margin-top: -35px; */
 }
 .car-type {
     /* margin-top: -9px; */
-    position: relative;
+    /* position: relative;
     z-index: 1;
-    color: #000;
+    color: #000; */
     /* margin-left: 50%; */
-    padding: 1px 3px;
+    /* padding: 1px 3px;
     border-radius: 3px;
-    display: inline-block;
+    display: inline-block; */
 }
 .pax {
     /* margin-top: -9px; */
@@ -708,7 +771,7 @@ a[href^="https://www.google.com/maps"] {
 }
 #facilities {
     margin-top: 42px;
-    position: absolute;
+    /* position: absolute; */
 }
 #box-cost-view {
     right: 0;
@@ -777,8 +840,8 @@ a[href^="https://www.google.com/maps"] {
     margin-bottom: 0;
 }
 .type-t{
-     position: absolute;
-     margin-top: 15px;
+     /* position: absolute;
+     margin-top: 15px; */
 }
 #box-plancefrom li{
             list-style: none;
@@ -914,17 +977,23 @@ a[href^="https://www.google.com/maps"] {
     /*margin-bottom: 12px;*/
     background: #fff;
 }
+.table-striped>tbody>tr:nth-of-type(odd){
+        background-color: #ddd !important;
+}
+
+
+
+
+
+
 @media screen and (max-width: 767px){
 #bodyClick{
         right: 229px !important;
 }
 
-.a-link-item {
-    padding-left: 0px;
-    min-height: 340px;
-}
+
 #i-list {
-   margin-left: 64% !important;
+   margin-left: 208px !important;
     margin-top: 15px !important;
     float: right;
 }
@@ -974,11 +1043,12 @@ div.banner{
     font-weight: 500;
 }
 .box-province {
-  display: inline-block;
-    width: 64%;
+      display: inline-block;
+    width: 150px;
     margin-left: -28px;
     margin-top: 140px;
     float: left;
+    text-align: center;
 }
 #box-cost-view {
     margin-right: 20px !important;
@@ -986,7 +1056,7 @@ div.banner{
     padding: 0;
 }
 .a-link-item {
-    padding: 8px;
+    /* padding: 8px; */
     min-height: 260px;
 }
 .item-thumbnail2 {
@@ -1010,7 +1080,20 @@ div.banner{
 }
 @media screen and (max-width:320px){
 /*@media only screen and (max-device-width: 568px) and (min-device-width: 320px) and (orientation: portrait){*/
-
+.box-province {
+    
+    margin-left: 3px;
+    
+}
+.a-link-item {
+    /* padding-left: 0px; */
+    min-height: 240px;
+}
+#i-list {
+   margin-left: 165px !important;
+    margin-top: 15px !important;
+    float: right;
+}
 #private-btn{
     padding: 12px 40px !important;
 }
@@ -1035,24 +1118,24 @@ div.banner{
 }
 #facilities {
     margin-top: 15px;
-    margin-left: 50px;
-    position: absolute;
+    /* margin-left: 50px; */
+    /* position: absolute; */
 }
 
 .car-type{
-    padding: 0
+    /* padding: 0 */
 }
 .type-t {
-    position: absolute;
+    /* position: absolute;
     margin-top: -15px;
     margin-left: 50px;
-    padding: 0;
+    padding: 0; */
 }
 .box-info{
     max-height: 100px;
 }
 #box-cost-view {
-    margin-right: 0px !important;
+    margin-right: 10px !important;
     margin-top: 100px !important;
     padding: 0;
 }
