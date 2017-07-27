@@ -137,7 +137,7 @@ $(document).ready(function() {
         $("#iconleft2").css('display', 'none'); //.fadeIn(1000);
 
 
-        //          $('#selectPlace').css('z-index','-1');
+        //$('#selectPlace').css('z-index','-1');
         $("#search-show").fadeIn(1000);
         $("#search-raeltime").hide();
         //$(".btn-reservation").show();
