@@ -1,78 +1,20 @@
-
-                <style>
-                	#getcapa{
-                		background-color: #ddd;
-                		/* height: 35px; */
-                	}
-                	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-                		border-top: none;
-                	}
-                	#table1{
-                		margin-top: 10px !important;
-                	}
-                </style>
-<!--	<footer class="footer footer-white" >
-		<div class="container">
-			<a class="footer-brand" href="http://www.creative-tim.com">Material Kit PRO</a> 
-
-			<ul class="pull-left">
-				<li>
-					<a href="" >
-						Contacts
-					</a>
-				</li>
-				<li>
-					<a href="">
-					   About Us
-					</a>
-				</li>
-				
-			</ul>
-
-			<ul class="social-buttons pull-right">
-				<li>
-					<a href="https://twitter.com/" target="_blank" class="btn btn-just-icon btn-simple btn-twitter">
-						<i class="fa fa-twitter"></i>
-					</a>
-				</li>
-				<li>
-					<a href="https://www.facebook.com/" target="_blank" class="btn btn-just-icon btn-simple btn-dribbble">
-						<i class="fa fa-dribbble"></i>
-					</a>
-				</li>
-				<li>
-					<a href="https://www.instagram.com/" target="_blank" class="btn btn-just-icon btn-simple btn-instagram">
-						<i class="fa fa-instagram"></i>
-					</a>
-				</li>
-			</ul>
-
-		</div>
-	</footer>-->
 	</div>
-	<!-- </div> -->
-	<!--     *********    END PRICING 5      *********      -->
 </body>
 	<!--   Core JS Files   -->
-	
 	<script src="<?php echo base_url(); ?>files/js/jquery.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>files/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>files/js/material.min.js"></script>
     <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> 
-     <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
-     <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
-      <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
-
+    <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
 	<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.12.0.js"></script>
-
 	<!--    Plugin for Date Time Picker and Full Calendar Plugin   -->
 	<!-- <script src="<?php echo base_url(); ?>files/js/moment.min.js"></script> -->
-
 	<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/   -->
-	<script src="<?php echo base_url(); ?>files/js/nouislider.min.js" type="text/javascript"></script>
-	
-		<script src="<?php echo base_url(); ?>files/sweetalert-master/dist/sweetalert-dev.js"></script>
+	<script src="<?php echo base_url(); ?>files/js/nouislider.min.js" type="text/javascript"></script>	
+	<script src="<?php echo base_url(); ?>files/sweetalert-master/dist/sweetalert-dev.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>files/sweetalert-master/dist/sweetalert.css">
 	<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker   -->
 	<!-- <script src="<?php echo base_url(); ?>files/js/bootstrap-datetimepicker.js" type="text/javascript"></script> -->
@@ -101,17 +43,14 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places"async defer> </script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 
 	
-  <script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
-	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time();?>"></script> 
-
-	<!--<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script_test.js?v=<?=time();?>"></script> -->
-	
+  	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
+	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time();?>"></script>
+	<!--<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script_test.js?v=<?=time();?>"></script> -->	
 	<script src="<?php echo base_url(); ?>files/js/list.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>files/js/list.js" type="text/javascript"></script>
 	<!-- <script async defer src="https://maps.googleapis.cn/maps/api/js?key=AIzaSyAxwxcRc1lPkGj_XN_gYa0gKRv9rywrePU"></script> -->
-<!--	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxwxcRc1lPkGj_XN_gYa0gKRv9rywrePU&callback=initMap">
+	<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxwxcRc1lPkGj_XN_gYa0gKRv9rywrePU&callback=initMap">
     </script>-->
-</script>
 	<script type="text/javascript">
 		var $section_features = '';
 		$().ready(function(){
@@ -119,10 +58,10 @@
 		});
 
 	</script>
-<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
-	<style>
+	<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
+<style>
 
-		.index-page .header-filter:after, .presentation-page .header-filter:after {
+.index-page .header-filter:after, .presentation-page .header-filter:after {
     background: rgba(132,13,121,.88);
     background: linear-gradient(45deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%);
     background: -moz-linear-gradient(135deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%);
@@ -143,7 +82,7 @@
 .bottom-300{
 	bottom: 300px !important;
 }
- .floating-panel {
+.floating-panel {
         background: #fff;
         padding: 5px;
         font-size: 14px;
@@ -151,21 +90,26 @@
         border: 1px solid #ccc;
         box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
         display: none;
-      }
-	</style>
-
-<script>
-
-
-
-      
-</script>
-
-<div id="close_streetview" dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; left: 0px; top: 0px;"><div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container"> <div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back"> <div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> </div> </div> </div> </div></div>
-
-
-
-
+}
+#getcapa{
+    background-color: #ddd;
+    /* height: 35px; */
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    border-top: none;
+}
+#table1{
+    margin-top: 10px !important;
+                	}
+</style>
+<div id="close_streetview" dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; left: 0px; top: 0px;">
+	<div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container">
+		 <div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back">
+		 	<div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> </div>
+			</div> 
+		</div> 
+	</div>
+</div>
 </html>
 
 

@@ -2,48 +2,15 @@
 
 <!-- <button class="btn" id="open_mapsss" data-toggle="modal" data-target="#updatelat" style="display: nones;">updatelat-lng</button> -->
 
-<div style="height: 36px; 
-    border-radius: 100%;
-    /* background: #fff; */
-        border: 2px solid rgb(59, 89, 152);
-    min-width: 2rem;
-    /* height: auto; */
-    z-index: 201;
-    left: 50vw;
-    top: 86vh;
-    overflow: hidden;
-    transform: translate(-50%,-50%);
-    position: fixed;
-    display: none;" id="show-hide-pro">
-    <i class="material-icons" style="    color: rgb(59, 89, 152);;
+    <div id="show-hide-pro">
+        <i class="material-icons" style="color: rgb(59, 89, 152);;
     font-size: 35px;">keyboard_arrow_down</i>
     </div>
-    <div style="height: 36px; 
-    border-radius: 100%;
-    /* background: #fff; */
-       border: 2px solid rgb(59, 89, 152);
-    min-width: 2rem;
-    /* height: auto; */
-    z-index: 201;
-    left: 50vw;
-    top: 86vh;
-    overflow: hidden;
-    transform: translate(-50%,-50%);
-    position: fixed;
-     display: none;" id="show-hide-pro2">
-
-    <i class="material-icons" style="    color: rgb(59, 89, 152);;
+    <div id="show-hide-pro2">
+        <i class="material-icons" style="color: rgb(59, 89, 152);;
     font-size: 35px;">keyboard_arrow_up</i>
     </div>
-    <div id="pro-search" style="    z-index: 200;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-        padding: 15px;
-    background: rgba(0, 0, 0, 0.79);
-    display: none;">
+    <div id="pro-search">
     <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
                             <div class="active" align="center" style="display: inline-block;">
                                 <button class="btn btn-warning" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </button>
@@ -445,6 +412,47 @@
             </div>
         </div>
 <style>
+#pro-search{
+    z-index: 200;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+        padding: 15px;
+    background: rgba(0, 0, 0, 0.79);
+    display: none;
+}
+#show-hide-pro{
+    height: 36px; 
+    border-radius: 100%;
+    /* background: #fff; */
+    border: 2px solid rgb(59, 89, 152);
+    min-width: 2rem;
+    /* height: auto; */
+    z-index: 201;
+    left: 50vw;
+    top: 86vh;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    display: none;
+}
+#show-hide-pro2{
+    height: 36px; 
+    border-radius: 100%;
+    /* background: #fff; */
+    border: 2px solid rgb(59, 89, 152);
+    min-width: 2rem;
+    /* height: auto; */
+    z-index: 201;
+    left: 50vw;
+    top: 86vh;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    display: none;
+}
 .modal-content .modal-body {
     padding: 24px 10px 16px !important;
 }
