@@ -17,12 +17,6 @@ $(document).ready(function() {
                 $('#btnlogin').css('display', 'none')
                 $('#btnuser').css('display', 'block')
                 $('.caret').css('display', 'inline-block')
-
-
-
-
-
-
             }
         });
 
