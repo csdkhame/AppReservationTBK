@@ -988,6 +988,13 @@ a[href^="https://www.google.com/maps"] {
 .table-striped>tbody>tr:nth-of-type(odd){
         background-color: #ddd !important;
 }
+.not-found{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    color: red;
+    font-weight:400;
+}
 
 
 

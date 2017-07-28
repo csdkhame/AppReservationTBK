@@ -303,6 +303,7 @@ $(document).ready(function() {
 
             }
 
+
             $('#product_a').append('<div class="a-link-item col-lg-12" >' +
                 '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
                 '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
@@ -540,6 +541,8 @@ $(document).ready(function() {
                             $('.lng-facilities').html('Facilities')
 
                         }
+                        console.log(compae1join.length)
+
                         $('#product_a').append('<div class="a-link-item col-lg-12" >' +
                             '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
                             '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
@@ -574,79 +577,86 @@ $(document).ready(function() {
                         );
 
 
+
+
+
                     }); //end private
 
                     var car_topic, cartype, pax;
+                    if (compae1join.length != 0) {
+                        $.each(compae1join, function(i, val) {
+                            var indexs = parseInt(i) + 1;
+                            if ($.cookie("lng") == 'cn') {
+                                car_topic = compae1join[i].topic_cn;
+                                cartype = compae1join[i].car_topic_cn;
+                                pax = compae1join[i].pax_cn;
+                                $('.lng-book').html('預訂')
+                                $('.lng-capacity-info').html('容量信息')
+                                $('.lng-facilities').html('设施')
+                            } else if ($.cookie("lng") == 'en') {
+                                car_topic = compae1join[i].topic_en;
+                                cartype = compae1join[i].car_topic_en;
+                                pax = compae1join[i].pax_en;
+                                $('.lng-book').html('Book')
+                                $('.lng-capacity-info').html('Capacity info')
+                                $('.lng-facilities').html('Facilities')
 
-                    $.each(compae1join, function(i, val) {
-                        var indexs = parseInt(i) + 1;
-                        if ($.cookie("lng") == 'cn') {
-                            car_topic = compae1join[i].topic_cn;
-                            cartype = compae1join[i].car_topic_cn;
-                            pax = compae1join[i].pax_cn;
-                            $('.lng-book').html('預訂')
-                            $('.lng-capacity-info').html('容量信息')
-                            $('.lng-facilities').html('设施')
-                        } else if ($.cookie("lng") == 'en') {
-                            car_topic = compae1join[i].topic_en;
-                            cartype = compae1join[i].car_topic_en;
-                            pax = compae1join[i].pax_en;
-                            $('.lng-book').html('Book')
-                            $('.lng-capacity-info').html('Capacity info')
-                            $('.lng-facilities').html('Facilities')
+                            } else if ($.cookie("lng") == 'th') {
+                                car_topic = compae1join[i].topic_th;
+                                cartype = compae1join[i].car_topic_th;
+                                pax = compae1join[i].pax_th;
+                                $('.lng-book').html('จอง')
+                                $('.lng-capacity-info').html('ข้อมูลความจุ')
+                                $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
 
-                        } else if ($.cookie("lng") == 'th') {
-                            car_topic = compae1join[i].topic_th;
-                            cartype = compae1join[i].car_topic_th;
-                            pax = compae1join[i].pax_th;
-                            $('.lng-book').html('จอง')
-                            $('.lng-capacity-info').html('ข้อมูลความจุ')
-                            $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-
-                        } else if ($.cookie("lng") == undefined) {
-                            car_topic = compae1join[i].topic_en;
-                            cartype = compae1join[i].car_topic_en;
-                            pax = compae1join[i].pax_en;
-                            $('.lng-book').html('Book')
-                            $('.lng-capacity-info').html('Capacity info')
-                            $('.lng-facilities').html('Facilities')
-                        }
-                        $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                            '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
-                            '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
-                            '</div>' +
-                            '<h2 class="searchresult_name" title="product name">' +
-                            '<span >' + car_topic + '</span>' +
-                            '<span class="hotel_num">' + indexs + '</span>' +
-                            '</h2>' +
-                            '<div class="box-province">' +
-                            '<p class="type-t">' +
-                            '<span class="car-type" >' + cartype + pax + '</span>' +
-                            '</p>' +
-
-
-                            '</div>' +
-                            '<div id="box-cost-view">' +
-                            '<div class="product_r">' +
-                            '<span class="base_price"></span>' +
-                            '<span class="sala">' + compae1join[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-
-                            '</div>' +
-                            '<div class="views-item" >' +
-                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
-
-                            '</div>' +
-                            '</div>' +
-                            '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-                            '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
-                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                            '</div>' +
-                            '</div>'
-
-                        );
+                            } else if ($.cookie("lng") == undefined) {
+                                car_topic = compae1join[i].topic_en;
+                                cartype = compae1join[i].car_topic_en;
+                                pax = compae1join[i].pax_en;
+                                $('.lng-book').html('Book')
+                                $('.lng-capacity-info').html('Capacity info')
+                                $('.lng-facilities').html('Facilities')
+                            }
+                            $('#product_c').append('<div class="a-link-item col-lg-12" >' +
+                                '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
+                                '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
+                                '</div>' +
+                                '<h2 class="searchresult_name" title="product name">' +
+                                '<span >' + car_topic + '</span>' +
+                                '<span class="hotel_num">' + indexs + '</span>' +
+                                '</h2>' +
+                                '<div class="box-province">' +
+                                '<p class="type-t">' +
+                                '<span class="car-type" >' + cartype + pax + '</span>' +
+                                '</p>' +
 
 
-                    });
+                                '</div>' +
+                                '<div id="box-cost-view">' +
+                                '<div class="product_r">' +
+                                '<span class="base_price"></span>' +
+                                '<span class="sala">' + compae1join[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+                                '</div>' +
+                                '<div class="views-item" >' +
+                                '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
+
+                                '</div>' +
+                                '</div>' +
+                                '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
+                                '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
+                                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                                '</div>' +
+                                '</div>'
+
+                            );
+
+
+                        });
+                    } else {
+                        $('#product_c').append('<div class="not-found">Product not Found</div>');
+                    }
+
 
 
                 }
