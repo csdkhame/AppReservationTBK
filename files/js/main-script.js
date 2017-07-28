@@ -1,5 +1,7 @@
 var rel = false;
+var dataplacerel;
 $(document).ready(function() {
+
     console.log("readysss!");
     console.log($.cookie("login"))
     if ($.cookie("login")) {
@@ -51,6 +53,19 @@ $(document).ready(function() {
 
     //           }
     //       });
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://dotdotdottrip.com/getproduct_c/getproduct',
+        //data: { 'id': $.cookie("login") },
+        //contentType: "application/json",
+        dataType: 'json',
+        success: function(data) {
+            dataplacerel = data;
+            console.log(data)
+
+        }
+    });
     var data1, data2;
     compae1private = [];
     compae1join = [];
@@ -1326,29 +1341,50 @@ function login() {
 //         map: map
 //     });
 // }
-var addr, latitude, longitude, addrcurent;
+var addr, latitude, longitude, addrcurent, placeIdcurent;
 $('#current-addr').on('click', getAddress);
 
+function sendplaceid(id) {
+    console.log(id);
+    placeIdcurent = id;
+    console.log(placeIdcurent);
+
+}
+
 function getAddress(address) {
+    console.log(placeIdcurent);
+    console.log(dataplacerel);
+
+    for (var x = 0; x < dataplacerel.length; x++) {
+        if (dataplacerel[x].place_id == placeIdcurent) {
+            console.log(dataplacerel[i].place_id)
+
+        } else {
+            console.log('not same');
+        }
+
+
+    }
+
     rel = true;
     $('#search-from').val(addr)
     console.log(latitude)
     console.log(longitude)
     console.log(addrcurent)
-    var x = Math.PI * (latitude / 180);
-    var y = Math.PI * (longitude / 180);
-    console.log('Math.PI' + '-' + Math.PI);
-    console.log(latitude / 180)
-    console.log(longitude / 180)
+        // var x = Math.PI * (latitude / 180);
+        // var y = Math.PI * (longitude / 180);
+        // console.log('Math.PI' + '-' + Math.PI);
+        // console.log(latitude / 180)
+        // console.log(longitude / 180)
 
-    console.log('latitude' + x)
-    console.log('longitude' + y)
-    var s = 7.8926326;
-    var d = 98.3005206;
-    var r = 6371;
-    var d = 6371 * Math.PI;
-    console.log(d * d)
-    console.log(Math.cos(98.3005206))
+    // console.log('latitude' + x)
+    // console.log('longitude' + y)
+    // var s = 7.8926326;
+    // var d = 98.3005206;
+    // var r = 6371;
+    // var d = 6371 * Math.PI;
+    // console.log(d * d)
+    // console.log(Math.cos(98.3005206))
 
 }
 
