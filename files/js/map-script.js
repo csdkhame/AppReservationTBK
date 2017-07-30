@@ -216,6 +216,17 @@ function initAutocomplete(map, start, end) {
             console.log(position)
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
+            $.ajax({
+                type: 'POST',
+                url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+                data: { 'lat': latitude, 'lng': longitude },
+                //contentType: "application/json",
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data)
+
+                }
+            });
             var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 
             geocoder.geocode({ 'location': latlng }, function(results, status) {
