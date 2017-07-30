@@ -90,6 +90,8 @@ var marker; //result end place
 var placeStart = [];
 var placeEnd = [];
 var infowindow;
+var lat, lng;
+
 /* $('.material-button').on("click", function () {
 
  	    var check =  $('#chk_val_search').val();
@@ -195,7 +197,17 @@ function initAutocomplete(map, start, end) {
         map.panTo(placeStart.geometry.location);
         marker2.setPosition(placeStart.geometry.location);
         start = placeStart.geometry.location;
-
+        lat = placeStart.geometry.viewport;
+        lng = placeStart.geometry.viewport;
+        var latlog = new google.maps.LatLng(start);
+        console.log(placeStart);
+        console.log(lat);
+        console.log(lng);
+        console.log(start)
+        console.log(latlog)
+        geocoder.geocode({ 'location': start }, function(results, status) {
+            console.log(results)
+        });
     });
 
 
@@ -216,17 +228,7 @@ function initAutocomplete(map, start, end) {
             console.log(position)
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
-            $.ajax({
-                type: 'POST',
-                url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
-                data: { 'lat': latitude, 'lng': longitude },
-                //contentType: "application/json",
-                dataType: 'json',
-                success: function(data) {
-                    console.log(data)
 
-                }
-            });
             var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 
             geocoder.geocode({ 'location': latlng }, function(results, status) {
@@ -290,6 +292,17 @@ function initAutocomplete(map, start, end) {
             var duration = response.routes[0].legs[0].duration.text;
 
             console.log(distance);
+            $.ajax({
+                type: 'POST',
+                url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+                data: { 'lat': latitude, 'lng': longitude, 'distance': distance },
+                //contentType: "application/json",
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data)
+
+                }
+            });
             var infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
             infowindowDetailTravel.setContent('<div><p> Distance ' + distance + '</p><p>Use time ' + duration + '</p></div>');
             infowindowDetailTravel.open(map, marker);
