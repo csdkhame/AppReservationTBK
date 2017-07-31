@@ -5,9 +5,14 @@ class Getlaglng_model extends CI_Model {
     }
     public function laglng(){
         $arr = array();
-        $lat = $this->input->post('lat');
-        $lng = $this->input->post('lng');
+        $lat = $this->input->post('lat_f');
+        $lng = $this->input->post('lng_f');
         $distance = $this->input->post('distance');
+        //  $dist = sin(deg2rad($lat)) * sin(deg2rad($row->latitude)) +  cos(deg2rad($lat)) * cos(deg2rad($row->latitude)) * cos(deg2rad($theta));
+        //                         $dist = acos($dist);
+        //                         $dist = rad2deg($dist);
+        //                         $miles = $dist * 60 * 1.1515;
+        //                         $unit = strtoupper($unit);
         
         $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?latlng=".$lat.",".$lng."&sensor=false";
         $xml = simplexml_load_file($request_url) or die("url not loading");
@@ -16,7 +21,7 @@ class Getlaglng_model extends CI_Model {
                     $len = sizeof($xml->result);
                     $pro = $xml->result[$len-2]->address_component[0]->long_name;                    
                     // array_push($arr, $xml->result[$len-2]->address_component[0]->long_name);
-                    $this->db->select('id,topic,aum,pro,map,latitude,longitude');      
+                    $this->db->select('id,topic,aum,pro,map,latitude,longitude,amphur');      
                     //$this->db->limit(100);
                     $this->db->from('web_transferplace_new');
                     $this->db->where('province', ''.$pro.'');
@@ -25,13 +30,13 @@ class Getlaglng_model extends CI_Model {
                     if($query->num_rows() > 0) {
                         foreach($query->result() as $row) {
                             $data[] = $row;
-                           // $dlon = $row->longitude - $lng; 
+                            // $dlon = $row->longitude - $lng; 
                             //$dlat = $row->latitude -  $lng
                             $theta = $lng - $row->longitude;
                             $dist = sin(deg2rad($lat)) * sin(deg2rad($row->latitude)) +  cos(deg2rad($lat)) * cos(deg2rad($row->latitude)) * cos(deg2rad($theta));
                                 $dist = acos($dist);
                                 $dist = rad2deg($dist);
-                                $miles = $dist * 60 * 1.1515;
+                                $miles = $dist * 60 * 1.609344;
                                 $unit = strtoupper($unit);
                                 // if ($unit == "K") {
                                 //     return ($miles * 1.609344);
@@ -39,9 +44,11 @@ class Getlaglng_model extends CI_Model {
                                 //     return ($miles * 0.8684);
                                 // } else {                            
                                 //        return $miles;
-
                                 // }
-                                array_push($arr,$miles);
+                                $x = $miles-$distance;
+                                if($miles<$distance+0.020 && $miles>$distance-0.020){
+                                    array_push($arr,$miles.'-'.$row->id.'--'.$row->topic.'--'.$x.'===='.$row->aum.'--'.$row->amphur);
+                            }                               
                         }
                     return $arr;
                     }
