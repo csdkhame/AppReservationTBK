@@ -111,42 +111,33 @@ function initialize() {
         gestureHandling: 'greedy',
         streetViewControl: true,
         fullscreenControl: false,
-        styles: [
-  {
-    "featureType": "administrative",
-    "stylers": [
-      {
-        "weight": 2
-      }
-    ]
-  },
-  {
-    "featureType": "landscape",
-    "stylers": [
-      {
-        "color": "#efefef"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#d3d3d3"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#c0c0c0"
-      }
-    ]
-  }
-]
+        styles: [{
+                "featureType": "administrative",
+                "stylers": [{
+                    "weight": 2
+                }]
+            },
+            {
+                "featureType": "landscape",
+                "stylers": [{
+                    "color": "#efefef"
+                }]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#d3d3d3"
+                }]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#c0c0c0"
+                }]
+            }
+        ]
 
     });
     var list = document.getElementById('list_place');
@@ -479,7 +470,7 @@ function initAutocomplete(map, start, end) {
                                 '<div id="box-cost-view">' +
                                 '<div class="product_r">' +
                                 '<span class="base_price"></span>' +
-                                '<span class="sala">' + compae1private[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                                '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
                                 '</div>' +
                                 '<div class="views-item">' +
@@ -554,7 +545,7 @@ function initAutocomplete(map, start, end) {
                                     '<div id="box-cost-view">' +
                                     '<div class="product_r">' +
                                     '<span class="base_price"></span>' +
-                                    '<span class="sala">' + compae1join[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                                    '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
                                     '</div>' +
                                     '<div class="views-item" >' +
