@@ -5,8 +5,8 @@ class Getlaglng_model extends CI_Model {
     }
     public function laglng(){
         $arr = array();
-        $lat = $this->input->post('lat_f');
-        $lng = $this->input->post('lng_f');
+        $lat = $this->input->post('lat_t');
+        $lng = $this->input->post('lng_t');
         $distance = $this->input->post('distance');
         //  $dist = sin(deg2rad($lat)) * sin(deg2rad($row->latitude)) +  cos(deg2rad($lat)) * cos(deg2rad($row->latitude)) * cos(deg2rad($theta));
         //                         $dist = acos($dist);
@@ -44,11 +44,17 @@ class Getlaglng_model extends CI_Model {
                                 //     return ($miles * 0.8684);
                                 // } else {                            
                                 //        return $miles;
-                                // }
-                                $x = $miles-$distance;
-                                if($miles<$distance+0.020 && $miles>$distance-0.020){
-                                    array_push($arr,$miles.'-'.$row->id.'--'.$row->topic.'--'.$x.'===='.$row->aum.'--'.$row->amphur);
-                            }                               
+                                // // }
+                                // $x = $miles-$distance;
+                                if ($miles<0.5) {
+                                   array_push($arr,$miles.'-'.$row->id.'--'.$row->topic.'===='.$row->aum.'--'.$row->amphur);
+                                }
+                                //if($miles<$distance+0.020 && $miles>$distance-0.020){
+                                //    $x = $miles-$distance;
+                                // if($miles<$distance+0.020 && $miles>$distance-0.020){
+                                //     array_push($arr,$miles.'-'.$row->id.'--'.$row->topic.'--'.$x.'===='.$row->aum.'--'.$row->amphur);
+                                // } 
+                           // }                               
                         }
                     return $arr;
                     }
