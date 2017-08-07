@@ -111,7 +111,43 @@ function initialize() {
         //          gestureHandling: 'coopergreedyative'
         gestureHandling: 'greedy',
         streetViewControl: true,
-        fullscreenControl: false
+        fullscreenControl: false,
+        styles: [
+  {
+    "featureType": "administrative",
+    "stylers": [
+      {
+        "weight": 2
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "stylers": [
+      {
+        "color": "#efefef"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#d3d3d3"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#c0c0c0"
+      }
+    ]
+  }
+]
 
     });
     var list = document.getElementById('list_place');
