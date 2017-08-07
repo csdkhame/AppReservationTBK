@@ -77,6 +77,8 @@ var marker; //result end place
 var placeStart = [];
 var placeEnd = [];
 var infowindow;
+var lat_f, lng_f, lat_t, lng_t;
+
 /* $('.material-button').on("click", function () {
 
  	    var check =  $('#chk_val_search').val();
@@ -175,13 +177,20 @@ function initAutocomplete(map, start, end) {
 
     var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
     autocompleteStart.bindTo('bounds', map);
-    autocompleteStart.addListener('place_changed', function() {
+    autocompleteStart.addListener('place_changed', function(ev) {
         //         	 
         placeStart = autocompleteStart.getPlace();
         console.log(placeStart);
         map.panTo(placeStart.geometry.location);
         marker2.setPosition(placeStart.geometry.location);
         start = placeStart.geometry.location;
+        lat_f = placeStart.geometry.location.lat();
+        lng_f = placeStart.geometry.location.lng();
+        console.log(lat_f + '==' + lng_f);
+        console.log(placeStart);
+
+        console.log(placeStart.geometry.location.lat())
+        console.log(placeStart.geometry.location.lng())
 
     });
 
@@ -203,6 +212,7 @@ function initAutocomplete(map, start, end) {
             console.log(position)
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
+
             var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 
             geocoder.geocode({ 'location': latlng }, function(results, status) {
@@ -265,8 +275,37 @@ function initAutocomplete(map, start, end) {
             console.log(response.routes[0].legs);
             var distance = response.routes[0].legs[0].distance.text;
             var duration = response.routes[0].legs[0].duration.text;
-
+            //console.log(placeStart.geometry.location.lng())
+            //console.log(response.routes[0].legs[0].end_location.lat())
+            console.log(response.routes[0].legs[0].end_location.lat())
+            console.log(response.routes[0].legs[0].end_location.lng())
+            lat_t = response.routes[0].legs[0].end_location.lat();
+            lng_t = response.routes[0].legs[0].end_location.lng();
+            // console.log(response.request.lng())
             console.log(distance);
+            var radlat1 = Math.PI * lat_f / 180
+            var radlat2 = Math.PI * lat_t / 180
+            var theta = lng_f - lng_t;
+            var radtheta = Math.PI * theta / 180
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            dist = Math.acos(dist)
+            dist = dist * 180 / Math.PI
+            dist = dist * 60 * 1.609344;
+            console.log(dist)
+                //if (unit=="K") { dist = dist * 1.609344 }
+                //if (unit=="N") { dist = dist * 0.8684 }
+                //return dist
+            $.ajax({
+                type: 'POST',
+                url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+                data: { 'lat_f': lat_f, 'lng_f': lng_f, 'distance': dist, 'lat_t': lat_t, 'lng_t': lng_t },
+                //contentType: "application/json",
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data)
+
+                }
+            });
             var infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
             infowindowDetailTravel.setContent('<div><p> Distance ' + distance + '</p><p>Use time ' + duration + '</p></div>');
             infowindowDetailTravel.open(map, marker);

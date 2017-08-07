@@ -1354,6 +1354,10 @@ function sendplaceid(id) {
 function getAddress(address) {
     console.log(placeIdcurent);
     console.log(dataplacerel);
+    // function updatelatlng(id) {
+    //console.log(id)
+
+    // }
 
     for (var x = 0; x < dataplacerel.length; x++) {
         if (dataplacerel[x].place_id == placeIdcurent) {
