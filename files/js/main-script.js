@@ -335,7 +335,7 @@ $(document).ready(function() {
                 '<div id="box-cost-view">' +
                 '<div class="product_r">' +
                 '<span class="base_price"></span>' +
-                '<span class="sala">' + compae1private[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
                 '</div>' +
                 '<div class="views-item" >' +
@@ -405,7 +405,7 @@ $(document).ready(function() {
                 '<div id="box-cost-view">' +
                 '<div class="product_r">' +
                 '<span class="base_price"></span>' +
-                '<span class="sala">' + compae1join[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
                 '</div>' +
                 '<div class="views-item" >' +
@@ -590,7 +590,7 @@ $(document).ready(function() {
                             '<div id="box-cost-view">' +
                             '<div class="product_r">' +
                             '<span class="base_price"></span>' +
-                            '<span class="sala">' + compae1private[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                            '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
                             '</div>' +
                             '<div class="views-item">' +
@@ -665,7 +665,7 @@ $(document).ready(function() {
                                 '<div id="box-cost-view">' +
                                 '<div class="product_r">' +
                                 '<span class="base_price"></span>' +
-                                '<span class="sala">' + compae1join[i].cost_a_agent_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                                '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
                                 '</div>' +
                                 '<div class="views-item" >' +
