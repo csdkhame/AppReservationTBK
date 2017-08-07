@@ -1,17 +1,4 @@
-/*$('#current').focus(function(){
-	$('#startPut').addClass( "is-focused" );
-});
-$('#current').focusout(function() {
-   $('#startPut').removeClass( "is-focused" );
-  });
- 
- $('#pac-input').focus(function(){
-	$('#endPut').addClass( "is-focused" );
-});
-$('#pac-input').focusout(function() {
-   $('#endPut').removeClass( "is-focused" );
-  });
-*/
+
 $('#boxRealtime input').focus(function() {
     $('#chk_val_boxsearch').val(1);
     $('#chk_val_boxsearch').addClass(this.id);
@@ -230,9 +217,10 @@ function initAutocomplete(map, start, end) {
 
             geocoder.geocode({ 'location': latlng }, function(results, status) {
                 var placeId = results[1].place_id;
-                sendplaceid(placeId);
-                console.log(results)
-                console.log(results[0].place_id)
+//                sendplaceid(placeId);
+//                console.log(results)
+				var num =  results.length;
+                console.log(results[4].address_components[0].long_name);
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
                         placeStart = results;
