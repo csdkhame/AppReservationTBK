@@ -19,7 +19,7 @@ $curl_post_data = '{"lat_f":"'.$_POST[lat_f].'","lng_f":"'.$_POST[lng_f].'", "la
 $headers = array();
 $headers[] = 'Content-Type: application/json';
 $headers[] = 'API-KEY: ea1b6d331a20b66041369a63251410d4ec748f27';
-$url = "http://www.services.t-booking.com/Product/product_fix";
+$url = "http://services.t-booking.com/Product_realtime";  
 //echo $url;
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
@@ -48,6 +48,6 @@ $res = json_decode($curl_response);
 // 	$row_data[] = $data;
 // }
 
-echo json_encode($data);
+echo json_encode($res);
 
 ?>

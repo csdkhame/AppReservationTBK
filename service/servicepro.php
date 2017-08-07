@@ -8,7 +8,7 @@ header('Content-type: text/html; charset=utf-8');
 //$request = stripslashes( $_POST[request]);
 //$field = stripslashes( $_POST[field]);
 $curl_post_data = '{"like":{"topic":"'.$_POST[input].'"},
-					"field":{"0":"id","1":"aum","2":"pro","3":"topic","4":"address"},
+					"field":{"0":"id","1":"aum","2":"pro","3":"topic","4":"address",latitude,longitude},
 					"from": "web_transferplace_new",
 					"where": {"status":"1"}
 					}';

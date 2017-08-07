@@ -301,7 +301,7 @@ function initAutocomplete(map, start, end) {
                 //contentType: "application/json",
                 dataType: 'json',
                 success: function(data) {
-                    console.log(data.length)
+                    console.log(data)
                     if (data != null) {
                         $('#ul-header2').css('display', 'block');
                         $('#container-product').css('display', 'block');
@@ -318,9 +318,23 @@ function initAutocomplete(map, start, end) {
                             // $('#search-show').css('display', 'block')
                             //$('#content').css('display','block'); 
                         }, 2000);
-
+                        var cartype;
                         data1 = data.data1;
-                        var cartype = data.cartype;
+                        if ($.cookie("lng") == 'cn') {
+                            cartype = data.cartype[1];
+
+                        } else if ($.cookie("lng") == 'en') {
+
+                            cartype = data.cartype[0];
+                        } else if ($.cookie("lng") == 'th') {
+                            cartype = data.cartype[2];
+
+
+                        } else if ($.cookie("lng") == undefined) {
+                            cartype = data.cartype[0];
+
+                        }
+
                         console.log(data1)
                         console.log(cartype)
 

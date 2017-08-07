@@ -474,7 +474,22 @@ $(document).ready(function() {
                     }, 2000);
 
                     data1 = data.data1;
-                    var cartype = data.cartype;
+                    var cartype;
+                    data1 = data.data1;
+                    if ($.cookie("lng") == 'cn') {
+                        cartype = data.cartype[1];
+
+                    } else if ($.cookie("lng") == 'en') {
+
+                        cartype = data.cartype[0];
+                    } else if ($.cookie("lng") == 'th') {
+                        cartype = data.cartype[2];
+
+
+                    } else if ($.cookie("lng") == undefined) {
+                        cartype = data.cartype[0];
+
+                    }
                     console.log(data1)
                     console.log(cartype)
 
