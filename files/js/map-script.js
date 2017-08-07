@@ -77,7 +77,7 @@ var placeStart = [];
 var placeEnd = [];
 var infowindow;
 var lat_f, lng_f, lat_t, lng_t;
-
+var checkCurrent = false;
 /* $('.material-button').on("click", function () {
 
  	    var check =  $('#chk_val_search').val();
@@ -214,6 +214,8 @@ function initAutocomplete(map, start, end) {
     autocompleteStart.bindTo('bounds', map);
     autocompleteStart.addListener('place_changed', function(ev) {
         //         	 
+       
+        checkCurrent = true;
         placeStart = autocompleteStart.getPlace();
         console.log(placeStart);
         map.panTo(placeStart.geometry.location);
@@ -307,6 +309,7 @@ function initAutocomplete(map, start, end) {
         };
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
+        	
             console.log(response.routes[0].legs);
             var distance = response.routes[0].legs[0].distance.text;
             var duration = response.routes[0].legs[0].duration.text;
@@ -330,6 +333,11 @@ function initAutocomplete(map, start, end) {
                 //if (unit=="K") { dist = dist * 1.609344 }
                 //if (unit=="N") { dist = dist * 0.8684 }
                 //return dist
+                if(checkCurrent==true){
+					lat_f = latitude;
+					lng_f = longitude;
+					checkCurrent = false;
+				}
             $.ajax({
                 type: 'POST',
                 url: '../service/servicereltime.php',

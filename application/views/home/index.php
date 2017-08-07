@@ -1195,6 +1195,30 @@ div.banner{
   font-weight: 400;
 }
 </style>
+
+<style>
+	.pac-container{
+	width: 100% !important;
+    position: absolute !important;
+    left: 0px !important;
+    top: 195px !important;
+    /* display: none; */
+    height: 100% !important;
+	}
+	.pac-item {
+/*    cursor: default !important;*/
+    padding: 10px !important;
+/*    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    line-height: 30px !important;
+    text-align: left !important;
+    border-top: 1px solid #e6e6e6 !important;
+    font-size: 11px !important;
+    color: #999 !important;*/
+}
+</style>
+
 <div id="testImo" class="modal fade" role="dialog">
   <div class="modal-dialog" style=" width: 100%;
   height: 60%;
