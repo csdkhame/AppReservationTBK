@@ -97,11 +97,12 @@ var checkCurrent = false;
 
 
 function initialize() {
-
+	
     var mapMinZoom = 14;
     var mapMaxZoom = 18;
     var start;
     var end;
+    $('#mapZ').val(mapMinZoom);
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 7.9038781, lng: 98.3033694 },
         zoom: mapMinZoom,
@@ -589,7 +590,6 @@ function initAutocomplete(map, start, end) {
             });
         });
 
-        //          getProduct(start,end);
 
     });
 
@@ -674,24 +674,7 @@ function addYourLocationButton(map, marker2) {
     controlDiv.style.display = 'none';
 }
 
-function getProduct(start, end) {
-    /*	var json = {
-    		start : start,
-    		end : end
-    	}*/
 
-    $.ajax({
-        type: "POST",
-        data: { start: start, end: end.toJSON() },
-        url: "http://localhost/AppReservationTBK/service/getProduct_realtime.php",
-        success: function(msg) {
-            alert(msg);
-        }
-    });
-
-
-
-}
 
 function smoothZoom(map, max, cnt) {
     if (cnt >= max) {
@@ -905,7 +888,7 @@ function createAllMarker() {
         position: map.getCenter(),
         icon: {
             path: google.maps.SymbolPath.CIRCLE,
-            scale: 6,
+            scale: 10,
             fillOpacity: 2,
             strokeWeight: 2,
             fillColor: '#01a6fe',
@@ -914,12 +897,45 @@ function createAllMarker() {
         draggable: true,
         map: map
     });
+    
+    Circle = new google.maps.Circle({
+            strokeColor: '#0070ff',
+            strokeOpacity: 0.3,
+            strokeWeight: 1,
+            fillColor: '#007aff',
+            fillOpacity: 0.25,
+            map: map,
+            center: map.getCenter(),
+            radius: map.getZoom()*50
+          });
 
     marker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
-        anchorPoint: new google.maps.Point(0, -29)
+        anchorPoint: new google.maps.Point(0, -29),
+        zIndex: 1000 
     });
+	console.log( map.getZoom()*50);
+	var zoomEvent = google.maps.event.addListener(map, 'zoom_changed', function(event) {
+		var oldZ = $('#mapZ').val();
+           var num = 100;
+           if(map.getZoom()<oldZ){
+           			// zoom out
+            		num = oldZ  * num;	
+            		console.log('Out');		
+			}else{
+				//zoom in
+				 num = map.getZoom() * num;		
+				 console.log('In');		
+			}
+
+//			alert(num);
+			Circle.setRadius(num);
+			console.log(oldZ);
+			 //
+			 $('#mapZ').val(map.getZoom());
+//			 google.maps.event.removeListener(zoomEvent);
+        });
 
 }
 

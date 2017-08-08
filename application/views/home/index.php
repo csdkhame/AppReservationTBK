@@ -295,6 +295,7 @@
       	</div>
 <input type="hidden" id="chk_val_search" value="0" />
 <input type="hidden" id="chk_val_boxsearch" value="0" />
+<input type="hiddens" id="mapZ" value="0"/>
 
 
 
