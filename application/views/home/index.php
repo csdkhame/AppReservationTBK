@@ -246,7 +246,7 @@
 }*/
 </style>
 
-	<div class="row" id="selectPlace" style="z-index: 1 !important;">
+	<div class="row" id="selectPlace" style="z-index: 1 !important;display:none;">
       <div class="col-md-4 col-md-offset-4">
         <div class="material-button-anim" >
          
