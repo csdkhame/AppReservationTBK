@@ -30,7 +30,7 @@ public function view_user()
 			header('Location: view_user?num='.$num.'&start=0&page=1');
 		}
 	
-//		if(isset($_COOKIE['login'])) {
+		if(isset($_COOKIE['login'])) {
 			$id = $_COOKIE['login'];
 			$user_level = $this->Getuser_model->getuser_pass_id($id);
 			$this->session->set_userdata(array('i_id' => $user_level[0]->i_id,'i_rating'=> $user_level[0]->i_rating,'s_code'=>$user_level[0]->s_code)); 
@@ -45,11 +45,11 @@ public function view_user()
 			$this->load->view('userview_dash',$data);
 			$this->load->view('footer_dash2');
 						
-		/*}
+		}
 		else{
 			
 			redirect('/login_control/index', 'refresh');
-		}*/
+		}
 		/*$data = $this->Userview_model_dash->query_user($num_record);
 		echo json_encode($data);*/
 	}

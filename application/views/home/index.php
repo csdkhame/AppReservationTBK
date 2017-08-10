@@ -272,23 +272,11 @@
 }
 .pac-container{
 	z-index: 10000000 !important;
-	width: 
 }
-/*.pac-container {
-    background-color: #fff;
-    border-radius: 2px;
-    font-size: 11px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    overflow: scroll;
-    width: 350px !important;
-    display: block !important;
-}*/
+
 </style>
 
-	<div class="row" id="selectPlace" style="z-index: 1 !important;display:none;">
+	<div class="row" id="selectPlace" style="z-index: 10000 !important;display:none;left: 0px;position: absolute;">
       <div class="col-md-4 col-md-offset-4">
         <div class="material-button-anim" >
          
@@ -322,7 +310,6 @@
          <div class="col-md-12 " >
          	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
        					  <div class="box-search" id='boxRealtime'>
-                             
                               <!--  <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/> <button class="current-submit">Yes</button>-->
                               <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
                             <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;"/>
@@ -331,8 +318,7 @@
                                     <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />   
                                    <!-- <input  type='text' class="form-control" placeholder="where you go ?" id="openSearch" style="border: none !important;" value="" />   -->
                                     </div>          
-                            </div>
-                           
+                         </div>
                 </div>
       	</div>
 <input type="hidden" id="chk_val_search" value="0" />
@@ -342,6 +328,7 @@
 
 
         </div>
+
         <div style=" position: absolute;  margin-top: 45px;width: 100%; z-index: 5; display: none;" id="search-show">            
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
@@ -374,15 +361,13 @@
             </div>            
         </div>
 
+
        <div id="map" style="width: 100%;height: 100vh;">
-       
-       
+
        </div>         
 
 
    
-        
-		</div>
         <div class="modal fade" id="updatelat" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -1258,7 +1243,7 @@ div.banner{
 	width: 100% !important;
     position: absolute !important;
     left: 0px !important;
-    top: 195px !important;
+    top: 155px !important;
     /* display: none; */
     height: 100% !important;
 	}
