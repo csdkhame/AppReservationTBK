@@ -328,16 +328,7 @@
 
 
         </div>
-<<<<<<< HEAD
 
-
-
-   
-      
-
-
-=======
->>>>>>> f14e7fd2e3d63b22e46045c4ff947c1bb764aea3
         <div style=" position: absolute;  margin-top: 45px;width: 100%; z-index: 5; display: none;" id="search-show">            
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
@@ -370,13 +361,9 @@
             </div>            
         </div>
 
-<<<<<<< HEAD
+
        <div id="map" style="width: 100%;height: 100vh;">
-=======
-       <div id="map" style="width: 100%;height: 80vh;">
->>>>>>> f14e7fd2e3d63b22e46045c4ff947c1bb764aea3
-       
-       
+
        </div>         
 
 
@@ -464,6 +451,9 @@
             </div>
         </div>
 <style>
+body{
+    height: 100vh;
+}
 #pro-search{
     z-index: 200;
     position: fixed;
