@@ -111,7 +111,7 @@
 <style>
 .box-menu-select{
     
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
     z-index: 222;
