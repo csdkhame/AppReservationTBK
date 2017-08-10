@@ -374,7 +374,7 @@
             </div>            
         </div>
 
-       <div id="map" style="width: 100%;height: 80vh;">
+       <div id="map" style="width: 100%;height: 100vh;">
        
        
        </div>         
@@ -466,6 +466,9 @@
             </div>
         </div>
 <style>
+body{
+    height: 100vh;
+}
 #pro-search{
     z-index: 200;
     position: fixed;
