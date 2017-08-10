@@ -114,7 +114,7 @@
     position: fixed;
     width: 100%;
     bottom: 0;
-    z-index: 222;
+    z-index: 1;
     background: #333;
     height: 200px;
 }
@@ -462,7 +462,7 @@ body{
     left: 0;
     top: 0;
         padding: 15px;
-    background: rgba(0, 0, 0, 0.79);
+    background: rgba(255, 255, 255, 0.79);
     display: none;
 }
 #show-hide-pro{
@@ -729,7 +729,7 @@ a[href^="https://www.google.com/maps"] {
     min-height: 255px;
 }
 #box-prosearch{
-    height: 364px;
+    height:100%;
     border-radius: 4px;
     background: #fff;
     /* min-width: 33rem; */
@@ -1019,12 +1019,12 @@ a[href^="https://www.google.com/maps"] {
     text-align: center;
     /* padding-top: 35px; */
     /* border-top: 1px solid #ddd; */
-    border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
+    /* border-right: 1px solid #ddd; */
+    /* border-left: 1px solid #ddd; */
     /* border-radius: 5px 5px 0 0; */
     border-radius: 4px 4px;
     display: none;
-    /*margin-bottom: 12px;*/
+    /* margin-bottom: 12px; */
     background: #fff;
 }
 .table-striped>tbody>tr:nth-of-type(odd){
