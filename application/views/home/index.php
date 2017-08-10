@@ -276,19 +276,19 @@
 
 </style>
 
-	<div class="row" id="selectPlace" style="z-index: 10000 !important;display:none;left: 0px;position: absolute;">
+	<!--<div class="row" id="selectPlace" style="z-index: 10000 !important;display:none;left: 0px;position: absolute;">
       <div class="col-md-4 col-md-offset-4">
         <div class="material-button-anim" >
          
         
               <button class="material-button option1" type="button" style="left: -30px;" id="btn-home" >
-                <!--<span class="fa fa-phone" aria-hidden="true"></span>-->
+             
                 <span id="selectHome"><i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i></span>
               </button>
     
            
               <button class="material-button option2" type="button" id="btn-office">
-                <!--<span class="fa fa-building-o fa-2x" aria-hidden="true"></span>-->
+              
                 <span id="selectOffice"><i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(2);"></i></span>
               </button>
    
@@ -299,7 +299,7 @@
          
         </div>
       </div>
-	</div>
+	</div>-->
 
    
      <div id="search-raeltime" style=" position: absolute;
