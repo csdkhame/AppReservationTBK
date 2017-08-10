@@ -133,7 +133,7 @@
     
     <script>
  
-     function initAutocomplete() {
+      function initAutocomplete() {
       	var directionsService = new google.maps.DirectionsService;
       	var directionsDisplay = new google.maps.DirectionsRenderer();
       	var start;
@@ -142,10 +142,10 @@
           center: {lat: 7.9038781, lng: 98.3033694},
           zoom: 15,
           mapTypeControl: false,
-          mapTypeId: 'roadmap',
-          streetViewControl: true
+          mapTypeId: 'roadmap'
+          
         });
-
+        
         
         
 //        map.setMyLocationEnabled(true);
@@ -164,23 +164,12 @@
 	          map: map
 	         
 	        });
-	        google.maps.event.addListener(map, 'center_changed', function() { 
-       
-        var Newlat = map.getCenter().lat();
-        var Newlng = map.getCenter().lng();
-        var newPos = {
-              lat: Newlat,
-              lng: Newlng
-            };
-		marker2.setPosition(newPos);
- 		  console.log(newPos);
-         
-         } );
+	        
 	        addYourLocationButton(map, marker2);
 	        
 		if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-
+          navigator.geolocation.getCurrentPosition(function(position,status) {
+          	console.log(status);
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
@@ -266,7 +255,7 @@
         });
       }
       
-
+      
       
    function addYourLocationButton(map, marker) 
    {

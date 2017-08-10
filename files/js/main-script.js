@@ -435,6 +435,20 @@ $(document).ready(function() {
         $.removeCookie("login");
         window.location.href = "https://dotdotdottrip.com/register";
     })
+    $('.btn-show-select').click(function() {
+        console.log('hide-show');
+        $('.box-menu-select').css('bottom', '-200px')
+            // $('.btn-show-select').hide(50)
+        $('.btn-show-select').css('display', 'none');
+        $('.btn-hide-select').css('display', 'block');
+    });
+    $('.btn-hide-select').click(function() {
+        console.log('hide-show');
+        $('.box-menu-select').css('bottom', '0')
+            // $('.box-hide-select').hide(50)
+        $('.btn-hide-select').css('display', 'none');
+        $('.btn-show-select').css('display', 'block');
+    });
     $('.search-transfer-product').click(function() {
         console.log("relllllllllllllllllllllllllllllllllll" + '--' + rel)
         console.log(latitude)
