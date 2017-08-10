@@ -81,7 +81,15 @@
     </div>
     
 </div>
-<div class="">
+<div class="box-menu-select">
+<div class="btn-show-select" >
+    <i class="material-icons">vertical_align_bottom</i>
+    
+</div>
+<div class="btn-hide-select" >
+    <i class="material-icons">vertical_align_top</i>
+    
+</div>
     <div class="btn-real-res col-lg-12" id="btn-real-res">
     <!-- <i class="material-icons">keyboard_arrow_right</i> -->
     <i class="material-icons" id="iconhome" >home</i> 
@@ -99,8 +107,42 @@
     
        
     </div>
-
+ </div> 
 <style>
+.box-menu-select{
+    
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 222;
+    background: #333;
+    height: 200px;
+}
+.btn-show-select{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    margin-top: -30px;
+    background: #333;
+    text-align: center;
+    color: #fff;
+    right: 0;
+    padding-top: 5px;
+    border-radius: 5px 5px;  
+}
+.btn-hide-select{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    margin-top: -30px;
+    background: #333;
+    text-align: center;
+    color: #fff;
+    right: 0;
+    padding-top: 5px;
+    border-radius: 5px 5px; 
+    display:none;
+}
 .select-type-place{
 	border: 1px solid #E0E0E0 !important;
     display: block;
@@ -273,7 +315,7 @@
 
    
      <div id="search-raeltime" style=" position: absolute;
-        margin-top: 112px;
+        margin-top: 45px;
         width: 100%;
         z-index: 5;
         display: none;">
@@ -295,12 +337,12 @@
       	</div>
 <input type="hidden" id="chk_val_search" value="0" />
 <input type="hidden" id="chk_val_boxsearch" value="0" />
-<input type="hiddens" id="mapZ" value="0"/>
+<input type="hidden" id="mapZ" value="0"/>
 
 
 
         </div>
-        <div style=" position: absolute;  margin-top: 112px;width: 100%; z-index: 5; display: none;" id="search-show">            
+        <div style=" position: absolute;  margin-top: 45px;width: 100%; z-index: 5; display: none;" id="search-show">            
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
                     <div class="box-search">
@@ -332,7 +374,10 @@
             </div>            
         </div>
 
-       <div id="map" style="width: 100%;height: 100vh;"></div>         
+       <div id="map" style="width: 100%;height: 80vh;">
+       
+       
+       </div>         
 
 
    
