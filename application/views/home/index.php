@@ -354,7 +354,7 @@
                              <input type="hidden" name="" value="" id="lng_to">     
                                                                 
                                 <div class=" tm-yellow-gradient-bg text-center  " align="center" style="width: 100%">
-                                    <a href="#move-product"><div  class="search-transfer-product col-md-5" onclick="search()" align="center"><i class="fa fa-search" aria-hidden="true" style="padding-right: 8px"></i><span class="lng-search"></span></div></a>
+                                    <a ><div  class="search-transfer-product col-md-5" onclick="search()" align="center"><i class="fa fa-search" aria-hidden="true" style="padding-right: 8px"></i><span class="lng-search"></span></div></a>
                                 </div>
                     </div>
                 </div>                          
@@ -461,12 +461,12 @@ body{
     height: 100vh;
     left: 0;
     top: 0;
-        padding: 15px;
+        /* padding: 15px; */
     background: rgba(255, 255, 255, 0.79);
     display: none;
 }
 #show-hide-pro{
-    height: 36px; 
+       height: 36px;
     border-radius: 100%;
     /* background: #fff; */
     border: 2px solid rgb(59, 89, 152);
@@ -474,14 +474,15 @@ body{
     /* height: auto; */
     z-index: 201;
     left: 50vw;
-    top: 86vh;
+    /* top: 86vh; */
     overflow: hidden;
     transform: translate(-50%,-50%);
     position: fixed;
     display: none;
+    bottom: 0;
 }
 #show-hide-pro2{
-    height: 36px; 
+       height: 36px;
     border-radius: 100%;
     /* background: #fff; */
     border: 2px solid rgb(59, 89, 152);
@@ -489,11 +490,12 @@ body{
     /* height: auto; */
     z-index: 201;
     left: 50vw;
-    top: 86vh;
+    /* top: 86vh; */
     overflow: hidden;
     transform: translate(-50%,-50%);
     position: fixed;
     display: none;
+    bottom: 0;
 }
 .modal-content .modal-body {
     padding: 24px 10px 16px !important;
@@ -736,7 +738,7 @@ a[href^="https://www.google.com/maps"] {
     overflow: hidden;
     z-index: 10;
     overflow-y: scroll;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 .a-link-item {
       width: 100%;
@@ -867,6 +869,7 @@ a[href^="https://www.google.com/maps"] {
     cursor: pointer;
 }
 #i-list {
+    right: 0;
     position: absolute;
    /* background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
     background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);*/
@@ -1050,7 +1053,7 @@ a[href^="https://www.google.com/maps"] {
 
 
 #i-list {
-   margin-left: 208px !important;
+   margin-right: 20px !important;
     margin-top: 15px !important;
     float: right;
 }
@@ -1129,10 +1132,10 @@ div.banner{
    
 }
 #join-btn{
-    padding: 12px 50px;
+    padding: 12px 58px;
 }
 #private-btn{
-    padding: 12px 55px;
+    padding: 12px 62px;
 }
 }
 @media screen and (max-width:320px){
@@ -1147,15 +1150,15 @@ div.banner{
     min-height: 240px;
 }
 #i-list {
-   margin-left: 165px !important;
+   margin-right: 20px !important;
     margin-top: 15px !important;
     float: right;
 }
 #private-btn{
-    padding: 12px 40px !important;
+    padding: 12px 50px !important;
 }
 #join-btn{
-        padding: 12px 38px !important;
+        padding: 12px 42px !important;
 
 }
 #pro-item{
