@@ -238,41 +238,41 @@ $(document).ready(function() {
             console.log(data[0].province_name_en)
             if ($.cookie("lng") == 'cn') {
                 $('#cars_persion').html(data[0].car_topic_cn + data[0].pax_cn)
-                $('#price').html(data[0].cost_a_agent_all + ' ' + '฿')
+                $('#price').html(data[0].cost_a + ' ' + '฿')
                 $('#product').html(data[0].topic_cn)
                 $('#name_product').html(data[0].topic_car)
                 $('#cars_type').html(data[0].car_topic_cn + data[0].pax_cn)
-                $('#costsummary').html(data[0].cost_a_agent_all + ' ' + '฿')
-                $('#numsumprice').html(data[0].cost_a_agent_all + ' ' + '฿')
+                $('#costsummary').html(data[0].cost_a + ' ' + '฿')
+                $('#numsumprice').html(data[0].cost_a + ' ' + '฿')
             } else if ($.cookie("lng") == 'en') {
                 $('#cars_persion').html(data[0].car_topic_en + data[0].pax_en)
-                $('#price').html(data[0].cost_a_agent_all + ' ' + '฿')
+                $('#price').html(data[0].cost_a + ' ' + '฿')
                 $('#product').html(data[0].topic_en)
                 $('#name_product').html(data[0].topic_car)
                 $('#cars_type').html(data[0].car_topic_en + data[0].pax_en)
-                $('#costsummary').html(data[0].cost_a_agent_all + ' ' + '฿')
-                $('#numsumprice').html(data[0].cost_a_agent_all + ' ' + '฿')
+                $('#costsummary').html(data[0].cost_a + ' ' + '฿')
+                $('#numsumprice').html(data[0].cost_a + ' ' + '฿')
             } else if ($.cookie("lng") == 'th') {
                 $('#cars_persion').html(data[0].car_topic_th + data[0].pax_th)
-                $('#price').html(data[0].cost_a_agent_all + ' ' + '฿')
+                $('#price').html(data[0].cost_a + ' ' + '฿')
                 $('#product').html(data[0].topic_th)
                 $('#name_product').html(data[0].topic_car)
                 $('#cars_type').html(data[0].car_topic_th + data[0].pax_th)
-                $('#costsummary').html(data[0].cost_a_agent_all + ' ' + '฿')
-                $('#numsumprice').html(data[0].cost_a_agent_all + ' ' + '฿')
+                $('#costsummary').html(data[0].cost_a + ' ' + '฿')
+                $('#numsumprice').html(data[0].cost_a + ' ' + '฿')
             } else if ($.cookie("lng") == undefined) {
                 $('#cars_persion').html(data[0].car_topic_en + data[0].pax_en)
-                $('#price').html(data[0].cost_a_agent_all + ' ' + '฿')
+                $('#price').html(data[0].cost_a + ' ' + '฿')
                 $('#product').html(data[0].topic_en)
                 $('#name_product').html(data[0].topic_car)
                 $('#cars_type').html(data[0].car_topic_en + data[0].pax_en)
-                $('#costsummary').html(data[0].cost_a_agent_all + ' ' + '฿')
-                $('#numsumprice').html(data[0].cost_a_agent_all + ' ' + '฿')
+                $('#costsummary').html(data[0].cost_a + ' ' + '฿')
+                $('#numsumprice').html(data[0].cost_a + ' ' + '฿')
 
             }
 
 
-            costproduct = data[0].cost_a_agent_all;
+            costproduct = data[0].cost_a;
             type = data[0].type;
             console.log(type)
             console.log($.cookie("lng"))
@@ -1038,7 +1038,7 @@ $(document).ready(function() {
 
                     }
                 });
-                //window.location.href = "https://dotdotdottrip.com";   
+                window.location.href = "https://dotdotdottrip.com";
             }
         });
 
