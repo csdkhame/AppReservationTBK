@@ -27,7 +27,7 @@ $(document).ready(function(){
         console.log($.cookie("login"))
         $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/getuser_control/mainpage',
+        url: base_url+'getuser_control/mainpage',
         data: {'id': $.cookie("login")},
         //contentType: "application/json",
         dataType: 'json',
@@ -164,7 +164,7 @@ $(document).ready(function(){
     // });
     $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/getcountry_control/process',
+        url: base_url+'getcountry_control/process',
         //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
         //contentType: "application/json",
         dataType: 'json',
@@ -194,10 +194,10 @@ $(document).ready(function(){
     //$('#numbercountry').html('');
    //$('#code').html('code country')
     $('#select-country').click(function(){
-      var url ='https://dotdotdottrip.com/';
+      var url =base_url;
         $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/getcountry_control/process',
+        url: base_url+'getcountry_control/process',
         //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
         //contentType: "application/json",
         dataType: 'json',
@@ -776,10 +776,10 @@ $('#addbook').on('click',function(){
     console.log(to_place)
     console.log(costdotcars)
     console.log()
-    var url2 = 'https://dotdotdottrip.com/';
+    var url2 = base_url;
     $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/savebook_control/process',
+        url: base_url+'savebook_control/process',
         data: {'from': getParameterByName('from')
         ,'to': getParameterByName('to')
         ,'numcar':num_cars
@@ -1039,7 +1039,7 @@ $('#addbook').on('click',function(){
         console.log(param)
         $.ajax({
           type: 'POST',
-          url: 'https://dotdotdottrip.com/savebook_control/saveapi',
+          url: base_url+'savebook_control/saveapi',
           data: param,
           //contentType: "application/json",
           //dataType: 'json',
@@ -1060,7 +1060,7 @@ $('#addbook').on('click',function(){
  }
 });
  function sendCountry(x){
-  var url ='https://dotdotdottrip.com/';
+  var url =base_url;
   console.log(x)
    $.cookie("phonecode",x);
   $('#codecountry').modal('hide');

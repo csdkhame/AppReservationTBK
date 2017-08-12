@@ -106,12 +106,27 @@ $(document).ready(function() {
         $('.lng-seating').html('座位数');
         $('.lng-terms-of-use').html('服务条款');
 
+/////////////// Dash ///////////////////////////////////////
+
+	  $('.lng-name_d').html('名字');
+	  $('.lng-username_d').html('用户名');
+	  $('.lng-email_d').html('电子邮件');
+	  $('.lng-cr_d').html('客户参考');
+	  $('.lng-code_d').html('代码');
+	  $('.lng-amount_d').html('代码');
+	  $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="搜索 名字..." onkeyup="myFunction()" id="myInput" />');
+	  
+	  $('.lng-sa_d').html('设置帐户');
+	  $('.lng-customer_d').html('顾客');
+	  $('.lng-payment_d').html('付款');
 
 
 
 
 
-    } else if ($.cookie("lng") == 'en') {
+    } 
+
+	else if ($.cookie("lng") == 'en') {
         $('.lng-private').html('Private');
         $('.lng-join').html('Join');
         //menu
@@ -181,13 +196,26 @@ $(document).ready(function() {
         $('.lng-cancel').html('Cancel');
         $('.lng-seating').html('Seating');
         $('.lng-terms-of-use').html('Terms of Use');
+		
+
+/////////////// Dash ///////////////////////////////////////
+
+	  $('.lng-name_d').html('Name');
+	  $('.lng-username_d').html('Username');
+	  $('.lng-email_d').html('Email');
+	  $('.lng-cr_d').html('Cutomer Reference');
+	  $('.lng-code_d').html('Code');
+	  $('.lng-amount_d').html('Amount');
+		$('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" />');
+ $('.lng-sa_d').html('Settings Account');
+	  $('.lng-customer_d').html('Customer');
+	  $('.lng-payment_d').html('Payment');
 
 
 
+    } 
 
-
-
-    } else if ($.cookie("lng") == 'th') {
+	else if ($.cookie("lng") == 'th') {
         $('.lng-private').html('รถส่วนตัว');
         $('.lng-join').html('รถร่วมบริการ');
         //menu
@@ -257,12 +285,23 @@ $(document).ready(function() {
         $('.lng-seating').html('ที่นั่ง');
         $('.lng-terms-of-use').html('ข้อกำหนดการใช้งาน');
 
+/////////////// Dash ///////////////////////////////////////
+
+	  $('.lng-name_d').html('ชื่อ');
+	  $('.lng-username_d').html('ชื่อผู้ใช้');
+	  $('.lng-email_d').html('อีเมล์');
+	  $('.lng-cr_d').html('การอ้างอิงของลูกค้า');
+	  $('.lng-code_d').html('รหัส');
+	  $('.lng-amount_d').html('จำนวน');
+	  $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="ค้นหา ชื่อ..." onkeyup="myFunction()" id="myInput" />');
+ $('.lng-sa_d').html('ตั้งค่าบัญชี');
+	  $('.lng-customer_d').html('ลูกค้า');
+	  $('.lng-payment_d').html('ชำระเงิน');
 
 
+    } 
 
-
-
-    } else if ($.cookie("lng") == undefined) {
+    else if ($.cookie("lng") == undefined) {
         $('.lng-private').html('Private');
         $('.lng-join').html('Join');
         //menu
@@ -337,10 +376,19 @@ $(document).ready(function() {
 
 
 
+/////////////// Dash ///////////////////////////////////////
 
+	  $('.lng-name_d').html('Name');
+	  $('.lng-username_d').html('Username');
+	  $('.lng-email_d').html('Email');
+	  $('.lng-cr_d').html('Cutomer Reference');
+	  $('.lng-code_d').html('Code');
+	  $('.lng-amount_d').html('Amount');
+	  $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" />');
 
-
-
+		 $('.lng-sa_d').html('Settings Account');
+	  $('.lng-customer_d').html('Customer');
+	  $('.lng-payment_d').html('Payment');
 
 
 

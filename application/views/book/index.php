@@ -9,7 +9,9 @@
     <title>Booking</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
+	<script>
+		var base_url = <?php echo base_url(); ?> ;
+	</script>
     <!-- Canonical SEO -->
 
     <?php echo link_tag('files/css/bootstrap3.min.css'); ?>

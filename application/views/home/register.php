@@ -69,7 +69,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://dotdotdottrip.com">app booking<!-- <img src="files/images/logo.png"> --></a>
+                <a class="navbar-brand" href="<?php echo base_url(); ?>">app booking<!-- <img src="files/images/logo.png"> --></a>
             </div>
 
             <!-- <div class="navbar-collapse">
@@ -854,7 +854,7 @@ $(document).ready(function(){
     var username, password , username_signup ,password_signup,text_check;
 $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/getuserlog_control/process',
+        url: '<?php echo base_url(); ?>getuserlog_control/process',
        // data: {'from': getParameterByName('from'),'to': getParameterByName('to')},
         //contentType: "application/json",
         dataType: 'json',
@@ -881,9 +881,10 @@ $.ajax({
     })
     $('#login').on('click', function() {
        console.log(password+username)
+    alert('<?php echo base_url(); ?>login_control/process');
         $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/login_control/process',
+        url: '<?php echo base_url(); ?>login_control/process',
         data: {'username': username,'password':password},
         //contentType: "application/json",
         dataType: 'json',
@@ -893,7 +894,8 @@ $.ajax({
               {
                  console.log('login status 0');
                  $.cookie("login",res.username);
-                 window.location.href = "https://dotdotdottrip.com";
+                 console.log('<?php echo base_url(); ?>');
+                 window.location.href = "<?php echo base_url(); ?>home";
                 
                
               }
@@ -934,7 +936,7 @@ $.ajax({
         console.log('in case')
         $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/login_control/checkmail',
+        url: '<?php echo base_url(); ?>login_control/checkmail',
         data: {'username': username_signup,'password':password_signup},
         //contentType: "application/json",
         dataType: 'json',
@@ -968,7 +970,7 @@ $.ajax({
         if (text_check == 1) {
             $.ajax({
             type: 'POST',
-            url: 'https://dotdotdottrip.com/login_control/signup',
+            url: '<?php echo base_url(); ?>login_control/signup',
             data: {'username': username_signup,'password':password_signup},
             //contentType: "application/json",
             dataType: 'json',
@@ -976,7 +978,7 @@ $.ajax({
                 console.log(res)
                 if(res.status == 0){
                     $.cookie("login",res.username);
-                    window.location.href = "https://dotdotdottrip.com";
+                    window.location.href = "<?php echo base_url(); ?>home";
                     
                    
                 }
@@ -1055,7 +1057,7 @@ window.fbAsyncInit = function() {
         // $.cookie("idface", response.id);
         $.ajax({
         type: 'POST',
-        url: 'https://www.dotdotdottrip.com/login_control/processsocial',
+        url: '<?php echo base_url(); ?>login_control/processsocial',
         data: {'username': response.email,'name':response.name,'password':response.id},
         //contentType: "application/json; application/x-www-form-urlencoded; charset=UTF-8",
         dataType: 'json',
@@ -1065,7 +1067,7 @@ window.fbAsyncInit = function() {
           if(res.status == 0)
               {
                  $.cookie("login",res.username);
-                   window.location.href = "https://dotdotdottrip.com";
+                   window.location.href = "<?php echo base_url(); ?>home";
                 
                
               }
@@ -1163,7 +1165,7 @@ window.fbAsyncInit = function() {
 </script>
 
 
-            </script>
+
 
         <!-- <script type="text/javascript">
               (function() {

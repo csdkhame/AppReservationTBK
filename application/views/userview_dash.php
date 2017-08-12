@@ -23,7 +23,7 @@ $( document ).ready(function() {
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                         <div class="input-group">
 							<span class="input-group-addon"><i class=""></i></span>
-							<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" />
+							<p class="lng-search_d"><input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" /></p>
 						</div>
                              
                             </div>
@@ -48,12 +48,12 @@ $( document ).ready(function() {
                                 <thead>
                                    <!-- <th data-field="state" data-checkbox="true" style="display: none;"></th>-->
                                     <th class="text-center">ID</th>
-                                	<th data-sortable="true" class="text-center">Name</th>
-                                	<th data-sortable="true" class="text-center">UserName</th>
-                                	<th data-sortable="true" class="text-center">Email</th>
-                                	<th  data-sortable="true" class="text-center">Cutomer Reference</th>
-                                	<th data-field="actions" class="td-actions text-center" data-events="operateEvents" data-formatter="operateFormatter">Code</th>
-                                	<th  data-sortable="true" class="text-center">Amount</th>
+                                	<th data-sortable="true" class="text-center"><p class="lng-name_d">Name</p></th>
+                                	<th data-sortable="true" class="text-center "><p class="lng-username_d">UserName</p></th>
+                                	<th data-sortable="true" class="text-center email"><p class="lng-email_d">Email</p></th>
+                                	<th  data-sortable="true" class="text-center Cr"><p class="lng-cr_d">Cutomer Reference</p></th>
+                                	<th data-field="actions" class="td-actions text-center code" data-events="operateEvents" data-formatter="operateFormatter"><p class="lng-code_d">Code</p></th>
+                                	<th  data-sortable="true" class="text-center"><p class="lng-amount_d">Amount</p></th>
                                 </thead>
                                 <tbody>
                                 <?php foreach($results as $show){ ?>
@@ -204,19 +204,24 @@ function myFunction() {
 		$( "#modal_showdata" ).html( '<div align="center"><img src="<?php echo base_url(); ?>dasboard/ring.gif" /></div>' );
 		$.post( "<?php echo base_url(); ?>dashboard/query_transfer",{"head_id":head_id,"code":code}, function( data ) {
 			//alert(data);
-			
+			console.log(data);
+			if(data!=""){
 			$( "#modal_showdata" ).html( '<table id="tb-json" class="table"></table>' );
 			$( "#tb-json" ).append( '<thead><th class="text-center">Order</th><th class="text-center">Topic</th><th class="text-center">Car</th><th class="text-center">Capacity</th><th class="text-center">Transfer date</th><th class="text-center">Total Price</th></thead>' );
 
 				var obj = JSON.parse(data);
-				$.each(obj, function (key, data) {
+				$.each(obj, function (key, data2) {
 				
-			    	$.each(data, function (index, data) {
+			    	$.each(data2, function (index, data3) {
 			    	
-$( "#tb-json" ).append('<tr><td>'+data.id_order+'</td><td>'+data.topic_en+'</td><td>'+data.car_topic_en+'</td><td>'+data.pax_en+'</td><td>'+data.date_tran+'</td><td>'+data.total_price+'</td></tr>');
+$( "#tb-json" ).append('<tr><td>'+data3.id_order+'</td><td>'+data3.topic_en+'</td><td>'+data3.car_topic_en+'</td><td>'+data3.pax_en+'</td><td>'+data3.date_tran+'</td><td>'+data3.total_price+'</td></tr>');
 						
 			    })
-			})	
+			})		
+			}
+			else{
+				$( "#modal_showdata" ).html( '<div><h2>No record</h2></div>' );
+			}
 			
 		});
 		
@@ -226,3 +231,28 @@ $( "#tb-json" ).append('<tr><td>'+data.id_order+'</td><td>'+data.topic_en+'</td>
 	}
 </script>
 
+
+<!--<script>
+	var $table = $('.table');
+var $fixedColumn = $table.clone().insertBefore($table).addClass('fixed-column');
+
+$fixedColumn.find('th:not(:first-child),td:not(:first-child)').remove();
+
+$fixedColumn.find('tr').each(function (i, elem) {
+    $(this).height($table.find('tr:eq(' + i + ')').height());
+});
+</script>
+<style>
+	
+	.table-responsive>.fixed-column {
+    position: absolute;
+    display: inline-block;
+    width: auto;
+    border-right: 1px solid #ddd;
+}
+@media(min-width:768px) {
+    .table-responsive>.fixed-column {
+        display: none;
+    }
+}
+</style>-->
