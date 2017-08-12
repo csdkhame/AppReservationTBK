@@ -43,7 +43,7 @@
                     <a class="navbar-brand" href=""><!-- <img src="files/images/logo.png"> --></a>
                 </div>
         	    <div class="navbar-collapse">            
-        		    <ul class="nav navbar-nav navbar-right" style="padding-top: 15px;">
+        		    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown" id="btnuser">
                             <div class="user">
                                 <div class="photo">

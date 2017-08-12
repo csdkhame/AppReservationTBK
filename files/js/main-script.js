@@ -264,9 +264,27 @@ $(document).ready(function() {
         console.log(ctype)
         console.log(data1)
         $.each(data1, function(i, val) {
-            if (data1[i].car_topic_en == ctype) {
-                data2.push(data1[i])
+            if ($.cookie("lng") == 'cn') {
+                if (data1[i].car_topic_cn == ctype) {
+                    data2.push(data1[i])
+                }
+            } else if ($.cookie("lng") == 'en') {
+                if (data1[i].car_topic_en == ctype) {
+                    data2.push(data1[i])
+                }
+
+            } else if ($.cookie("lng") == 'th') {
+                if (data1[i].car_topic_th == ctype) {
+                    data2.push(data1[i])
+                }
+
+            } else if ($.cookie("lng") == undefined) {
+                if (data1[i].car_topic_en == ctype) {
+                    data2.push(data1[i])
+                }
+
             }
+
 
         })
         console.log(data2)
