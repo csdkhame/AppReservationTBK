@@ -9,6 +9,9 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 	<title>App booking</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<script>
+		var base_url = '<?php echo base_url(); ?>';
+	</script>
 	<?php echo link_tag('files/css/bootstrap3.min.css'); ?>
 	<!-- <?php echo link_tag('files/css/material-dashboard'); ?> -->	
 	<?php echo link_tag('files/css/material-kit.min.css?v=1.1.1'); ?>	
@@ -18,6 +21,9 @@
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 </head>
+
+	
+
     <body class="presentation-page" >
         <div id="loading">
             <div class="loading-in" >               
@@ -46,8 +52,8 @@
         		    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown" id="btnuser">
                             <div class="user">
-                                <div class="photo">
-                                    <img src="<?php echo base_url(); ?>/files/img/about-7.jpg">
+                                <div class="photo" id="photo_profile" >
+                                    
                                 </div>                    
                             </div>
                             <a  class="dropdown-toggle" data-toggle="dropdown">
@@ -72,7 +78,7 @@
                             </ul>
                         </li>    				
                         <li id="btnlogin">
-                            <a href="https://dotdotdottrip.com/register">
+                            <a href="<?php echo base_url(); ?>register">
                                 <i class="material-icons">account_circle</i>
                                 <span class="lng-login"></span><span> / </span><span class="lng-register"></span>                        
                             </a>
@@ -86,12 +92,12 @@
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
-                                    <a href="https://dotdotdottrip.com" >
+                                    <a href="<?php echo base_url(); ?>" >
                                         <i class="material-icons">directions_car</i><span class="lng-transports"></span>                    
                                     </a>
                                 </li>                            
                                 <li id="btn-logout-user">
-                                    <a href="https://dotdotdottrip.com/tour">
+                                    <a href="<?php echo base_url(); ?>tour">
                                         <i class="material-icons">style</i><span class="lng-tours"></span>                    
                                     </a>
                                 </li>                        

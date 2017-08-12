@@ -764,17 +764,17 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                     <div class="wizard-navigation">
                                         <ul class="nav nav-pills">
                                             <li style="width: 33.3333%;" class="active">
-                                                <a href="#about" data-toggle="tab" aria-expanded="true">About</a>
+                                                <a href="#about" data-toggle="tab" aria-expanded="true"><span class="lng-about_dash">About</span></a>
                                             </li>
                                             <li style="width: 33.3333%;">
-                                                <a href="#accounts" data-toggle="tab" >Account</a>
+                                                <a href="#accounts" data-toggle="tab" ><span class="lng-acc_dash">Account</span></a>
                                             </li>
                                             <li style="width: 33.3333%;">
-                                                <a href="#address" data-toggle="tab">Address</a>
+                                                <a href="#address" data-toggle="tab"><span class="lng-address_dash">Address</span></a>
                                             </li>
                                             
                                         </ul>
-                                    <div class="moving-tab" style="width: 220.443px; transform: translate3d(-8px, 0px, 0px); transition: transform 0s;">About</div></div>
+                                    <div class="moving-tab" style="width: 220.443px; transform: translate3d(-8px, 0px, 0px); transition: transform 0s;"><span class="lng-about_dash">About</span></div></div>
                                   	<div class="tab-content">
                                         <div class="tab-pane active" id="about">
                                             <div class="row">
@@ -797,7 +797,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                             <i class="material-icons">face</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-name">
-                                                            <label class="control-label">First Name
+                                                            <label class="control-label"><span class="lng-first-name">First Name</span>
                                                                 <small>(required)</small>
                                                             </label>
                                                             <input name="firstname" type="text" class="form-control error" aria-required="true" aria-invalid="true" id="firstname">
@@ -809,7 +809,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                             <i class="material-icons">record_voice_over</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-lastname">
-                                                            <label class="control-label">Last Name
+                                                            <label class="control-label"><span class="lng-last-name">Last Name</span>
                                                                 <small>(required)</small>
                                                             </label>
                                                             <input name="lastname" type="text" class="form-control error" aria-required="true" aria-invalid="true" id="lastname">
@@ -824,7 +824,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                             <i class="material-icons">email</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-email">
-                                                            <label class="control-label">Email
+                                                            <label class="control-label"><span class="lng-email_d">Email</span>
                                                                 <small>(required)</small>
                                                             </label>
                                                             <input name="email" type="email" class="form-control error" aria-required="true" aria-invalid="true" id="email" >

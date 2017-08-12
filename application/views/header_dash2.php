@@ -114,24 +114,49 @@ $( document ).ready(function() {
         		
     				 <li class="li_active" id="view_user">
                         <a href="<?php echo base_url(); ?>dashboard/view_user">
-                            <i class="material-icons">content_paste</i><span style="text-transform: initial;">Customer</span>
+                            <i class="material-icons">content_paste</i><span style="text-transform: initial;" class="lng-customer_d"> Customer</span>
                 
                         </a>
                     </li>
                     <li id="account">
                         <a href="<?php echo base_url(); ?>dashboard/account_settings">
-                         <i class="material-icons">build</i><span style="text-transform: initial;">Settings Account</span>
+                         <i class="material-icons">build</i><span style="text-transform: initial;" class="lng-sa_d">Settings Account</span>
                 
                         </a>
                     </li>
 
 					 <li id="playment">
                         <a href="<?php echo base_url(); ?>dashboard/playment">
-                            <i class="material-icons">payment</i><span style="text-transform: initial;">Payment</span>
+                            <i class="material-icons">payment</i><span style="text-transform: initial;" class="lng-payment_d">Payment</span>
                 
                         </a>
                     </li>
+                     <li class="dropdown" id="btnusers">
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- <div style="width: 100%;text-align: center;"> -->
+                                <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language">Language</span>                                
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <li>
+                                    <a  onclick="language('cn')">
+                                        <img src="<?php echo base_url(); ?>/files/img/china.ico" style="width: 30px;margin-right: 15px;">简体中文 
+                                   </a>
+                                </li>
+                                <li>
+                                    <a  onclick="language('en')">
+                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
                     
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="language('th')">
+                                <img src="<?php echo base_url(); ?>/files/img/thai.ico" style="width: 30px;margin-right: 15px;">ภาษาไทย
+                    
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>	
                    <li class="dropdown" id="btnuser" style="cursor: pointer;">
                         <a  class="dropdown-toggle" data-toggle="dropdown">
                             

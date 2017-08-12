@@ -6,15 +6,19 @@ $(document).ready(function() {
     console.log($.cookie("login"))
     if ($.cookie("login")) {
         console.log($.cookie("login"))
+//        alert(base_url+'getuser_control/mainpage');
         $.ajax({
             type: 'POST',
-            url: 'https://dotdotdottrip.com/getuser_control/mainpage',
+            url: base_url+'getuser_control/mainpage',
             data: { 'id': $.cookie("login") },
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
                 console.log(data)
-                $('#usernamess').html(data[0].s_username)
+//                console.log(data[0].s_image)
+                $('#usernamess').html(data[0].s_username);
+                $('#photo_profile').html('<img src="'+base_url+'pic/'+data[0].s_image+'">');
+                
                     //$('#textlogout').html("Logout")
                 $('#btnlogin').css('display', 'none')
                 $('#btnuser').css('display', 'block')
@@ -56,7 +60,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/getproduct_c/getproduct',
+        url: base_url+'getproduct_c/getproduct',
         //data: { 'id': $.cookie("login") },
         //contentType: "application/json",
         dataType: 'json',
@@ -299,7 +303,7 @@ $(document).ready(function() {
 
         })
         var car_topic, cartype, pax;
-        var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
+        var urlicon = base_url+'files/images/carmodelicon/';
         //if (data[0].data1.length != 0) {
         $.each(compae1private, function(i, val) {
             var indexs = parseInt(i) + 1;
@@ -451,7 +455,7 @@ $(document).ready(function() {
     $('#btn-logout-user').on('click', function() {
         console.log('logout')
         $.removeCookie("login");
-        window.location.href = "https://dotdotdottrip.com/register";
+        window.location.href = base_url+"register";
     })
     $('.btn-show-select').click(function() {
         console.log('hide-show');
@@ -572,7 +576,7 @@ $(document).ready(function() {
                             // });
                         console.log(data.length)
                         dataproduct = data;
-                        var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
+                        var urlicon = base_url+'files/images/carmodelicon/';
 
                         //if (data[0].data1.length != 0) {
                         var car_topic, cartype, pax;
@@ -825,7 +829,7 @@ $(document).ready(function() {
                             // });
                         console.log(data.length)
                         dataproduct = data;
-                        var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
+                        var urlicon = base_url+'files/images/carmodelicon/';
 
                         //if (data[0].data1.length != 0) {
                         var car_topic, cartype, pax;
@@ -1542,7 +1546,7 @@ function updatelatlng(id) {
     console.log(id)
     $.ajax({
         type: 'POST',
-        url: 'https://dotdotdottrip.com/laglng_control/getlaglng',
+        url: base_url+'laglng_control/getlaglng',
         data: { 'id': id },
         //contentType: "application/json",
         dataType: 'json',
@@ -1619,7 +1623,7 @@ function login() {
                 // $.cookie("idface", response.id);
             $.ajax({
                 type: 'POST',
-                url: 'https://dotdotdottrip.com/login_control/processsocial',
+                url: base_url+'login_control/processsocial',
                 data: { 'username': response.email, 'name': response.name, 'password': response.id },
                 //contentType: "application/json",
                 dataType: 'json',
@@ -1627,7 +1631,7 @@ function login() {
                     console.log(res)
                     if (res.status == 0) {
                         $.cookie("login", res.username);
-                        window.location.href = "https://dotdotdottrip.com";
+                        window.location.href = base_url;
 
 
                     } else {

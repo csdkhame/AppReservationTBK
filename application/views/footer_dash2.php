@@ -375,7 +375,13 @@
     <!--     *********    END PRICING 5      *********      -->
 </body>
 
-
+<script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> 
+    
+    
     <!--    Plugin for Date Time Picker and Full Calendar Plugin   -->
   <script src="<?php echo base_url(); ?>files/js/moment.min.js"></script>
 
@@ -412,7 +418,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
     <!-- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js"></script>  -->
-  
+  <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time();?>"></script>
     
     <style>
         .index-page .header-filter:after, .presentation-page .header-filter:after {
@@ -523,12 +529,12 @@
                 }
 
 </style>
-<script>
+<!--<script>
 $(document).ready(function(){
     var username, password , username_signup ,password_signup,text_check;
 $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/getuserlog_control/process',
+        url: '<?php echo base_url(); ?>getuserlog_control/process',
        // data: {'from': getParameterByName('from'),'to': getParameterByName('to')},
         //contentType: "application/json",
         dataType: 'json',
@@ -557,7 +563,7 @@ $.ajax({
        console.log(password+username)
         $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/login_control/process',
+        url: '<?php echo base_url(); ?>login_control/process',
         data: {'username': username,'password':password},
         //contentType: "application/json",
         dataType: 'json',
@@ -567,7 +573,7 @@ $.ajax({
               {
                  console.log('login status 0');
                  $.cookie("login",res.username);
-                 window.location.href = "http://dotdotdottrip.com";
+                 window.location.href = "<?php echo base_url(); ?>";
                 
                
               }
@@ -608,7 +614,7 @@ $.ajax({
         console.log('in case')
         $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/login_control/checkmail',
+        url: '<?php echo base_url(); ?>login_control/checkmail',
         data: {'username': username_signup,'password':password_signup},
         //contentType: "application/json",
         dataType: 'json',
@@ -641,7 +647,7 @@ $.ajax({
         if (text_check == 1) {
             $.ajax({
             type: 'POST',
-            url: 'http://dotdotdottrip.com/login_control/signup',
+            url: '<?php echo base_url(); ?>login_control/signup',
             data: {'username': username_signup,'password':password_signup},
             //contentType: "application/json",
             dataType: 'json',
@@ -649,7 +655,7 @@ $.ajax({
                 console.log(res)
                 if(res.status == 0){
                     $.cookie("login",res.username);
-                    window.location.href = "http://dotdotdottrip.com";
+                    window.location.href = "<?php echo base_url(); ?>";
                     
                    
                 }
@@ -728,7 +734,7 @@ window.fbAsyncInit = function() {
         // $.cookie("idface", response.id);
         $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/login_control/processsocial',
+        url: '<?php echo base_url(); ?>login_control/processsocial',
         data: {'username': response.email,'name':response.name,'password':response.id},
         //contentType: "application/json",
         dataType: 'json',
@@ -737,7 +743,7 @@ window.fbAsyncInit = function() {
           if(res.status == 0)
               {
                  $.cookie("login",res.username);
-                    window.location.href = "http://dotdotdottrip.com";
+                    window.location.href = "<?php echo base_url(); ?>";
                 
                
               }
@@ -788,7 +794,7 @@ window.fbAsyncInit = function() {
 
        $('.box-signin').css('display','block');
     })
-</script>
+</script>-->
 <script>
 $( document ).ready(function() {
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {

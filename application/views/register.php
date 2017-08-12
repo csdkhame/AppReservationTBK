@@ -839,12 +839,14 @@
                 }
 
 </style>
+
 <script>
 $(document).ready(function(){
+
     var username, password , username_signup ,password_signup,text_check;
 $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/getuserlog_control/process',
+        url: '/getuserlog_control/process',
        // data: {'from': getParameterByName('from'),'to': getParameterByName('to')},
         //contentType: "application/json",
         dataType: 'json',
@@ -873,7 +875,7 @@ $.ajax({
        console.log(password+username)
         $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/login_control/process',
+        url: '/login_control/process',
         data: {'username': username,'password':password},
         //contentType: "application/json",
         dataType: 'json',
@@ -883,7 +885,7 @@ $.ajax({
               {
                  console.log('login status 0');
                  $.cookie("login",res.username);
-                 window.location.href = "http://dotdotdottrip.com";
+                 window.location.href = "/home";
                 
                
               }
@@ -924,7 +926,7 @@ $.ajax({
         console.log('in case')
         $.ajax({
         type: 'POST',
-        url: 'http://dotdotdottrip.com/login_control/checkmail',
+        url: '/login_control/checkmail',
         data: {'username': username_signup,'password':password_signup},
         //contentType: "application/json",
         dataType: 'json',
@@ -957,7 +959,7 @@ $.ajax({
         if (text_check == 1) {
             $.ajax({
             type: 'POST',
-            url: 'http://dotdotdottrip.com/login_control/signup',
+            url: '/login_control/signup',
             data: {'username': username_signup,'password':password_signup},
             //contentType: "application/json",
             dataType: 'json',
@@ -965,7 +967,7 @@ $.ajax({
                 console.log(res)
                 if(res.status == 0){
                     $.cookie("login",res.username);
-                    window.location.href = "http://dotdotdottrip.com";
+                    window.location.href = /home";
                     
                    
                 }

@@ -49,6 +49,7 @@ public function view_user()
 		else{
 			
 			redirect('/login_control/index', 'refresh');
+
 		}
 		/*$data = $this->Userview_model_dash->query_user($num_record);
 		echo json_encode($data);*/
