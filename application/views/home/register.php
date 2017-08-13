@@ -881,7 +881,7 @@ $.ajax({
     })
     $('#login').on('click', function() {
        console.log(password+username)
-    alert('<?php echo base_url(); ?>login_control/process');
+//    alert('<?php echo base_url(); ?>login_control/process');
         $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>login_control/process',

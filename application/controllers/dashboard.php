@@ -43,12 +43,12 @@ public function view_user()
 			
     		$this->load->view('header_dash2');
 			$this->load->view('userview_dash',$data);
-			$this->load->view('footer_dash2');
+//			$this->load->view('footer_dash2');
 						
 		}
 		else{
 			
-			redirect('/login_control/index', 'refresh');
+//			redirect('/home/register', 'refresh');
 
 		}
 		/*$data = $this->Userview_model_dash->query_user($num_record);
