@@ -302,19 +302,7 @@
 
 }
  </style>
-<!-- <a class="made-with-mk">
-            <div class="brand"><i class="material-icons">home</i></div>
-            <div class="made-with">App <strong>booking</strong></div>
-        </a> -->
-        <style>
-           
-        </style>
-        <!--   Big container   -->
 
-
-
-
-                
                 <style>
                     #getcapa{
                         background-color: #ddd;
@@ -420,6 +408,7 @@
     <!-- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js"></script>  -->
   <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time();?>"></script>
     
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 
     <style>
         .index-page .header-filter:after, .presentation-page .header-filter:after {
     background: rgba(132,13,121,.88);
