@@ -1125,7 +1125,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: '../service/servicepro.php',
+                url: base_url+'service/servicepro.php',
                 data: { 'input': input.value.toLowerCase() },
                 //contentType: "application/json",
                 dataType: 'json',
@@ -1219,7 +1219,7 @@ $(document).ready(function() {
         if (input.value.length >= 3) {
             $.ajax({
                 type: 'POST',
-                url: '../service/servicepro.php',
+                url: base_url+'service/servicepro.php',
                 data: { 'input': input.value.toLowerCase() },
                 //contentType: "application/json",
                 dataType: 'json',
