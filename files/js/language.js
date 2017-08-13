@@ -115,7 +115,7 @@ $(document).ready(function() {
         $('.lng-cr_d').html('客户参考');
         $('.lng-code_d').html('代码');
         $('.lng-amount_d').html('代码');
-        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="搜索 名字..." onkeyup="myFunction()" id="myInput" />');
+        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="搜索 名字..." onkeyup="myFunction()" id="myInput"  style="margin-left: -6px;" />');
 
         $('.lng-sa_d').html('设置帐户');
         $('.lng-customer_d').html('顾客');
@@ -208,7 +208,7 @@ $(document).ready(function() {
         $('.lng-cr_d').html('Cutomer Reference');
         $('.lng-code_d').html('Code');
         $('.lng-amount_d').html('Amount');
-        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" />');
+        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput"  style="margin-left: -6px;" />');
         $('.lng-sa_d').html('Settings Account');
         $('.lng-customer_d').html('Customer');
         $('.lng-payment_d').html('Payment');
@@ -294,7 +294,7 @@ $(document).ready(function() {
         $('.lng-cr_d').html('การอ้างอิงของลูกค้า');
         $('.lng-code_d').html('รหัส');
         $('.lng-amount_d').html('จำนวน');
-        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="ค้นหา ชื่อ..." onkeyup="myFunction()" id="myInput" />');
+        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="ค้นหา ชื่อ..." onkeyup="myFunction()" id="myInput"  style="margin-left: -6px;" />');
         $('.lng-sa_d').html('ตั้งค่าบัญชี');
         $('.lng-customer_d').html('ลูกค้า');
         $('.lng-payment_d').html('ชำระเงิน');
@@ -385,7 +385,7 @@ $(document).ready(function() {
         $('.lng-cr_d').html('Cutomer Reference');
         $('.lng-code_d').html('Code');
         $('.lng-amount_d').html('Amount');
-        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" />');
+        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput"  style="margin-left: -6px;" />');
 
         $('.lng-sa_d').html('Settings Account');
         $('.lng-customer_d').html('Customer');

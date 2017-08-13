@@ -23,7 +23,7 @@ $( document ).ready(function() {
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                         <div class="input-group">
 							<span class="input-group-addon"><i class=""></i></span>
-							<p class="lng-search_d"><input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" /></p>
+							<p class="lng-search_d"><input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" style="margin-left: -6px;" /></p>
 						</div>
                              
                             </div>
@@ -47,7 +47,7 @@ $( document ).ready(function() {
                             <table id="bootstrap-table" class="table table-hover">
                                 <thead>
                                    <!-- <th data-field="state" data-checkbox="true" style="display: none;"></th>-->
-                                    <th class="text-center">ID</th>
+                                    <th class="text-center"><p>ID</p></th>
                                 	<th data-sortable="true" class="text-center"><p class="lng-name_d">Name</p></th>
                                 	<th data-sortable="true" class="text-center "><p class="lng-username_d">UserName</p></th>
                                 	<th data-sortable="true" class="text-center email"><p class="lng-email_d">Email</p></th>
@@ -99,12 +99,13 @@ $( document ).ready(function() {
                             </table>
      						</div>
 							<?php } ?>
-							<div class="fixed-table-pagination">
+	
+				<div class="fixed-table-pagination">
 				   <div class="pull-left pagination-detail" style="margin: 10px;" >
 				      <span class="pagination-info"></span>
 				      <span class="page-list">
 				         <span class="btn-group dropup">
-				            <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown" style="width: 70px;">
+				            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" style="width: 70px;">
 				            <span class="page-size"><?php if($num_rec){echo $num_rec; }else{ echo "5";} ?></span> 
 				            <span class="caret"></span></button>
 				            <ul class="dropdown-menu" role="menu">
@@ -154,6 +155,7 @@ $( document ).ready(function() {
 				   </div>
 				</div>
 
+
                         </div><!--  end card  -->
                     </div> <!-- end col-md-12 -->
       
@@ -170,14 +172,23 @@ $( document ).ready(function() {
 			         
 			        </div>
 			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			          <button type="button" class="btn btn-default btn-md" data-dismiss="modal">Close</button>
 			        </div>
 			      </div>
   		</div>
   	</div>
 <!--End Modal ---------------------------------------------------------------------------------------------------------------------------------->
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open_modal" style="display: none;" >Open Modal</button>           
-
+<style>
+.grad1 {
+	height: 200px;
+    background: red;
+    background: -webkit-linear-gradient(left top, red, yellow);
+    background: -o-linear-gradient(bottom right, red, yellow);
+    background: -moz-linear-gradient(bottom right, red, yellow);
+    background: linear-gradient(to bottom right, rgb(255, 255, 255), rgba(72, 240, 255, 0.68));
+}
+</style>
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i;
@@ -204,20 +215,22 @@ function myFunction() {
 		$( "#modal_showdata" ).html( '<div align="center"><img src="<?php echo base_url(); ?>dasboard/ring.gif" /></div>' );
 		$.post( "<?php echo base_url(); ?>dashboard/query_transfer",{"head_id":head_id,"code":code}, function( data ) {
 			//alert(data);
-			console.log(data);
+			
 			if(data!=""){
-			$( "#modal_showdata" ).html( '<table id="tb-json" class="table"></table>' );
-			$( "#tb-json" ).append( '<thead><th class="text-center">Order</th><th class="text-center">Topic</th><th class="text-center">Car</th><th class="text-center">Capacity</th><th class="text-center">Transfer date</th><th class="text-center">Total Price</th></thead>' );
-
+				$( "#modal_showdata" ).html( '<div id="showTableRef" class=""></div>' );
 				var obj = JSON.parse(data);
-				$.each(obj, function (key, data2) {
-				
-			    	$.each(data2, function (index, data3) {
-			    	
-$( "#tb-json" ).append('<tr><td>'+data3.id_order+'</td><td>'+data3.topic_en+'</td><td>'+data3.car_topic_en+'</td><td>'+data3.pax_en+'</td><td>'+data3.date_tran+'</td><td>'+data3.total_price+'</td></tr>');
-						
-			    })
-			})		
+//				console.log(obj);
+				$.each(obj, function(index, value) {
+				    console.log(value);
+				    $( "#showTableRef" ).append( '<table id="tb-'+index+'" class="table table-hover grad1"></table>' );
+				    $( "#tb-"+index ).append( '<tr><td><strong>Order</strong></td><td>'+value.id_order+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Topic</strong></td><td>'+value.topic_en+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Car</strong></td><td>'+value.pax_en+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Capacity</strong></td><td>'+value.car_topic_en+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Transfer date</strong></td><td>'+value.date_tran+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Total Price</strong></td><td>'+value.total_price+'</td></tr>');
+//				    $( "#tb-json"+index ).html( '<tr><td>555</td></tr>' );
+				}); 
 			}
 			else{
 				$( "#modal_showdata" ).html( '<div><h2>No record</h2></div>' );
