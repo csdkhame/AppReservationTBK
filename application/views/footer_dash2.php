@@ -1,5 +1,5 @@
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="display: none;">
                     <div class="box-regispro" style="display: none;">
                                           <h3 id="title-info">Why become a App Booking member?</h3>
 
@@ -333,7 +333,7 @@
 
                 </style>
 
-    <footer class="footer footer-white">
+    <footer class="footer footer-white" style="display: none;">
         <div class="container" style="border-top: 1px solid #C8E1F5;">
             <!-- <a class="footer-brand" href="http://www.creative-tim.com">Material Kit PRO</a> -->
 

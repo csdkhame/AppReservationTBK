@@ -43,12 +43,12 @@ public function view_user()
 			
     		$this->load->view('header_dash2');
 			$this->load->view('userview_dash',$data);
-//			$this->load->view('footer_dash2');
+			$this->load->view('footer_dash2');
 						
 		}
 		else{
 			
-//			redirect('/home/register', 'refresh');
+			redirect('/Register', 'refresh');
 
 		}
 		/*$data = $this->Userview_model_dash->query_user($num_record);
@@ -60,7 +60,7 @@ public function query_transfer()
 		$id_head = $this->input->post('head_id');
   		$code = $this->input->post('code');
   		if($code!=""){
-		$data['results'] = $this->Userview_model_dash->customerRef_list($id_head,$code);
+		$data = $this->Userview_model_dash->customerRef_list($id_head,$code);
 		echo json_encode($data);
 		}
 		
