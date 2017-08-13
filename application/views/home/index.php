@@ -30,7 +30,7 @@
     margin: auto;">
                                                             <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
                                                                 <select class="form-control" name="cartype" id="cartype" class="" style="     margin: auto;">
-                                                                    <option value="" >car type</option>
+                                                                    <option value="" >All Type</option>
                                                                 
                                                               </select>
                                                         </div>             
@@ -96,11 +96,20 @@
          <i class="material-icons" id="iconleft" >keyboard_arrow_right</i> 
          <i class="material-icons" id="iconleft2" >navigate_before</i> 
              
-                     <div class="btn-reservation" ><span class="lng-advance-use"></span></div>
+                   
               
                
             
-                    <div class="btn-realtime" ><span class="lng-now-use"></span></div>
+                    <div class="btn-realtime" ><i class="material-icons" style=" 
+    position: absolute;
+    
+    margin-top: -2px;">room</i><span class="lng-now-use" style="margin-left: 30px;
+"></span></div>
+                      <div class="btn-reservation" ><i class="material-icons" style="   
+    position: absolute;
+    
+    margin-top: -2px;">search</i><span class="lng-advance-use" style="margin-left: 30px;
+"></span></div>
                                      
                
             
@@ -443,7 +452,7 @@
                     <div class="modal-footer">
                     
                                 <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="logout()">Yes</button> -->
-                                <button type="button" class="btn btn-default lng-cancel" data-dismiss="modal" ></button>
+                                <button type="button" class="btn btn-default lng-close" data-dismiss="modal" ></button>
                             
                                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
                     </div>
@@ -587,13 +596,14 @@ body{
         display: inline-block;
         /* position: absolute; */
          z-index: 1; 
+         color: #fff;
         width: 100%;
         margin-right: 2%;
         border-radius: 4px;
         padding: 12px;
         text-align: center;
         background-color: #ff9800;
-        margin-bottom: 12px;
+     
     }
     .btn-realtime{
         font-size: 16px;
@@ -607,6 +617,7 @@ body{
         display: inline-block;
         background-color: #2196f3;
         z-index: 1; 
+           margin-bottom: 12px;
     }
     /*.btn-reservation:hover{
         background-color: #FFC107;
