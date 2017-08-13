@@ -520,7 +520,7 @@ body{
 }
 #iconhome{
     font-size: 32px;
-    color: #555;
+    color: #ffffff;
     position: absolute;
     border-radius: 4px;
     left: 15px;

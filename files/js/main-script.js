@@ -1,25 +1,32 @@
 var rel = false;
 var dataplacerel;
+var base_url = 'https://dotdotdottrip.com/';
 $(document).ready(function() {
 
     console.log("readysss!");
     console.log($.cookie("login"))
     if ($.cookie("login")) {
         console.log($.cookie("login"))
-//        alert(base_url+'getuser_control/mainpage');
+            //        alert(base_url+'getuser_control/mainpage');
         $.ajax({
             type: 'POST',
-            url: base_url+'getuser_control/mainpage',
+            url: '../getuser_control/mainpage',
             data: { 'id': $.cookie("login") },
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
                 console.log(data)
-//                console.log(data[0].s_image)
+                console.log(data[0].s_image)
+                if (data[0].s_image == '') {
+                    $('#photo_profile').html('<img src="' + base_url + 'pic/default-avatar.png">');
+
+                } else {
+                    $('#photo_profile').html('<img src="' + base_url + 'pic/' + data[0].s_image + '">');
+
+                }
                 $('#usernamess').html(data[0].s_username);
-                $('#photo_profile').html('<img src="'+base_url+'pic/'+data[0].s_image+'">');
-                
-                    //$('#textlogout').html("Logout")
+
+                //$('#textlogout').html("Logout")
                 $('#btnlogin').css('display', 'none')
                 $('#btnuser').css('display', 'block')
                 $('.caret').css('display', 'inline-block')
@@ -60,7 +67,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: 'POST',
-        url: base_url+'getproduct_c/getproduct',
+        url: '../getproduct_c/getproduct',
         //data: { 'id': $.cookie("login") },
         //contentType: "application/json",
         dataType: 'json',
@@ -303,7 +310,7 @@ $(document).ready(function() {
 
         })
         var car_topic, cartype, pax;
-        var urlicon = base_url+'files/images/carmodelicon/';
+        var urlicon = '../files/images/carmodelicon/';
         //if (data[0].data1.length != 0) {
         $.each(compae1private, function(i, val) {
             var indexs = parseInt(i) + 1;
@@ -455,7 +462,7 @@ $(document).ready(function() {
     $('#btn-logout-user').on('click', function() {
         console.log('logout')
         $.removeCookie("login");
-        window.location.href = base_url+"register";
+        window.location.href = base_url + "register";
     })
     $('.btn-show-select').click(function() {
         console.log('hide-show');
@@ -576,7 +583,7 @@ $(document).ready(function() {
                             // });
                         console.log(data.length)
                         dataproduct = data;
-                        var urlicon = base_url+'files/images/carmodelicon/';
+                        var urlicon = base_url + 'files/images/carmodelicon/';
 
                         //if (data[0].data1.length != 0) {
                         var car_topic, cartype, pax;
@@ -829,7 +836,7 @@ $(document).ready(function() {
                             // });
                         console.log(data.length)
                         dataproduct = data;
-                        var urlicon = base_url+'files/images/carmodelicon/';
+                        var urlicon = base_url + 'files/images/carmodelicon/';
 
                         //if (data[0].data1.length != 0) {
                         var car_topic, cartype, pax;
@@ -1546,7 +1553,7 @@ function updatelatlng(id) {
     console.log(id)
     $.ajax({
         type: 'POST',
-        url: base_url+'laglng_control/getlaglng',
+        url: '../laglng_control/getlaglng',
         data: { 'id': id },
         //contentType: "application/json",
         dataType: 'json',
@@ -1623,7 +1630,7 @@ function login() {
                 // $.cookie("idface", response.id);
             $.ajax({
                 type: 'POST',
-                url: base_url+'login_control/processsocial',
+                url: '../login_control/processsocial',
                 data: { 'username': response.email, 'name': response.name, 'password': response.id },
                 //contentType: "application/json",
                 dataType: 'json',
