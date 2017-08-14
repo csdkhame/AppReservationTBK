@@ -88,7 +88,7 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-        		<a class="navbar-brand" href="<?php echo base_url(); ?>"><i class="material-icons" id="iconhome" style="display: inline;">home</i><!-- <img src="files/images/logo.png"> --></a>
+        		<a class="navbar-brand" href="<?php echo base_url(); ?>"><i class="material-icons md-36" id="iconhome" style="display: inline;">home</i><!-- <img src="files/images/logo.png"> --></a>
         	</div>
 <script>
 

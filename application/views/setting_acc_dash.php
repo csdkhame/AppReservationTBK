@@ -764,21 +764,22 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                     <div class="wizard-navigation">
                                         <ul class="nav nav-pills">
                                             <li style="width: 33.3333%;" class="active">
-                                                <a href="#about" data-toggle="tab" aria-expanded="true"><span class="lng-about_dash">About</span></a>
+                                                <a href="#about" data-toggle="tab" aria-expanded="true">About</a>
                                             </li>
                                             <li style="width: 33.3333%;">
-                                                <a href="#accounts" data-toggle="tab" ><span class="lng-acc_dash">Account</span></a>
+                                                <a href="#accounts" data-toggle="tab" >Account</a>
                                             </li>
                                             <li style="width: 33.3333%;">
-                                                <a href="#address" data-toggle="tab"><span class="lng-address_dash">Address</span></a>
+                                                <a href="#address" data-toggle="tab">Address</a>
                                             </li>
                                             
                                         </ul>
-                                    <div class="moving-tab" style="width: 220.443px; transform: translate3d(-8px, 0px, 0px); transition: transform 0s;"><span class="lng-about_dash">About</span></div></div>
+                                    <div class="moving-tab" style="width: 220.443px; transform: translate3d(-8px, 0px, 0px); transition: transform 0s;">
+                                    <span class="lng-about_dash">About</span></div></div>
                                   	<div class="tab-content">
                                         <div class="tab-pane active" id="about">
                                             <div class="row">
-                                                <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                                <h4 class="info-text"> Please filter your information according to the truth.</h4>
                                                 <div class="col-sm-4 col-sm-offset-1">
                                                     <div class="picture-container">
                                                         <div class="picture">
@@ -901,8 +902,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                 </div>
                                         	</div>
                                         
-                                            <h4 class="info-text"> What are you doing? (checkboxes) </h4>
-                                            <div class="row">
+                                            <h4 class="info-text"> <!--What are you doing? (checkboxes)--> </h4>
+                                            <div class="row" style="display: none;">
                                                 <div class="col-lg-10 col-lg-offset-1">
                                                     <div class="col-sm-4">
                                                         <div class="choice" data-toggle="wizard-checkbox">
@@ -937,7 +938,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                         <div class="tab-pane" id="address">
                                             <div class="row">
                                                 <div class="col-sm-12">
-                                                    <h4 class="info-text"> Are you living in a nice area? </h4>
+                                                    <h4 class="info-text"> <!--Are you living in a nice area?--> </h4>
                                                 </div>
                                                 <div class="col-sm-12 col-sm-offset-1">
                                                     <div class="form-group label-floating is-empty" id="div-address">
