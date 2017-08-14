@@ -111,7 +111,7 @@
     <table width="100%">
         <tr>
         <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-reservation" >
+                <div class="btn-home" >
                 <table width="100%">
                         <tr>
                             <td align="center">
@@ -166,7 +166,7 @@
             </td>
             <td width="25%" >
             <div class="btn-management" >
-            <a href="https://dotdotdottrip.com/dashboard/view_user" style="color:#07c284">
+           
                                                  
                            
                 <table width="100%">
@@ -181,7 +181,7 @@
                         </td>
                     </tr>
                 </table>
-                </a>
+               
             </div> 
         </td>
             
@@ -539,7 +539,7 @@ body{
     padding: 6px;
     position: absolute;
     border-radius: 4px;
-    background-color: #01a6fe;
+    background-color: #999999;
     margin: 5px 0;
 }
 #pro-search{
@@ -684,7 +684,7 @@ body{
         width: 100%;
         /* border-radius: 4px; */
         /* padding: 12px; */
-        color: #07c284;
+        color: #999999;
         text-align: center;
         /* display: inline-block; */
         /* background-color: #2196f3; */
@@ -699,7 +699,7 @@ body{
         width: 100%;
         /* border-radius: 4px; */
         /* padding: 12px; */
-        color: #07c284;
+        color: #999999;
         text-align: center;
         /* display: inline-block; */
         /* background-color: #2196f3; */
@@ -727,11 +727,14 @@ body{
         width: 100%;
         /* border-radius: 4px; */
         /* padding: 12px; */
-        color: #07c284;
+        color: #999999;
         text-align: center;
         /* display: inline-block; */
         /* background-color: #2196f3; */
         z-index: 1;
+    }
+    .btn-management a{
+        color: #999999;
     }
     /*.btn-reservation:hover{
         background-color: #FFC107;

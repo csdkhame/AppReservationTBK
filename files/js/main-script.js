@@ -17,11 +17,19 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data)
                 console.log(data[0].s_image)
+                $('.box-login').show();
+                $('.box-login-non').hide();
+                $('.box-desboard').show();
+
+
                 if (data[0].s_image == '') {
                     $('#photo_profile').html('<img src="' + base_url + 'pic/default-avatar.png">');
+                    $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/default-avatar.png">');
+
 
                 } else {
                     $('#photo_profile').html('<img src="' + base_url + 'pic/' + data[0].s_image + '">');
+                    $('.box-login').html('<img src="' + base_url + 'pic/' + data[0].s_image + '">');
 
                 }
                 $('#usernamess').html(data[0].s_username);
@@ -35,6 +43,11 @@ $(document).ready(function() {
         });
 
     } else {
+        $('#photo_non-login').html('<img class="imgmemu" src="' + base_url + 'pic/default-avatar.png">');
+        $('.box-login').hide();
+        $('.box-desboard').hide();
+
+        $('.box-login-non').show();
         //$('#usernamess').html("Login")
         // $('#textlogout').html("Login/Register")
         $('#btnlogin').css('display', 'block')
@@ -195,16 +208,42 @@ $(document).ready(function() {
         //$("").show();
         //$("").show();
         $(".btn-realtime").fadeIn(1000);
-        $(".btn-reservation").fadeIn(1000);
+        //$(".btn-reservation").fadeIn(1000);
         //$(".btn-realtime").hide();
 
 
 
 
     });
+    $('.btn-management').click(function() {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
+            $('.btn-management').css('color', '#07c284');
+            $('.btn-home').css('color', '#999999');
+            $('.btn-reservation').css('color', '#999999');
+            $('.btn-realtime').css('color', '#999999');
+            $('#loading').css('display', 'none');
+            window.location.href = base_url + "dashboard/view_user";
+        }, 2000);
+
+
+    });
+    $('.btn-home').click(function() {
+        $('#loading').css('display', 'block');
+
+        setTimeout(function() {
+            $('.btn-home').css('color', '#07c284');
+            $('.btn-management').css('color', '#999999');
+            $('.btn-management').css('color', '#999999');
+            $('.btn-realtime').css('color', '#999999');
+            $('#loading').css('display', 'none');
+        }, 2000);
+
+    });
     $('.btn-reservation').click(function() {
         // alert("aaaa");
         $('#loading').css('display', 'block');
+
         //$('#content').css('display','none');
         setTimeout(function() {
             // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
@@ -215,6 +254,10 @@ $(document).ready(function() {
             //  //$('#show-hide-pro2').show(); 
             // $(".btn-real-res").css({ 'text-align': 'center' });
             // $(".btn-realtime").hide();
+            $('.btn-reservation').css('color', '#07c284');
+            $('.btn-home').css('color', '#999999');
+            $('.btn-management').css('color', '#999999');
+            $('.btn-realtime').css('color', '#999999');
             $("#search-show").fadeIn(1000);
 
             //});
@@ -228,12 +271,20 @@ $(document).ready(function() {
 
     });
     $('.btn-realtime').click(function() {
+
+
+
+
         //	  $('#selectPlace').show();
         $('#loading').css('display', 'block');
         //       $('#btn-real-res').css('display', 'none');
         $('#opennut').click();
         //$('#content').css('display','none');
         setTimeout(function() {
+            $('.btn-realtime').css('color', '#07c284');
+            $('.btn-management').css('color', '#999999');
+            $('.btn-home').css('color', '#999999');
+            $('.btn-management').css('color', '#999999');
             //$("#iconhome").fadeIn(1000);
             // $('#map').css('display', 'none');
             //$("#iconleft2").fadeIn(1000);
@@ -2203,6 +2254,8 @@ function sendplaceid(id) {
 }
 
 function getAddress(address) {
+    $('#current-addr').css('background', '#07c284');
+
     console.log(placeIdcurent);
     console.log(dataplacerel);
     // function updatelatlng(id) {
