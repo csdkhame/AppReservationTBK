@@ -82,40 +82,111 @@
     
 </div>
 <div class="box-menu-select">
-<div class="btn-show-select" >
+<!-- <div class="btn-show-select" >
     <i class="material-icons">vertical_align_bottom</i>
     
 </div>
 <div class="btn-hide-select" >
     <i class="material-icons">vertical_align_top</i>
     
-</div>
-    <div class="btn-real-res col-lg-12" id="btn-real-res">
-    <!-- <i class="material-icons">keyboard_arrow_right</i> -->
+</div> -->
+    <!-- <div class="btn-real-res col-lg-12" id="btn-real-res">
+   
     <i class="material-icons" id="iconhome" >home</i> 
          <i class="material-icons" id="iconleft" >keyboard_arrow_right</i> 
          <i class="material-icons" id="iconleft2" >navigate_before</i> 
              
-                   
+               
               
                
-            
-                    <div class="btn-realtime" ><i class="material-icons" style=" 
-    position: absolute;
-    
-    margin-top: -2px;">room</i><span class="lng-now-use" style="margin-left: 30px;
-"></span></div>
-                      <div class="btn-reservation" ><i class="material-icons" style="   
-    position: absolute;
-    
-    margin-top: -2px;">search</i><span class="lng-advance-use" style="margin-left: 30px;
-"></span></div>
+           
+                   
+                      
                                      
                
             
     
        
-    </div>
+    </div> -->
+    <table width="100%">
+        <tr>
+        <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-reservation" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <i class="material-icons" id="iconhome" style="font-size: 35px;">home</i> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                            <span class="lnf-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+        
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-realtime" >
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 35px;">room</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </div>
+            </td>
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-reservation" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 35px;" style="">search</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="25%" >
+            <div class="btn-management" >
+            <a href="https://dotdotdottrip.com/dashboard/view_user" style="color:#07c284">
+                                                 
+                           
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <i class="material-icons" style="font-size: 35px;">dvr</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <span class="" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
+                        </td>
+                    </tr>
+                </table>
+                </a>
+            </div> 
+        </td>
+            
+        </tr>
+    </table>    
  </div> 
 <style>
 .box-menu-select{
@@ -124,8 +195,8 @@
     width: 100%;
     bottom: 0;
     z-index: 1;
-    background: #333;
-    height: 200px;
+    background: #fff;
+    /* height: 90px; */
 }
 .btn-show-select{
     width: 50px;
@@ -311,20 +382,16 @@
 	</div>-->
 
    
-     <div id="search-raeltime" style=" position: absolute;
-        margin-top: 45px;
-        width: 100%;
-        z-index: 5;
-        display: none;">
+     <div id="search-raeltime">
          <div class="col-md-12 " >
          	  <div class="card-contentrealtime" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
        					  <div class="box-search" id='boxRealtime'>
                               <!--  <input type='text' class="search form-control" placeholder="Current position" id="current"   style="border: none !important;"/> <button class="current-submit">Yes</button>-->
                               <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
-                            <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;"/>
+                            <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;"/>
 			                        <div style="display: nones;" id="open-search">
 			                        <div style="border-bottom: 1px solid #333;display:nones;"></div>
-                                    <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" />   
+                                    <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" style="margin: auto;border: none !important;padding: 10px; width: 100%;background: #fff;" />   
                                    <!-- <input  type='text' class="form-control" placeholder="where you go ?" id="openSearch" style="border: none !important;" value="" />   -->
                                     </div>          
                          </div>
@@ -338,11 +405,11 @@
 
         </div>
 
-        <div style=" position: absolute;  margin-top: 45px;width: 100%; z-index: 5; display: none;" id="search-show">            
+        <div style="" id="search-show">            
             <div class="col-md-12 " >
                 <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
                     <div class="box-search">
-                        <button class="btn btn-success btn-xs" id="current-addr" style=" color: #fff; z-index: 1;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><i class="material-icons">gps_fixed</i></button>
+                        <button class="btn btn-success btn-xs" id="current-addr"><i class="material-icons">gps_fixed</i></button>
                             <input type='text' class="" placeholder="From Type airport,hotel name, or location."  id='search-from' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
  <!-- -->                       <div style="border-bottom: 1px solid #333;"></div>
                                 <div class="box-plancefrom" id="users" style="">
@@ -362,9 +429,9 @@
                                     <input type="hidden" name="" value="" id="lat_to">
                              <input type="hidden" name="" value="" id="lng_to">     
                                                                 
-                                <div class=" tm-yellow-gradient-bg text-center  " align="center" style="width: 100%">
+                                <!-- <div class=" tm-yellow-gradient-bg text-center  " align="center" style="width: 100%">
                                     <a ><div  class="search-transfer-product col-md-5" onclick="search()" align="center"><i class="fa fa-search" aria-hidden="true" style="padding-right: 8px"></i><span class="lng-search"></span></div></a>
-                                </div>
+                                </div> -->
                     </div>
                 </div>                          
             </div>            
@@ -463,6 +530,18 @@
 body{
     height: 100vh;
 }
+
+#current-addr{
+    color: #fff;
+    z-index: 1;
+    /* font-size: 13px; */
+    right: 25px;
+    padding: 6px;
+    position: absolute;
+    border-radius: 4px;
+    background-color: #01a6fe;
+    margin: 5px 0;
+}
 #pro-search{
     z-index: 200;
     position: fixed;
@@ -519,13 +598,13 @@ body{
      color: #333 !important;
 }
 #iconhome{
-    font-size: 32px;
+    /* font-size: 32px;
     color: #ffffff;
     position: absolute;
     border-radius: 4px;
     left: 15px;
     top: -38px;
-    display: none;
+    display: none; */
 }
 #iconleft{
     background: #2196f3;
@@ -548,7 +627,14 @@ body{
 }
 #search-show{
     position: absolute;
-    margin-top: 112px;
+    margin-top: 70px;
+    width: 100%;
+    z-index: 5;
+    display: none;
+}
+#search-raeltime{
+    position: absolute;
+    margin-top: 70px;
     width: 100%;
     z-index: 5;
     display: none;
@@ -591,33 +677,61 @@ body{
         margin: 0;
     }
     .btn-reservation{
+        padding: 8px 0;
         font-size: 16px;
-        font-weight: 400;
-        display: inline-block;
+        /* font-weight: 400; */
         /* position: absolute; */
-         z-index: 1; 
-         color: #fff;
         width: 100%;
-        margin-right: 2%;
-        border-radius: 4px;
-        padding: 12px;
+        /* border-radius: 4px; */
+        /* padding: 12px; */
+        color: #07c284;
         text-align: center;
-        background-color: #ff9800;
+        /* display: inline-block; */
+        /* background-color: #2196f3; */
+        z-index: 1;
      
     }
     .btn-realtime{
+        padding: 8px 0;
         font-size: 16px;
-        font-weight: 400;
-       /*position: absolute;*/
+        /* font-weight: 400; */
+        /* position: absolute; */
         width: 100%;
-        border-radius: 4px;
-        padding: 12px;
-        color: #fff;
+        /* border-radius: 4px; */
+        /* padding: 12px; */
+        color: #07c284;
         text-align: center;
-        display: inline-block;
-        background-color: #2196f3;
-        z-index: 1; 
-           margin-bottom: 12px;
+        /* display: inline-block; */
+        /* background-color: #2196f3; */
+        z-index: 1;
+    }
+    .btn-home{
+        padding: 8px 0;
+        font-size: 16px;
+        /* font-weight: 400; */
+        /* position: absolute; */
+        width: 100%;
+        /* border-radius: 4px; */
+        /* padding: 12px; */
+        color: #07c284;
+        text-align: center;
+        /* display: inline-block; */
+        /* background-color: #2196f3; */
+        z-index: 1;
+    }
+    .btn-management{
+        padding: 8px 0;
+        font-size: 16px;
+        /* font-weight: 400; */
+        /* position: absolute; */
+        width: 100%;
+        /* border-radius: 4px; */
+        /* padding: 12px; */
+        color: #07c284;
+        text-align: center;
+        /* display: inline-block; */
+        /* background-color: #2196f3; */
+        z-index: 1;
     }
     /*.btn-reservation:hover{
         background-color: #FFC107;

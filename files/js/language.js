@@ -11,12 +11,32 @@ $(document).ready(function() {
                 setTimeout(function() {
                     $toggle.removeClass('toggled');
                     $('#bodyClick').remove();
+                    $('.navbar-toggle').css('display', 'block');
                 }, 250);
                 return false;
             }
         }
     });
+    var x = false;
+    $('.navbar-toggle').click(function() {
 
+        if (x == false) {
+            // $('.BT').css('display', 'none');
+
+        }
+        // else {
+        //     $('.BT').css('display', 'block');
+        // }
+
+
+    });
+    $("#bodyClick").click(function() {
+
+        // $('.BT').show()
+        x = true;
+
+
+    });
     $("#bodyClick").swipe({
         swipeStatus: function(event, phase, direction, distance, duration, fingers) {
             if (phase == "move" && direction == "lng-register") {
@@ -106,6 +126,7 @@ $(document).ready(function() {
         $('.lng-seating').html('座位数');
         $('.lng-terms-of-use').html('服务条款');
         $('.lng-close').html('密切');
+        $('.lng-home').html('主頁');
 
         /////////////// Dash ///////////////////////////////////////
 
@@ -134,7 +155,7 @@ $(document).ready(function() {
         $('.lng-login').html('Login');
         $('.lng-product').html('Product');
         $('.lng-transports').html('Transports');
-        $('.lng-tours').html('Transports');
+        $('.lng-tours').html('Tours');
         $('.lng-language').html('Language');
         $('.lng-settings-account').html('Settings Account');
         $('.lng-logout').html('Logout');
@@ -197,6 +218,7 @@ $(document).ready(function() {
         $('.lng-seating').html('Seating');
         $('.lng-terms-of-use').html('Terms of Use');
         $('.lng-close').html('Close');
+        $('.lng-home').html('Home');
 
 
 
@@ -285,6 +307,7 @@ $(document).ready(function() {
         $('.lng-seating').html('ที่นั่ง');
         $('.lng-terms-of-use').html('ข้อกำหนดการใช้งาน');
         $('.lng-close').html('ปิด');
+        $('.lng-home').html('หน้าหลัก');
 
         /////////////// Dash ///////////////////////////////////////
 
@@ -372,6 +395,7 @@ $(document).ready(function() {
         $('.lng-seating').html('Seating');
         $('.lng-terms-of-use').html('Terms of Use');
         $('.lng-close').html('密切');
+        $('.lng-home').html('Home');
 
 
 
