@@ -82,7 +82,7 @@ $( document ).ready(function() {
                             <table id="bootstrap-table" class="table table-hover">
                                 <thead>
                                    <!-- <th data-field="state" data-checkbox="true" style="display: none;"></th>-->
-                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Date</th><center></center>
                                     <th class="text-center">Order</th>
                                 	<th data-sortable="true" class="text-center">From</th>
                                 	<th data-sortable="true" class="text-center">To</th>
