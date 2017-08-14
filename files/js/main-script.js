@@ -233,7 +233,7 @@ $(document).ready(function() {
 
         setTimeout(function() {
             $('.btn-home').css('color', '#07c284');
-            $('.btn-management').css('color', '#999999');
+            $('.btn-reservation').css('color', '#999999');
             $('.btn-management').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
             $('#loading').css('display', 'none');
