@@ -191,6 +191,9 @@
 .textmenu{
     margin-left: 10px;
 }
+.imgmem-log{
+    
+}
 .imgmemu{
     width: 35px;  
     height: 35px; 

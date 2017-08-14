@@ -23,13 +23,13 @@ $(document).ready(function() {
 
 
                 if (data[0].s_image == '') {
-                    $('#photo_profile').html('<img src="' + base_url + 'pic/default-avatar.png">');
+                    $('#photo_profile').html('<img class="" src="' + base_url + 'pic/default-avatar.png">');
                     $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/default-avatar.png">');
 
 
                 } else {
-                    $('#photo_profile').html('<img src="' + base_url + 'pic/' + data[0].s_image + '">');
-                    $('.box-login').html('<img src="' + base_url + 'pic/' + data[0].s_image + '">');
+                    $('#photo_profile').html('<img   src="' + base_url + 'pic/' + data[0].s_image + '">');
+                    $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/' + data[0].s_image + '">');
 
                 }
                 $('#usernamess').html(data[0].s_username);
