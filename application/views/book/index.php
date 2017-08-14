@@ -170,12 +170,12 @@
                                 </a >
                             </li>
                            
-                            <li id="btn-logout-user">
+                            <!-- <li id="btn-logout-user">
                                 <a href="https://dotdotdottrip.com/tour">
                                     <i class="material-icons">style</i><span class="lng-tours"></span>
                 
                                 </a>
-                            </li>
+                            </li> -->
                     
                         </ul>
                     </li>

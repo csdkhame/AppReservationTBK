@@ -40,21 +40,36 @@
 	    <nav class=" navbar" id="sectionsNav" >
     	    <div class="container" style="margin-bottom: 0 ">        
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important;">
+               <div class="" style="font-size:25px; margin-top: 12px;display:inline-block">
+                   <a class="box-login-non" href="https://dotdotdottrip.com/register" style="color:#fff">
+                        <i class="material-icons btn-login">account_circle  </i>
+                        <span style="margin-left:8px;font-size:13px;" class="lng-login"></span>
+                    </a>
+                    <div class="box-login" style="width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">
+                        <!-- <img style="width: 35px;  height: 35px;    border-radius: 50px;" src="https://dotdotdottrip.com/pic/default-avatar.png" alt=""> -->
+                    </div>
+                </div>
+                   
+               <button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important; color:#fff">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar BT" style="color:#fff"></span>
+                        <span class="icon-bar BT" style="color:#fff"></span>
+                        <span class="icon-bar BT" style="color:#fff"></span>
                     </button>
                     <a class="navbar-brand" href=""><!-- <img src="files/images/logo.png"> --></a>
                 </div>
-        	    <div class="navbar-collapse">            
+        	    <div class="navbar-collapse" style="
+    margin-top: 10px;
+">            
         		    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown" id="btnuser">
                             <div class="user">
                                 <div class="photo" id="photo_profile" >
                                     
-                                </div>                    
+                                </div> 
+                                <div style="padding: 30px;color: #fff;font-size: 16px;">
+                                    <span id="getname"> </span>
+                                </div>                   
                             </div>
                             <a  class="dropdown-toggle" data-toggle="dropdown">
                                 <div id="usernamess"></div>                             
@@ -76,42 +91,54 @@
                                 </li>
                         
                             </ul>
-                        </li>    				
-                        <li id="btnlogin">
+                        </li>
+                        <li class="dropdown" id="btnlogin">
+                            <div class="user">
+                                <div class="photo" id="photo_non-login" >
+                                    
+                                </div> 
+                                <div style="padding: 30px;color: #fff;font-size: 16px;">
+                                    <span id="getname"> </span>
+                                </div>                   
+                            </div>
+                           
+                            
+                        </li>       				
+                        <!-- <li id="btnlogin">
                             <a href="<?php echo base_url(); ?>register">
                                 <i class="material-icons">account_circle</i>
                                 <span class="lng-login"></span><span> / </span><span class="lng-register"></span>                        
                             </a>
-                        </li>
+                        </li> -->
                         <li class="dropdown" id="btnusers">
                             <a  class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- <div style="width: 100%;text-align: center;"> -->
-                                <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product"></span>
+                                <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product textmenu"></span>
                                 
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
                                     <a href="<?php echo base_url(); ?>" >
-                                        <i class="material-icons">directions_car</i><span class="lng-transports"></span>                    
+                                        <i class="material-icons">directions_car</i><span class="lng-transports textmenu"></span>                    
                                     </a>
                                 </li>                            
-                                <li id="btn-logout-user">
+                                <!-- <li id="btn-logout-user">
                                     <a href="<?php echo base_url(); ?>tour">
-                                        <i class="material-icons">style</i><span class="lng-tours"></span>                    
+                                        <i class="material-icons">style</i><span class="lng-tours textmenu"></span>                    
                                     </a>
-                                </li>                        
+                                </li>                         -->
                             </ul>
                         </li>
-                        <li>
+                        <li class="box-desboard">
                             <a href="<?php echo base_url(); ?>dashboard/view_user">
-                                <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard"></span>                    
+                                <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>                    
                             </a>
                         </li>
                         <li class="dropdown" id="btnusers">
                             <a  class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- <div style="width: 100%;text-align: center;"> -->
-                                <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language"></span>                                
+                                <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language textmenu"></span>                                
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
@@ -133,18 +160,49 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>	
-        		    </ul>
-        	    </div>
+                        </li>
+                        	
+                    </ul>
+                    
+                    <!-- <div  style="position: absolute;
+                    bottom: 0;
+                    z-index: 2;
+                    left: 0;
+                    width: 100%;">
+                            <div id="btn-logout-user" style="background: #e22526;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;">
+    <i class="material-icons" style="    position: absolute;
+    margin-top: -3px;">power_settings_new</i>
+                                <span class="lng-logout" style="margin-left: 34px;"></span>
+                            </div>
+                        
+                        </div> -->
+                </div>
+                
     	    </div>
         </nav>
 <style >
+.navbar-right{
+    /* background: #000; */
+}
+.textmenu{
+    margin-left: 10px;
+}
+.imgmemu{
+    width: 35px;  
+    height: 35px; 
+    border-radius: 50px;  
+}
 .user {
-    background: #555;
+    background: #07c284;
     text-align: center;
     padding-bottom: 20px;
     /* margin: 25px auto 0; */
     position: relative;
+    height: 160px;
 }
 .user .photo {
     width: 100%;
@@ -163,12 +221,14 @@
 }
 #sectionsNav{
     position: absolute;
-    background: rgba(255, 255, 255, 0) !important;
+    /* background: rgba(255, 255, 255, 0) !important; */
     margin: auto;
     z-index: 20;
     width: 100%;
+    padding-bottom: 0;
     padding-top: 0;
     box-shadow: none;
+    background: #07c284;
 }
 .loading-in{
     height: 115px;
