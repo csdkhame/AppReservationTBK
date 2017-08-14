@@ -33,26 +33,28 @@ public function view_user()
 		if(isset($_COOKIE['login'])) {
 			$id = $_COOKIE['login'];
 			$user_level = $this->Getuser_model->getuser_pass_id($id);
+//			echo json_encode($user_level);
 			$this->session->set_userdata(array('i_id' => $user_level[0]->i_id,'i_rating'=> $user_level[0]->i_rating,'s_code'=>$user_level[0]->s_code)); 
-			//$user_level = $this->session->userdata('i_rating');  
-			if($user_level[0]->i_rating==1){
+//			$user_level = $this->session->userdata('i_rating');  
+			$user_level = $user_level[0]->i_rating; 
+			if($user_level==1){
 				$data = $this->Userview_model_dash->query_user($num_record,$start);
-			}else if($user_level[0]->i_rating==2){
+			}else if($user_level==2){
 				$data = $this->Userview_model_dash->customerRef_list_cus($num_record,$start);
+				
 			}
-			
+//			echo json_encode($data);
     		$this->load->view('header_dash2');
 			$this->load->view('userview_dash',$data);
 			$this->load->view('footer_dash2');
-						
+//						echo $num_record." ".$start;
 		}
 		else{
 			
 			redirect('/Register', 'refresh');
 
 		}
-		/*$data = $this->Userview_model_dash->query_user($num_record);
-		echo json_encode($data);*/
+
 	}
 public function query_transfer()
 	{
@@ -105,10 +107,17 @@ public function playment(){
 		
 		$this->load->view('header_dash2');
 		/*$this->load->view('setting_acc_dash');*/
-		$this->load->view('footer_dash2');
+	//	$this->load->view('footer_dash2');
 		
 }	
+
+public function query_transfer_byuser(){
 	
+  		$id = $this->input->post('order_id');
+  		if($id!=""){
+		$data = $this->Userview_model_dash->order_detail($id);
+		echo json_encode($data);
+		}	
 	
 }
 
@@ -132,4 +141,6 @@ public function playment(){
 //	        echo "Sorry, there was an error uploading your file.";
 	    }
 	}*/
+	
+	}
 ?>

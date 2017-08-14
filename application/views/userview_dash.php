@@ -15,6 +15,8 @@ $( document ).ready(function() {
 	  	$page_get = 1;
 	  }
 	   $page = $total_user/$num_rec;
+								$user_level = $this->session->userdata('i_rating');
+      							$user_id = $this->session->userdata('i_id');
 	  ?>
    <div class="">
                         <div class="card">
@@ -23,7 +25,11 @@ $( document ).ready(function() {
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                         <div class="input-group">
 							<span class="input-group-addon"><i class=""></i></span>
-							<p class="lng-search_d"><input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" style="margin-left: -6px;" /></p>
+							<? if($user_level==1) { ?>
+							<p class="lng-search_d"><input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" style="margin-left: -6px;" /></p> <? } 
+							else if($user_level==2){ ?> 
+							<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" style="margin-left: -6px;" /
+							<? } ?>
 						</div>
                              
                             </div>
@@ -38,11 +44,9 @@ $( document ).ready(function() {
     text-align: center;
 }
 </style>	
-							<?php 
-								$user_level = $this->session->userdata('i_rating');
-      							$user_id = $this->session->userdata('i_id');
+							
       				
-							if($user_level==1){ ?>
+							<?php if($user_level==1){ ?>
 							<div class="table-responsive">
                             <table id="bootstrap-table" class="table table-hover">
                                 <thead>
@@ -72,25 +76,28 @@ $( document ).ready(function() {
                                 </tbody>
                             </table>
      						</div>
-							<?php }else if($user_level==2){ ?>
+							<?php }
+							else if($user_level==2){ ?>
 							<div class="table-responsive">
                             <table id="bootstrap-table" class="table table-hover">
                                 <thead>
                                    <!-- <th data-field="state" data-checkbox="true" style="display: none;"></th>-->
+                                    <th class="text-center">Date</th>
                                     <th class="text-center">Order</th>
-                                	<th data-sortable="true" class="text-center">Guest</th>
-                                	<th data-sortable="true" class="text-center">Topic</th>
-                                	<th data-sortable="true" class="text-center">Price</th>
+                                	<th data-sortable="true" class="text-center">From</th>
+                                	<th data-sortable="true" class="text-center">To</th>
+                                	<!--<th data-sortable="true" class="text-center">Price</th>-->
                                 	
                                 </thead>
                                 <tbody>
                                 <?php foreach($results as $show){ ?>
-                                    <tr class="tr-hover" >
+                                    <tr class="tr-hover" onclick="view_order_level2('<?=$show['id_order'];?>');">
                                         <!--<td style="display: none;"></td>-->
+                                    	<td ><?=$show['date_time'];?></td>
                                     	<td ><?=$show['id_order'];?></td>
-                                    	<td ><?=$show['guest'];?></td>
-                                    	<td ><?=$show['topic'];?></td>
-                                    	<td ><?=$show['total_price'];?></td>
+                                    	<td ><?=$show['from'];?></td>
+                                    	<td ><?=$show['to'];?></td>
+                                    	<!--<td ><?=$show['total_price'];?></td>-->
                                     
                                     </tr>
 								<?php } ?>
@@ -227,7 +234,7 @@ function myFunction() {
 				    $( "#tb-"+index ).append( '<tr><td><strong>Topic</strong></td><td>'+value.topic_en+'</td></tr>');
 				    $( "#tb-"+index ).append( '<tr><td><strong>Car</strong></td><td>'+value.pax_en+'</td></tr>');
 				    $( "#tb-"+index ).append( '<tr><td><strong>Capacity</strong></td><td>'+value.car_topic_en+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Transfer date</strong></td><td>'+value.date_tran+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Transfer date</strong></td><td>'+value.booking_date+'</td></tr>');
 				    $( "#tb-"+index ).append( '<tr><td><strong>Total Price</strong></td><td>'+value.total_price+'</td></tr>');
 //				    $( "#tb-json"+index ).html( '<tr><td>555</td></tr>' );
 				}); 
@@ -237,11 +244,29 @@ function myFunction() {
 			}
 			
 		});
-		
-		
-		
-		$('#open_modal').click();
+		$('#open_modal').click();	
 	}
+
+	function view_order_level2(order_id){
+			$( "#modal_showdata" ).html( '<div align="center"><img src="<?php echo base_url(); ?>dasboard/ring.gif" /></div>' );
+			$.post( "<?php echo base_url(); ?>dashboard/query_transfer_byuser",{"order_id":order_id }, function( data ) {
+				var obj = JSON.parse(data);
+				var value = obj[0];
+				var index = 'x';
+					$( "#modal_showdata" ).html( '<div id="showTableRef" class=""></div>' );
+					$( "#showTableRef" ).append( '<table id="tb-'+index+'" class="table table-hover grad1"></table>' );
+				    $( "#tb-"+index ).append( '<tr><td><strong>Order</strong></td><td>'+value.id+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Date</strong></td><td>'+value.booking_date+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>From</strong></td><td>'+value.place+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>To</strong></td><td>'+value.to_place+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Guest</strong></td><td>'+value.guest_english+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><strong>Total Price</strong></td><td>'+value.total_price+'</td></tr>');
+				
+
+		});
+	$('#open_modal').click();
+	}	
+
 </script>
 
 
