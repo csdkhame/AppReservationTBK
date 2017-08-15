@@ -35,7 +35,7 @@
 	<script src="<?php echo base_url(); ?>files/js/atv-img-animation.js" type="text/javascript"></script>
 
 	<!--    Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc    -->
-	<script src="<?php echo base_url(); ?>files/js/material-kit.min.js?v=1.1.1" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>files/js/material-kit.min.js?v=<?=time();?>" type="text/javascript"></script>
 
 	<!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
 	<script async defer src="https://buttons.github.io/buttons.js"></script>

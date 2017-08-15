@@ -15,6 +15,7 @@
 	<?php echo link_tag('files/css/bootstrap3.min.css'); ?>
 	<!-- <?php echo link_tag('files/css/material-dashboard'); ?> -->	
 	<?php echo link_tag('files/css/material-kit.min.css?v=1.1.1'); ?>	
+	<?php echo link_tag('files/css/main.css?v='.time().'>'); ?>	
 	<?php echo link_tag('files/css/material-kit.min.css?v=1.1.1'); ?>
     <!--<?php //echo link_tag('files/css/load.css'); ?>-->
 	<!--     Fonts and icons     -->
@@ -40,23 +41,31 @@
 	    <nav class=" navbar" id="sectionsNav" >
     	    <div class="container" style="margin-bottom: 0 ">        
                 <div class="navbar-header">
-               <div class="" style="font-size:25px; margin-top: 12px;display:inline-block">
-                   <a class="box-login-non" href="https://dotdotdottrip.com/register" style="color:#fff">
-                        <i class="material-icons btn-login">account_circle  </i>
-                        <span style="margin-left:8px;font-size:13px;" class="lng-login"></span>
-                    </a>
+               <div class="" style="    padding: 9px 10px;
+    margin-top: 8px;
+    margin-left: 15px;
+    margin-bottom: 8px;
+    font-size: 25px;
+    display: inline-block;">
+                        <div class="box-login-non">
+                  
+                        <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
+                        <span style="    margin-left: 30px;
+    font-size: 14px;" class="lng-login"></span>
+</div>
+                 
                     <div class="box-login" style="width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">
                         <!-- <img style="width: 35px;  height: 35px;    border-radius: 50px;" src="https://dotdotdottrip.com/pic/default-avatar.png" alt=""> -->
                     </div>
                 </div>
                    
-               <button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important; color:#fff">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important; color:#000 !important;;">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar BT" style="color:#fff"></span>
-                        <span class="icon-bar BT" style="color:#fff"></span>
-                        <span class="icon-bar BT" style="color:#fff"></span>
+                        <span class="icon-bar BT"  style="color:#000"></span>
+                        <span class="icon-bar BT"  style="color:#000"></span>
+                        <span class="icon-bar BT"  style="color:#000"></span>
                     </button>
-                    <a class="navbar-brand" href=""><!-- <img src="files/images/logo.png"> --></a>
+                   
                 </div>
         	    <div class="navbar-collapse" style="
     margin-top: 10px;
@@ -206,6 +215,7 @@
     /* margin: 25px auto 0; */
     position: relative;
     height: 160px;
+    display:none;
 }
 .user .photo {
     width: 100%;
@@ -224,14 +234,14 @@
 }
 #sectionsNav{
     position: absolute;
-    /* background: rgba(255, 255, 255, 0) !important; */
+    background: rgba(255, 255, 255, 0) !important;
     margin: auto;
     z-index: 20;
     width: 100%;
     padding-bottom: 0;
     padding-top: 0;
     box-shadow: none;
-    background: #07c284;
+    /* background: #07c284; */
 }
 .loading-in{
     height: 115px;
@@ -296,6 +306,13 @@
     position: absolute;
     right: 30px;
     top: -10px;
+}
+
+@media screen and (max-width: 767px){
+    .user {
+        
+        display:block;
+    }
 }
                     </style>
 	<!-- <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<?php echo base_url(); ?>files/images/bg2.jpeg');"> -->

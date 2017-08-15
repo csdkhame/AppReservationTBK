@@ -127,6 +127,8 @@ $(document).ready(function() {
         $('.lng-terms-of-use').html('服务条款');
         $('.lng-close').html('密切');
         $('.lng-home').html('主頁');
+        $('.lng-management').html('管理');
+
 
         /////////////// Dash ///////////////////////////////////////
 
@@ -219,6 +221,8 @@ $(document).ready(function() {
         $('.lng-terms-of-use').html('Terms of Use');
         $('.lng-close').html('Close');
         $('.lng-home').html('Home');
+        $('.lng-management').html('Management');
+
 
 
 
@@ -308,6 +312,7 @@ $(document).ready(function() {
         $('.lng-terms-of-use').html('ข้อกำหนดการใช้งาน');
         $('.lng-close').html('ปิด');
         $('.lng-home').html('หน้าหลัก');
+        $('.lng-management').html('การจัดการ');
 
         /////////////// Dash ///////////////////////////////////////
 
@@ -394,8 +399,9 @@ $(document).ready(function() {
         $('.lng-cancel').html('Cancel')
         $('.lng-seating').html('Seating');
         $('.lng-terms-of-use').html('Terms of Use');
-        $('.lng-close').html('密切');
+        $('.lng-close').html('Close');
         $('.lng-home').html('Home');
+        $('.lng-management').html('Management');
 
 
 

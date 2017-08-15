@@ -34,8 +34,8 @@ $('#selectPlaceNearby').click(function() {
 });
 
 
-$('#pac-input').click(function(){
-	$('#selectPlace').show(1000);
+$('#pac-input').click(function() {
+    $('#selectPlace').show(1000);
 });
 
 function showHeader() {
@@ -162,7 +162,7 @@ function initAutocomplete(map, start, end) {
     addYourLocationButton(map, marker2);
     google.maps.event.addListener(map, 'dragend', function() {
         $('#btn_CurrentLocation').show('500');
-       // marker2.setAnimation(null);
+        // marker2.setAnimation(null);
 
     });
 
@@ -201,7 +201,7 @@ function initAutocomplete(map, start, end) {
             };
             start = pos;
 
-          //  marker2.setPosition(pos);
+            //  marker2.setPosition(pos);
             map.setCenter(pos);
             markerCircle.setPosition(pos);
 
@@ -293,6 +293,8 @@ function initAutocomplete(map, start, end) {
                 //if (unit=="K") { dist = dist * 1.609344 }
                 //if (unit=="N") { dist = dist * 0.8684 }
                 //return dist
+            $('.a-link-item').remove();
+            $('.not-found').remove();
             $.ajax({
                 type: 'POST',
                 url: '../service/servicereltime.php',
@@ -301,21 +303,30 @@ function initAutocomplete(map, start, end) {
                 dataType: 'json',
                 success: function(data) {
                     console.log(data)
-                    if (data != null) {
+                    console.log(data.status)
+                    if (data.status == '200. bad request') {
                         $('#ul-header2').css('display', 'block');
                         $('#container-product').css('display', 'block');
-                        // $('#pro-search').css('display', 'block');
                         $('#loading').css('display', 'block');
-                        //$('#content').css('display','none');
                         setTimeout(function() {
-                            //$('#search-raeltime').css('display', 'none');
-                            // $('#map').css('display', 'none');
+                            $('#loading').css('display', 'none');
+                            $('#show-hide-pro').css('display', 'block');
+                            $("#pro-search").slideDown('4000');
+                            $('#product_a').append('<div class="not-found">Product not Found</div>');
+                            $('#search-from').val('');
+                            $('#search-to').val('');
+                            $("#pro-search").animate({ 'margin-top': '0vh' });
+                        }, 2000);
+                    } else {
+                        $('#ul-header2').css('display', 'block');
+                        $('#container-product').css('display', 'block');
+                        $('#loading').css('display', 'block');
+                        setTimeout(function() {
                             $('#loading').css('display', 'none');
                             $('#show-hide-pro').css('display', 'block');
 
-                            $("#pro-search").slideDown('4000'); //fadeIn(4000);
-                            // $('#search-show').css('display', 'block')
-                            //$('#content').css('display','block'); 
+                            $("#pro-search").slideDown('4000');
+                            $("#pro-search").animate({ 'margin-top': '0vh' });
                         }, 2000);
                         var cartype;
                         data1 = data.data1;
@@ -614,8 +625,8 @@ function addYourLocationButton(map, marker2) {
 
                     document.getElementById("current").value = placeStart[1].formatted_address;
                     //			  $('#start_yes-change').click();
-                   // marker2.setPosition(latlng);
-                   // marker2.setAnimation(google.maps.Animation.BOUNCE);
+                    // marker2.setPosition(latlng);
+                    // marker2.setAnimation(google.maps.Animation.BOUNCE);
                     smoothZoom(map, 17, map.getZoom());
 
                     //	          map.setZoom(16);
@@ -916,7 +927,7 @@ function selectMyPlace(type_place, url) {
             var add = data.results[0].formatted_address;
             var location = data.results[0].geometry.location;
             map.panTo(location);
-           // marker2.setPosition(location);
+            // marker2.setPosition(location);
             $('#btn_CurrentLocation').show('500');
         });
 
@@ -935,9 +946,9 @@ function resetMap() {
     $('#search-raeltime').show(700);
     infowindow = new google.maps.InfoWindow();
     map.panTo(pos);
-   // marker2.setVisible(true);
+    // marker2.setVisible(true);
     markerPlaceOfften.setMap(null);
-   // marker2.setAnimation(null);
+    // marker2.setAnimation(null);
     //markerPlaceOfften.setVisible(true);
     google.maps.event.clearListeners(map, 'center_changed');
     google.maps.event.clearListeners(map, 'dragend');

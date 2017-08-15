@@ -35,38 +35,6 @@ $(document).ready(function() {
     if ($.cookie("login")) {
         console.log($.cookie("login"))
         $.ajax({
-<<<<<<< HEAD
-        type: 'POST',
-        url: base_url+'getuser_control/mainpage',
-        data: {'id': $.cookie("login")},
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(data) { 
-          console.log(data)
-          datauser = data;
-          $('#usernamess').html(data[0].s_username)
-          //$('#textlogout').html("Logout")
-          $('#btnlogin').css('display','none')
-          $('#btnuser').css('display','block')
-          $('.caret').css('display','inline-block')
-          $('#acceptancecheck').css('display','block')
-
-      
-        
-           
-          
-        }
-    });
-    
-    }
-    else{
-      //$('#usernamess').html("Login")
-     // $('#textlogout').html("Login/Register")
-      $('#btnlogin').css('display','block')
-          $('#btnuser').css('display','none')
-          $('.caret').css('display','none')
-          $('#acceptancecheck').css('display','none')
-=======
             type: 'POST',
             url: 'https://dotdotdottrip.com/getuser_control/mainpage',
             data: { 'id': $.cookie("login") },
@@ -88,8 +56,6 @@ $(document).ready(function() {
 
             }
         });
->>>>>>> 4da5930a1e67c9a279f40fa78874faac02240503
-
     } else {
         //$('#usernamess').html("Login")
         // $('#textlogout').html("Login/Register")
@@ -206,7 +172,7 @@ $(document).ready(function() {
     // });
     $.ajax({
         type: 'POST',
-        url: base_url+'getcountry_control/process',
+        url: '../getcountry_control/process',
         //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
         //contentType: "application/json",
         dataType: 'json',
@@ -234,33 +200,7 @@ $(document).ready(function() {
     });
 
     //$('#numbercountry').html('');
-<<<<<<< HEAD
-   //$('#code').html('code country')
-    $('#select-country').click(function(){
-      var url =base_url;
-        $.ajax({
-        type: 'POST',
-        url: base_url+'getcountry_control/process',
-        //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(data) { 
-          console.log(data)
-          datacountry = data;
-          $('#codecountry').modal('show');
-           $.each(data , function(i, val) { 
-                
-                  //alert('aaa')
-                  //dataProvince.push(data[i])
-                 $('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-            
-                
-            });
-          
-        }
-    });
-        
-=======
+
     //$('#code').html('code country')
     $('#select-country').click(function() {
         var url = 'https://dotdotdottrip.com/';
@@ -285,8 +225,6 @@ $(document).ready(function() {
 
             }
         });
-
->>>>>>> 4da5930a1e67c9a279f40fa78874faac02240503
     });
     $.ajax({
         type: 'POST',
@@ -784,110 +722,6 @@ $(document).ready(function() {
         console.log(flight)
         $('#textflight').html(flight)
 
-<<<<<<< HEAD
-     
-    
-})
-$('#numbercountry').on('click',function(){
-   //alert("aaaa");
-  $('#codecountry').modal('show');
-});
-$('#addbook').on('click',function(){
-    $('.loader-wrapper').css('display','block')
-
-          //$('#codecountry').modal('show');
-           // $.each(datacountry , function(i, val) {
-           //    if ($.cookie("phonecode") == datacountry[i].phonecode) {
-           //       namecountry = datacountry[i].name_en;
-           //    }
-           //  });
-           var data;
-           console.log(code)
-    console.log(namecountry)
-    console.log(num_cars)
-    console.log(selectcar)
-    console.log(num_adult)
-    console.log(num_child)
-    console.log(ondate)
-    console.log(ontime)
-    console.log(time_h)
-    console.log(time_m)
-    console.log(name)
-    console.log(phone)
-    console.log($.cookie("phonecode"))
-    console.log(other)
-    console.log(email)
-    console.log(place)
-    console.log(to_place)
-    console.log(costdotcars)
-    console.log()
-    var url2 = base_url;
-    $.ajax({
-        type: 'POST',
-        url: base_url+'savebook_control/process',
-        data: {'from': getParameterByName('from')
-        ,'to': getParameterByName('to')
-        ,'numcar':num_cars
-        ,'program':getParameterByName('data')
-        ,'adult':num_adult
-        ,'child':num_child
-        ,'onndate':ondate
-        ,'ontime':ontime
-        ,'name':name
-        ,'phone':phone
-        ,'phonecode': $.cookie("phonecode")
-        ,'email':email
-        ,'cost':total_price
-        ,'other':other
-        ,'guest_other': namecountry
-        ,'arrival_flight': flight
-        ,'visa': visa
-
-
-      },
-        contentType: "application/json",
-        dataType: 'json',
-        success: function(data) { 
-        console.log(data)
-    $('.loader-wrapper').css('display','none')
-        if (type == 'Join' ) {
-              if (area == 'Point' || area == 'In' ) {
-                  var param = {"agent_ref" : data,  
-                        "guest_english" : name,  
-                        "guest_other" : namecountry, 
-                        "phone": '+'+$.cookie("phonecode")+phone, 
-                        "email": email,
-                        "social_wechat" : "", 
-                        "social_qq" : "",  
-                        "social_wangwang" : "",  
-                        "social_line" : "",  
-                        "social_skype" : "",  
-                        "social_whatapp" : "",  
-                        "social_facebook" : "",   
-                        "product": code,  
-                        "arrival_date": ondate,  
-                        "arrival_time": ontime, 
-                        "arrival_flight": flight, 
-                        "arrival_visa": 0, 
-                        "total_pax": sum_adult_child,  
-                        "baggage": 0,  
-                        "to_place": toplace_name, 
-                        "to_place_address": adress_to,  
-                        "remark": other,  
-                        "type": type,  
-                        "area": area  
-          
-                      };
-              }
-                  
-        }
-        if (type == 'Join') {
-            if (area == 'Out') {
-              var param = {"agent_ref" : data,  
-                        "guest_english" : name,  
-                        "guest_other" : namecountry, 
-                        "phone": '+'+$.cookie("phonecode")+phone, 
-=======
 
 
     })
@@ -1090,7 +924,7 @@ $('#addbook').on('click',function(){
                         "guest_english": name,
                         "guest_other": namecountry,
                         "phone": '+' + $.cookie("phonecode") + phone,
->>>>>>> 4da5930a1e67c9a279f40fa78874faac02240503
+
                         "email": email,
                         "social_wechat": "",
                         "social_qq": "",
@@ -1206,148 +1040,6 @@ $('#addbook').on('click',function(){
                 });
                 window.location.href = "https://dotdotdottrip.com";
             }
-<<<<<<< HEAD
-        }
-        if (type == 'Point To Point') {
-            
-              var param = {    
-                        "agent_ref" : data,  
-                        "guest_english" : name,  
-                        "guest_other" : namecountry, 
-                        "phone": '+'+$.cookie("phonecode")+phone, 
-                        "email": email,
-                        "social_wechat" : "", 
-                        "social_qq" : "",  
-                        "social_wangwang" : "",  
-                        "social_line" : "",  
-                        "social_skype" : "",  
-                        "social_whatapp" : "",  
-                        "social_facebook" : "",   
-                        "product" : code, 
-                        "service_date" : ondate,  
-                        "service_time" :  ontime, 
-                        "total_pax" : sum_adult_child,  
-                        "number_car" : num_cars, 
-                        "pickup_place" : place_name, 
-                        "to_place" :toplace_name, 
-                       "remark": other,  
-                        "type": type,  
-                        "area": area 
-
-
-
-
-
-                        
-              };
-            
-        }
-        if (type == 'Private' && area == 'Service') {
-            
-              var param = {  "agent_ref" : data,  
-                        "guest_english" : name,  
-                        "guest_other" : namecountry, 
-                        "phone": '+'+$.cookie("phonecode")+phone, 
-                        "email": email,
-                        "social_wechat" : "", 
-                        "social_qq" : "",  
-                        "social_wangwang" : "",  
-                        "social_line" : "",  
-                        "social_skype" : "",  
-                        "social_whatapp" : "",  
-                        "social_facebook" : "",   
-                        "product" : code, 
-                        "service_date" : ondate,  
-                        "service_time" :  ontime, 
-                        "total_pax" : sum_adult_child,  
-                        "number_car" : num_cars, 
-                        "pickup_place" : place_name, 
-                        "pickup_place_address": adresss,  
-                        "to_place": toplace_name, 
-                        "to_place_address" : adress_to,  
-                        "car_use_plan": "", 
-                        "remark": other,  
-                        "type": type,  
-                        "area": area  
-
-
-
-
-
-                        
-              };
-            
-        }
-         if (type == 'Private' && area == 'Point') {
-            
-             var  param = {"agent_ref" : data,  
-                        "guest_english" : name,  
-                        "guest_other" : namecountry, 
-                        "phone": '+'+$.cookie("phonecode")+phone, 
-                        "email": email, 
-                        "product" : code,   
-                        "service_date" : ondate,  
-                        "service_time" :  ontime, 
-                        "departure_terminal" : terminal,  
-                        "total_pax" : sum_adult_child,  
-                        "social_wechat" : "", 
-                        "social_qq" : "",  
-                        "social_wangwang" : "",  
-                        "social_line" : "",  
-                        "social_skype" : "",  
-                        "social_whatapp" : "",  
-                        "social_facebook" : "",   
-                       "pickup_place" : place_name, 
-                        "pickup_place_address": adresss,  
-                        "to_place": toplace_name, 
-                        "to_place_address" : adress_to,  
-                        "number_car" : num_cars, 
-                       "remark": other,  
-                        "type": type,  
-                        "area": area  
-
-
-
-
-
-                        
-              };
-            
-        }
-        console.log(param)
-        $.ajax({
-          type: 'POST',
-          url: base_url+'savebook_control/saveapi',
-          data: param,
-          //contentType: "application/json",
-          //dataType: 'json',
-          success: function(data) { 
-          console.log(data)
-       
-           }
-         });
-       //window.location.href = "https://dotdotdottrip.com";   
-       }
-   });
-    
-   
-});
- function phonecodesend(x){
-  phonecode = x;
-  console.log(phonecode)
- }
-});
- function sendCountry(x){
-  var url =base_url;
-  console.log(x)
-   $.cookie("phonecode",x);
-  $('#codecountry').modal('hide');
-   var name = $('#ct'+x).attr('dataname');
-   var img = $('#ct'+x).attr('img');
-   //$('#code').html(x)
-   console.log(name);
-   //phonecodesend(x);
-=======
         });
 
 
@@ -1369,7 +1061,6 @@ function sendCountry(x) {
     //$('#code').html(x)
     console.log(name);
     //phonecodesend(x);
->>>>>>> 4da5930a1e67c9a279f40fa78874faac02240503
     $('#textcountry').remove();
     $('#textcode').remove();
 
