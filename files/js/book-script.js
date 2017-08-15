@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var base_url = 'https://dotdotdottrip.com/';
     $('#loading').css('display', 'block');
     $('#content').css('display', 'none');
     setTimeout(function() {
@@ -32,38 +33,95 @@ $(document).ready(function() {
         service, code, visa, guestcountry, datauser;
 
 
+
+    // if ($.cookie("login")) {
+    //     console.log($.cookie("login"))
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'https://dotdotdottrip.com/getuser_control/mainpage',
+    //         data: { 'id': $.cookie("login") },
+    //         //contentType: "application/json",
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             console.log(data)
+    //             datauser = data;
+    //             $('#usernamess').html(data[0].s_username)
+    //                 //$('#textlogout').html("Logout")
+    //             $('#btnlogin').css('display', 'none')
+    //             $('#btnuser').css('display', 'block')
+    //             $('.caret').css('display', 'inline-block')
+    //             $('#acceptancecheck').css('display', 'block')
+
+
+
+
+
+    //         }
+    //     });
+
+    // } else {
+    //     //$('#usernamess').html("Login")
+    //     // $('#textlogout').html("Login/Register")
+    //     $('#btnlogin').css('display', 'block')
+    //     $('#btnuser').css('display', 'none')
+    //     $('.caret').css('display', 'none')
+    //     $('#acceptancecheck').css('display', 'none')
+
+
+
+    //     // $('.dropdown-menu').css('display','none')
+
+
+
+    // }
     if ($.cookie("login")) {
         console.log($.cookie("login"))
+            //        alert(base_url+'getuser_control/mainpage');
         $.ajax({
             type: 'POST',
-            url: 'https://dotdotdottrip.com/getuser_control/mainpage',
+            url: '../getuser_control/mainpage',
             data: { 'id': $.cookie("login") },
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
                 console.log(data)
-                datauser = data;
-                $('#usernamess').html(data[0].s_username)
-                    //$('#textlogout').html("Logout")
+                console.log(data[0].s_image)
+                $('.box-login').show();
+                $('.box-login-non').hide();
+                $('.box-desboard').show();
+
+
+                if (data[0].s_image == '') {
+                    $('#photo_profile').html('<img class="" src="' + base_url + 'pic/default-avatar.png">');
+                    $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/default-avatar.png">');
+
+
+                } else {
+                    $('#photo_profile').html('<img   src="' + base_url + 'pic/' + data[0].s_image + '">');
+                    $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/' + data[0].s_image + '">');
+
+                }
+                $('#usernamess').html(data[0].s_username);
+                $('#getname').html(data[0].s_name);
+
+                //$('#textlogout').html("Logout")
                 $('#btnlogin').css('display', 'none')
                 $('#btnuser').css('display', 'block')
                 $('.caret').css('display', 'inline-block')
-                $('#acceptancecheck').css('display', 'block')
-
-
-
-
-
             }
         });
+
     } else {
+        $('#photo_non-login').html('<img class="imgmemu" src="' + base_url + 'pic/default-avatar.png">');
+        $('.box-login').hide();
+        $('.box-desboard').hide();
+
+        $('.box-login-non').show();
         //$('#usernamess').html("Login")
         // $('#textlogout').html("Login/Register")
         $('#btnlogin').css('display', 'block')
         $('#btnuser').css('display', 'none')
         $('.caret').css('display', 'none')
-        $('#acceptancecheck').css('display', 'none')
-
 
 
         // $('.dropdown-menu').css('display','none')
@@ -193,11 +251,11 @@ $(document).ready(function() {
     $('#numbercountry').append('<span id="textcountry">-Please select country-</span>');
     $('#code').append('<span id="textcode">code country</span>');
 
-    $('#datetimepicker11').datetimepicker({
-        format: 'YYYY-MM-DD'
+    // $('#datetimepicker11').datetimepicker({
+    //     format: 'YYYY-MM-DD'
 
-        // daysOfWeekDisabled: [0, 6]
-    });
+    //     // daysOfWeekDisabled: [0, 6]
+    // });
 
     //$('#numbercountry').html('');
 
