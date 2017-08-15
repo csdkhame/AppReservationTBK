@@ -64,12 +64,7 @@
 	    <nav class=" navbar" id="sectionsNav" >
     	    <div class="container" style="margin-bottom: 0 ">        
                 <div class="navbar-header">
-               <div class="" style="    padding: 9px 10px;
-    margin-top: 8px;
-    margin-left: 15px;
-    margin-bottom: 8px;
-    font-size: 25px;
-    display: inline-block;">
+               <div class="" style="    padding: 9px 10px;  margin-top: 8px;  margin-left: 15px;  margin-bottom: 8px;    font-size: 25px;   display: inline-block;">
                         <div class="box-login-non">
                   
                         <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>

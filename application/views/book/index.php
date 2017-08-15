@@ -17,7 +17,7 @@
     <?php echo link_tag('files/css/bootstrap3.min.css'); ?>
     <!-- <?php echo link_tag('files/css/material-dashboard'); ?> -->
     
-    <?php echo link_tag('files/css/material-kit.min.css?v=1.1.1'); ?>
+    <?php echo link_tag('files/css/material-kit.min.css?v='.time().'>'); ?>	
     
     
     <?php echo link_tag('files/assets/css/material-bootstrap-wizard.css'); ?>
@@ -42,246 +42,962 @@
 </head>
 
 <body class="presentation-page">
-<div id="loading" style="    z-index: 9999;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    background: rgba(0, 0, 0, 0.59);
-    display: nones;">
-    <div style="height: 115px;
-    border-radius: 4px;
-    background: #fff;
-    min-width: 15rem;
-    /* height: auto; */
-    left: 50vw;
-    top: 50vh;
-    transform: translate(-50%,-50%);
-    position: fixed;
-    z-index: 10000;">
-        <div>
-            <div style="font-weight: 500;
-    color: #000;
-    padding: 35px;
-    text-align: center;"><div style="font-size: 15px">Loading</div>
-    <i class="fa fa-circle-o-notch fa-spin fa-fw" style="
-    margin-top: 10px;
-    color: #5c5151;
-    font-size: 35px"></i></div>
-            
+    <div id="loading" style="z-index: 9999;  position: fixed;  width: 100vw;   height: 100vh;   left: 0;    top: 0;   background: rgba(0, 0, 0, 0.59);    display: nones;">
+        <div style="height: 115px;  border-radius: 4px;  background: #fff;  min-width: 15rem;   /* height: auto; */    left: 50vw;   top: 50vh;   transform: translate(-50%,-50%);   position: fixed;    z-index: 10000;">
+            <div>
+                <div style="font-weight: 500;  color: #000; padding: 35px; text-align: center;">
+                    <div style="font-size: 15px">Loading</div>
+                    <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i>
+                </div>            
+            </div>
         </div>
-        
     </div>
-</div>
-<div id="content">
-    <nav class="navbar" id="sectionsNav" style="position: absolute;
-    background: rgba(255, 255, 255, 0) !important;
-    margin: auto;
-    z-index: 20;
-    width: 100%;
-   
-    box-shadow: none;">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" >
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="https://dotdotdottrip.com"><!-- <img src="files/images/logo.png"> --></a>
-            </div>
-
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right" style="padding-top: 15px;">
-                    <li class="dropdown" id="btnuser">
-                        <div class="user">
-                            <div class="photo">
-                                <img src="<?php echo base_url(); ?>/files/img/about-7.jpg">
-                            </div>                    
+    <div id="content">
+        <nav class=" navbar" id="sectionsNav" >
+            <div class="container" style="margin-bottom: 0 ">        
+                <div class="navbar-header">
+                    <div class="" style="    padding: 9px 10px;  margin-top: 8px;  margin-left: 15px;  margin-bottom: 8px;    font-size: 25px;   display: inline-block;">
+                        <div class="box-login-non">
+                            <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
+                            <span style="  margin-left: 30px;  font-size: 14px;" class="lng-login"></span>
                         </div>
-                        <a  class="dropdown-toggle" data-toggle="dropdown">
-                            <div id="usernamess"></div> 
-                            
-                            <b class="caret"></b>
-                        </a>
+                        <div class="box-login" style="width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">            
+                        </div>
+                    </div>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important; color:#000 !important;;">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar BT"  style="color:#000"></span>
+                        <span class="icon-bar BT"  style="color:#000"></span>
+                        <span class="icon-bar BT"  style="color:#000"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse" style="margin-top: 10px;">            
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown" id="btnuser">
+                            <div class="user">
+                                <div class="photo" id="photo_profile" >
+                                    
+                                </div> 
+                                <div style="padding: 30px;color: #fff;font-size: 16px;">
+                                    <span id="getname"> </span>
+                                </div>                   
+                            </div>
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                <div id="usernamess"></div>                             
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <li>
+                                    <a href="" >
+                                    <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
+                    
+                                    </a>
+                                </li>
+                                
+                                <li id="btn-logout-user">
+                                    <a>
+                                        <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
+                    
+                                    </a>
+                                </li>
                         
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="" >
-                                <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
-                
-                                </a>
-                            </li>
-                            
-                            <li id="btn-logout-user">
-                                <a>
-                                    <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
-                
-                                </a>
-                            </li>
-                    
-                        </ul>
-                   <style>
-                   .navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
-    background-color: rgb(255, 255, 255) !important;
-}
-                    .user {
-                        text-align: center;
-                        padding-bottom: 20px;
-                        margin: 25px auto 0;
-                        position: relative;
-                    }
-                    .user .photo {
-                        /*width: 80px;*/
-                        /*height: 80px;*/
-                        overflow: hidden;
-                            border-radius: 4px;
-                        /*margin: 0 auto;*/
-                        /*box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);*/
-                    }
-                    .user .photo img {
-                        width:140px;
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="btnlogin">
+                            <div class="user">
+                                <div class="photo" id="photo_non-login" >
+                                    
+                                </div> 
+                                <div style="padding: 30px;color: #fff;font-size: 16px;">
+                                    <span id="getname"> </span>
+                                </div>                   
+                            </div>
                         
-                    }
-                    </style>
-                    </li>
-                    <li id="btnlogin">
-                        <a href="https://dotdotdottrip.com/register">
-                        <i class="material-icons">account_circle</i>
-                          <span class="lng-login"></span><span> / </span><span class="lng-register"></span>
-                
-                        </a>
-                    </li>
-                     <li class="dropdown" id="btnusers">
-                        <a  class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- <div style="width: 100%;text-align: center;"> -->
-                               <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product"></span>
                             
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="https://dotdotdottrip.com" >
-                               <i class="material-icons">directions_car</i><span class="lng-transports"></span>
-                
-                                </a >
-                            </li>
-                           
-                            <!-- <li id="btn-logout-user">
-                                <a href="https://dotdotdottrip.com/tour">
-                                    <i class="material-icons">style</i><span class="lng-tours"></span>
-                
+                        </li>       				
+                        <!-- <li id="btnlogin">
+                            <a href="<?php echo base_url(); ?>register">
+                                <i class="material-icons">account_circle</i>
+                                <span class="lng-login"></span><span> / </span><span class="lng-register"></span>                        
+                            </a>
+                        </li> -->
+                        <li class="dropdown" id="btnusers">
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- <div style="width: 100%;text-align: center;"> -->
+                                <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product textmenu"></span>
+                                
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>" >
+                                        <i class="material-icons">directions_car</i><span class="lng-transports textmenu"></span>                    
+                                    </a>
+                                </li>                            
+                                <!-- <li id="btn-logout-user">
+                                    <a href="<?php echo base_url(); ?>tour">
+                                        <i class="material-icons">style</i><span class="lng-tours textmenu"></span>                    
+                                    </a>
+                                </li>                         -->
+                            </ul>
+                        </li>
+                        <li class="box-desboard">
+                            <a href="<?php echo base_url(); ?>dashboard/view_user">
+                                <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>                    
+                            </a>
+                        </li>
+                        <li class="dropdown" id="btnusers">
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- <div style="width: 100%;text-align: center;"> -->
+                                <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language textmenu"></span>                                
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <li>
+                                    <a  onclick="language('cn')">
+                                        <img src="<?php echo base_url(); ?>/files/img/china.ico" style="width: 30px;margin-right: 15px;">简体中文 
                                 </a>
-                            </li> -->
+                                </li>
+                                <li>
+                                    <a  onclick="language('en')">
+                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
                     
-                        </ul>
-                    </li>
-                     
-                     <li>
-                        <a href="<?php echo base_url(); ?>dashboard/view_user">
-                            <i class="material-icons">dashboard</i><span style="text-transform: initial; " class="lng-dashboard"></span>
-                
-                        </a>
-                    </li>
-                     <li class="dropdown" id="btnusers">
-                        <a  class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- <div style="width: 100%;text-align: center;"> -->
-                               <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="language('th')">
+                                <img src="<?php echo base_url(); ?>/files/img/thai.ico" style="width: 30px;margin-right: 15px;">ภาษาไทย
+                    
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                             
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a  onclick="language('cn')">
-                                    <img src="<?php echo base_url(); ?>/files/img/china.ico" style="width: 30px;margin-right: 15px;">简体中文 
-                
-                                </a>
-                            </li>
-                            <li>
-                                <a  onclick="language('en')">
-                               <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
-                
-                                </a>
-                            </li>
-                            <li>
-                                <a onclick="language('th')">
-                               <img src="<?php echo base_url(); ?>/files/img/thai.ico" style="width: 30px;margin-right: 15px;">ภาษาไทย
-                
-                                </a>
-                            </li>
-                           
-                            
-                    
-                        </ul>
-                    </li>
-                   
-                    
-                   
-                    
+                    </ul>
+                </div>    
+            </div>
+        </nav>
+        <div class="container-fluid">
+       <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 " style="padding: 0">
+                    <!--      Wizard container        -->
+                    <div class="wizard-container" style=" margin-top: 12px;">
+                        <div class="card wizard-card" data-color="orange" id="wizardProfile">
+                            <form >
+                                <!--You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                                <div class="wizard-header">
+                                    <h5 class="lng-booking-infomation"></h5>
+                                </div>
+                                <div class="wizard-navigation">
+                                    <ul>
+                                        <li><a href="#about" data-toggle="tab"></a><span class="lng-product"></span></li>
+                                        <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> <!-- <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> -->
+                                        <li><a href="#address" data-toggle="tab" ></a><span class="lng-summary"></span></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="about">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div id="images-icon"></div>
+                                            </div>
+                                            <div class="col-md-7 " id="box-detail-price" >        
+                                                <div class="box-program">
+                                                    <span id="placefrom" style="text-align: center;"></span>
+                                                    <span> - </span>
+                                                    <span id="placeto" style="text-align: center;"></span>
+                                                </div>
+                                                <div class="box-name">
+                                                    <p>
+                                                        <label style="text-align:left" ><span class="lng-product"></span></span><span>:</span></label>   &nbsp;&nbsp;
+                                                        <span id="product" style="text-align: center;"></span>
+                                                    </p>
+                                                </div>                           
+                                                <div class="province">
+                                                    <p style="">
+                                                        <label style="text-align:left" ><span class="lng-from"></span><span>:</span></label>
+                                                            &nbsp;&nbsp;
+                                                        <span id="province" style="color: #000;"></span>
+                                                    </p>
+                                                    <p style="">
+                                                        <label style="text-align:left" ><span class="lng-to"></span><span>:</span></label>&nbsp;&nbsp;
+                                                        <span id="province_to" style="    color: #000;"></span>
+                                                    </p>
+                                                </div>
+                                                <p style="">
+                                                    <label style="text-align:left" ><span class="lng-type"></span><span>:</span></label>&nbsp;&nbsp;
+                                                    <span ng-if="flagcheck == 1" id="cars_persion" style="color: #000;"></span>
+                                                </p>
+                                                <p class="prices">
+                                                    <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>&nbsp;&nbsp;
+                                                    <span style="color: #fb833f;" id="price"></span>
+                                                </p>
+                                                <p class="sumprice">
+                                                    <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>                                                           
+                                                    &nbsp; &nbsp;
+                                                    <span id="numsumprice"></span>
+                                                </p>
+                                                <div class="box-list-cars" >
+                                                    <span class="lng-you-choose"></span> 
+                                                    <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>)</span> <span class="lng-car"></span>
+                                                    <span style="color:#000" class="ng-binding">1- <span id="checksum"></span><span class="lng-person"></span> </span>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <table width="100%">
+                                                                <tr>
+                                                                    <td >
+                                                                        <label style="text-align:left" id="datetext"></label>   
+                                                                    </td>
+                                                                    <td >
+                                                                        <div class='input-group '  style="width: 100%">
+                                                                            <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy">
+                                                                        </div>
+                                                                        <style>
+                                                                            input::-webkit-clear-button {
+                                                                                display: none;
+                                                                            }
+                                                                        </style>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                            
+                                                </div>
+                                                <div class="show-time">
+                                                    <div class="form-group form-inline">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td width="">
+                                                                    <label style="text-align:left" id="texttime"></label>   
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    <table width="100%">
+                                                                        <tr>
+                                                                            <td width="49%" align="center">
+                                                                                <select class="form-control form-inline time_h asd" style="width: 100%;padding: 0 30px;" id="time_h" name="time_h">
+                                                                                    <option value="00">00</option>
+                                                                                    <option value="01">01</option>
+                                                                                    <option value="02">02</option>
+                                                                                    <option value="03">03</option>
+                                                                                    <option value="04">04</option>
+                                                                                    <option value="05">05</option>
+                                                                                    <option value="06">06</option>
+                                                                                    <option value="07">07</option>
+                                                                                    <option value="08">08</option>
+                                                                                    <option value="09">09</option>
+                                                                                    <option value="10">10</option>
+                                                                                    <option value="11">11</option>
+                                                                                    <option value="12">12</option>
+                                                                                    <option value="13">13</option>
+                                                                                    <option value="14">14</option>
+                                                                                    <option value="15">15</option>
+                                                                                    <option value="16">16</option>
+                                                                                    <option value="17">17</option>
+                                                                                    <option value="18">18</option>
+                                                                                    <option value="19">19</option>
+                                                                                    <option value="20">20</option>
+                                                                                    <option value="21">21</option>
+                                                                                    <option value="23">23</option>
 
-                    
-                </ul>
+                                                                                </select>
+                                                                            </td>
+                                                                            <td width="2%" align="center">
+                                                                                <span>:</span>
+                                                                            </td>
+                                                                            <td width="49%" align="center">
+                                                                                <select class="form-control form-inline time_m asd" style="width: 100%;padding: 0 30px;" id="time_m" name="time_m" required>
+                                                                                    <option value="00" selected="selected">00</option>
+                                                                                    <option value="01">01</option>
+                                                                                    <option value="02">02</option>
+                                                                                    <option value="03">03</option>
+                                                                                    <option value="04">04</option>
+                                                                                    <option value="05">05</option>
+                                                                                    <option value="06">06</option>
+                                                                                    <option value="07">07</option>
+                                                                                    <option value="08">08</option>
+                                                                                    <option value="09">09</option>
+                                                                                    <option value="10">10</option>
+                                                                                    <option value="11">11</option>
+                                                                                    <option value="12">12</option>
+                                                                                    <option value="13">13</option>
+                                                                                    <option value="14">14</option>
+                                                                                    <option value="15">15</option>
+                                                                                    <option value="16">16</option>
+                                                                                    <option value="17">17</option>
+                                                                                    <option value="18">18</option>
+                                                                                    <option value="19">19</option>
+                                                                                    <option value="20">20</option>
+                                                                                    <option value="21">21</option>
+                                                                                    <option value="23">23</option>
+                                                                                    <option value="24">24</option>
+                                                                                    <option value="25">25</option>
+                                                                                    <option value="26">26</option>
+                                                                                    <option value="27">27</option>
+                                                                                    <option value="28">28</option>
+                                                                                    <option value="29">29</option>
+                                                                                    <option value="30">30</option>
+                                                                                    <option value="31">31</option>
+                                                                                    <option value="32">32</option>
+                                                                                    <option value="33">33</option>
+                                                                                    <option value="34">34</option>
+                                                                                    <option value="35">35</option>
+                                                                                    <option value="36">36</option>
+                                                                                    <option value="37">37</option>
+                                                                                    <option value="38">38</option>
+                                                                                    <option value="39">39</option>
+                                                                                    <option value="40">40</option>
+                                                                                    <option value="41">41</option>
+                                                                                    <option value="42">42</option>
+                                                                                    <option value="43">43</option>
+                                                                                    <option value="44">44</option>
+                                                                                    <option value="45">45</option>
+                                                                                    <option value="46">46</option>
+                                                                                    <option value="47">47</option>
+                                                                                    <option value="48">48</option>
+                                                                                    <option value="49">49</option>
+                                                                                    <option value="50">50</option>
+                                                                                    <option value="51">51</option>
+                                                                                    <option value="52">52</option>
+                                                                                    <option value="53">53</option>
+                                                                                    <option value="54">54</option>
+                                                                                    <option value="55">55</option>
+                                                                                    <option value="56">56</option>
+                                                                                    <option value="57">57</option>
+                                                                                    <option value="58">58</option>
+                                                                                    <option value="59">59</option>
+
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div class="row">
+                                                            <div class="form-person form-group col-md-12" id="car-show">
+                                                                <table width="100%">
+                                                                    <tr>
+                                                                        <td width="20%"  style="padding-right: 10px;">
+                                                                            <label style="text-align:left" ><span class="lng-car"></span><span>:</span></label>
+                                                                        </td>
+                                                                        <td width="80%">
+                                                                            <table width="100%">
+                                                                                <tr >
+                                                                                    <td align="center">
+                                                                                    <select class="form-control form-inline asd" id="num_cars"  name="num_cars" style="width: 100%" required>
+                                                                                                
+                                                                                    <option value="1">1</option>            
+                                                                                    <option value="2">2</option>            
+                                                                                    <option value="3">3</option>            
+                                                                                    <option value="4">4</option>            
+                                                                                    <option value="5">5</option>            
+                                                                                    <option value="6">6</option>            
+                                                                                    </select>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>                
+                                                <div class="row">
+                                                    <div class="form-person form-group fo col-md-12" style="">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <div style="margin-right: 10px;">
+                                                                        <table width="100%">
+                                                                            <tr>
+                                                                                <td width="40%">
+                                                                                    <label style="text-align:left" ><span class="lng-adult"></span><span>:</span></label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <select class="form-control asd" id="num_adult" name="num_adult"  style="" required>
+                                                                                        <option value="1">1</option>
+                                                                                        <option value="2">2</option>
+                                                                                        <option value="3">3</option>
+                                                                                        <option value="4">4</option>
+                                                                                        <option value="5">5</option>
+                                                                                        <option value="6">6</option>
+                                                                                        <option value="7">7</option>
+                                                                                        <option value="8">8</option>
+                                                                                        <option value="9">9</option>
+                                                                                        <option value="10">10</option>
+                                                                                        <option value="11">11</option>
+                                                                                        <option value="12">12</option>
+                                                                                        <option value="13">13</option>
+                                                                                        <option value="14">14</option>
+                                                                                        <option value="15">15</option>
+                                                                                        <option value="16">16</option>
+                                                                                        <option value="17">17</option>
+                                                                                        <option value="18">18</option>
+                                                                                        <option value="19">19</option>
+                                                                                        <option value="20">20</option>
+                                                                                        <option value="21">21</option>
+                                                                                        <option value="22">22</option>
+                                                                                        <option value="23">23</option>
+                                                                                        <option value="24">24</option>
+                                                                                        <option value="25">25</option>
+                                                                                        <option value="26">26</option>
+                                                                                        <option value="27">27</option>
+                                                                                        <option value="28">28</option>
+                                                                                        <option value="29">29</option>
+                                                                                        <option value="30">30</option>
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <table width="100%">
+                                                                        <tr>
+                                                                            <td width="40%">
+                                                                                <label style="text-align:left" ><span class="lng-child"></span><span>:</span></label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <select class="form-control asd" id="num_child" name="num_child" style="" required>
+                                                                                    <option value="0">0</option>
+                                                                                    <option value="1">1</option>
+                                                                                    <option value="2">2</option>
+                                                                                    <option value="3">3</option>
+                                                                                    <option value="4">4</option>
+                                                                                    <option value="5">5</option>
+                                                                                    <option value="6">6</option>
+                                                                                    <option value="7">7</option>
+                                                                                    <option value="8">8</option>
+                                                                                    <option value="9">9</option>
+                                                                                    <option value="10">10</option>
+                                                                                    <option value="11">11</option>
+                                                                                    <option value="12">12</option>
+                                                                                    <option value="13">13</option>
+                                                                                    <option value="14">14</option>
+                                                                                    <option value="15">15</option>
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="form-person form-group col-md-12" id="visa-show">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td  style="padding-right: 10px;">
+                                                                    <label style="text-align:left" ><span class="lng-visa"></span><span>:</span></label>
+                                                                </td>
+                                                                <td >
+                                                                    <table width="100%">
+                                                                        <tr >
+                                                                            <td align="center">
+                                                                            <select class="form-control form-inline asd" id="visa"  name="visa" style="width: 100%" >
+                                                                                <option value="" ><font class="lng-none">None</font></option>            
+                                                                                <option value="1"><font class="lng-yes">Yes</font></option>            
+                                                                                <option value="0"><font class="lng-no">No</font></option> 
+                                                                            </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="form-person form-group col-md-12" id="box-terminal" style="display: none;">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td width=""  style="padding-right: 10px;">
+                                                                    <label style="text-align:left" ><span class="lng-departure-terminal"></span><span>:</span></label>
+                                                                </td>
+                                                                <td width="">
+                                                                    <table width="100%">
+                                                                        <tr >
+                                                                            <td align="center">
+                                                                                <input type="text" class="form-control asd" id="terminal">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>     
+                                        </div>    
+                                    </div> <!-- end tab-pane-->
+                                    <div class="tab-pane" id="account">
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="row">
+                                                    <div class="col-md-12" id="acceptancecheck">
+                                                        <div class="checkbox" style="margin-bottom: 30px;">
+                                                            <label>
+                                                                <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
+                                                                <span class="lng-get-detail"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>    
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group form-inline required ">
+                                                                <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
+                                                                <select class="form-control" name="guestcountry" id="guestcountry" class="" style=" border:  1px solid #d2d2d2; border-radius: 4px;">
+                                                                    <option value="az_AZ" label="Guest name of your country" none=""></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="contact_info">
+                                                            <div class="col-sm-12">
+                                                                <input type="text" class="form-control" placeholder="Lirst Name - Last name" id="name_lastname" name="name_lastname"  pattern="^[A-z ก-ฮ]+$" required>                                                               
+                                                            </div>
+                                                        </div>
+                                                        <div class="contact_info">
+                                                            <div class="col-sm-12">
+                                                                <label class="form-control"  id="select-country"><span id="numbercountry"></span></label>
+                                                            </div>
+                                                            <div class="col-sm-12">
+                                                                <div class="col-md-4" style="padding: 0">
+                                                                    <label class="form-control"  id="phonecode" value="phonecode"> </label>
+                                                                </div>
+                                                                <div class="col-md-8" id="tphone">
+                                                                    <input type="text" class="form-control" placeholder="Phone" id="phone"  aria-required="true" aria-invalid="true" required>                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="contact_info">
+                                                                <div class="col-sm-12">
+                                                                    <input type="email" class="form-control" placeholder="E-mail" id="email" aria-required="true" aria-invalid="true" required>                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="contact_info">
+                                                                <div class="col-sm-12">
+                                                                    <input type="text" class="form-control" placeholder="Flight" id="flight" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group form-inline">
+                                                                <div class="col-sm-12">
+                                                                    <input type="text" class="form-control" placeholder="Other" id="other" >
+                                                                
+                                                                </div>
+                                                            </div>
+                                                            
+                                                
+                                                    
+                                            </div> 
+                                            </div>
+                                    
+                                        </div>
+                            
+                                
+                                
+                                                    </div>
+                                                </div>
+                                        
+                                            <div class="tab-pane" id="address">
+                                                <div class="row">
+                        <div class="col-md-8">                  
+                            <div class="" id="view-product-all-item">
+                                <div class="box-info-item">
+                                <div>
+                                    <table width="100%">
+                                        <tr>
+                                            <td valign="top" width="100px" style="padding: 5px 0;"> 
+                                                <span class="lng-product-name"></span><span>:</span>
+
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <span  id="name_product"></span>
+                                                    <span>(</span>
+                                                    <span class="lng-transports" style="color: #fb833f;" ></span><span>)</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                            <span class="lng-car-type"></span><span>:</span>
+                                            </td>
+                                            <td >
+                                                <span style="color: #333;" id="cars_type"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                <span class="lng-pick-up-from"></span><span>:</span>
+                                            </td>
+                                            <td>
+                                                <span style="color: #333;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                <span class="lng-pick-up-to"></span><span>:</span>
+                                                
+                                            </td>
+                                            <td>
+                                            <span style="color: #333;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                <span id="date-final"></span>
+                                                
+                                            </td>
+                                            <td>
+                                                <span style="color: #333;" class="" id="ondate_samary"></span>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                            <span id="time-final"></span>
+                                            </td>
+                                            <td>
+                                                <span style="color: #333;" class="" id="ontime_samary"></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </div>
+                                    <!-- <div >
+                                        <div class="toppic">
+                                        
+                                            
+                                        </div>
+
+                                        <div class="toppic" >
+                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="toppic" >
+                                            
+                                            
+                                        </div>
+                                        <div class="toppic" >
+                                        </div>
+                                        
+                                    
+                                        
+                                                        
+                                        <div class="toppic">
+                                        </div>
+                                        <div class="toppic">
+                                            
+                                        
+                                        </div> 
+                                    
+                                    </div> -->
+                                    <div class="orderBoxdetail">
+                                        <table width="100%">
+                                            <tr>
+                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                
+                                                        <span class="lng-first-name"></span><span>:</span>
+                                                    
+                                                    
+                                            </td>
+                                            <td>
+                                                <span id="summaryname"></span>
+                                            </td> 
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" width="100px" style="padding: 5px 0;">
+                                                    
+                                                        <span class="lng-phone"></span><span>:</span>
+                                                
+                                                </td>
+                                                <td>
+                                                    <span id="summaryphone" ></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" width="100px" style="padding: 5px 0;">
+                                                
+                                                        <span class="lng-email"></span><span >:</span>                                            
+                                                
+                                                </td>
+                                                <td>
+                                                    <span  id="summaryemail"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" width="100px" style="padding: 5px 0;">
+                                                    
+                                                        <span class="lng-flight"></span><span >:</span>
+                                                    
+                                                </td>
+                                                <td>
+                                                    <span id="textflight"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" width="100px" style="padding: 5px 0;">
+                                                    
+                                                        <span class="lng-other"></span><span >:</span>                                          
+                                                
+                                                </td>
+                                                <td>
+                                                    <span id="summaryother"></span>
+                                                </td>
+                                            </tr>
+                                        
+                                        </table>
+                                        <!-- <div class="col-lg-6" style="padding: 0">
+                                            <div class="section06-detail-line02-firstname">             
+                                                <div class="firstname ">
+                                                <span class="lng-first-name"></span><span>:</span>
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                        
+                                            <div class="section06-line02-phone">
+                                                        
+                                            
+                                            </div>                         
+                                            
+                                        </div>
+                                        <div class="col-lg-6" style="padding: 0">
+                                            
+                                            <div class="section06-line02-email">     
+                                                        
+                                                
+                                            </div>
+                                        
+
+                                            <div class="section06-line02-email">     
+                                                <div class="email">
+                                                
+                                                    </div>         
+                                                
+                                            </div>
+                                            <div class="section06-line02-email">     
+                                                    
+                                                
+                                            </div>
+                                            
+                                        </div> -->
+                                    </div>
+                                </div>  
+                            </div> 
+                            
+                            
+                        </div>
+                        <div class="col-md-4" id="detail-price">
+                            <div class="box-list-summery">
+                            <div >
+                                        <!-- <div class="topic_ens">
+                                            <span >Phuket Airport-Phuket Hotel All Area</span>
+                                        </div> -->
+                                        <div  >
+                                            <div id="book-info">
+                                            <span class="lng-car"></span><span>:</span>
+                                            
+                                            </div>
+                                            <span style="color: #fb833f;" id="carsummary"></span><span></span>
+                                            <span style="color: #fb833f;float:right;" id="costsummary"></span>
+                                        </div>
+                                    <div >
+                                            <div id="book-info">
+                                                <span class="lng-price"></span><span>/</span><span class="lng-car"></span><span>:</span>
+                                                
+                                            </div>
+                                            
+                                            <span style="color: #fb833f;float:right;" id="costproduct"></span>
+                                        </div>
+                                        
+                                    
+                                    <div >
+                                            <div id="book-info">
+                                                <span class="lng-adult"></span><span >:</span>
+                                            
+                                            </div>
+                                            <span style="color: #fb833f;" id="adultsummary"></span>
+                                            <span style="color: #fb833f;float:right;">-</span>
+                                        </div>
+                                        <div >
+                                            <div id="book-info">
+                                                <span class="lng-child"></span><span >:</span>
+                                                
+                                            </div>
+                                                <span style="color: #fb833f;" id="childsummary"></span>
+
+                                                
+                                                <span style="color: #fb833f;float:right;">-</span>                                    
+                                        </div>
+                                        
+                                    </div>
+                                        <div class="summtotal">
+                                        
+                                        <span style="color: #000000"><span class="lng-sum-total"></span><span>:</span></span>
+                                            
+                                    
+                                        <span style="color: #fb833f;float: right;" id="totalprice"></span> 
+                                    </div> 
+                                <div class="box-book-pay"> 
+                                    <div class="btn-books" >
+                                    <span class="lng-book"></span>
+                                    
+                                    </div>
+                                
+                                <p class="ng-binding"></p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12" >
+                            
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
+                                                        <span class="lng-acceptance-of-terms"></span>
+                                                    </label>
+                                                </div>
+                            </div>
+                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="wizard-footer">
+                                            <div class="pull-right">
+                                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' id="next" style="padding: 12px 43px;" />
+                                                <input type='button' class='btn btn-fill btn-warning btn-wd' id="addbook" value='Book' style="display: none;padding: 12px 42px; " />
+                                            </div>
+
+                                            <div class="pull-left">
+                                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous'  value='Previous' id="previous" style="" />
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div> <!-- wizard container -->
+                        </div>
+                    </div><!-- end row -->
+            
+            <!--   </div> -->
+                </div>
             </div>
         </div>
-    </nav>
-<style >
-                        .notification {
-    position: absolute;
-    top: 2px;
-    border: 1px solid #FFF;
-        left: 22px;
-    font-size: 9px;
-    background: #f44336;
-    color: #FFFFFF;
-    min-width: 20px;
-    padding: 0px 5px;
-    height: 20px;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 19px;
-    vertical-align: middle;
-    display: block;
-}
-.dropdown-menu.dropdown-with-icons li>a:hover {
-    /*padding: 12px 20px 12px 12px;*/
-    background: #F44336 !important;
-}
-.dropdown-menu:after, .dropdown-menu-container:after {
-    border-bottom: 11px solid #FFFFFF;
-    border-left: 11px solid rgba(0,0,0,0);
-    border-right: 11px solid rgba(0,0,0,0);
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: 30px;
-    top: -10px;
-}
-                    </style>
-    <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<?php echo base_url(); ?>files/images/bg2.jpeg');">
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="brand">
-                        <h1>Material Kit
-                            <div class="pro-badge">
-                                Pro
-                            </div>
-                        </h1>
 
-                        <h3 class="title">Start Your Development With A Badass Bootstrap UI Kit inspired by Material Design.</h3>
+        <div class="modal fade" id="capacityss" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>      
+                    <div class="modal-body">                                    
+                        <div id="getcapa"></div>
+                        <div id="getcapa2"></div>
+                    </div>
+                    <div class="modal-footer">
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
+
+        <div class="modal fade" id="codecountry" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="max-height: 640px; overflow: hidden; overflow-y: scroll;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>    
+                    <div class="modal-body" style="padding: 0">                                    
+                        <div class="box-country">
+                            <ul id="select-name"> </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            #getcapa{
+                background-color: #ddd;
+                height: 35px;
+            }
+            .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+                border-top: none;
+            }
+            #table1{
+                margin-top: 10px !important;
+            }
+
+        </style>           
+        <div class="modal fade" id="login">
+            <div class="modal-dialog col-md-8">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <!-- <h4 class="modal-title" >Logout</h4> -->
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="">
+                                <form >
+                                    <div class="card-header text-center" data-background-color="green">
+                                            <h4 class="card-title">Login</h4>
+                                    </div>
+                                    <div align="text-center">
+                                        <p id="message" style="text-align: center;"></p>
+                                    </div>
+                                    <div class="card-content col-sm-8 col-sm-offset-2" >
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">face</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Email or Phone</label>
+                                                <input type="text" class="form-control" ng-model="username" style="">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Password</label>
+                                                <input type="password" class="form-control" ng-model="password" style="    ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer text-center">
+                        <button type="submit" class="btn btn-rose btn-simple btn-wd btn-lg" ng-click="login()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+        </div>
     </div>
-    <style>
+</body>
+<style>
         .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
    
     color: #FFF;
     box-shadow: none;
+}
+.card {
+    border-radius: 0 !important;
+    
 }
 .wizard-card{
     margin-bottom: 0;
@@ -358,813 +1074,8 @@
     margin-bottom: 20px;
 }
  </style>
+        
 
-<!-- <a class="made-with-mk">
-            <div class="brand"><i class="material-icons">home</i></div>
-            <div class="made-with">App <strong>booking</strong></div>
-        </a> -->
-        <style>
-           
-        </style>
-        <!--   Big container   -->
-        <div class="main main-raised">
-        <!-- <div class="section"> -->
-            
-                <div class="row">
-                <div class="col-sm-8 col-sm-offset-2" style="padding: 0">
-                    <!--      Wizard container        -->
-                    <div class="wizard-container">
-                        <div class="card wizard-card" data-color="orange" id="wizardProfile">
-                            <form >
-                        <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-
-                                <div class="wizard-header">
-                                    
-                                    <h5 class="lng-booking-infomation"></h5>
-                                </div>
-                                <div class="wizard-navigation">
-                                    <ul>
-                                        <li><a href="#about" data-toggle="tab"></a><span class="lng-product"></span></li>
-                                       <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> <!-- <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> -->
-                                        <li><a href="#address" data-toggle="tab" ></a><span class="lng-summary"></span></li>
-                                    </ul>
-                                </div>
-
-                                 <div class="tab-content">
-                                    <div class="tab-pane" id="about">
-                                     
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div id="images-icon"></div>
-                                                </div>
-                                                <div class="col-md-7 col-sm-offset-1" id="box-detail-price" >        
-                                                    <div class="box-program">
-                                                        <span id="placefrom" style="text-align: center;"></span>
-                                                        <span> - </span>
-                                                        <span id="placeto" style="text-align: center;"></span>
-                                                    </div>
-                                                    <div class="box-name">
-                                                        <p>
-                                                            <label style="text-align:left" ><span class="lng-product"></span></span><span>:</span></label>   &nbsp;&nbsp;
-                                                            <span id="product" style="text-align: center;"></span>
-                                                        </p>
-                                                    </div>                           
-                                                        <div class="province">
-                                                            <p style="">
-                                                            <label style="text-align:left" ><span class="lng-from"></span><span>:</span></label>
-                                                                &nbsp;&nbsp;
-                                                                
-                                                                <span id="province" style="color: #000;"></span>
-                                                                
-                                                                </p>
-                                                            <p style="">
-                                                    <label style="text-align:left" ><span class="lng-to"></span><span>:</span></label>
-
-                                                              
-                                                                &nbsp;&nbsp;
-                                                                
-                                                                
-                                                                <span id="province_to" style="    color: #000;"></span>
-                                                               
-                                                            </p>
-                                                        </div>
-                                                        <p style="">
-                                                            <label style="text-align:left" ><span class="lng-type"></span><span>:</span></label>
-
-                                                            <!-- <span ></span> -->
-                                                           &nbsp;&nbsp;
-                                                            <span ng-if="flagcheck == 1" id="cars_persion" style="color: #000;"></span>
-                                                            
-                                                        </p>
-                                                        <p class="prices">
-                                                            <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>
-                                                            
-                                                            &nbsp;&nbsp;
-                                                            <span style="color: #fb833f;" id="price"></span>
-                                                        </p>
-                                                        <p class="sumprice">
-                                                             <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>
-                                                           
-                                                             &nbsp; &nbsp;
-                                                            <span id="numsumprice"></span>
-                                                        </p>
-                                                        <div class="box-list-cars" ><span class="lng-you-choose"></span> 
-                                    <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>)</span> <span class="lng-car"></span>
-                                    <span style="color:#000" class="ng-binding">1- <span id="checksum"></span><span class="lng-person"></span> </span>
-                                </div>
-                                <div class="row">
-                                    
-                                <div class="col-md-12">
-                                    <div class="form-group form-inline">
-                                        <table width="100%">
-                                            <tr>
-                                                <td >
-                                                    <label style="text-align:left" id="datetext"></label>   
-                                                   <!--  <span  ></span> -->
-                                                    
-                                                </td>
-                                                <td >
-                                                <div class='input-group '  style="width: 100%">
-                                                    <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy">
-                                                   <!--  <span class=""> -->
-                                                        <!-- <i class="fa fa-calendar input-group-addon" id="calen" aria-hidden="true" style="color: #9E9E9E"></i> -->
-                                                    <!-- </span> -->
-                                                </div>
-                                             
-                                                <style>
-                                                    input::-webkit-clear-button {
-                                                        display: none;
-                                                    }
-                                                    /*input::-webkit-inner-spin-button {
-                                                        display: none;
-                                                    }*/
-                                                    /*input::-webkit-calendar-picker-indicator {
-                                                        display: none;
-                                                    }*/
-                                                </style>
-                                                    <!-- <input class=" form-control booking-input" type="text" size="50" id="booking-date" required> -->
-                                                    <!-- <i class="fa fa-calendar" id="calen picker" aria-hidden="true" style="color: #9E9E9E"></i> -->
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        </div>
-                                    </div>
-                         
-                                </div>
-                                <div class="show-time">
-                                    <div class="form-group form-inline">
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="">
-                                                <label style="text-align:left" id="texttime"></label>   
-                                                
-                                            </td>
-                                            <td>
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="49%" align="center">
-                                                            <select class="form-control form-inline time_h asd" style="width: 100%;padding: 0 30px;" id="time_h" name="time_h">
-                                                                <option value="00">00</option>
-                                                                <option value="01">01</option>
-                                                                <option value="02">02</option>
-                                                                <option value="03">03</option>
-                                                                <option value="04">04</option>
-                                                                <option value="05">05</option>
-                                                                <option value="06">06</option>
-                                                                <option value="07">07</option>
-                                                                <option value="08">08</option>
-                                                                <option value="09">09</option>
-                                                                <option value="10">10</option>
-                                                                <option value="11">11</option>
-                                                                <option value="12">12</option>
-                                                                <option value="13">13</option>
-                                                                <option value="14">14</option>
-                                                                <option value="15">15</option>
-                                                                <option value="16">16</option>
-                                                                <option value="17">17</option>
-                                                                <option value="18">18</option>
-                                                                <option value="19">19</option>
-                                                                <option value="20">20</option>
-                                                                <option value="21">21</option>
-                                                                <option value="23">23</option>
-
-                                                             </select>
-                                                        </td>
-                                                        <td width="2%" align="center">
-                                                            <span>:</span>
-                                                        </td>
-                                                        <td width="49%" align="center">
-                                                             <select class="form-control form-inline time_m asd" style="width: 100%;padding: 0 30px;" id="time_m" name="time_m" required>
-                                                                <option value="00" selected="selected">00</option>
-                                                                <option value="01">01</option>
-                                                                <option value="02">02</option>
-                                                                <option value="03">03</option>
-                                                                <option value="04">04</option>
-                                                                <option value="05">05</option>
-                                                                <option value="06">06</option>
-                                                                <option value="07">07</option>
-                                                                <option value="08">08</option>
-                                                                <option value="09">09</option>
-                                                                <option value="10">10</option>
-                                                                <option value="11">11</option>
-                                                                <option value="12">12</option>
-                                                                <option value="13">13</option>
-                                                                <option value="14">14</option>
-                                                                <option value="15">15</option>
-                                                                <option value="16">16</option>
-                                                                <option value="17">17</option>
-                                                                <option value="18">18</option>
-                                                                <option value="19">19</option>
-                                                                <option value="20">20</option>
-                                                                <option value="21">21</option>
-                                                                <option value="23">23</option>
-                                                                <option value="24">24</option>
-                                                                <option value="25">25</option>
-                                                                <option value="26">26</option>
-                                                                <option value="27">27</option>
-                                                                <option value="28">28</option>
-                                                                <option value="29">29</option>
-                                                                <option value="30">30</option>
-                                                                <option value="31">31</option>
-                                                                <option value="32">32</option>
-                                                                <option value="33">33</option>
-                                                                <option value="34">34</option>
-                                                                <option value="35">35</option>
-                                                                <option value="36">36</option>
-                                                                <option value="37">37</option>
-                                                                <option value="38">38</option>
-                                                                <option value="39">39</option>
-                                                                <option value="40">40</option>
-                                                                <option value="41">41</option>
-                                                                <option value="42">42</option>
-                                                                <option value="43">43</option>
-                                                                <option value="44">44</option>
-                                                                <option value="45">45</option>
-                                                                <option value="46">46</option>
-                                                                <option value="47">47</option>
-                                                                <option value="48">48</option>
-                                                                <option value="49">49</option>
-                                                                <option value="50">50</option>
-                                                                <option value="51">51</option>
-                                                                <option value="52">52</option>
-                                                                <option value="53">53</option>
-                                                                <option value="54">54</option>
-                                                                <option value="55">55</option>
-                                                                <option value="56">56</option>
-                                                                <option value="57">57</option>
-                                                                <option value="58">58</option>
-                                                                <option value="59">59</option>
-
-                                                            </select>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table> 
-                                        <!-- <p id="title-around">
-                                            <span ng-if="flagcheck == 1" class="ng-scope">Around time : </span>
-                                            
-                                        </p>
-                                            <select class="form-control ng-pristine ng-untouched ng-valid" ng-change="changenum(selectnum)" id="num" ng-model="selectnum" data-ng-options="i  for i in num"></select>
-                                          <span id="doubledit">:</span>
-                                          </select> -->
-                                          <div class="row">
-                                          <div class="form-person form-group col-md-12" id="car-show">
-                                        <table width="100%">
-                                            <tr>
-                                                <td width="20%"  style="padding-right: 10px;">
-                                                    <label style="text-align:left" ><span class="lng-car"></span><span>:</span></label>
-                                                </td>
-                                                <td width="80%">
-                                                    <table width="100%">
-                                                        <tr >
-                                                            <td align="center">
-                                                            <select class="form-control form-inline asd" id="num_cars"  name="num_cars" style="width: 100%" required>
-                                                                        
-                                                              <option value="1">1</option>            
-                                                              <option value="2">2</option>            
-                                                              <option value="3">3</option>            
-                                                              <option value="4">4</option>            
-                                                              <option value="5">5</option>            
-                                                              <option value="6">6</option>            
-                                                            </select>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        </div>
-                                        </div>
-                                      
-                                    </div>
-
-                                </div>                
-                                <div class="row">
-                                    <div class="form-person form-group fo col-md-12" style="">
-                                        <table width="100%">
-                                            <tr>
-                                                <td>
-                                                    <div style="margin-right: 10px;">
-                                                    <table width="100%">
-                                                        <tr>
-                                                            <td width="40%">
-                                                                <label style="text-align:left" ><span class="lng-adult"></span><span>:</span></label>
-                                                                    
-                                                                
-                                                            </td>
-                                                            <td>
-                                                                <select class="form-control asd" id="num_adult" name="num_adult"  style="" required>
-                                                                    
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
-                                                                    <option value="10">10</option>
-                                                                    <option value="11">11</option>
-                                                                    <option value="12">12</option>
-                                                                    <option value="13">13</option>
-                                                                    <option value="14">14</option>
-                                                                    <option value="15">15</option>
-                                                                    <option value="16">16</option>
-                                                                    <option value="17">17</option>
-                                                                    <option value="18">18</option>
-                                                                    <option value="19">19</option>
-                                                                    <option value="20">20</option>
-                                                                    <option value="21">21</option>
-                                                                    <option value="22">22</option>
-                                                                    <option value="23">23</option>
-                                                                    <option value="24">24</option>
-                                                                    <option value="25">25</option>
-                                                                    <option value="26">26</option>
-                                                                    <option value="27">27</option>
-                                                                    <option value="28">28</option>
-                                                                    <option value="29">29</option>
-                                                                    <option value="30">30</option>
-                                                                   
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    </div>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <table width="100%">
-                                                        <tr>
-                                                            <td width="40%">
-                                                                <label style="text-align:left" ><span class="lng-child"></span><span>:</span></label>
-                                                                
-                                                                
-                                                            </td>
-                                                            <td>
-                                                                <select class="form-control asd" id="num_child" name="num_child" style="" required>
-                                                                    <option value="0">0</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
-                                                                    <option value="10">10</option>
-                                                                    <option value="11">11</option>
-                                                                    <option value="12">12</option>
-                                                                    <option value="13">13</option>
-                                                                    <option value="14">14</option>
-                                                                    <option value="15">15</option>
-                                                              </select>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    
-                                              
-                                              
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class="form-person form-group col-md-12" id="visa-show">
-                                        <table width="100%">
-                                            <tr>
-                                                <td  style="padding-right: 10px;">
-                                                    <label style="text-align:left" ><span class="lng-visa"></span><span>:</span></label>
-                                                    
-                                                </td>
-                                                <td >
-                                                    <table width="100%">
-                                                        <tr >
-                                                            <td align="center">
-                                                            <select class="form-control form-inline asd" id="visa"  name="visa" style="width: 100%" >
-                                                                        
-                                                              <option value="" ><font class="lng-none">None</font></option>            
-                                                              <option value="1"><font class="lng-yes">Yes</font></option>            
-                                                              <option value="0"><font class="lng-no">No</font></option>            
-                                                                        
-                                                            </select>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        </div>
-                                        <div class="form-person form-group col-md-12" id="box-terminal" style="display: none;">
-                                        <table width="100%">
-                                            <tr>
-                                                <td width=""  style="padding-right: 10px;">
-                                                    <label style="text-align:left" ><span class="lng-departure-terminal"></span><span>:</span></label>
-
-                                                </td>
-                                                <td width="">
-                                                    <table width="100%">
-                                                        <tr >
-                                                            <td align="center">
-                                                                <input type="text" class="form-control asd" id="terminal">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        </div>
-                                        
-                              
-                              </div>
-                                                </div> 
-                                               
-                    </div> 
-                                         
-                                    </div>
-                                    <div class="tab-pane" id="account">
-                                       <!--  <h4 class="info-text"> Your on contact infomation</h4> -->
-                                        <div class="row">
-                                            <div class="col-md-12 ">
-                                             
-                           
-                                <div class="row">
-                                    <div class="col-md-12" id="acceptancecheck">
-                                        <div class="checkbox" style="margin-bottom: 30px;">
-                                            <label>
-                                                <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
-                                                <span class="lng-get-detail"></span>
-                                            </label>
-                                        </div>
-                                    </div>    
-                                          <div class="col-md-6">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group form-inline required ">
-                                                            <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
-                                                                <select class="form-control" name="guestcountry" id="guestcountry" class="" style=" border:  1px solid #d2d2d2; border-radius: 4px;">
-                                                                    <option value="az_AZ" label="Guest name of your country" none=""></option>
-                                                                
-                                                              </select>
-                                                        </div>
-                                                    </div>
-                                                      <div class="contact_info">
-                                                        
-                                                            <div class="col-sm-12">
-                                                               
-                                                                    <!-- <label class="control-label"></label> -->
-                                                                    <input type="text" class="form-control" placeholder="Lirst Name - Last name" id="name_lastname" name="name_lastname"  pattern="^[A-z ก-ฮ]+$" required>
-                                                               
-                                                            </div>
-                                                           <!-- <span ng-if="flagcheck == 1" class="ng-scope"></span> -->
-                                                            
-                                                        
-                                                          <!-- <input validate="true" ng-model="fname"  required="" oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')" class="ng-pristine ng-invalid ng-invalid-required ng-valid-pattern ng-touched"> -->
-                                                      </div>
-                                                    <!-- <div class="contact_info">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group label-floating" style="margin-top: 20px">
-                                                                <label class="control-label">Last Name</label>
-                                                                <input type="text" class="form-control"  id="lname"   pattern="^[A-z ก-ฮ]+$" aria-required="true" aria-invalid="true" required>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
-                                                    <div class="contact_info">
-                                                    <div class="col-sm-12">
-                                                          
-                                                                <label class="form-control"  id="select-country"><span id="numbercountry"></span></label>
-                                                              
-                                                        
-                                                           
-                                                            
-                                                        </div>
-                                                       
-                                                    <div class="col-sm-12">
-                                                            <div class="col-md-4" style="padding: 0">
-                                                                
-                                                                    <label class="form-control"  id="phonecode" value="phonecode"> </label>
-                                                               
-                                                            </div>
-                                                            <div class="col-md-8" id="tphone">
-                                                           
-                                                                <!-- <label class="control-label"></label> -->
-                                                                <input type="text" class="form-control" placeholder="Phone" id="phone"  aria-required="true" aria-invalid="true" required>
-                                                        
-                                                            </div>
-                                                        </div>
-                                                       
-
-                                                    </div>
-                                                    
-                                               
-                                            </div>
-                                   
-                                            <!--<div class="border"></div>-->
-                                    <div class="col-md-6">
-                                               
-                                                    
-                                            <div class="contact_info">
-                                                <div class="col-sm-12">
-                                                    
-                                                        <!-- <label class="control-label"></label> -->
-                                                        <input type="email" class="form-control" placeholder="E-mail" id="email" aria-required="true" aria-invalid="true" required>
-                                                    
-                                                </div>
-                                                
-                                                
-                                            </div>
-                                          <!--   <div class="contact_info">
-                                                <div class="col-sm-12">
-                                                    <div class="form-group " >
-                                                        <label class="control-label">Address</label>
-                                                        <textarea class="form-control" placeholder="11 m.4 " rows="2"></textarea>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                            </div> -->
-                                            <div class="contact_info">
-                                                    
-                                                        <div class="col-sm-12">
-                                                            
-                                                                <!-- <label class="control-label" ></label> -->
-                                                                <input type="text" class="form-control" placeholder="Flight" id="flight" required>
-                                                            
-                                                        </div>
-                                            </div>
-                                            <div class="form-group form-inline">
-                                                    
-                                                        <div class="col-sm-12">
-                                                           
-                                                                <!-- <label class="control-label" ></label> -->
-                                                                <input type="text" class="form-control" placeholder="Other" id="other" >
-                                                           
-                                                        </div>
-                                                    </div>
-                                                    
-                                           
-                                               
-                                    </div> 
-                                     </div>
-                               
-                                </div>
-                      
-                           
-                         
-                                            </div>
-                                        </div>
-                                   
-                                    <div class="tab-pane" id="address">
-                                        <div class="row">
-                <div class="col-md-8">                  
-                    <div class="" id="view-product-all-item">
-                        <div class="box-info-item">
-                        <div>
-                            <table width="100%">
-                                <tr>
-                                    <td valign="top" width="100px" style="padding: 5px 0;"> 
-                                        <span class="lng-product-name"></span><span>:</span>
-
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <span  id="name_product"></span>
-                                            <span>(</span>
-                                            <span class="lng-transports" style="color: #fb833f;" ></span><span>)</span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top" width="100px" style="padding: 5px 0;">
-                                       <span class="lng-car-type"></span><span>:</span>
-                                    </td>
-                                    <td >
-                                        <span style="color: #333;" id="cars_type"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top" width="100px" style="padding: 5px 0;">
-                                        <span class="lng-pick-up-from"></span><span>:</span>
-                                    </td>
-                                    <td>
-                                        <span style="color: #333;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top" width="100px" style="padding: 5px 0;">
-                                        <span class="lng-pick-up-to"></span><span>:</span>
-                                        
-                                    </td>
-                                    <td>
-                                    <span style="color: #333;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
-                                        
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top" width="100px" style="padding: 5px 0;">
-                                        <span id="date-final"></span>
-                                        
-                                    </td>
-                                    <td>
-                                        <span style="color: #333;" class="" id="ondate_samary"></span>
-                                        
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top" width="100px" style="padding: 5px 0;">
-                                       <span id="time-final"></span>
-                                    </td>
-                                    <td>
-                                         <span style="color: #333;" class="" id="ontime_samary"></span>
-                                    </td>
-                                </tr>
-                            </table>
-                            </div>
-                            <!-- <div >
-                                <div class="toppic">
-                                   
-                                    
-                                </div>
-
-                                <div class="toppic" >
-                                    
-                                    
-                                    
-                                </div>
-                                <div class="toppic" >
-                                    
-                                    
-                                </div>
-                                <div class="toppic" >
-                                </div>
-                                
-                               
-                                
-                                                 
-                                <div class="toppic">
-                                </div>
-                                <div class="toppic">
-                                    
-                                   
-                                </div> 
-                               
-                            </div> -->
-                            <div class="orderBoxdetail">
-                                <table width="100%">
-                                    <tr>
-                                       <td valign="top" width="100px" style="padding: 5px 0;">
-                                           
-                                                <span class="lng-first-name"></span><span>:</span>
-                                            
-                                            
-                                       </td>
-                                       <td>
-                                           <span id="summaryname"></span>
-                                       </td> 
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" width="100px" style="padding: 5px 0;">
-                                            
-                                                <span class="lng-phone"></span><span>:</span>
-                                           
-                                        </td>
-                                        <td>
-                                             <span id="summaryphone" ></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" width="100px" style="padding: 5px 0;">
-                                           
-                                                <span class="lng-email"></span><span >:</span>                                            
-                                          
-                                        </td>
-                                        <td>
-                                            <span  id="summaryemail"></span>
-                                        </td>
-                                    </tr>
-                                     <tr>
-                                        <td valign="top" width="100px" style="padding: 5px 0;">
-                                            
-                                                <span class="lng-flight"></span><span >:</span>
-                                               
-                                        </td>
-                                        <td>
-                                            <span id="textflight"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" width="100px" style="padding: 5px 0;">
-                                            
-                                                <span class="lng-other"></span><span >:</span>                                          
-                                           
-                                        </td>
-                                        <td>
-                                            <span id="summaryother"></span>
-                                        </td>
-                                    </tr>
-                                   
-                                </table>
-                                <!-- <div class="col-lg-6" style="padding: 0">
-                                    <div class="section06-detail-line02-firstname">             
-                                        <div class="firstname ">
-                                           <span class="lng-first-name"></span><span>:</span>
-                                            
-                                        </div>
-                                        
-                                    </div>
-                                   
-                                    <div class="section06-line02-phone">
-                                                 
-                                       
-                                    </div>                         
-                                    
-                                </div>
-                                <div class="col-lg-6" style="padding: 0">
-                                    
-                                    <div class="section06-line02-email">     
-                                                
-                                        
-                                    </div>
-                                  
-
-                                    <div class="section06-line02-email">     
-                                        <div class="email">
-                                           
-                                            </div>         
-                                        
-                                    </div>
-                                     <div class="section06-line02-email">     
-                                             
-                                        
-                                    </div>
-                                    
-                                </div> -->
-                            </div>
-                        </div>  
-                    </div> 
-                    
-                    
-                </div>
-                <div class="col-md-4" id="detail-price">
-                    <div class="box-list-summery">
-                       <div >
-                                <!-- <div class="topic_ens">
-                                    <span >Phuket Airport-Phuket Hotel All Area</span>
-                                </div> -->
-                                <div  >
-                                    <div id="book-info">
-                                       <span class="lng-car"></span><span>:</span>
-                                       
-                                    </div>
-                                    <span style="color: #fb833f;" id="carsummary"></span><span></span>
-                                    <span style="color: #fb833f;float:right;" id="costsummary"></span>
-                                </div>
-                               <div >
-                                    <div id="book-info">
-                                        <span class="lng-price"></span><span>/</span><span class="lng-car"></span><span>:</span>
-                                        
-                                    </div>
-                                    
-                                    <span style="color: #fb833f;float:right;" id="costproduct"></span>
-                                </div>
-                                
-                               
-                               <div >
-                                    <div id="book-info">
-                                        <span class="lng-adult"></span><span >:</span>
-                                       
-                                    </div>
-                                    <span style="color: #fb833f;" id="adultsummary"></span>
-                                    <span style="color: #fb833f;float:right;">-</span>
-                                </div>
-                                <div >
-                                    <div id="book-info">
-                                        <span class="lng-child"></span><span >:</span>
-                                        
-                                    </div>
-                                        <span style="color: #fb833f;" id="childsummary"></span>
-
-                                        
-                                        <span style="color: #fb833f;float:right;">-</span>                                    
-                                </div>
-                                
-                            </div>
-                                <div class="summtotal">
-                                
-                                   <span style="color: #000000"><span class="lng-sum-total"></span><span>:</span></span>
-                                    
-                               
-                                <span style="color: #fb833f;float: right;" id="totalprice"></span> 
-                            </div> 
-                        <div class="box-book-pay"> 
-                            <div class="btn-books" >
-                               <span class="lng-book"></span>
-                               
-                            </div>
-                         
-                          <p class="ng-binding"></p>
-                        </div>
 <style>
 .moving-tab:after{
     /*border-bottom: 11px solid #FFFFFF;
@@ -1296,262 +1207,7 @@
     right: 229px !important;
 }
 }
-
-
-
-/*.btn-books {
-    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
-    background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);
-    border: 1px solid #E68E00;
-    text-align: center;
-    
-    color: #FFF;
-    display: inline-block;
-    padding: 7px 54px;
-    border-radius: 3px;
-    font-weight: 600;
-    font-size: 15px;
-    margin-left: 11%;
-    margin-top: 50px;
-    cursor: pointer;
-    width: 80%;
-    margin-bottom: 25px;
-}*/
-                        </style>
-                    </div>
-                </div>
-                <div class="col-lg-12" >
-                     
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
-                                                <span class="lng-acceptance-of-terms"></span>
-                                            </label>
-                                        </div>
-                                    
-                       <!--  <div class="box-fig">
-                            <input type="checkbox" name="chickenEgg" value="checked" ng-model="state" ng-click="Acceptance($event,state)" class="ng-pristine ng-untouched ng-valid">&nbsp;&nbsp;
-                                                 
-                        </div> -->
-                    </div>
-            </div>
-                                    </div>
-                                </div>
-                                <div class="wizard-footer">
-                                    <div class="pull-right">
-                                        <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' id="next" style="padding: 12px 43px;" />
-                                        <input type='button' class='btn btn-fill btn-warning btn-wd' id="addbook" value='Book' style="display: none;padding: 12px 42px; " />
-                                    </div>
-
-                                    <div class="pull-left">
-                                          <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous'  value='Previous' id="previous" style="" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- wizard container -->
-                </div>
-                <!-- <div class="col-sm-4">
-                   <div class="wizard-container">
-                        
-                        </div>
-                </div> -->
-            </div><!-- end row -->
-      
-      <!--   </div> -->
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="modal fade" id="capacityss" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <!-- <h4 class="modal-title">Gallery</h4> -->
-                            </div>
-                            
-                            <div class="modal-body">                                    
-                                <div id="getcapa"></div>
-                                <div id="getcapa2"></div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                  <div class="modal fade" id="codecountry" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content" style="    max-height: 640px;
-    overflow: hidden;
-    overflow-y: scroll;">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <!-- <h4 class="modal-title">Gallery</h4> -->
-                            </div>
-                            
-                            <div class="modal-body" style="padding: 0">                                    
-                                <div class="box-country">
-                                    <ul id="select-name">                                                                     
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <style>
-                    #getcapa{
-                        background-color: #ddd;
-                        height: 35px;
-                    }
-                    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-                        border-top: none;
-                    }
-                    #table1{
-                        margin-top: 10px !important;
-                    }
-
-                </style>
-                <div class="modal fade" id="login">
-                    <div class="modal-dialog col-md-8">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <!-- <h4 class="modal-title" >Logout</h4> -->
-                            </div>
-                            <div class="modal-body">
-                               <div class="row">
-                        <div class="">
-                            <form >
-                                
-                                    <div class="card-header text-center" data-background-color="green">
-                                        <h4 class="card-title">Login</h4>
-                                        <!-- <div class="social-line">
-                                            <a href="#btn" class="btn btn-just-icon btn-simple" style="">
-                                                <i class="fa fa-facebook-square"></i>
-                                            </a>
-                                            <a href="#pablo" class="btn btn-just-icon btn-simple">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#eugen" class="btn btn-just-icon btn-simple">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </div> -->
-                                    </div>
-                                    
-                                    <div align="text-center">
-                                        <p id="message" style="text-align: center;"></p>
-                                    </div>
-                                    <div class="card-content col-sm-8 col-sm-offset-2" >
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">face</i>
-                                            </span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Email or Phone</label>
-                                                <input type="text" class="form-control" ng-model="username" style="">
-                                            </div>
-                                        </div>
-                                        <!-- <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">email</i>
-                                            </span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Email address</label>
-                                                <input type="email" class="form-control">
-                                            </div>
-                                        </div> -->
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">lock_outline</i>
-                                            </span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Password</label>
-                                                <input type="password" class="form-control" ng-model="password" style="    ">
-                                            </div>
-                                        </div>
-                                        <div class="footer text-center">
-                                        <button type="submit" class="btn btn-rose btn-simple btn-wd btn-lg" ng-click="login()">Login</button>
-                                    </div>
-                                    </div>
-                                    
-                                
-                            </form>
-                        </div>
-                    </div>
-                            </div>
-                            <!-- <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="logout()">Yes</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-    <!-- <footer class="footer footer-white" >
-        <div class="container">
-            
-
-            <ul class="pull-left">
-                <li>
-                    <a href="http://www.creative-tim.com/" target="_blank">
-                        Contacts
-                    </a>
-                </li>
-                <li>
-                    <a href="http://presentation.creative-tim.com/" target="_blank">
-                       About Us
-                    </a>
-                </li>
-               
-            </ul>
-
-            <ul class="social-buttons pull-right">
-                <li>
-                    <a href="https://twitter.com/" target="_blank" class="btn btn-just-icon btn-simple btn-twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/" target="_blank" class="btn btn-just-icon btn-simple btn-dribbble">
-                        <i class="fa fa-dribbble"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/" target="_blank" class="btn btn-just-icon btn-simple btn-instagram">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </footer> -->
-    </div>
-
-    <!--     *********    END PRICING 5      *********      -->
-</body>
+</style>
     <!--   Core JS Files   -->
     <!-- <script src="https://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script> -->
     <script src="<?php echo base_url(); ?>files/js/jquery.min.js" type="text/javascript"></script>
@@ -1615,10 +1271,10 @@
     overflow: hidden;
 }
 .main-raised {
-    margin: -60px 30px 0;
+    margin: 0px 0 0;
     border-radius: 6px;
     box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 #imgcountry{
     width: 25px;
@@ -1704,6 +1360,161 @@
                 }
 
 </style>
+<style >
+.notification {
+    position: absolute;
+    top: 2px;
+    border: 1px solid #FFF;
+        left: 22px;
+    font-size: 9px;
+    background: #f44336;
+    color: #FFFFFF;
+    min-width: 20px;
+    padding: 0px 5px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 19px;
+    vertical-align: middle;
+    display: block;
+}
+.dropdown-menu.dropdown-with-icons li>a:hover {
+    /*padding: 12px 20px 12px 12px;*/
+    background: #F44336 !important;
+}
+.dropdown-menu:after, .dropdown-menu-container:after {
+    border-bottom: 11px solid #FFFFFF;
+    border-left: 11px solid rgba(0,0,0,0);
+    border-right: 11px solid rgba(0,0,0,0);
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    top: -10px;
+}
+.navbar-right{
+    /* background: #000; */
+}
+.textmenu{
+    margin-left: 10px;
+}
+.imgmem-log{
+    
+}
+.imgmemu{
+    width: 35px;  
+    height: 35px; 
+    border-radius: 50px;  
+}
+.user {
+    background: #07c284;
+    text-align: center;
+    padding-bottom: 20px;
+    /* margin: 25px auto 0; */
+    position: relative;
+    height: 160px;
+    display:none;
+}
+.user .photo {
+    width: 100%;
+    /* height: 110px; */
+    overflow: hidden;
+    border-radius: 4px;
+    /* margin: 0 auto; */
+    /* margin-top: 50px; */
+    /* box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); */
+}
+.user .photo img {
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    border-radius: 50px;                       
+}
+#sectionsNav{
+        /* position: absolute; */
+    /* background: rgba(255, 255, 255, 0) !important; */
+    /* margin: auto; */
+    z-index: 20;
+    /* width: 100%; */
+    padding-bottom: 0;
+    padding-top: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    /* background: #07c284; */
+    border-radius: 0 !important;
+}
+.loading-in{
+    height: 115px;
+    border-radius: 4px;
+    background: #fff;
+    min-width: 15rem;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 10;
+}
+.loading-ld{
+    font-weight: 500;
+    color: #000;
+    padding: 35px;
+    text-align: center;
+}
+#loading{
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.59);
+    display: nones;
+}
+#usernamess{
+    display: inline-block;
+    text-transform: initial;
+}
+.notification {
+                    
+    position: absolute;
+    top: 2px;
+    border: 1px solid #FFF;
+        left: 22px;
+    font-size: 9px;
+    background: #f44336;
+    color: #FFFFFF;
+    min-width: 20px;
+    padding: 0px 5px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 19px;
+    vertical-align: middle;
+    display: block;
+}
+.dropdown-menu.dropdown-with-icons li>a:hover {
+    /*padding: 12px 20px 12px 12px;*/
+    background: #F44336 !important;
+}
+.dropdown-menu:after, .dropdown-menu-container:after {
+    border-bottom: 11px solid #FFFFFF;
+    border-left: 11px solid rgba(0,0,0,0);
+    border-right: 11px solid rgba(0,0,0,0);
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    top: -10px;
+}
+
+@media screen and (max-width: 767px){
+    .user {
+        
+        display:block;
+    }
+}
+                    </style>
 
 </html>
 
