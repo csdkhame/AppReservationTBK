@@ -106,7 +106,7 @@ $( document ).ready(function() {
                             </table>
      						</div>
 							<?php } ?>
-	
+			<div>
 				<div class="fixed-table-pagination">
 				   <div class="pull-left pagination-detail" style="margin: 10px;" >
 				      <span class="pagination-info"></span>
@@ -136,7 +136,7 @@ $( document ).ready(function() {
 				   ?>
 				   <div class="pull-right pagination">
 				      <ul class="pagination pagination-info">
-				         <li class="page-first <?=$disabled_frist;?>"><a href="<?php echo base_url(); ?>dashboard/view_user?num=<?=$num_rec;?>&start=0&page=<?=$frist_page;?>">«</a></li>
+				         <!--<li class="page-first <?=$disabled_frist;?>"><a href="<?php echo base_url(); ?>dashboard/view_user?num=<?=$num_rec;?>&start=0&page=<?=$frist_page;?>">«</a></li>-->
 				         <li class="page-pre <?=$disabled_frist;?>"><a href="javascript:void(0)">‹</a></li>
 		
 				         <?php 
@@ -157,11 +157,11 @@ $( document ).ready(function() {
 				       </script> 
 				      <?   } ?>
 				         <li class="page-next <?=$disabled_last;?>"><a id="next_page" href="<?php echo base_url(); ?>dashboard/view_user?num=<?=$num_rec;?>&start=<?=$start_get*$page_get;?>&page=<?=$page_get+1;?>">›</a></li>
-				         <li class="page-last <?=$disabled_last;?>"><a href="<?php echo base_url(); ?>dashboard/view_user?num=<?=$num_rec;?>&start=<?=$start_get;?>&page=<?=$page;?>">»</a></li>
+				        <!-- <li class="page-last <?=$disabled_last;?>"><a href="<?php echo base_url(); ?>dashboard/view_user?num=<?=$num_rec;?>&start=<?=$start_get;?>&page=<?=$page;?>">»</a></li>-->
 				      </ul>
 				   </div>
 				</div>
-
+</div>
 
                         </div><!--  end card  -->
                     </div> <!-- end col-md-12 -->
@@ -195,7 +195,97 @@ $( document ).ready(function() {
     background: -moz-linear-gradient(bottom right, red, yellow);
     background: linear-gradient(to bottom right, rgb(255, 255, 255), rgba(72, 240, 255, 0.68));
 }
+.box-menu-select {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    background: #fff;
+    /* height: 90px; */
+}
 </style>
+
+
+<div class="navbar navbar-default  navbar-transparent navbar-fixed-bottom navbar-color-on-scroll" style="border-top: 1px solid #C8E1F5 !important;color: #555 !important;">
+    <table width="100%">
+        <tr>
+        <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-home" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <i class="material-icons" id="iconhome" style="font-size: 35px;">home</i> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+        
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-realtime" >
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 35px;">room</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </div>
+            </td>
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-reservation" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 35px;" style="">search</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="25%" >
+            <div class="btn-management" style="    color: #07c284;" >
+  
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <i class="material-icons" style="font-size: 35px;">dvr</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <span class="lng-management" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
+                        </td>
+                    </tr>
+                </table>
+               
+            </div> 
+        </td>
+            
+        </tr>
+    </table>    
+ </div> 
+
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i;
