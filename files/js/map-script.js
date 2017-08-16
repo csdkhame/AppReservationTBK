@@ -81,7 +81,7 @@ function initialize() {
         mapTypeId: 'roadmap',
         //          gestureHandling: 'coopergreedyative'
         gestureHandling: 'greedy',
-        streetViewControl: true,
+        streetViewControl: false,
         fullscreenControl: false,
         styles: [{
                 "featureType": "administrative",
