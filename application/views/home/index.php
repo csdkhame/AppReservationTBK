@@ -114,7 +114,7 @@
                 <table width="100%">
                         <tr>
                             <td align="center">
-                            <i class="material-icons" id="iconhome" style="font-size: 35px;">home</i> 
+                            <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i> 
                             </td>
                         </tr>
                         <tr>
@@ -133,7 +133,7 @@
                     <table width="100%">
                         <tr>
                             <td align="center">
-                                <i class="material-icons" style="font-size: 35px;">room</i>
+                                <i class="material-icons" style="font-size: 30px;">room</i>
                             </td>
                         </tr>
                         <tr>
@@ -150,7 +150,7 @@
                 <table width="100%">
                         <tr>
                             <td align="center">
-                                <i class="material-icons" style="font-size: 35px;" style="">search</i>
+                                <i class="material-icons" style="font-size: 30px;" style="">search</i>
                             </td>
                         </tr>
                         <tr>
@@ -171,7 +171,7 @@
                 <table width="100%">
                     <tr>
                         <td align="center">
-                            <i class="material-icons" style="font-size: 35px;">dvr</i>
+                            <i class="material-icons" style="font-size: 30px;">dvr</i>
                         </td>
                     </tr>
                     <tr>
