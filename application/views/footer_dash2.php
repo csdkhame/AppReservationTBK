@@ -303,7 +303,7 @@
 }
  </style>
 
-                <style>
+<style>
                     #getcapa{
                         background-color: #ddd;
                         height: 35px;

@@ -15,6 +15,7 @@ $('#open_map').click(function() {
 
 });
 
+
 $('#btn-other').click(function() {
 
     $('#btn-other').addClass('blinks');

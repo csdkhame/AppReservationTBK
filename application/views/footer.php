@@ -59,6 +59,17 @@
 
 	</script>
 	<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
+	<script>
+		var paramURL = $('#paramUrl').val();
+console.log("::::"+paramURL);
+if(paramURL=="realtime"){
+	$('.btn-realtime').click();
+	console.log("::::1");
+}else if(paramURL=="reservation"){
+	$('.btn-reservation').click();
+	console.log("::::2");
+}
+	</script>
 <style>
 
 .index-page .header-filter:after, .presentation-page .header-filter:after {

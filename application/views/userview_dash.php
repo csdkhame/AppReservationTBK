@@ -210,11 +210,11 @@ $( document ).ready(function() {
     <table width="100%">
         <tr>
         <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-home" >
+                <div class="btn-home" id="gohome" >
                 <table width="100%">
                         <tr>
                             <td align="center">
-                            <i class="material-icons" id="iconhome" style="font-size: 35px;">home</i> 
+                            <i class="material-icons"  style="font-size: 35px;">home</i> 
                             </td>
                         </tr>
                         <tr>
@@ -229,7 +229,7 @@ $( document ).ready(function() {
             </td>
         
             <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-realtime" >
+                <div class="btn-realtime" id="goto_realtime" >
                     <table width="100%">
                         <tr>
                             <td align="center">
@@ -246,7 +246,7 @@ $( document ).ready(function() {
                 </div>
             </td>
             <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-reservation" >
+                <div class="btn-reservation" id="goto_reservation" >
                 <table width="100%">
                         <tr>
                             <td align="center">
@@ -264,7 +264,7 @@ $( document ).ready(function() {
                 </div>
             </td>
             <td width="25%" >
-            <div class="btn-management" style="    color: #07c284;" >
+            <div class="btn-management" id="goto_management" style="    color: #07c284;" >
   
                 <table width="100%">
                     <tr>
@@ -359,6 +359,21 @@ function myFunction() {
 
 </script>
 
+
+<script>
+	$('#gohome').click(function(){
+		location.href = base_url;
+	});
+	$('#goto_realtime').click(function(){
+		location.href = base_url+"?action=realtime";
+	});
+	$('#goto_reservation').click(function(){
+		location.href = base_url+"?action=reservation";
+	});
+	$('#goto_management').click(function(){
+		location.href = base_url+"dashboard/view_user?num=5&start=0&page=1";
+	});
+</script>
 
 <!--<script>
 	var $table = $('.table');
