@@ -2277,10 +2277,10 @@ fieldset[disabled] .form-group.is-focused .checkbox label {
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 1px solid rgba(0, 0, 0, .54);
+    border: 1px solid rgb(0, 150, 136);
     overflow: hidden;
     z-index: 1;
-    border-radius: 3px;
+    border-radius: 0px;
 }
 
 .checkbox .checkbox-material .check:before {
@@ -2302,7 +2302,7 @@ fieldset[disabled] .form-group.is-focused .checkbox label {
 }
 
 .checkbox input[type=checkbox]:checked+.checkbox-material .check {
-    background: #9c27b0;
+    background: #009688;
 }
 
 .checkbox input[type=checkbox]:checked+.checkbox-material .check:before {

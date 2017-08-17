@@ -245,7 +245,7 @@
 }
 .loading-in{
     height: 115px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     background: #fff;
     min-width: 15rem;
     /* height: auto; */
