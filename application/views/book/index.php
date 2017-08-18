@@ -22,17 +22,21 @@
     
     <?php echo link_tag('files/assets/css/material-bootstrap-wizard.css'); ?>
     <?php echo link_tag('files/css/normalize.css'); ?>
+    <?php echo link_tag('files/css/classic.css'); ?>
+    <?php echo link_tag('files/css/classic.date.css'); ?>
+    <?php //echo link_tag('files/css/jquery.mobile.datepicker.css'); ?>
     <?php// echo link_tag('files/css/load.css'); ?>
      
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <?php echo link_tag('files/assets/css/demo.css'); ?>
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/git/jquery.mobile-git.css" /> -->
+    
     <!-- CSS Files -->
     
 
@@ -110,12 +114,12 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
-                                <li>
+                                <!-- <li>
                                     <a href="" >
                                     <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
                     
                                     </a>
-                                </li>
+                                </li> -->
                                 
                                 <li id="btn-logout-user">
                                     <a>
@@ -259,13 +263,36 @@
                                                 </td>
                                                 <td >
                                                     <div class='input-group '  style="width: 100%">
-                                                        <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy">
+                                                    <!-- <input type="text"> -->
+                <input id="on_date"   class="datepicker asd"  name="date" type="text"
+                      >  
+                      <!-- autofocuss -->
+                 <!-- <input type="text"> -->
+                                                    <!-- <input type="text" data-role="date" id="on_date" class="form-control asd date-input-css"> -->
+                                                        <!-- <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy"> -->
                                                     </div>
                                                                     <style>
                                                                         input::-webkit-clear-button {
                                                                         display: none;
                                                                         }
+                                                                        .picker__footer{
+                                                                            display:none;
+                                                                        }
+                                                                        
                                                                     </style>
+                                                                    <script >
+                                                                       
+                                                                        // $('.datepicker').pickadate({
+                                                                        //     formatSubmit: 'yyyy/mm/dd',
+                                                                        //     // min: [2015, 7, 14],
+                                                                        //     container: '#container',
+                                                                        //     // editable: true,
+                                                                        //     closeOnSelect: false,
+                                                                        //     closeOnClear: false,
+
+                                                                        // });
+
+                                                                    </script>
                                                 </td>
                                             </tr>
                                         </table>
@@ -1211,8 +1238,15 @@
     <!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js?v=<?=time()?>"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.js?v=<?=time()?>"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.date.js?v=<?=time()?>"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/legacy.js?v=<?=time()?>"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js?v=<?=time()?>"></script> 
+    
+    <!-- <script src="https://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>  -->
+    
+    <!-- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.mobile.datepicker.js?v=<?=time()?>"></script>  -->
    
     <!-- <script src="<?php echo base_url(); ?>files/js/modernizr-2.6.2.min.js"></script> -->
   

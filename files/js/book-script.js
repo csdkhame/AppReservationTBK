@@ -31,6 +31,8 @@ $(document).ready(function() {
         checksumperson = 0,
         place_name, toplace_name, adress, adress_to, terminal, car_model,
         service, code, visa, guestcountry, datauser;
+
+
     $('#sumnum').html(parseInt(sum_adult_child));
 
 
@@ -142,6 +144,22 @@ $(document).ready(function() {
             // the checkbox is now no longer checked
         }
     })
+    $('#on_date').each(function() {
+        //alert("qwqwqwq")
+        var val = $(this).val();
+        date = moment(val).toDate();
+    });
+    $('#on_date').pickadate({
+        format: 'yyyy-mm-dd',
+        formatSubmit: 'yyyy/mm/dd',
+        closeOnSelect: false,
+        closeOnClear: false,
+        "showButtonPanel": false,
+        onStart: function() {
+            this.set('select', date); // Set to current date on load
+        }
+    });
+
     $('#acceptanceuser').change(function() {
         if (this.checked) {
             console.log('in case user')

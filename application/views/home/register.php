@@ -214,10 +214,11 @@
     margin-top: 2px;
     padding: 5px 10px;"><span class="lng-check"></span></button>
                             <div class="form-group label-floating is-empty">
-                                <label class="control-label"> <span class="lng-email"></span> <span class="lng-or"></span> <span class="lng-phone"></span>
+                                <label class="control-label"> <span class="lng-email"></span> 
+                                <!-- <span class="lng-or"></span> <span class="lng-phone"></span> -->
                                     <!-- <small>(required)</small> -->
                                 </label>
-                                <input name="firstname" type="text" class="form-control" id="username-signup">
+                                <input name="firstname" required="True" type="email" class="form-control" id="username-signup">
                             <span class="material-input"></span></div>
                         </div>
                         <div class="input-group">
@@ -269,9 +270,10 @@
                                        
                                         <div class="form-group label-floating">
                                             <label class="control-label"><span class="lng-email"> </span>
-                                            <span class="lng-or"></span>
-                                            <span class="lng-phone"></span></label>
-                                            <input type="text" class="form-control" id="username" size="80">
+                                            <!-- <span class="lng-or"></span>
+                                            <span class="lng-phone"></span> -->
+                                        </label>
+                                            <input  required="True" type="email"  class="form-control" id="username" size="80">
                                         </div>
                                         
                                     </div>                                       
