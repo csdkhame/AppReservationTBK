@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -530,7 +529,7 @@
                                 
                         <div class="row">
                             <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;">
-                                    <span class="lng-contact-infomation"></span>
+                                <span class="lng-contact-infomation"></span>
                             </div>
                             <div class="card">
                                 <div class="col-md-12 ">
@@ -543,8 +542,7 @@
                                                 </label>
                                             </div>
                                         </div>    
-                                        <div class="col-md-6">
-                                            
+                                        <div class="col-md-6">                                            
                                                 <div class="form-group form-inline required ">
                                                                            
                                                     <select class="textInput" name="guestcountry" id="guestcountry" class="" style="  ">
@@ -589,10 +587,7 @@
                                                
                                             </div>
                                             <div class="form-group form-inline">
-                                              
-                                                    <input type="text" class="textInput" placeholder="Other" id="other" >
-                                                                            
-                                                
+                                                <input type="text" class="textInput" placeholder="Other" id="other" >
                                             </div>            
                                         </div> 
                                     </div>     
