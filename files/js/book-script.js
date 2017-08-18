@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     var area, namecountry, datacountry, program_name, num_cars = 1,
         selectcar = 1,
-        num_adult = 0,
+        num_adult = 1,
         num_child = 0,
         ondate,
         ontime, time_h = '00',
@@ -27,11 +27,11 @@ $(document).ready(function() {
         total_child = 0,
         total_price = 0,
         person = 0,
-        sum_adult_child = 0,
+        sum_adult_child = num_adult + num_child,
         checksumperson = 0,
         place_name, toplace_name, adress, adress_to, terminal, car_model,
         service, code, visa, guestcountry, datauser;
-
+    $('#sumnum').html(parseInt(sum_adult_child));
 
 
     // if ($.cookie("login")) {
@@ -674,6 +674,7 @@ $(document).ready(function() {
                 //costdotcars = parseInt(costproduct)*(parseInt(sum_adult_child));
 
         } else {
+            $('#sumnum').html(parseInt(sum_adult_child));
             $('#totalprice').html(total_price + ' ' + '฿')
             $('#selectcar').html(selectcar)
             $('#checksum').html(checksumperson)
@@ -708,6 +709,7 @@ $(document).ready(function() {
 
 
         } else {
+            $('#sumnum').html(parseInt(sum_adult_child));
             $('#selectcar').html(selectcar)
             $('#checksum').html(checksumperson)
             $('#numsumprice').html(parseInt(costproduct) * parseInt(selectcar) + ' ' + '฿')

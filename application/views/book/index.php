@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
     
     <?php echo link_tag('files/assets/css/material-bootstrap-wizard.css'); ?>
     <?php echo link_tag('files/css/normalize.css'); ?>
-    <?php echo link_tag('files/css/load.css'); ?>
+    <?php// echo link_tag('files/css/load.css'); ?>
      
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -42,6 +43,29 @@
 </head>
 
 <body class="presentation-page">
+<?php 
+   
+    if(!$_COOKIE['lng']){
+
+       // echo  $_COOKIE['lng'].'unde';
+        $lng_your_country = 'Guest name of your country';
+    }
+    else if($_COOKIE['lng'] == 'en'){
+        //echo 'en';
+        $lng_your_country = 'Guest name of your country';
+        
+    }
+    else if($_COOKIE['lng'] == 'th'){
+        //echo 'th';
+        $lng_your_country = 'Guest name of your country';
+        
+    }
+    else if($_COOKIE['lng'] == 'cn'){
+       // echo 'cn';
+       $lng_your_country =" Guest name of your country";
+       
+    }
+?>
     <div id="loading" style="z-index: 9999;  position: fixed;  width: 100vw;   height: 100vh;   left: 0;    top: 0;   background: rgba(0, 0, 0, 0.59);    display: nones;">
         <div style="height: 115px;  border-radius: 4px;  background: #fff;  min-width: 15rem;   /* height: auto; */    left: 50vw;   top: 50vh;   transform: translate(-50%,-50%);   position: fixed;    z-index: 10000;">
             <div>
@@ -56,7 +80,7 @@
         <nav class=" navbar" id="sectionsNav" >
             <div class="container" style="margin-bottom: 0 ">        
                 <div class="navbar-header">
-                    <div class="" style="    padding: 9px 10px;  margin-top: 8px;  margin-left: 15px;  margin-bottom: 8px;    font-size: 25px;   display: inline-block;">
+                    <div class="" style="    padding: 9px 10px;   margin-left: 15px;     font-size: 25px;   display: inline-block;">
                         <div class="box-login-non">
                             <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
                             <span style="  margin-left: 30px;  font-size: 14px;" class="lng-login"></span>
@@ -177,719 +201,619 @@
                 </div>    
             </div>
         </nav>
-        <div class="container-fluid">
-       <div class="row">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 " style="padding: 0">
-                    <!--      Wizard container        -->
-                    <div class="wizard-container" style=" margin-top: 12px;">
-                        <div class="card wizard-card" data-color="orange" id="wizardProfile">
-                            <form >
-                                <!--You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-                                <div class="wizard-header">
-                                    <h5 class="lng-booking-infomation"></h5>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="container">
+                        <div class="row">
+                            <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;"> 
+                                <div class="lng-booking-infomation"></div>
+                            </div>
+                            <div class="card">                               
+                                <div class="col-md-4">
+                                    <div id="images-icon"></div>
                                 </div>
-                                <div class="wizard-navigation">
-                                    <ul>
-                                        <li><a href="#about" data-toggle="tab"></a><span class="lng-product"></span></li>
-                                        <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> <!-- <li><a href="#account" data-toggle="tab" ></a><span class="lng-contact-infomation"></span></li> -->
-                                        <li><a href="#address" data-toggle="tab" ></a><span class="lng-summary"></span></li>
-                                    </ul>
-                                </div>
-                                <div class="tab-content">
-                                    <div class="tab-pane" id="about">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div id="images-icon"></div>
-                                            </div>
-                                            <div class="col-md-7 " id="box-detail-price" >        
-                                                <div class="box-program">
-                                                    <span id="placefrom" style="text-align: center;"></span>
-                                                    <span> - </span>
-                                                    <span id="placeto" style="text-align: center;"></span>
-                                                </div>
-                                                <div class="box-name">
-                                                    <p>
-                                                        <label style="text-align:left" ><span class="lng-product"></span></span><span>:</span></label>   &nbsp;&nbsp;
-                                                        <span id="product" style="text-align: center;"></span>
-                                                    </p>
-                                                </div>                           
-                                                <div class="province">
-                                                    <p style="">
-                                                        <label style="text-align:left" ><span class="lng-from"></span><span>:</span></label>
-                                                            &nbsp;&nbsp;
-                                                        <span id="province" style="color: #000;"></span>
-                                                    </p>
-                                                    <p style="">
-                                                        <label style="text-align:left" ><span class="lng-to"></span><span>:</span></label>&nbsp;&nbsp;
-                                                        <span id="province_to" style="    color: #000;"></span>
-                                                    </p>
-                                                </div>
-                                                <p style="">
-                                                    <label style="text-align:left" ><span class="lng-type"></span><span>:</span></label>&nbsp;&nbsp;
-                                                    <span ng-if="flagcheck == 1" id="cars_persion" style="color: #000;"></span>
-                                                </p>
-                                                <p class="prices">
-                                                    <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>&nbsp;&nbsp;
-                                                    <span style="color: #fb833f;" id="price"></span>
-                                                </p>
-                                                <p class="sumprice">
-                                                    <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>                                                           
-                                                    &nbsp; &nbsp;
-                                                    <span id="numsumprice"></span>
-                                                </p>
-                                                <div class="box-list-cars" >
-                                                    <span class="lng-you-choose"></span> 
-                                                    <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>)</span> <span class="lng-car"></span>
-                                                    <span style="color:#000" class="ng-binding">1- <span id="checksum"></span><span class="lng-person"></span> </span>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group form-inline">
-                                                            <table width="100%">
-                                                                <tr>
-                                                                    <td >
-                                                                        <label style="text-align:left" id="datetext"></label>   
-                                                                    </td>
-                                                                    <td >
-                                                                        <div class='input-group '  style="width: 100%">
-                                                                            <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy">
-                                                                        </div>
-                                                                        <style>
-                                                                            input::-webkit-clear-button {
-                                                                                display: none;
-                                                                            }
-                                                                        </style>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                            
-                                                </div>
-                                                <div class="show-time">
-                                                    <div class="form-group form-inline">
-                                                        <table width="100%">
-                                                            <tr>
-                                                                <td width="">
-                                                                    <label style="text-align:left" id="texttime"></label>   
-                                                                    
-                                                                </td>
-                                                                <td>
-                                                                    <table width="100%">
-                                                                        <tr>
-                                                                            <td width="49%" align="center">
-                                                                                <select class="form-control form-inline time_h asd" style="width: 100%;padding: 0 30px;" id="time_h" name="time_h">
-                                                                                    <option value="00">00</option>
-                                                                                    <option value="01">01</option>
-                                                                                    <option value="02">02</option>
-                                                                                    <option value="03">03</option>
-                                                                                    <option value="04">04</option>
-                                                                                    <option value="05">05</option>
-                                                                                    <option value="06">06</option>
-                                                                                    <option value="07">07</option>
-                                                                                    <option value="08">08</option>
-                                                                                    <option value="09">09</option>
-                                                                                    <option value="10">10</option>
-                                                                                    <option value="11">11</option>
-                                                                                    <option value="12">12</option>
-                                                                                    <option value="13">13</option>
-                                                                                    <option value="14">14</option>
-                                                                                    <option value="15">15</option>
-                                                                                    <option value="16">16</option>
-                                                                                    <option value="17">17</option>
-                                                                                    <option value="18">18</option>
-                                                                                    <option value="19">19</option>
-                                                                                    <option value="20">20</option>
-                                                                                    <option value="21">21</option>
-                                                                                    <option value="23">23</option>
-
-                                                                                </select>
-                                                                            </td>
-                                                                            <td width="2%" align="center">
-                                                                                <span>:</span>
-                                                                            </td>
-                                                                            <td width="49%" align="center">
-                                                                                <select class="form-control form-inline time_m asd" style="width: 100%;padding: 0 30px;" id="time_m" name="time_m" required>
-                                                                                    <option value="00" selected="selected">00</option>
-                                                                                    <option value="01">01</option>
-                                                                                    <option value="02">02</option>
-                                                                                    <option value="03">03</option>
-                                                                                    <option value="04">04</option>
-                                                                                    <option value="05">05</option>
-                                                                                    <option value="06">06</option>
-                                                                                    <option value="07">07</option>
-                                                                                    <option value="08">08</option>
-                                                                                    <option value="09">09</option>
-                                                                                    <option value="10">10</option>
-                                                                                    <option value="11">11</option>
-                                                                                    <option value="12">12</option>
-                                                                                    <option value="13">13</option>
-                                                                                    <option value="14">14</option>
-                                                                                    <option value="15">15</option>
-                                                                                    <option value="16">16</option>
-                                                                                    <option value="17">17</option>
-                                                                                    <option value="18">18</option>
-                                                                                    <option value="19">19</option>
-                                                                                    <option value="20">20</option>
-                                                                                    <option value="21">21</option>
-                                                                                    <option value="23">23</option>
-                                                                                    <option value="24">24</option>
-                                                                                    <option value="25">25</option>
-                                                                                    <option value="26">26</option>
-                                                                                    <option value="27">27</option>
-                                                                                    <option value="28">28</option>
-                                                                                    <option value="29">29</option>
-                                                                                    <option value="30">30</option>
-                                                                                    <option value="31">31</option>
-                                                                                    <option value="32">32</option>
-                                                                                    <option value="33">33</option>
-                                                                                    <option value="34">34</option>
-                                                                                    <option value="35">35</option>
-                                                                                    <option value="36">36</option>
-                                                                                    <option value="37">37</option>
-                                                                                    <option value="38">38</option>
-                                                                                    <option value="39">39</option>
-                                                                                    <option value="40">40</option>
-                                                                                    <option value="41">41</option>
-                                                                                    <option value="42">42</option>
-                                                                                    <option value="43">43</option>
-                                                                                    <option value="44">44</option>
-                                                                                    <option value="45">45</option>
-                                                                                    <option value="46">46</option>
-                                                                                    <option value="47">47</option>
-                                                                                    <option value="48">48</option>
-                                                                                    <option value="49">49</option>
-                                                                                    <option value="50">50</option>
-                                                                                    <option value="51">51</option>
-                                                                                    <option value="52">52</option>
-                                                                                    <option value="53">53</option>
-                                                                                    <option value="54">54</option>
-                                                                                    <option value="55">55</option>
-                                                                                    <option value="56">56</option>
-                                                                                    <option value="57">57</option>
-                                                                                    <option value="58">58</option>
-                                                                                    <option value="59">59</option>
-
-                                                                                </select>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                        <div class="row">
-                                                            <div class="form-person form-group col-md-12" id="car-show">
-                                                                <table width="100%">
-                                                                    <tr>
-                                                                        <td width="20%"  style="padding-right: 10px;">
-                                                                            <label style="text-align:left" ><span class="lng-car"></span><span>:</span></label>
-                                                                        </td>
-                                                                        <td width="80%">
-                                                                            <table width="100%">
-                                                                                <tr >
-                                                                                    <td align="center">
-                                                                                    <select class="form-control form-inline asd" id="num_cars"  name="num_cars" style="width: 100%" required>
-                                                                                                
-                                                                                    <option value="1">1</option>            
-                                                                                    <option value="2">2</option>            
-                                                                                    <option value="3">3</option>            
-                                                                                    <option value="4">4</option>            
-                                                                                    <option value="5">5</option>            
-                                                                                    <option value="6">6</option>            
-                                                                                    </select>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>                
-                                                <div class="row">
-                                                    <div class="form-person form-group fo col-md-12" style="">
-                                                        <table width="100%">
-                                                            <tr>
-                                                                <td>
-                                                                    <div style="margin-right: 10px;">
-                                                                        <table width="100%">
-                                                                            <tr>
-                                                                                <td width="40%">
-                                                                                    <label style="text-align:left" ><span class="lng-adult"></span><span>:</span></label>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <select class="form-control asd" id="num_adult" name="num_adult"  style="" required>
-                                                                                        <option value="1">1</option>
-                                                                                        <option value="2">2</option>
-                                                                                        <option value="3">3</option>
-                                                                                        <option value="4">4</option>
-                                                                                        <option value="5">5</option>
-                                                                                        <option value="6">6</option>
-                                                                                        <option value="7">7</option>
-                                                                                        <option value="8">8</option>
-                                                                                        <option value="9">9</option>
-                                                                                        <option value="10">10</option>
-                                                                                        <option value="11">11</option>
-                                                                                        <option value="12">12</option>
-                                                                                        <option value="13">13</option>
-                                                                                        <option value="14">14</option>
-                                                                                        <option value="15">15</option>
-                                                                                        <option value="16">16</option>
-                                                                                        <option value="17">17</option>
-                                                                                        <option value="18">18</option>
-                                                                                        <option value="19">19</option>
-                                                                                        <option value="20">20</option>
-                                                                                        <option value="21">21</option>
-                                                                                        <option value="22">22</option>
-                                                                                        <option value="23">23</option>
-                                                                                        <option value="24">24</option>
-                                                                                        <option value="25">25</option>
-                                                                                        <option value="26">26</option>
-                                                                                        <option value="27">27</option>
-                                                                                        <option value="28">28</option>
-                                                                                        <option value="29">29</option>
-                                                                                        <option value="30">30</option>
-                                                                                    </select>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <table width="100%">
-                                                                        <tr>
-                                                                            <td width="40%">
-                                                                                <label style="text-align:left" ><span class="lng-child"></span><span>:</span></label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <select class="form-control asd" id="num_child" name="num_child" style="" required>
-                                                                                    <option value="0">0</option>
-                                                                                    <option value="1">1</option>
-                                                                                    <option value="2">2</option>
-                                                                                    <option value="3">3</option>
-                                                                                    <option value="4">4</option>
-                                                                                    <option value="5">5</option>
-                                                                                    <option value="6">6</option>
-                                                                                    <option value="7">7</option>
-                                                                                    <option value="8">8</option>
-                                                                                    <option value="9">9</option>
-                                                                                    <option value="10">10</option>
-                                                                                    <option value="11">11</option>
-                                                                                    <option value="12">12</option>
-                                                                                    <option value="13">13</option>
-                                                                                    <option value="14">14</option>
-                                                                                    <option value="15">15</option>
-                                                                                </select>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <div class="form-person form-group col-md-12" id="visa-show">
-                                                        <table width="100%">
-                                                            <tr>
-                                                                <td  style="padding-right: 10px;">
-                                                                    <label style="text-align:left" ><span class="lng-visa"></span><span>:</span></label>
-                                                                </td>
-                                                                <td >
-                                                                    <table width="100%">
-                                                                        <tr >
-                                                                            <td align="center">
-                                                                            <select class="form-control form-inline asd" id="visa"  name="visa" style="width: 100%" >
-                                                                                <option value="" ><font class="lng-none">None</font></option>            
-                                                                                <option value="1"><font class="lng-yes">Yes</font></option>            
-                                                                                <option value="0"><font class="lng-no">No</font></option> 
-                                                                            </select>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <div class="form-person form-group col-md-12" id="box-terminal" style="display: none;">
-                                                        <table width="100%">
-                                                            <tr>
-                                                                <td width=""  style="padding-right: 10px;">
-                                                                    <label style="text-align:left" ><span class="lng-departure-terminal"></span><span>:</span></label>
-                                                                </td>
-                                                                <td width="">
-                                                                    <table width="100%">
-                                                                        <tr >
-                                                                            <td align="center">
-                                                                                <input type="text" class="form-control asd" id="terminal">
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>     
-                                        </div>    
-                                    </div> <!-- end tab-pane-->
-                                    <div class="tab-pane" id="account">
-                                        <div class="row">
-                                            <div class="col-md-12 ">
-                                                <div class="row">
-                                                    <div class="col-md-12" id="acceptancecheck">
-                                                        <div class="checkbox" style="margin-bottom: 30px;">
-                                                            <label>
-                                                                <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
-                                                                <span class="lng-get-detail"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>    
-                                                    <div class="col-md-6">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-inline required ">
-                                                                <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
-                                                                <select class="form-control" name="guestcountry" id="guestcountry" class="" style=" border:  1px solid #d2d2d2; border-radius: 4px;">
-                                                                    <option value="az_AZ" label="Guest name of your country" none=""></option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="contact_info">
-                                                            <div class="col-sm-12">
-                                                                <input type="text" class="form-control" placeholder="Lirst Name - Last name" id="name_lastname" name="name_lastname"  pattern="^[A-z ก-ฮ]+$" required>                                                               
-                                                            </div>
-                                                        </div>
-                                                        <div class="contact_info">
-                                                            <div class="col-sm-12">
-                                                                <label class="form-control"  id="select-country"><span id="numbercountry"></span></label>
-                                                            </div>
-                                                            <div class="col-sm-12">
-                                                                <div class="col-md-4" style="padding: 0">
-                                                                    <label class="form-control"  id="phonecode" value="phonecode"> </label>
-                                                                </div>
-                                                                <div class="col-md-8" id="tphone">
-                                                                    <input type="text" class="form-control" placeholder="Phone" id="phone"  aria-required="true" aria-invalid="true" required>                                                        
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="contact_info">
-                                                                <div class="col-sm-12">
-                                                                    <input type="email" class="form-control" placeholder="E-mail" id="email" aria-required="true" aria-invalid="true" required>                                                    
-                                                                </div>
-                                                            </div>
-                                                            <div class="contact_info">
-                                                                <div class="col-sm-12">
-                                                                    <input type="text" class="form-control" placeholder="Flight" id="flight" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group form-inline">
-                                                                <div class="col-sm-12">
-                                                                    <input type="text" class="form-control" placeholder="Other" id="other" >
-                                                                
-                                                                </div>
-                                                            </div>
-                                                            
-                                                
-                                                    
-                                            </div> 
-                                            </div>
-                                    
-                                        </div>
-                            
-                                
-                                
-                                                    </div>
-                                                </div>
-                                        
-                                            <div class="tab-pane" id="address">
-                                                <div class="row">
-                        <div class="col-md-8">                  
-                            <div class="" id="view-product-all-item">
-                                <div class="box-info-item">
-                                <div>
-                                    <table width="100%">
-                                        <tr>
-                                            <td valign="top" width="100px" style="padding: 5px 0;"> 
-                                                <span class="lng-product-name"></span><span>:</span>
-
-                                            </td>
-                                            <td>
-                                                <span>
-                                                    <span  id="name_product"></span>
-                                                    <span>(</span>
-                                                    <span class="lng-transports" style="color: #fb833f;" ></span><span>)</span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                            <span class="lng-car-type"></span><span>:</span>
-                                            </td>
-                                            <td >
-                                                <span style="color: #333;" id="cars_type"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                <span class="lng-pick-up-from"></span><span>:</span>
-                                            </td>
-                                            <td>
-                                                <span style="color: #333;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                <span class="lng-pick-up-to"></span><span>:</span>
-                                                
-                                            </td>
-                                            <td>
-                                            <span style="color: #333;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
-                                                
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                <span id="date-final"></span>
-                                                
-                                            </td>
-                                            <td>
-                                                <span style="color: #333;" class="" id="ondate_samary"></span>
-                                                
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                            <span id="time-final"></span>
-                                            </td>
-                                            <td>
-                                                <span style="color: #333;" class="" id="ontime_samary"></span>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <div class="col-md-12 ">        
+                                    <div class="box-program">
+                                        <span id="placefrom" style="text-align: center;"></span>
+                                        <span> - </span>
+                                        <span id="placeto" style="text-align: center;"></span>
                                     </div>
-                                    <!-- <div >
-                                        <div class="toppic">
-                                        
-                                            
-                                        </div>
-
-                                        <div class="toppic" >
-                                            
-                                            
-                                            
-                                        </div>
-                                        <div class="toppic" >
-                                            
-                                            
-                                        </div>
-                                        <div class="toppic" >
-                                        </div>
-                                        
-                                    
-                                        
-                                                        
-                                        <div class="toppic">
-                                        </div>
-                                        <div class="toppic">
-                                            
-                                        
-                                        </div> 
-                                    
-                                    </div> -->
-                                    <div class="orderBoxdetail">
+                                    <div class="form-group form-inline">
+                                        <p>
+                                            <label style="text-align:left" ><span class="lng-product"></span></span><span>:</span></label>   &nbsp;&nbsp;
+                                            <span id="product" style="text-align: center;"></span>
+                                        </p>
+                                        <p >
+                                            <label style="text-align:left" >
+                                            <span class="lng-from"></span><span>:</span>
+                                            </label>&nbsp;&nbsp;
+                                            <span id="province" style="color: #000;"></span>
+                                        </p>
+                                        <p>
+                                            <label style="text-align:left" ><span class="lng-to"></span><span>:</span></label>&nbsp;&nbsp;
+                                            <span id="province_to" style="    color: #000;"></span>
+                                        </p>
+                                        <p >
+                                            <label style="text-align:left" ><span class="lng-type"></span><span>:</span></label>&nbsp;&nbsp;
+                                            <span ng-if="flagcheck == 1" id="cars_persion" style="color: #000;"></span>
+                                        </p>
+                                        <p class="prices">
+                                            <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>&nbsp;&nbsp;
+                                            <span style="color: #fb833f;" id="price"></span>
+                                        </p>
+                                        <p class="sumprice">
+                                            <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>                                                           
+                                                                        &nbsp; &nbsp;
+                                            <span id="numsumprice"></span>
+                                        </p>
+                                    </div>
+                                    <div class="box-list-cars " >
+                                        <span class="lng-you-choose"></span> 
+                                        <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>) </span> <span class="lng-car"></span>
+                                        <span style="color:#000" class="ng-binding">1- <span id="sumnum"></span><span class="lng-person"></span><span style="color: red" > (<span id="checksum"></span>) </span></span>
+                                    </div>
+                                    <div class="form-group form-inline">
                                         <table width="100%">
                                             <tr>
-                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                
-                                                        <span class="lng-first-name"></span><span>:</span>
-                                                    
-                                                    
-                                            </td>
-                                            <td>
-                                                <span id="summaryname"></span>
-                                            </td> 
-                                            </tr>
-                                            <tr>
-                                                <td valign="top" width="100px" style="padding: 5px 0;">
-                                                    
-                                                        <span class="lng-phone"></span><span>:</span>
-                                                
+                                                <td >
+                                                    <label style="text-align:left" id="datetext"></label>   
                                                 </td>
-                                                <td>
-                                                    <span id="summaryphone" ></span>
+                                                <td >
+                                                    <div class='input-group '  style="width: 100%">
+                                                        <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy">
+                                                    </div>
+                                                                    <style>
+                                                                        input::-webkit-clear-button {
+                                                                        display: none;
+                                                                        }
+                                                                    </style>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td valign="top" width="100px" style="padding: 5px 0;">
-                                                
-                                                        <span class="lng-email"></span><span >:</span>                                            
-                                                
-                                                </td>
-                                                <td>
-                                                    <span  id="summaryemail"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td valign="top" width="100px" style="padding: 5px 0;">
-                                                    
-                                                        <span class="lng-flight"></span><span >:</span>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <span id="textflight"></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td valign="top" width="100px" style="padding: 5px 0;">
-                                                    
-                                                        <span class="lng-other"></span><span >:</span>                                          
-                                                
-                                                </td>
-                                                <td>
-                                                    <span id="summaryother"></span>
-                                                </td>
-                                            </tr>
-                                        
                                         </table>
-                                        <!-- <div class="col-lg-6" style="padding: 0">
-                                            <div class="section06-detail-line02-firstname">             
-                                                <div class="firstname ">
-                                                <span class="lng-first-name"></span><span>:</span>
-                                                    
-                                                </div>
-                                                
-                                            </div>
-                                        
-                                            <div class="section06-line02-phone">
-                                                        
-                                            
-                                            </div>                         
-                                            
-                                        </div>
-                                        <div class="col-lg-6" style="padding: 0">
-                                            
-                                            <div class="section06-line02-email">     
-                                                        
-                                                
-                                            </div>
-                                        
-
-                                            <div class="section06-line02-email">     
-                                                <div class="email">
-                                                
-                                                    </div>         
-                                                
-                                            </div>
-                                            <div class="section06-line02-email">     
-                                                    
-                                                
-                                            </div>
-                                            
-                                        </div> -->
-                                    </div>
-                                </div>  
-                            </div> 
-                            
-                            
-                        </div>
-                        <div class="col-md-4" id="detail-price">
-                            <div class="box-list-summery">
-                            <div >
-                                        <!-- <div class="topic_ens">
-                                            <span >Phuket Airport-Phuket Hotel All Area</span>
-                                        </div> -->
-                                        <div  >
-                                            <div id="book-info">
-                                            <span class="lng-car"></span><span>:</span>
-                                            
-                                            </div>
-                                            <span style="color: #fb833f;" id="carsummary"></span><span></span>
-                                            <span style="color: #fb833f;float:right;" id="costsummary"></span>
-                                        </div>
-                                    <div >
-                                            <div id="book-info">
-                                                <span class="lng-price"></span><span>/</span><span class="lng-car"></span><span>:</span>
-                                                
-                                            </div>
-                                            
-                                            <span style="color: #fb833f;float:right;" id="costproduct"></span>
-                                        </div>
-                                        
-                                    
-                                    <div >
-                                            <div id="book-info">
-                                                <span class="lng-adult"></span><span >:</span>
-                                            
-                                            </div>
-                                            <span style="color: #fb833f;" id="adultsummary"></span>
-                                            <span style="color: #fb833f;float:right;">-</span>
-                                        </div>
-                                        <div >
-                                            <div id="book-info">
-                                                <span class="lng-child"></span><span >:</span>
-                                                
-                                            </div>
-                                                <span style="color: #fb833f;" id="childsummary"></span>
-
-                                                
-                                                <span style="color: #fb833f;float:right;">-</span>                                    
-                                        </div>
-                                        
-                                    </div>
-                                        <div class="summtotal">
-                                        
-                                        <span style="color: #000000"><span class="lng-sum-total"></span><span>:</span></span>
-                                            
-                                    
-                                        <span style="color: #fb833f;float: right;" id="totalprice"></span> 
                                     </div> 
-                                <div class="box-book-pay"> 
-                                    <div class="btn-books" >
-                                    <span class="lng-book"></span>
-                                    
+                                    <div class="form-group form-inline">
+                                        <table width="100%">
+                                            <tr>
+                                                <td width="">
+                                                    <label style="text-align:left" id="texttime"></label>
+                                                </td>
+                                                <td>
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td width="49%" align="center">
+                                                                <select class="form-control form-inline time_h asd" style="width: 100%;padding: 0 30px;" id="time_h" name="time_h">
+                                                                    <option value="00">00</option>
+                                                                    <option value="01">01</option>
+                                                                    <option value="02">02</option>
+                                                                    <option value="03">03</option>
+                                                                    <option value="04">04</option>
+                                                                    <option value="05">05</option>
+                                                                    <option value="06">06</option>
+                                                                    <option value="07">07</option>
+                                                                    <option value="08">08</option>
+                                                                    <option value="09">09</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="11">11</option>
+                                                                    <option value="12">12</option>
+                                                                    <option value="13">13</option>
+                                                                    <option value="14">14</option>
+                                                                    <option value="15">15</option>
+                                                                    <option value="16">16</option>
+                                                                    <option value="17">17</option>
+                                                                    <option value="18">18</option>
+                                                                    <option value="19">19</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="21">21</option>
+                                                                    <option value="23">23</option>
+                                                                </select>
+                                                            </td>
+                                                            <td width="2%" align="center">
+                                                                <span>:</span>
+                                                            </td>
+                                                            <td width="49%" align="center">
+                                                                <select class="form-control form-inline time_m asd" style="width: 100%;padding: 0 30px;" id="time_m" name="time_m" required>
+                                                                    <option value="00" selected="selected">00</option>
+                                                                    <option value="01">01</option>
+                                                                    <option value="02">02</option>
+                                                                    <option value="03">03</option>
+                                                                    <option value="04">04</option>
+                                                                    <option value="05">05</option>
+                                                                    <option value="06">06</option>
+                                                                    <option value="07">07</option>
+                                                                    <option value="08">08</option>
+                                                                    <option value="09">09</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="11">11</option>
+                                                                    <option value="12">12</option>
+                                                                    <option value="13">13</option>
+                                                                    <option value="14">14</option>
+                                                                    <option value="15">15</option>
+                                                                    <option value="16">16</option>
+                                                                    <option value="17">17</option>
+                                                                    <option value="18">18</option>
+                                                                    <option value="19">19</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="21">21</option>
+                                                                    <option value="23">23</option>
+                                                                    <option value="24">24</option>
+                                                                    <option value="25">25</option>
+                                                                    <option value="26">26</option>
+                                                                    <option value="27">27</option>
+                                                                    <option value="28">28</option>
+                                                                    <option value="29">29</option>
+                                                                    <option value="30">30</option>
+                                                                    <option value="31">31</option>
+                                                                    <option value="32">32</option>
+                                                                    <option value="33">33</option>
+                                                                    <option value="34">34</option>
+                                                                    <option value="35">35</option>
+                                                                    <option value="36">36</option>
+                                                                    <option value="37">37</option>
+                                                                    <option value="38">38</option>
+                                                                    <option value="39">39</option>
+                                                                    <option value="40">40</option>
+                                                                    <option value="41">41</option>
+                                                                    <option value="42">42</option>
+                                                                    <option value="43">43</option>
+                                                                    <option value="44">44</option>
+                                                                    <option value="45">45</option>
+                                                                    <option value="46">46</option>
+                                                                    <option value="47">47</option>
+                                                                    <option value="48">48</option>
+                                                                    <option value="49">49</option>
+                                                                    <option value="50">50</option>
+                                                                    <option value="51">51</option>
+                                                                    <option value="52">52</option>
+                                                                    <option value="53">53</option>
+                                                                    <option value="54">54</option>
+                                                                    <option value="55">55</option>
+                                                                    <option value="56">56</option>
+                                                                    <option value="57">57</option>
+                                                                    <option value="58">58</option>
+                                                                    <option value="59">59</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
+                                    <div class="form-person form-group " id="car-show">
+                                        <table width="100%">
+                                            <tr>
+                                                <td width="20%"  style="padding-right: 10px;">
+                                                    <label style="text-align:left" ><span class="lng-car"></span><span>:</span></label>
+                                                </td>
+                                                <td width="80%">
+                                                    <table width="100%">
+                                                        <tr >
+                                                            <td align="center">
+                                                                <select class="form-control form-inline asd" id="num_cars"  name="num_cars" style="width: 100%" required>                                                                                                            
+                                                                    <option value="1">1</option>            
+                                                                    <option value="2">2</option>            
+                                                                    <option value="3">3</option>            
+                                                                    <option value="4">4</option>            
+                                                                    <option value="5">5</option>            
+                                                                    <option value="6">6</option>            
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="form-person form-group " style="">
+                                        <table width="100%">
+                                            <tr>
+                                                <td>
+                                                    <div style="margin-right: 10px;">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td width="40%">
+                                                                    <label style="text-align:left" ><span class="lng-adult"></span><span>:</span></label>
+                                                                </td>
+                                                                <td>
+                                                                    <select class="form-control asd" id="num_adult" name="num_adult"  style="" required>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                        <option value="18">18</option>
+                                                                        <option value="19">19</option>
+                                                                        <option value="20">20</option>
+                                                                        <option value="21">21</option>
+                                                                        <option value="22">22</option>
+                                                                        <option value="23">23</option>
+                                                                        <option value="24">24</option>
+                                                                        <option value="25">25</option>
+                                                                        <option value="26">26</option>
+                                                                        <option value="27">27</option>
+                                                                        <option value="28">28</option>
+                                                                        <option value="29">29</option>
+                                                                        <option value="30">30</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                 </td>
+                                                <td>
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td width="40%">
+                                                                <label style="text-align:left" ><span class="lng-child"></span><span>:</span></label>
+                                                            </td>
+                                                            <td>
+                                                                <select class="form-control asd" id="num_child" name="num_child" style="" required>
+                                                                    <option value="0">0</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="11">11</option>
+                                                                    <option value="12">12</option>
+                                                                    <option value="13">13</option>
+                                                                    <option value="14">14</option>
+                                                                    <option value="15">15</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div> 
+                                    <div class="form-person form-group " id="visa-show">
+                                        <table width="100%">
+                                            <tr>
+                                                <td  style="padding-right: 10px;">
+                                                    <label style="text-align:left" ><span class="lng-visa"></span><span>:</span></label>
+                                                </td>
+                                                <td >
+                                                    <table width="100%">
+                                                        <tr >
+                                                            <td align="center">
+                                                                <select class="form-control form-inline asd" id="visa"  name="visa" style="width: 100%" >
+                                                                    <option value="" ><font class="lng-none">None</font></option>            
+                                                                    <option value="1"><font class="lng-yes">Yes</font></option>            
+                                                                    <option value="0"><font class="lng-no">No</font></option> 
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="form-person form-group " id="box-terminal" style="display: none;">
+                                        <table width="100%">
+                                            <tr>
+                                                <td width=""  style="padding-right: 10px;">
+                                                    <label style="text-align:left" ><span class="lng-departure-terminal"></span><span>:</span></label>
+                                                </td>
+                                                <td width="">
+                                                    <table width="100%">
+                                                        <tr >
+                                                            <td align="center">
+                                                                <input type="text" class="form-control asd" id="terminal">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
                                 
-                                <p class="ng-binding"></p>
-                                </div>
-
+                        <div class="row">
+                            <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;">
+                                    <span class="lng-contact-infomation"></span>
                             </div>
-                        </div>
-                        <div class="col-lg-12" >
-                            
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
-                                                        <span class="lng-acceptance-of-terms"></span>
-                                                    </label>
+                            <div class="card">
+                                <div class="col-md-12 ">
+                                    <div class="row">
+                                        <div class="col-md-12" id="acceptancecheck">
+                                            <div class="checkbox" style="margin-bottom: 30px;">
+                                                <label>
+                                                    <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
+                                                    <span class="lng-get-detail"></span>
+                                                </label>
+                                            </div>
+                                        </div>    
+                                        <div class="col-md-6">
+                                            
+                                                <div class="form-group form-inline required ">
+                                                                           
+                                                    <select class="textInput" name="guestcountry" id="guestcountry" class="" style="  ">
+                                                        <option class="textInput" value="az_AZ" label="Guest name of your country" none=""><? echo $lng_your_country?></option>
+                                                    </select>
                                                 </div>
-                            </div>
-                    </div>
+                                           
+                                            <div class="contact_info">
+                                               
+                                                    <input type="text" class="textInput" placeholder="Lirst Name - Last name" id="name_lastname" name="name_lastname"  pattern="^[A-z ก-ฮ]+$" required>                                                               
+                                              
+                                            </div>
+                                            <div class="contact_info">
+                                                
+                                                    <label class="textInput"  id="select-country"><span id="numbercountry" style="    color: #aeaeae;"></span></label>
+                                               
+                                              
+                                                    <div class="" style="position: absolute;
+                                                    border-right: 1px solid #dfdfdf;
+                                                    z-index: 1;
+                                                    padding: 8px;
+                                                    width: 80px;
+                                                    height: 39px;
+                                                    margin: 8px 0;"  id="phonecode" value="phonecode">
+                                                        <!-- <label class="textInput" > </label> -->
+                                                    </div>
+                                                    <div id="tphone">
+                                                        <input type="text" class="textInput" placeholder="Phone" id="phone" style="    padding-left: 85px;" aria-required="true" aria-invalid="true" required>                                                        
+                                                    </div>
+                                                
                                             </div>
                                         </div>
-                                        <div class="wizard-footer">
-                                            <div class="pull-right">
-                                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' id="next" style="padding: 12px 43px;" />
-                                                <input type='button' class='btn btn-fill btn-warning btn-wd' id="addbook" value='Book' style="display: none;padding: 12px 42px; " />
+                                        <div class="col-md-6">
+                                            <div class="contact_info">
+                                               
+                                                    <input type="email" class="textInput" placeholder="E-mail" id="email" aria-required="true" aria-invalid="true" required>                                                    
+                                                
                                             </div>
-
-                                            <div class="pull-left">
-                                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous'  value='Previous' id="previous" style="" />
+                                            <div class="contact_info">
+                                                
+                                                    <input type="text" class="textInput" placeholder="Flight" id="flight" required>
+                                               
                                             </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </form>
+                                            <div class="form-group form-inline">
+                                              
+                                                    <input type="text" class="textInput" placeholder="Other" id="other" >
+                                                                            
+                                                
+                                            </div>            
+                                        </div> 
+                                    </div>     
                                 </div>
-                            </div> <!-- wizard container -->
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
+                                            <span class="lng-acceptance-of-terms"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div  class="addbook" id="addbook" value='Book' style=" background: #009688; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px; display:none" />book
+                                    </div>                                    
+                                </div>
+                            </div>
                         </div>
-                    </div><!-- end row -->
-            
-            <!--   </div> -->
+                       
+                       
+                       
+                        <!-- <div class="row">
+                            <div class="card">
+                                <div>
+                                    <span class="lng-contact-infomation"></span>
+                                <div>
+                                <div>
+                                <div class="tab-pane" id="address">
+                                <div class="row">
+                                    <div class="col-md-8">                  
+                                        <div class="" id="view-product-all-item">
+                                            <div class="box-info-item">
+                                                <div>
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;"> 
+                                                                <span class="lng-product-name"></span><span>:</span>
+
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                                    <span  id="name_product"></span>
+                                                                    <span>(</span>
+                                                                    <span class="lng-transports" style="color: #fb833f;" ></span><span>)</span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                            <span class="lng-car-type"></span><span>:</span>
+                                                            </td>
+                                                            <td >
+                                                                <span style="color: #333;" id="cars_type"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                                <span class="lng-pick-up-from"></span><span>:</span>
+                                                            </td>
+                                                            <td>
+                                                                <span style="color: #333;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                                <span class="lng-pick-up-to"></span><span>:</span>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                            <span style="color: #333;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
+                                                                
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                                <span id="date-final"></span>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                <span style="color: #333;" class="" id="ondate_samary"></span>
+                                                                
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                            <span id="time-final"></span>
+                                                            </td>
+                                                            <td>
+                                                                <span style="color: #333;" class="" id="ontime_samary"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            
+                                                <div class="orderBoxdetail">
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                                <span class="lng-first-name"></span><span>:</span>
+                                                        </td>
+                                                        <td>
+                                                            <span id="summaryname"></span>
+                                                        </td> 
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                                
+                                                                    <span class="lng-phone"></span><span>:</span>
+                                                            
+                                                            </td>
+                                                            <td>
+                                                                <span id="summaryphone" ></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                            
+                                                                    <span class="lng-email"></span><span >:</span>                                            
+                                                            
+                                                            </td>
+                                                            <td>
+                                                                <span  id="summaryemail"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                                
+                                                                    <span class="lng-flight"></span><span >:</span>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                <span id="textflight"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" width="100px" style="padding: 5px 0;">
+                                                                
+                                                                    <span class="lng-other"></span><span >:</span>                                          
+                                                            
+                                                            </td>
+                                                            <td>
+                                                                <span id="summaryother"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="detail-price">
+                                        <div class="box-list-summery">
+                                            <div >
+                                                <div  >
+                                                    <div id="book-info">
+                                                        <span class="lng-car"></span><span>:</span>
+                                                        
+                                                    </div>
+                                                        <span style="color: #fb833f;" id="carsummary"></span><span></span>
+                                                        <span style="color: #fb833f;float:right;" id="costsummary"></span>
+                                                    </div>
+                                                <div >
+                                                <div id="book-info">
+                                                    <span class="lng-price"></span><span>/</span><span class="lng-car"></span><span>:</span>
+                                                            
+                                                </div>
+                                                        
+                                                    <span style="color: #fb833f;float:right;" id="costproduct"></span>
+                                            </div>
+                                            <div >
+                                                <div id="book-info">
+                                                    <span class="lng-adult"></span><span >:</span>
+                                                        
+                                                </div>
+                                                    <span style="color: #fb833f;" id="adultsummary"></span>
+                                                    <span style="color: #fb833f;float:right;">-</span>
+                                            </div>
+                                            <div >
+                                                <div id="book-info">
+                                                    <span class="lng-child"></span><span >:</span>
+                                                            
+                                                </div>
+                                                    <span style="color: #fb833f;" id="childsummary"></span>
+
+                                                            
+                                                    <span style="color: #fb833f;float:right;">-</span>                                    
+                                            </div>
+                                                    
+                                            </div>
+                                                <div class="summtotal">
+                                                    <span style="color: #000000"><span class="lng-sum-total"></span><span>:</span></span>
+                                                        
+                                                
+                                                    <span style="color: #fb833f;float: right;" id="totalprice"></span> 
+                                                </div> 
+                                                <div class="box-book-pay"> 
+                                                    <div class="btn-books" >
+                                                        <span class="lng-book"></span>
+                                                
+                                                    </div>
+                                            
+                                                    <p class="ng-binding"></p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    <div class="col-lg-12" >
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
+                                                    <span class="lng-acceptance-of-terms"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
                 </div>
             </div>
-        </div>
 
         <div class="modal fade" id="capacityss" role="dialog">
             <div class="modal-dialog">
@@ -908,10 +832,14 @@
         </div>
 
         <div class="modal fade" id="codecountry" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content" style="max-height: 640px; overflow: hidden; overflow-y: scroll;">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-dialog" style="margin: 0; margin-top: 0 !important;">
+                <div class="modal-content" style="width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;    border-radius: 0 !important;">
+                    <div class="modal-header" style="padding: 12px 15px 0; */">
+                        <button type="button" class="close" data-dismiss="modal" style="font-size:30px;">&times;</button>
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button> -->
                     </div>    
                     <div class="modal-body" style="padding: 0">                                    
                         <div class="box-country">
@@ -986,11 +914,39 @@
         </div>
 
     
-        </div>
+        
     </div>
 </body>
 <style>
-        .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+.checkbox input[type=checkbox]:checked+.checkbox-material .check {
+    background: #009688 !important;
+}
+.checkbox .checkbox-material .check {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(0, 150, 136)!important;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 0px;
+}
+.textInput{
+    border: 1px solid #dfdfdf;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+}
+.card {
+    
+    margin-bottom: 0 !important;
+    }
+.row {
+    margin-right: -12px !important;
+    margin-left: -12px !important;
+    margin-bottom: 4px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
    
     color: #FFF;
     box-shadow: none;
@@ -1066,11 +1022,13 @@
     box-shadow: none;
 }
 .box-program{
+    border-top: dashed 2px #009688;
+    border-bottom: dashed 2px #009688;
     text-align: center;
-    background: #ff9800;
+    /* background: #ff9800; */
     padding: 12px 2px;
     font-weight: 400;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     margin-bottom: 20px;
 }
  </style>
@@ -1285,7 +1243,7 @@
 }
 #box-image{
     width: 100%;
-    border-radius: 4px;
+    /* border-radius: 4px; */
 }
 #images-icon{
     width: 200px;
@@ -1445,7 +1403,7 @@
 }
 .loading-in{
     height: 115px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     background: #fff;
     min-width: 15rem;
     /* height: auto; */
