@@ -274,7 +274,7 @@ $(document).ready(function() {
     });
     $('.btn-realtime').click(function() {
 
-alert();
+
 
 
         //	  $('#selectPlace').show();
