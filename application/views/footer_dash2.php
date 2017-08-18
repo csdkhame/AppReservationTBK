@@ -1,30 +1,8 @@
 
-            <div class="col-md-6" style="display: none;">
-                    <div class="box-regispro" style="display: none;">
-                                          <h3 id="title-info">Why become a App Booking member?</h3>
+            
 
-                                          <div class="special">
-                                              <div class="box-icon"><i class="fa fa-tags" style="font-size: 30px;"></i><!-- <i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"> </i>--></div><!-- <img src="<?php echo base_url(); ?>files/images/special.png" id="special"> -->
-                                                <h4>Special Product Price</h4>
-                                                <p>You'll get lower price for every Product booking, as a member.</p>
-                                          </div>
-                                            <div class="exclusive">
-                                            <div class="box-icon"><i class="fa fa-user-md" aria-hidden="true" style="font-size: 30px;"></i></div>
-                                              <!-- <img src="<?php echo base_url(); ?>files/images/exclusive.png" id="exclusive"> -->
-                                                <h4>Exclusive Discount via Email</h4>
-                                                <p>You'll get the latest promo info and special member discount.</p>
-                                            </div>
-                                            <div class="fast">
-                                            <div class="box-icon"><i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"></i></div>
-                                              <!-- <img src="<?php echo base_url(); ?>files/images/fast.png" id="fast"> -->
-                                                <h4>Fast Booking with Only One-Click</h4>
-                                                <p>As a member using Go HolidayQuick, your booking is our priority.</p>
-                                        </div>
-                    </div>
-               
-                    
-                </div>
         </div>
+         
     </section>
 <style>
 .btn-login{
@@ -360,8 +338,92 @@
         </div>
     </footer>
 
+    
+<div class=" box-menu-select" style="border-top: 1px solid #C8E1F5 !important;color: #555 !important;">
+    <table width="100%">
+        <tr>
+        <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-home" id="gohome" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <i class="material-icons"  style="font-size: 35px;">home</i> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+        
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-realtime" id="goto_realtime" >
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 35px;">room</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </div>
+            </td>
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-reservation" id="goto_reservation" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 35px;" style="">search</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="25%" >
+            <div class="btn-management" id="goto_management" style="    color: #07c284;" >
+  
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <i class="material-icons" style="font-size: 35px;">dvr</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <span class="lng-management" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
+                        </td>
+                    </tr>
+                </table>
+               
+            </div> 
+        </td>
+            
+        </tr>
+    </table>    
+ </div>
+
     <!--     *********    END PRICING 5      *********      -->
 </body>
+
+
+ <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
 
 <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
@@ -518,272 +580,7 @@
                 }
 
 </style>
-<!--<script>
-$(document).ready(function(){
-    var username, password , username_signup ,password_signup,text_check;
-$.ajax({
-        type: 'POST',
-        url: '<?php echo base_url(); ?>getuserlog_control/process',
-       // data: {'from': getParameterByName('from'),'to': getParameterByName('to')},
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(data) { 
-          console.log(data)
-          
-        
-           
-          
-        }
-    });
-    $('#username').on('change', function() {
-        username = this.value ;
-        console.log(username)
-        
-    //alert( this.value );
-    })
-    $('#password').on('change', function() {
-        password = this.value ;
-        console.log(password)
 
-        
-    //alert( this.value );
-    })
-    $('#login').on('click', function() {
-       console.log(password+username)
-        $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url(); ?>login_control/process',
-        data: {'username': username,'password':password},
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(res) { 
-          console.log(res)
-          if(res.status == 0)
-              {
-                 console.log('login status 0');
-                 $.cookie("login",res.username);
-                 window.location.href = "<?php echo base_url(); ?>";
-                
-               
-              }
-              else if(res.status==1)
-              {
-                console.log('status==1')
-               $('#message').html('Username is Invalid').css('color', 'red');
-              }
-              else if(res.status==2)
-              {
-                  console.log('status==2')
-                $('#message').html('Password is Invalid').css('color', 'red');
-              }
-          
-        
-           
-          
-        }
-    });
-       
-    //alert( this.value );
-    })
-    
-    $('#username-signup').on('change', function() {
-        username_signup = this.value ;
-        console.log(username_signup)
-        
-    //alert( this.value );
-    })
-    $('#password-signup').on('change', function() {
-        password_signup = this.value ;
-        console.log(password_signup)
-
-        
-    //alert( this.value );
-    })
-    $('#checkmail').on('click', function() {
-        console.log('in case')
-        $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url(); ?>login_control/checkmail',
-        data: {'username': username_signup,'password':password_signup},
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(res) { 
-          console.log(res)
-          if(res.status == 0)
-              { //have mail
-                text_check = 0; 
-               $('#messagecheck').html('Have this mail in system').css('color', 'red');
-                
-               
-              }
-              else if(res.status==1)
-              {
-                text_check = 1; 
-                $('#messagecheck').html('This mail is available.').css('color', '#2c9930');
-                console.log('status==1')
-              }
-              
-              
-          
-        
-           
-          
-        }
-    });
-    });
-     $('#registered').on('click', function() {
-        console.log('in case signup')
-        if (text_check == 1) {
-            $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url(); ?>login_control/signup',
-            data: {'username': username_signup,'password':password_signup},
-            //contentType: "application/json",
-            dataType: 'json',
-            success: function(res) { 
-                console.log(res)
-                if(res.status == 0){
-                    $.cookie("login",res.username);
-                    window.location.href = "<?php echo base_url(); ?>";
-                    
-                   
-                }
-                else{
-                    console.log("incomplete insert")
-                }
-                
-                  
-                  
-              
-            
-               
-              
-            }
-        });
-    }
-    else{
-        console.log("incomplete")
-    }
-        
-    });
-    
-
-
-});//END
-window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1865903040340223',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();   
-  };
-   
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-    function login(){
-        
-   FB.login(function (response) { statusChangeCallback(response); }, { scope: 'email,public_profile', return_scopes: true });
-// FB.getLoginStatus(function(response) 
-//     {statusChangeCallback(response)},{ scope: 'email,user_likes' 
-// });
-// function checkLoginState() {
-//   FB.getLoginStatus(function(response) {
-//     statusChangeCallback(response);
-//   });
-// }
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      checkLoginState();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-    //   document.getElementById('status').innerHTML = 'Please log ' +
-    //     'into this app.';
-    }
-  }
-  function checkLoginState() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me?fields=name,email', function(response) {
-        console.log(response)
-        // $.cookie("idface", response.id);
-        $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url(); ?>login_control/processsocial',
-        data: {'username': response.email,'name':response.name,'password':response.id},
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(res) { 
-          console.log(res)
-          if(res.status == 0)
-              {
-                 $.cookie("login",res.username);
-                    window.location.href = "<?php echo base_url(); ?>";
-                
-               
-              }
-              else 
-              {
-                
-               $('#message').html('Login not complete').css('color', 'red');
-              }
-              
-          
-        
-           
-          
-        }
-    });
-       
-      //console.log('Successful login for: ' + response.name);
-      
-    });
-  }
-    }
-
-
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  
-
-  
-
-  // Load the SDK asynchronously
-  
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  
-    $('#sign-up').click(function() {
-       $('.box-signup').css('display','block');
-       $('.box-regispro').css('display','block');
-
-       $('.box-signin').css('display','none');
-       $('.loginReg__or').css('display','none');
-
-    })
-    $('#sign-in').click(function() {
-       $('.box-signup').css('display','none');
-       $('.box-regispro').css('display','none');
-       $('.loginReg__or').css('display','block');
-
-       $('.box-signin').css('display','block');
-    })
-</script>-->
 <script>
 $( document ).ready(function() {
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {

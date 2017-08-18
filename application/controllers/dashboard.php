@@ -23,6 +23,7 @@ public function index()
 	
 public function view_user()
 	{	
+
 		 $num_record =  $this->input->get('num',TRUE);
 		 $start =  $this->input->get('start',TRUE);
 		if($num_record=="" and $start==""){
@@ -30,7 +31,7 @@ public function view_user()
 			header('Location: view_user?num='.$num.'&start=0&page=1');
 		}
 	
-		if(isset($_COOKIE['login'])) {
+		if($_COOKIE['login']) {
 			$id = $_COOKIE['login'];
 			$user_level = $this->Getuser_model->getuser_pass_id($id);
 //			echo json_encode($user_level);
@@ -51,7 +52,9 @@ public function view_user()
 		}
 		else{
 			
-			redirect('/Register', 'refresh');
+			redirect('https://dotdotdottrip.com/Register', 'refresh');
+//			header("Location: http://www.yourwebsite.com/user.php");
+//		echo 55555555;
 
 		}
 
