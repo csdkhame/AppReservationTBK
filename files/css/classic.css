@@ -61,14 +61,6 @@
  */
 
 .picker {
-    z-index: 9999;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    background: rgba(0, 0, 0, 0.59);
-    position: fixed;
     width: 100%;
 }
 
@@ -78,7 +70,7 @@
  */
 
 .picker__holder {
-    /* position: absolute;
+    position: absolute;
     background: #ffffff;
     border: 1px solid #aaaaaa;
     border-top-width: 0;
@@ -95,7 +87,7 @@
     -webkit-transform: translateY(-1em) perspective(600px) rotateX(10deg);
     transform: translateY(-1em) perspective(600px) rotateX(10deg);
     transition: -webkit-transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s 0.15s, border-width 0s 0.15s;
-    transition: transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s 0.15s, border-width 0s 0.15s; */
+    transition: transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s 0.15s, border-width 0s 0.15s;
 }
 
 
@@ -117,39 +109,17 @@
  * When the picker opens...
  */
 
-.picker--opened {
-    z-index: 9999;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    background: rgba(0, 0, 0, 0.59);
-    position: fixed;
-    width: 100%;
-}
-
 .picker--opened .picker__holder {
-    max-height: 25em;
+    max-height: 100vh;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
     -moz-opacity: 1;
     opacity: 1;
-    /* height: 205px; */
-    /* border-radius: 4px; */
-    background: #fff;
-    min-width: 15rem;
-    height: auto;
-    left: 50vw;
-    top: 50vh;
-    transform: translate(-50%, -50%);
-    position: fixed;
-    z-index: 10;
-    /* border-top-width: 1px;
-  border-bottom-width: 1px;
-  -webkit-transform: translateY(0) perspective(600px) rotateX(0);
-          transform: translateY(0) perspective(600px) rotateX(0);
-  transition: -webkit-transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s, border-width 0s;
-  transition: transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s, border-width 0s;
-  box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12); */
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    -webkit-transform: translateY(0) perspective(600px) rotateX(0);
+    transform: translateY(0) perspective(600px) rotateX(0);
+    transition: -webkit-transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s, border-width 0s;
+    transition: transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s, border-width 0s;
+    box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
 }
