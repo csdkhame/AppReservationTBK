@@ -145,6 +145,7 @@ class Userview_model_dash extends CI_Model {
 			//$data_row[$key]['topic'] = $aaaa->topic;
 			$data_row[$key]['from'] = $aaaa[0]->topic;
 			$data_row[$key]['to'] = $aaaa[1]->topic;
+			$data_row[$key]['invoice'] = $row->invoice;
 			$data_row[$key]['date_time'] = $row->booking_date;
 				
 		 	//$data[] = $row;

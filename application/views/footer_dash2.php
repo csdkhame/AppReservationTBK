@@ -1,30 +1,8 @@
 
-            <div class="col-md-6" style="display: none;">
-                    <div class="box-regispro" style="display: none;">
-                                          <h3 id="title-info">Why become a App Booking member?</h3>
+            
 
-                                          <div class="special">
-                                              <div class="box-icon"><i class="fa fa-tags" style="font-size: 30px;"></i><!-- <i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"> </i>--></div><!-- <img src="<?php echo base_url(); ?>files/images/special.png" id="special"> -->
-                                                <h4>Special Product Price</h4>
-                                                <p>You'll get lower price for every Product booking, as a member.</p>
-                                          </div>
-                                            <div class="exclusive">
-                                            <div class="box-icon"><i class="fa fa-user-md" aria-hidden="true" style="font-size: 30px;"></i></div>
-                                              <!-- <img src="<?php echo base_url(); ?>files/images/exclusive.png" id="exclusive"> -->
-                                                <h4>Exclusive Discount via Email</h4>
-                                                <p>You'll get the latest promo info and special member discount.</p>
-                                            </div>
-                                            <div class="fast">
-                                            <div class="box-icon"><i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"></i></div>
-                                              <!-- <img src="<?php echo base_url(); ?>files/images/fast.png" id="fast"> -->
-                                                <h4>Fast Booking with Only One-Click</h4>
-                                                <p>As a member using Go HolidayQuick, your booking is our priority.</p>
-                                        </div>
-                    </div>
-               
-                    
-                </div>
         </div>
+         
     </section>
 <style>
 .btn-login{
@@ -359,6 +337,87 @@
 
         </div>
     </footer>
+
+    
+<div class=" box-menu-select" style="border-top: 1px solid #C8E1F5 !important;color: #555 !important;">
+    <table width="100%">
+        <tr>
+        <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-home" id="gohome" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <i class="material-icons"  style="font-size: 35px;">home</i> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+        
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-realtime" id="goto_realtime" >
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 35px;">room</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </div>
+            </td>
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-reservation" id="goto_reservation" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 35px;" style="">search</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="25%" >
+            <div class="btn-management" id="goto_management" style="    color: #07c284;" >
+  
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <i class="material-icons" style="font-size: 35px;">dvr</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <span class="lng-management" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
+                        </td>
+                    </tr>
+                </table>
+               
+            </div> 
+        </td>
+            
+        </tr>
+    </table>    
+ </div>
 
     <!--     *********    END PRICING 5      *********      -->
 </body>

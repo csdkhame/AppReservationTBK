@@ -25,11 +25,19 @@ $( document ).ready(function() {
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                         <div class="input-group">
 							<span class="input-group-addon"><i class=""></i></span>
-							<? if($user_level==1) { ?>
-							<p class="lng-search_d"><input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" style="margin-left: -6px;" /></p> <? } 
-							else if($user_level==2){ ?> 
-							<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput" style="margin-left: -6px;" /
-							<? } ?>
+							
+							<table>
+							<tr>
+								<td>
+								<input type="date" >
+								</td><td>
+								<input type="date">
+								</td>
+							</tr>
+							</table>  
+							
+						
+					
 						</div>
                              
                             </div>
@@ -42,6 +50,11 @@ $( document ).ready(function() {
 }
 .tr-hover{
     text-align: center;
+}
+.pagination.pagination-info>.active>a, .pagination.pagination-info>.active>a:focus, .pagination.pagination-info>.active>a:hover, .pagination.pagination-info>.active>span, .pagination.pagination-info>.active>span:focus, .pagination.pagination-info>.active>span:hover {
+    background-color: #07c284;;
+    border-color: #00bcd4;
+    box-shadow: 0 4px 5px 0 rgba(0, 188, 212, .14), 0 1px 10px 0 rgba(0, 188, 212, .12), 0 2px 4px -1px rgba(0, 188, 212, .2)
 }
 </style>	
 							
@@ -90,11 +103,18 @@ $( document ).ready(function() {
                                 	
                                 </thead>
                                 <tbody>
-                                <?php foreach($results as $show){ ?>
+                                <?php foreach($results as $show){ 
+//                                	$spec = strpos('a', 'abc');
+//                                	$date = substr($show['date_time'],0,$spec);
+$mystring = $show['date_time'];
+$findme   = ' ';
+$pos = strpos($mystring, $findme);
+$date = substr($show['date_time'],0,$pos);
+                                ?>
                                     <tr class="tr-hover" onclick="view_order_level2('<?=$show['id_order'];?>');">
                                         <!--<td style="display: none;"></td>-->
-                                    	<td ><?=$show['date_time'];?></td>
-                                    	<td ><?=$show['id_order'];?></td>
+                                    	<td ><?=$date;?></td>
+                                    	<td ><?=$show['invoice'];?></td>
                                     	<td ><?=$show['from'];?></td>
                                     	<td ><?=$show['to'];?></td>
                                     	<!--<td ><?=$show['total_price'];?></td>-->
@@ -108,11 +128,11 @@ $( document ).ready(function() {
 							<?php } ?>
 			<div>
 				<div class="fixed-table-pagination">
-				   <div class="pull-left pagination-detail" style="margin: 10px;" >
+				   <div class="pull-left pagination-detail" style="margin: 10px;display: none;" >
 				      <span class="pagination-info"></span>
 				      <span class="page-list">
 				         <span class="btn-group dropup">
-				            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" style="width: 70px;">
+				            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" style="width: 70px;" >
 				            <span class="page-size"><?php if($num_rec){echo $num_rec; }else{ echo "5";} ?></span> 
 				            <span class="caret"></span></button>
 				            <ul class="dropdown-menu" role="menu">
@@ -134,7 +154,7 @@ $( document ).ready(function() {
 				       </script> <?
 					}
 				   ?>
-				   <div class="pull-right pagination">
+				   <div class="pull-right pagination" style="margin: 0px 0 !important;">
 				      <ul class="pagination pagination-info">
 				         <!--<li class="page-first <?=$disabled_frist;?>"><a href="<?php echo base_url(); ?>dashboard/view_user?num=<?=$num_rec;?>&start=0&page=<?=$frist_page;?>">«</a></li>-->
 				         <li class="page-pre <?=$disabled_frist;?>"><a href="javascript:void(0)">‹</a></li>
@@ -167,8 +187,11 @@ $( document ).ready(function() {
                     </div> <!-- end col-md-12 -->
       
 <!-- Modal ---------------------------------------------------------------------------------------------------------------------------------->
+<style>
+	
+</style>
   <div class="modal fade" id="myModal" role="dialog">
-		    <div class="modal-dialog modal-lg">
+		    <div class="modal-dialog">
 		      	<!-- Modal content-->
 			      <div class="modal-content">
 			       <!-- <div class="modal-header">
@@ -179,7 +202,7 @@ $( document ).ready(function() {
 			         
 			        </div>
 			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default btn-md" data-dismiss="modal">Close</button>
+			          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
 			        </div>
 			      </div>
   		</div>
@@ -205,86 +228,17 @@ $( document ).ready(function() {
 }
 </style>
 
+<style>
+	.box-menu-select {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    background: #fff;
+    /* height: 90px; */
+}
+</style>
 
-<div class="navbar navbar-default  navbar-transparent navbar-fixed-bottom navbar-color-on-scroll" style="border-top: 1px solid #C8E1F5 !important;color: #555 !important;">
-    <table width="100%">
-        <tr>
-        <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-home" id="gohome" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                            <i class="material-icons"  style="font-size: 35px;">home</i> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
-        
-            <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-realtime" id="goto_realtime" >
-                    <table width="100%">
-                        <tr>
-                            <td align="center">
-                                <i class="material-icons" style="font-size: 35px;">room</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                </div>
-            </td>
-            <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-reservation" id="goto_reservation" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                                <i class="material-icons" style="font-size: 35px;" style="">search</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
-            <td width="25%" >
-            <div class="btn-management" id="goto_management" style="    color: #07c284;" >
-  
-                <table width="100%">
-                    <tr>
-                        <td align="center">
-                            <i class="material-icons" style="font-size: 35px;">dvr</i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <span class="lng-management" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
-                        </td>
-                    </tr>
-                </table>
-               
-            </div> 
-        </td>
-            
-        </tr>
-    </table>    
- </div> 
 
 <script>
 function myFunction() {
@@ -375,27 +329,3 @@ function myFunction() {
 	});
 </script>
 
-<!--<script>
-	var $table = $('.table');
-var $fixedColumn = $table.clone().insertBefore($table).addClass('fixed-column');
-
-$fixedColumn.find('th:not(:first-child),td:not(:first-child)').remove();
-
-$fixedColumn.find('tr').each(function (i, elem) {
-    $(this).height($table.find('tr:eq(' + i + ')').height());
-});
-</script>
-<style>
-	
-	.table-responsive>.fixed-column {
-    position: absolute;
-    display: inline-block;
-    width: auto;
-    border-right: 1px solid #ddd;
-}
-@media(min-width:768px) {
-    .table-responsive>.fixed-column {
-        display: none;
-    }
-}
-</style>-->
