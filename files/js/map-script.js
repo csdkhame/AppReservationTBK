@@ -580,8 +580,8 @@ function addYourLocationButton(map, marker2) {
     firstChild.style.backgroundColor = '#fff';
     firstChild.style.border = 'none';
     firstChild.style.outline = 'none';
-    firstChild.style.width = '36px';
-    firstChild.style.height = '36px';
+    firstChild.style.width = '34px';
+    firstChild.style.height = '34px';
     firstChild.style.borderRadius = '2px';
     firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
     firstChild.style.cursor = 'pointer';
@@ -591,7 +591,7 @@ function addYourLocationButton(map, marker2) {
     controlDiv.appendChild(firstChild);
 
     var secondChild = document.createElement('div');
-    secondChild.style.margin = '4.5px';
+    secondChild.style.margin = '3.5px';
     secondChild.style.width = '29px';
     secondChild.style.height = '29px';
     secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
