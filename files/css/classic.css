@@ -123,3 +123,67 @@
     transition: transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s, border-width 0s;
     box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
 }
+
+
+/* ***********************custom ********************** */
+
+.picker__footer {
+    display: none;
+}
+
+.picker__holder {
+    background: #fff;
+    min-width: 15rem;
+    height: 100vh !important;
+    left: 50vw !important;
+    top: 50vh !important;
+    transform: translate(-50%, -50%) !important;
+    position: fixed !important;
+    z-index: 10;
+}
+
+.picker--opened {
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.59);
+    position: fixed;
+    width: 100%;
+}
+
+.picker__header {
+    text-align: center;
+    position: relative;
+    margin-top: 2.75em !important;
+    margin-bottom: !important;
+}
+
+.picker__weekday {
+    font-size: .95em !important;
+    font-weight: 400 !important;
+}
+
+.picker__select--year {
+    width: 35% !important;
+}
+
+.picker__day {
+    padding: .9em 0 !important;
+}
+
+.picker__day--highlighted {
+    border-color: #009688 !important;
+}
+
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+    background: rgb(0, 150, 136)!important;
+}
+
+.picker__day--today:before {
+    border-top: 0.7em solid #FF5722 !important;
+}

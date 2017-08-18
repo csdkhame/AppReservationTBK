@@ -274,31 +274,7 @@
                                                                         input::-webkit-clear-button {
                                                                         display: none;
                                                                         }
-                                                                        .picker__footer{
-                                                                            display:none;
-                                                                        }
-                                                                        .picker__holder{
-                                                                           
-                                                                            background: #fff;
-                                                                            min-width: 15rem;
-                                                                            height: 100vh !important;
-                                                                            left: 50vw !important;
-                                                                            top: 50vh !important;
-                                                                            transform: translate(-50%,-50%) !important;
-                                                                            position: fixed !important;
-                                                                            z-index: 10;
-                                                                        }
-                                                                        .picker--opened {
-                                                                            z-index: 9999;
-                                                                            position: fixed;
-                                                                            width: 100vw;
-                                                                            height: 100vh;
-                                                                            left: 0;
-                                                                            top: 0;
-                                                                            background: rgba(0, 0, 0, 0.59);
-                                                                            position: fixed;
-                                                                            width: 100%;
-                                                                        }
+                                                                       
                                                                     </style>
                                                                     <script >
                                                                        
