@@ -85,6 +85,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
                 console.log(data)
+                datauser = data;
                 console.log(data[0].s_image)
                 $('.box-login').show();
                 $('.box-login-non').hide();
