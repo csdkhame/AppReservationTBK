@@ -1,5 +1,13 @@
   <?php header('Content-type: text/html; charset=utf-8'); ?>
+<!--<script src="<?php echo base_url(); ?>files/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>files/datetimepicker-master/jquery.datetimepicker.css" />-->
 
+    <?php echo link_tag('files/css/classic.css'); ?>
+    <?php echo link_tag('files/css/classic.date.css'); ?>
+	 <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.js?v=<?=time()?>"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.date.js?v=<?=time()?>"></script> 
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/legacy.js?v=<?=time()?>"></script> 
+    
 <script>
 $( document ).ready(function() {
     $( "#user_view" ).addClass( "active" );
@@ -29,9 +37,9 @@ $( document ).ready(function() {
 							<table>
 							<tr>
 								<td>
-								<input type="date" >
+								  <input id="datetimepicker4"   name="date" type="text" >  
 								</td><td>
-								<input type="date">
+								<input type="date" class="datepicker">
 								</td>
 							</tr>
 							</table>  
@@ -187,9 +195,7 @@ $date = substr($show['date_time'],0,$pos);
                     </div> <!-- end col-md-12 -->
       
 <!-- Modal ---------------------------------------------------------------------------------------------------------------------------------->
-<style>
-	
-</style>
+
   <div class="modal fade" id="myModal" role="dialog">
 		    <div class="modal-dialog">
 		      	<!-- Modal content-->
@@ -239,6 +245,16 @@ $date = substr($show['date_time'],0,$pos);
 }
 </style>
 
+<script>
+	$('#datetimepicker4').datetimepicker({
+        timepicker: false,
+        format: 'Y-m-d'
+    });
+    $('#datetimepicker4').click(function() {
+
+        $('#datetimepicker4').datetimepicker('show');
+    });
+</script>
 
 <script>
 function myFunction() {
@@ -313,7 +329,6 @@ function myFunction() {
 
 </script>
 
-
 <script>
 	$('#gohome').click(function(){
 		location.href = base_url;
@@ -328,4 +343,5 @@ function myFunction() {
 		location.href = base_url+"dashboard/view_user?num=5&start=0&page=1";
 	});
 </script>
+
 
