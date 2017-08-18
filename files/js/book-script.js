@@ -151,9 +151,11 @@ $(document).ready(function() {
     });
     $('#on_date').pickadate({
         format: 'yyyy-mm-dd',
-        formatSubmit: 'yyyy/mm/dd',
-        closeOnSelect: false,
+        formatSubmit: 'yyyy-mm-dd',
+        closeOnSelect: true,
         closeOnClear: false,
+        selectMonths: true,
+        selectYears: true,
         "showButtonPanel": false,
         onStart: function() {
             this.set('select', date); // Set to current date on load

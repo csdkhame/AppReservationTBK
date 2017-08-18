@@ -22,8 +22,8 @@
     
     <?php echo link_tag('files/assets/css/material-bootstrap-wizard.css'); ?>
     <?php echo link_tag('files/css/normalize.css'); ?>
-    <?php echo link_tag('files/css/classic.css'); ?>
-    <?php echo link_tag('files/css/classic.date.css'); ?>
+    <?php echo link_tag('files/css/classic.css?v='.time()); ?>	
+    <?php echo link_tag('files/css/classic.date.css?v='.time()); ?>
     <?php //echo link_tag('files/css/jquery.mobile.datepicker.css'); ?>
     <?php// echo link_tag('files/css/load.css'); ?>
      
@@ -265,8 +265,7 @@
                                                     <div class='input-group '  style="width: 100%">
                                                     <!-- <input type="text"> -->
                 <input id="on_date"   class="datepicker asd"  name="date" type="text"
-                      >  
-                      <!-- autofocuss -->
+                    autofocuss  >  
                  <!-- <input type="text"> -->
                                                     <!-- <input type="text" data-role="date" id="on_date" class="form-control asd date-input-css"> -->
                                                         <!-- <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy"> -->
@@ -275,10 +274,7 @@
                                                                         input::-webkit-clear-button {
                                                                         display: none;
                                                                         }
-                                                                        .picker__footer{
-                                                                            display:none;
-                                                                        }
-                                                                        
+                                                                       
                                                                     </style>
                                                                     <script >
                                                                        
