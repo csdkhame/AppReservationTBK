@@ -60,7 +60,7 @@
 
     <div class="header " data-parallax="true" >
         <nav class="navbar  navbar-color-on-scroll" id="sectionsNav">
-        <div class="container" style="border-bottom: 1px solid #C8E1F5;padding-bottom: 12px;">
+        <div class="container" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -69,7 +69,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url(); ?>">app booking<!-- <img src="files/images/logo.png"> --></a>
+                <i class="material-icons" id="iconhome" style="font-size: 30px;    margin-left: 20px;">home</i> 
             </div>
 
             <!-- <div class="navbar-collapse">
@@ -108,9 +108,88 @@
         </div>
     </nav>
     </div>
-    <section style="position: relative;
-    min-height: 65vh;
-">
+    <section style="position: relative; min-height: 65vh;">
+    <!-- <div class="box-menu-select">
+    <table width="100%">
+        <tr>
+        <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-home" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+        
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-realtime" >
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 30px;">room</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </div>
+            </td>
+            <td width="25%" style="border-right: 1px solid #555;">
+                <div class="btn-reservation" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 30px;" style="">search</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="25%" >
+            <div class="btn-management" >
+           
+                                                 
+                           
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <i class="material-icons" style="font-size: 30px;">dvr</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <span class="lng-management" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
+                        </td>
+                    </tr>
+                </table>
+               
+            </div> 
+        </td>
+            
+        </tr>
+    </table>    
+ </div>  -->
         <div class="container">
             <div class="col-md-6" id="box-left" style="">
             <!-- <button class="btn btn-info btn-sm">Sign In or Create an Account</button> -->
@@ -135,10 +214,11 @@
     margin-top: 2px;
     padding: 5px 10px;"><span class="lng-check"></span></button>
                             <div class="form-group label-floating is-empty">
-                                <label class="control-label"> <span class="lng-email"></span> <span class="lng-or"></span> <span class="lng-phone"></span>
+                                <label class="control-label"> <span class="lng-email"></span> 
+                                <!-- <span class="lng-or"></span> <span class="lng-phone"></span> -->
                                     <!-- <small>(required)</small> -->
                                 </label>
-                                <input name="firstname" type="text" class="form-control" id="username-signup">
+                                <input name="firstname" required="True" type="email" class="form-control" id="username-signup">
                             <span class="material-input"></span></div>
                         </div>
                         <div class="input-group">
@@ -190,9 +270,10 @@
                                        
                                         <div class="form-group label-floating">
                                             <label class="control-label"><span class="lng-email"> </span>
-                                            <span class="lng-or"></span>
-                                            <span class="lng-phone"></span></label>
-                                            <input type="text" class="form-control" id="username" size="80">
+                                            <!-- <span class="lng-or"></span>
+                                            <span class="lng-phone"></span> -->
+                                        </label>
+                                            <input  required="True" type="email"  class="form-control" id="username" size="80">
                                         </div>
                                         
                                     </div>                                       
@@ -382,7 +463,7 @@
 .social-column .google-wrapper {
     text-align: center;
     margin-top: 20px;
-    /*display: none;*/
+    display: none;
 }
 .social-column .social-inner {
     display: table-cell;
@@ -849,6 +930,66 @@
                 }
 
 </style>
+<style>
+    .navbar-right{
+    /* background: #000; */
+}
+.textmenu{
+    margin-left: 10px;
+}
+.imgmem-log{
+    
+}
+.imgmemu{
+    width: 35px;  
+    height: 35px; 
+    border-radius: 50px;  
+}
+.user {
+    background: #07c284;
+    text-align: center;
+    padding-bottom: 20px;
+    /* margin: 25px auto 0; */
+    position: relative;
+    height: 160px;
+    display:none;
+}
+.user .photo {
+    width: 100%;
+    /* height: 110px; */
+    overflow: hidden;
+    border-radius: 4px;
+    /* margin: 0 auto; */
+    /* margin-top: 50px; */
+    /* box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); */
+}
+.user .photo img {
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    border-radius: 50px;                       
+}
+
+#usernamess{
+    display: inline-block;
+    text-transform: initial;
+}
+
+.box-menu-select{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    background: #fff;
+}
+
+@media screen and (max-width: 767px){
+    .user {
+        
+        display:block;
+    }
+}
+                    </style>
 <script>
 $(document).ready(function(){
     var username, password , username_signup ,password_signup,text_check;
@@ -918,7 +1059,32 @@ $.ajax({
        
     //alert( this.value );
     })
-    
+    $('#iconhome').click(function() {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
+            $('.btn-management').css('color', '#07c284');
+            $('.btn-home').css('color', '#999999');
+            $('.btn-reservation').css('color', '#999999');
+            $('.btn-realtime').css('color', '#999999');
+            $('#loading').css('display', 'none');
+            window.location.href = "https://dotdotdottrip.com/";
+        }, 2000);
+
+
+    });
+    $('.iconhome').click(function() {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
+            $('.btn-management').css('color', '#07c284');
+            $('.btn-home').css('color', '#999999');
+            $('.btn-reservation').css('color', '#999999');
+            $('.btn-realtime').css('color', '#999999');
+            $('#loading').css('display', 'none');
+            window.location.href = "https://dotdotdottrip.com/";
+        }, 2000);
+
+
+    });
     $('#username-signup').on('change', function() {
         username_signup = this.value ;
         console.log(username_signup)

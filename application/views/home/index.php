@@ -22,90 +22,51 @@
     }
 ?>
 <input type="hidden" id="paramUrl" value="<?=$_GET[action];?>" />
-<button class="btn" id="open_map"  style="display: none;">Open Map</button>
-
-<!-- <button class="btn" id="open_mapsss" data-toggle="modal" data-target="#updatelat" style="display: nones;">updatelat-lng</button> -->
-
+    <button class="btn" id="open_map"  style="display: none;">Open Map</button>
+    <!-- <button class="btn" id="open_mapsss" data-toggle="modal" data-target="#updatelat" style="display: nones;">updatelat-lng</button> -->
     <div id="show-hide-pro">
-        <i class="material-icons" style="color: rgb(59, 89, 152);;
-    font-size: 35px;">keyboard_arrow_down</i>
+        <i class="material-icons" style="color: rgb(59, 89, 152); font-size: 35px;">keyboard_arrow_down</i>
     </div>
     <div id="show-hide-pro2">
-        <i class="material-icons" style="color: rgb(59, 89, 152);;
-    font-size: 35px;">keyboard_arrow_up</i>
+        <i class="material-icons" style="color: rgb(59, 89, 152); font-size: 35px;">keyboard_arrow_up</i>
     </div>
     <div id="pro-search">
-    <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
-                            <div class="active" align="center" style="display: inline-block;">
-                                <button class="btn btn-warning" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </button>
+        <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
+            <div class="active" align="center" style="display: inline-block;">
+                <button class="btn btn-warning" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </button>
+            </div>
+            <div class="" align="center" style="display: inline-block;">
+                <button style=" background-color:#333" id="join-btn" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></button>
+            </div>
+            <div class="form-group form-inline required " style="padding: 9px 9px;  text-align: center;  margin-bottom: 12px; background: #fff; margin: auto;">
+                <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
+                <select class="form-control" name="cartype" id="cartype" class="" style="     margin: auto;">
+                    <option value="All Type" ><?php echo  $lng_all_type;?></option>                                                                
+                </select>
+            </div>             
+        </div>         
+        <div id="box-prosearch">
+            <div>
+                <div class="container" style="display:none;" id="container-product">
+                    <div class="row">
+                        <div class="col-md-9" style="    padding: 10px;">
+                            <div class="col-lg-12">
+                                <div class="row"></div>
                             </div>
-                            <div class="" align="center" style="display: inline-block;">
-                                <button style=" background-color:#333" id="join-btn" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></button>
+                            <div class="tab-content" id="move-product">
+                                <div class="tab-pane active" id="private" >
+                                    <div id="product_a"></div>
+                                </div>
+                                <div class="tab-pane "  id="join">
+                                    <div id="product_c"></div>
+                                </div>
                             </div>
-
-                          <div class="form-group form-inline required " style="padding: 9px 9px;
-    text-align: center;
-    /*border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    border-radius: 0 0 4px 4px;*/
-    margin-bottom: 12px;
-    background: #fff;
-   
-    margin: auto;">
-    
-                                                            <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
-                                                                <select class="form-control" name="cartype" id="cartype" class="" style="     margin: auto;">
-                                                                    <option value="All Type" ><?php echo  $lng_all_type;?></option>
-                                                                
-                                                              </select>
-                                                        </div>             
-                        </div>
-                        
-    <div id="box-prosearch">
-        <div>
-             <div class="container" style="display:none;" id="container-product">
-            <div class="row">
-                <div class="col-md-9" style="    padding: 10px;">
-                    <div class="col-lg-12">
-                        <div class="row">
-                        </div>
-                        
-                    </div>
-
-                    <div class="tab-content" id="move-product">
-                        <div class="tab-pane active" id="private" >
-                                <div id="product_a">
-                                    
-                                </div>
-                                <!-- <div id="product_b">
-                                    
-                                </div> -->
-                        </div>
-                        <div class="tab-pane "  id="join">
-                                <div id="product_c">
-                                    
-                                </div>
-                                <!-- <div id="product_d">
-                                    
-                                </div> -->
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-3"> 
-                        <div class="box-info">
-                            <div class="menu-city">
-                                
-                            </div>
-                        </div>
-                </div> -->
             </div>
         </div>
-            
-        </div>
-        
     </div>
-    
-</div>
 <div class="box-menu-select">
     <table width="100%">
         <tr>

@@ -85,12 +85,12 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
-                                <li>
+                                <!-- <li>
                                     <a href="" >
                                     <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
                     
                                     </a>
-                                </li>
+                                </li> -->
                                 
                                 <li id="btn-logout-user">
                                     <a>
