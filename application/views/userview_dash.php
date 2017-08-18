@@ -37,7 +37,7 @@ $( document ).ready(function() {
 							<table>
 							<tr>
 								<td>
-								  <input id="datetimepicker4"   name="date" type="text" >  
+								  <input id="datepick"   class="datepicker asd"  name="date" type="text">  
 								</td><td>
 								<input type="date" class="datepicker">
 								</td>
@@ -246,13 +246,22 @@ $date = substr($show['date_time'],0,$pos);
 </style>
 
 <script>
-	$('#datetimepicker4').datetimepicker({
-        timepicker: false,
-        format: 'Y-m-d'
-    });
-    $('#datetimepicker4').click(function() {
 
-        $('#datetimepicker4').datetimepicker('show');
+    $('#datepick').pickadate({
+        format: 'yyyy-mm-dd',
+        formatSubmit: 'yyyy/mm/dd',
+        closeOnSelect: false,
+        closeOnClear: false,
+        "showButtonPanel": false,
+        onStart: function() {
+            this.set('select', date); // Set to current date on load
+        }
+        });
+        
+        
+      $('#datepick').click(function() {
+
+        $('#datepick').datetimepicker('show');
     });
 </script>
 
