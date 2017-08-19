@@ -4,8 +4,6 @@ var base_url = 'https://dotdotdottrip.com/';
 //var base_url = 'http://localhost/AppReservationTBK/';
 
 $(document).ready(function() {
-
-
     console.log("readysss!");
     console.log($.cookie("login"))
     if ($.cookie("login")) {

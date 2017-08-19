@@ -33,14 +33,14 @@
     <div id="pro-search">
         <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
             <div class="active" align="center" style="display: inline-block;">
-                <button class="btn btn-warning" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </button>
+                <div class="" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </div>
             </div>
             <div class="" align="center" style="display: inline-block;">
-                <button style=" background-color:#333" id="join-btn" class="btn btn-warning" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></button>
+                <div style=" background-color:#333" id="join-btn" class="" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></div>
             </div>
-            <div class="form-group form-inline required " style="padding: 9px 9px;  text-align: center;  margin-bottom: 12px; background: #fff; margin: auto;">
+            <div class=" " style=" padding: 12px 10px; padding-bottom: 0;">
                 <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
-                <select class="form-control" name="cartype" id="cartype" class="" style="     margin: auto;">
+                <select class="" name="cartype" id="cartype" class="" style="     margin: auto;">
                     <option value="All Type" ><?php echo  $lng_all_type;?></option>                                                                
                 </select>
             </div>             
@@ -153,7 +153,7 @@
             <div class="col-md-12 " >
                 <div class="card-contentrealtime">
                     <div class="box-search" id='boxRealtime'>
-                        <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute; border-radius:4px; background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
+                        <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
                         <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;"/>
                         <div style="display: nones;" id="open-search">
                             <div style="border-bottom: 1px solid #333;display:nones;"></div>
@@ -170,11 +170,11 @@
 
         <div style="" id="search-show">            
             <div class="col-md-12 " >
-                <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);border-radius: 4px;">
+                <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);">
                     <div class="box-search">
-                        <button class="btn btn-success btn-xs" id="current-addr">
+                        <div class="" id="current-addr">
                             <i class="material-icons">gps_fixed</i>
-                        </button>
+                        </div>
                         <input type='text' class="" placeholder="From Type airport,hotel name, or location."  id='search-from' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
  <!-- -->                  <div style="border-bottom: 1px solid #333;"></div>
                         <div class="box-plancefrom" id="users">
