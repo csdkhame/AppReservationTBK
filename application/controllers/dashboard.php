@@ -35,7 +35,7 @@ public function view_user()
 			$id = $_COOKIE['login'];
 			$user_level = $this->Getuser_model->getuser_pass_id($id);
 //			echo json_encode($user_level);
-			$this->session->set_userdata(array('i_id' => $user_level[0]->i_id,'i_rating'=> $user_level[0]->i_rating,'s_code'=>$user_level[0]->s_code)); 
+			$this->session->set_userdata(array('i_id' => $user_level[0]->i_id,'i_rating'=> $user_level[0]->i_rating,'s_code'=>$user_level[0]->s_code,'s_code_ref'=>$user_level[0]->s_code_ref)); 
 //			$user_level = $this->session->userdata('i_rating');  
 			$user_level = $user_level[0]->i_rating; 
 			if($user_level==1){
