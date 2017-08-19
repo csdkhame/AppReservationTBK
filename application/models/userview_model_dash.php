@@ -109,9 +109,11 @@ class Userview_model_dash extends CI_Model {
   	
   	$id_head = $user_level = $this->session->userdata('i_id');  
   	$code = $user_level = $this->session->userdata('s_code');  
+  	$code_ref = $user_level = $this->session->userdata('s_code_ref');  
 	
   	$this->db->select('*');
-	$this->db->where('s_code_ref',$code);
+	$this->db->where('s_code',$code);
+	$this->db->or_where('s_code_ref',$code_ref);
 	if($num_record!="" and $start!=""){
 			$this->db->limit($num_record,$start);
 		}
@@ -146,7 +148,7 @@ class Userview_model_dash extends CI_Model {
 			$data_row[$key]['from'] = $aaaa[0]->topic;
 			$data_row[$key]['to'] = $aaaa[1]->topic;
 			$data_row[$key]['invoice'] = $row->invoice;
-			$data_row[$key]['date_time'] = $row->booking_date;
+			$data_row[$key]['date_time'] = $row->arrival_date;
 				
 		 	//$data[] = $row;
 		 }
@@ -157,9 +159,11 @@ class Userview_model_dash extends CI_Model {
         $data['results'] = $data_row;
         $data['total_user'] = $num_user;
         
-		 return $data;
-	}else{
-		return "no record";
+		return $data;
+	}
+
+	else{
+		return $query;
 	}
  
   }

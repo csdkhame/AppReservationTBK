@@ -1,6 +1,4 @@
   <?php header('Content-type: text/html; charset=utf-8'); ?>
-<!--<script src="<?php echo base_url(); ?>files/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>files/datetimepicker-master/jquery.datetimepicker.css" />-->
 
     <?php echo link_tag('files/css/classic.css'); ?>
     <?php echo link_tag('files/css/classic.date.css'); ?>
@@ -32,17 +30,14 @@ $( document ).ready(function() {
                             <div class="toolbar">
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                         <div class="input-group">
-							<span class="input-group-addon"><i class=""></i></span>
+                        <? 
+                        	$adate = date('Y-m-d');
+							$date = date("Y-m-d",strtotime("-1 month",strtotime($adate))); ?>
 							
-							<table>
-							<tr>
-								<td>
-								  <input id="datetimepicker4"   name="date" type="text" >  
-								</td><td>
-								<input type="date" class="datepicker">
-								</td>
-							</tr>
-							</table>  
+								  <input id="date1"   class=""  name="date" type="text" value="<?=$date;?>">  
+							
+								  
+								<input id="date2"   class=""  name="date" type="text" value="<?=$adate;?>">  
 							
 						
 					
@@ -69,7 +64,7 @@ $( document ).ready(function() {
       				
 							<?php if($user_level==1){ ?>
 							<div class="table-responsive">
-                            <table id="bootstrap-table" class="table table-hover">
+                            <table id="bootstrap-table1" class="table table-hover">
                                 <thead>
                                    <!-- <th data-field="state" data-checkbox="true" style="display: none;"></th>-->
                                     <th class="text-center"><p>ID</p></th>
@@ -115,13 +110,14 @@ $( document ).ready(function() {
 //                                	$spec = strpos('a', 'abc');
 //                                	$date = substr($show['date_time'],0,$spec);
 $mystring = $show['date_time'];
-$findme   = ' ';
+/*$findme   = ' ';
 $pos = strpos($mystring, $findme);
 $date = substr($show['date_time'],0,$pos);
+$format = date('Y-m-d',$mystring);*/
                                 ?>
                                     <tr class="tr-hover" onclick="view_order_level2('<?=$show['id_order'];?>');">
                                         <!--<td style="display: none;"></td>-->
-                                    	<td ><?=$date;?></td>
+                                    	<td ><? echo $show['date_time'];?> </td>
                                     	<td ><?=$show['invoice'];?></td>
                                     	<td ><?=$show['from'];?></td>
                                     	<td ><?=$show['to'];?></td>
@@ -246,14 +242,35 @@ $date = substr($show['date_time'],0,$pos);
 </style>
 
 <script>
-	$('#datetimepicker4').datetimepicker({
-        timepicker: false,
-        format: 'Y-m-d'
-    });
-    $('#datetimepicker4').click(function() {
 
-        $('#datetimepicker4').datetimepicker('show');
-    });
+    $('#date1').pickadate({
+        format: 'yyyy-mm-dd',
+        formatSubmit: 'yyyy/mm/dd',
+        closeOnSelect: true,
+        closeOnClear: false,
+        "showButtonPanel": false,
+        onStart: function() {
+            this.set('select', date); // Set to current date on load
+        }
+        });
+        
+      
+        
+        
+   
+</script>
+
+<script>
+	  $('#date2').pickadate({
+        format: 'yyyy-mm-dd',
+        formatSubmit: 'yyyy/mm/dd',
+        closeOnSelect: true,
+        closeOnClear: false,
+        "showButtonPanel": false,
+        onStart: function() {
+            this.set('select', date); // Set to current date on load
+        }
+        });
 </script>
 
 <script>
@@ -344,4 +361,33 @@ function myFunction() {
 	});
 </script>
 
-
+<script>
+	$( document ).ready(function() {
+    	var date_s = $('#date1').val();
+    	var date_e = $('#date2').val();
+    	var dif ;
+//    	dif = findDateDiff(date_s,date_e);
+    	var year_s = date_s.substring(0, 4);
+    	var mounth_s = date_s.substring(4, 6);
+    	alert(year_s+" : "+mounth_s);
+	    $('#bootstrap-table tr').each(function (i, el) {
+	      
+	     /* if($(this).find('td').eq(0).text() == '3'){
+            $(this).css('background','red');
+        }*/
+	      console.log($(this).find('td').eq(0).text());
+	      
+	    });
+    	
+	});
+	
+	function findDateDiff(date1,date2){
+//		var date1 = new Date("7/13/2010");
+//		var date2 = new Date("12/15/2010");
+		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+		return diffDays;
+	}
+	
+	
+</script>
