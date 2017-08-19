@@ -22,11 +22,13 @@ class Savebook_model extends CI_Model {
       $data['place'] = $this->input->post('from');
       $data['to_place'] = $this->input->post('to');
       $data['total_price'] = $this->input->post('cost');
-      $data['booking_date'] = date('d/m/Y H:i:s');
+      $data['booking_date'] = date('Y-m-d H:i:s');
       $data['post_date'] = time();
       $data['other'] = $this->input->post('other');
       $data['arrival_flight'] = $this->input->post('arrival_flight');
       $data['guest_other'] = $this->input->post('guest_other');
+      $data['s_code'] = $this->input->post('code');
+      $data['s_code_ref'] = $this->input->post('code_ref');
       //return $times;
      
       

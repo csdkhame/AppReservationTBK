@@ -30,7 +30,8 @@ $(document).ready(function() {
         sum_adult_child = num_adult + num_child,
         checksumperson = 0,
         place_name, toplace_name, adress, adress_to, terminal, car_model,
-        service, code, visa, guestcountry, datauser;
+        service, code, visa, guestcountry, datauser,
+        code_r, code_ref, s_email;
 
 
     $('#sumnum').html(parseInt(sum_adult_child));
@@ -87,7 +88,10 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
                 console.log(data)
+                code_r = data[0].s_code;
+                code_ref = data[0].s_code_ref;
                 datauser = data;
+                s_email = data[0].s_email
                 console.log(data[0].s_image)
                 $('.box-login').show();
                 $('.box-login-non').hide();
@@ -150,6 +154,23 @@ $(document).ready(function() {
         date = moment(val).toDate();
     });
     $('#on_date').pickadate({
+        format: 'yyyy-mm-dd',
+        formatSubmit: 'yyyy-mm-dd',
+        closeOnSelect: true,
+        closeOnClear: false,
+        selectMonths: true,
+        selectYears: true,
+        "showButtonPanel": false,
+        onStart: function() {
+            this.set('select', date); // Set to current date on load
+        }
+    });
+    $('#on_date2').each(function() {
+        //alert("qwqwqwq")
+        var val = $(this).val();
+        date = moment(val).toDate();
+    });
+    $('#on_date2').pickadate({
         format: 'yyyy-mm-dd',
         formatSubmit: 'yyyy-mm-dd',
         closeOnSelect: true,
@@ -680,14 +701,45 @@ $(document).ready(function() {
         total_price = parseInt(total_adult) + parseInt(total_child);
         sum_adult_child = parseInt(num_adult) + parseInt(num_child);
         console.log(sum_adult_child)
-        if (checksumperson < sum_adult_child) {
-            selectcar++;
-            checksumperson = parseInt(person) * parseInt(selectcar)
-            console.log('sumperson-' + checksumperson)
-
-            total_price = parseInt(costproduct) * parseInt(selectcar);
+        console.log(checksumperson)
+        console.log(sum_adult_child / parseInt(person));
+        var s = sum_adult_child / parseInt(person);
+        if (sum_adult_child <= parseInt(person)) {
+            selectcar = 1;
+        }
+        if (sum_adult_child > parseInt(person) && (checksumperson != sum_adult_child)) {
+            selectcar = parseInt(s) + 1;
 
         }
+        if ((parseInt(s) * parseInt(person)) == sum_adult_child) {
+            selectcar = parseInt(s);
+
+        }
+        // if(sum_adult_child  parseInt(person)){
+
+        // }
+        //if (checksumperson < sum_adult_child) {
+        // var s = sum_adult_child / parseInt(person);
+        //selectcar = parseInt(s) + 1;
+        console.log(selectcar)
+        checksumperson = parseInt(person) * parseInt(selectcar)
+        console.log('sumperson-' + checksumperson)
+
+        total_price = parseInt(costproduct) * parseInt(selectcar);
+
+        //} 
+        //else if (checksumperson >= sum_adult_child) {
+        //     if (sum_adult_child == parseInt(person)) {
+        //         selectcar = 1;
+        //     } else {
+        //         selectcar = parseInt(s);
+
+        //     }
+        //     checksumperson = parseInt(person) * parseInt(selectcar)
+        //     console.log('sumperson2-' + checksumperson)
+
+        //     total_price = parseInt(costproduct) * parseInt(selectcar);
+        // }
         if (type == 'Join') {
             total_price = parseInt(costproduct) * parseInt(sum_adult_child);
             $('#numsumprice').html(total_price + ' ' + '฿')
@@ -713,14 +765,45 @@ $(document).ready(function() {
         total_price = parseInt(total_adult) + parseInt(total_child);
         sum_adult_child = parseInt(num_adult) + parseInt(num_child);
         console.log(sum_adult_child)
-        if (checksumperson < sum_adult_child) {
-            selectcar++;
+        console.log(checksumperson)
+        console.log(sum_adult_child / parseInt(person));
+        var s = sum_adult_child / parseInt(person);
 
-            checksumperson = parseInt(person) * parseInt(selectcar)
-            console.log('sumperson-' + checksumperson)
-
-            total_price = parseInt(costproduct) * parseInt(selectcar);
+        if (sum_adult_child <= parseInt(person)) {
+            selectcar = 1;
         }
+        if (sum_adult_child > parseInt(person) && (checksumperson != sum_adult_child)) {
+            selectcar = parseInt(s) + 1;
+
+        }
+        if ((parseInt(s) * parseInt(person)) == sum_adult_child) {
+            selectcar = parseInt(s);
+
+        }
+
+        // if (checksumperson < sum_adult_child) {
+        //     selectcar = parseInt(s) + 1;
+        //     console.log(selectcar)
+
+        //     checksumperson = parseInt(person) * parseInt(selectcar)
+        //     console.log('sumperson-' + checksumperson)
+
+        //     total_price = parseInt(costproduct) * parseInt(selectcar);
+        // }
+        //if (checksumperson >= sum_adult_child) {
+        // if (sum_adult_child == parseInt(person)) {
+        //     selectcar = 1;
+        // } else {
+        //     selectcar = parseInt(s);
+
+        // }
+        checksumperson = parseInt(person) * parseInt(selectcar)
+        console.log('sumperson2-' + checksumperson)
+
+        total_price = parseInt(costproduct) * parseInt(selectcar);
+        // }
+
+
 
         if (type == 'Join') {
             total_price = parseInt(costproduct) * parseInt(sum_adult_child);
@@ -786,6 +869,7 @@ $(document).ready(function() {
         email = this.value;
         console.log(email)
         $('#summaryemail').html(email)
+        s_email = email;
 
 
 
@@ -838,7 +922,8 @@ $(document).ready(function() {
         console.log(place)
         console.log(to_place)
         console.log(costdotcars)
-        console.log()
+        console.log(code_r + 'code')
+        console.log(code_ref + 'code_ref')
         var url2 = 'https://dotdotdottrip.com/';
         $.ajax({
             type: 'POST',
@@ -860,8 +945,9 @@ $(document).ready(function() {
                 'other': other,
                 'guest_other': namecountry,
                 'arrival_flight': flight,
-                'visa': visa
-
+                'visa': visa,
+                'code': code_r,
+                'code_ref': code_ref
 
             },
             // contentType: "application/json",
@@ -895,7 +981,10 @@ $(document).ready(function() {
                             "to_place_address": adress_to,
                             "remark": other,
                             "type": type,
-                            "area": area
+                            "area": area,
+                            'code': code_r,
+                            'code_ref': code_ref
+
 
                         };
                     }
@@ -928,7 +1017,10 @@ $(document).ready(function() {
                             "service_time": ontime,
                             "remark": other,
                             "type": type,
-                            "area": area
+                            "area": area,
+                            'code': code_r,
+                            'code_ref': code_ref
+
 
                         };
                     }
@@ -960,7 +1052,11 @@ $(document).ready(function() {
                             "remark": other,
                             "type": type,
                             "area": area,
-                            'visa': visa
+                            'visa': visa,
+                            'code': code_r,
+                            'code_ref': code_ref
+
+
 
                         };
                     }
@@ -993,7 +1089,10 @@ $(document).ready(function() {
                             "number_car": num_cars,
                             "remark": other,
                             "type": type,
-                            "area": area
+                            "area": area,
+                            'code': code_r,
+                            'code_ref': code_ref
+
 
                         };
                     }
@@ -1023,7 +1122,10 @@ $(document).ready(function() {
                         "to_place": toplace_name,
                         "remark": other,
                         "type": type,
-                        "area": area
+                        "area": area,
+                        'code': code_r,
+                        'code_ref': code_ref
+
 
 
 
@@ -1060,7 +1162,10 @@ $(document).ready(function() {
                         "car_use_plan": "",
                         "remark": other,
                         "type": type,
-                        "area": area
+                        "area": area,
+                        'code': code_r,
+                        'code_ref': code_ref
+
 
 
 
@@ -1097,7 +1202,10 @@ $(document).ready(function() {
                         "number_car": num_cars,
                         "remark": other,
                         "type": type,
-                        "area": area
+                        "area": area,
+                        'code': code_r,
+                        'code_ref': code_ref
+
 
 
 
@@ -1115,11 +1223,27 @@ $(document).ready(function() {
                     //contentType: "application/json",
                     //dataType: 'json',
                     success: function(data) {
-                        console.log(data)
+                        console.log(data);
+                        console.log(s_email);
+                        $.ajax({
+                            type: 'POST',
+                            url: 'https://dotdotdottrip.com/sendmail_control/sendmail',
+                            data: { 'mail': s_email },
+                            //contentType: "application/json",
+                            //dataType: 'json',
+                            success: function(data) {
+                                console.log(data);
+                                //console.log(s_email);
+
+                                //window.location.href = "https://dotdotdottrip.com";
+
+                            }
+                        });
+
 
                     }
                 });
-                window.location.href = "https://dotdotdottrip.com";
+
             }
         });
 
