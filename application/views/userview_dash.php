@@ -34,11 +34,14 @@ $( document ).ready(function() {
                         	$adate = date('Y-m-d');
 							$date = date("Y-m-d",strtotime("-1 month",strtotime($adate))); ?>
 							
-								  <input id="date1"   class=""  name="date" type="text" value="<?=$date;?>">  
-							
-								  
-								<input id="date2"   class=""  name="date" type="text" value="<?=$adate;?>">  
-							
+							<table>
+								<tr><td>
+								  <input id="date1"   class="inputDate"  name="date" type="text" value="<?=$date;?>">  
+								</td>
+								<td>
+								<input id="date2"   class="inputDate"  name="date" type="text" value="<?=$adate;?>">  
+								</td></tr>
+							</table>
 						
 					
 						</div>
@@ -58,6 +61,25 @@ $( document ).ready(function() {
     background-color: #07c284;;
     border-color: #00bcd4;
     box-shadow: 0 4px 5px 0 rgba(0, 188, 212, .14), 0 1px 10px 0 rgba(0, 188, 212, .12), 0 2px 4px -1px rgba(0, 188, 212, .2)
+}
+.inputDate{
+	 display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+    /* font-size: 1rem; */
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0.25rem;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
 }
 </style>	
 							
@@ -109,11 +131,11 @@ $( document ).ready(function() {
                                 <?php foreach($results as $show){ 
 //                                	$spec = strpos('a', 'abc');
 //                                	$date = substr($show['date_time'],0,$spec);
-$mystring = $show['date_time'];
-/*$findme   = ' ';
-$pos = strpos($mystring, $findme);
-$date = substr($show['date_time'],0,$pos);
-$format = date('Y-m-d',$mystring);*/
+									$mystring = $show['date_time'];
+									/*$findme   = ' ';
+									$pos = strpos($mystring, $findme);
+									$date = substr($show['date_time'],0,$pos);
+									$format = date('Y-m-d',$mystring);*/
                                 ?>
                                     <tr class="tr-hover" onclick="view_order_level2('<?=$show['id_order'];?>');">
                                         <!--<td style="display: none;"></td>-->
@@ -130,8 +152,8 @@ $format = date('Y-m-d',$mystring);*/
                             </table>
      						</div>
 							<?php } ?>
-			<div>
-				<div class="fixed-table-pagination">
+			<div style="display: none;">
+				<div class="fixed-table-pagination" style="display: none;">
 				   <div class="pull-left pagination-detail" style="margin: 10px;display: none;" >
 				      <span class="pagination-info"></span>
 				      <span class="page-list">
@@ -191,15 +213,14 @@ $format = date('Y-m-d',$mystring);*/
                     </div> <!-- end col-md-12 -->
       
 <!-- Modal ---------------------------------------------------------------------------------------------------------------------------------->
-
   <div class="modal fade" id="myModal" role="dialog">
 		    <div class="modal-dialog">
 		      	<!-- Modal content-->
 			      <div class="modal-content">
-			       <!-- <div class="modal-header">
+			        <div class="modal-header">
 			          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			          <h4 class="modal-title">Modal Header</h4>
-			        </div>-->
+			          <h4 class="modal-title"><strong></strong></h4>
+			        </div>
 			        <div class="modal-body" id="modal_showdata">
 			         
 			        </div>
@@ -331,13 +352,13 @@ function myFunction() {
 				var value = obj[0];
 				var index = 'x';
 					$( "#modal_showdata" ).html( '<div id="showTableRef" class=""></div>' );
-					$( "#showTableRef" ).append( '<table id="tb-'+index+'" class="table table-hover grad1"></table>' );
-				    $( "#tb-"+index ).append( '<tr><td><strong>Order</strong></td><td>'+value.id+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Date</strong></td><td>'+value.booking_date+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>From</strong></td><td>'+value.place+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>To</strong></td><td>'+value.to_place+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Guest</strong></td><td>'+value.guest_english+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Total Price</strong></td><td>'+value.total_price+'</td></tr>');
+					$( "#showTableRef" ).append( '<table id="tb-'+index+'" class="table table-hover "></table>' );
+				    $( "#tb-"+index ).append( '<tr><td><b>Order</b></td><td>'+value.id+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><b>Date</b></td><td>'+value.booking_date+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><b>From</b></td><td>'+value.place+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><b>To</b></td><td>'+value.to_place+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><b>Guest</b></td><td>'+value.guest_english+'</td></tr>');
+				    $( "#tb-"+index ).append( '<tr><td><b>Total Price</b></td><td>'+value.total_price+'</td></tr>');
 				
 
 		});
@@ -363,31 +384,75 @@ function myFunction() {
 
 <script>
 	$( document ).ready(function() {
-    	var date_s = $('#date1').val();
-    	var date_e = $('#date2').val();
-    	var dif ;
-//    	dif = findDateDiff(date_s,date_e);
-    	var year_s = date_s.substring(0, 4);
-    	var mounth_s = date_s.substring(4, 6);
-    	alert(year_s+" : "+mounth_s);
-	    $('#bootstrap-table tr').each(function (i, el) {
-	      
-	     /* if($(this).find('td').eq(0).text() == '3'){
-            $(this).css('background','red');
-        }*/
-	      console.log($(this).find('td').eq(0).text());
-	      
-	    });
     	
+    	findRowDate();
+    	
+	
 	});
 	
-	function findDateDiff(date1,date2){
-//		var date1 = new Date("7/13/2010");
-//		var date2 = new Date("12/15/2010");
-		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-		return diffDays;
+	$( "#date2" ).change(function() {
+//	  	alert(555);
+	  	findRowDate();
+	});
+	
+	function findRowDate(){
+//		alert(555);
+		$('tr[class="tr-hover"]').css('display','');
+		console.log(559999999999999999999955);
+		var dateFrom = $('#date1').val();
+    	var dataTo = $('#date2').val();
+    	var result ;
+
+    	var arry = [];
+	    $('#bootstrap-table tr[class="tr-hover"]').each(function (i, el) {
+	      	var dataCheck = $(this).find('td').eq(0).text();
+	    
+	      result = checkBetween(dateFrom,dataTo,dataCheck);
+	      
+	      if(result==false){
+//		  	$(this).css('background-color','red');
+		  	$(this).css('display','none');
+		  }
+	      
+//		alert(dateFrom+" | "+dataCheck+" | "+dataTo);
+	    });
 	}
 	
+	function checkBetween(dateFrom,dateTo,dateCheck){
+		/*var dateFrom = "12/07/2017";
+		var dateCheck = "12/08/2017";
+		var dateTo = "12/09/2017";*/
+		
+	/*	var dateFrom = "2017-07-12";
+		var dateTo = "2017-09-12";
+		var dateCheck = "2017-07-21";*/
+		
+		var dateFrom = formatDate (dateFrom);
+		var dateCheck = formatDate (dateCheck);
+		var dateTo = formatDate (dateTo);
+		
+		
+		var d1 = dateFrom.split("/");
+		var d2 = dateTo.split("/");
+		var c = dateCheck.split("/");
+
+		var from = new Date(d1[2], parseInt(d1[1])-1, d1[0]);  // -1 because months are from 0 to 11
+		var to   = new Date(d2[2], parseInt(d2[1])-1, d2[0]);
+		var check = new Date(c[2], parseInt(c[1])-1, c[0]);
+
+	/*	console.log(check >= from && check <= to);
+		console.log(dateFrom+' | '+dateCheck+' | '+dateTo);*/
+		return check > from && check < to;
+
+	}
+
+	function formatDate (input) {
+	
+	  var datePart = input.match(/\d+/g),
+	  year = datePart[0].substring(0), // get only two digits
+	  month = datePart[1], day = datePart[2];
+
+	  return day+'/'+month+'/'+year;
+}
 	
 </script>

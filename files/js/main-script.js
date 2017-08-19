@@ -1,7 +1,7 @@
 var rel = false;
 var dataplacerel;
-//var base_url = 'https://dotdotdottrip.com/';
-var base_url = 'http://localhost/AppReservationTBK/';
+var base_url = 'https://dotdotdottrip.com/';
+//var base_url = 'http://localhost/AppReservationTBK/';
 
 $(document).ready(function() {
 

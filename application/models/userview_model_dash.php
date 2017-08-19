@@ -114,9 +114,9 @@ class Userview_model_dash extends CI_Model {
   	$this->db->select('*');
 	$this->db->where('s_code',$code);
 	$this->db->or_where('s_code_ref',$code_ref);
-	if($num_record!="" and $start!=""){
+/*	if($num_record!="" and $start!=""){
 			$this->db->limit($num_record,$start);
-		}
+		}*/
 	$query = $this->db->from('ap_order')->get();
 	if($query->num_rows > 0) {
 		 foreach($query->result() as $key=>$row){
