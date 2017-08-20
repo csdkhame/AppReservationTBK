@@ -1,7 +1,8 @@
 var rel = false;
 var dataplacerel;
-//var base_url = 'https://dotdotdottrip.com/';
-var base_url = 'http://localhost/AppReservationTBK/';
+var base_url = 'https://dotdotdottrip.com/';
+//var base_url = 'https://www.welovetaxi.com/app/transfer/';
+//var base_url = 'http://localhost/AppReservationTBK/';
 
 $(document).ready(function() {
     console.log("readysss!");
@@ -82,7 +83,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: 'POST',
-        url: '../getproduct_c/getproduct',
+        url: base_url+'getproduct_c/getproduct',
         //data: { 'id': $.cookie("login") },
         //contentType: "application/json",
         dataType: 'json',
