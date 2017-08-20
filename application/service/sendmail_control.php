@@ -9,7 +9,7 @@
 	// {
 
        
-       include("./phpmailer/class.phpmailer.php");
+       include("../phpmailer/class.phpmailer.php");
        echo 'sasas';
        $mail = new PHPMailer();
         
