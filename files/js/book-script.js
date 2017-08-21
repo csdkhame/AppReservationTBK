@@ -32,7 +32,7 @@ $(document).ready(function() {
         place_name, toplace_name, adress, adress_to, terminal, car_model,
         service, code, visa, guestcountry, datauser,
         code_r, code_ref, s_email,
-        flight;
+        flight, cost_a_nett;
 
 
     $('#sumnum').html(parseInt(sum_adult_child));
@@ -374,6 +374,7 @@ $(document).ready(function() {
 
             costproduct = data[0].cost_a;
             type = data[0].type;
+            cost_a_nett = data[0].cost_a_nett;
             if (data[0].area == 'In' || data[0].area == 'Out') {
                 $('.flight-box').show();
 
@@ -936,10 +937,11 @@ $(document).ready(function() {
         console.log(code_r + 'code')
         console.log(code_ref + 'code_ref');
         console.log(area)
+        console.log(cost_a_nett)
         var url2 = 'https://dotdotdottrip.com/';
 
         console.log(flight)
-        if (area == 'In' || area == 'Out' || flight == 'undefined') {
+        if (area == 'In' && area == 'Out' && flight == 'undefined') {
 
             $('#waning-flight').fadeIn(500);
             //alert("aaaa");
@@ -968,7 +970,8 @@ $(document).ready(function() {
                     'arrival_flight': flight,
                     'visa': visa,
                     'code': code_r,
-                    'code_ref': code_ref
+                    'code_ref': code_ref,
+                    'cost_a_nett': cost_a_nett
 
                 },
                 // contentType: "application/json",
@@ -1004,7 +1007,8 @@ $(document).ready(function() {
                                 "type": type,
                                 "area": area,
                                 'code': code_r,
-                                'code_ref': code_ref
+                                'code_ref': code_ref,
+                                'cost_a_nett': cost_a_nett
 
 
                             };
@@ -1040,7 +1044,8 @@ $(document).ready(function() {
                                 "type": type,
                                 "area": area,
                                 'code': code_r,
-                                'code_ref': code_ref
+                                'code_ref': code_ref,
+                                'cost_a_nett': cost_a_nett
 
 
                             };
@@ -1075,7 +1080,8 @@ $(document).ready(function() {
                                 "area": area,
                                 'visa': visa,
                                 'code': code_r,
-                                'code_ref': code_ref
+                                'code_ref': code_ref,
+                                'cost_a_nett': cost_a_nett
 
 
 
@@ -1112,7 +1118,8 @@ $(document).ready(function() {
                                 "type": type,
                                 "area": area,
                                 'code': code_r,
-                                'code_ref': code_ref
+                                'code_ref': code_ref,
+                                'cost_a_nett': cost_a_nett
 
 
                             };
@@ -1145,7 +1152,8 @@ $(document).ready(function() {
                             "type": type,
                             "area": area,
                             'code': code_r,
-                            'code_ref': code_ref
+                            'code_ref': code_ref,
+                            'cost_a_nett': cost_a_nett
 
 
 
@@ -1185,7 +1193,8 @@ $(document).ready(function() {
                             "type": type,
                             "area": area,
                             'code': code_r,
-                            'code_ref': code_ref
+                            'code_ref': code_ref,
+                            'cost_a_nett': cost_a_nett
 
 
 
@@ -1225,7 +1234,8 @@ $(document).ready(function() {
                             "type": type,
                             "area": area,
                             'code': code_r,
-                            'code_ref': code_ref
+                            'code_ref': code_ref,
+                            'cost_a_nett': cost_a_nett
 
 
 

@@ -209,7 +209,7 @@
     border-radius: 50px;  
 }
 .user {
-    background: #07c284;
+    background: #16B3B1;
     text-align: center;
     padding-bottom: 20px;
     /* margin: 25px auto 0; */

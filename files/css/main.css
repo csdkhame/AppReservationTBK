@@ -119,7 +119,7 @@ body {
 }
 
 #private-btn {
-    background: #009688;
+    background: #16B3B1;
 }
 
 #current-addr {
@@ -132,7 +132,7 @@ body {
     padding: 4px;
     position: absolute;
     /* border-radius: 4px; */
-    background-color: #07c284;
+    background-color: #16B3B1;
     margin: 5px 0;
 }
 
@@ -326,7 +326,7 @@ a:link {
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #07c284;
+    color: #16B3B1;
     text-align: center;
     /* display: inline-block; */
     /* background-color: #2196f3; */

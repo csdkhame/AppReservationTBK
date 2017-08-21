@@ -255,7 +255,7 @@
                                         </p>
                                         <p class="prices">
                                             <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>&nbsp;&nbsp;
-                                            <span style="color: #fb833f;" id="price"></span>
+                                            <span style="color: #16B3B1;" id="price"></span>
                                         </p>
                                         <p class="sumprice">
                                             <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>                                                           
@@ -1036,7 +1036,7 @@
    
 }
 #numsumprice {
-    color: #fb833f;
+    color: #16B3B1;
     font-weight: 600;
 }
 .sumprice {
@@ -1098,8 +1098,8 @@
     box-shadow: none;
 }
 .box-program{
-    border-top: dashed 2px #009688;
-    border-bottom: dashed 2px #009688;
+    border-top: dashed 2px #81C8D3;
+    border-bottom: dashed 2px #81C8D3;
     text-align: center;
     /* background: #ff9800; */
     padding: 12px 2px;

@@ -29,6 +29,7 @@ class Savebook_model extends CI_Model {
       $data['guest_other'] = $this->input->post('guest_other');
       $data['s_code'] = $this->input->post('code');
       $data['s_code_ref'] = $this->input->post('code_ref');
+      $data['cost_a_nett'] = $this->input->post('cost_a_nett');
       //return $times;
      
       
