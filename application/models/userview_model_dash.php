@@ -210,11 +210,40 @@ class Userview_model_dash extends CI_Model {
   
   public function order_detail($id){
 	  	$this->db->select('*');
-		$this->db->where('id',$id);
+		$this->db->where('invoice',$id);
 		$query = $this->db->from('ap_order')->get();
 		if($query->num_rows > 0) {
-			 foreach($query->result() as $row){
-			 	$data[] = $row;
+			 foreach($query->result() as $key=>$row){
+			 	
+			$curl_post_data = '{"place_from" : "'.$row->place.'","place_to" : "'.$row->to_place.'"}';
+			$curl_response = '';
+			$headers = array();
+//			$url = "http://services.t-booking.com/Product_dashboard/normal";                               
+			$url = "http://services.t-booking.com/Service/getplace";                               
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_ENCODING, 'gzip');
+			curl_setopt($curl, CURLOPT_HTTPHEADER , array(
+			     'Content-Type: application/x-www-form-urlencoded; charset=utf-8',
+			));
+			curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.6 (KHTML, like Gecko) Chrome/16.0.897.0 Safari/535.6");
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_REFERER, $url);
+			curl_setopt($curl, CURLOPT_URL, $url);  
+			curl_setopt($curl, CURLOPT_POST, 1);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
+			$aaaa = json_decode($curl_response);
+			
+			 	$data[$key]['id'] = $row->id;
+			 	$data[$key]['arrival_date'] = $row->arrival_date;
+			 	$data[$key]['adult'] = $row->adult;
+			 	$data[$key]['child'] = $row->child;
+			 	$data[$key]['invoice'] = $row->invoice;
+			 	$data[$key]['from'] = $aaaa[0]->topic;
+				$data[$key]['to'] = $aaaa[1]->topic;
+				$data[$key]['guest_english'] = $row->guest_english;
+				$data[$key]['total_price'] = $row->total_price;
 			 }
 		 return $data;
 		 }

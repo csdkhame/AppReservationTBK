@@ -117,10 +117,19 @@ public function playment(){
 public function query_transfer_byuser(){
 	
   		$id = $this->input->post('order_id');
+  		
   		if($id!=""){
 		$data = $this->Userview_model_dash->order_detail($id);
+		/*$this->load->view('voucher',$data);*/
 		echo json_encode($data);
-		}	
+		}else{
+			$id = $this->input->get('order_id');
+			$data['results'] = $this->Userview_model_dash->order_detail($id);
+//			$this->load->view('header_dash2');
+			$this->load->view('voucher',$data);
+//			$this->load->view('footer_dash2');
+//			echo json_encode($data);
+		}
 	
 }
 
