@@ -187,7 +187,7 @@
                                 </li>
                                 <li>
                                     <a  onclick="language('en')">
-                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
+                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">English 
                     
                                     </a>
                                 </li>
@@ -617,9 +617,9 @@
                                                     <input type="email" class="textInput" placeholder="E-mail" id="email" aria-required="true" aria-invalid="true" required>                                                    
                                                 
                                             </div>
-                                            <div class="contact_info">
+                                            <div class="contact_info flight-box" >
                                                 
-                                                    <input type="text" class="textInput" placeholder="Flight" id="flight" required>
+                                                    <input type="text" class="textInput" placeholder="Flight" id="flight" >
                                                
                                             </div>
                                             <div class="form-group form-inline">
@@ -864,10 +864,7 @@
 
         <div class="modal fade" id="codecountry" role="dialog">
             <div class="modal-dialog" style="margin: 0; margin-top: 0 !important;">
-                <div class="modal-content" style="width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    overflow-y: scroll;    border-radius: 0 !important;">
+                <div class="modal-content" style="width: 100%; height: 100vh; overflow: hidden;  overflow-y: scroll;    border-radius: 0 !important;">
                     <div class="modal-header" style="padding: 12px 15px 0; */">
                         <button type="button" class="close" data-dismiss="modal" style="font-size:30px;">&times;</button>
                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button> -->
@@ -943,12 +940,60 @@
                 </div>
             </div>
         </div>
+        <div id="waning-flight" style="z-index: 9999; position: fixed; width: 100vw; height: 100vh; left: 0px; top: 0px; background: rgba(0, 0, 0, 0.59); display: none;">
+        <div style="height: 165px;
+    /* border-radius: 4px; */
+    background: #fff;
+    min-width: 30rem;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 10000;">
+            <div>
+                <div style="font-weight: 500;
+    color: #000;
+    margin-top: 39px;
+    font-size: 18px;
+    /* padding: 35px; */
+    text-align: center;">
+                <!-- <button type="button" class="close" style="font-size:30px;">×</button> -->
+                    <div >Please input flight</div>
+                    <!-- <div type="button" class="btn-close" >Close</div> -->
+                    <!-- <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i> -->
+                </div> 
+                <div type="button" class="btn-close lng-close" ></div>
+                           
+            </div>
+        </div>
+    </div>
 
     
         
     </div>
 </body>
 <style>
+.addbook{
+    background: #16B3B1;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px;
+    font-size: 17px;
+    display: none;
+}
+.btn-close{
+      /* width: 200px; */
+      background: #4BB1C1;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      position: absolute;
+      right: 15px;
+      padding: 12px 20px;
+      bottom: 15px;
+}
 .checkbox input[type=checkbox]:checked+.checkbox-material .check {
     background: #009688 !important;
 }
@@ -1403,7 +1448,7 @@
     border-radius: 50px;  
 }
 .user {
-    background: #07c284;
+    background: #16B3B1;
     text-align: center;
     padding-bottom: 20px;
     /* margin: 25px auto 0; */

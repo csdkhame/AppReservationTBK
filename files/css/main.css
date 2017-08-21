@@ -2,6 +2,18 @@ body {
     height: 100vh;
 }
 
+.btn-close {
+    /* width: 200px; */
+    background: #F44336;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    padding: 12px 20px;
+    bottom: 15px;
+}
+
 #cartype {
     /* margin: auto; */
     border: 1px solid #dfdfdf;

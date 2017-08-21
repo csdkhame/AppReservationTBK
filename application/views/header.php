@@ -158,7 +158,7 @@
                                 </li>
                                 <li>
                                     <a  onclick="language('en')">
-                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
+                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">English 
                     
                                     </a>
                                 </li>

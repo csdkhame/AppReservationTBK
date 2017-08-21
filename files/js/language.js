@@ -253,8 +253,8 @@ $(document).ready(function() {
         $('.lng-language').html('ภาษา');
         $('.lng-settings-account').html('   ตั้งค่าบัญชี');
         $('.lng-logout').html(' ออกจากระบบ');
-        $('.lng-advance-use').html('ค้นหาสถานรับส่ง');
-        $('.lng-now-use').html('รับที่นี้');
+        $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
+        $('.lng-now-use').html('รับที่นี่');
         $('.lng-search').html(' ค้นหา');
         $('.lng-dashboard').html('รายงานและการจัดการ');
         $('.lng-car-type').html('ประเภทรถ');
