@@ -158,7 +158,7 @@
                                 </li>
                                 <li>
                                     <a  onclick="language('en')">
-                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
+                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">English 
                     
                                     </a>
                                 </li>
@@ -209,7 +209,7 @@
     border-radius: 50px;  
 }
 .user {
-    background: #07c284;
+    background: #16B3B1;
     text-align: center;
     padding-bottom: 20px;
     /* margin: 25px auto 0; */

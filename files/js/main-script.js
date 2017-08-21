@@ -83,7 +83,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: 'POST',
-        url: base_url+'getproduct_c/getproduct',
+        url: base_url + 'getproduct_c/getproduct',
         //data: { 'id': $.cookie("login") },
         //contentType: "application/json",
         dataType: 'json',
@@ -220,7 +220,7 @@ $(document).ready(function() {
     $('.btn-management').click(function() {
         $('#loading').css('display', 'block');
         setTimeout(function() {
-            $('.btn-management').css('color', '#07c284');
+            $('.btn-management').css('color', '#16B3B1');
             $('.btn-home').css('color', '#999999');
             $('.btn-reservation').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
@@ -234,7 +234,7 @@ $(document).ready(function() {
         $('#loading').css('display', 'block');
 
         setTimeout(function() {
-            $('.btn-home').css('color', '#07c284');
+            $('.btn-home').css('color', '#16B3B1');
             $('.btn-reservation').css('color', '#999999');
             $('.btn-management').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
@@ -256,7 +256,7 @@ $(document).ready(function() {
             //  //$('#show-hide-pro2').show(); 
             // $(".btn-real-res").css({ 'text-align': 'center' });
             // $(".btn-realtime").hide();
-            $('.btn-reservation').css('color', '#07c284');
+            $('.btn-reservation').css('color', '#16B3B1');
             $('.btn-home').css('color', '#999999');
             $('.btn-management').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
@@ -283,7 +283,7 @@ $(document).ready(function() {
         $('#opennut').click();
         //$('#content').css('display','none');
         setTimeout(function() {
-            $('.btn-realtime').css('color', '#07c284');
+            $('.btn-realtime').css('color', '#16B3B1');
             $('.btn-management').css('color', '#999999');
             $('.btn-home').css('color', '#999999');
             $('.btn-management').css('color', '#999999');

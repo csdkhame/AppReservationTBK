@@ -248,7 +248,7 @@
                 <div id="terms-of-use"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default lng-close" data-dismiss="modal" ></button>
+                <div type="button" class="tn-close lng-close" data-dismiss="modal" ></div>
             </div>
         </div>
     </div>

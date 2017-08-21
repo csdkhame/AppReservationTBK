@@ -27,13 +27,14 @@ $sendby = "Golden Beach Tour Co.,Ltd.";
   $mail->Subject = "Reservation : $res_no ";
   $mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
   $mail->MsgHTML("test");
-  $address = "ozaclever@gmail.com";
+  //$to =  $_POST[phone]
+  $address = $_POST[mail];
   $mail->AddAddress($address, "");
     if(!$mail->Send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
   } 
   else {
-  	
+  	echo "send";
   	
   }    //event
 ?>
