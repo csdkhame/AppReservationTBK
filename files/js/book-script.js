@@ -1221,16 +1221,16 @@ $(document).ready(function() {
                     url: 'https://dotdotdottrip.com/savebook_control/saveapi',
                     data: param,
                     //contentType: "application/json",
-                    //dataType: 'json',
+                    dataType: 'json',
                     success: function(data) {
                         console.log(data);
                         console.log(s_email);
                         $.ajax({
                             type: 'POST',
-                            url: 'https://dotdotdottrip.com/sendmail_control/sendmail',
+                            url: 'https://dotdotdottrip.com/sendemail.php',
                             data: { 'mail': s_email },
                             //contentType: "application/json",
-                            //dataType: 'json',
+                            dataType: 'json',
                             success: function(data) {
                                 console.log(data);
                                 //console.log(s_email);

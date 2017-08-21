@@ -63,15 +63,17 @@ class Savebook_model extends CI_Model {
         $x = json_decode($x);
         // foreach ($x as $row ) {
         $invoice = $x->invoice;
+        $link = $x->voucher_url;
         $agent_ref = $x->agent_ref;
         // }
         //return  $invoice.'-'.$agent_ref;
         //return $x->invoice;
         $data2['invoice'] = $invoice;
-        $this->db->where('agent_ref', $agent_ref);
+        $data2['voucher_url'] = $link;
+        $this->db->where('agent_ref', $agent_ref);      
         $this->db->update('ap_order', $data2);
         if ($this->db->affected_rows() > 0) {
-          return $invoice;
+          //return $invoice;
         }
         else{
                             

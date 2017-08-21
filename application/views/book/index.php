@@ -222,10 +222,23 @@
                                         <span id="placeto" style="text-align: center;"></span>
                                     </div>
                                     <div class="form-group form-inline">
-                                        <p>
+                                    <table width="100%">
+                                        <tr>
+                                            <td valign="top"  style="padding: 5px 0;"> 
+                                            <label style="text-align:left" ><span class="lng-product"></span></span><span>:</span></label>
+
+                                            </td>
+                                            <td width="10px"></td>
+                                            <td>
+                                                <span id="product" style="text-align: center;"></span>                                           
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- <p>
                                             <label style="text-align:left" ><span class="lng-product"></span></span><span>:</span></label>   &nbsp;&nbsp;
                                             <span id="product" style="text-align: center;"></span>
-                                        </p>
+                                        </p> -->
                                         <p >
                                             <label style="text-align:left" >
                                             <span class="lng-from"></span><span>:</span>
@@ -253,7 +266,7 @@
                                     <div class="box-list-cars " >
                                         <span class="lng-you-choose"></span> 
                                         <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>) </span> <span class="lng-car"></span>
-                                        <span style="color:#000" class="ng-binding">1- <span id="sumnum"></span><span class="lng-person"></span><span style="color: red" > (<span id="checksum"></span>) </span></span>
+                                        <span style="color:#000" class="ng-binding">1- <span id="checksum"></span><span class="lng-person"></span><span style="color: red" > (<span id="sumnum"></span>) </span></span>
                                     </div>
                                     <div class="form-group form-inline">
                                         <table width="100%">
