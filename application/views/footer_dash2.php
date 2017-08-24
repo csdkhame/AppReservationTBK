@@ -194,6 +194,36 @@
     
 <!--    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> -->
  
+ <style>
+.grad1 {
+	height: 200px;
+    background: red;
+    background: -webkit-linear-gradient(left top, red, yellow);
+    background: -o-linear-gradient(bottom right, red, yellow);
+    background: -moz-linear-gradient(bottom right, red, yellow);
+    background: linear-gradient(to bottom right, rgb(255, 255, 255), rgba(72, 240, 255, 0.68));
+}
+.box-menu-select {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    background: #fff;
+    /* height: 90px; */
+}
+</style>
+
+<style>
+	.box-menu-select {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    background: #fff;
+    /* height: 90px; */
+}
+</style>
+
 
 
 <script>

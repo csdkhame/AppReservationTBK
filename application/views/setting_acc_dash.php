@@ -755,7 +755,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 </style>
 <div class="hidden-sm hidden-xs"><br/></div>
   
-<div class="col-sm-8 col-sm-offset-2">
+<div class="">
 						<div class="wizard-container">
                             <div class="card wizard-card" data-color="blue" id="wizardProfile">
                                 <form action="" method="post" novalidate="novalidate" id="update_profile">
