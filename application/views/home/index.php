@@ -33,7 +33,7 @@
     <div id="pro-search">
         <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
         <div class="" align="center" style="display: inline-block;    width: 100%;
-    padding: 0 12px;">
+    padding: 0 10px;">
                 <div class="" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </div>
            
             
