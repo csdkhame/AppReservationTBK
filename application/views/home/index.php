@@ -32,10 +32,11 @@
     </div>
     <div id="pro-search">
         <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
-            <div class="active" align="center" style="display: inline-block;">
+        <div class="" align="center" style="display: inline-block;    width: 100%;
+    padding: 0 12px;">
                 <div class="" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </div>
-            </div>
-            <div class="" align="center" style="display: inline-block;">
+           
+            
                 <div style=" background-color:#333" id="join-btn" class="" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></div>
             </div>
             <div class=" " style=" padding: 12px 10px; padding-bottom: 0;">
@@ -247,8 +248,8 @@
 				</div>
                 <div id="terms-of-use"></div>
             </div>
-            <div class="modal-footer">
-                <div type="button" class="tn-close lng-close" data-dismiss="modal" ></div>
+            <div class="modal-footer" style="padding: 12px;">
+                <div type="button" class="btn-close lng-close" data-dismiss="modal" ></div>
             </div>
         </div>
     </div>

@@ -4,11 +4,11 @@ body {
 
 .btn-close {
     /* width: 200px; */
-    background: #F44336;
+    background: #4BB1C1;
     text-transform: uppercase;
     text-align: center;
     color: #fff;
-    position: absolute;
+    /* position: absolute; */
     right: 15px;
     padding: 12px 20px;
     bottom: 15px;
@@ -540,31 +540,23 @@ input:after {
 .a-link-item h2 {
     position: relative;
     font-size: 17px;
-    margin-left: 7%;
+    /* margin-left: 7%; */
     width: 64%;
     margin-top: 0;
 }
 
 .hotel_num {
-    /* background-image: url(https://dotdotdottrip.com/files/images/icon_searchresult13.png);
-    */
-    background-repeat: no-repeat;
-    float: left;
-    margin-right: 10px;
-    margin-left: -38px;
-    background-size: 26px;
+    /* background-image: url(https://dotdotdottrip.com/files/images/icon_searchresult13.png); */
+    /* background-repeat: no-repeat; */
     width: 49px;
     height: 25px;
     background: #009688;
     border-radius: 8px 0;
-    /* background-position: -156px 0; */
     font-family: tahoma;
     font-weight: bold;
     font-size: 12px;
     color: #fff;
-    line-height: 24px;
-    text-align: center;
-    vertical-align: 1px;
+    padding: 5px;
 }
 
 .box-province {
@@ -633,7 +625,7 @@ input:after {
     /* margin-bottom: 20px; */
 }
 
-..views-item a {
+.views-item a {
     color: #fff;
 }
 
@@ -642,7 +634,7 @@ input:after {
     background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%); */
     /* border: 1px solid #E68E00; */
     color: #000;
-    background: #009688;
+    background: #16B3B1;
     /* width: 117px; */
     text-align: center;
     /* height: 35px; */
@@ -884,11 +876,11 @@ input:after {
         width: 100%;
     }
     .a-link-item h2 {
-        position: relative;
+        /* position: relative; */
         font-size: 17px;
-        margin-left: 14%;
+        /* margin-left: 14%; */
         width: 86%;
-        margin-top: 15px;
+        /* margin-top: 15px; */
         font-size: 13px !important;
         font-weight: 500;
     }
@@ -920,12 +912,18 @@ input:after {
     }
     #join-btn {
         color: #fff;
-        padding: 12px 75px;
+        padding: 12px;
+        width: 50%;
+        display: inline-block;
+        color: #fff;
+        padding: 12px;
     }
     #private-btn {
         color: #fff;
-        padding: 12px 65px;
-        co
+        padding: 12px;
+        width: 49%;
+        display: inline-block;
+        background: #16B3B1;
     }
 }
 
@@ -945,17 +943,24 @@ input:after {
     }
     #private-btn {
         color: #fff;
-        padding: 12px 50px !important;
+        padding: 12px;
+        width: 49%;
+        display: inline-block;
+        background: #16B3B1;
     }
     #join-btn {
         color: #fff;
-        padding: 12px 60px !important;
+        padding: 12px;
+        width: 49%;
+        display: inline-block;
+        color: #fff;
+        padding: 12px;
     }
     #pro-item {
         height: 315px !important;
     }
     .hotel_num {
-        margin-top: -14px;
+        /* margin-top: -14px; */
     }
     .product_r {
         padding-bottom: 0px;

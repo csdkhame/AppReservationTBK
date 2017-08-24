@@ -32,9 +32,21 @@ $(document).ready(function() {
         place_name, toplace_name, adress, adress_to, terminal, car_model,
         service, code, visa, guestcountry, datauser,
         code_r, code_ref, s_email,
-        flight, cost_a_nett;
+        flight, cost_a_nett, lng_getcountry;
+
+    if ($.cookie("lng") == 'cn') {
+        lng_getcountry = '请选择国家';
+    } else if ($.cookie("lng") == 'en') {
+        lng_getcountry = 'Please select country';
+
+    } else if ($.cookie("lng") == 'th') {
+        lng_getcountry = 'โปรดเลือกประเทศ';
+
+    } else if ($.cookie("lng") == undefined) {
+        lng_getcountry = 'Please select country';
 
 
+    }
     $('#sumnum').html(parseInt(sum_adult_child));
 
 
@@ -137,6 +149,9 @@ $(document).ready(function() {
 
 
     }
+    $('.box-login-non').click(function() {
+        window.location.href = base_url + "register";
+    });
     $('#previous').on('click', function() {
         $('#addbook').css('display', 'none');
         $('#acceptance').prop('checked', false);
@@ -291,7 +306,7 @@ $(document).ready(function() {
 
         }
     });
-    $('#numbercountry').append('<span id="textcountry">-Please select country-</span>');
+    $('#numbercountry').append('<span id="textcountry">' + lng_getcountry + '</span>');
     $('#code').append('<span id="textcode">code country</span>');
 
     // $('#datetimepicker11').datetimepicker({
@@ -941,7 +956,7 @@ $(document).ready(function() {
         var url2 = 'https://dotdotdottrip.com/';
 
         console.log(flight)
-        if (area == 'In' && area == 'Out' && flight == 'undefined') {
+        if ((area == 'In' || area == 'Out') && flight == undefined) {
 
             $('#waning-flight').fadeIn(500);
             //alert("aaaa");

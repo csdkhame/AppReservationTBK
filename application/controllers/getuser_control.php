@@ -30,7 +30,15 @@ class Getuser_control extends CI_Controller {
 	  //$array = array($age);
 	  echo json_encode($data);
 
-	}	
+	}
+	function changepass(){
+		//$this->mains();
+		
+      $data = $this->Getuser_model->changepass();
+	  //$array = array($age);
+	  echo json_encode($data);
+
+	}		
 
 	
 	

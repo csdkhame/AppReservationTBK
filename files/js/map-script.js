@@ -504,13 +504,20 @@ function initAutocomplete(map, start, end) {
                                     $('.lng-facilities').html('Facilities')
                                 }
                                 $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                                    '<div class="item-thumbnail2" onclick="gotransfer(\'' + val + '\')">' +
+                                    '<div class="item-thumbnail2">' +
                                     '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
                                     '</div>' +
-                                    '<h2 class="searchresult_name" title="product name">' +
-                                    '<span >' + car_topic + '</span>' +
+                                    '<table width="100%">' +
+                                    '<tr>' +
+                                    '<td style="width: 30px;">' +
                                     '<span class="hotel_num">' + indexs + '</span>' +
-                                    '</h2>' +
+                                    '</td>' +
+
+                                    '<td>' +
+                                    '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                                    '</td>' +
+                                    '</tr>' +
+                                    '</table>' +
                                     '<div class="box-province">' +
                                     '<p class="type-t">' +
                                     '<span class="car-type" >' + cartype + pax + '</span>' +

@@ -39,8 +39,25 @@ class Getuser_model extends CI_Model {
       return $data;
     }
     return FALSE;
-  }   
+  }
+  
+  public function changepass(){
 
+    $user = $this->input->post('user');
+    $pass = $this->input->post('pass');
+    $data['s_password'] = $pass;
+    
+    $this->db->where('s_email', $user);      
+    $this->db->update('ap_users', $data);
+  
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    }
+    else{
+      return FALSE;
+    }
+  //
+}
   
 
 

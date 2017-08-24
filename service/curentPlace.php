@@ -8,8 +8,8 @@ header('Content-type: text/html; charset=utf-8');
 //$request = stripslashes( $_POST[request]);
 //$field = stripslashes( $_POST[field]);
 // $curl_post_data = '{"place_default":"'.$_POST[place_default].'","stay":"'.$_POST[stay].'", "aum_from":"'.$_POST[aum_from].'", "place_default_to":"'.$_POST[place_default_to].'", "stay_to":"'.$_POST[stay_to].'", "aum_to":"'.$_POST[aum_to].'"}';
-$curl_post_data = '{"from":"'.$_POST[place_default].'","stay":"'.$_POST[stay].'", "aum_from":"'.$_POST[aum_from].'", "to":"'.$_POST[place_default_to].'", "stay_to":"'.$_POST[stay_to].'", "aum_to":"'.$_POST[aum_to].'"}';
-$curl_response = '';
+$curl_post_data = '{"lat_c":"'.$_POST[lat_c].'","lng_c":"'.$_POST[lng_c].'"}';
+//$curl_response = '';
 //$data = json_decode(file_get_contents('php://input'), true);
 //print_r($data);
 //$curl_post_data = json_decode(file_get_contents('php://input'), true);
@@ -19,7 +19,7 @@ $curl_response = '';
 $headers = array();
 $headers[] = 'Content-Type: application/json';
 $headers[] = 'API-KEY: ea1b6d331a20b66041369a63251410d4ec748f27';
-$url = "http://www.services.t-booking.com/Product/product_fix";
+$url = "http://services.t-booking.com/Product_realtime/findPlaceId";  
 //echo $url;
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
@@ -47,20 +47,7 @@ $res = json_decode($curl_response);
 // 	// $data->id.' ' .$data->name. "<Br>";
 // 	$row_data[] = $data;
 // }
-foreach ($res as $data ) {
 
-         //while($row = $result->fetch_assoc()) {
-        $rows[] = $row;
-        $file_name = $data->transfer_icon; 
-        $remote_file_url = 'http://t-booking.com/pic/carmodelicon/'.$file_name.'.png';
-        //$remote_file_url = 'http://t-booking.com/data/qr/vc/7050498_7849160235.png';
-         
-
-         $local_file = '../files/img/imgicon/'.$file_name.'.png';
-        //$local_file = '../data/qr/vc/7050498_7849160235.png';
-        
-        copy( $remote_file_url, $local_file );
-    }
-echo json_encode($data);
+echo json_encode($res);
 
 ?>

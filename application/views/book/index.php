@@ -47,25 +47,55 @@
 
 <body class="presentation-page">
 <?php 
-   
     if(!$_COOKIE['lng']){
 
        // echo  $_COOKIE['lng'].'unde';
         $lng_your_country = 'Guest name of your country';
+        $lng_fiast_name = 'First Name';
+        $lng_last_name = 'Last Name';
+        $lng_phone = 'Phone';
+        $lng_email = 'Email';
+        $lng_other = 'Other';
+       $lng_flight = 'Flight';
+       
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
         $lng_your_country = 'Guest name of your country';
+        $lng_fiast_name = 'First Name';
+        $lng_last_name = 'Last Name';
+        $lng_phone = 'Phone';
+        $lng_email = 'Email';
+        $lng_other = 'Other';
+        $lng_flight = 'Flight';
+       
+        
         
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
         $lng_your_country = 'Guest name of your country';
+        $lng_fiast_name = 'ชื่อ';
+        $lng_last_name = 'นามสกุล';
+        $lng_phone = 'โทรศัพท์';
+        $lng_email = 'อีเมล์';
+        $lng_other = 'อื่น ๆ';
+       $lng_flight = 'เที่ยวบิน';
+       
+        
         
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
        $lng_your_country =" Guest name of your country";
+       $lng_fiast_name = '名';
+       $lng_last_name = '姓';
+       $lng_phone = '电话';
+       $lng_email = '电子邮件';
+       $lng_other = '其他';
+       $lng_flight = '航班';
+       
+       
        
     }
 ?>
@@ -588,7 +618,7 @@
                                            
                                             <div class="contact_info">
                                                
-                                                    <input type="text" class="textInput" placeholder="First name - Last name" id="name_lastname" name="name_lastname"  pattern="^[A-z ก-ฮ]+$" required>                                                               
+                                                    <input type="text" class="textInput" placeholder="<? echo $lng_fiast_name?> - <? echo $lng_last_name?>" id="name_lastname" name="name_lastname"  pattern="^[A-z ก-ฮ]+$" required>                                                               
                                               
                                             </div>
                                             <div class="contact_info">
@@ -606,7 +636,7 @@
                                                         <!-- <label class="textInput" > </label> -->
                                                     </div>
                                                     <div id="tphone">
-                                                        <input type="text" class="textInput" placeholder="Phone" id="phone" style="    padding-left: 85px;" aria-required="true" aria-invalid="true" required>                                                        
+                                                        <input type="text" class="textInput" placeholder="<? echo $lng_phone?>" id="phone" style="    padding-left: 85px;" aria-required="true" aria-invalid="true" required>                                                        
                                                     </div>
                                                 
                                             </div>
@@ -614,16 +644,16 @@
                                         <div class="col-md-6">
                                             <div class="contact_info">
                                                
-                                                    <input type="email" class="textInput" placeholder="E-mail" id="email" aria-required="true" aria-invalid="true" required>                                                    
+                                                    <input type="email" class="textInput" placeholder="<? echo $lng_email?>" id="email" aria-required="true" aria-invalid="true" required>                                                    
                                                 
                                             </div>
                                             <div class="contact_info flight-box" >
                                                 
-                                                    <input type="text" class="textInput" placeholder="Flight" id="flight" >
+                                                    <input type="text" class="textInput" placeholder="<? echo $lng_flight?>" id="flight" >
                                                
                                             </div>
                                             <div class="form-group form-inline">
-                                                <input type="text" class="textInput" placeholder="Other" id="other" >
+                                                <input type="text" class="textInput" placeholder="<? echo $lng_other?>" id="other" >
                                             </div>            
                                         </div> 
                                     </div>     

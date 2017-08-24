@@ -128,6 +128,8 @@ $(document).ready(function() {
         $('.lng-close').html('密切');
         $('.lng-home').html('主頁');
         $('.lng-management').html('管理');
+        $('.lng-new-password').html('新密码');
+        $('.lng-confirm-password').html('确认密码');
 
 
         /////////////// Dash ///////////////////////////////////////
@@ -222,6 +224,8 @@ $(document).ready(function() {
         $('.lng-close').html('Close');
         $('.lng-home').html('Home');
         $('.lng-management').html('Management');
+        $('.lng-new-password').html('New Password');
+        $('.lng-confirm-password').html('Confirm Password');
 
 
 
@@ -313,6 +317,8 @@ $(document).ready(function() {
         $('.lng-close').html('ปิด');
         $('.lng-home').html('หน้าหลัก');
         $('.lng-management').html('การจัดการ');
+        $('.lng-new-password').html('รหัสผ่านใหม่');
+        $('.lng-confirm-password').html('ยืนยันรหัสผ่าน');
 
         /////////////// Dash ///////////////////////////////////////
 
@@ -402,6 +408,8 @@ $(document).ready(function() {
         $('.lng-close').html('Close');
         $('.lng-home').html('Home');
         $('.lng-management').html('Management');
+        $('.lng-new-password').html('New Password');
+        $('.lng-confirm-password').html('Confirm Password');
 
 
 

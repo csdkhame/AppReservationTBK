@@ -38,7 +38,7 @@
 
 </head>
 
-<body class="presentation-page" style="background-color: #fff ">
+<body style="background-color: #fff ">
 
     <style>
         .page-header .container {
@@ -57,225 +57,101 @@
 }
 
     </style>
-
+ <section style="position: relative; min-height: 100vh;">    
     <div class="header " data-parallax="true" >
         <nav class="navbar  navbar-color-on-scroll" id="sectionsNav">
-        <div class="container" >
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <i class="material-icons" id="iconhome" style="font-size: 30px;    margin-left: 20px;">home</i> 
+            <div class="container" >
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <i class="material-icons" id="iconhome" style="font-size: 30px;    margin-left: 20px;    margin-top: 15px;">home</i> 
+                </div>            
             </div>
-
-            <!-- <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">person_pin</i> Login
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="" >
-                                <i class="material-icons">build</i>Settings Account
-                
-                                </a>
-                            </li>
-                           
-                            <li data-toggle="modal" data-target="#login">
-                                <a  >
-                                    <i class="material-icons">power_settings_new</i>Login
-                
-                                </a>
-                            </li>
-                             <li>
-                                <a href="" >
-                                    <i class="material-icons">power_settings_new</i>Logout
-                
-                                </a>
-                            </li>
-                            
-                        </ul>
-                    </li>
-                </ul>
-            </div> -->
-        </div>
-    </nav>
+        </nav>
     </div>
-    <section style="position: relative; min-height: 65vh;">
-    <!-- <div class="box-menu-select">
-    <table width="100%">
-        <tr>
-        <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-home" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                            <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
-        
-            <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-realtime" >
-                    <table width="100%">
-                        <tr>
-                            <td align="center">
-                                <i class="material-icons" style="font-size: 30px;">room</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                </div>
-            </td>
-            <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-reservation" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                                <i class="material-icons" style="font-size: 30px;" style="">search</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
-            <td width="25%" >
-            <div class="btn-management" >
-           
-                                                 
-                           
-                <table width="100%">
-                    <tr>
-                        <td align="center">
-                            <i class="material-icons" style="font-size: 30px;">dvr</i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <span class="lng-management" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
-                        </td>
-                    </tr>
-                </table>
-               
-            </div> 
-        </td>
-            
-        </tr>
-    </table>    
- </div>  -->
-        <div class="container">
-            <div class="col-md-6" id="box-left" style="">
-            <!-- <button class="btn btn-info btn-sm">Sign In or Create an Account</button> -->
-            
+   
+    <div class="container">
+        <div class="col-md-6" id="box-left" >
             <div class="box-signup" style="display: none;">
                 <div id="section_title" class="section_title">
-                    <h3 id="title-regis" class="lng-sign-create"></h3>
-                
+                    <h3 id="title-regis" class="lng-sign-create"></h3>                
                     <h4 style="font-size: 14px;" class="lng-what-is-your-email"></h4>
                 </div>
                 <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2" style="padding:0;    margin-top: 20px;">
-                    <!-- <form> -->
+                    <div class="col-sm-8 " style="padding:0;    margin-top: 20px;">
                         <div class="col-md-12">
-                        <div class="input-group">
-                             <span class="input-group-addon">
-                                <i class="material-icons">face</i>
-                            </span>
-                             <button class="btn btn-warning btn-sm" id="checkmail" style="    position: absolute;
-    right: 0;
-    z-index: 100;
-    margin-top: 2px;
-    padding: 5px 10px;"><span class="lng-check"></span></button>
-                            <div class="form-group label-floating is-empty">
-                                <label class="control-label"> <span class="lng-email"></span> 
-                                <!-- <span class="lng-or"></span> <span class="lng-phone"></span> -->
-                                    <!-- <small>(required)</small> -->
-                                </label>
-                                <input name="firstname" required="True" type="email" class="form-control" id="username-signup">
-                            <span class="material-input"></span></div>
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon" style="padding-top: 0">
-                                <i class="material-icons">lock_outline</i>
-                            </span>
-                            <div class="form-group label-floating is-empty">
-                                <label class="control-label"><span class="lng-password"></span>
-                                    <!-- <small>(required)</small> -->
-                                </label>
-                                <input name="lastname" type="password" class="form-control" id="password-signup">
-                             <span class="material-input"></span></div>
-                        </div>
-                        <div id="messagecheck" style="text-align: center;"></div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">face</i>
+                                </span>
+                                <button class="btn btn-warning btn-sm" id="checkmail" style="position: absolute; right: 0; z-index: 100;  margin-top: 2px; padding: 5px 10px;">
+                                    <span class="lng-check"></span>
+                                </button>
+                                <div class="form-group label-floating is-empty">
+                                    <label class="control-label"> 
+                                        <span class="lng-email"></span> 
+                               
+                                    </label>
+                                    <input name="firstname" required="True" type="email" class="form-control" id="username-signup">
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" style="padding-top: 0">
+                                    <i class="material-icons">lock_outline</i>
+                                </span>
+                                <div class="form-group label-floating is-empty">
+                                    <label class="control-label"><span class="lng-password"></span>
+                                        <!-- <small>(required)</small> -->
+                                    </label>
+                                    <input name="lastname" type="password" class="form-control" id="password-signup">
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                            <div id="messagecheck" style="text-align: center;"></div>
 
+                            </div>
+                            <div class="col-md-12">
+                                <div class="btn-signup" style="" id="registered" ><span class="lng-sign-in"></span></div>
+                            </div>
+                            <div class="col2">
+                                <div class="col-sign">
+                                    <div class="text-sign" >
+                                        <span class="lng-have-member"></span>
+                                        <a class="mtm sign-up" id="sign-in" style="cursor: pointer;">
+                                            <span class="lng-registered-customers"></span>
+                                        </a>
+                                    </div>
+                                    <div id="status"></div>
+                                </div>
+                            </div>
                         </div>
-                         <div class="col-md-12">
-                            <div class="btn-signup" style="" id="registered" ><span class="lng-sign-in"></span></div>
-                        </div>
-                        <div class="col2">
-                        <div class="col-sign">
-                                        <div class="text-sign" >
-                                            <span class="lng-have-member"></span>
-                                        <a class="mtm sign-up" id="sign-in" style="cursor: pointer;"><span class="lng-registered-customers"></span></a>
-                                        </div>
-                                        <div id="status"></div>
-                        </div>
-                        </div>
-                       <!--  </form> -->
                     </div>
                 </div>
-            </div>
-             <div class="box-signin">
+                <div class="box-signin">
                     <div class="card-header text-center" data-background-color="green">
-                        <h4 class="card-title" style="margin-bottom: 20px;" ><span class="lng-login"></span></h4>                                       
+                        <h4 class="card-title" style="margin-bottom: 20px;" >
+                            <span class="lng-login"></span>
+                        </h4>                                       
                     </div>
-                        <form>
-                            
-                            <!-- <div align="text-center">
-                                <p id="message" style="text-align: center;"></p>
-                            </div> -->
-                            <div class="row">
-                                <div class="col-sm-8 col-sm-offset-2" style="padding: 0" >
-                                    <div class="col-md-12">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-8 " style="padding: 0" >
+                                <div class="col-md-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">face</i>
                                         </span>
-                                       
                                         <div class="form-group label-floating">
                                             <label class="control-label"><span class="lng-email"> </span>
-                                            <!-- <span class="lng-or"></span>
-                                            <span class="lng-phone"></span> -->
-                                        </label>
+                                                
+                                            </label>
                                             <input  required="True" type="email"  class="form-control" id="username" size="80">
                                         </div>
-                                        
                                     </div>                                       
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -287,103 +163,217 @@
                                         </div>
                                     </div>
                                     <div id="message" style="text-align: center;"></div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div  type="submit" class=" btn-login " id="login" style=""><span class="lng-login"> </span></div>
-                                    </div>
-                                        
-                                        <div class="col2">
-                                        <div class="text-sign" >
-                                            <span class="lng-not-member"></span>
-                                        <a class="sign-up" id="sign-up" style="cursor: pointer;" ><span class="lng-sign-up-now"></span></a>
-                                        </div>
-                                        
-                                    </div>
-                                    
                                 </div>
-                             </div>       
-                                
-                            </form>
-                        </div>
-           
-                
-               
-        <div class="loginReg__or lng-or"><span class=""></span></div>
+                                <div class="col-md-12">
+                                    <div  type="submit" class=" btn-login " id="login" style="">
+                                        <span class="lng-login"> </span>
+                                    </div>
+                                </div>
+                                        
+                                <div class="col2">
+                                    <div class="text-sign" >
+                                        <span class="lng-not-member"></span>
+                                        <a class="sign-up" id="sign-up" style="cursor: pointer;" >
+                                            <span class="lng-sign-up-now"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </form>
+                </div>
             </div>
 
             <div class="col-md-6">
-                    <div class="box-regispro" style="display: none;">
-                                          <h3 id="title-info" class="lng-why-become"></h3>
-
-                                          <div class="special">
-                                              <div class="box-icon"><i class="fa fa-tags" style="font-size: 30px;"></i><!-- <i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"> </i>--></div><!-- <img src="<?php echo base_url(); ?>files/images/special.png" id="special"> -->
-                                                <h4 class="lng-special-product"></h4>
-                                                <p>You'll get lower price for every Product booking, as a member.</p>
-                                          </div>
-                                            <div class="exclusive">
-                                            <div class="box-icon"><i class="fa fa-user-md" aria-hidden="true" style="font-size: 30px;"></i></div>
-                                              <!-- <img src="<?php echo base_url(); ?>files/images/exclusive.png" id="exclusive"> -->
-                                                <h4 class="lng-exclusive-discount"></h4>
-                                                <p>You'll get the latest promo info and special member discount.</p>
-                                            </div>
-                                            <div class="fast">
-                                            <div class="box-icon"><i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"></i></div>
-                                              <!-- <img src="<?php echo base_url(); ?>files/images/fast.png" id="fast"> -->
-                                                <h4 class="lng-fast-booking"></h4>
-                                                <p>As a member using Go HolidayQuick, your booking is our priority.</p>
-                                        </div>
+                <div class="box-regispro" style="display: none;">
+                    <h3 id="title-info" class="lng-why-become"></h3>
+                    <div class="special">
+                        <div class="box-icon">
+                            <i class="fa fa-tags" style="font-size: 30px;"></i>
+                        </div>
+                        <h4 class="lng-special-product"></h4>
+                        <p>You'll get lower price for every Product booking, as a member.</p>
                     </div>
-                    <div class="log-social box-signin">
-                        <div class="unit social-column">
-                    <div class="social-inner">
-                                    <div class="fb-wrapper">
-            <a id="facebook-login-button"  class="fb-auth inner facebook-login-auth" scope="public_profile,email" onclick="login();" return false;">
-                <i class="fa fa-facebook-official " style="font-size: 36px;"></i>
-                <span>Facebook</span>
-            </a>
-        </div>
-                    <div class="google-wrapper">
-            <div>
-                <a id="google-login-button" href="javascript:;" onclick=""; return false;" class="google-auth inner google-login-auth">
-                    <i class="fa fa-google-plus-square" style="font-size: 36px;"></i>
-                    <span>Google</span>
-                </a>
+                    <div class="exclusive">
+                        <div class="box-icon">
+                            <i class="fa fa-user-md" aria-hidden="true" style="font-size: 30px;"></i>
+                        </div>               
+                        <h4 class="lng-exclusive-discount"></h4>
+                        <p>You'll get the latest promo info and special member discount.</p>
+                    </div>
+                    <div class="fast">
+                        <div class="box-icon">
+                            <i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"></i>
+                        </div>              
+                        <h4 class="lng-fast-booking"></h4>
+                        <p>As a member using Go HolidayQuick, your booking is our priority.</p>
+                    </div>
+                </div>
+                <div class="log-social box-signin">
+                    <div class="unit social-column">
+                        <div class="social-inner">
+                            <div class="fb-wrapper">
+                                <a id="facebook-login-button"  class="fb-auth inner facebook-login-auth" scope="public_profile,email" onclick="login();" return false>
+                                    <i class=" fa fa-facebook-official " style="font-size: 36px; position: absolute; left: 16px;"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                            <div class="google-wrapper">
+                                <div>
+                                    <a id="google-login-button" href="javascript:;" onclick=""; return false class="google-auth inner google-login-auth">
+                                        <i class="fa fa-google-plus-square" style="font-size: 36px;"></i>
+                                        <span>Google</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <div class=" btn-foget-pass " id="foget-pass" style="">
+                                    <span class="lng-foget-pass">  ลืมรหัสผ่าน</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <div id="foget-password">
+            <div class="box-in-foget" >
+                <div style="padding: 12px;">
+                   <div class="col-md-12" id="forget"> 
+                       <h4 style="    text-align: center;">ลืมรหัสผ่าน</h4>
+                        <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
+                            <span>Please input your email </span>
                         </div>
-                </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">face</i>
+                            </span>   
+                            <div class="form-group label-floating is-empty">
+                                <label class="control-label"><span class="lng-email">อีเมล์</span></label>
+                                <input type="email" class="form-control" id="email-forget" size="80">
+                                <span class="material-input"></span>
+                                
+                                
+                            </div>  
+                            <div  class="btn-send lng-send" style="padding: 12px 20px;" >Send</div>   
+                        </div>
                     </div>
-                    
+                    <div id="check-email" style="text-align:center;display:none;margin-top: 50px;
+    font-size: 15px;
+    color: #333333;
+    margin-bottom: 10px;">
+                        <span>Please check your email </span>
+                    </div>
+                    <!-- <div type="button" class="btn-close" >Close</div> -->
+                    <!-- <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i> -->
                 </div>
+                <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
+                <div  class="btn-close lng-close" ></div>
+                    <div class="btn-login-forget lng-login" ></div>
+                </div>
+            </div>
         </div>
-    </section>
+</section>
+
+    
 <style>
+.btn-send{
+    padding: 12px 20px;
+    background: #16B3B1;
+    color: #fff;
+    width: 140px;
+    position: absolute;
+    text-align: center;
+    right: 0px;
+    margin-top: 15px;   
+}
+.btn-login-forget{
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #4BB1C1;
+    right: 15px;
+    padding: 12px 20px;
+    bottom: 15px;
+    background: #16B3B1;
+    display: none;
+}
+    #sectionsNav {
+    position: absolute;
+    background: rgba(255, 255, 255, 0) !important;
+    margin: auto;
+    z-index: 20;
+    width: 100%;
+    padding-bottom: 0;
+    padding-top: 0;
+    box-shadow: none;
+    /* background: #07c284; */
+}
+#foget-password{
+    z-index: 20; 
+    position: fixed; 
+    /* width: 100vw; 
+    height: 100vh;  */
+    left: 0px; top: 0px; 
+    /* background: rgba(0, 0, 0, 0.59); */
+    display:none;
+}
+.box-in-foget{
+    height: 100vh;
+        /* border-radius: 4px; */
+        background: #fff;
+        min-width: 100%;
+        /* height: auto; */
+        left: 50vw;
+        top: 50vh;
+        
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 3;
+}
+.btn-close {
+    /*width: 200px; */
+    background: #4BB1C1;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #4BB1C1;
+    /* position: absolute; */
+    right: 15px;
+    padding: 12px 20px;
+    bottom: 15px;
+}
+
 .btn-login{
-    color: #3b5998;
-    border: 1px solid #3b5998;
-    background-color: #3b5998;
+    /* color: #3b5998; */
     font-weight: 700;
     display: block;
-    line-height: 36px;
-    padding: 0 10px 0 0;
+    /* line-height: 36px; */
+    padding: 10px;
     text-decoration: none;
     cursor: pointer;
     min-width: 120px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     text-align: center;
-     color: #ffffff;
+    color: #ffffff;
+    /* border: 1px solid #16B3B1; */
+    background-color: #16B3B1;
 
 
 }
-.btn-login:hover{
+#checkmail{
+    background-color: #FF5722;
+}
+/* .btn-login:hover{
      border: 1px solid #3b5998;
      background-color: #3b5998;
      color: #ffffff;
-}
+} */
 .btn-signup{
     color: #3b5998;
-    border: 1px solid #3b5998;
-     background-color: #3b5998;
+    border: 1px solid #16B3B1;
+    background-color: #16B3B1;
     font-weight: 700;
     display: block;
     line-height: 36px;
@@ -391,7 +381,7 @@
     text-decoration: none;
     cursor: pointer;
     min-width: 120px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     text-align: center;
      color: #ffffff;
 
@@ -406,6 +396,13 @@
     font-size: 13px;
 
 }
+.btn-foget-pass {
+    color: #ffffff;
+    background: #333333;
+    text-align: center;
+    padding: 10px;
+}
+
 .social-column .fb-wrapper .inner {
     color: #3b5998;
     border: 1px solid #3b5998;
@@ -416,7 +413,7 @@
     text-decoration: none;
     cursor: pointer;
     min-width: 120px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
 }
 .social-column .google-wrapper .inner {
     color: #ea4335;
@@ -565,6 +562,7 @@
 }
 #box-left{
     border-right: 1px solid #ccc;
+    margin-top:75px;
 }
 .box-icon{
     width: 50px;
@@ -668,9 +666,7 @@
                   <div class="modal fade" id="codecountry" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
-                        <div class="modal-content" style="    max-height: 700px;
-    overflow: hidden;
-    overflow-y: scroll;">
+                        <div class="modal-content" style=" max-height: 700px;   overflow: hidden; overflow-y: scroll;">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <!-- <h4 class="modal-title">Gallery</h4> -->
@@ -706,61 +702,8 @@
                     }
 
                 </style>
-               <!--  <div class="modal fade" id="login">
-                    <div class="modal-dialog col-md-8">
-                       
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                
-                            </div>
-                            <div class="modal-body">
-                               <div class="row">
-                       
-                    </div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                </div> -->
-    <!-- <footer class="footer footer-white">
-        <div class="container" style="border-top: 1px solid #C8E1F5;">
-           
-
-            <ul class="pull-left">
-                <li>
-                    <a href="http://www.creative-tim.com/" target="_blank">
-                        Contacts
-                    </a>
-                </li>
-                <li>
-                    <a href="http://presentation.creative-tim.com/" target="_blank">
-                       About Us
-                    </a>
-                </li>
-               
-            </ul>
-
-            <ul class="social-buttons pull-right">
-                <li>
-                    <a href="https://twitter.com/" target="_blank" class="btn btn-just-icon btn-simple btn-twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/" target="_blank" class="btn btn-just-icon btn-simple btn-dribbble">
-                        <i class="fa fa-dribbble"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/" target="_blank" class="btn btn-just-icon btn-simple btn-instagram">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </footer> -->
+             
+   
 
     <!--     *********    END PRICING 5      *********      -->
 </body>
@@ -992,7 +935,7 @@
                     </style>
 <script>
 $(document).ready(function(){
-    var username, password , username_signup ,password_signup,text_check;
+    var username, password , username_signup ,password_signup,text_check,forget = '';
 $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>getuserlog_control/process',
@@ -1020,6 +963,44 @@ $.ajax({
         
     //alert( this.value );
     })
+    $('.btn-foget-pass').on('click', function() {
+        $('#foget-password').fadeIn(500)
+    });
+    $('.btn-close').on('click', function() {
+        $('#foget-password').fadeOut(500)
+    });
+    $('.btn-send').on('click', function() {
+       forget = $('#email-forget').val();
+        console.log(forget)
+        
+        if(forget != ''){
+            $.ajax({
+            type: 'POST',
+            url: 'https://dotdotdottrip.com/fogetpassword.php',
+            data: { 'mail': forget },
+            //contentType: "application/json",
+            //dataType: 'json',
+            success: function(data) {
+            console.log(data);
+            //console.log(s_email);
+            $('#forget').hide();
+            $('.btn-close').hide();
+            $('.btn-login-forget').show();
+            $('#check-email').show();
+
+           
+
+            }
+        });
+        }
+        
+        
+    });
+    $('.btn-login-forget').on('click', function() {
+       // $('#foget-password').fadeOut(500)
+        window.location.reload();
+    });
+    
     $('#login').on('click', function() {
        console.log(password+username)
 //    alert('<?php echo base_url(); ?>login_control/process');
