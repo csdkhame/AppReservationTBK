@@ -68,44 +68,51 @@ $( document ).ready(function() {
     overflow-y: auto;
     cursor: default;
 }
-	  </style>
-				<div style="display: none;">
-				<button class="top-page btn btn-info" onclick="scrollWin('top');" style="cursor: pointer;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
-				<button class="end-page btn btn-info" onclick="scrollWin('end');"  style="cursor: pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
-				</div>	  
-	  
-	  
-   <div class="">
-                        <div style="background-color: white;
-    padding: 5px;">
+.table-responsive{
+			margin-bottom: 0 !important;
+			border:none !important;
+}
 
-                            <div class="toolbar">
-                                <!--        Here you can write extra buttons/actions for the toolbar              -->
+		</style>
+		<section >
+        <div class="container" style="padding: 0 10px;margin-top: 49px;">
+						<h4 class="lng-booking-infomation" style="    padding-left: 5px;"></h4>
+						<div style="display: none;">
+							<button class="top-page btn btn-info" onclick="scrollWin('top');" style="cursor: pointer;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+							<button class="end-page btn btn-info" onclick="scrollWin('end');"  style="cursor: pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+						</div>	  
+	  
+	  				<div class="toolbar" style="    background: #ffffff;
+    padding: 8px;
+    margin-bottom: 10px;">
                         <div class="input-group" style="display: block;">
-                        <? 
-                        	$adate = date('Y-m-d');
-							$date = date("Y-m-d",strtotime("-1 month",strtotime($adate))); ?>
+														<? 
+																$adate = date('Y-m-d');
+																$date = date("Y-m-d",strtotime("-1 month",strtotime($adate)));
+														?>
 							
-							<table width="100%">
-								<tr><td>
-								  <input id="date1"   class="inputDate"  name="date" type="text" value="<?=$date;?>">  
-								</td>
-								<td width="20"></td>
-								<td>
-								<input id="date2"   class="inputDate"  name="date" type="text" value="<?=$adate;?>">  
-								</td>
-								
-								
-								</tr>
-							</table>
-						<div>
-						<input id="search_order"   class="inputDate"  name="date" type="text" value="" onkeyup="search()" placeholder="Search Order..(e.x. 7033496)" >  
+														<table width="100%">
+																<tr>
+																		<td width="49%">
+																				<input id="date1"   class=""  name="date" type="text" value="<?=$date;?>" style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
+																		</td>
+																		<td width="2%"></td>
+																		<td  width="49%">
+																				<input id="date2"   class=""  name="date" type="text" value="<?=$adate;?>"  style="padding: 8px;      border: 1px solid #eeeeee;width:100%;">  
+																		</td>
+																</tr>
+														</table>
+														<div style="  margin: 15px 0;
+    margin-bottom: 0;">
+																<input id="search_order"   class=""  name="date" type="text" value="" onkeyup="search()" placeholder="Search Order..(e.x. 7033496)"  style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
 							
-						</div>
+														</div>
 					
-						</div>
-                             
-                            </div>
+												</div>
+                    </div>
+   					<div class="">
+                <div style="background-color: white;  padding: 8px;">
+                    
 <style>
 .tr-hover:hover {
 /*    color: hotpink;*/

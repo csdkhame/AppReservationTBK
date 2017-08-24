@@ -81,19 +81,20 @@
 	 width: 30px;
     height: 30px;
     border-radius: 50px;
-	}
+    }
+    
 </style>
   <!-- navbar-transparent-->
    <nav class="navbar navbar-default  navbar-transparent navbar-fixed-top navbar-color-on-scroll" id="sectionsNav">
     	<div class="container" >
         	<!-- Brand and toggle get grouped for better mobile display -->
-        	<div class="navbar-header" style="height: 35px;">
-        	<div class="" style="    padding: 9px 10px;
-    margin-top: 7px;
-    margin-left: 15px;
-    margin-bottom: 8px;
-    font-size: 25px;
-    display: inline-block;">
+        	<div class="navbar-header" >
+        	<div class="" style="    /* padding: 9px 10px; */
+            margin-top: 12px;
+            margin-left: 15px;
+            /* margin-bottom: 8px; */
+            font-size: 25px;
+            display: inline-block;">
                         <div class="box-login-non">
                   
                        <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
@@ -306,8 +307,5 @@ $( document ).ready(function() {
     </nav>
    
    
-    <section >
-        <div class="container" style="padding: 0;
-        margin-top: 49px;">
-           
+    
 		
