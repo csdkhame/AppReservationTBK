@@ -69,7 +69,7 @@ $( document ).ready(function() {
     cursor: default;
 }
 	  </style>
-	<div style="display: none;">
+				<div style="display: none;">
 				<button class="top-page btn btn-info" onclick="scrollWin('top');" style="cursor: pointer;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
 				<button class="end-page btn btn-info" onclick="scrollWin('end');"  style="cursor: pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
 				</div>	  

@@ -24,7 +24,7 @@
     
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <?php echo link_tag('files/assets/css/demo.css'); ?>
+    <?php //echo link_tag('files/assets/css/demo.css'); ?>
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!--     Fonts and icons     -->
@@ -150,12 +150,6 @@ $( document ).ready(function() {
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
-                                <!-- <li>
-                                    <a href="" >
-                                    <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
-                    
-                                    </a>
-                                </li> -->
                                 
                                 <li id="btn-logout-user">
                                     <a>
@@ -209,6 +203,18 @@ $( document ).ready(function() {
                                 <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>                    
                             </a>
                         </li>
+                         <li class="box-setting">
+                            <a href="<?php echo base_url(); ?>dashboard/setting_acc_dash">
+                              <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
+                                <i class="material-icons">build</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
+                            </a>
+                        </li>
+                        <li class="box-payment">
+                            <a href="<?php echo base_url(); ?>dashboard/payment">
+                              <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
+                                <i class="material-icons">payment</i><span style="text-transform: initial;" class="lng-payment_d textmenu">Payment</span>                  
+                            </a>
+                        </li>
                         <li class="dropdown" id="btnusers">
                             <a  class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- <div style="width: 100%;text-align: center;"> -->
@@ -242,6 +248,20 @@ $( document ).ready(function() {
                 </div>
     	</div>
     	<style>
+    	#loading{
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.59);
+    display: nones;
+}
+#usernamess{
+    display: inline-block;
+    text-transform: initial;
+}
     	#sectionsNav {
     position: fixed;
     background: rgb(255, 255, 255) !important;
