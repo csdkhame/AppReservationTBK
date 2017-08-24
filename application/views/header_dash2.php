@@ -24,7 +24,7 @@
     
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <?php echo link_tag('files/assets/css/demo.css'); ?>
+    <?php //echo link_tag('files/assets/css/demo.css'); ?>
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!--     Fonts and icons     -->
@@ -242,6 +242,20 @@ $( document ).ready(function() {
                 </div>
     	</div>
     	<style>
+    	#loading{
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.59);
+    display: nones;
+}
+#usernamess{
+    display: inline-block;
+    text-transform: initial;
+}
     	#sectionsNav {
     position: fixed;
     background: rgb(255, 255, 255) !important;
