@@ -132,32 +132,87 @@ $( document ).ready(function() {
 	$(id).addClass('li_active');
 });
 </script>
-        	<div class="navbar-collapse">
-        		<ul class="nav navbar-nav navbar-right">
-        		
-    				 <li class="li_active" id="view_user">
-                        <a href="<?php echo base_url(); ?>dashboard/view_user">
-                            <i class="material-icons">content_paste</i><span style="text-transform: initial;" class="lng-customer_d"> Customer</span>
-                
-                        </a>
-                    </li>
-                    <li id="account">
-                        <a href="<?php echo base_url(); ?>dashboard/account_settings">
-                         <i class="material-icons">build</i><span style="text-transform: initial;" class="lng-sa_d">Settings Account</span>
-                
-                        </a>
-                    </li>
-
-					 <li id="playment">
-                        <a href="<?php echo base_url(); ?>dashboard/playment">
-                            <i class="material-icons">payment</i><span style="text-transform: initial;" class="lng-payment_d">Payment</span>
-                
-                        </a>
-                    </li>
-                     <li class="dropdown" id="btnusers">
+        	<div class="navbar-collapse" style="
+    margin-top: 10px;
+">            
+        		    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown" id="btnuser">
+                            <div class="user">
+                                <div class="photo" id="photo_profile" >
+                                    
+                                </div> 
+                                <div style="padding: 30px;color: #fff;font-size: 16px;">
+                                    <span id="getname"> </span>
+                                </div>                   
+                            </div>
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                <div id="usernamess"></div>                             
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <!-- <li>
+                                    <a href="" >
+                                    <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
+                    
+                                    </a>
+                                </li> -->
+                                
+                                <li id="btn-logout-user">
+                                    <a>
+                                        <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
+                    
+                                    </a>
+                                </li>
+                        
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="btnlogin">
+                            <div class="user">
+                                <div class="photo" id="photo_non-login" >
+                                    
+                                </div> 
+                                <div style="padding: 30px;color: #fff;font-size: 16px;">
+                                    <span id="getname"> </span>
+                                </div>                   
+                            </div>
+                           
+                            
+                        </li>       				
+                        <!-- <li id="btnlogin">
+                            <a href="<?php echo base_url(); ?>register">
+                                <i class="material-icons">account_circle</i>
+                                <span class="lng-login"></span><span> / </span><span class="lng-register"></span>                        
+                            </a>
+                        </li> -->
+                        <li class="dropdown" id="btnusers">
                             <a  class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- <div style="width: 100%;text-align: center;"> -->
-                                <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language">Language</span>                                
+                                <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product textmenu"></span>
+                                
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>" >
+                                        <i class="material-icons">directions_car</i><span class="lng-transports textmenu"></span>                    
+                                    </a>
+                                </li>                            
+                                <!-- <li id="btn-logout-user">
+                                    <a href="<?php echo base_url(); ?>tour">
+                                        <i class="material-icons">style</i><span class="lng-tours textmenu"></span>                    
+                                    </a>
+                                </li>                         -->
+                            </ul>
+                        </li>
+                        <li class="box-desboard">
+                            <a href="<?php echo base_url(); ?>dashboard/view_user">
+                                <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>                    
+                            </a>
+                        </li>
+                        <li class="dropdown" id="btnusers">
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- <div style="width: 100%;text-align: center;"> -->
+                                <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language textmenu"></span>                                
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
@@ -168,7 +223,7 @@ $( document ).ready(function() {
                                 </li>
                                 <li>
                                     <a  onclick="language('en')">
-                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">"English 
+                                <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">English 
                     
                                     </a>
                                 </li>
@@ -179,84 +234,60 @@ $( document ).ready(function() {
                                     </a>
                                 </li>
                             </ul>
-                        </li>	
-                   <li class="dropdown" id="btnuser" style="cursor: pointer;">
-                        <a  class="dropdown-toggle" data-toggle="dropdown">
-                            
-                                <i class="material-icons center" align="center" >person_pin</i><span style="text-transform: initial;" id="name"></span> 
-                          
-                            <b class="caret"></b>
-                        </a>
-                      <ul class="dropdown-menu dropdown-with-icons">
-<!--                            <li>
-                                <a href="" >
-                                <i class="material-icons">build</i>Settings Account
+                        </li>
+                        	
+                    </ul>
+                    
                 
-                                </a>
-                            </li>-->
-
-                            <li id="btn-logout-user">
-                                <a>
-                                    <i class="material-icons">power_settings_new</i><span >Logout</span>
-                
-                                </a>
-                            </li>
-                            </ul>
-<style >
-li>a:hover {
-    /*padding: 12px 20px 12px 12px;*/
-    background: #f2f2f2 !important;
-}
-					#usernamess{
-						display: inline-block;
-						    text-transform: initial;
-					}
-.notification {
-					
-    position: absolute;
-    top: 2px;
-    border: 1px solid #FFF;
-        left: 22px;
-    font-size: 9px;
-    background: #f44336;
-    color: #FFFFFF;
-    min-width: 20px;
-    padding: 0px 5px;
-    height: 20px;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 19px;
-    vertical-align: middle;
-    display: block;
-}
-.dropdown-menu.dropdown-with-icons li>a:hover {
-    /*padding: 12px 20px 12px 12px;*/
-    background: #F44336 !important;
-}
-.dropdown-menu:after, .dropdown-menu-container:after {
-    border-bottom: 11px solid #FFFFFF;
-    border-left: 11px solid rgba(0,0,0,0);
-    border-right: 11px solid rgba(0,0,0,0);
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: 30px;
-    top: -10px;
-}
-					</style>
-							
-					</li>
-					
-
-					
-        		</ul>
-        	</div>
+                </div>
     	</div>
+    	<style>
+    	#sectionsNav {
+    position: fixed;
+    background: rgb(255, 255, 255) !important;
+    margin: auto;
+    z-index: 20;
+    /*width: 100%;*/
+    padding-bottom: 0;
+    padding-top: 0;
+    box-shadow: none;
+    background: #07c284;
+    border-bottom: none;
+}
+    		.user {
+    background: #16B3B1;
+    text-align: center;
+    padding-bottom: 20px;
+    /* margin: 25px auto 0; */
+    position: relative;
+    height: 160px;
+   /* display:none;*/
+}
+.navbar-toggle{
+	    background: #fff;
+	
+}
+.user .photo {
+    width: 100%;
+    /* height: 110px; */
+    overflow: hidden;
+    border-radius: 4px;
+    /* margin: 0 auto; */
+    /* margin-top: 50px; */
+    /* box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); */
+}
+.user .photo img {
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    border-radius: 50px;                       
+}
+    	</style>
     </nav>
    
    
     <section >
         <div class="container" style="    padding-right: 12px;
-    padding-left: 12px;margin-top: 80px;">
+    padding-left: 12px;margin-top: 55px;">
            
 		

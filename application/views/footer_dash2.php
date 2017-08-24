@@ -5,23 +5,6 @@
          
     </section>
 
-<style>
-                    #getcapa{
-                        background-color: #ddd;
-                        height: 35px;
-                    }
-                    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-                        border-top: none;
-                    }
-                    #table1{
-                        margin-top: 10px !important;
-                    }
-                    .footer a{
-                        color: #000;
-                        font-weight:normal;
-                    }
-
-                </style>
 
     <footer class="footer footer-white" style="display: none;">
         <div class="container" style="border-top: 1px solid #C8E1F5;">
@@ -71,7 +54,7 @@
                 <table width="100%">
                         <tr>
                             <td align="center">
-                            <i class="material-icons"  style="font-size: 35px;">home</i> 
+                            <i class="material-icons"  style="font-size: 30px;">home</i> 
                             </td>
                         </tr>
                         <tr>
@@ -90,7 +73,7 @@
                     <table width="100%">
                         <tr>
                             <td align="center">
-                                <i class="material-icons" style="font-size: 35px;">room</i>
+                                <i class="material-icons" style="font-size: 30px;">room</i>
                             </td>
                         </tr>
                         <tr>
@@ -107,7 +90,7 @@
                 <table width="100%">
                         <tr>
                             <td align="center">
-                                <i class="material-icons" style="font-size: 35px;" style="">search</i>
+                                <i class="material-icons" style="font-size: 30px;" style="">search</i>
                             </td>
                         </tr>
                         <tr>
@@ -121,12 +104,12 @@
                 </div>
             </td>
             <td width="25%" >
-            <div class="btn-management" id="goto_management" style="    color: #07c284;" >
+            <div class="btn-management" id="goto_management">
   
                 <table width="100%">
                     <tr>
                         <td align="center">
-                            <i class="material-icons" style="font-size: 35px;">dvr</i>
+                            <i class="material-icons" style="font-size: 30px;">dvr</i>
                         </td>
                     </tr>
                     <tr>
@@ -142,7 +125,22 @@
         </tr>
     </table>    
  </div>
-
+ <style>
+ 	.btn-management {
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #16B3B1;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+ </style>
     <!--     *********    END PRICING 5      *********      -->
 </body>
 
@@ -197,6 +195,7 @@
 <!--    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> -->
  
 
+
 <script>
 var base_url = 'https://dotdotdottrip.com/';
 $( document ).ready(function() {
@@ -206,7 +205,11 @@ $( document ).ready(function() {
 			$('#name').html(obj[index].s_name);
 		});
 	});
-	
+	$('#btn-logout-user').on('click', function() {
+        console.log('logout')
+        $.removeCookie("login");
+        window.location.href = base_url + "register";
+    })
 	
 	if ($.cookie("login")) {
         console.log($.cookie("login"))

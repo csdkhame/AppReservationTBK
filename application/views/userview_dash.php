@@ -45,6 +45,36 @@ $( document ).ready(function() {
 								$user_level = $this->session->userdata('i_rating');
       							$user_id = $this->session->userdata('i_id');
 	  ?>
+	  <style>
+	  		.end-page {
+    position: fixed; 
+    left: auto;
+    right: 0;
+    top: 260px;
+    opacity: .9;
+    z-index: 3;
+    padding: 1rem;
+    overflow-y: auto;
+    cursor: default;
+}
+.top-page {
+    position: fixed; 
+    left: auto;
+    right: 0;
+    top: 160px;
+    opacity: .9;
+    z-index: 3;
+    padding: 1rem;
+    overflow-y: auto;
+    cursor: default;
+}
+	  </style>
+	<div style="display: none;">
+				<button class="top-page btn btn-info" onclick="scrollWin('top');" style="cursor: pointer;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+				<button class="end-page btn btn-info" onclick="scrollWin('end');"  style="cursor: pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+				</div>	  
+	  
+	  
    <div class="">
                         <div style="background-color: white;
     padding: 5px;">
@@ -87,6 +117,9 @@ $( document ).ready(function() {
     background-color: #07c284;;
     border-color: #00bcd4;
     box-shadow: 0 4px 5px 0 rgba(0, 188, 212, .14), 0 1px 10px 0 rgba(0, 188, 212, .12), 0 2px 4px -1px rgba(0, 188, 212, .2)
+}
+.inputDate::placeholder {
+  color: rgba(51, 51, 51, 0.57);
 }
 .inputDate{
 	 display: block;
@@ -237,6 +270,10 @@ $( document ).ready(function() {
 
                         </div><!--  end card  -->
                     </div> <!-- end col-md-12 -->
+<br/>
+<br/>
+<br/>
+<br/>
 
 <style>
 	.dialog{
@@ -575,3 +612,13 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	
 </script>
 
+<script>
+	function scrollWin(type) {
+		if(type=="top"){
+			 window.scrollTo(0,document.body.scrollHeight-document.body.scrollHeight);
+		}else if(type=="end"){
+			 window.scrollTo(0,document.body.scrollHeight);
+		}
+   
+}
+</script>
