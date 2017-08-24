@@ -51,7 +51,7 @@
 
 </head>
 
-<body class="presentation-page" style="background-color: #fff ">
+<body class="presentation-page" style="background-color: #eee; ">
 
     <style>
         .page-header .container {
@@ -64,6 +64,7 @@
     background-color: #fff;
     color: #000;
     border-bottom: 1px solid #C8E1F5;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 12px -5px rgba(33, 33, 33, .46);
 }
 .navbar {
     box-shadow: none;
@@ -76,19 +77,41 @@
     color: #000000;
     background-color: #00bcd4;
 	}
+	.imgmemu{
+	 width: 30px;
+    height: 30px;
+    border-radius: 50px;
+	}
 </style>
   <!-- navbar-transparent-->
    <nav class="navbar navbar-default  navbar-transparent navbar-fixed-top navbar-color-on-scroll" id="sectionsNav">
     	<div class="container" >
         	<!-- Brand and toggle get grouped for better mobile display -->
-        	<div class="navbar-header">
+        	<div class="navbar-header" style="height: 35px;">
+        	<div class="" style="    padding: 9px 10px;
+    margin-top: 7px;
+    margin-left: 15px;
+    margin-bottom: 8px;
+    font-size: 25px;
+    display: inline-block;">
+                        <div class="box-login-non">
+                  
+                       <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
+                        <span style="    margin-left: 30px;
+    font-size: 14px;" class="lng-login"></span>
+</div>
+                 
+                    <div class="box-login" style="width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">
+                        <!-- <img style="width: 35px;  height: 35px;    border-radius: 50px;" src="https://dotdotdottrip.com/pic/default-avatar.png" alt=""> -->
+                    </div>
+                </div>
         		<button type="button" class="navbar-toggle" data-toggle="collapse">
             		<span class="sr-only">Toggle navigation</span>
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-        		<a class="navbar-brand" href="<?php echo base_url(); ?>"><i class="material-icons center md-36" align="center">person_pin</i></a>
+        		
         	</div>
 <script>
 
@@ -233,10 +256,7 @@ li>a:hover {
    
    
     <section >
-        <div class="container">
+        <div class="container" style="    padding-right: 12px;
+    padding-left: 12px;margin-top: 80px;">
            
-			<br/>
-			<br/>
-			<br/>
-			<br/>			
 		

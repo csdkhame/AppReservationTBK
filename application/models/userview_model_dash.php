@@ -289,9 +289,36 @@ class Userview_model_dash extends CI_Model {
 			curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
 			$curl_response = curl_exec($curl);
 			curl_close($curl);
-			$json = json_decode($curl_response);
+			$json_product = json_decode($curl_response);
 				
-			$data[$key]['product_detail'] = $json;
+			$data[$key]['product_detail'] = $json_product;
+			
+			
+			$curl_post_data = '{
+	"request": {	"car_model":"'.$json_product[0]->car_model.'"},
+	"field" :{"0":"bag_big","1":"bag_small","2":"adult","3":"child","4":"plan","5":"car_model"},
+	"from": "web_car_capacity"
+}';
+			$curl_response = '';
+			$headers = array();
+//			$url = "http://services.t-booking.com/Product_dashboard/normal";                               
+			$url = "http://services.t-booking.com/service";                               
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_ENCODING, 'gzip');
+			curl_setopt($curl, CURLOPT_HTTPHEADER , array(
+			     'Content-Type: application/x-www-form-urlencoded; charset=utf-8',
+			));
+			curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.6 (KHTML, like Gecko) Chrome/16.0.897.0 Safari/535.6");
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_REFERER, $url);
+			curl_setopt($curl, CURLOPT_URL, $url);  
+			curl_setopt($curl, CURLOPT_POST, 1);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
+			$json_car_model = json_decode($curl_response);
+			
+			$data[$key]['car_model'] = $json_car_model;
 				
 			 }
 		 return $data;
