@@ -753,9 +753,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     cursor: pointer;
 }
 </style>
-<div class="hidden-sm hidden-xs"><br/></div>
   
-<div class="">
+<div class="col-sm-12 col-sm-offset-2" style="    margin-top: 60px;">
 						<div class="wizard-container">
                             <div class="card wizard-card" data-color="blue" id="wizardProfile">
                                 <form action="" method="post" novalidate="novalidate" id="update_profile">
@@ -999,7 +998,9 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                             </div>
                         </div>
 </div>
-
+<br/>
+<br/>
+<br/>
 <script>
 	$( "#submit" ).click(function(e) {
 		 e.preventDefault();
