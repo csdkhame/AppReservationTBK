@@ -239,8 +239,20 @@
                     <div class="container">
                         <div class="row">
                             <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;"> 
-                                <div class="lng-booking-infomation"></div>
+                                <div class="lng-booking-infomation" style="display:inline-block"></div>
+                                <!-- <div class="" id="acceptancecheckw" style="    display: inline-block;
+    position: absolute;
+    right: 30px;
+    margin-top: -12px;">
+                            <div class="checkbox" style="margin-bottom: 30px;">
+                                <label>
+                                    <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
+                                    <span class="">ไป-กลับ</span>
+                                </label>
                             </div>
+                        </div> -->
+                            </div>
+                            
                             <div class="card">                               
                                 <div class="col-md-4">
                                     <div id="images-icon"></div>
