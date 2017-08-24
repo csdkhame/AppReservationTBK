@@ -213,16 +213,6 @@
 }
 </style>
 
-<style>
-	.box-menu-select {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 1;
-    background: #fff;
-    /* height: 90px; */
-}
-</style>
 
 
 

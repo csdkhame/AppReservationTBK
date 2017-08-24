@@ -752,6 +752,27 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     -webkit-appearance: none;
     cursor: pointer;
 }
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus, .nav-pills>li>a:hover, .nav-pills>li>a:focus {
+    background-color: #fff;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+   /* background-color: #9c27b0;
+    color: #FFF;*/
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px #555;
+}
+.wizard-card[data-color="blue"] .moving-tab {
+    background-color: #16B3B1;
+    box-shadow: 0 16px 26px -10px rgba(118, 202, 213, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 188, 212, 0.2);
+}
+.btn-tem{
+	background-color: #16B3B1;
+}.btn-sil{
+	    background-color: #999;
+}
+.wizard-card {
+    min-height: 410px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0), 0 6px 30px 5px rgba(0, 0, 0, 0), 0 8px 10px -5px rgba(0, 0, 0, 0.13);;
+}
 </style>
   
 <div class="col-sm-12 col-sm-offset-2" style="    margin-top: 60px;">
@@ -762,7 +783,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                
                                     <div class="wizard-navigation">
                                         <ul class="nav nav-pills">
-                                            <li style="width: 33.3333%;" class="active">
+                                            <li style="width: 33.3333%;" class="active" >
                                                 <a href="#about" data-toggle="tab" aria-expanded="true">About</a>
                                             </li>
                                             <li style="width: 33.3333%;">
@@ -778,7 +799,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                   	<div class="tab-content">
                                         <div class="tab-pane active" id="about">
                                             <div class="row">
-                                                <h4 class="info-text"> Please filter your information according to the truth.</h4>
+                                      <!--          <h4 class="info-text"> Please filter your information according to the truth.</h4>-->
                                                 <div class="col-sm-4 col-sm-offset-1">
                                                     <div class="picture-container">
                                                         <div class="picture">
@@ -986,11 +1007,11 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                     </div>
                                  	<div class="wizard-footer">
                                         <div class="pull-right">
-                                            <input type="button" class="btn btn-next btn-fill btn-info btn-wd" name="next" value="Next">
-                                            <input type="button" class="btn btn-finish btn-fill btn-info btn-wd" name="finish" value="Finish" style="display: none;" id="submit">
+                                            <input type="button" class="btn btn-next btn-fill btn-tem btn-wd" name="next" value="Next">
+                                            <input type="button" class="btn btn-finish btn-fill btn-tem btn-wd" name="finish" value="Finish" style="display: none;" id="submit">
                                         </div>
                                         <div class="pull-left">
-                                            <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
+                                            <input type="button" class="btn btn-previous btn-fill btn-sil btn-wd disabled" name="previous" value="Previous">
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
