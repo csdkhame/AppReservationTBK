@@ -287,7 +287,7 @@ $( document ).ready(function() {
    
    
     <section >
-        <div class="container" style="    padding-right: 12px;
-    padding-left: 12px;margin-top: 55px;">
+        <div class="container" style="padding: 0;
+        margin-top: 49px;">
            
 		

@@ -90,15 +90,18 @@ $( document ).ready(function() {
 								<tr><td>
 								  <input id="date1"   class="inputDate"  name="date" type="text" value="<?=$date;?>">  
 								</td>
+								<td width="20"></td>
 								<td>
 								<input id="date2"   class="inputDate"  name="date" type="text" value="<?=$adate;?>">  
 								</td>
-								<tr><td colspan="2">
-									<input id="search_order"   class="inputDate"  name="date" type="text" value="" onkeyup="search()" placeholder="Search Order..(e.x. 7033496)" >  
-								</td></tr>
+								
+								
 								</tr>
 							</table>
-						
+						<div>
+						<input id="search_order"   class="inputDate"  name="date" type="text" value="" onkeyup="search()" placeholder="Search Order..(e.x. 7033496)" >  
+							
+						</div>
 					
 						</div>
                              
