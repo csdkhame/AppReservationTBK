@@ -1,19 +1,5 @@
   <?php header('Content-type: text/html; charset=utf-8'); ?>
-<script>
-	var lastScrollTop = 0;
-$(window).scroll(function(event){
-   var st = $(this).scrollTop();
-   if (st > lastScrollTop){
-//       console.log('Hideeeeeeeeeeee');
-       $('nav').hide(300);
-       
-   } else {
-//        console.log('Showwwwwwwwwwww');
-         $('nav').show(300);
-   }
-   lastScrollTop = st;
-});
-</script>
+
     <?php echo link_tag('files/css/classic.css'); ?>
     <?php echo link_tag('files/css/classic.date.css'); ?>
 	 <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.js?v=<?=time()?>"></script> 

@@ -106,7 +106,7 @@ public function account_settings(){
 		
 }
 
-public function playment(){
+public function payment(){
 		
 		$this->load->view('header_dash2');
 		/*$this->load->view('setting_acc_dash');*/
