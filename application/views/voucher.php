@@ -13,7 +13,7 @@ else{
 	echo "Not found";
 }
 /*echo  sizeof($row_data);*/
-echo $check." 000";
+//echo $check." 000";
 ?>
 
 <? if($check == ""){ ?>
@@ -38,12 +38,12 @@ echo $check." 000";
     font-size: x-large;
 }
 #terms-of-use {
-    padding: 10px;
-    border-radius: 4px;
+	padding: 10px;
+    /* border-radius: 4px; */
     font-size: 16px;
-    border: 1px solid rgb(59, 89, 152);
+    border: 1px solid #81C8D3;
     margin-top: 5px;
-        background-color: #fff;
+    background-color: #fff;
 }	
 .show-hide-dialog {
      
@@ -63,50 +63,61 @@ echo $check." 000";
     color: #ffffff;
 }
 .textBox{
-	background-color: #555;
+	/* background-color: #555;
     border-radius: 4px;
     border: 1px solid transparent;
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, .14), 0 7px 12px -5px rgba(33, 33, 33, .46);
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, .14), 0 7px 12px -5px rgba(33, 33, 33, .46); */
     color: white;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	border: none !important;	
 }
 </style>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top animate">
-		<div style="margin: 15px;margin-top: 6px;">
+	<div class="" style="position: fixed;
+    background: #16B3B1;
+    padding: 13px;
+    padding-bottom: 0;
+    width: 100%;">
+		<div>
 			<div class="container">
 				
 				<div class="header" align="center">
 					<strong>Detail Order</strong>
-					
+					<? if($check!=""){ ?>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="    margin-right: -20px;
+				" id="close_dialog">
+							<i class="fa fa-times" aria-hidden="true" ></i></button>
+							<? } ?>
 				</div>
-				
 				<div align="center" style="    margin-top: 10px;">
-				<table width="100%">
-				<tr>
-					<td align="center"><div class="textBox" style="font-size: 12px;"><b><span id="from"></span></b></div></td>
-					<td align="center"><strong style="font-size: 17px;color: white;"><span id="text" >To</span></strong></td>
-					<td align="center"><div class="textBox" style="font-size: 12px;"><b><span id="to"></span></b></div></td>
-				</tr>
-				</table>
-				 <? if($check!=""){ ?>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="    margin-right: -20px;
-    margin-top: -60px;" id="close_dialog">
-				<i class="fa fa-times" aria-hidden="true" ></i></button>
-				<? } ?>
+					<table width="100%">
+						<tr>
+							<td align="center"><div class="textBox" style="font-size: 12px;"><b><span id="from"></span></b></div></td>
+							<td align="center"><strong style="font-size: 17px;color: white;"><span id="text" >-</span></strong></td>
+							<td align="center"><div class="textBox" style="font-size: 12px;"><b><span id="to"></span></b></div></td>
+						</tr>
+					</table>
+					</div>
+				
+				
+							
 				<!--<div class="show-hide-dialog"><i class="fa fa-times fa-2x" aria-hidden="true" ></i></div>-->
-				</div>
+				
 			</div>
 		</div>
-	</nav>
+				 </div>
 
 
-<div class="container">
+<div class="container" style="padding:10px;">
   <!--<h3>View Order</h3>-->
-   <div style="    margin-top: 75px;"> 
+   <div style="    margin-top: 70px;
+   "> 
    <div>
-   <h4 style="margin: 8px;"><Strong>Order</Strong></h4>         
+   <h4 style="margin: 8px;"><span>Order</span></h4>         
    </div>                                                                                        
-  <div class="table-responsive" style="background-color: #fff;">         
+  <div class="" style="padding: 8px;
+    background-color: #fff;">         
   <table class="table ">
   		<tr>
   			<td>
@@ -194,15 +205,15 @@ echo $check." 000";
   </div>
   
   
-  <h4 style="margin: 8px;"><Strong>Seating</Strong></h4>
-  <div class="table-responsive" style="    border-top-left-radius: 10px;    border-top-right-radius: 10px;">
+  <h4 style="margin: 8px;"><span>Seating</span></h4>
+  <div class="" style="    background: #fff; ">
   		<table class="table table-striped table-hover" id="show_carmodel">
   			<tr class="head-table-dialog" align="center" style="background-color: #ddd;">
-  				<td style="border-radius: 8px 0 0 0;"><span class="ng-scope">Plan</span></td>
-  				<td><span class="ng-scope">Adult</span></td>
-  				<td><span  class="ng-scope">Child</span></td>
-  				<td align="center"><span  class="ng-scope">Bag big</span></td>
-  				<td align="center" style="border-radius: 0 8px 0 0;"><span class="ng-scope">Bag small</span></td>
+  				<td ><span class="">Plan</span></td>
+  				<td><span class="">Adult</span></td>
+  				<td><span  class="">Child</span></td>
+  				<td align="center"><span  class="">Bag big</span></td>
+  				<td align="center" style=""><span class="">Bag small</span></td>
   			</tr>
   			<tbody id="append_carmodel">
   				
@@ -210,8 +221,8 @@ echo $check." 000";
   		</table>
   </div>
   
-  <h4 style="margin: 8px;"><Strong>Facilitiy</Strong></h4>  
-  				  <div style="padding: 3px 3px;  border-radius: 8px; background: #fff;">
+  <h4 style="margin: 8px;"><span>Facilitiy</span></h4>  
+  				  <div style="padding: 3px 3px;  background: #fff;">
   					<div style="margin-left: 3%; padding-top: 9px;">
 			                <b>1.</b> 
                             <img src="https://dotdotdottrip.com/files/img/air.png" style="margin: 8px;"> 
@@ -224,7 +235,7 @@ echo $check." 000";
 			            </div>
 			        </div>
   
-  <h4 style="margin: 8px;"><Strong>Terms of Use</Strong></h4>  
+  <h4 style="margin: 8px;"><span>Terms of Use</span></h4>  
   <div id="terms-of-use">
   <span><b>1.</b>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br><br><b>2.</b> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br><br><b>3.</b> Please check your belongings before leaving. We are not responsible for any loss.<br><br><b>4.</b> If the driver did not arrive on time in 5-15 minutes, please contact our 24-hour hotline,Such as waiting for more than 30 minutes, please kindly get another taxi. We will refund the cost of the order, if the guest able to provide the taxi voucher that they took, we will refund the taxi costs. Please be noticed the other fees are not responsible for refund..</span></div>
   	

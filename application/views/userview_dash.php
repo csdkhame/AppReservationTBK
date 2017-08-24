@@ -58,6 +58,11 @@ $( document ).ready(function() {
 			margin-bottom: 0 !important;
 			border:none !important;
 }
+@media screen and (max-width: 767px){
+	#bodyClick{
+		right: 229px !important;
+	}
+}
 
 		</style>
 		<section >
