@@ -1,17 +1,38 @@
   <?php header('Content-type: text/html; charset=utf-8'); ?>
-
+<script>
+	var lastScrollTop = 0;
+$(window).scroll(function(event){
+   var st = $(this).scrollTop();
+   if (st > lastScrollTop){
+//       console.log('Hideeeeeeeeeeee');
+       $('nav').hide(300);
+       
+   } else {
+//        console.log('Showwwwwwwwwwww');
+         $('nav').show(300);
+   }
+   lastScrollTop = st;
+});
+</script>
     <?php echo link_tag('files/css/classic.css'); ?>
     <?php echo link_tag('files/css/classic.date.css'); ?>
 	 <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.js?v=<?=time()?>"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.date.js?v=<?=time()?>"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/legacy.js?v=<?=time()?>"></script> 
-    
+    <?
+    $json = json_encode($results);
+     ?>
 <script>
 $( document ).ready(function() {
     $( "#user_view" ).addClass( "active" );
+    
+    var base_url = '<?php echo base_url(); ?>';
+    
+    console.log(<?=$json;?>);
 });
 </script>	
-<?php $num_rec = $this->input->get('num'); 
+<?php
+ $num_rec = $this->input->get('num'); 
 	  $page_get = $this->input->get('page',TRUE);
 	  $start_get =  $this->input->get('start',TRUE);
 	  if($num_rec==""){
@@ -25,22 +46,27 @@ $( document ).ready(function() {
       							$user_id = $this->session->userdata('i_id');
 	  ?>
    <div class="">
-                        <div class="card">
+                        <div style="background-color: white;
+    padding: 5px;">
 
                             <div class="toolbar">
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
-                        <div class="input-group">
+                        <div class="input-group" style="display: block;">
                         <? 
                         	$adate = date('Y-m-d');
 							$date = date("Y-m-d",strtotime("-1 month",strtotime($adate))); ?>
 							
-							<table>
+							<table width="100%">
 								<tr><td>
 								  <input id="date1"   class="inputDate"  name="date" type="text" value="<?=$date;?>">  
 								</td>
 								<td>
 								<input id="date2"   class="inputDate"  name="date" type="text" value="<?=$adate;?>">  
+								</td>
+								<tr><td colspan="2">
+									<input id="search_order"   class="inputDate"  name="date" type="text" value="" onkeyup="search()" placeholder="Search Order..(e.x. 7033496)" >  
 								</td></tr>
+								</tr>
 							</table>
 						
 					
@@ -212,28 +238,26 @@ $( document ).ready(function() {
                         </div><!--  end card  -->
                     </div> <!-- end col-md-12 -->
 
+<style>
+	.dialog{
+	z-index: 300;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    /* padding: 15px; */
+    background: #f5f5f5;
+    display: none;
+    overflow: auto;
+	}
 
-      
-<!-- Modal ---------------------------------------------------------------------------------------------------------------------------------->
- <!-- <div class="modal fade" id="myModal" role="dialog" >
-		    <div class="modal-dialog">
-		      	
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			          <h4 class="modal-title"><strong></strong></h4>
-			        </div>
-			        <div class="modal-body" id="modal_showdata" align="center">
-			         
-			        </div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-			        </div>
-			      </div>
-  		</div>
-  	</div>-->
+
+</style>
+    <!-- -->
+<div class="dialog"> <div id="show_order"></div></div>
   	
-  	<!-- Modal fullscreen -->
+<!-- Modal fullscreen -->
 <div class="modal modal-fullscreen fade" id="modal-fullscreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -316,9 +340,9 @@ $( document ).ready(function() {
 </script>
 
 <script>
-function myFunction() {
+function search() {
   var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
+  input = document.getElementById("search_order");
   filter = input.value.toUpperCase();
   table = document.getElementById("bootstrap-table");
   tr = table.getElementsByTagName("tr");
@@ -334,6 +358,7 @@ function myFunction() {
   }
 }
 </script>
+
 <style>
 .btn-silver
 {
@@ -400,6 +425,7 @@ function myFunction() {
 }
 
 </style>
+
 <script>
 	function view_ref(head_id,code){
 		//alert(123);
@@ -432,16 +458,19 @@ function myFunction() {
 	}
 
 	function view_order_level2(order_id){
-			$( "#modal_showdata" ).html( '<div align="center" ><img src="<?php echo base_url(); ?>dasboard/ring.gif" /></div>' );
-			$.post( "<?php echo base_url(); ?>dashboard/query_transfer_byuser",{"order_id":order_id }, function( data ) {
-				/*var obj = JSON.parse(data);
-				console.log(obj);
-				var value = obj[0];
-				var index = 'x';*/
-					console.log(data);
+//			$( "#show_order" ).html( '<div align="center" ><img src="'+base_url+'dasboard/ring.gif" /></div>' );
+			$( "#show_order" ).html( '<div align="center" ></div>' );
+			$.post( base_url+"dashboard/query_transfer_byuser?order_id="+order_id,{ check : "yes" } ,function( data ) {
+				
+				$( "#show_order" ).html( data);
+				
+//					console.log(data);
+					
 
 		});
-	$('#open_modal').click();
+		$('#sectionsNav').hide();
+		$('.dialog').show();
+//	$('#open_modal').click();
 	}	
 $(".modal-fullscreen").on('show.bs.modal', function () {
   setTimeout( function() {
@@ -451,6 +480,9 @@ $(".modal-fullscreen").on('show.bs.modal', function () {
 $(".modal-fullscreen").on('hidden.bs.modal', function () {
   $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
 });
+
+
+	
 </script>
 
 <script>
@@ -542,3 +574,4 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 }
 	
 </script>
+

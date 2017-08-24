@@ -116,43 +116,25 @@ public function playment(){
 
 public function query_transfer_byuser(){
 	
-  		$id = $this->input->post('order_id');
+  		$id = $this->input->get('order_id');
   		
-  		if($id!=""){
-		$data = $this->Userview_model_dash->order_detail($id);
-		/*$this->load->view('voucher',$data);*/
-		echo json_encode($data);
-		}else{
-			$id = $this->input->get('order_id');
+  		$check = $this->input->post('check');
+			
 			$data['results'] = $this->Userview_model_dash->order_detail($id);
-//			$this->load->view('header_dash2');
+			
+			if($check != ""){
+				$data['check'] = $check;
+			}else{
+				$data['check'] = "";
+			}
+
 			$this->load->view('voucher',$data);
-//			$this->load->view('footer_dash2');
-//			echo json_encode($data);
-		}
+
+		
 	
 }
 
-/*$target_dir = "pic/";
-	$target_file = $target_dir . basename($_FILES["file"]["name"]);
-	$check = getimagesize($_FILES["file"]["tmp_name"]);
-	 if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-    if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
 
-	} else {
-	    if (copy($_FILES["file"]["tmp_name"], $target_file)) {
-//	        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-	    } else {
-//	        echo "Sorry, there was an error uploading your file.";
-	    }
-	}*/
 	
 	}
 ?>
