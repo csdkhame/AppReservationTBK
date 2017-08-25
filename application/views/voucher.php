@@ -207,13 +207,13 @@ else{
   
   <h4 style="margin: 8px;"><span>Seating</span></h4>
   <div class="" style="    background: #fff; ">
-  		<table class="table table-striped table-hover" id="show_carmodel">
+  		<table class="table " id="show_carmodel">
   			<tr class="head-table-dialog" align="center" style="background-color: #ddd;">
-  				<td ><span class="">Plan</span></td>
-  				<td><span class="">Adult</span></td>
-  				<td><span  class="">Child</span></td>
-  				<td align="center"><span  class="">Bag big</span></td>
-  				<td align="center" style=""><span class="">Bag small</span></td>
+  				<td ><span >Plan</span></td>
+  				<td><span >Adult</span></td>
+  				<td><span >Child</span></td>
+  				<td align="center"><span >Bag big</span></td>
+  				<td align="center" ><span>Bag small</span></td>
   			</tr>
   			<tbody id="append_carmodel">
   				

@@ -106,6 +106,24 @@ $(document).ready(function() {
 
     //    //$("#pro-search").fadeOut(4000);
     //    });
+    $("#private-btn").click(function() {
+        $("this").css({
+            'background': '#16b3b1',
+            'color': '#fff'
+        });
+        $("#join-btn").css({ 'background': '#fff' });
+
+    });
+    $("#join-btn").click(function() {
+
+
+        $("this").css({
+            'background': '#16b3b1',
+            'color': '#fff'
+        });
+        $("#private-btn").css({ 'background': '#fff' });
+
+    });
     $("#show-hide-pro").click(function() {
         //alert("aaa")
         //$("#first").animate({'width': 0}, 'slow', function(){ 

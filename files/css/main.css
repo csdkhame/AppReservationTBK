@@ -911,19 +911,20 @@ input:after {
         padding: 5px 30px;
     }
     #join-btn {
-        color: #fff;
-        padding: 12px;
+        color: #16b3b1;
+        border: 1px solid #16b3b1;
         width: 49%;
         display: inline-block;
         color: #fff;
         padding: 12px;
     }
     #private-btn {
-        color: #fff;
+        color: #16b3b1;
+        /* background-color: #333; */
+        border: 1px solid #16b3b1;
         padding: 12px;
         width: 49%;
         display: inline-block;
-        background: #16B3B1;
     }
 }
 
@@ -942,15 +943,15 @@ input:after {
         float: right;
     }
     #private-btn {
-        color: #fff;
+        color: #16b3b1;
+        border: 1px solid #16b3b1;
         padding: 12px;
         width: 49%;
         display: inline-block;
-        background: #16B3B1;
     }
     #join-btn {
-        color: #fff;
-        padding: 12px;
+        color: #16b3b1;
+        border: 1px solid #16b3b1;
         width: 49%;
         display: inline-block;
         color: #fff;
