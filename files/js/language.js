@@ -170,6 +170,10 @@ $(document).ready(function() {
         $('.lng-amount').html('人民 ');
         $('.lng-book-by').html('预订人');
         $('.lng-voucher-no').html('凭证编号');
+        $('.lng-date').html('日期');
+        $('.lng-order').html('訂購');
+
+
 
 
 
@@ -298,6 +302,10 @@ $(document).ready(function() {
         $('.lng-amount').html('Amount ');
         $('.lng-book-by').html('Book by');
         $('.lng-voucher-no').html('Voucher No.');
+        $('.lng-date').html('Date');
+        $('.lng-order').html('Order');
+
+
 
 
 
@@ -418,6 +426,10 @@ $(document).ready(function() {
         $('.lng-arrival-time').html('เวลาถึง');
         $('.lng-amount').html('จำนวน');
         $('.lng-book-by').html('คนจอง');
+        $('.lng-date').html('วันที่');
+        $('.lng-order').html('ใบสั่ง');
+
+
 
 
 
@@ -505,6 +517,8 @@ $(document).ready(function() {
         $('.lng-change-password').html('Change password');
         $('.lng-change').html('Change');
         $('.lng-not-same').html('Password not same');
+        $('.lng-date').html('date');
+
 
 
 
@@ -542,6 +556,7 @@ $(document).ready(function() {
         $('.lng-amount').html('Amount ');
         $('.lng-book-by').html('Book by');
         $('.lng-voucher-no').html('Voucher No.');
+        $('.lng-order').html('Order');
 
 
 

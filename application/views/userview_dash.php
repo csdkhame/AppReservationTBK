@@ -17,6 +17,29 @@ $( document ).ready(function() {
     console.log(<?=$json;?>);
 });
 </script>	
+<?php 
+   
+    if(!$_COOKIE['lng']){
+
+       // echo  $_COOKIE['lng'].'unde';
+        $lng_search_order = 'Search by order (e.x. 7033496)';
+    }
+    else if($_COOKIE['lng'] == 'en'){
+        //echo 'en';
+        $lng_search_order = 'Search by order (e.x. 7033496)';
+        
+    }
+    else if($_COOKIE['lng'] == 'th'){
+        //echo 'th';
+        $lng_search_order = 'ค้นหาตามใบสั่งซื้อ (e.x. 7033496)';
+        
+    }
+    else if($_COOKIE['lng'] == 'cn'){
+       // echo 'cn';
+       $lng_search_order = '按订单搜索（e.x. 7033496）';
+       
+    }
+?>
 <?php
  $num_rec = $this->input->get('num'); 
 	  $page_get = $this->input->get('page',TRUE);
@@ -95,7 +118,7 @@ $( document ).ready(function() {
 														</table>
 														<div style="  margin: 15px 0;
     margin-bottom: 0;">
-																<input id="search_order"   class=""  name="date" type="text" value="" onkeyup="search()" placeholder="Search Order..(e.x. 7033496)"  style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
+																<input id="search_order"   class=""  name="date" type="text" value="" onkeyup="search()" placeholder="<? echo $lng_search_order;?>"  style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
 							
 														</div>
 					
@@ -180,10 +203,10 @@ $( document ).ready(function() {
                             <table id="bootstrap-table" class="table table-hover">
                                 <thead>
                                    <!-- <th data-field="state" data-checkbox="true" style="display: none;"></th>-->
-                                    <th class="text-center">Date</th><center></center>
-                                    <th class="text-center">Order</th>
-                                	<th data-sortable="true" class="text-center">From</th>
-                                	<th data-sortable="true" class="text-center">To</th>
+                                    <th class="text-center "><span class="lng-date"></span></th><center></center>
+                                    <th class="text-center"><span class="lng-order"></span></th>
+                                	<th data-sortable="true" class="text-center"><span class="lng-from"></span></th>
+                                	<th data-sortable="true" class="text-center"><span class="lng-to"></span></th>
                                 	<!--<th data-sortable="true" class="text-center">Price</th>-->
                                 	
                                 </thead>
