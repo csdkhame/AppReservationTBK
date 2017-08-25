@@ -15,6 +15,7 @@ else{
 /*echo  sizeof($row_data);*/
 //echo $check." 000";
 ?>
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
 
 <? if($check == ""){ ?>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -83,7 +84,7 @@ else{
 			<div class="container">
 				
 				<div class="header" align="center">
-					<strong>Detail Order</strong>
+					<strong class="lng-detail-order"></strong>
 					<? if($check!=""){ ?>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="    margin-right: -20px;
 				" id="close_dialog">
@@ -91,13 +92,11 @@ else{
 							<? } ?>
 				</div>
 				<div align="center" style="    margin-top: 10px;">
-					<table width="100%">
-						<tr>
-							<td align="center"><div class="textBox" style="font-size: 12px;"><b><span id="from"></span></b></div></td>
-							<td align="center"><strong style="font-size: 17px;color: white;"><span id="text" >-</span></strong></td>
-							<td align="center"><div class="textBox" style="font-size: 12px;"><b><span id="to"></span></b></div></td>
-						</tr>
-					</table>
+				
+						<span class="textBox" style="font-size: 12px;"><b><span id="from"></span></b></span>
+							<strong style="font-size: 17px;color: white;"><span id="text" >-</span></strong>
+							<span class="textBox" style="font-size: 12px;"><b><span id="to"></span></b></span>
+						
 					</div>
 				
 				
@@ -114,14 +113,14 @@ else{
    <div style="    margin-top: 70px;
    "> 
    <div>
-   <h4 style="margin: 8px;"><span>Order</span></h4>         
+   <h4 style="margin: 8px;"><span class="lng-detail-order"></span></h4>         
    </div>                                                                                        
   <div class="" style="padding: 8px;
     background-color: #fff;">         
   <table class="table ">
   		<tr>
   			<td>
-  			<span class="voucher-lang">Voucher No.</span>
+  			<span class="voucher-lang lng-voucher-no"></span>
   			</td>
   			<td>
   			<span id="voucher"></span>
@@ -129,17 +128,17 @@ else{
   		</tr>
   		<tr>
   			<td>
-  			<span class="amount-lang">Amount</span>
+  			<span class="amount-lang lng-amount"></span>
   			</td>
   			<td>
   				<table>
   					<tr>
   						<td>
-		  					<span class="adult-lang">Adult</span> :	<span id="adult"></span>
+		  					<span class="adult-lang lng-adult"></span> :	<span id="adult"></span>
 		  				</td>
 		  				<td width="10"></td>
   						<td>
-  							<span class="child-lang">Child</span> :	<span id="child"></span>
+  							<span class="child-lang lng-child"></span> :	<span id="child"></span>
   						</td>
   				</tr></table>
   			</td>
@@ -187,7 +186,7 @@ else{
   		</tr>
   		<tr>
   			<td>
-  			<span class="book_by-lang">Book by</span>
+  			<span class="book_by-lang lng-book-by"></span>
   			</td>
   			<td>
   			<span id="book_by"></span>
@@ -195,7 +194,7 @@ else{
   		</tr>
   		<tr>
   			<td>
-  			<span class="price-lang">Price</span>
+  			<span class="price-lang lng-price"></span>
   			</td>
   			<td>
   			<span id="price"></span> <span class="currency"></span>
@@ -205,15 +204,15 @@ else{
   </div>
   
   
-  <h4 style="margin: 8px;"><span>Seating</span></h4>
+  <h4 style="margin: 8px;"><span class="lng-seating"></span></h4>
   <div class="" style="    background: #fff; ">
   		<table class="table " id="show_carmodel">
   			<tr class="head-table-dialog" align="center" style="background-color: #ddd;">
-  				<td ><span >Plan</span></td>
-  				<td><span >Adult</span></td>
-  				<td><span >Child</span></td>
-  				<td align="center"><span >Bag big</span></td>
-  				<td align="center" ><span>Bag small</span></td>
+  				<td ><span class="lng-plan"></span></td>
+  				<td><span class="lng-adult" ></span></td>
+  				<td><span class="lng-child"></span></td>
+  				<td align="center"><span  class="lng-bag-big"></span></td>
+  				<td align="center" ><span class="lng-bag-small"></span></td>
   			</tr>
   			<tbody id="append_carmodel">
   				
@@ -226,18 +225,18 @@ else{
   					<div style="margin-left: 3%; padding-top: 9px;">
 			                <b>1.</b> 
                             <img src="https://dotdotdottrip.com/files/img/air.png" style="margin: 8px;"> 
-			                <span class="lng-conditioner">Air Conditioner</span>			                            
+			                <span class="lng-conditioner"></span>			                            
 			            </div>
 			            <div style="margin-left: 3%;padding-bottom: 9px;">
 			                <b>2.</b> 
                             <i class="fa fa-music" aria-hidden="true" style="margin: 8px;"></i> 
-			                <span class="lng-audio-player">Audio Player</span>
+			                <span class="lng-audio-player"></span>
 			            </div>
 			        </div>
   
-  <h4 style="margin: 8px;"><span>Terms of Use</span></h4>  
+  <h4 style="margin: 8px;"><span class="lng-terms-of-use"></span></h4>  
   <div id="terms-of-use">
-  <span><b>1.</b>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br><br><b>2.</b> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br><br><b>3.</b> Please check your belongings before leaving. We are not responsible for any loss.<br><br><b>4.</b> If the driver did not arrive on time in 5-15 minutes, please contact our 24-hour hotline,Such as waiting for more than 30 minutes, please kindly get another taxi. We will refund the cost of the order, if the guest able to provide the taxi voucher that they took, we will refund the taxi costs. Please be noticed the other fees are not responsible for refund..</span></div>
+  </div>
   	
 	</div> 
 </div>

@@ -130,10 +130,26 @@ $(document).ready(function() {
         $('.lng-management').html('管理');
         $('.lng-new-password').html('新密码');
         $('.lng-confirm-password').html('确认密码');
+        $('.lng-foget-pass').html('忘记密码');
+        $('.lng-please-input-email').html('	请输入您的电子邮件');
+        $('.lng-send').html('发送');
+        $('.lng-change-password').html('更改密碼');
+        $('.lng-change').html('更改');
+        $('.lng-not-same').html('密码不一样');
+
+
+
+
+
 
 
         /////////////// Dash ///////////////////////////////////////
-
+        $('#terms-of-use').html('<span>' +
+            '<B>一. </B> 请注意，黄色或者绿色车牌为合法运营车辆。如看到其他颜色牌照可拒绝上车，并请联系我们热线。<br /><br />' +
+            '<B>二. </B> 上⻋车请系好安全带，不然如遇警察检查需自己付罚款，如有意外保险⽆无法赔偿。<br /><br />' +
+            '<B>三. </B> 上下车请保管好自己的物品。如有遗失，概不负责。<br /><br />' +
+            '<B>四. </B> 如发生司机由于不可抗力因素未接到，在约定时间后5-15分钟内，请客人及时联系我们的24小时中文热线，如等待超过30分钟，请客人需及时自行打车离开！<br /><br />' +
+            '我们会退还订单费用，如客人有打车凭证提供，我们将补偿打车费用，但是其他费用一律不负责赔偿，请知晓！</span>');
         $('.lng-name_d').html('名字');
         $('.lng-username_d').html('用户名');
         $('.lng-email_d').html('电子邮件');
@@ -145,6 +161,20 @@ $(document).ready(function() {
         $('.lng-sa_d').html('设置帐户');
         $('.lng-customer_d').html('顾客');
         $('.lng-payment_d').html('付款');
+        $('.lng-bag-big').html('袋大');
+        $('.lng-plan').html('计划');
+        $('.lng-bag-small').html('袋小');
+        $('.lng-arrival-date').html('到达日期');
+        $('.lng-arrival-time').html('到达时间');
+        $('.lng-detail-order').html('订单详细');
+        $('.lng-amount').html('人民 ');
+        $('.lng-book-by').html('预订人');
+        $('.lng-voucher-no').html('凭证编号');
+
+
+
+
+
 
 
 
@@ -226,12 +256,29 @@ $(document).ready(function() {
         $('.lng-management').html('Management');
         $('.lng-new-password').html('New Password');
         $('.lng-confirm-password').html('Confirm Password');
+        $('.lng-foget-pass').html('Forgot your password');
+        $('.lng-please-input-email').html('Please input your email');
+        $('.lng-send').html('Send');
+        $('.lng-change-password').html('Change password');
+        $('.lng-change').html('Change');
+        $('.lng-not-same').html('Password not same');
+
+
+
+
+
 
 
 
 
         /////////////// Dash ///////////////////////////////////////
+        $('#terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
 
+            '<B>2.</B> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br /><br>' +
+
+            '<B>3.</B> Please check your belongings before leaving. We are not responsible for any loss.<br /><br>' +
+
+            '<B>4.</B> If the driver did not arrive on time in 5-15 minutes, please contact our 24-hour hotline,Such as waiting for more than 30 minutes, please kindly get another taxi. We will refund the cost of the order, if the guest able to provide the taxi voucher that they took, we will refund the taxi costs. Please be noticed the other fees are not responsible for refund..</span>');
         $('.lng-name_d').html('Name');
         $('.lng-username_d').html('Username');
         $('.lng-email_d').html('Email');
@@ -242,6 +289,18 @@ $(document).ready(function() {
         $('.lng-sa_d').html('Settings Account');
         $('.lng-customer_d').html('Customer');
         $('.lng-payment_d').html('Payment');
+        $('.lng-bag-big').html('Bag big');
+        $('.lng-plan').html('Plan');
+        $('.lng-bag-small').html('Bag small');
+        $('.lng-arrival-date').html('Arrival date');
+        $('.lng-arrival-time').html('Arrival time');
+        $('.lng-detail-order').html('Detail Order');
+        $('.lng-amount').html('Amount ');
+        $('.lng-book-by').html('Book by');
+        $('.lng-voucher-no').html('Voucher No.');
+
+
+
 
 
 
@@ -319,9 +378,32 @@ $(document).ready(function() {
         $('.lng-management').html('การจัดการ');
         $('.lng-new-password').html('รหัสผ่านใหม่');
         $('.lng-confirm-password').html('ยืนยันรหัสผ่าน');
+        $('.lng-bag-big').html('กระเป๋าใหญ่');
+        $('.lng-plan').html('แผน');
+        $('.lng-bag-small').html('กระเป๋าเล็ก');
+        $('.lng-foget-pass').html('ลืมรหัสผ่าน');
+        $('.lng-please-input-email').html('โปรดใส่อีเมลของคุณ');
+        $('.lng-send').html('ส่ง');
+        $('.lng-change-password').html('เปลี่ยนรหัสผ่าน');
+        $('.lng-change').html('เปลี่ยน');
+        $('.lng-not-same').html('รหัสผ่านไม่เหมือนกัน');
+        $('.lng-detail-order').html('รายละเอียดสั่งซื้อ');
+        $('.lng-voucher-no').html('เลขที่วอเชอร์');
+
+
+
+
+
+
+
+
 
         /////////////// Dash ///////////////////////////////////////
-
+        $('#terms-of-use').html('<span >' +
+            '<B>1.</B> โปรดทราบว่ามีเพียงแผ่นป้ายทะเบียนรถสีเขียวหรือสีเหลืองเท่านั้นที่ใช้เป็นยานพาหนะขนส่งสาธารณะที่ถูกต้องตามกฎหมาย หากคุณเห็นป้ายทะเบียนรถเป็นสีอื่น คุณสามารถปฏิเสธการโดยสารได้ และโปรดติดต่อสายด่วนของเรา<br /><br />' +
+            '<B >2.</B> กรุณาคาดเข็มขัดนิรภัย มิฉะนั้นในกรณีที่มีการเรียกตรวจสอบจากตำรวจ คุณต้องต้องจ่ายค่าปรับเอง และในกรณีที่เกิดอุบัติเหตุ คุณจะไม่สามารถได้รับค่าชดเชยจากบริษัทประกันภัย<br /><br />' +
+            '<B>3.</B> โปรดตรวจสอบทรัพย์สินของคุณก่อนที่รถจะออกเดินทางหรือรถถึงที่หมาย เราจะไม่รับผิดชอบต่อความสูญเสียในกรณีใดๆ ทั้งสิ้น<br /><br />' +
+            '<B>4.</B> ในกรณีที่มีเหตุสุดวิสัยคนขับไม่ได้รับรอเกิน 5-15 นาทีจากเวลาที่ตกลงกัน โปรดติดต่อศูนย์บริการตลอด 24 ชั่วโมงสายด่วนทันที ถ้ารอคอยมากกว่า 30 นาที กรุณาเรียกรถเอง! เราจะคืนเงินให้ท่าน100%ในการจอง และจะคืนเงินที่ท่านเรียกรถ (แต่ต้องมีหลักฐานใบเสร็จหรือรูปยืนยัน) แต่จะไม่รับผิดชอบค่าเสียหายอื่น  โปรดทราบ!</span> ');
         $('.lng-name_d').html('ชื่อ');
         $('.lng-username_d').html('ชื่อผู้ใช้');
         $('.lng-email_d').html('อีเมล์');
@@ -332,6 +414,11 @@ $(document).ready(function() {
         $('.lng-sa_d').html('ตั้งค่าบัญชี');
         $('.lng-customer_d').html('ลูกค้า');
         $('.lng-payment_d').html('ชำระเงิน');
+        $('.lng-arrival-date').html('วันที่มาถึง');
+        $('.lng-arrival-time').html('เวลาถึง');
+        $('.lng-amount').html('จำนวน');
+        $('.lng-book-by').html('คนจอง');
+
 
 
     } else if ($.cookie("lng") == undefined) {
@@ -410,13 +497,33 @@ $(document).ready(function() {
         $('.lng-management').html('Management');
         $('.lng-new-password').html('New Password');
         $('.lng-confirm-password').html('Confirm Password');
+        $('.lng-arrival-date').html('Arrival date');
+        $('.lng-arrival-time').html('Arrival time');
+        $('.lng-foget-pass').html('Forgot your password');
+        $('.lng-please-input-email').html('Please input your email');
+        $('.lng-send').html('Send');
+        $('.lng-change-password').html('Change password');
+        $('.lng-change').html('Change');
+        $('.lng-not-same').html('Password not same');
+
+
+
+
+
+
 
 
 
 
 
         /////////////// Dash ///////////////////////////////////////
+        $('#terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
 
+            '<B>2.</B> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br /><br>' +
+
+            '<B>3.</B> Please check your belongings before leaving. We are not responsible for any loss.<br /><br>' +
+
+            '<B>4.</B> If the driver did not arrive on time in 5-15 minutes, please contact our 24-hour hotline,Such as waiting for more than 30 minutes, please kindly get another taxi. We will refund the cost of the order, if the guest able to provide the taxi voucher that they took, we will refund the taxi costs. Please be noticed the other fees are not responsible for refund..</span>');
         $('.lng-name_d').html('Name');
         $('.lng-username_d').html('Username');
         $('.lng-email_d').html('Email');
@@ -428,6 +535,16 @@ $(document).ready(function() {
         $('.lng-sa_d').html('Settings Account');
         $('.lng-customer_d').html('Customer');
         $('.lng-payment_d').html('Payment');
+        $('.lng-bag-big').html('Bag big');
+        $('.lng-plan').html('Plan');
+        $('.lng-bag-small').html('Bag small');
+        $('.lng-detail-order').html('Detail Order');
+        $('.lng-amount').html('Amount ');
+        $('.lng-book-by').html('Book by');
+        $('.lng-voucher-no').html('Voucher No.');
+
+
+
 
 
 

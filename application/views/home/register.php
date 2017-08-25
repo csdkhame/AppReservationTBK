@@ -241,22 +241,22 @@
             <div class="box-in-foget" >
                 <div style="padding: 12px;">
                    <div class="col-md-12" id="forget"> 
-                       <h4 style="    text-align: center;">ลืมรหัสผ่าน</h4>
+                       <h4 style="    text-align: center;" class="lng-foget-pass">ลืมรหัสผ่าน</h4>
                         <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
-                            <span>Please input your email </span>
+                            <span class="lng-please-input-email">Please input your email </span>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">face</i>
                             </span>   
                             <div class="form-group label-floating is-empty">
-                                <label class="control-label"><span class="lng-email">อีเมล์</span></label>
+                                <label class="control-label"><span class="lng-email"></span></label>
                                 <input type="email" class="form-control" id="email-forget" size="80">
                                 <span class="material-input"></span>
                                 
                                 
                             </div>  
-                            <div  class="btn-send lng-send" style="padding: 12px 20px;" >Send</div>   
+                            <div  class="btn-send lng-send" style="padding: 12px 20px;" ></div>   
                         </div>
                     </div>
                     <div id="check-email" style="text-align:center;display:none;margin-top: 50px;
@@ -1236,19 +1236,6 @@ window.fbAsyncInit = function() {
     });
   }
     }
-
-
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  
-
-  
-
-  // Load the SDK asynchronously
-  
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
   
     $('#sign-up').click(function() {
        $('.box-signup').css('display','block');
@@ -1265,62 +1252,8 @@ window.fbAsyncInit = function() {
 
        $('.box-signin').css('display','block');
     })
-     // function loginwithgoogle() 
-     //    {
-     //      var myParams = {
-     //        'clientid' : 'YOUR_CLIENT_ID.apps.googleusercontent.com',
-     //        'cookiepolicy' : 'single_host_origin',
-     //        'callback' : 'loginCallback',
-     //        'approvalprompt':'force',
-     //        'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
-     //      };
-     //      gapi.auth.signIn(myParams);
-     //    }
-
-     //    function loginCallback(result)
-     //    {
-     //        if(result['status']['signed_in'])
-     //        {
-     //            var request = gapi.client.plus.people.get(
-     //            {
-     //                'userId': 'me'
-     //            });
-     //            request.execute(function (resp)
-     //            {
-     //                 console.log(resp);
-     //                console.log(resp['id']); 
-     //                var email = '';
-     //                if(resp['emails'])
-     //                {
-     //                    for(i = 0; i < resp['emails'].length; i++)
-     //                    {
-     //                        if(resp['emails'][i]['type'] == 'account')
-     //                        {
-     //                            email = resp['emails'][i]['value'];//here is required email id
-     //                        }
-     //                    }
-     //                }
-     //               var usersname = resp['displayName'];//required name
-     //            });
-     //        }
-     //    }
-     //    function onLoadCallback()
-     //    {
-     //        gapi.client.setApiKey('YOUR_API_KEY');
-     //        gapi.client.load('plus', 'v1',function(){});
-     //    }
+   
 </script>
-
-
-
-
-        <!-- <script type="text/javascript">
-              (function() {
-               var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-               po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
-               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-             })();
-        </script> -->
 </html>
 
 

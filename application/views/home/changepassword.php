@@ -64,7 +64,7 @@
             <div class="box-in-foget" >
                 <div style="padding: 12px;">
                    <div class="col-md-12" id="forget"> 
-                       <h4 style="    text-align: center;">เปลียนรหัสผ่าน</h4>
+                       <h4 style="    text-align: center;" class="lng-change-password">เปลีนรหัสผ่าน</h4>
                         <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
                             <!-- <span>change your new pass word </span> -->
                         </div>
@@ -100,7 +100,7 @@
                             </div>  
                             <!-- <div  class="btn-send lng-send" style="padding: 12px 20px;" >Change</div>    -->
                         </div>
-                        <div class="not-same" style="color:red;text-align:center;font-size:15px;display:none;">password not same</div>
+                        <div class="not-same lng-not-same" style="color:red;text-align:center;font-size:15px;display:none;"></div>
                     </div>
                    
                     <!-- <div type="button" class="btn-close" >Close</div> -->
@@ -108,7 +108,7 @@
                 </div>
                 <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
                 
-                    <div class="btn-change lng-change" >Change</div>
+                    <div class="btn-change lng-change" ></div>
                 </div>
             </div>
         </div>
