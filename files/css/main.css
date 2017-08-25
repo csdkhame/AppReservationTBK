@@ -915,11 +915,11 @@ input:after {
         border: 1px solid #16b3b1;
         width: 49%;
         display: inline-block;
-        color: #fff;
         padding: 12px;
     }
     #private-btn {
-        color: #16b3b1;
+        background: #16b3b1;
+        color: #fff;
         /* background-color: #333; */
         border: 1px solid #16b3b1;
         padding: 12px;
@@ -943,7 +943,8 @@ input:after {
         float: right;
     }
     #private-btn {
-        color: #16b3b1;
+        background: #16b3b1;
+        color: #fff;
         border: 1px solid #16b3b1;
         padding: 12px;
         width: 49%;
@@ -954,7 +955,6 @@ input:after {
         border: 1px solid #16b3b1;
         width: 49%;
         display: inline-block;
-        color: #fff;
         padding: 12px;
     }
     #pro-item {

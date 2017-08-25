@@ -221,7 +221,7 @@ else{
   		</table>
   </div>
   
-  <h4 style="margin: 8px;"><span>Facilitiy</span></h4>  
+  <h4 style="margin: 8px;"><span class="lng-facilitiy"></span></h4>  
   				  <div style="padding: 3px 3px;  background: #fff;">
   					<div style="margin-left: 3%; padding-top: 9px;">
 			                <b>1.</b> 

@@ -37,7 +37,7 @@
                 <div class="" id="private-btn"  href="#private" data-toggle="tab" aria-expanded="true"><span class="lng-private"></span> </div>
            
             
-                <div style=" background-color:#333" id="join-btn" class="" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></div>
+                <div style=" " id="join-btn" class="" href="#join" data-toggle="tab" aria-expanded="false"><span class="lng-join"></span></div>
             </div>
             <div class=" " style=" padding: 12px 10px; padding-bottom: 0;">
                 <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->

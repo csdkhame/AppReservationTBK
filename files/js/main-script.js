@@ -107,21 +107,21 @@ $(document).ready(function() {
     //    //$("#pro-search").fadeOut(4000);
     //    });
     $("#private-btn").click(function() {
-        $("this").css({
-            'background': '#16b3b1',
-            'color': '#fff'
-        });
-        $("#join-btn").css({ 'background': '#fff' });
+        $(this).css({ "background-color": "#16b3b1", "color": " #fff " }
+
+        );
+        $("#join-btn").css({ "background-color": "#fff ", "color": "#16b3b1" });
 
     });
     $("#join-btn").click(function() {
 
 
-        $("this").css({
-            'background': '#16b3b1',
-            'color': '#fff'
-        });
-        $("#private-btn").css({ 'background': '#fff' });
+        $(this).css({ "background-color": "#16b3b1", "color": "#fff" }
+
+        );
+        $("#private-btn").css({ "background-color": " #fff", "color": "#16b3b1 " }
+
+        );
 
     });
     $("#show-hide-pro").click(function() {
@@ -1829,7 +1829,7 @@ function changeType() {
 }
 
 function getAddress(address) {
-    $('#current-addr').css('background', '#07c284');
+
 
     console.log(placeIdcurent);
     console.log(dataplacerel);
