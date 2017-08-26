@@ -47,7 +47,7 @@ class Getuser_model extends CI_Model {
     $pass = $this->input->post('pass');
     $data['s_password'] = $pass;
     
-    $this->db->where('s_email', $user);      
+    $this->db->where('s_username', $user);      
     $this->db->update('ap_users', $data);
   
     if ($this->db->affected_rows() > 0) {
