@@ -520,7 +520,7 @@ $(document).ready(function(){
         var confirmpass = $('#confirm-password').val();
         console.log(newpass)
         console.log(confirmpass)
-        if(newpass == confirmpass){
+        if((newpass == confirmpass) && (newpass != '' || confirmpass != '')){
             //alert("aaaaaa")
             $('.not-same').hide();
             $.ajax({

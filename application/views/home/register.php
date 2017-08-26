@@ -371,7 +371,7 @@
 .btn-close {
     /*width: 200px; */
     background: #4BB1C1;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-align: center;
     color: #ffffff;
     border: 1px solid #4BB1C1;
