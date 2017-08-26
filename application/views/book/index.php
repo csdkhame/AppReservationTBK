@@ -50,7 +50,7 @@
     if(!$_COOKIE['lng']){
 
        // echo  $_COOKIE['lng'].'unde';
-        $lng_your_country = 'Guest name of your country';
+        $lng_your_country = 'Your country';
         $lng_fiast_name = 'First Name';
         $lng_last_name = 'Last Name';
         $lng_phone = 'Phone';
@@ -61,7 +61,7 @@
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
-        $lng_your_country = 'Guest name of your country';
+        $lng_your_country = 'Your country';
         $lng_fiast_name = 'First Name';
         $lng_last_name = 'Last Name';
         $lng_phone = 'Phone';
@@ -74,7 +74,7 @@
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
-        $lng_your_country = 'Guest name of your country';
+        $lng_your_country = 'ชื่อประเทศของคุณ';
         $lng_fiast_name = 'ชื่อ';
         $lng_last_name = 'นามสกุล';
         $lng_phone = 'โทรศัพท์';
@@ -87,7 +87,7 @@
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
-       $lng_your_country =" Guest name of your country";
+       $lng_your_country ="您的国家";
        $lng_fiast_name = '名';
        $lng_last_name = '姓';
        $lng_phone = '电话';
@@ -276,34 +276,64 @@
 
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td valign="top"  style="padding: 5px 0;"> 
+                                                <label style="text-align:left" >
+                                                    <span class="lng-from"></span><span>:</span>
+                                                </label>
+
+                                            </td>
+                                            <td width="10px"></td>
+                                            <td>
+                                                <span id="province" style="color: #000;"></span>                                       
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"  style="padding: 5px 0;"> 
+                                            <label style="text-align:left" ><span class="lng-to"></span><span>:</span></label>
+
+                                            </td>
+                                            <td width="10px"></td>
+                                            <td>
+                                            <span id="province_to" style="    color: #000;"></span>                                     
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"  style="padding: 5px 0;"> 
+                                                <label style="text-align:left" ><span class="lng-type"></span><span>:</span></label>
+
+                                            </td>
+                                            <td width="10px"></td>
+                                            <td>
+                                            <span  id="cars_persion" style="color: #000;"></span>                                
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"  style="padding: 5px 0;"> 
+                                                <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>
+
+                                            </td>
+                                            <td width="10px"></td>
+                                            <td>
+                                            <span style="color: #16B3B1;" id="price"></span>                               
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"  style="padding: 5px 0;"> 
+                                            <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>
+
+                                            </td>
+                                            <td width="10px"></td>
+                                            <td>
+                                            <span id="numsumprice"></span>                             
+
+                                            </td>
+                                        </tr>
                                     </table>
-                                    <!-- <p>
-                                            <label style="text-align:left" ><span class="lng-product"></span></span><span>:</span></label>   &nbsp;&nbsp;
-                                            <span id="product" style="text-align: center;"></span>
-                                        </p> -->
-                                        <p >
-                                            <label style="text-align:left" >
-                                            <span class="lng-from"></span><span>:</span>
-                                            </label>&nbsp;&nbsp;
-                                            <span id="province" style="color: #000;"></span>
-                                        </p>
-                                        <p>
-                                            <label style="text-align:left" ><span class="lng-to"></span><span>:</span></label>&nbsp;&nbsp;
-                                            <span id="province_to" style="    color: #000;"></span>
-                                        </p>
-                                        <p >
-                                            <label style="text-align:left" ><span class="lng-type"></span><span>:</span></label>&nbsp;&nbsp;
-                                            <span ng-if="flagcheck == 1" id="cars_persion" style="color: #000;"></span>
-                                        </p>
-                                        <p class="prices">
-                                            <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>&nbsp;&nbsp;
-                                            <span style="color: #16B3B1;" id="price"></span>
-                                        </p>
-                                        <p class="sumprice">
-                                            <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>                                                           
-                                                                        &nbsp; &nbsp;
-                                            <span id="numsumprice"></span>
-                                        </p>
                                     </div>
                                     <div class="box-list-cars " >
                                         <span class="lng-you-choose"></span> 
@@ -389,65 +419,18 @@
                                                             </td>
                                                             <td width="49%" align="center">
                                                                 <select class="form-control form-inline time_m asd" style="width: 100%;padding: 0 30px;" id="time_m" name="time_m" required>
-                                                                    <option value="00" selected="selected">00</option>
-                                                                    <!-- <option value="01">01</option>
-                                                                    <option value="02">02</option>
-                                                                    <option value="03">03</option>
-                                                                    <option value="04">04</option> -->
+                                                                    <option value="00" selected="selected">00</option>                                                                  
                                                                     <option value="05">05</option>
-                                                                    <!-- <option value="06">06</option>
-                                                                    <option value="07">07</option>
-                                                                    <option value="08">08</option>
-                                                                    <option value="09">09</option> -->
                                                                     <option value="10">10</option>
-                                                                    <!-- <option value="11">11</option>
-                                                                    <option value="12">12</option>
-                                                                    <option value="13">13</option>
-                                                                    <option value="14">14</option> -->
                                                                     <option value="15">15</option>
-                                                                    <!-- <option value="16">16</option>
-                                                                    <option value="17">17</option>
-                                                                    <option value="18">18</option>
-                                                                    <option value="19">19</option> -->
                                                                     <option value="20">20</option>
-                                                                    <!-- <option value="21">21</option>
-                                                                    <option value="23">23</option>
-                                                                    <option value="24">24</option> -->
                                                                     <option value="25">25</option>
-                                                                    <!-- <option value="26">26</option>
-                                                                    <option value="27">27</option>
-                                                                    <option value="28">28</option>
-                                                                    <option value="29">29</option> -->
                                                                     <option value="30">30</option>
-                                                                    <!-- <option value="31">31</option>
-                                                                    <option value="32">32</option>
-                                                                    <option value="33">33</option>
-                                                                    <option value="34">34</option> -->
                                                                     <option value="35">35</option>
-                                                                    <!-- <option value="36">36</option>
-                                                                    <option value="37">37</option>
-                                                                    <option value="38">38</option>
-                                                                    <option value="39">39</option> -->
                                                                     <option value="40">40</option>
-                                                                    <!-- <option value="41">41</option>
-                                                                    <option value="42">42</option>
-                                                                    <option value="43">43</option>
-                                                                    <option value="44">44</option> -->
                                                                     <option value="45">45</option>
-                                                                    <!-- <option value="46">46</option>
-                                                                    <option value="47">47</option>
-                                                                    <option value="48">48</option>
-                                                                    <option value="49">49</option> -->
                                                                     <option value="50">50</option>
-                                                                    <!-- <option value="51">51</option>
-                                                                    <option value="52">52</option>
-                                                                    <option value="53">53</option>
-                                                                    <option value="54">54</option> -->
                                                                     <option value="55">55</option>
-                                                                    <!-- <option value="56">56</option>
-                                                                    <option value="57">57</option>
-                                                                    <option value="58">58</option>
-                                                                    <option value="59">59</option> -->
                                                                 </select>
                                                             </td>
                                                         </tr>
@@ -624,13 +607,13 @@
                                                 <div class="form-group form-inline required ">
                                                                            
                                                     <select class="textInput" name="guestcountry" id="guestcountry" class="" style="  ">
-                                                        <option class="textInput" value="az_AZ" label="Guest name of your country" none=""><? echo $lng_your_country?></option>
+                                                        <option class="textInput" value="az_AZ" ><? echo $lng_your_country;?></option>
                                                     </select>
                                                 </div>
                                            
                                             <div class="contact_info">
                                                
-                                                    <input type="text" class="textInput" placeholder="<? echo $lng_fiast_name?> - <? echo $lng_last_name?>" id="name_lastname" name="name_lastname"  pattern="^[A-z ก-ฮ]+$" required>                                                               
+                                                    <input type="text" class="textInput" placeholder="<? echo $lng_fiast_name;?> - <? echo $lng_last_name;?>" id="name_lastname" name="name_lastname"  pattern="^[A-z ก-ฮ]+$" required>                                                               
                                               
                                             </div>
                                             <div class="contact_info">
@@ -1094,6 +1077,7 @@
     border-radius: 3px;
 }
 .box-list-cars {
+    padding-top: 15px;
     display: block;
     padding-bottom: 23px;
     /* background: #fff; */

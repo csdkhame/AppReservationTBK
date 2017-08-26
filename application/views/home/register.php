@@ -55,8 +55,44 @@
 .navbar {
     box-shadow: none;
 }
+.loading-in{
+    height: 115px;
+    /* border-radius: 4px; */
+    background: #fff;
+    min-width: 15rem;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 10;
+}
+.loading-ld{
+    font-weight: 500;
+    color: #000;
+    padding: 35px;
+    text-align: center;
+}
+#loading{
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.59);
+    display: nones;
+}
 
     </style>
+    <div id="loading" style="display: none;">
+            <div class="loading-in">               
+                <div class="loading-ld">
+                    <div style="font-size: 15px">Loading</div>
+                        <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i></div>
+                
+                    </div>        
+                </div>
  <section style="position: relative; min-height: 100vh;">    
     <div class="header " data-parallax="true" >
         <nav class="navbar  navbar-color-on-scroll" id="sectionsNav">
@@ -1047,7 +1083,7 @@ $.ajax({
             $('.btn-home').css('color', '#999999');
             $('.btn-reservation').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
-            $('#loading').css('display', 'none');
+           // $('#loading').css('display', 'none');
             window.location.href = "https://dotdotdottrip.com/";
         }, 2000);
 
