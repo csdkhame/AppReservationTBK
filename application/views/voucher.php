@@ -15,18 +15,92 @@ else{
 /*echo  sizeof($row_data);*/
 //echo $check." 000";
 ?>
-    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
+  
 
 <? if($check == ""){ ?>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+ <?php echo link_tag('files/css/bootstrap3.min.css'); ?>
+    <!-- <?php echo link_tag('files/css/material-dashboard'); ?> -->
+ <!--    <?php echo link_tag('dasboard/material-dashboard.css'); ?>-->
+    
+    <?php echo link_tag('files/css/material-kit.min.css?v=1.1.1'); ?>
+    
+    
+    <?php echo link_tag('files/assets/css/material-bootstrap-wizard.css'); ?>
+    
+    
 
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <?php //echo link_tag('files/assets/css/demo.css'); ?>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <!-- CSS Files -->
+    
+
+  
+    <!--   Core JS Files   -->
+    <!-- <script src="https://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script> -->
+    <script src="<?php echo base_url(); ?>files/js/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/material.min.js"></script>
+    <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
+
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" type="text/javascript"></script>
+
+ <!-- Sweet Alert 2 plugin -->
+	<script src="<?php echo base_url(); ?>dasboard/sweetalert-master/dist/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>dasboard/sweetalert-master/dist/sweetalert.css">
+  
+  <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> 
+    
+    
+    <!--    Plugin for Date Time Picker and Full Calendar Plugin   -->
+  <script src="<?php echo base_url(); ?>files/js/moment.min.js"></script>
+
+    <!--    Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/   -->
+    <script src="<?php echo base_url(); ?>files/js/nouislider.min.js" type="text/javascript"></script>
+
+    <!--    Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker   -->
+    <script src="<?php echo base_url(); ?>files/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+
+    <!--    Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="<?php echo base_url(); ?>files/js/bootstrap-selectpicker.js" type="text/javascript"></script>
+
+    <!--    Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/  -->
+    <script src="<?php echo base_url(); ?>files/js/bootstrap-tagsinput.js"></script>
+
+    <!--    Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput   -->
+    <script src="<?php echo base_url(); ?>files/js/jasny-bootstrap.min.js"></script>
+     <!--  Plugin for the Wizard -->
+     <script src="<?php echo base_url(); ?>files/assets/js/jquery.bootstrap.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/assets/js/material-bootstrap-wizard.js"></script>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/  -->
+    <script src="<?php echo base_url(); ?>files/assets/js/jquery.validate.min.js"></script>
+    <!--    Plugin For Google Maps   -->
+    <!-- <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFPQibxeDaLIUHsC6_KqDdFaUdhrbhZ3M"></script> -->
+
+    <!--    Plugin for 3D images animation effect, full documentation here: https://github.com/drewwilson/atvImg    -->
+    <script src="<?php echo base_url(); ?>files/js/atv-img-animation.js" type="text/javascript"></script>
+
+    <!--    Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc    -->
+    <script src="<?php echo base_url(); ?>files/js/material-kit.min.js?v=1.1.1" type="text/javascript"></script>
+
+    <!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
 <? } ?>
-
+<script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
 <style>
 .navbar-inverse {
     background-color: #009688 !important;
@@ -145,7 +219,7 @@ else{
   		</tr>
   		<tr>
   			<td>
-  			<span class="carno-lang">Number of car</span>
+  			<span class="lng-carno">Number of car</span>
   			</td>
   			<td>
   			<span id="carno"></span>
@@ -153,7 +227,7 @@ else{
   		</tr>
   		<tr>
   			<td>
-  			<span class="arrivied_date-lang">Arrived date</span>
+  			<span class="lng-arrivied_date">Arrived date</span>
   			</td>
   			<td>
   			<span id="arrivied"></span>
@@ -162,7 +236,7 @@ else{
   		
   		<tr>
   			<td>
-  			<span class="arrival_flight-lang">Arrival flight</span>
+  			<span class="lng-arrival_flight">Arrival flight</span>
   			</td>
   			<td>
   			<span id="arrival_flight"></span>
@@ -170,7 +244,7 @@ else{
   		</tr>
   		<tr>
   			<td>
-  			<span class="car_type-lang">Car Type</span>
+  			<span class="lng-car_type">Car Type</span>
   			</td>
   			<td>
   			<span id="car_type"></span>
@@ -178,7 +252,7 @@ else{
   		</tr>
   		<tr>
   			<td>
-  			<span class="transfer_date-lang">Transfer date</span>
+  			<span class="lng-transfer_date">Transfer date</span>
   			</td>
   			<td>
   			<span id="transfer_date"></span>
@@ -252,7 +326,7 @@ else{
     	$('#adult').text(data.adult);
     	$('#child').text(data.child);
     	$('#carno').text(data.numcar);
-    	$('#arrivied').text(data.arrival_date);
+    	$('#arrivied').text(data.arrival_date+" "+data.arrival_time);
     	$('#from').text(data.from);
     	$('#to').text(data.to);
     	$('#arrival_flight').text(data.arrival_flight);

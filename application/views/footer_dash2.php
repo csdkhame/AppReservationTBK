@@ -144,8 +144,8 @@
     <!--     *********    END PRICING 5      *********      -->
 </body>
 
-
- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
+<!--
+ <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> -->
 
 <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>

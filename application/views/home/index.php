@@ -161,6 +161,8 @@
     </table>    
  </div> 
    
+   
+    	<div id="back-home"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div id="search-raeltime">
             <div class="col-md-12 " >
                 <div class="card-contentrealtime">

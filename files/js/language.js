@@ -172,6 +172,8 @@ $(document).ready(function() {
         $('.lng-voucher-no').html('凭证编号');
         $('.lng-date').html('日期');
         $('.lng-order').html('訂購');
+        
+        
 
 
 
