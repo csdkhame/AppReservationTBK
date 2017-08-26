@@ -922,21 +922,119 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     text-align: center;
     color: #ffffff;
     /* border: 1px solid #16B3B1; */
-    background-color: #16B3B1;" data-target="#changePass" data-toggle="modal">
+    background-color: #16B3B1;" >
                                                         <span class="lng-change-password">Change password</span>
                                                     </div>
                             </div>
                                                   </div>
-                    
-                    <div class="modal fade" id="changePass">
-                    <div class="modal-dialog">
-                    
-                    <div class="card" id="password_div" style="display: nones;"> 
-                    <!--<button type="button" class="close" data-dismiss="modal" style="margin: 10px;color: black;margin-top: 0px;">&times;</button>-->
+  <style>
+  	   #foget-password{
+	   	     z-index: 20;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    /* background: rgba(0, 0, 0, 0.59); */
+    display: none;
+	   }
+	   .box-in-foget {
+    height: 100vh;
+    /* border-radius: 4px; */
+    background: #fff;
+    min-width: 100%;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 3;
+}
+.btn-login-forget {
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #4BB1C1;
+    right: 15px;
+    padding: 12px 20px;
+    bottom: 15px;
+    background: #16B3B1;
+    display: none;
+}
+.btn-close {
+    /* width: 200px; */
+    background: #4BB1C1;
+    /* text-transform: uppercase; */
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #4BB1C1;
+    /* position: absolute; */
+    right: 15px;
+    padding: 12px 20px;
+    bottom: 15px;
+}
+  </style>           
+  				                                  
+                 <div id="foget-password" style="display: block;">
+            <div class="box-in-foget">
+                <div style="padding: 12px;">
+                   <div class="col-md-12" id="forget"> 
+                       <h4 style="    text-align: center;" class="lng-foget-pass">Forgot your password</h4>
+                        <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
+                            <span class="lng-please-input-email">Please input your email</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">face</i>
+                            </span>   
+                            <div class="form-group label-floating is-empty">
+                                <label class="control-label"><span class="lng-email">Email</span></label>
+                                <input type="email" class="form-control" id="email-forget" size="80">
+                                <span class="material-input"></span>
+                                
+                                
+                            <span class="material-input"></span></div>  
+                            <div class="btn-send lng-send" style="padding: 12px 20px;">Send</div>   
+                        </div>
+                    </div>
+                    <div id="check-email" style="text-align:center;display:none;margin-top: 50px;
+    font-size: 15px;
+    color: #333333;
+    margin-bottom: 10px;">
+                        <span>Please check your email </span>
+                    </div>
+                    <!-- <div type="button" class="btn-close" >Close</div> -->
+                    <!-- <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i> -->
+                </div>
+                <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
+                <div class="btn-close lng-close">Close</div>
+                    <div class="btn-login-forget lng-login">Login</div>
+                </div>
+            </div>
+        </div>
+                  
+                 
+					</form>                          
+                 </div>
+                                               
+                                                	
+                                               
+                                     
+                                            
+                                                 
+                                                </div>
+                                                 
+                                            
+                                            
+                    </div>
+                </div>
+      
+</section>
+
+ <!--  <div id="password_div" >
+                    <div class="" style="display: nones;"> 
+                 
                      <div class="" style="padding: 4px;    padding-right: 10px;">
                      
           <button type="button" class="close" data-dismiss="modal" style="color: black;margin-top: -10px;font-size: 21px;">&times;</button>
-          <!--<h4 class="modal-title">Modal Header</h4>-->
         </div>
                      <div class="col-sm-12"> 
                      
@@ -958,7 +1056,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                                                       
                                                     <div class="input-group">
                                                         <span class="input-group-addon">
-                                                           <i class="material-icons">vpn_key</i>
+                                                           <i class="material-icons">lock_outline</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-old_password">
                                                             <label class="control-label">Old Password
@@ -969,10 +1067,10 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                     </div>
                                                     <div class="input-group">
                                                         <span class="input-group-addon">
-                                                           <i class="material-icons">vpn_key</i>
+                                                           <i class="material-icons">lock_outline</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-confirm_password">
-                                                            <label class="control-label">Confirm Password
+                                                            <label class="control-label">New Password
                                                                 <small>(required)</small>
                                                                </label>
                                                             <input name="confirm_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="confirm_password">   																<span id="icon_status"></span>
@@ -981,10 +1079,10 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                     </div>
                                                     <div class="input-group" style="display: none;" id="check_equal_password">
                                                         <span class="input-group-addon">
-                                                           <i class="material-icons">vpn_key</i>
+                                                           <i class="material-icons">lock_outline</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-new_password">
-                                                            <label class="control-label">Retype Password
+                                                            <label class="control-label">Confirm Password
                                                                 <small>(required)</small></label>
                                                             <input name="new_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="new_password">   				
                                                         <span class="material-input"></span>
@@ -1030,25 +1128,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                         </div> 
 					</div>                           
                      </div>  
-					</div>
-					</div>
-					</form>                          
-                 </div>
-                                               
-                                                	
-                                               
-                                     
-                                            
-                                                 
-                                                </div>
-                                                 
-                                            
-                                            
-                    </div>
-                </div>
-      
-</section>
-
+					</div>-->
 
 
 <script>
@@ -1133,7 +1213,7 @@ $(document).ready(function(){
 });  
 //   password_div
    $('#change_password').click(function(){
-//   	alert(321);
+		$('#password_div').show();
    });
 	
     
