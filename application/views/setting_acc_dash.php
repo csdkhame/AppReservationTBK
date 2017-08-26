@@ -240,7 +240,7 @@
 }
 .form-group.is-focused .form-control {
   outline: none;
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#4BB1C1, #4BB1C1), linear-gradient(#D2D2D2, #D2D2D2);
   background-size: 100% 2px, 100% 1px;
   box-shadow: none;
   transition-duration: 0.3s;
@@ -813,7 +813,9 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     -webkit-transition: all 0.2s;
 }
 </style>
-
+<script>
+	var base_url = '<?php echo base_url(); ?>';
+</script>
 <section style="margin-top: 55px;    margin-bottom: 60px;">
     <div class="container-fluid">
         <div class="row">
@@ -876,7 +878,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                            <i class="material-icons">phone</i>
                                                         </span>
                                                         <div class="form-group label-floating " id="div-phone">
-                                                            <label class="control-label">Phone
+                                                            <label class="control-label"><span class="lng-phone">Phone</span> 
                                                                 
                                                             </label>
                                                             <input name="phone" type="tel" class="form-control error" aria-required="true" aria-invalid="true" id="phone" >
@@ -887,15 +889,15 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                             <i class="material-icons">room</i>
                                                         </span>
                                                         <div class="form-group label-floating " >
-                                                            <label class="control-label">Address</label>
+                                                            <label class="control-label"><span class="lng-address">Address</span></label>
                                                             <textarea class="form-control" name="txt_address" id="txt_address"></textarea>
                                                             <span class="material-input"></span></div>
                                                         </div>
                                                         
                                                         <div class="form-group label-floating ">
-                                                        <label class="control-label">Country</label>
-                                                        <select name="country" class="form-control" name="country">
-                                                            <option disabled="" selected=""></option>
+                                                        <label class="control-label"><span class="lng-country"></span></label>
+                                                        <select name="country" class="form-control" name="country" id="country_sekect">
+                                                          <!--  <option disabled="" selected=""></option>
                                                             <option value="Thailand" selected="selected"> Thailand </option>
                                                             <option value="Afghanistan"> Afghanistan </option>
                                                             <option value="Albania"> Albania </option>
@@ -905,7 +907,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                             <option value="Angola"> Angola </option>
                                                             <option value="Anguilla"> Anguilla </option>
                                                             <option value="Antarctica"> Antarctica </option>
-                                                            <option value="...">...</option>
+                                                            <option value="...">...</option>-->
                                                         </select>
                                                     <span class="material-input" ></span></div>
                                                
@@ -926,9 +928,26 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                         <span class="lng-change-password">Change password</span>
                                                     </div>
                             </div>
+
+													 <div style="margin-top: 12px;    padding: 0 12px;">
+                                                    <div class="btn-change " id="submit" style="    color: #3b5998;
+    display: block;
+    /* line-height: 36px; */
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    min-width: 120px;
+    /* border-radius: 4px; */
+    text-align: center;
+    color: #ffffff;
+    /* border: 1px solid #16B3B1; */
+    background-color: #4caf50;" >
+                                                        <span class="lng-send">Send</span>
+                                                    </div>
+                            </div>
                                                   </div>
   <style>
-  	   #foget-password{
+  	   #change-password{
 	   	     z-index: 20;
     position: fixed;
     left: 0px;
@@ -971,76 +990,28 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     padding: 12px 20px;
     bottom: 15px;
 }
+.btn-send {
+    padding: 12px 20px;
+    background: #16B3B1;
+    color: #fff;
+    width: 140px;
+    position: absolute;
+    text-align: center;
+    right: 0px;
+    margin-top: 15px;
+}
   </style>           
   				                                  
-                 <div id="foget-password" style="display: block;">
+                 <div id="change-password" style="display: none;">
             <div class="box-in-foget">
                 <div style="padding: 12px;">
                    <div class="col-md-12" id="forget"> 
-                       <h4 style="    text-align: center;" class="lng-foget-pass">Forgot your password</h4>
-                        <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
+                       <h4 style="    text-align: center;" class="lng-change_pass">Change your password</h4>
+                       <!-- <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
                             <span class="lng-please-input-email">Please input your email</span>
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="material-icons">face</i>
-                            </span>   
-                            <div class="form-group label-floating is-empty">
-                                <label class="control-label"><span class="lng-email">Email</span></label>
-                                <input type="email" class="form-control" id="email-forget" size="80">
-                                <span class="material-input"></span>
-                                
-                                
-                            <span class="material-input"></span></div>  
-                            <div class="btn-send lng-send" style="padding: 12px 20px;">Send</div>   
-                        </div>
-                    </div>
-                    <div id="check-email" style="text-align:center;display:none;margin-top: 50px;
-    font-size: 15px;
-    color: #333333;
-    margin-bottom: 10px;">
-                        <span>Please check your email </span>
-                    </div>
-                    <!-- <div type="button" class="btn-close" >Close</div> -->
-                    <!-- <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i> -->
-                </div>
-                <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
-                <div class="btn-close lng-close">Close</div>
-                    <div class="btn-login-forget lng-login">Login</div>
-                </div>
-            </div>
-        </div>
-                  
-                 
-					</form>                          
-                 </div>
-                                               
-                                                	
-                                               
-                                     
-                                            
-                                                 
-                                                </div>
-                                                 
-                                            
-                                            
-                    </div>
-                </div>
-      
-</section>
-
- <!--  <div id="password_div" >
-                    <div class="" style="display: nones;"> 
-                 
-                     <div class="" style="padding: 4px;    padding-right: 10px;">
-                     
-          <button type="button" class="close" data-dismiss="modal" style="color: black;margin-top: -10px;font-size: 21px;">&times;</button>
-        </div>
-                     <div class="col-sm-12"> 
-                     
-                     <div class="tab-pane" id="accounts">
-                                        	<div class="row">
-                                        	<div class="col-lg-10 col-lg-offset-1">
+                        </div>-->
+                     <!--  <div class="col-lg-10 col-lg-offset-1" style="    top: 20px;">-->
+                       <div class="" style="     padding-top: 15px;">
                                                 
                                                     <div class="input-group">
                                                         <span class="input-group-addon">
@@ -1069,70 +1040,65 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                         <span class="input-group-addon">
                                                            <i class="material-icons">lock_outline</i>
                                                         </span>
-                                                        <div class="form-group label-floating is-empty has-error" id="div-confirm_password">
+                                                        <div class="form-group label-floating is-empty has-error" id="div-new_password">
                                                             <label class="control-label">New Password
                                                                 <small>(required)</small>
                                                                </label>
-                                                            <input name="confirm_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="confirm_password">   																<span id="icon_status"></span>
+                                                            <input name="new_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="new_password">   																
                                                         <span class="material-input"></span>
                                                         </div>
                                                     </div>
-                                                    <div class="input-group" style="display: none;" id="check_equal_password">
+                                                    <div class="input-group" style="display: nones;" id="check_equal_password">
                                                         <span class="input-group-addon">
                                                            <i class="material-icons">lock_outline</i>
                                                         </span>
-                                                        <div class="form-group label-floating is-empty has-error" id="div-new_password">
+                                                        <div class="form-group label-floating is-empty has-error" id="div-confirm_password">
                                                             <label class="control-label">Confirm Password
                                                                 <small>(required)</small></label>
-                                                            <input name="new_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="new_password">   				
+                                                            <input name="confirm_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="confirm_password">   				<span id="icon_status"></span>
                                                         <span class="material-input"></span>
                                                         </div>
                                                     </div>
-                                                  
+                                                  <div class="btn-send lng-send" style="padding: 12px 20px;display: none;" id="send_pass">Send</div>
                                                 </div>
-                                        	</div>
-                                        	<div style="display: none;">
-                                            <h4 class="info-text"> What are you doing? (checkboxes) </h4>
-                                            <div class="row">
-                                                <div class="col-lg-10 col-lg-offset-1">
-                                                    <div class="col-sm-4">
-                                                        <div class="choice" data-toggle="wizard-checkbox">
-                                                            <input type="checkbox" name="jobb" value="Design">
-                                                            <div class="icon">
-                                                                <i class="fa fa-pencil"></i>
-                                                            </div>
-                                                            <h6>Design</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="choice" data-toggle="wizard-checkbox">
-                                                            <input type="checkbox" name="jobb" value="Code">
-                                                            <div class="icon">
-                                                                <i class="fa fa-terminal"></i>
-                                                            </div>
-                                                            <h6>Code</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="choice" data-toggle="wizard-checkbox">
-                                                            <input type="checkbox" name="jobb" value="Develop">
-                                                            <div class="icon">
-                                                                <i class="fa fa-laptop"></i>
-                                                            </div>
-                                                            <h6>Develop</h6>
-                                                        </div>
-                                                    </div>
+                    </div>
+                    
+                </div>
+               <!-- <div id="status"></div>-->
+                <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
+                <div class="btn-close lng-close">Close</div>
+                  <!--  <div class="btn-login-forget lng-login">Login</div>-->
+                </div>
+            </div>
+        </div>
+                  
+                 
+					</form>                          
+                 </div>
+                                               
+                                                	
+                                               
+                                     
+                                            
+                                                 
                                                 </div>
-                                            </div>
-											</div>
-                                        </div> 
-					</div>                           
-                     </div>  
-					</div>-->
+                                                 
+                                            
+                                            
+                    </div>
+                </div>
+      
+</section>
+
+
 
 
 <script>
 	$( "#submit" ).click(function(e) {
+		
+		
+		
+		
 		 e.preventDefault();
 		swal({
 				  title: "Are you sure?",
@@ -1183,9 +1149,31 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 
 $(document).ready(function(){
     
+  $.post( "<?php echo base_url(); ?>getcountry_control/process", function( data ) {
+  	
+  	 var obj = JSON.parse(data);
+  	 
+  	 $.each(obj, function (index, value) {
+//  	 	country_sekect
+/*if($.cookie("lng")=="en"){
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
+}else if($.cookie("lng")=="cn"){
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_cn+' </option>');
+}else if($.cookie("lng")=="th"){
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_th+' </option>');
+}else if($.cookie("lng")==undefined){
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
+}	 */	
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
+  	 });
+  	 
+  	
+  });  
 
  $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
  var obj = JSON.parse(data);
+ 
+ console.log(obj);
 		$.each(obj, function (index, value) {
 			$('#name').html(obj[index].s_name);
 			
@@ -1213,8 +1201,60 @@ $(document).ready(function(){
 });  
 //   password_div
    $('#change_password').click(function(){
-		$('#password_div').show();
+		$('#change-password').show(700);
    });
+	
+	$('#send_pass').click(function(){
+		var old_pass = $('#old_password').val();
+		var new_pass = $('#new_password').val();
+		$.post( base_url+"dashboard/update_password",{new_pass:new_pass,old_pass:old_pass}, function( data ) {
+		  console.log(data);
+		  if(data==2){
+if($.cookie("lng")=="en"){
+swal("Error!", 'Your old password invalid', "error");
+}else if($.cookie("lng")=="cn"){
+	swal("错误!", '您的旧密码无效', "error");
+}else if($.cookie("lng")=="th"){
+	swal("ผิดพลาด!", 'รหัสผ่านเดิมไม่ถูกต้อง', "error");
+}else if($.cookie("lng")==undefined){
+swal("Error!", 'Your old password invalid', "error");
+}
+
+		  }
+		  if(data==0){
+	  	
+if($.cookie("lng")=="en"){
+swal("Error!", "Something went wrong!", "error");	
+}else if($.cookie("lng")=="cn"){
+	swal("错误!", '出了些问题', "error");
+}else if($.cookie("lng")=="th"){
+	swal("ผิดพลาด!", 'บางอย่างผิดพลาด', "error");
+}else if($.cookie("lng")==undefined){
+swal("Error!", "Something went wrong!", "error");	
+}
+		  }
+		 if(data==1){
+
+if($.cookie("lng")=="en"){
+swal("Success!", "" , "success");	
+}else if($.cookie("lng")=="cn"){
+swal("成功!", "" , "success");	
+}else if($.cookie("lng")=="th"){
+swal("สำเร็จ!", "" , "success");	
+}else if($.cookie("lng")==undefined){
+swal("Success!", "" , "success");	
+}	 	
+$('#change-password').hide(700);
+
+		 }
+		});
+		
+		
+	});
+	$('.btn-close').click(function(){
+		$('#change-password').hide(700);
+		
+	});
 	
     
 }); 
@@ -1226,19 +1266,20 @@ $(document).ready(function(){
 		
 		$("#confirm_password").keyup(function(){
 			$('#icon_status').addClass('material-icons form-control-feedback');
-        	var old_p = $('#old_password').val();
+        	var old_p = $('#new_password').val();
         	if($(this).val()===old_p){
         	
 				$('#div-confirm_password').removeClass();
 				$('#div-confirm_password').addClass('form-group label-floating has-success');
 				$('#icon_status').html('done');
-				$('#check_equal_password').show();
+				$('#send_pass').show(500);
+				
 			}else{
 				
 				$('#div-confirm_password').removeClass();
 				$('#div-confirm_password').addClass(' label-floating is-empty has-error');
 				$('#icon_status').html('clear');
-				$('#check_equal_password').hide();
+//				$('#check_equal_password').hide();
 			}	
 			
 			

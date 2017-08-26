@@ -97,6 +97,24 @@ public function update_profile(){
 	
 }
 	/********** ************/
+public function update_password(){
+	$new_pass = $this->input->post('new_pass');
+	$old_pass = $this->input->post('old_pass');
+	
+	$id = $_COOKIE['login'];
+	$data = $this->Getuser_model->getuser_pass_id($id);
+	if($old_pass == $data[0]->s_password){
+		$result = $this->Userview_model_dash->update_pass($data,$new_pass);
+	}else{
+		$result = 2; //old password invalid
+	}
+	
+	echo $result;
+	
+	
+//	echo $new_pass." : ".$data[0]->s_password;
+	
+}	
 	
 public function account_settings(){
 		

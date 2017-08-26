@@ -192,9 +192,9 @@ class Userview_model_dash extends CI_Model {
   	$new_data['s_email'] = $this->input->post('email');
   	$new_data['s_phone'] = $this->input->post('phone');
   	$new_data['s_username'] = $this->input->post('username');
-  	if($this->input->post('new_password')==!"" or $this->input->post('new_password')==!NULL){
+  	/*if($this->input->post('new_password')==!"" or $this->input->post('new_password')==!NULL){
 		$new_data['s_password'] = $this->input->post('new_password');
-	}
+	}*/
   	$new_data['d_last_update'] = $current;
   	$new_data['s_name'] = $this->input->post('firstname')." ".$this->input->post('lastname');
   	
@@ -207,6 +207,31 @@ class Userview_model_dash extends CI_Model {
 	}
   }
   
+  public function update_pass($data,$new_pass){
+  	$current = date('Y-m-d h:i:s a');
+  	foreach($data[0] as $key=>$value){
+		
+				
+					$old_data[$key] = $value;
+
+
+	}
+	$data_each['d_last_update'] = $current;
+//  	$result_backup = $this->db->insert('ap_users_log',$old_data);
+//	$this->db->where('i_id', $data[0]->i_id)->update('ap_users_log', $data_each);
+//				  return json_encode($old_data);
+  	$result_backup = 1;
+  	
+  	if($result_backup==1){
+		$new_data['s_password'] = $new_pass;
+		$new_data['d_last_update'] = $current;
+		$result_insert = $this->db->where('i_id', ''.$_COOKIE['login'].'')->update('ap_users', $new_data);
+		return $result_insert;
+	}else{
+		return 0;
+	}
+  	
+  }
   
   public function order_detail($id){
 	  	$this->db->select('*');

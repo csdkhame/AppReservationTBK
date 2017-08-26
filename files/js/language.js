@@ -173,6 +173,10 @@ $(document).ready(function() {
         $('.lng-date').html('日期');
         $('.lng-order').html('訂購');
         
+        $('.lng-last-name').html('姓');
+        $('.lng-address').html('地址');
+        $('.lng-country').html('国家');
+        
         
 
 
@@ -306,8 +310,10 @@ $(document).ready(function() {
         $('.lng-voucher-no').html('Voucher No.');
         $('.lng-date').html('Date');
         $('.lng-order').html('Order');
-
-
+		
+		$('.lng-last-name').html('Last Name');
+		 $('.lng-address').html('Address');
+		$('.lng-country').html('Country');
 
 
 
@@ -324,7 +330,7 @@ $(document).ready(function() {
         $('.lng-transports').html(' รถให้บริการ');
         $('.lng-tours').html('ทัวร์');
         $('.lng-language').html('ภาษา');
-        $('.lng-settings-account').html('   ตั้งค่าบัญชี');
+        $('.lng-settings-account').html('ตั้งค่าบัญชี');
         $('.lng-logout').html(' ออกจากระบบ');
         $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
         $('.lng-now-use').html('รับที่นี่');
@@ -431,8 +437,9 @@ $(document).ready(function() {
         $('.lng-date').html('วันที่');
         $('.lng-order').html('ใบสั่ง');
 
-
-
+		$('.lng-last-name').html('นามสกุล');
+		$('.lng-address').html('ที่อยู่');
+		$('.lng-country').html('ประเทศ');
 
 
     } else if ($.cookie("lng") == undefined) {
@@ -560,9 +567,9 @@ $(document).ready(function() {
         $('.lng-voucher-no').html('Voucher No.');
         $('.lng-order').html('Order');
 
-
-
-
+		$('.lng-last-name').html('Last Name');
+		$('.lng-address').html('Address');
+$('.lng-country').html('Country');
 
 
 
