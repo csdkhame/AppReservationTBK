@@ -15,6 +15,17 @@ $( document ).ready(function() {
     var base_url = '<?php echo base_url(); ?>';
     
     console.log(<?=$json;?>);
+    
+$(window).scroll(function() {
+	var check = $(document).height()/3;
+	console.log(check);
+   if($(window).scrollTop() + $(window).height() >= $(document).height()-400) {
+//       alert("bottom!");
+		$('#top-end_btn').show(700);
+   }
+   console.log($(window).scrollTop()+" : "+$(window).height()+" : "+$(document).height());
+});
+    
 });
 </script>	
 <?php 
@@ -70,7 +81,8 @@ $( document ).ready(function() {
     position: fixed; 
     left: auto;
     right: 0;
-    top: 160px;
+  /*  top: 160px;*/
+      bottom: 150px;
     opacity: .9;
     z-index: 3;
     padding: 1rem;
@@ -91,10 +103,11 @@ $( document ).ready(function() {
 		<section >
         <div class="container" style="padding: 0 10px;margin-top: 49px;">
 						<h4 class="lng-booking-infomation" style="    padding-left: 5px;"></h4>
-						<div style="display: none;">
-							<button class="top-page btn btn-info" onclick="scrollWin('top');" style="cursor: pointer;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
-							<button class="end-page btn btn-info" onclick="scrollWin('end');"  style="cursor: pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
-						</div>	  
+						<div style="display: none;" id="top-end_btn">
+							<!--<button class="top-page btn btn-info"  onclick="scrollWin('top');" style="cursor: pointer;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+							<button class="end-page btn btn-info"  onclick="scrollWin('end');"  style="cursor: pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>-->
+							<button class="top-page btn btn-info"  style="" onclick="scrollWin('top');"  style="cursor: pointer; display: none;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+						</div>	 
 	  
 	  				<div class="toolbar" style="    background: #ffffff;
     padding: 8px;
@@ -294,6 +307,7 @@ $( document ).ready(function() {
 
                         </div><!--  end card  -->
                     </div> <!-- end col-md-12 -->
+</div>
 <br/>
 <br/>
 <br/>

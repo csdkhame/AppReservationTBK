@@ -12,7 +12,13 @@ $json_data = json_encode($row_data);
 else{
 	echo "Not found";
 }
+
+if($lng){
 $lng_js = json_encode($lng);
+}else{
+	$lng_js = json_encode('');
+}
+
 //echo $lng;
 /*echo  sizeof($row_data);*/
 //echo $check." 000";
@@ -106,7 +112,7 @@ $lng_js = json_encode($lng);
 $( document ).ready(function() {
 		var lng = <?=$lng_js;?>;
 		if(lng=="" || lng == null){
-			$.cookie("lng", "en");
+			
 		}else{
 			$.cookie("lng", lng);
 		}
@@ -388,6 +394,14 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('วัน/เวลา');
 			$('.lng-num_of_car').text('จำนวนรถ');
 			$('.currency').text('บาท');
+		}else if($.cookie("lng")==undefined){
+			product_name = data.product_detail[0].topic_en;
+			cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
+			$('.lng-flight').text('Flight');
+			$('.lng-car_type').text('Car type');
+			$('.lng-transfer_date').text('Date/Time');
+			$('.lng-num_of_car').text('Number of car');
+			$('.currency').text("baht");
 		}
 		$('#pdname').text(product_name);
 		$('#car_type').text(cartype);

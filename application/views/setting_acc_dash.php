@@ -744,7 +744,6 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   border-left: 0;
 }
 </style>
-
 <style>
 	.oninput {
     padding-top: 32px;
@@ -814,7 +813,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     -webkit-transition: all 0.2s;
 }
 </style>
-<section style="margin-top: 55px;">
+
+<section style="margin-top: 55px;    margin-bottom: 60px;">
     <div class="container-fluid">
         <div class="row">
             <div class="container">
@@ -822,10 +822,11 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                     <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;"> 
                         <div class="" style="display:inline-block">Account</div>
                     </div>
+                     <form action="" method="post" novalidate="novalidate" id="update_profile">
                     <div class="card">  
                         <div class="picture-container">
                             <div class="picture">
-                                <img src="https://dotdotdottrip.com/pic/" class="picture-src" id="wizardPicturePreview" title="">
+                                <img src="https://dotdotdottrip.com/pic/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="">
                                 <input type="file" id="wizard-picture" name="avatar">
                                 <input type="hidden" id="txt_avatar" name="txt_avatar" value="">
                                                             
@@ -910,7 +911,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                
                                                     </div>
                                                     <div style="margin-top: 30px;    padding: 0 12px;">
-                                                    <div class=" btn-change " id="foget-pass" style="    color: #3b5998;
+                                                    <div class=" btn-change " id="change_password" style="    color: #3b5998;
     display: block;
     /* line-height: 36px; */
     padding: 10px;
@@ -921,70 +922,25 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     text-align: center;
     color: #ffffff;
     /* border: 1px solid #16B3B1; */
-    background-color: #16B3B1;">
+    background-color: #16B3B1;" data-target="#changePass" data-toggle="modal">
                                                         <span class="lng-change-password">Change password</span>
                                                     </div>
                             </div>
                                                   </div>
-                                                
-                                                 
-                                                  </div>
-                                               
-                                                	
-                                               
-                                     
-                                            
-                                                 
-                                                </div>
-                                                 
-                                            
-                                            
-                    </div>
-                </div>
-            </div>
+                    
+                    <div class="modal fade" id="changePass">
+                    <div class="modal-dialog">
+                    
+                    <div class="card" id="password_div" style="display: nones;"> 
+                    <!--<button type="button" class="close" data-dismiss="modal" style="margin: 10px;color: black;margin-top: 0px;">&times;</button>-->
+                     <div class="" style="padding: 4px;    padding-right: 10px;">
+                     
+          <button type="button" class="close" data-dismiss="modal" style="color: black;margin-top: -10px;font-size: 21px;">&times;</button>
+          <!--<h4 class="modal-title">Modal Header</h4>-->
         </div>
-    </div>
-</section>
-
-<div class="col-sm-12 col-sm-offset-2" style="    margin-top: 60px;">
-						<div class="wizard-container">
-                            <div class="card wizard-card" data-color="blue" id="wizardProfile">
-                                <form action="" method="post" novalidate="novalidate" id="update_profile">
-                                    <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-                               
-                                    <div class="wizard-navigation">
-                                        <ul class="nav nav-pills">
-                                            <li style="width: 33.3333%;" class="active" >
-                                                <a href="#about" data-toggle="tab" aria-expanded="true">About</a>
-                                            </li>
-                                            <li style="width: 33.3333%;">
-                                                <a href="#accounts" data-toggle="tab" >Account</a>
-                                            </li>
-                                            <li style="width: 33.3333%;">
-                                                <a href="#address" data-toggle="tab">Address</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    <div class="moving-tab" style="width: 220.443px; transform: translate3d(-8px, 0px, 0px); transition: transform 0s;">
-                                    <span class="lng-about_dash">About</span></div></div>
-                                  	<div class="tab-content">
-                                        <div class="tab-pane active" id="about">
-                                            <div class="row">
-                                      <!--          <h4 class="info-text"> Please filter your information according to the truth.</h4>-->
-                                                <div class="col-sm-4 col-sm-offset-1">
-                                                    <div class="picture-container">
-                                                        <div class="picture">
-                                                            <img src="<?php echo base_url();?>pic/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="">
-                                                            <input type="file" id="wizard-picture" name="avatar">
-                                                            <input type="hidden" id="txt_avatar" name="txt_avatar">
-                                                            
-                                                        </div>
-                                                        <h6>Choose Picture</h6>
-                                                    </div>
-                                                </div>
-                                               
-                                        </div>
-                                        <div class="tab-pane" id="accounts">
+                     <div class="col-sm-12"> 
+                     
+                     <div class="tab-pane" id="accounts">
                                         	<div class="row">
                                         	<div class="col-lg-10 col-lg-offset-1">
                                                 
@@ -1006,7 +962,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-old_password">
                                                             <label class="control-label">Old Password
-                                                                <small>(required)</small><!-- <button type="button" class="btn-xs" id="change_password" style="cursor: pointer;margin-left: -14px;">change</button> -->															 </label>
+                                                                <small>(required)</small></label>
                                                             <input name="old_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="old_password">   				
                                                         <span class="material-input"></span>
                                                         </div>
@@ -1017,7 +973,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-confirm_password">
                                                             <label class="control-label">Confirm Password
-                                                                <small>(required)</small><!-- <button type="button" class="btn-xs" id="change_password" style="cursor: pointer;margin-left: -14px;">change</button> -->															 </label>
+                                                                <small>(required)</small>
+                                                               </label>
                                                             <input name="confirm_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="confirm_password">   																<span id="icon_status"></span>
                                                         <span class="material-input"></span>
                                                         </div>
@@ -1028,7 +985,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-new_password">
                                                             <label class="control-label">Retype Password
-                                                                <small>(required)</small><!-- <button type="button" class="btn-xs" id="change_password" style="cursor: pointer;margin-left: -14px;">change</button> -->															 </label>
+                                                                <small>(required)</small></label>
                                                             <input name="new_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="new_password">   				
                                                         <span class="material-input"></span>
                                                         </div>
@@ -1036,9 +993,9 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                   
                                                 </div>
                                         	</div>
-                                        
-                                            <h4 class="info-text"> <!--What are you doing? (checkboxes)--> </h4>
-                                            <div class="row" style="display: none;">
+                                        	<div style="display: none;">
+                                            <h4 class="info-text"> What are you doing? (checkboxes) </h4>
+                                            <div class="row">
                                                 <div class="col-lg-10 col-lg-offset-1">
                                                     <div class="col-sm-4">
                                                         <div class="choice" data-toggle="wizard-checkbox">
@@ -1069,51 +1026,31 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-pane" id="address">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <h4 class="info-text"> </h4>
+											</div>
+                                        </div> 
+					</div>                           
+                     </div>  
+					</div>
+					</div>
+					</form>                          
+                 </div>
+                                               
+                                                	
+                                               
+                                     
+                                            
+                                                 
                                                 </div>
-                                                <div class="col-sm-12 col-sm-offset-1">
-                                                <div class="col-sm-5 col-sm-offset-1">
-                                                    <div class="form-group label-floating ">
-                                                        <label class="control-label">Country</label>
-                                                        <select name="country" class="form-control" name="country">
-                                                            <option disabled="" selected=""></option>
-                                                            <option value="Thailand" selected="selected"> Thailand </option>
-                                                            <option value="Afghanistan"> Afghanistan </option>
-                                                            <option value="Albania"> Albania </option>
-                                                            <option value="Algeria"> Algeria </option>
-                                                            <option value="American Samoa"> American Samoa </option>
-                                                            <option value="Andorra"> Andorra </option>
-                                                            <option value="Angola"> Angola </option>
-                                                            <option value="Anguilla"> Anguilla </option>
-                                                            <option value="Antarctica"> Antarctica </option>
-                                                            <option value="...">...</option>
-                                                        </select>
-                                                    <span class="material-input" ></span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                 	<div class="wizard-footer">
-                                        <div class="pull-right">
-                                            <input type="button" class="btn btn-next btn-fill btn-tem btn-wd" name="next" value="Next">
-                                            <input type="button" class="btn btn-finish btn-fill btn-tem btn-wd" name="finish" value="Finish" style="display: none;" id="submit">
-                                        </div>
-                                        <div class="pull-left">
-                                            <input type="button" class="btn btn-previous btn-fill btn-sil btn-wd disabled" name="previous" value="Previous">
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-</div>
-<br/>
-<br/>
-<br/>
+                                                 
+                                            
+                                            
+                    </div>
+                </div>
+      
+</section>
+
+
+
 <script>
 	$( "#submit" ).click(function(e) {
 		 e.preventDefault();
@@ -1186,14 +1123,17 @@ $(document).ready(function(){
     $('#txt_address').val(obj[index].t_address);
     
     $('#txt_avatar').val(obj[index].s_image);
-    $('#wizardPicturePreview').attr('src','<?php echo base_url();?>pic/'+obj[index].s_image);
+    if(obj[index].s_image!=""){
+		$('#wizardPicturePreview').attr('src','<?php echo base_url();?>pic/'+obj[index].s_image);
+	}
+    
     //$("#div-password").removeClass("is-empty has-error");	
     //$('#password').val(obj[index].s_password);
 		});
 });  
-   
+//   password_div
    $('#change_password').click(function(){
-   	alert(321);
+//   	alert(321);
    });
 	
     
