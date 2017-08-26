@@ -12,6 +12,8 @@ $json_data = json_encode($row_data);
 else{
 	echo "Not found";
 }
+$lng_js = json_encode($lng);
+//echo $lng;
 /*echo  sizeof($row_data);*/
 //echo $check." 000";
 ?>
@@ -100,6 +102,18 @@ else{
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
 <? } ?>
+<script>
+$( document ).ready(function() {
+		var lng = <?=$lng_js;?>;
+		if(lng=="" || lng == null){
+			$.cookie("lng", "en");
+		}else{
+			$.cookie("lng", lng);
+		}
+		
+		
+	});
+</script>
 <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
 <style>
 .navbar-inverse {
@@ -164,6 +178,7 @@ else{
 				" id="close_dialog">
 							<i class="fa fa-times" aria-hidden="true" ></i></button>
 							<? } ?>
+							
 				</div>
 				<div align="center" style="    margin-top: 10px;">
 				
@@ -186,6 +201,7 @@ else{
   <!--<h3>View Order</h3>-->
    <div style="    margin-top: 70px;
    "> 
+  
    <div>
    <h4 style="margin: 8px;"><span class="lng-detail-order"></span></h4>         
    </div>                                                                                        
@@ -193,6 +209,13 @@ else{
     background-color: #fff;">         
   <table class="table ">
   		<tr>
+  			<td>
+  			<span class="lng-product"></span>
+  			</td>
+  			<td>
+  			<span id="pdname"></span>
+  			</td>
+  		</tr><tr>
   			<td>
   			<span class="voucher-lang lng-voucher-no"></span>
   			</td>
@@ -219,24 +242,24 @@ else{
   		</tr>
   		<tr>
   			<td>
-  			<span class="lng-carno">Number of car</span>
+  			<span class="lng-num_of_car">Number of car</span>
   			</td>
   			<td>
-  			<span id="carno"></span>
+  			<span id="num_of_car"></span>
   			</td>
   		</tr>
   		<tr>
   			<td>
-  			<span class="lng-arrivied_date">Arrived date</span>
+  			<span class="lng-typet_transfer">Arrival date</span>
   			</td>
   			<td>
-  			<span id="arrivied"></span>
+  			<span id="arrival_date"></span>
   			</td>
   		</tr>
   		
   		<tr>
   			<td>
-  			<span class="lng-arrival_flight">Arrival flight</span>
+  			<span class="lng-flight">Flight</span>
   			</td>
   			<td>
   			<span id="arrival_flight"></span>
@@ -250,20 +273,21 @@ else{
   			<span id="car_type"></span>
   			</td>
   		</tr>
-  		<tr>
-  			<td>
-  			<span class="lng-transfer_date">Transfer date</span>
-  			</td>
-  			<td>
-  			<span id="transfer_date"></span>
-  			</td>
-  		</tr>
+  		
   		<tr>
   			<td>
   			<span class="book_by-lang lng-book-by"></span>
   			</td>
   			<td>
   			<span id="book_by"></span>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  			<span class="lng-transfer_date">Date/Time</span>
+  			</td>
+  			<td>
+  			<span id="transfer_date"></span>
   			</td>
   		</tr>
   		<tr>
@@ -325,19 +349,90 @@ else{
     	$('#voucher').html('<a href="'+data.voucher_url+'" target="_blank">'+data.invoice+'<a>');
     	$('#adult').text(data.adult);
     	$('#child').text(data.child);
-    	$('#carno').text(data.numcar);
-    	$('#arrivied').text(data.arrival_date+" "+data.arrival_time);
+    	$('#num_of_car').text(data.numcar);
+    	$('#arrival_date').text(data.arrival_date+" "+data.arrival_time);
     	$('#from').text(data.from);
     	$('#to').text(data.to);
     	$('#arrival_flight').text(data.arrival_flight);
-    	var cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
-    	$('#car_type').text(cartype);
+    	
     	$('#transfer_date').text(data.booking_date);
     	$('#book_by').text(data.book_by);
     	$('#price').text(data.total_price);
-    	$('.currency').text("baht");
     	
     	
+    	var product_name = "";
+    	var cartype = "";
+    	
+    	
+    	if($.cookie("lng")=="en"){
+			product_name = data.product_detail[0].topic_en;
+			cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
+			$('.lng-flight').text('Flight');
+			$('.lng-car_type').text('Car type');
+			$('.lng-transfer_date').text('Date/Time');
+			$('.lng-num_of_car').text('Number of car');
+			$('.currency').text("baht");
+		}else if ($.cookie("lng")=="cn"){
+			product_name = data.product_detail[0].topic_cn;
+			cartype = data.product_detail[0].car_topic_cn+" "+data.product_detail[0].pax_cn;
+			$('.lng-flight').text('	航班');
+			$('.lng-car_type').text('车型');
+			$('.lng-transfer_date').text('日期/时间');
+			$('.lng-num_of_car').text('车数');
+			$('.currency').text('铢');
+		}else if ($.cookie("lng")=="th"){
+			product_name = data.product_detail[0].topic_th;
+			cartype = data.product_detail[0].car_topic_th+" "+data.product_detail[0].pax_th;
+			$('.lng-flight').text('เที่ยวบิน');
+			$('.lng-car_type').text('ประเภทรถ');
+			$('.lng-transfer_date').text('วัน/เวลา');
+			$('.lng-num_of_car').text('จำนวนรถ');
+			$('.currency').text('บาท');
+		}
+		$('#pdname').text(product_name);
+		$('#car_type').text(cartype);
+    	var area = data.product_detail[0].area;
+    	
+    	if(area=='In'){
+    		if($.cookie("lng")=="en"){
+				$('.lng-typet_transfer').text('Arrival date');
+				
+			}else if ($.cookie("lng")=="cn"){
+				$('.lng-typet_transfer').text('到达日期');
+
+			}else if ($.cookie("lng")=="th"){
+				$('.lng-typet_transfer').text('วันที่มาถึง');
+
+			}
+		}
+		else if(area=='Out'){
+			if($.cookie("lng")=="en"){
+				$('.lng-typet_transfer').text('Departure date');
+
+			}else if ($.cookie("lng")=="cn"){
+				$('.lng-typet_transfer').text('出发日期');
+
+			}else if ($.cookie("lng")=="th"){
+				$('.lng-typet_transfer').text('วันเดินทาง');
+
+			}
+//			console.log($.cookie("lng"));
+			
+		}
+		else if(area=='Point'){
+			if($.cookie("lng")=="en"){
+				$('.lng-typet_transfer').text('Use date');
+	
+			}else if ($.cookie("lng")=="cn"){
+				$('.lng-typet_transfer').text('使用日期');
+			
+			}else if ($.cookie("lng")=="th"){
+				$('.lng-typet_transfer').text('วันที่ใช้บริการ');
+				
+			}
+			
+			
+		}
     	
     	$.each( data.car_model, function( i, l ){
     		
@@ -358,10 +453,10 @@ else{
 				$('#child_'+i).append('<i class="fa fa-child fa-lg" aria-hidden="true"></i>');
 			}
     		
-		  	console.log(i+" : "+l.adult);
+//		  	console.log(i+" : "+l.adult);
 //		  	console.log(adult);
 		});
-    $('#close_dialog').click(function(){
+    	$('#close_dialog').click(function(){
 			$('.dialog').hide();
 			$('#sectionsNav').show();
 //			alert(123);

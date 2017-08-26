@@ -117,10 +117,22 @@ public function payment(){
 public function query_transfer_byuser(){
 	
   		$id = $this->input->get('order_id');
-  		
+  		$lng = $this->input->get('lng');
+  		/*$cookie = array(
+        'name'   => 'lng',
+        'value'  => ''.$lng.'',
+        'expire' => time()+86500,
+        'domain' => '.localhost',
+        'path'   => '/',
+        'prefix' => 'arjun_',
+        );*/
+ 
+  		if($lng!=""){
+			$data['lng'] = $lng;
+		}
   		$check = $this->input->post('check');
 			
-			$data['results'] = $this->Userview_model_dash->order_detail($id);
+		$data['results'] = $this->Userview_model_dash->order_detail($id);
 			
 			if($check != ""){
 				$data['check'] = $check;
@@ -128,9 +140,9 @@ public function query_transfer_byuser(){
 				$data['check'] = "";
 			}
 
-			$this->load->view('voucher',$data);
+		$this->load->view('voucher',$data);
 
-		
+	
 	
 }
 
