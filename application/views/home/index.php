@@ -36,10 +36,10 @@
     <button class="btn" id="open_map"  style="display: none;">Open Map</button>
     <!-- <button class="btn" id="open_mapsss" data-toggle="modal" data-target="#updatelat" style="display: nones;">updatelat-lng</button> -->
     <div id="show-hide-pro">
-        <i class="material-icons" style="color: rgb(59, 89, 152); font-size: 35px;">keyboard_arrow_down</i>
+        <i class="material-icons" style="color: rgb(22, 179, 177); font-size: 35px;">keyboard_arrow_down</i>
     </div>
     <div id="show-hide-pro2">
-        <i class="material-icons" style="color: rgb(59, 89, 152); font-size: 35px;">keyboard_arrow_up</i>
+        <i class="material-icons" style="color: rgb(22, 179, 177); font-size: 35px;">keyboard_arrow_up</i>
     </div>
     <div id="pro-search">
         <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >

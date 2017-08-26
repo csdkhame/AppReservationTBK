@@ -773,8 +773,179 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     min-height: 410px;
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0), 0 6px 30px 5px rgba(0, 0, 0, 0), 0 8px 10px -5px rgba(0, 0, 0, 0.13);;
 }
+#sectionsNav {
+    /* position: absolute; */
+    /* background: rgba(255, 255, 255, 0) !important; */
+    /* margin: auto; */
+    z-index: 20;
+    /* width: 100%; */
+    padding-bottom: 0;
+    padding-top: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    /* background: #07c284; */
+    border-radius: 0 !important;
+}
+.picture input[type="file"] {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.picture-container {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+ .picture {
+    width: 106px;
+    height: 106px;
+    background-color: #999999;
+    border: 4px solid #CCCCCC;
+    color: #FFFFFF;
+    border-radius: 50%;
+    margin: 5px auto;
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
 </style>
-  
+<section style="margin-top: 55px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container">
+                <div class="">
+                    <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;"> 
+                        <div class="" style="display:inline-block">Account</div>
+                    </div>
+                    <div class="card">  
+                        <div class="picture-container">
+                            <div class="picture">
+                                <img src="https://dotdotdottrip.com/pic/" class="picture-src" id="wizardPicturePreview" title="">
+                                <input type="file" id="wizard-picture" name="avatar">
+                                <input type="hidden" id="txt_avatar" name="txt_avatar" value="">
+                                                            
+                            </div>
+                            <h6>Choose Picture</h6>
+                        </div>
+                        <div class="col-sm-12">
+                                                
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">face</i>
+                                                        </span>
+                                                        <div class="form-group label-floating is-empty has-error" id="div-name">
+                                                            <label class="control-label"><span class="lng-first-name">First Name</span>
+                                                              
+                                                            </label>
+                                                            <input name="firstname" type="text" class="form-control error" aria-required="true" aria-invalid="true" id="firstname">
+                                                        <span class="material-input"></span></div>
+                                                    </div>
+                                                                                                      
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">record_voice_over</i>
+                                                        </span>
+                                                        <div class="form-group label-floating is-empty has-error" id="div-lastname">
+                                                            <label class="control-label"><span class="lng-last-name">Last Name</span>
+                                                               
+                                                            </label>
+                                                            <input name="lastname" type="text" class="form-control error" aria-required="true" aria-invalid="true" id="lastname">
+                                                        <span class="material-input"></span></div>
+                                                    </div>
+                                                  
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">email</i>
+                                                        </span>
+                                                        <div class="form-group label-floating is-empty has-error" id="div-email">
+                                                            <label class="control-label"><span class="lng-email_d">Email</span>
+                                                               
+                                                            </label>
+                                                            <input name="email" type="email" class="form-control error" aria-required="true" aria-invalid="true" id="email" >
+                                                        <span class="material-input"></span></div>
+                                                    </div> 
+                                                   
+                                                     <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                           <i class="material-icons">phone</i>
+                                                        </span>
+                                                        <div class="form-group label-floating " id="div-phone">
+                                                            <label class="control-label">Phone
+                                                                
+                                                            </label>
+                                                            <input name="phone" type="tel" class="form-control error" aria-required="true" aria-invalid="true" id="phone" >
+                                                        <span class="material-input"></span></div>
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">room</i>
+                                                        </span>
+                                                        <div class="form-group label-floating " >
+                                                            <label class="control-label">Address</label>
+                                                            <textarea class="form-control" name="txt_address" id="txt_address"></textarea>
+                                                            <span class="material-input"></span></div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group label-floating ">
+                                                        <label class="control-label">Country</label>
+                                                        <select name="country" class="form-control" name="country">
+                                                            <option disabled="" selected=""></option>
+                                                            <option value="Thailand" selected="selected"> Thailand </option>
+                                                            <option value="Afghanistan"> Afghanistan </option>
+                                                            <option value="Albania"> Albania </option>
+                                                            <option value="Algeria"> Algeria </option>
+                                                            <option value="American Samoa"> American Samoa </option>
+                                                            <option value="Andorra"> Andorra </option>
+                                                            <option value="Angola"> Angola </option>
+                                                            <option value="Anguilla"> Anguilla </option>
+                                                            <option value="Antarctica"> Antarctica </option>
+                                                            <option value="...">...</option>
+                                                        </select>
+                                                    <span class="material-input" ></span></div>
+                                               
+                                                    </div>
+                                                    <div style="margin-top: 30px;    padding: 0 12px;">
+                                                    <div class=" btn-change " id="foget-pass" style="    color: #3b5998;
+    display: block;
+    /* line-height: 36px; */
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    min-width: 120px;
+    /* border-radius: 4px; */
+    text-align: center;
+    color: #ffffff;
+    /* border: 1px solid #16B3B1; */
+    background-color: #16B3B1;">
+                                                        <span class="lng-change-password">Change password</span>
+                                                    </div>
+                            </div>
+                                                  </div>
+                                                
+                                                 
+                                                  </div>
+                                               
+                                                	
+                                               
+                                     
+                                            
+                                                 
+                                                </div>
+                                                 
+                                            
+                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="col-sm-12 col-sm-offset-2" style="    margin-top: 60px;">
 						<div class="wizard-container">
                             <div class="card wizard-card" data-color="blue" id="wizardProfile">
@@ -811,63 +982,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                         <h6>Choose Picture</h6>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
-                                                
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="material-icons">face</i>
-                                                        </span>
-                                                        <div class="form-group label-floating is-empty has-error" id="div-name">
-                                                            <label class="control-label"><span class="lng-first-name">First Name</span>
-                                                                <small>(required)</small>
-                                                            </label>
-                                                            <input name="firstname" type="text" class="form-control error" aria-required="true" aria-invalid="true" id="firstname">
-                                                        <span class="material-input"></span></div>
-                                                    </div>
-                                                                                                      
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="material-icons">record_voice_over</i>
-                                                        </span>
-                                                        <div class="form-group label-floating is-empty has-error" id="div-lastname">
-                                                            <label class="control-label"><span class="lng-last-name">Last Name</span>
-                                                                <small>(required)</small>
-                                                            </label>
-                                                            <input name="lastname" type="text" class="form-control error" aria-required="true" aria-invalid="true" id="lastname">
-                                                        <span class="material-input"></span></div>
-                                                    </div>
-                                                 
-                                                </div>
-                                                 
-                                               <div class="col-lg-10 col-lg-offset-1">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="material-icons">email</i>
-                                                        </span>
-                                                        <div class="form-group label-floating is-empty has-error" id="div-email">
-                                                            <label class="control-label"><span class="lng-email_d">Email</span>
-                                                                <small>(required)</small>
-                                                            </label>
-                                                            <input name="email" type="email" class="form-control error" aria-required="true" aria-invalid="true" id="email" >
-                                                        <span class="material-input"></span></div>
-                                                    </div> 
-                                                     <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                           <i class="material-icons">phone</i>
-                                                        </span>
-                                                        <div class="form-group label-floating is-empty has-error" id="div-phone">
-                                                            <label class="control-label">Phone
-                                                                <small>(required)</small>
-                                                            </label>
-                                                            <input name="phone" type="tel" class="form-control error" aria-required="true" aria-invalid="true" id="phone" >
-                                                        <span class="material-input"></span></div>
-                                                    </div>
-                                                </div>
                                                
-                                                	
-                                               
-                                     
-                                            </div>
                                         </div>
                                         <div class="tab-pane" id="accounts">
                                         	<div class="row">
@@ -958,32 +1073,9 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                         <div class="tab-pane" id="address">
                                             <div class="row">
                                                 <div class="col-sm-12">
-                                                    <h4 class="info-text"> <!--Are you living in a nice area?--> </h4>
+                                                    <h4 class="info-text"> </h4>
                                                 </div>
                                                 <div class="col-sm-12 col-sm-offset-1">
-                                                    <div class="form-group label-floating is-empty" id="div-address">
-                                                        <label class="control-label">Address</label>
-                                                        <textarea class="form-control" name="txt_address" id="txt_address"></textarea>
-                                                    <span class="material-input"></span></div>
-                                                </div>
-                                               <!-- <div class="col-sm-4">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label">Area</label>
-                                                        <input type="text" class="form-control" name="area">
-                                                    <span class="material-input"></span></div>
-                                                </div>
-                                                <div class="col-sm-11 col-sm-offset-1">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label">City</label>
-                                                        <input type="text" class="form-control" name="city">
-                                                    <span class="material-input"></span></div>
-                                                </div>
-                                                 <div class="col-sm-5 col-sm-offset-1">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label">Postcode</label>
-                                                        <input type="text" class="form-control"name="postcode" >
-                                                    <span class="material-input"></span></div>
-                                                </div>-->
                                                 <div class="col-sm-5 col-sm-offset-1">
                                                     <div class="form-group label-floating ">
                                                         <label class="control-label">Country</label>
