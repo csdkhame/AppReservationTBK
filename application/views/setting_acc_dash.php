@@ -924,7 +924,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     text-align: center;
     color: #ffffff;
     /* border: 1px solid #16B3B1; */
-    background-color: #16B3B1;" >
+    background-color: #333;" >
                                                         <span class="lng-change-password">Change password</span>
                                                     </div>
                             </div>
@@ -941,7 +941,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     text-align: center;
     color: #ffffff;
     /* border: 1px solid #16B3B1; */
-    background-color: #4caf50;" >
+    background-color: #16B3B1;" >
                                                         <span class="lng-send">Send</span>
                                                     </div>
                             </div>
