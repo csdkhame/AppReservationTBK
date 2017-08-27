@@ -172,12 +172,14 @@ $(document).ready(function() {
         $('.lng-voucher-no').html('凭证编号');
         $('.lng-date').html('日期');
         $('.lng-order').html('訂購');
-        
+
         $('.lng-last-name').html('姓');
         $('.lng-address').html('地址');
         $('.lng-country').html('国家');
-        
-        
+        $('.lng-old-password').html('舊密碼');
+
+
+
 
 
 
@@ -310,10 +312,12 @@ $(document).ready(function() {
         $('.lng-voucher-no').html('Voucher No.');
         $('.lng-date').html('Date');
         $('.lng-order').html('Order');
-		
-		$('.lng-last-name').html('Last Name');
-		 $('.lng-address').html('Address');
-		$('.lng-country').html('Country');
+
+        $('.lng-last-name').html('Last Name');
+        $('.lng-address').html('Address');
+        $('.lng-country').html('Country');
+        $('.lng-old-password').html('Old Password');
+
 
 
 
@@ -437,9 +441,10 @@ $(document).ready(function() {
         $('.lng-date').html('วันที่');
         $('.lng-order').html('ใบสั่ง');
 
-		$('.lng-last-name').html('นามสกุล');
-		$('.lng-address').html('ที่อยู่');
-		$('.lng-country').html('ประเทศ');
+        $('.lng-last-name').html('นามสกุล');
+        $('.lng-address').html('ที่อยู่');
+        $('.lng-country').html('ประเทศ');
+        $('.lng-old-password').html('รหัสผ่านเก่า');
 
 
     } else if ($.cookie("lng") == undefined) {
@@ -567,9 +572,11 @@ $(document).ready(function() {
         $('.lng-voucher-no').html('Voucher No.');
         $('.lng-order').html('Order');
 
-		$('.lng-last-name').html('Last Name');
-		$('.lng-address').html('Address');
-$('.lng-country').html('Country');
+        $('.lng-last-name').html('Last Name');
+        $('.lng-address').html('Address');
+        $('.lng-country').html('Country');
+        $('.lng-old-password').html('Old Password');
+
 
 
 

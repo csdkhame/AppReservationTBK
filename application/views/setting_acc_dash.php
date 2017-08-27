@@ -1006,7 +1006,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
             <div class="box-in-foget">
                 <div style="padding: 12px;">
                    <div class="col-md-12" id="forget"> 
-                       <h4 style="    text-align: center;" class="lng-change_pass">Change your password</h4>
+                       <h4 style="    text-align: center;" class="lng-change_pass lng-change-password"></h4>
                        <!-- <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
                             <span class="lng-please-input-email">Please input your email</span>
                         </div>-->
@@ -1018,7 +1018,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                             <i class="material-icons">account_circle</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-username">
-                                                            <label class="control-label">Username
+                                                            <label class="control-label lng-username_d">
                                                                 <small>(required)</small>
                                                             </label>
                                                             <input name="username" type="text" class="form-control error" aria-required="true" aria-invalid="true" id="username">
@@ -1030,7 +1030,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                            <i class="material-icons">lock_outline</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-old_password">
-                                                            <label class="control-label">Old Password
+                                                            <label class="control-label lng-old-password">
                                                                 <small>(required)</small></label>
                                                             <input name="old_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="old_password">   				
                                                         <span class="material-input"></span>
@@ -1041,7 +1041,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                            <i class="material-icons">lock_outline</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-new_password">
-                                                            <label class="control-label">New Password
+                                                            <label class="control-label lng-new-password">
                                                                 <small>(required)</small>
                                                                </label>
                                                             <input name="new_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="new_password">   																
@@ -1053,7 +1053,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                            <i class="material-icons">lock_outline</i>
                                                         </span>
                                                         <div class="form-group label-floating is-empty has-error" id="div-confirm_password">
-                                                            <label class="control-label">Confirm Password
+                                                            <label class="control-label lng-confirm-password" >
                                                                 <small>(required)</small></label>
                                                             <input name="confirm_password" type="password" class="form-control error" aria-required="true" aria-invalid="true" id="confirm_password">   				<span id="icon_status"></span>
                                                         <span class="material-input"></span>
