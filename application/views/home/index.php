@@ -168,7 +168,7 @@
                 <div class="card-contentrealtime">
                     <div class="box-search" id='boxRealtime'>
                         <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
-                        <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;"/>
+                        <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
                         <div style="display: nones;" id="open-search">
                             <div style="border-bottom: 1px solid #333;display:nones;"></div>
                             <input  type='text' class="form-control" placeholder="where you go ?" id="pac-input" style="border: none !important;" value="" style="margin: auto;border: none !important;padding: 10px; width: 100%;background: #fff;" />   
