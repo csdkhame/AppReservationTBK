@@ -94,7 +94,7 @@
                                  <ul class="dropdown-menu dropdown-with-icons">
                                 
                                <li class="box-setting">
-                            <a href="<? echo base_url(); ?>dashboard/account_settings">
+                            <a href="<? echo base_url(); ?>dashboard/account_settings" class="feed">
                               <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
                                 <i class="material-icons">build</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
                             </a>
@@ -138,7 +138,7 @@
                             
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
-                                    <a href="<?php echo base_url(); ?>" >
+                                    <a href="<?php echo base_url(); ?>" class="feed" >
                                         <i class="material-icons">directions_car</i><span class="lng-transports textmenu"></span>                    
                                     </a>
                                 </li>                            
@@ -150,7 +150,7 @@
                             </ul>
                         </li>
                         <li class="box-desboard">
-                            <a href="<?php echo base_url(); ?>dashboard/view_user">
+                            <a href="<?php echo base_url(); ?>dashboard/view_user" class="feed">
                                 <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>                    
                             </a>
                         </li>
@@ -162,18 +162,18 @@
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
-                                    <a  onclick="language('cn')">
+                                    <a  onclick="language('cn')" class="feed">
                                         <img src="<?php echo base_url(); ?>/files/img/china.ico" style="width: 30px;margin-right: 15px;">简体中文 
                                    </a>
                                 </li>
                                 <li>
-                                    <a  onclick="language('en')">
+                                    <a  onclick="language('en')" class="feed">
                                 <img src="<?php echo base_url(); ?>/files/img/usa.ico" style="width: 30px;margin-right: 15px;">English 
                     
                                     </a>
                                 </li>
                                 <li>
-                                    <a onclick="language('th')">
+                                    <a onclick="language('th')" class="feed">
                                 <img src="<?php echo base_url(); ?>/files/img/thai.ico" style="width: 30px;margin-right: 15px;">ภาษาไทย
                     
                                     </a>

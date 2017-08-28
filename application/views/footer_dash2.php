@@ -211,9 +211,44 @@
     background: #fff;
     /* height: 90px; */
 }
+	.loading-in{
+    height: 115px;
+    /* border-radius: 4px; */
+    background: #fff;
+    min-width: 15rem;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 10;
+}
+.loading-ld{
+    font-weight: 500;
+    color: #000;
+    padding: 35px;
+    text-align: center;
+}
+#loading{
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.59);
+    display: nones;
+}
 </style>
 
-
+<div id="loading" style="display: none;">
+            <div class="loading-in">               
+                <div class="loading-ld">
+                    <div style="font-size: 15px">Loading</div>
+                        <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i></div>
+                
+                    </div>        
+                </div>
 
 
 <script>
@@ -290,7 +325,23 @@ $( document ).ready(function() {
 
 </script>
 
-
+<script>
+$( document ).ready(function() {
+	
+	$('.navbar-collapse .feed').click( function(){
+//		alert(123);
+		$('#loading').css('display', 'block');
+	    $('#content').css('display', 'none');
+	    setTimeout(function() {
+//	        console.log("aaaaa")
+	        $('#loading').css('display', 'none');
+	        $('#content').css('display', 'block');
+	    }, 3000);
+				
+	});
+	
+});	
+</script>
 
 
 

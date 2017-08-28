@@ -330,8 +330,8 @@ $(window).scroll(function() {
 <br/>
 <br/>
 <br/>
-
 <style>
+
 	.dialog{
 	z-index: 300;
     position: fixed;
@@ -372,7 +372,7 @@ $(window).scroll(function() {
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-fullscreen" id="open_modal" style="display: none;" >Open Modal</button>           
 
 <script>
-
+var date=$('#date1').val();
     $('#date1').pickadate({
         format: 'yyyy-mm-dd',
         formatSubmit: 'yyyy/mm/dd',
@@ -391,6 +391,7 @@ $(window).scroll(function() {
 </script>
 
 <script>
+var date=$('#date2').val();
 	  $('#date2').pickadate({
         format: 'yyyy-mm-dd',
         formatSubmit: 'yyyy/mm/dd',
@@ -664,3 +665,4 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
    
 }
 </script>
+

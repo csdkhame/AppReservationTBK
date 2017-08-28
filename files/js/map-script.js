@@ -122,41 +122,7 @@ function initialize() {
     var list = document.getElementById('list_place');
     map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(list);
 
-    /*var btnOp = document.getElementById('selectPlace');
-    map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(btnOp);*/
 
-    // StreetView //
-    /*map.get('streetView').setOptions({
-        //              addressControl : true,
-
-        enableCloseButton: false,
-        addressControlOptions: {
-            position: google.maps.ControlPosition.BOTTOM_CENTER
-        },
-        linksControl: false,
-        panControl: false,
-        enableCloseButton: false
-
-    });
-
-    var thePanorama = map.getStreetView();
-    google.maps.event.addListener(thePanorama, 'visible_changed', function() {
-        if (thePanorama.getVisible()) {
-            $('#close_streetview').css('display', '');
-
-        }
-    });
-
-    var closeButton = document.querySelector('#close_streetview');
-    controlPosition = google.maps.ControlPosition.LEFT_CENTER;
-
-    thePanorama.controls[controlPosition].push(closeButton);
-    google.maps.event.addDomListener(closeButton, 'click', function() {
-
-        $('#close_streetview').css('display', 'none');
-        thePanorama.setVisible(false);
-    });*/
-    // End StreetView //
 
     initAutocomplete(map, start, end);
 
@@ -201,7 +167,7 @@ function initAutocomplete(map, start, end) {
 
 var	options = {
   enableHighAccuracy: true,
-  timeout: 300,
+  timeout: 500,
   maximumAge: 0
 };
 
@@ -224,7 +190,7 @@ check = check+1;
        if(check==1){
 	   	map.panTo(current);
 	   }else{
-	   	console.log(check+" ++++++++++++++");
+//	   	console.log(check+" ++++++++++++++");
 	   }
 
 	 console.log(pos);
@@ -235,7 +201,7 @@ check = check+1;
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
                         placeStart = results;
-                        console.log(placeStart);
+//                        console.log(placeStart);
                         addr = placeStart[1].formatted_address;
                         if(check==1){
                         document.getElementById("current").value = addr;
@@ -271,7 +237,8 @@ function error(err) {
         if (place.geometry.viewport) {
             map.fitBounds(placeEnd.geometry.viewport);
             map.setZoom(16);
-        } else {
+        } 
+		else {
             map.setCenter(placeEnd.geometry.location);
             map.setZoom(16); // Why 17? Because it looks good.
         }
@@ -290,13 +257,12 @@ function error(err) {
             console.log(response.routes[0].legs);
             var distance = response.routes[0].legs[0].distance.text;
             var duration = response.routes[0].legs[0].duration.text;
-            //console.log(placeStart.geometry.location.lng())
-            //console.log(response.routes[0].legs[0].end_location.lat())
+
             console.log(response.routes[0].legs[0].end_location.lat())
             console.log(response.routes[0].legs[0].end_location.lng())
             lat_t = response.routes[0].legs[0].end_location.lat();
             lng_t = response.routes[0].legs[0].end_location.lng();
-            // console.log(response.request.lng())
+
             console.log(distance);
             var radlat1 = Math.PI * lat_f / 180
             var radlat2 = Math.PI * lat_t / 180
@@ -306,13 +272,111 @@ function error(err) {
             dist = Math.acos(dist)
             dist = dist * 180 / Math.PI
             dist = dist * 60 * 1.609344;
-            console.log(dist)
+//            console.log(dist)
                 //if (unit=="K") { dist = dist * 1.609344 }
                 //if (unit=="N") { dist = dist * 0.8684 }
                 //return dist
             $('.a-link-item').remove();
             $('.not-found').remove();
-            $.ajax({
+            getProduct(lat_f,lng_f,dist,lat_t,lng_t);
+            var infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
+            infowindowDetailTravel.setContent('<div><p> Distance ' + distance + '</p><p>Use time ' + duration + '</p></div>');
+            infowindowDetailTravel.open(map, marker);
+            directionsDisplay.setDirections(response);
+            directionsDisplay.setOptions({
+                suppressMarkers: true,
+                preserveViewport: true
+            });
+        });
+
+        //          getProduct(start,end);
+
+    });
+
+
+}
+
+function addYourLocationButton(map, marker2) {
+    var controlDiv = document.createElement('div');
+    controlDiv.setAttribute("id", "btn_CurrentLocation");
+
+    var firstChild = document.createElement('button');
+    firstChild.style.backgroundColor = '#fff';
+    firstChild.style.border = 'none';
+    firstChild.style.outline = 'none';
+    firstChild.style.width = '34px';
+    firstChild.style.height = '34px';
+    firstChild.style.borderRadius = '2px';
+    firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+    firstChild.style.cursor = 'pointer';
+    firstChild.style.marginRight = '10px';
+    firstChild.style.padding = '0px';
+    firstChild.title = 'Your Location';
+    controlDiv.appendChild(firstChild);
+
+    var secondChild = document.createElement('div');
+    secondChild.style.margin = '3.5px';
+    secondChild.style.width = '26px';
+    secondChild.style.height = '26px';
+    secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
+    secondChild.style.backgroundSize = '248px 26px';
+    secondChild.style.backgroundPosition = '1px 0px';
+    secondChild.style.backgroundRepeat = 'no-repeat';
+    secondChild.id = 'you_location_img';
+    firstChild.appendChild(secondChild);
+
+    google.maps.event.addListener(map, 'dragend', function() {
+        $('#you_location_img').css('background-position', '1px 0px');
+    });
+
+    firstChild.addEventListener('click', function() {
+        var imgX = '0';
+        var animationInterval = setInterval(function() {
+            if (imgX == '-24') imgX = '0';
+            else imgX = '-24';
+            $('#you_location_img').css('background-position', imgX + 'px 0px');
+        }, 500);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                //				marker.setPosition(latlng);
+                //				map.setCenter(latlng);
+
+                map.panTo(latlng);
+
+                //				map.setZoom(14);
+
+                setTimeout(function() {
+
+                    document.getElementById("current").value = placeStart[1].formatted_address;
+                    //			  $('#start_yes-change').click();
+                    // marker2.setPosition(latlng);
+                    // marker2.setAnimation(google.maps.Animation.BOUNCE);
+                    smoothZoom(map, 17, map.getZoom());
+
+                    //	          map.setZoom(16);
+                    $('#btn_CurrentLocation').hide('500');
+                }, 1000)
+
+                clearInterval(animationInterval);
+                $('#you_location_img').css('background-position', '-223px 0px');
+            });
+        } else {
+            clearInterval(animationInterval);
+            $('#you_location_img').css('background-position', '1px 0px');
+        }
+
+    });
+
+    controlDiv.index = 1;
+    //	map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+    map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(controlDiv);
+    controlDiv.style.display = 'none';
+}
+
+function getProduct(lat_f,lng_f,dist,lat_t,lng_t) {
+
+$.ajax({
                 type: 'POST',
                 url: '../service/servicereltime.php',
                 data: { 'lat_f': lat_f, 'lng_f': lng_f, 'distance': dist, 'lat_t': lat_t, 'lng_t': lng_t },
@@ -578,116 +642,6 @@ function error(err) {
                     console.log(err)
                 }
             });
-            var infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
-            infowindowDetailTravel.setContent('<div><p> Distance ' + distance + '</p><p>Use time ' + duration + '</p></div>');
-            infowindowDetailTravel.open(map, marker);
-            directionsDisplay.setDirections(response);
-            directionsDisplay.setOptions({
-                suppressMarkers: true,
-                preserveViewport: true
-            });
-        });
-
-        //          getProduct(start,end);
-
-    });
-
-
-}
-
-function addYourLocationButton(map, marker2) {
-    var controlDiv = document.createElement('div');
-    controlDiv.setAttribute("id", "btn_CurrentLocation");
-
-    var firstChild = document.createElement('button');
-    firstChild.style.backgroundColor = '#fff';
-    firstChild.style.border = 'none';
-    firstChild.style.outline = 'none';
-    firstChild.style.width = '34px';
-    firstChild.style.height = '34px';
-    firstChild.style.borderRadius = '2px';
-    firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
-    firstChild.style.cursor = 'pointer';
-    firstChild.style.marginRight = '10px';
-    firstChild.style.padding = '0px';
-    firstChild.title = 'Your Location';
-    controlDiv.appendChild(firstChild);
-
-    var secondChild = document.createElement('div');
-    secondChild.style.margin = '3.5px';
-    secondChild.style.width = '26px';
-    secondChild.style.height = '26px';
-    secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
-    secondChild.style.backgroundSize = '248px 26px';
-    secondChild.style.backgroundPosition = '1px 0px';
-    secondChild.style.backgroundRepeat = 'no-repeat';
-    secondChild.id = 'you_location_img';
-    firstChild.appendChild(secondChild);
-
-    google.maps.event.addListener(map, 'dragend', function() {
-        $('#you_location_img').css('background-position', '1px 0px');
-    });
-
-    firstChild.addEventListener('click', function() {
-        var imgX = '0';
-        var animationInterval = setInterval(function() {
-            if (imgX == '-24') imgX = '0';
-            else imgX = '-24';
-            $('#you_location_img').css('background-position', imgX + 'px 0px');
-        }, 500);
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                //				marker.setPosition(latlng);
-                //				map.setCenter(latlng);
-
-                map.panTo(latlng);
-
-                //				map.setZoom(14);
-
-                setTimeout(function() {
-
-                    document.getElementById("current").value = placeStart[1].formatted_address;
-                    //			  $('#start_yes-change').click();
-                    // marker2.setPosition(latlng);
-                    // marker2.setAnimation(google.maps.Animation.BOUNCE);
-                    smoothZoom(map, 17, map.getZoom());
-
-                    //	          map.setZoom(16);
-                    $('#btn_CurrentLocation').hide('500');
-                }, 1000)
-
-                clearInterval(animationInterval);
-                $('#you_location_img').css('background-position', '-223px 0px');
-            });
-        } else {
-            clearInterval(animationInterval);
-            $('#you_location_img').css('background-position', '1px 0px');
-        }
-
-    });
-
-    controlDiv.index = 1;
-    //	map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
-    map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(controlDiv);
-    controlDiv.style.display = 'none';
-}
-
-function getProduct(start, end) {
-    /*	var json = {
-    		start : start,
-    		end : end
-    	}*/
-
-    $.ajax({
-        type: "POST",
-        data: { start: start, end: end.toJSON() },
-        url: "http://localhost/AppReservationTBK/service/getProduct_realtime.php",
-        success: function(msg) {
-            alert(msg);
-        }
-    });
-
 
 
 }
