@@ -615,8 +615,8 @@ function addYourLocationButton(map, marker2) {
 
     var secondChild = document.createElement('div');
     secondChild.style.margin = '3.5px';
-    secondChild.style.width = '29px';
-    secondChild.style.height = '29px';
+    secondChild.style.width = '26px';
+    secondChild.style.height = '26px';
     secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
     secondChild.style.backgroundSize = '248px 26px';
     secondChild.style.backgroundPosition = '1px 0px';
