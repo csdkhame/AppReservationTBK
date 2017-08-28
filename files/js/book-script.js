@@ -1281,7 +1281,7 @@ $(document).ready(function() {
                                     console.log(data);
                                     //console.log(s_email);
 
-                                    //window.location.href = "https://dotdotdottrip.com";
+                                    window.location.href = "https://dotdotdottrip.com";
 
                                 }
                             });
