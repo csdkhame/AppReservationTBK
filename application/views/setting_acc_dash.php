@@ -881,7 +881,10 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                             <label class="control-label"><span class="lng-phone">Phone</span> 
                                                                 
                                                             </label>
+                                                           
                                                             <input name="phone" type="tel" class="form-control error" aria-required="true" aria-invalid="true" id="phone" >
+                                                            <input name="code_phone" type="hidden" id="code_phone"/>
+                                                            
                                                         <span class="material-input"></span></div>
                                                     </div>
                                                     <div class="input-group">
@@ -894,11 +897,11 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                             <span class="material-input"></span></div>
                                                         </div>
                                                         
-                                                        <div class="form-group label-floating ">
+                                                        <div class="form-group label-floating " id="div-country">
                                                         <label class="control-label"><span class="lng-country"></span></label>
                                                         <select name="country" class="form-control" name="country" id="country_sekect">
-                                                          <!--  <option disabled="" selected=""></option>
-                                                            <option value="Thailand" selected="selected"> Thailand </option>
+                                                            <option disabled="" selected="">---</option>
+                                                          <!--  <option value="Thailand" selected="selected"> Thailand </option>
                                                             <option value="Afghanistan"> Afghanistan </option>
                                                             <option value="Albania"> Albania </option>
                                                             <option value="Algeria"> Algeria </option>
@@ -1096,13 +1099,25 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 <script>
 	$( "#submit" ).click(function(e) {
 		
-		
+if($.cookie("lng")=="en"){
+var title = "Are you sure?";
+var text = "You want to change profile?";
+}else if($.cookie("lng")=="cn"){
+	var title = "你确定吗?";
+var text = "你想改变个人资料?";
+}else if($.cookie("lng")=="th"){
+	var title = "คุณแน่ใจหรือไม่?";
+var text = "คุณต้องการเปลี่ยนโปรไฟล์รรือไม่?";
+}else if($.cookie("lng")==undefined){
+var title = "Are you sure?";
+var text = "You want to change profile?";
+}
 		
 		
 		 e.preventDefault();
 		swal({
-				  title: "Are you sure?",
-				  text: "You want to change profile?",
+				  title: title,
+				  text: text,
 				  type: "warning",
 				  showCancelButton: true,
 				  confirmButtonClass: "btn-danger",
@@ -1111,7 +1126,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 				},
 				function(){
 				  		
-					var url = "<?php echo base_url(); ?>dashboard/update_profile";
+					var url = base_url+"dashboard/update_profile";
 					data_form = $('#update_profile').serialize();    
 					data = new FormData($('#update_profile')[0]);
 					
@@ -1119,7 +1134,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 
 					                   
 					   $.ajax({
-					                url: '<?php echo base_url(); ?>dashboard/update_profile', // point to server-side PHP script 
+					                url: base_url+'dashboard/update_profile', // point to server-side PHP script 
 					                dataType: 'text',  // what to expect back from the PHP script, if anything
 					                cache: false,
 					                contentType: false,
@@ -1131,7 +1146,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 					                    console.log(php_script_response);
 					                    if(php_script_response==1){
 											swal("Success!", "Update successfuly.", "success");
-											window.location.href = '<?php echo base_url(); ?>dashboard/account_settings';
+											setTimeout(function(){ window.location.href = '<?php echo base_url(); ?>dashboard/account_settings'; }, 5000);
+											
 										}else{
 											swal("Error!", "Something went wrong.", "error");
 										}
@@ -1142,33 +1158,20 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 
 	
 	});
+	
+$( "#country_sekect" ).change(function() {
+  var code = $('#country_sekect :selected').attr('class');
+//  console.log(code);
+ $('#code_phone').val(code);
+});
+	
+	
 </script>
 
 
 <script>
 
 $(document).ready(function(){
-    
-  $.post( "<?php echo base_url(); ?>getcountry_control/process", function( data ) {
-  	
-  	 var obj = JSON.parse(data);
-  	 
-  	 $.each(obj, function (index, value) {
-//  	 	country_sekect
-/*if($.cookie("lng")=="en"){
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
-}else if($.cookie("lng")=="cn"){
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_cn+' </option>');
-}else if($.cookie("lng")=="th"){
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_th+' </option>');
-}else if($.cookie("lng")==undefined){
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
-}	 */	
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
-  	 });
-  	 
-  	
-  });  
 
  $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
  var obj = JSON.parse(data);
@@ -1194,7 +1197,33 @@ $('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </
     if(obj[index].s_image!=""){
 		$('#wizardPicturePreview').attr('src','<?php echo base_url();?>pic/'+obj[index].s_image);
 	}
+	var country_id = obj[index].i_country;
+    var selected = "";
     
+    $.post( "<?php echo base_url(); ?>getcountry_control/process", function( data_c ) {	
+  	 var obj_c = JSON.parse(data_c);  	 
+  	 $.each(obj_c, function (index, value) {
+//  	 	country_sekect
+/*if($.cookie("lng")=="en"){
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
+}else if($.cookie("lng")=="cn"){
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_cn+' </option>');
+}else if($.cookie("lng")=="th"){
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_th+' </option>');
+}else if($.cookie("lng")==undefined){
+$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
+}	 */	
+if(value.id == country_id ){
+	selected = "selected";
+}else{
+	selected = "";
+}
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' class="'+value.phonecode+'" > '+value.name_en+' </option>');
+  	 });
+  	   $("#div-country").removeClass("is-empty has-error");
+  });  
+    
+    	
     //$("#div-password").removeClass("is-empty has-error");	
     //$('#password').val(obj[index].s_password);
 		});

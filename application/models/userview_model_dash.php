@@ -192,6 +192,8 @@ class Userview_model_dash extends CI_Model {
   	$new_data['s_email'] = $this->input->post('email');
   	$new_data['s_phone'] = $this->input->post('phone');
   	$new_data['s_username'] = $this->input->post('username');
+  	$new_data['i_country'] = $this->input->post('country');
+  	$new_data['s_phone_code'] = $this->input->post('code_phone');
   	/*if($this->input->post('new_password')==!"" or $this->input->post('new_password')==!NULL){
 		$new_data['s_password'] = $this->input->post('new_password');
 	}*/
