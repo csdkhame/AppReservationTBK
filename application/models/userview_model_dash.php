@@ -113,7 +113,7 @@ class Userview_model_dash extends CI_Model {
 	
   	$this->db->select('*');
 	$this->db->where('s_code',$code);
-	$this->db->or_where('s_code_ref',$code_ref);
+	$this->db->where('s_code_ref',$code_ref);
 /*	if($num_record!="" and $start!=""){
 			$this->db->limit($num_record,$start);
 		}*/
@@ -263,7 +263,7 @@ class Userview_model_dash extends CI_Model {
 			$aaaa = json_decode($curl_response);
 			
 			 	$data[$key]['id'] = $row->id;
-			 	$data[$key]['arrival_date'] = $row->arrival_date;
+//			 	$data[$key]['arrival_date'] = $row->arrival_date;
 			 	$data[$key]['adult'] = $row->adult;
 			 	$data[$key]['child'] = $row->child;
 			 	$data[$key]['invoice'] = $row->invoice;
