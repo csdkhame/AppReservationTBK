@@ -88,8 +88,6 @@
                 <table width="100%">
                         <tr>
                             <td align="center">
-<<<<<<< HEAD
-=======
                             <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i> 
                             </td>
                         </tr>
@@ -159,186 +157,26 @@
                 </div>
             </td>
             <td width="20%" >
-            <div class="btn-management" >
-           
-                                                 
-                           
-                <table width="100%">
-                    <tr>
-                        <td align="center">
-                        <!-- <i class="material-icons" style="font-size: 30px;">settings</i> -->
-                            
-                            <i class="material-icons" style="font-size: 30px;">dvr</i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
-                        </td>
-                    </tr>
-                </table>
-               
-            </div> 
-        </td>
-            
-        </tr>
-    </table>    
- </div>
- <style>
- .box-menu-select2 {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 1;
-    background: #fff;
-    /* height: 90px; */
-}
-.btn-car-service {
-    padding: 8px 0;
-    font-size: 16px;
-    /* font-weight: 400; */
-    /* position: absolute; */
-    width: 100%;
-    /* border-radius: 4px; */
-    /* padding: 12px; */
-    color: #999999;
-    text-align: center;
-    /* display: inline-block; */
-    /* background-color: #2196f3; */
-    z-index: 1;
-}
- </style>
- <!-- <div class="box-menu-select2">
-    <table width="100%">
-        <tr>
-        <td width="20%" style="border-right: 1px solid #555;">
-                <div class="btn-home" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
->>>>>>> c079dc80a7fe9d7685248e1cad509d41d609cb02
-                            <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td> -->
-        
-            <td width="20%" style="border-right: 1px solid #555;">
-                <div class="btn-realtime" >
+                <div class="btn-management" >
                     <table width="100%">
                         <tr>
                             <td align="center">
-                                <i class="material-icons" style="font-size: 30px;">room</i>
+                            <!-- <i class="material-icons" style="font-size: 30px;">settings</i> -->
+                                
+                                <i class="material-icons" style="font-size: 30px;">dvr</i>
                             </td>
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
                             </td>
                         </tr>
                     </table>
-                   
-                </div>
+                </div> 
             </td>
-            <td width="20%" style="border-right: 1px solid #555;">
-                <div class="btn-reservation" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                                <i class="material-icons" style="font-size: 30px;" style="">search</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px;font-weight: 500;"></span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
-            <td width="20%" style="border-right: 1px solid #555;">
-                <div class="btn-car-service" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                            <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
-                            <!-- <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i>  -->
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                            <span class="lng-car-service" style="font-size: 10px; font-weight: 500;">Car service</span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
-<<<<<<< HEAD
-=======
-            <td width="20%" style="border-right: 1px solid #555;">
-                <div class="btn-car-service" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                            <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
-                          
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                            <span class="lng-car-service" style="font-size: 10px; color: #000; font-weight: 500;">Car service</span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
->>>>>>> c079dc80a7fe9d7685248e1cad509d41d609cb02
-            <td width="20%" >
-            <div class="btn-management" >
-           
-                                                 
-                           
-                <table width="100%">
-                    <tr>
-                        <td align="center">
-                        <!-- <i class="material-icons" style="font-size: 30px;">settings</i> -->
-                            
-                            <i class="material-icons" style="font-size: 30px;">dvr</i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
-                        </td>
-                    </tr>
-                </table>
-               
-            </div> 
-        </td>
-            
         </tr>
-    </table>    
-<<<<<<< HEAD
+    </table>
  </div>
-=======
- </div>   -->
->>>>>>> c079dc80a7fe9d7685248e1cad509d41d609cb02
-   
-   
     	<div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div id="search-raeltime">
             <div class="col-md-12 " >
