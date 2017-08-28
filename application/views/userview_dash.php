@@ -177,6 +177,17 @@ $(window).scroll(function() {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
 }
+.btn-voucher{
+
+    display: block;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    text-align: center;
+    color: #ffffff;
+    background-color: #16B3B1;
+}
 </style>	
 							
       				
@@ -232,11 +243,17 @@ $(window).scroll(function() {
 									$pos = strpos($mystring, $findme);
 									$date = substr($show['date_time'],0,$pos);
 									$format = date('Y-m-d',$mystring);*/
+									if($show['invoice']!=" " and $show['invoice']!=null and $show['invoice']!=""){
+										$class = "btn-xs btn-voucher";
+									}else{
+										$class = "";
+									}
                                 ?>
-                                    <tr class="tr-hover" onclick="view_order_level2('<?=$show['invoice'];?>');">
+                                    <tr class="tr-hover" >
                                         <!--<td style="display: none;"></td>-->
                                     	<td ><? echo $show['date_time'];?> </td>
-                                    	<td ><?=$show['invoice'];?></td>
+                                    	<td >
+                                    	<div class="<?=$class;?>" style="    border-radius: 1px;" onclick="view_order_level2('<?=$show['invoice'];?>');"><?=$show['invoice'];?></div></td>
                                     	<td ><?=$show['from'];?></td>
                                     	<td ><?=$show['to'];?></td>
                                     	<!--<td ><?=$show['total_price'];?></td>-->
@@ -308,6 +325,7 @@ $(window).scroll(function() {
                         </div><!--  end card  -->
                     </div> <!-- end col-md-12 -->
 </div>
+		</section>
 <br/>
 <br/>
 <br/>
@@ -549,6 +567,20 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 <script>
 	$( document ).ready(function() {
     	
+    	$('#gohome').click(function(){
+    		window.location.href = '<?php echo base_url(); ?>';
+    	});
+    	$('#btn-realtime').click(function(){
+    		window.location.href = '<?php echo base_url(); ?>';
+    	});
+    	$('#btn-reservation').click(function(){
+    		window.location.href = '<?php echo base_url(); ?>';
+    	});
+    	$('#btn-reservation').click(function(){
+    		window.location.href = '<?php echo base_url(); ?>dashboard/view_user';
+    	});
+    	
+    	
     	findRowDate();
     	
 	
@@ -562,7 +594,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	function findRowDate(){
 //		alert(555);
 		$('tr[class="tr-hover"]').css('display','');
-		console.log(559999999999999999999955);
+//		console.log(559999999999999999999955);
 		var dateFrom = $('#date1').val();
     	var dataTo = $('#date2').val();
     	var result ;
@@ -624,6 +656,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 <script>
 	function scrollWin(type) {
 		if(type=="top"){
+			$('#top-end_btn').hide(700);
 			 window.scrollTo(0,document.body.scrollHeight-document.body.scrollHeight);
 		}else if(type=="end"){
 			 window.scrollTo(0,document.body.scrollHeight);

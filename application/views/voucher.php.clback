@@ -267,7 +267,7 @@ $( document ).ready(function() {
   			<span class="lng-typet_transfer_time">Arrival time</span>
   			</td>
   			<td>
-  			<span id="arrival_time"></span>
+  			<span id="arrival_date_time"></span>
   			</td>
   		</tr>
   		
@@ -364,14 +364,12 @@ $( document ).ready(function() {
     	$('#adult').text(data.adult);
     	$('#child').text(data.child);
     	$('#num_of_car').text(data.numcar);
-    	$('#arrival_date').text(data.arrival_date);
-    	$('#arrival_time').text(data.arrival_time);
+    	$('#arrival_date').text(data.arrival_date+" "+data.arrival_time);
     	$('#from').text(data.from);
     	$('#to').text(data.to);
     	$('#arrival_flight').text(data.arrival_flight);
-    	var book_date_f = data.booking_date;
-    	var res = data.booking_date.replace(" ", "/"); 
-    	$('#transfer_date').text(res);
+    	
+    	$('#transfer_date').text(data.booking_date);
     	$('#book_by').text(data.book_by);
     	$('#price').text(data.total_price);
     	
@@ -387,7 +385,7 @@ $( document ).ready(function() {
 			$('.lng-car_type').text('Car type');
 			$('.lng-transfer_date').text('Date/Time');
 			$('.lng-num_of_car').text('Number of car');
-			$('.currency').text("baht.");
+			$('.currency').text("baht");
 		}else if ($.cookie("lng")=="cn"){
 			product_name = data.product_detail[0].topic_cn;
 			cartype = data.product_detail[0].car_topic_cn+" "+data.product_detail[0].pax_cn;
@@ -424,8 +422,8 @@ $( document ).ready(function() {
 				
 			}else if ($.cookie("lng")=="cn"){
 				$('.lng-typet_transfer').text('到达日期');
-				$('.lng-typet_transfer_time').text('到达时间');
-
+				$('.lng-typet_transfer_time').text('到达时间
+');
 
 			}else if ($.cookie("lng")=="th"){
 				$('.lng-typet_transfer').text('วันที่มาถึง');
@@ -436,15 +434,13 @@ $( document ).ready(function() {
 		else if(area=='Out'){
 			if($.cookie("lng")=="en"){
 				$('.lng-typet_transfer').text('Departure date');
-				$('.lng-typet_transfer_time').text('Departure time');
+				$('.lng-typet_transfer_time').text('Departure date');
 
 			}else if ($.cookie("lng")=="cn"){
 				$('.lng-typet_transfer').text('出发日期');
-				$('.lng-typet_transfer_time').text('出發時間');
 
 			}else if ($.cookie("lng")=="th"){
 				$('.lng-typet_transfer').text('วันเดินทาง');
-				$('.lng-typet_transfer_time').text('เวลาเดินทาง');
 
 			}
 //			console.log($.cookie("lng"));
@@ -453,15 +449,12 @@ $( document ).ready(function() {
 		else if(area=='Point'){
 			if($.cookie("lng")=="en"){
 				$('.lng-typet_transfer').text('Use date');
-				$('.lng-typet_transfer_time').text('Use time');
 	
 			}else if ($.cookie("lng")=="cn"){
 				$('.lng-typet_transfer').text('使用日期');
-				$('.lng-typet_transfer_time').text('使用時間');
 			
 			}else if ($.cookie("lng")=="th"){
 				$('.lng-typet_transfer').text('วันที่ใช้บริการ');
-				$('.lng-typet_transfer_time').text('เวลาที่ใช้บริการ');
 				
 			}
 			

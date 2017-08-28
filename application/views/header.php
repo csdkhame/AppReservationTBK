@@ -91,7 +91,16 @@
                     
                                     </a>
                                 </li> -->
+                                 <ul class="dropdown-menu dropdown-with-icons">
                                 
+                               <li class="box-setting">
+                            <a href="<? echo base_url(); ?>dashboard/account_settings">
+                              <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
+                                <i class="material-icons">build</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
+                            </a>
+                        </li>
+                        
+                            </ul>
                                 <li id="btn-logout-user">
                                     <a>
                                         <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
@@ -126,6 +135,7 @@
                                 
                                 <b class="caret"></b>
                             </a>
+                            
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
                                     <a href="<?php echo base_url(); ?>" >
