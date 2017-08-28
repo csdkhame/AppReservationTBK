@@ -35,9 +35,9 @@ $('#showPlace').on('hidden.bs.modal', function() {
 });*/
 
 
-$('#pac-input').click(function() {
+/*$('#pac-input').click(function() {
     $('#selectPlace').show(1000);
-});
+});*/
 
 function showHeader() {
     $('#btn-real-res').show(700);
@@ -52,13 +52,13 @@ function hideHeader() {
     $('.card-contentrealtime').addClass('hidden5');
 }
 
-$('#search-raeltime input').click(function(){
+/*$('#search-raeltime input').click(function(){
 	$('#search-raeltime div[class="col-md-12 "]').removeClass();
 	$('#sectionsNav').hide();
 //	$('#search-raeltime').css('margin-top','0px');
 	$('.pac-container').show();
 	$('.pac-container').css('top','87px !important');
-});
+});*/
 
 
 var map; //main map
@@ -239,7 +239,7 @@ check = check+1;
                         addr = placeStart[1].formatted_address;
                         if(check==1){
                         document.getElementById("current").value = addr;
-                       	$('#current').css('color', '#00bcd4');
+//                       	$('#current').css('color', '#00bcd4');
 						}
                     }
                 }
