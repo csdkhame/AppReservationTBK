@@ -235,6 +235,9 @@ $(document).ready(function() {
 
 
     });
+    $('#search-from').click(function() {
+        $(this).val();
+    });
     $('.btn-management').click(function() {
         $('#loading').css('display', 'block');
         setTimeout(function() {
