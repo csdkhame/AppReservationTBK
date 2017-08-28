@@ -83,27 +83,26 @@
 <div class="box-menu-select">
     <table width="100%">
         <tr>
-        <td width="25%" style="border-right: 1px solid #555;">
+        <!-- <td width="20%" style="border-right: 1px solid #555;">
                 <div class="btn-home" >
                 <table width="100%">
                         <tr>
                             <td align="center">
-                            <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
                             <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i> 
                             </td>
                         </tr>
                         <tr>
                             <td align="center">
-                            <span class="lng-car-service" style="font-size: 10px; color: #000; font-weight: 500;">Car service</span>
+                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
                             </td>
                         </tr>
                     </table>
                    
                    
                 </div>
-            </td>
+            </td> -->
         
-            <td width="25%" style="border-right: 1px solid #555;">
+            <td width="20%" style="border-right: 1px solid #555;">
                 <div class="btn-realtime" >
                     <table width="100%">
                         <tr>
@@ -113,14 +112,14 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                                <span class="lng-now-use" style="font-size: 10px;font-weight: 500;"></span>
                             </td>
                         </tr>
                     </table>
                    
                 </div>
             </td>
-            <td width="25%" style="border-right: 1px solid #555;">
+            <td width="20%" style="border-right: 1px solid #555;">
                 <div class="btn-reservation" >
                 <table width="100%">
                         <tr>
@@ -130,7 +129,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                                <span class="lng-advance-use" style="font-size: 10px;font-weight: 500;"></span>
                             </td>
                         </tr>
                     </table>
@@ -138,7 +137,26 @@
                    
                 </div>
             </td>
-            <td width="25%" >
+            <td width="20%" style="border-right: 1px solid #555;">
+                <div class="btn-car-service" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
+                            <!-- <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i>  -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                            <span class="lng-car-service" style="font-size: 10px; font-weight: 500;">Car service</span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="20%" >
             <div class="btn-management" >
            
                                                  
@@ -146,12 +164,14 @@
                 <table width="100%">
                     <tr>
                         <td align="center">
+                        <!-- <i class="material-icons" style="font-size: 30px;">settings</i> -->
+                            
                             <i class="material-icons" style="font-size: 30px;">dvr</i>
                         </td>
                     </tr>
                     <tr>
                         <td align="center">
-                            <span class="lng-management" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
+                            <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
                         </td>
                     </tr>
                 </table>
@@ -161,7 +181,7 @@
             
         </tr>
     </table>    
- </div> 
+ </div>
    
    
     	<div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
