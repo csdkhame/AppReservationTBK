@@ -14,16 +14,16 @@ $( document ).ready(function() {
     
     var base_url = '<?php echo base_url(); ?>';
     
-    console.log(<?=$json;?>);
+//    console.log(<?=$json;?>);
     
 $(window).scroll(function() {
 	var check = $(document).height()/3;
-	console.log(check);
+//	console.log(check);
    if($(window).scrollTop() + $(window).height() >= $(document).height()-400) {
 //       alert("bottom!");
 		$('#top-end_btn').show(700);
    }
-   console.log($(window).scrollTop()+" : "+$(window).height()+" : "+$(document).height());
+//   console.log($(window).scrollTop()+" : "+$(window).height()+" : "+$(document).height());
 });
     
 });
@@ -581,7 +581,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 <script>
 	$( document ).ready(function() {
     	
-    	$('#gohome').click(function(){
+    	/*$('#gohome').click(function(){
     		window.location.href = '<?php echo base_url(); ?>';
     	});
     	$('#btn-realtime').click(function(){
@@ -592,7 +592,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
     	});
     	$('#btn-reservation').click(function(){
     		window.location.href = '<?php echo base_url(); ?>dashboard/view_user';
-    	});
+    	});*/
     	
     	
     	findRowDate();
@@ -683,9 +683,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	$('.picker__frame').append('<div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;" class="close_pickerdate"><div class="btn-close lng-close">Close</div></div>');
 
 $('.close_pickerdate').click(function(){
-	/*$('.picker__table tr td').each(function() {
-    var customerId = $(this).find('div[selected="true"]').html();  
-    console.log(customerId)  ;*/
+
     var $input = $('#date1').pickadate(); 
     var picker = $input.pickadate('picker');
 	picker.close();

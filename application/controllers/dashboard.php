@@ -128,7 +128,8 @@ public function payment(){
 		
 		$this->load->view('header_dash2');
 		/*$this->load->view('setting_acc_dash');*/
-	//	$this->load->view('footer_dash2');
+		echo "<h2 style='    margin: 79px;'>Coming Soon</h2>";
+		$this->load->view('footer_dash2');
 		
 }	
 

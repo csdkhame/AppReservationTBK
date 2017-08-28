@@ -155,7 +155,7 @@ $( document ).ready(function() {
                                <li class="box-setting">
                             <a href="<? echo base_url(); ?>dashboard/account_settings" class="feed">
                               <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
-                                <i class="material-icons">build</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
+                               <i class="material-icons">settings</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
                             </a>
                         </li>
                         
@@ -191,9 +191,9 @@ $( document ).ready(function() {
                                 <span class="lng-login"></span><span> / </span><span class="lng-register"></span>                        
                             </a>
                         </li> -->
-                        <li class="dropdown" id="btnusers">
+                       <!-- <li class="dropdown" id="btnusers">
                             <a  class="dropdown-toggle" data-toggle="dropdown">
-                                <!-- <div style="width: 100%;text-align: center;"> -->
+                               
                                 <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product textmenu"></span>
                                 
                                 <b class="caret"></b>
@@ -204,13 +204,13 @@ $( document ).ready(function() {
                                         <i class="material-icons">directions_car</i><span class="lng-transports textmenu"></span>                    
                                     </a>
                                 </li>                            
-                                <!-- <li id="btn-logout-user">
+                                 <li id="btn-logout-user">
                                     <a href="<?php echo base_url(); ?>tour">
                                         <i class="material-icons">style</i><span class="lng-tours textmenu"></span>                    
                                     </a>
-                                </li>                         -->
+                                </li>                        
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="box-desboard">
                             <a href="<?php echo base_url(); ?>dashboard/view_user" class="feed">
                                 <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>                    
