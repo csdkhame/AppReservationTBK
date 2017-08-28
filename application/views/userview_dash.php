@@ -121,11 +121,11 @@ $(window).scroll(function() {
 														<table width="100%">
 																<tr>
 																		<td width="49%">
-																				<input id="date1"   class=""  name="date" type="text" value="<?=$date;?>" style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
+																				<input id="date1"   class="datepicker"  name="date" type="text" value="<?=$date;?>" style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
 																		</td>
 																		<td width="2%"></td>
 																		<td  width="49%">
-																				<input id="date2"   class=""  name="date" type="text" value="<?=$adate;?>"  style="padding: 8px;      border: 1px solid #eeeeee;width:100%;">  
+																				<input id="date2"   class="datepicker"  name="date" type="text" value="<?=$adate;?>"  style="padding: 8px;      border: 1px solid #eeeeee;width:100%;">  
 																		</td>
 																</tr>
 														</table>
@@ -425,6 +425,19 @@ function search() {
 </script>
 
 <style>
+.btn-close {
+    /* width: 200px; */
+/*    background: #4BB1C1;*/
+    background: #009688;
+    /* text-transform: uppercase; */
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #4BB1C1;
+    /* position: absolute; */
+    right: 15px;
+    padding: 12px 20px;
+    bottom: 15px;
+}
 .btn-silver
 {
 		    background-color: #777;
@@ -666,3 +679,19 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 }
 </script>
 
+<script>
+	$('.picker__frame').append('<div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;" class="close_pickerdate"><div class="btn-close lng-close">Close</div></div>');
+
+$('.close_pickerdate').click(function(){
+	/*$('.picker__table tr td').each(function() {
+    var customerId = $(this).find('div[selected="true"]').html();  
+    console.log(customerId)  ;*/
+    var $input = $('#date1').pickadate(); 
+    var picker = $input.pickadate('picker');
+	picker.close();
+	
+	 var $input2 = $('#date2').pickadate(); 
+    var picker2 = $input2.pickadate('picker');
+	picker2.close();
+	});
+</script>
