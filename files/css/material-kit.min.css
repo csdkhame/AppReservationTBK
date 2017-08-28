@@ -2052,7 +2052,6 @@ select.form-control {
 .navbar .navbar-toggle .icon-bar {
     background-color: inherit;
     border: 1px solid;
-    color: #000;
 }
 
 .navbar .navbar-default .navbar-toggle, .navbar .navbar-inverse .navbar-toggle {
@@ -2078,7 +2077,6 @@ select.form-control {
     .navbar .navbar-toggle .icon-bar {
         background-color: inherit;
         border: 1px solid;
-        color: #000;
     }
     .navbar .navbar-nav .open .dropdown-menu>.dropdown-header {
         border: 0;

@@ -235,13 +235,18 @@ $(document).ready(function() {
 
 
     });
+    $('#search-from').click(function() {
+        $(this).val();
+    });
     $('.btn-management').click(function() {
         $('#loading').css('display', 'block');
         setTimeout(function() {
-            $('.btn-management').css('color', '#16B3B1');
-            $('.btn-home').css('color', '#999999');
-            $('.btn-reservation').css('color', '#999999');
-            $('.btn-realtime').css('color', '#999999');
+            $('.btn-management').css({ 'background': '#16B3B1' }, { 'color': '#ffffff' });
+            $('.btn-car-service').css({ 'background': '#ffffff' }, { 'color': '#999999' });
+
+            $('.btn-home').css({ 'background': '#ffffff' }, { 'color': '#999999' });
+            $('.btn-reservation').css({ 'background': '#ffffff' }, { 'color': '#999999' });
+            $('.btn-realtime').css({ 'background': '#ffffff' }, { 'color': '#999999' });
             $('#loading').css('display', 'none');
             window.location.href = base_url + "dashboard/view_user";
         }, 2000);
@@ -253,6 +258,8 @@ $(document).ready(function() {
 
         setTimeout(function() {
             $('.btn-home').css('color', '#16B3B1');
+            $('.btn-car-service').css('color', '#999999');
+
             $('.btn-reservation').css('color', '#999999');
             $('.btn-management').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
@@ -266,6 +273,8 @@ $(document).ready(function() {
 
         //$('#content').css('display','none');
         setTimeout(function() {
+            $('#box-car-service').hide();
+            $('#map').show(500);
             // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
             //$(this).hide(); 
             //$("#iconhome").fadeIn(1000);
@@ -274,10 +283,14 @@ $(document).ready(function() {
             //  //$('#show-hide-pro2').show(); 
             // $(".btn-real-res").css({ 'text-align': 'center' });
             // $(".btn-realtime").hide();
-            $('.btn-reservation').css('color', '#16B3B1');
-            $('.btn-home').css('color', '#999999');
-            $('.btn-management').css('color', '#999999');
-            $('.btn-realtime').css('color', '#999999');
+            $('.btn-reservation').css({ 'background': '#16B3B1', 'color': '#ffffff' });
+
+
+            $('.btn-home').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-management').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#999999' });
+
             $("#search-show").fadeIn(1000);
 
             //});
@@ -301,10 +314,16 @@ $(document).ready(function() {
         $('#opennut').click();
         //$('#content').css('display','none');
         setTimeout(function() {
-            $('.btn-realtime').css('color', '#16B3B1');
-            $('.btn-reservation').css('color', '#999999');
-            $('.btn-home').css('color', '#999999');
-            $('.btn-management').css('color', '#999999');
+            $('#box-car-service').hide();
+            $('#map').show(500);
+            $('.btn-realtime').css({ 'background': '#16B3B1', 'color': '#ffffff' });
+
+
+            $('.btn-reservation').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-home').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-management').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#999999' });
+
             //$("#iconhome").fadeIn(1000);
             // $('#map').css('display', 'none');
             //$("#iconleft2").fadeIn(1000);
@@ -329,6 +348,45 @@ $(document).ready(function() {
 
         /*   $( "#maps" ).html( "1111" );*/
 
+    });
+    $('.btn-car-service').click(function() {
+        //	  $('#selectPlace').show();
+        $('#loading').css('display', 'block');
+        //       $('#btn-real-res').css('display', 'none');
+        $('#opennut').click();
+        //$('#content').css('display','none');
+        setTimeout(function() {
+            $('#box-car-service').show(500);
+            $('#map').hide();
+            $('.btn-car-service').css({ 'background': '#16B3B1', 'color': '#ffffff' });
+
+            // $('.btn-car-service').css('color', '#16B3B1');
+
+            $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-reservation').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-home').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-management').css({ 'background': '#ffffff', 'color': '#999999' });
+            //$("#iconhome").fadeIn(1000);
+            // $('#map').css('display', 'none');
+            //$("#iconleft2").fadeIn(1000);
+            //$("#iconleft").hide();
+            $("#pro-search").hide();
+            $("#search-raeltime").hide();
+
+            $("#list_place").hide();
+            //$(".btn-reservation").hide();
+            //             $('#selectPlace').css('z-index','1');
+            $('#loading').css('display', 'none');
+            $('#search-show').css('display', 'none')
+            $('#pac-input').css('display', '');
+            //$('#search-raeltime').css('display', 'block');
+
+
+
+
+
+            //$('#content').css('display','block'); 
+        }, 2000);
     });
     $('#cartype').on('change', changeType);
     $('#cartype').on('change', function() {
