@@ -1271,20 +1271,25 @@ $(document).ready(function() {
                         success: function(data) {
                             console.log(data);
                             console.log(s_email);
-                            $.ajax({
-                                type: 'POST',
-                                url: 'https://dotdotdottrip.com/sendemail.php',
-                                data: { 'mail': s_email },
-                                //contentType: "application/json",
-                                dataType: 'json',
-                                success: function(data) {
-                                    console.log(data);
-                                    //console.log(s_email);
+                            if (data.status == 202) {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: 'https://dotdotdottrip.com/sendemail.php',
+                                    data: { 'mail': s_email },
+                                    //contentType: "application/json",
+                                    dataType: 'json',
+                                    success: function(data) {
+                                        console.log(data);
+                                        //console.log(s_email);
 
-                                    window.location.href = "https://dotdotdottrip.com";
+                                        window.location.href = "https://dotdotdottrip.com";
 
-                                }
-                            });
+                                    }
+                                });
+
+                            } else {
+                                alert("please input data ");
+                            }
 
 
                         }
