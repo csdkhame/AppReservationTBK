@@ -490,9 +490,11 @@ $( document ).ready(function() {
 //		  	console.log(i+" : "+l.adult);
 //		  	console.log(adult);
 		});
+		
     	$('#close_dialog').click(function(){
 			$('.dialog').hide();
 			$('#sectionsNav').show();
+			$('body').css('overflow','auto');
 //			alert(123);
 	});
 

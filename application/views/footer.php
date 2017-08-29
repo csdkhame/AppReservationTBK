@@ -113,14 +113,32 @@ if(paramURL=="realtime"){
     margin-top: 10px !important;
                 	}
 </style>
-<div id="close_streetview" dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; left: 0px; top: 0px;">
+<script>
+$( document ).ready(function() {
+	
+	$('.navbar-collapse .feed').click( function(){
+//		alert(123);
+		$('#loading').css('display', 'block');
+	    $('#content').css('display', 'none');
+	    setTimeout(function() {
+//	        console.log("aaaaa")
+	        $('#loading').css('display', 'none');
+	        $('#content').css('display', 'block');
+	    }, 3000);
+				
+	});
+	
+});	
+</script>
+
+<!--<div id="close_streetview" dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; left: 0px; top: 0px;">
 	<div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container">
 		 <div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back">
 		 	<div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> </div>
 			</div> 
 		</div> 
 	</div>
-</div>
+</div>-->
 </html>
 
 

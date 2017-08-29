@@ -822,7 +822,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
             <div class="container">
                 <div class="">
                     <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;"> 
-                        <div class="" style="display:inline-block">Account</div>
+                        <div class="" style="display:inline-block"><span class="lng-acc">Account</span></div>
                     </div>
                      <form action="" method="post" novalidate="novalidate" id="update_profile">
                     <div class="card">  
@@ -833,7 +833,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                 <input type="hidden" id="txt_avatar" name="txt_avatar" value="">
                                                             
                             </div>
-                            <h6>Choose Picture</h6>
+                            <h6><span class="lng-choose_pic">Choose Picture</span></h6>
                         </div>
                         <div class="col-sm-12">
                                                 
@@ -1094,7 +1094,26 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 </section>
 
 
+<script>
+var choosepic;
+var acc;
+if($.cookie("lng")=="en"){
+choosepic = "Choose Picture";
+acc = "Account";
+}else if($.cookie("lng")=="cn"){
+choosepic = "帐户";
+acc = "Account";
+}else if($.cookie("lng")=="th"){
+choosepic = "เลือกภาพ";
+acc = "บัญชี";
+}else if($.cookie("lng")==undefined){
+choosepic = "Choose Picture";
+acc = "Account";
+}
 
+$('.lng-choose_pic').text(choosepic);
+$('.lng-acc').text(acc);
+</script>
 
 <script>
 	$( "#submit" ).click(function(e) {
@@ -1168,7 +1187,6 @@ $( "#country_sekect" ).change(function() {
 	
 </script>
 
-
 <script>
 
 $(document).ready(function(){
@@ -1202,23 +1220,24 @@ $(document).ready(function(){
     
     $.post( "<?php echo base_url(); ?>getcountry_control/process", function( data_c ) {	
   	 var obj_c = JSON.parse(data_c);  	 
+  	 console.log(obj_c);
   	 $.each(obj_c, function (index, value) {
-//  	 	country_sekect
-/*if($.cookie("lng")=="en"){
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
-}else if($.cookie("lng")=="cn"){
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_cn+' </option>');
-}else if($.cookie("lng")=="th"){
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_th+' </option>');
-}else if($.cookie("lng")==undefined){
-$('#country_sekect').append('<option value="'+value.id+'" > '+value.name_en+' </option>');
-}	 */	
 if(value.id == country_id ){
 	selected = "selected";
 }else{
 	selected = "";
 }
-$('#country_sekect').append('<option value="'+value.id+'" '+selected+' class="'+value.phonecode+'" > '+value.name_en+' </option>');
+if($.cookie("lng")=="en"){
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_en+' </option>');
+}else if($.cookie("lng")=="cn"){
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_cn+' </option>');
+}else if($.cookie("lng")=="th"){
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_th+' </option>');
+}else if($.cookie("lng")==undefined){
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_en+' </option>');
+}	 
+
+/*$('#country_sekect').append('<option value="'+value.id+'" '+selected+' class="'+value.phonecode+'" > '+value.name_en+' </option>');*/
   	 });
   	   $("#div-country").removeClass("is-empty has-error");
   });  

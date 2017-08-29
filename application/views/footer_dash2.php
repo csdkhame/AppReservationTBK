@@ -46,7 +46,7 @@
     </footer>
 
     
-<div class=" box-menu-select" style="border-top: 0px solid #C8E1F5 !important;color: #555 !important;">
+<div class=" box-menu-select" style="border-top: 0px solid #C8E1F5 !important;color: #999999; !important;">
     <table width="100%">
         <tr>
         <td width="25%" style="border-right: 1px solid #555;">
@@ -59,7 +59,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
+                            <span class="lng-home" style="font-size: 10px;  font-weight: 500;">Home</span>
                             </td>
                         </tr>
                     </table>
@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                                <span class="lng-now-use" style="font-size: 10px;font-weight: 500;"></span>
                             </td>
                         </tr>
                     </table>
@@ -95,7 +95,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px; color: #000;font-weight: 500;"></span>
+                                <span class="lng-advance-use" style="font-size: 10px;font-weight: 500;"></span>
                             </td>
                         </tr>
                     </table>
@@ -104,7 +104,8 @@
                 </div>
             </td>
             <td width="25%" >
-            <div class="btn-management" id="goto_management">
+            <div class="btn-management" id="goto_management" style="background: rgb(22, 179, 177);
+    color: rgb(255, 255, 255);">
   
                 <table width="100%">
                     <tr>
@@ -114,7 +115,7 @@
                     </tr>
                     <tr>
                         <td align="center">
-                            <span class="lng-management" style="font-size: 10px; color: #000;font-weight: 500;">Management</span>
+                            <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
                         </td>
                     </tr>
                 </table>
@@ -211,9 +212,44 @@
     background: #fff;
     /* height: 90px; */
 }
+	.loading-in{
+    height: 115px;
+    /* border-radius: 4px; */
+    background: #fff;
+    min-width: 15rem;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 10;
+}
+.loading-ld{
+    font-weight: 500;
+    color: #000;
+    padding: 35px;
+    text-align: center;
+}
+#loading{
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.59);
+    display: nones;
+}
 </style>
 
-
+<div id="loading" style="display: none;">
+            <div class="loading-in">               
+                <div class="loading-ld">
+                    <div style="font-size: 15px">Loading</div>
+                        <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i></div>
+                
+                    </div>        
+                </div>
 
 
 <script>
@@ -290,7 +326,37 @@ $( document ).ready(function() {
 
 </script>
 
-
+<script>
+$( document ).ready(function() {
+	
+	$('#gohome').click(function(){
+    		window.location.href = '<?php echo base_url(); ?>';
+    	});
+    	$('#btn-realtime').click(function(){
+    		window.location.href = '<?php echo base_url(); ?>';
+    	});
+    	$('#btn-reservation').click(function(){
+    		window.location.href = '<?php echo base_url(); ?>';
+    	});
+    	$('#btn-reservation').click(function(){
+    		window.location.href = '<?php echo base_url(); ?>dashboard/view_user';
+    	});
+	
+	
+	$('.navbar-collapse .feed').click( function(){
+//		alert(123);
+		$('#loading').css('display', 'block');
+	    $('#content').css('display', 'none');
+	    setTimeout(function() {
+//	        console.log("aaaaa")
+	        $('#loading').css('display', 'none');
+	        $('#content').css('display', 'block');
+	    }, 3000);
+				
+	});
+	
+});	
+</script>
 
 
 
