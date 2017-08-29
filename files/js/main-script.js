@@ -299,7 +299,7 @@ $(document).ready(function() {
     $('#typecarservice').on('change', function() {
 
         $('#loading').css('display', 'block');
-
+        $('.a-link-item').remove();
         setTimeout(function() {
 
             $('#loading').css('display', 'none');
@@ -353,16 +353,16 @@ $(document).ready(function() {
         $.each(dataService, function(i, val) {
             var indexs = parseInt(i) + 1;
             if ($.cookie("lng") == 'cn') {
-                car_topic = dataService.topic_cn;
-                cartype = dataService.car_topic_cn;
-                pax = dataService.pax_cn;
+                car_topic = dataService[i].topic_cn;
+                cartype = dataService[i].car_topic_cn;
+                pax = dataService[i].pax_cn;
                 lngbook = '預訂';
                 lngcapacityinfo = '容量信息';
                 lngfacilities = '设施';
             } else if ($.cookie("lng") == 'en') {
-                car_topic = dataService.topic_en;
-                cartype = dataService.car_topic_en;
-                pax = dataService.pax_en;
+                car_topic = dataService[i].topic_en;
+                cartype = dataService[i].car_topic_en;
+                pax = dataService[i].pax_en;
                 lngbook = 'Book';
                 lngcapacityinfo = 'Capacity info';
                 lngfacilities = 'Facilities';
@@ -371,9 +371,9 @@ $(document).ready(function() {
                 // $('.lng-facilities').html('Facilities')
 
             } else if ($.cookie("lng") == 'th') {
-                car_topic = dataService.topic_th;
-                cartype = dataService.car_topic_th;
-                pax = dataService.pax_th;
+                car_topic = dataService[i].topic_th;
+                cartype = dataService[i].car_topic_th;
+                pax = dataService[i].pax_th;
                 lngbook = 'จอง';
                 lngcapacityinfo = 'ข้อมูลความจุ';
                 lngfacilities = 'สิ่งอำนวยความสะดวก';
@@ -382,9 +382,9 @@ $(document).ready(function() {
                 // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
 
             } else if ($.cookie("lng") == undefined) {
-                car_topic = dataService.topic_en;
-                cartype = dataService.car_topic_en;
-                pax = dataService.pax_en;
+                car_topic = dataService[i].topic_en;
+                cartype = dataService[i].car_topic_en;
+                pax = dataService[i].pax_en;
                 lngbook = 'Book';
                 lngcapacityinfo = 'Capacity info';
                 lngfacilities = 'Facilities';
@@ -397,7 +397,7 @@ $(document).ready(function() {
 
             $('#product_service').append('<div class="a-link-item col-lg-12" >' +
                 '<div class="item-thumbnail2" >' +
-                '<img src="' + urlicon + dataService.transfer_icon + '.jpg">' +
+                '<img src="' + urlicon + dataService[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
                 '<tr>' +
@@ -418,15 +418,15 @@ $(document).ready(function() {
                 '<div id="box-cost-view">' +
                 '<div class="product_r">' +
                 '<span class="base_price"></span>' +
-                '<span class="sala">' + dataService.cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                '<span class="sala">' + dataService[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
                 '</div>' +
                 '<div class="views-item" >' +
-                '<a  href="book?data=' + dataService.transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+                '<a  href="book?data=' + dataService[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
 
                 '</div>' +
                 '</div>' +
-                '<div id="i-list"   onclick="getcondition(\'' + dataService.car_model + '\')">' +
+                '<div id="i-list"   onclick="getcondition(\'' + dataService[i].car_model + '\')">' +
                 '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
                 '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
                 '</div>' +
