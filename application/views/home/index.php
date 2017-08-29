@@ -277,7 +277,7 @@
                         </select>
                         <div style="height: 50vh; overflow: scroll; margin-bottom: 100px;">
                             <div id="product_service">
-                                
+                            <div class="not-found" style="display:none">Product not Found</div>
                             </div>
                         </div>
                     

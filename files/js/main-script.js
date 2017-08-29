@@ -175,9 +175,20 @@ $(document).ready(function() {
                 console.log(data)
                 $('.a-link-item').remove();
 
+
                 $('#loading').hide();
-                $('#typecarservice').show(20)
                 datacaedervice = data[0];
+                if (data[0].data1.length == 0) {
+                    $('#product_service').removeClass('.not-found');
+                    $('#typecarservice').hide()
+                    $('.not-found').show()
+                } else {
+                    $('#typecarservice').show(20)
+                        //$('#product_service').removeClass('.not-found');
+                    $('.not-found').show()
+
+
+                }
 
 
                 if ($.cookie("lng") == 'cn') {
