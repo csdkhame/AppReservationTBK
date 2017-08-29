@@ -300,6 +300,8 @@ $(document).ready(function() {
 
         $('#loading').css('display', 'block');
         $('.a-link-item').remove();
+        //$('#typecarservice').remove();
+
         setTimeout(function() {
 
             $('#loading').css('display', 'none');

@@ -104,7 +104,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <i class="material-icons" id="iconhome" style="font-size: 30px;    margin-left: 20px;    margin-top: 15px;">home</i> 
+                    <i class="material-icons" id="iconhome" style="    position: absolute;
+    font-size: 30px;
+    right: 20px;
+    margin-top: 15px;">home</i> 
                 </div>            
             </div>
         </nav>

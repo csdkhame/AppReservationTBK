@@ -239,7 +239,7 @@
     color: #fff;
     font-weight: 600;
     text-align: center;">
-               <h4>Car service</h4>
+               <h4 class="lng-car-service"></h4>
            </div>
            <style>
            .textInput {
