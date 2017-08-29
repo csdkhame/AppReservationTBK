@@ -46,30 +46,31 @@
     </footer>
 
     
-<div class=" box-menu-select" style="border-top: 0px solid #C8E1F5 !important;color: #999999; !important;">
+<div class="box-menu-select">
     <table width="100%">
         <tr>
-        <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-home" id="gohome" >
+        <!-- <td width="20%" style="border-right: 1px solid #555;">
+                <div class="btn-home" >
                 <table width="100%">
                         <tr>
                             <td align="center">
-                            <i class="material-icons"  style="font-size: 30px;">home</i> 
+                            <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i> 
                             </td>
                         </tr>
                         <tr>
                             <td align="center">
-                            <span class="lng-home" style="font-size: 10px;  font-weight: 500;">Home</span>
+                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
                             </td>
                         </tr>
                     </table>
                    
                    
                 </div>
-            </td>
+            </td> -->
         
-            <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-realtime" id="goto_realtime" >
+            <td width="20%" style="border-right: 1px solid #555;">
+                <div class="btn-realtime" style="    background: rgb(255, 255, 255);
+    color: rgb(153, 153, 153);" >
                     <table width="100%">
                         <tr>
                             <td align="center">
@@ -85,8 +86,9 @@
                    
                 </div>
             </td>
-            <td width="25%" style="border-right: 1px solid #555;">
-                <div class="btn-reservation" id="goto_reservation" >
+            <td width="20%" style="border-right: 1px solid #555;">
+                <div class="btn-reservation" style="    background: rgb(255, 255, 255);
+    color: rgb(153, 153, 153);" >
                 <table width="100%">
                         <tr>
                             <td align="center">
@@ -103,28 +105,47 @@
                    
                 </div>
             </td>
-            <td width="25%" >
-            <div class="btn-management" id="goto_management" style="background: rgb(22, 179, 177);
-    color: rgb(255, 255, 255);">
-  
+            <td width="20%" style="border-right: 1px solid #555;">
+                <div class="btn-car-service" style="    background: rgb(255, 255, 255);
+    color: rgb(153, 153, 153);" >
                 <table width="100%">
-                    <tr>
-                        <td align="center">
-                            <i class="material-icons" style="font-size: 30px;">dvr</i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
-                        </td>
-                    </tr>
-                </table>
-               
-            </div> 
-        </td>
-            
+                        <tr>
+                            <td align="center">
+                            <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
+                            <!-- <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i>  -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                            <span class="lng-car-service" style="font-size: 10px; font-weight: 500;">Car service</span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="20%" >
+                <div class="btn-management" style="    background: rgb(22, 179, 177);
+    color: rgb(255, 255, 255);" >
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <!-- <i class="material-icons" style="font-size: 30px;">settings</i> -->
+                                
+                                <i class="material-icons" style="font-size: 30px;">dvr</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-management" style="font-size: 10px; font-weight: 500;">My Booking</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+            </td>
         </tr>
-    </table>    
+    </table>
  </div>
  <style>
  	.btn-management {
@@ -329,16 +350,16 @@ $( document ).ready(function() {
 <script>
 $( document ).ready(function() {
 	
-	$('#gohome').click(function(){
+	$('.btn-car-service').click(function(){
     		window.location.href = '<?php echo base_url(); ?>';
     	});
-    	$('#btn-realtime').click(function(){
+    	$('.btn-realtime').click(function(){
     		window.location.href = '<?php echo base_url(); ?>';
     	});
-    	$('#btn-reservation').click(function(){
+    	$('.btn-reservation').click(function(){
     		window.location.href = '<?php echo base_url(); ?>';
     	});
-    	$('#btn-reservation').click(function(){
+    	$('.btn-management').click(function(){
     		window.location.href = '<?php echo base_url(); ?>dashboard/view_user';
     	});
 	

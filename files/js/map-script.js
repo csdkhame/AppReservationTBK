@@ -8,6 +8,12 @@ $('#boxRealtime input').focusout(function() {
 });*/
 //		$('#boxRealtime input').click()
 
+$('#delete_text').click(function(){
+	
+	$('#current').val('');
+	
+	
+});
 
 $('#open_map').on('click', initialize);
 $('#open_map').click(function() {
@@ -28,6 +34,7 @@ $('#showPlace').on('hidden.bs.modal', function() {
     $('#chk_val_search').val(0);
     $('#btn-other').removeClass('blinks');
     $('.material-button').show(500);
+    
 });
 
 /*$('#selectPlaceNearby').click(function() {
@@ -52,13 +59,17 @@ function hideHeader() {
     $('.card-contentrealtime').addClass('hidden5');
 }
 
-/*$('#search-raeltime input').click(function(){
+
+
+
+$('#search-raeltime input').focus(function(){
 	$('#search-raeltime div[class="col-md-12 "]').removeClass();
 	$('#sectionsNav').hide();
-//	$('#search-raeltime').css('margin-top','0px');
-	$('.pac-container').show();
-	$('.pac-container').css('top','87px !important');
-});*/
+	$('#search-raeltime').css('margin-top','0px');
+//	$('.pac-container').show();
+//	$('.pac-container').css('top','87px !important');
+$('#delete_text').css('right','10px');
+});
 
 
 var map; //main map
@@ -349,7 +360,7 @@ function addYourLocationButton(map, marker2) {
                 setTimeout(function() {
 
                     document.getElementById("current").value = placeStart[1].formatted_address;
-                    //			  $('#start_yes-change').click();
+                    //		
                     // marker2.setPosition(latlng);
                     // marker2.setAnimation(google.maps.Animation.BOUNCE);
                     smoothZoom(map, 17, map.getZoom());
