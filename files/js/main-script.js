@@ -347,97 +347,97 @@ $(document).ready(function() {
 
 
 
-        // var car_topic, cartype, pax;
-        // var urlicon = '../files/images/carmodelicon/';
-        // //if (data[0].data1.length != 0) {
-        // $.each(compae1private, function(i, val) {
-        //     var indexs = parseInt(i) + 1;
-        //     if ($.cookie("lng") == 'cn') {
-        //         car_topic = compae1private[i].topic_cn;
-        //         cartype = compae1private[i].car_topic_cn;
-        //         pax = compae1private[i].pax_cn;
-        //         lngbook = '預訂';
-        //         lngcapacityinfo = '容量信息';
-        //         lngfacilities = '设施';
-        //     } else if ($.cookie("lng") == 'en') {
-        //         car_topic = compae1private[i].topic_en;
-        //         cartype = compae1private[i].car_topic_en;
-        //         pax = compae1private[i].pax_en;
-        //         lngbook = 'Book';
-        //         lngcapacityinfo = 'Capacity info';
-        //         lngfacilities = 'Facilities';
-        //         // $('.lng-book').html('Facilities')
-        //         // $('.lng-capacity-info').html('Capacity info')
-        //         // $('.lng-facilities').html('Facilities')
+        var car_topic, cartype, pax;
+        var urlicon = '../files/images/carmodelicon/';
+        //if (data[0].data1.length != 0) {
+        $.each(dataService, function(i, val) {
+            var indexs = parseInt(i) + 1;
+            if ($.cookie("lng") == 'cn') {
+                car_topic = dataService.topic_cn;
+                cartype = dataService.car_topic_cn;
+                pax = dataService.pax_cn;
+                lngbook = '預訂';
+                lngcapacityinfo = '容量信息';
+                lngfacilities = '设施';
+            } else if ($.cookie("lng") == 'en') {
+                car_topic = dataService.topic_en;
+                cartype = dataService.car_topic_en;
+                pax = dataService.pax_en;
+                lngbook = 'Book';
+                lngcapacityinfo = 'Capacity info';
+                lngfacilities = 'Facilities';
+                // $('.lng-book').html('Facilities')
+                // $('.lng-capacity-info').html('Capacity info')
+                // $('.lng-facilities').html('Facilities')
 
-        //     } else if ($.cookie("lng") == 'th') {
-        //         car_topic = compae1private[i].topic_th;
-        //         cartype = compae1private[i].car_topic_th;
-        //         pax = compae1private[i].pax_th;
-        //         lngbook = 'จอง';
-        //         lngcapacityinfo = 'ข้อมูลความจุ';
-        //         lngfacilities = 'สิ่งอำนวยความสะดวก';
-        //         // $('.lng-book').html('จอง')
-        //         // $('.lng-capacity-info').html('ข้อมูลความจุ')
-        //         // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+            } else if ($.cookie("lng") == 'th') {
+                car_topic = dataService.topic_th;
+                cartype = dataService.car_topic_th;
+                pax = dataService.pax_th;
+                lngbook = 'จอง';
+                lngcapacityinfo = 'ข้อมูลความจุ';
+                lngfacilities = 'สิ่งอำนวยความสะดวก';
+                // $('.lng-book').html('จอง')
+                // $('.lng-capacity-info').html('ข้อมูลความจุ')
+                // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
 
-        //     } else if ($.cookie("lng") == undefined) {
-        //         car_topic = compae1private[i].topic_en;
-        //         cartype = compae1private[i].car_topic_en;
-        //         pax = compae1private[i].pax_en;
-        //         lngbook = 'Book';
-        //         lngcapacityinfo = 'Capacity info';
-        //         lngfacilities = 'Facilities';
-        //         // $('.lng-book').html('Book')
-        //         // $('.lng-capacity-info').html('Capacity info')
-        //         // $('.lng-facilities').html('Facilities')
+            } else if ($.cookie("lng") == undefined) {
+                car_topic = dataService.topic_en;
+                cartype = dataService.car_topic_en;
+                pax = dataService.pax_en;
+                lngbook = 'Book';
+                lngcapacityinfo = 'Capacity info';
+                lngfacilities = 'Facilities';
+                // $('.lng-book').html('Book')
+                // $('.lng-capacity-info').html('Capacity info')
+                // $('.lng-facilities').html('Facilities')
 
-        //     }
-
-
-        //     $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-        //         '<div class="item-thumbnail2" >' +
-        //         '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
-        //         '</div>' +
-        //         '<table width="100%">' +
-        //         '<tr>' +
-        //         '<td style="width: 30px;">' +
-        //         '<span class="hotel_num">' + indexs + '</span>' +
-        //         '</td>' +
-
-        //         '<td>' +
-        //         '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-        //         '</td>' +
-        //         '</tr>' +
-        //         '</table>' +
-        //         '<div class="box-province">' +
-        //         '<p class="type-t">' +
-        //         '<span class="car-type" >' + cartype + pax + '</span>' +
-        //         '</p>' +
-        //         '</div>' +
-        //         '<div id="box-cost-view">' +
-        //         '<div class="product_r">' +
-        //         '<span class="base_price"></span>' +
-        //         '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-
-        //         '</div>' +
-        //         '<div class="views-item" >' +
-        //         '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
-
-        //         '</div>' +
-        //         '</div>' +
-        //         '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-        //         '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
-        //         '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-        //         '</div>' +
-        //         '</div>'
-
-        //     );
+            }
 
 
-    }); //end private
+            $('#product_service').append('<div class="a-link-item col-lg-12" >' +
+                '<div class="item-thumbnail2" >' +
+                '<img src="' + urlicon + dataService.transfer_icon + '.jpg">' +
+                '</div>' +
+                '<table width="100%">' +
+                '<tr>' +
+                '<td style="width: 30px;">' +
+                '<span class="hotel_num">' + indexs + '</span>' +
+                '</td>' +
+
+                '<td>' +
+                '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                '</td>' +
+                '</tr>' +
+                '</table>' +
+                '<div class="box-province">' +
+                '<p class="type-t">' +
+                '<span class="car-type" >' + cartype + pax + '</span>' +
+                '</p>' +
+                '</div>' +
+                '<div id="box-cost-view">' +
+                '<div class="product_r">' +
+                '<span class="base_price"></span>' +
+                '<span class="sala">' + dataService.cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+                '</div>' +
+                '<div class="views-item" >' +
+                '<a  href="book?data=' + dataService.transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+
+                '</div>' +
+                '</div>' +
+                '<div id="i-list"   onclick="getcondition(\'' + dataService.car_model + '\')">' +
+                '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
+                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                '</div>' +
+                '</div>'
+
+            );
 
 
+        }); //end private
+
+    });
 
 
 
