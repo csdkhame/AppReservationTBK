@@ -164,11 +164,31 @@ $(document).ready(function() {
             // the checkbox is now no longer checked
         }
     })
+
     $('#on_date').each(function() {
-        //alert("qwqwqwq")
+        // alert("qwqwqwq")
         var val = $(this).val();
         date = moment(val).toDate();
+        // $('.picker__footer').html('<div class="box-cale">' +
+        //     '<div class="btn-cale  lng-close">CLOSE</div>' +
+        //     '</div>');
+
+
+
     });
+    $('.btn-cale').click(function() {
+        alert('aaaa')
+        var $input = $('#on_date').pickadate();
+        var picker = $input.pickadate('picker');
+        picker.close();
+
+
+    });
+    // $('#on_date').each(function() {
+    // $('.picker__footer').html('<div class="box-cale">' +
+    //     '<div class="btn-cale  lng-close">CLOSE</div>' +
+    //     '</div>');
+    // });
     $('#on_date').pickadate({
         format: 'yyyy-mm-dd',
         formatSubmit: 'yyyy-mm-dd',

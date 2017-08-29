@@ -7,6 +7,10 @@
         $lan_search_from = 'From: Type airport,hotel name, or location.';
         $lan_search_to = 'To: Type airport,hotel name, or location.';
         $lan_go_txt = 'where you go ?';
+        $lng_from = 'From';
+        $lng_to = 'To';
+        
+        
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -14,6 +18,8 @@
         $lan_search_from = 'From: Type airport,hotel name, or location.';
         $lan_search_to = 'To: Type airport,hotel name, or location.';
         $lan_go_txt = 'where you go ?';
+        $lng_from = 'From';
+        $lng_to = 'To';
         
     }
     else if($_COOKIE['lng'] == 'th'){
@@ -22,6 +28,9 @@
         $lan_search_from = 'จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
         $lan_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
         $lan_go_txt = 'คุณต้องการไปไหน ?';
+        $lng_from = 'จาก';
+        $lng_to = 'ไปยัง';
+        
         
     }
     else if($_COOKIE['lng'] == 'cn'){
@@ -30,6 +39,8 @@
        $lan_search_from = '从: 机场，酒店名称或位置。';
        $lan_search_to = '至: 机场，酒店名称或位置。';
        $lan_go_txt = '你去哪裡 ?';
+       $lng_from = '从';
+       $lng_to = '至';
        
     }
 ?>
@@ -230,6 +241,48 @@
     text-align: center;">
                <h4>Car service</h4>
            </div>
+           <style>
+           .textInput {
+    border: 1px solid #dfdfdf;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+}
+           </style>
+            <div style="    margin-top: 10px;">
+                <div class="col-md-6">  
+                    <!-- <div>
+                        <span>
+                            From
+                        </span>
+                    </div>                                           -->
+                                                                                         
+                        <select class="textInput" name="province" id="province" class="" style="  ">
+                            <option class="textInput" value="az_AZ" ><? echo  $lng_from;?></option>
+                        </select>
+                    
+                     
+                    <!-- <div>
+                        <span>
+                            To
+                        </span>
+                    </div>                                                                        -->
+                        <select class="textInput" name="provinceto" id="provinceto" class="" style="  ">
+                            <option class="textInput" value="az_AZ" ><? echo  $lng_to;?></option>
+                        </select>
+                   
+                   
+                        <select class="textInput" name="typecarservice" id="typecarservice" style="display:none">
+                            <option  class="textInput" value="All Type" ><?php echo  $lng_all_type;?></option>                                                                
+                        </select>
+                        <div style="height: 100vh; overflow: scroll; margin-bottom: 100px;">
+                            <div id="product_service">
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
         </div>
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 

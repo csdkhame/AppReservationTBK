@@ -288,9 +288,9 @@
 .picker__button--close {
     border: 1px solid #ffffff;
     background: #ffffff;
-    font-size: .8em;
+    /* font-size: .8em; */
     padding: .66em 0;
-    font-weight: bold;
+    /* font-weight: bold; */
     width: 33%;
     display: inline-block;
     vertical-align: bottom;
