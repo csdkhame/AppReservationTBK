@@ -294,7 +294,11 @@
 	<div ></div>
 </div>  -->
 
-   
+ <style>
+ .box-menu-select{
+    box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
+ }
+ </style>  
 <div class="modal fade" id="updatelat" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content" style="max-height: 640px; overflow: hidden; overflow-y: scroll;">
