@@ -147,7 +147,9 @@
         }, 1)
 
     } //DatePicker
-
+    // $('#btn-cale').click(function() {
+    //     picker.$root.find('button, select').attr('disabled', true)
+    // });
 
     /**
      * Set a datepicker item object.
@@ -1310,6 +1312,19 @@
     /**
      * The date picker defaults.
      */
+    var tclose;
+    if ($.cookie("lng") == 'cn') {
+        tclose = '密切';
+    } else if ($.cookie("lng") == 'en') {
+        tclose = 'Close';
+
+    } else if ($.cookie("lng") == 'th') {
+        tclose = 'ปิด';
+
+    } else if ($.cookie("lng") == undefined) {
+        tclose = 'Close';
+
+    }
     DatePicker.defaults = (function(prefix) {
 
         return {
@@ -1331,7 +1346,8 @@
             // Today and clear
             today: 'Today',
             clear: 'Clear',
-            close: 'Close',
+            close: tclose,
+
 
             // Picker close behavior
             closeOnSelect: true,

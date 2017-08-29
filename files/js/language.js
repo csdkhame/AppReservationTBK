@@ -125,6 +125,8 @@ $(document).ready(function() {
         $('.lng-cancel').html('取消');
         $('.lng-seating').html('座位数');
         $('.lng-terms-of-use').html('服务条款');
+        $('.picker__button--close').html('密切');
+
         $('.lng-close').html('密切');
         $('.lng-home').html('主頁');
         $('.lng-management').html('管理');
@@ -263,6 +265,8 @@ $(document).ready(function() {
         $('.lng-cancel').html('Cancel');
         $('.lng-seating').html('Seating');
         $('.lng-terms-of-use').html('Terms of Use');
+        $('.picker__button--close').html('Close');
+
         $('.lng-close').html('Close');
         $('.lng-home').html('Home');
         $('.lng-management').html('Management');
@@ -393,6 +397,8 @@ $(document).ready(function() {
         $('.lng-cancel').html('ยกเลิก')
         $('.lng-seating').html('ที่นั่ง');
         $('.lng-terms-of-use').html('ข้อกำหนดการใช้งาน');
+        $('.picker__button--close').html('ปิด');
+
         $('.lng-close').html('ปิด');
         $('.lng-home').html('หน้าหลัก');
         $('.lng-management').html('การจัดการ');
@@ -519,6 +525,8 @@ $(document).ready(function() {
         $('.lng-seating').html('Seating');
         $('.lng-terms-of-use').html('Terms of Use');
         $('.lng-close').html('Close');
+        $('.picker__button--close').html('Close');
+
         $('.lng-home').html('Home');
         $('.lng-management').html('Management');
         $('.lng-new-password').html('New Password');

@@ -6,6 +6,30 @@ body {
     margin-bottom: 110px;
 }
 
+.box-menu-select2 {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    background: #fff;
+    /* height: 90px; */
+}
+
+.btn-car-service {
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #999999;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
 .btn-close {
     /* width: 200px; */
     background: #4BB1C1;
@@ -164,7 +188,7 @@ body {
 #show-hide-pro {
     height: 36px;
     border-radius: 100%;
-    /* background: #fff; */
+    background: #fff;
     border: 2px solid rgb(22, 179, 177);
     min-width: 2rem;
     /* height: auto; */
@@ -181,7 +205,7 @@ body {
 #show-hide-pro2 {
     height: 36px;
     border-radius: 100%;
-    /* background: #fff; */
+    background: #fff;
     border: 2px solid rgb(22, 179, 177);
     min-width: 2rem;
     /* height: auto; */
