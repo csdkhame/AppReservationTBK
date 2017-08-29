@@ -963,10 +963,16 @@ input:after {
         width: 49%;
         display: inline-block;
     }
+    #box-pro-service {
+        height: 50vh;
+    }
 }
 
 @media screen and (max-width:320px) {
     /*@media only screen and (max-device-width: 568px) and (min-device-width: 320px) and (orientation: portrait){*/
+    #box-pro-service {
+        height: 45vh;
+    }
     .box-province {
         margin-left: 3px;
     }
