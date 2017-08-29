@@ -66,14 +66,17 @@ $('#search-raeltime input').focus(function(){
 	$('#search-raeltime div[class="col-md-12 "]').removeClass();
 	$('#sectionsNav').hide();
 	$('#search-raeltime').css('margin-top','0px');
-//	$('.pac-container').show();
-//	$('.pac-container').css('top','87px !important');
+
 	$('#delete_text').css('right','10px');
 	
+	$('#boxForAutoCom').show();
+	$('#map').css('display','none');
 	$( ".pac-container" ).each(function( index ) {
-//  console.log( index + ": " + $( this ).text() );
+
 	$(this).attr("id","listPleacItem_"+index);
 	});
+	
+	$('#listPleacItem_0').appendTo('#appendBox');
 
 });
 

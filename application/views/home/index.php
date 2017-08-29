@@ -286,13 +286,17 @@
         </div>
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
-<!--<div style="    width: 100%;
+<div id="boxForAutoCom" style="width: 100%;
     height: 100vh;
     background: rgb(255, 255, 255);
     position: relative;
-    overflow: hidden;" >
-	<div ></div>
-</div>  -->
+    overflow: hidden;
+    top: 91px;" >
+	<div>
+		<button class="btn btn-info">TEST</button>
+	</div>
+	<div id="appendBox"></div>
+</div>  
 
  <style>
  .box-menu-select{
