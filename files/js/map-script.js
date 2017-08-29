@@ -68,7 +68,13 @@ $('#search-raeltime input').focus(function(){
 	$('#search-raeltime').css('margin-top','0px');
 //	$('.pac-container').show();
 //	$('.pac-container').css('top','87px !important');
-$('#delete_text').css('right','10px');
+	$('#delete_text').css('right','10px');
+	
+	$( ".pac-container" ).each(function( index ) {
+//  console.log( index + ": " + $( this ).text() );
+	$(this).attr("id","listPleacItem_"+index);
+	});
+
 });
 
 
