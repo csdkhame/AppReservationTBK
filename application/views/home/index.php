@@ -182,7 +182,7 @@
             <div class="col-md-12 " >
                 <div class="card-contentrealtime">
                     <div class="box-search" id='boxRealtime'>
-                        <button class="btn btn-success btn-xs" id="start_yes-change" style=" color: #fff; z-index: 1;display:none;   /* font-size: 13px; */    right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0;"><span>Change</span></button>
+                       <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>
                         <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
                         <div style="display: nones;" id="open-search">
                             <div style="border-bottom: 1px solid #333;display:nones;"></div>
@@ -233,6 +233,13 @@
         </div>
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
+<!--<div style="    width: 100%;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;" >
+	<div ></div>
+</div>  -->
 
    
 <div class="modal fade" id="updatelat" role="dialog">
@@ -291,7 +298,6 @@
         </div>
     </div>
 </div>
-
 
 <div id="testImo" class="modal fade" role="dialog">
     <div class="modal-dialog" style=" width: 100%;  height: 60%;  margin: 0;  padding: 0;">
@@ -358,3 +364,6 @@
     </div>
   </div>
   
+
+
+

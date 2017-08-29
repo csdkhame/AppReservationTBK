@@ -68,7 +68,8 @@ $(document).ready(function() {
         $('.lng-language').html('语言');
         $('.lng-settings-account').html('设置帐户');
         $('.lng-logout').html('登出');
-        $('.lng-advance-use').html('提前使用');
+//        $('.lng-advance-use').html('提前使用');
+        $('.lng-advance-use').html('搜索车');
         $('.lng-now-use').html('现在使用');
         $('.lng-search').html('搜索');
         $('.lng-dashboard').html('报告与管理');
@@ -127,7 +128,7 @@ $(document).ready(function() {
         $('.lng-terms-of-use').html('服务条款');
         $('.lng-close').html('密切');
         $('.lng-home').html('主頁');
-        $('.lng-management').html('管理');
+        $('.lng-management').html('我的预订');
         $('.lng-new-password').html('新密码');
         $('.lng-confirm-password').html('确认密码');
         $('.lng-foget-pass').html('忘记密码');
@@ -206,7 +207,7 @@ $(document).ready(function() {
         $('.lng-settings-account').html('Settings Account');
         $('.lng-logout').html('Logout');
         //home
-        $('.lng-advance-use').html('Find transfer');
+        $('.lng-advance-use').html('Search transfer');
         $('.lng-now-use').html('Pick Up Here');
         $('.lng-search').html('Search');
         $('.lng-dashboard').html('Report&management');
@@ -265,7 +266,7 @@ $(document).ready(function() {
         $('.lng-terms-of-use').html('Terms of Use');
         $('.lng-close').html('Close');
         $('.lng-home').html('Home');
-        $('.lng-management').html('Management');
+        $('.lng-management').html('My Booking');
         $('.lng-new-password').html('New Password');
         $('.lng-confirm-password').html('Confirm Password');
         $('.lng-foget-pass').html('Forgot your password');
@@ -336,7 +337,8 @@ $(document).ready(function() {
         $('.lng-language').html('ภาษา');
         $('.lng-settings-account').html('ตั้งค่าบัญชี');
         $('.lng-logout').html(' ออกจากระบบ');
-        $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
+//        $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
+        $('.lng-advance-use').html('ค้นหารถ');
         $('.lng-now-use').html('รับที่นี่');
         $('.lng-search').html(' ค้นหา');
         $('.lng-dashboard').html('รายงานและการจัดการ');
@@ -395,7 +397,7 @@ $(document).ready(function() {
         $('.lng-terms-of-use').html('ข้อกำหนดการใช้งาน');
         $('.lng-close').html('ปิด');
         $('.lng-home').html('หน้าหลัก');
-        $('.lng-management').html('การจัดการ');
+        $('.lng-management').html('การจองของฉัน');
         $('.lng-new-password').html('รหัสผ่านใหม่');
         $('.lng-confirm-password').html('ยืนยันรหัสผ่าน');
         $('.lng-bag-big').html('กระเป๋าใหญ่');
@@ -460,7 +462,8 @@ $(document).ready(function() {
         $('.lng-settings-account').html('Settings Account');
         $('.lng-logout').html('Logout');
         //home
-        $('.lng-advance-use').html('Find transfer');
+//        $('.lng-advance-use').html('Find transfer');
+        $('.lng-advance-use').html('Search transfer');
         $('.lng-now-use').html('Pick Up Here');
         $('.lng-search').html('Search');
         $('.lng-dashboard').html('Report&management');
@@ -520,7 +523,7 @@ $(document).ready(function() {
         $('.lng-terms-of-use').html('Terms of Use');
         $('.lng-close').html('Close');
         $('.lng-home').html('Home');
-        $('.lng-management').html('Management');
+        $('.lng-management').html('My Booking');
         $('.lng-new-password').html('New Password');
         $('.lng-confirm-password').html('Confirm Password');
         $('.lng-arrival-date').html('Arrival date');

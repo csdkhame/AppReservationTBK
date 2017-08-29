@@ -573,7 +573,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	
 </script>
 
-<script>
+<!--<script>
 	$('#gohome').click(function(){
 		location.href = base_url;
 	});
@@ -587,7 +587,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 		location.href = base_url+"dashboard/view_user?num=5&start=0&page=1";
 	});
 </script>
-
+-->
 <script>
 	$( document ).ready(function() {
     	
