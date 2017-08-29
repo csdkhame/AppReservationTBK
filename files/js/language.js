@@ -68,7 +68,7 @@ $(document).ready(function() {
         $('.lng-language').html('语言');
         $('.lng-settings-account').html('设置帐户');
         $('.lng-logout').html('登出');
-//        $('.lng-advance-use').html('提前使用');
+        //        $('.lng-advance-use').html('提前使用');
         $('.lng-advance-use').html('搜索车');
         $('.lng-now-use').html('现在使用');
         $('.lng-search').html('搜索');
@@ -139,6 +139,7 @@ $(document).ready(function() {
         $('.lng-change-password').html('更改密碼');
         $('.lng-change').html('更改');
         $('.lng-not-same').html('密码不一样');
+        $('.lng-car-service').html('用车服务');
 
 
 
@@ -279,6 +280,8 @@ $(document).ready(function() {
         $('.lng-change-password').html('Change password');
         $('.lng-change').html('Change');
         $('.lng-not-same').html('Password not same');
+        $('.lng-car-service').html('Car service');
+
 
 
 
@@ -341,7 +344,7 @@ $(document).ready(function() {
         $('.lng-language').html('ภาษา');
         $('.lng-settings-account').html('ตั้งค่าบัญชี');
         $('.lng-logout').html(' ออกจากระบบ');
-//        $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
+        //        $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
         $('.lng-advance-use').html('ค้นหารถ');
         $('.lng-now-use').html('รับที่นี่');
         $('.lng-search').html(' ค้นหา');
@@ -417,6 +420,8 @@ $(document).ready(function() {
         $('.lng-not-same').html('รหัสผ่านไม่เหมือนกัน');
         $('.lng-detail-order').html('รายละเอียดสั่งซื้อ');
         $('.lng-voucher-no').html('เลขที่วอเชอร์');
+        $('.lng-car-service').html('บริการรถ');
+
 
 
 
@@ -468,7 +473,7 @@ $(document).ready(function() {
         $('.lng-settings-account').html('Settings Account');
         $('.lng-logout').html('Logout');
         //home
-//        $('.lng-advance-use').html('Find transfer');
+        //        $('.lng-advance-use').html('Find transfer');
         $('.lng-advance-use').html('Search transfer');
         $('.lng-now-use').html('Pick Up Here');
         $('.lng-search').html('Search');
@@ -543,6 +548,8 @@ $(document).ready(function() {
         $('.lng-change').html('Change');
         $('.lng-not-same').html('Password not same');
         $('.lng-date').html('date');
+        $('.lng-car-service').html('Car service');
+
 
 
 

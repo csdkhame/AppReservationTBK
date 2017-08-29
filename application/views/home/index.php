@@ -239,7 +239,7 @@
     color: #fff;
     font-weight: 600;
     text-align: center;">
-               <h4>Car service</h4>
+               <h4 class="lng-car-service"></h4>
            </div>
            <style>
            .textInput {
@@ -275,7 +275,7 @@
                         <select class="textInput" name="typecarservice" id="typecarservice" style="display:none">
                             <option  class="textInput" value="All Type" ><?php echo  $lng_all_type;?></option>                                                                
                         </select>
-                        <div style="height: 100vh; overflow: scroll; margin-bottom: 100px;">
+                        <div style="height: 50vh; overflow: scroll; margin-bottom: 100px;">
                             <div id="product_service">
                                 
                             </div>
@@ -294,7 +294,11 @@
 	<div ></div>
 </div>  -->
 
-   
+ <style>
+ .box-menu-select{
+    box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
+ }
+ </style>  
 <div class="modal fade" id="updatelat" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content" style="max-height: 640px; overflow: hidden; overflow-y: scroll;">
