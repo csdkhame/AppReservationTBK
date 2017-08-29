@@ -636,7 +636,7 @@ $(document).ready(function() {
 
 function language(lng) {
     console.log(lng);
-    $.cookie("lng", lng);
+    $.cookie("lng", lng, { path: '/' });
     window.location.reload();
 
 }
