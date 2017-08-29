@@ -8,6 +8,86 @@
     <?
     $json = json_encode($results);
      ?>
+     
+<style>
+.btn-close {
+    /* width: 200px; */
+/*    background: #4BB1C1;*/
+    background: #009688;
+    /* text-transform: uppercase; */
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #4BB1C1;
+    /* position: absolute; */
+    right: 15px;
+    padding: 12px 20px;
+    bottom: 15px;
+}
+.btn-silver
+{
+		    background-color: #777;
+}
+	
+/* .modal-transparent */
+
+.modal-transparent {
+  background: transparent;
+}
+.modal-transparent .modal-content {
+  background: transparent;
+}
+.modal-backdrop.modal-backdrop-transparent {
+  background: #ffffff;
+}
+.modal-backdrop.modal-backdrop-transparent.in {
+  opacity: .9;
+  filter: alpha(opacity=90);
+}
+
+/* .modal-fullscreen */
+
+.modal-fullscreen {
+  background: transparent;
+}
+.modal-fullscreen .modal-content {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: #ffffff;
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .97;
+  filter: alpha(opacity=97);
+}
+
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+
+</style>
 <script>
 $( document ).ready(function() {
     $( "#user_view" ).addClass( "active" );
@@ -17,12 +97,17 @@ $( document ).ready(function() {
 //    console.log(<?=$json;?>);
     
 $(window).scroll(function() {
+	 var scrollTop = $(this).scrollTop();
+
 	var check = $(document).height()/3;
 //	console.log(check);
    if($(window).scrollTop() + $(window).height() >= $(document).height()-400) {
 //       alert("bottom!");
 		$('#top-end_btn').show(700);
    }
+   if (scrollTop <= 200) {
+   $('#top-end_btn').hide(700);
+  }
 //   console.log($(window).scrollTop()+" : "+$(window).height()+" : "+$(document).height());
 });
     
@@ -424,86 +509,6 @@ function search() {
 }
 </script>
 
-<style>
-.btn-close {
-    /* width: 200px; */
-/*    background: #4BB1C1;*/
-    background: #009688;
-    /* text-transform: uppercase; */
-    text-align: center;
-    color: #ffffff;
-    border: 1px solid #4BB1C1;
-    /* position: absolute; */
-    right: 15px;
-    padding: 12px 20px;
-    bottom: 15px;
-}
-.btn-silver
-{
-		    background-color: #777;
-}
-	
-/* .modal-transparent */
-
-.modal-transparent {
-  background: transparent;
-}
-.modal-transparent .modal-content {
-  background: transparent;
-}
-.modal-backdrop.modal-backdrop-transparent {
-  background: #ffffff;
-}
-.modal-backdrop.modal-backdrop-transparent.in {
-  opacity: .9;
-  filter: alpha(opacity=90);
-}
-
-/* .modal-fullscreen */
-
-.modal-fullscreen {
-  background: transparent;
-}
-.modal-fullscreen .modal-content {
-  background: transparent;
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.modal-backdrop.modal-backdrop-fullscreen {
-  background: #ffffff;
-}
-.modal-backdrop.modal-backdrop-fullscreen.in {
-  opacity: .97;
-  filter: alpha(opacity=97);
-}
-
-/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
-
-.modal-fullscreen .modal-dialog {
-  margin: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .modal-fullscreen .modal-dialog {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .modal-fullscreen .modal-dialog {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .modal-fullscreen .modal-dialog {
-     width: 1170px;
-  }
-}
-
-</style>
-
 <script>
 	function view_ref(head_id,code){
 		//alert(123);
@@ -538,8 +543,12 @@ function search() {
 	function view_order_level2(order_id){
 //			$( "#show_order" ).html( '<div align="center" ><img src="'+base_url+'dasboard/ring.gif" /></div>' );
 			$( "#show_order" ).html( '<div align="center" ></div>' );
+			$('#loading').css('display', 'block');
+	    	$('#content').css('display', 'none');
+
 			$.post( base_url+"dashboard/query_transfer_byuser?order_id="+order_id,{ check : "yes" } ,function( data ) {
-				
+			$('#loading').css('display', 'none');
+	        $('#content').css('display', 'block');
 				$( "#show_order" ).html( data);
 				
 //					console.log(data);
@@ -548,6 +557,7 @@ function search() {
 		});
 		$('#sectionsNav').hide();
 		$('.dialog').show();
+		$('body').css('overflow','hidden');
 //	$('#open_modal').click();
 	}	
 $(".modal-fullscreen").on('show.bs.modal', function () {
@@ -580,20 +590,6 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 
 <script>
 	$( document ).ready(function() {
-    	
-    	/*$('#gohome').click(function(){
-    		window.location.href = '<?php echo base_url(); ?>';
-    	});
-    	$('#btn-realtime').click(function(){
-    		window.location.href = '<?php echo base_url(); ?>';
-    	});
-    	$('#btn-reservation').click(function(){
-    		window.location.href = '<?php echo base_url(); ?>';
-    	});
-    	$('#btn-reservation').click(function(){
-    		window.location.href = '<?php echo base_url(); ?>dashboard/view_user';
-    	});*/
-    	
     	
     	findRowDate();
     	
@@ -629,13 +625,6 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	}
 	
 	function checkBetween(dateFrom,dateTo,dateCheck){
-		/*var dateFrom = "12/07/2017";
-		var dateCheck = "12/08/2017";
-		var dateTo = "12/09/2017";*/
-		
-	/*	var dateFrom = "2017-07-12";
-		var dateTo = "2017-09-12";
-		var dateCheck = "2017-07-21";*/
 		
 		var dateFrom = formatDate (dateFrom);
 		var dateCheck = formatDate (dateCheck);
