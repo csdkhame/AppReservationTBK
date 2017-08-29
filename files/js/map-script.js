@@ -75,9 +75,10 @@ $('#search-raeltime input').focus(function(){
 
 	$(this).attr("id","listPleacItem_"+index);
 	});
-	
-	$('#listPleacItem_0').appendTo('#appendBox');
+});
 
+$('').click(function(){
+	$('#listPleacItem_0').appendTo('#appendBox');
 });
 
 

@@ -286,12 +286,18 @@
         </div>
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
+<style>
+	.pac-container{
+    top: 0px !important;
+	}
+</style>
 <div id="boxForAutoCom" style="width: 100%;
     height: 100vh;
     background: rgb(255, 255, 255);
     position: relative;
     overflow: hidden;
-    top: 91px;" >
+    top: 91px;
+    display: none;" >
 	<div>
 		<button class="btn btn-info">TEST</button>
 	</div>
