@@ -362,7 +362,10 @@
 
 
                 
-               
+                <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
+                <div  class="btn-close lng-close" ></div>
+                   
+                </div>
             </div>
         </div>
 <div class="modal fade" id="updatelat" role="dialog">
