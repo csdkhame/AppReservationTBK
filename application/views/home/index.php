@@ -308,6 +308,8 @@
     box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
  }
  .btn-close-img {
+    width: 59%;
+    /* position: fixed; */
     /* width: 200px; */
     background: #4BB1C1;
     /* text-transform: uppercase; */
@@ -316,8 +318,8 @@
     border: 1px solid #4BB1C1;
     /* position: absolute; */
     right: 15px;
-    padding: 12px 20px;
-    bottom: 15px;
+    transform: translate(38%,0%);
+    padding: 12px 0;
 }
 </style>
 	<div id="appendBox"></div>
@@ -358,9 +360,9 @@
     color: #fff;
     font-weight: 600;
     text-align: center;">
-               <h4 class="lng-image">Image</h4>
+               <h4 class="lng-car"></h4>
            </div>
-                <div style="padding:12px;">
+                <div style="">
                     <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
                 <div  class="btn-close-img lng-close" ></div>
                    
