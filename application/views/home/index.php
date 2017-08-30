@@ -294,12 +294,19 @@
     overflow: hidden;
     top: 91px;
     display: none;" >
-<!--	<div>
-		<button class="btn btn-info">TEST</button>
-	</div>-->
+<style>
+	.pac-container {
+    width: 100% !important;
+    position: unset !important;
+    left: 0px !important;
+    top: 0px !important;
+    /* display: none; */
+    height: 100% !important;
+}
+</style>
 	<div id="appendBox"></div>
 	<div id="otherBox">
-		<div class="pac-item"><span class="pac-icon pac-icon-marker"></span>
+		<div class="pac-item"><span class="fa fa-home" aria-hidden="true"></span>
 		<span class="pac-item-query">Home</span></div>
 	</div>
 </div>  
