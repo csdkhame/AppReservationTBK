@@ -304,6 +304,9 @@
     height: 100% !important;
     box-shadow: none;
 }
+.box-menu-select{
+    box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
+ }
 </style>
 	<div id="appendBox"></div>
 	<div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
@@ -316,11 +319,7 @@
 		</div>
 </div>  
 
- <style>
- .box-menu-select{
-    box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
- }
- </style> 
+  
  <div id="img-car" style="z-index: 201;
     position: fixed;
     left: 0px;
@@ -337,35 +336,7 @@
     transform: translate(-50%,-50%);
     position: fixed;
     z-index: 3;">
-    <style>
-    body {
-       
-    }
-    .swiper-container {
-        width: 500px;
-        height: 300px;
-        margin: 20px auto;
-    }
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    </style>
+    
                 <div style="position: relative;
     top: 0;
     left: 0;
