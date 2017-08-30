@@ -300,7 +300,7 @@
 	<div id="appendBox"></div>
 	<div id="otherBox">
 		<div class="pac-item"><span class="pac-icon pac-icon-marker"></span>
-		<i class="fa fa-home" aria-hidden="true"></i><span class="pac-item-query">Home</span></div>
+		<span class="pac-item-query">Home</span></div>
 	</div>
 </div>  
 
