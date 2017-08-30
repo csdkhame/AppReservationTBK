@@ -2,6 +2,76 @@ body {
     height: 100vh;
 }
 
+#boxForAutoCom {
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+    top: 91px;
+    display: none;
+}
+
+.pac-container {
+    width: 100% !important;
+    position: unset !important;
+    left: 0px !important;
+    top: 0px !important;
+    /* display: none; */
+    height: 100% !important;
+    box-shadow: none;
+}
+
+.box-menu-select {
+    box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
+}
+
+#img-car {
+    z-index: 201;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    /* background: rgba(0, 0, 0, 0.59); */
+    display: none;
+}
+
+.box-in-foget {
+    height: 100vh;
+    /* border-radius: 4px; */
+    background: #fff;
+    min-width: 100%;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 3;
+}
+
+.header-img {
+    text-align: center;
+    background: #16b3b1;
+    padding: 5px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn-close-img {
+    width: 61%;
+    /* position: fixed; */
+    /* width: 200px; */
+    background: #4BB1C1;
+    /* text-transform: uppercase; */
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #4BB1C1;
+    /* position: absolute; */
+    right: 15px;
+    transform: translate(32%, 0%);
+    padding: 12px 0;
+}
+
 #product_a {
     margin-bottom: 110px;
 }
