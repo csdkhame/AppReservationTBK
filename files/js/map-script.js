@@ -82,7 +82,8 @@ $('#search-raeltime input').focus(function(){
 });
 
 $( "#current" ).keyup(function() {
-  $('#listPleacItem_0').attr('style','');
+//  $('#listPleacItem_0').attr('style','');
+//  $(".pac-icon , .pac-icon-marker").attr('class', 'fa fa-map-marker fa-2x');
 });
 
 var map; //main map
@@ -232,7 +233,12 @@ check = check+1;
 //                       	$('#current').css('color', '#00bcd4');
 						}
                     }
-                }
+                }else{
+                	if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+			           setTimeout(function(){ console.log(status)  }, 9000);
+			          } 
+					
+				}
             });
 	
 	nearbyPlace(map, pos, "");
@@ -752,8 +758,8 @@ function eventPlace(lat, lng, placeName) {
 }
 
 function placeRecord() {
-    //	var id = getCookie('login');
-    var id = 2;
+    	var id = $.cookie("login");
+//    var id = 2;
 
     $.post("my_place_often/place_often", { "id": id }, function(results) {
         console.log(results);

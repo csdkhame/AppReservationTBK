@@ -312,9 +312,13 @@
 		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Home</span></span>
 		</div>
 		<div class="pac-item"><span class="fa fa-building fa-lg" aria-hidden="true"></span>
-		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Office</span></span>
+		<span class="pac-item-query" style="padding: 7px;"><span class="lng-office-locat pac-matched ">Office</span></span>
+		<div class="pac-item"><span class="fa fa-arrow-right fa-lg" aria-hidden="true"></span>
+		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Nearby Places</span></span>
 		</div>
 </div>  
+</div>
+</div>
 
  <style>
  .box-menu-select{
