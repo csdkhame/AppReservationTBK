@@ -48,6 +48,8 @@
 	<!--<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script_test.js?v=<?=time();?>"></script> -->	
 	<script src="<?php echo base_url(); ?>files/js/list.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>files/js/list.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>files/js/jssor.slider-26.1.5.min.js" type="text/javascript"></script>
+	
 	<!-- <script async defer src="https://maps.googleapis.cn/maps/api/js?key=AIzaSyAxwxcRc1lPkGj_XN_gYa0gKRv9rywrePU"></script> -->
 	<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxwxcRc1lPkGj_XN_gYa0gKRv9rywrePU&callback=initMap">
     </script>-->
