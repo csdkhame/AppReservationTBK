@@ -316,13 +316,10 @@
 		</div>
 		<div class="pac-item"><span class="fa fa-building fa-lg" aria-hidden="true"></span>
 		<span class="pac-item-query" style="padding: 7px;"><span class="lng-office-locat pac-matched ">Office</span></span>
-		</div>
 		<div class="pac-item"><span class="fa fa-arrow-right fa-lg" aria-hidden="true"></span>
 		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Nearby Places</span></span>
-		</div> 
-		
-		
- 
+		</div>
+</div>  
 </div>
 </div>
 
@@ -345,7 +342,7 @@
     z-index: 3;">
     
                 <div style="padding:12px;">
-                   <input type="" name="" value="" id="idimage">
+                   <input type="hidden" name="" value="" id="idimage">
 
                    <div id="jssor_1" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
                             <!-- Slides Container -->
