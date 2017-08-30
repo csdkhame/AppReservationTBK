@@ -287,57 +287,67 @@
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
 
-<div id="boxForAutoCom" >
+        <div id="boxForAutoCom" >
+            <div id="appendBox"></div>
+            <div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
+            <div id="otherBox">
+                <div class="pac-item">
+                    <span class="fa fa-home fa-lg" aria-hidden="true"></span>
+                    <span class="pac-item-query" style="padding: 7px;">
+                        <span class="lng-home-locat pac-matched ">Home</span>
+                    </span>
+                </div>
+                <div class="pac-item">
+                    <span class="fa fa-building fa-lg" aria-hidden="true"></span>
+                    <span class="pac-item-query" style="padding: 7px;">
+                        <span class="lng-office-locat pac-matched ">Office</span>
+                    </span>
+                </div> 
+                <div class="pac-item" id="nearbyId">
+                    <span class="fa fa-arrow-right fa-lg" aria-hidden="true"></span>
+                    <span class="pac-item-query" style="padding: 7px;">
+                        <span class="lng-home-locat pac-matched ">Nearby Places</span
+                    ></span>
+                </div>
+            </div>
+            <div id="showNearbyPlace" style="display: none;">
+                <div style="margin: 10px;">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <div style="/*border-top: 1px solid #e6e6e6;*/ font-size: 11px; color: #999;" id="outNearby" >
+                                    <i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                            <td>	
+                                <select class="select-type-place" id="types_ofPlace">
+                                    <option value="">Select Types</option>
+                                    <option value="hospital">Hospital</option>
+                                    <option value="store">Store</option>
+                                    <option value="airport">Airport</option>
+                                    <option value="cafe">Cafe</option>
+                                    <option value="spa">Spa</option>
+                                    <option value="bank">Bank</option>
+                                    <option value="department_store">Department Store</option>
+                                    <option value="lodging">Hotel,Resort</option>
+                                </select>
+                            </td>                            
+                        </tr>
+                    </table>
+                </div>							               
+            </div>
+        </div>
 
-	<div id="appendBox"></div>
-	<div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
-	<div id="otherBox">
-		<div class="pac-item"><span class="fa fa-home fa-lg" aria-hidden="true"></span>
-		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Home</span></span>
-		</div>
-		<div class="pac-item"><span class="fa fa-building fa-lg" aria-hidden="true"></span>
-		<span class="pac-item-query" style="padding: 7px;"><span class="lng-office-locat pac-matched ">Office</span></span>
-		</div> 
-		<div class="pac-item" id="nearbyId"><span class="fa fa-arrow-right fa-lg" aria-hidden="true"></span>
-		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Nearby Places</span></span>
-		</div>
  
-	</div>
-	<div id="showNearbyPlace" style="display: none;">
-	<div style="margin: 10px;">
-	<table width="100%"><tr><td><div style="/*border-top: 1px solid #e6e6e6;*/
-    font-size: 11px;
-    color: #999;" id="outNearby" ><i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i></div>
-    <td>	
-		<select class="select-type-place" id="types_ofPlace">
-								  <option value="">Select Types</option>
-								  <option value="hospital">Hospital</option>
-								  <option value="store">Store</option>
-								  <option value="airport">Airport</option>
-								  <option value="cafe">Cafe</option>
-								  <option value="spa">Spa</option>
-								  <option value="bank">Bank</option>
-								  <option value="department_store">Department Store</option>
-								  <option value="lodging">Hotel,Resort</option>
-								</select>
-								</td>
-    </td></tr></table>
-	</div>							               
-	</div>
-	
-</div>
-
- 
- <div id="img-car" >
+        <div id="img-car" >
             <div class="box-in-foget" style="">
-    <div class="header-img" style="">
-               <h4 class="lng-car"></h4>
-           </div>
+                <div class="header-img" style="">
+                    <h4 class="lng-car"></h4>
+                </div>
                 <div style="">
                     <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
-                <div  class="btn-close-img lng-close" ></div>
-                   
-                </div>
+                        <div  class="btn-close-img lng-close" ></div>
+                    </div>
                    <input type="hidden" name="" value="" id="idimage">
 
                    <div id="jssor_1" style="position: relative; top:60px; left: 0px; width: 600px; height: 300px;">
@@ -350,15 +360,8 @@
                             <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-04.jpg" /></div>
                             <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-05.jpg" /></div>
                         </div>
-    
-    
                     </div>
-                    
                 </div>
-
-
-                
-                
             </div>
         </div>
 <div class="modal fade" id="updatelat" role="dialog">
