@@ -75,15 +75,19 @@ $('#search-raeltime input').focus(function(){
 	});
 	
 	$('#listPleacItem_0').appendTo('#appendBox');
+	$('#listPleacItem_1').appendTo('#appendBox');
 //	$('#listPleacItem_0').removeClass();
-	
 
-	
 });
 
-$( "#current" ).keyup(function() {
-//  $('#listPleacItem_0').attr('style','');
-//  $(".pac-icon , .pac-icon-marker").attr('class', 'fa fa-map-marker fa-2x');
+$( "#nearbyId" ).click(function() {
+	$('#otherBox').hide();
+	$('#showNearbyPlace').show(500);
+});
+$( "#outNearby" ).click(function() {
+	$('#showNearbyPlace').hide(500);
+	$('#otherBox').show(500);
+	
 });
 
 var map; //main map
@@ -722,13 +726,13 @@ function callback(results, status) {
 
 function appendPlace(place) {
     /* var placeLoc = place.geometry.location;*/
-    //console.log(place);
+    console.log(place);
     var icon = '<img src="' + place.icon + '" width="30"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
     var lng = lo.lng;
     var address = place.name + " " + place.vicinity;
-    $('#list_place_push').append('<li class="list-group-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table width="100%"><tr><td>' + place.name + '</td><td align="right">' + icon + '</td></tr></table></li>');
+    $('#list_place_push').append('<div class="list-group-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table width="100%"><tr><td>' + place.name + '</td><td align="right">' + icon + '</td></tr></table></div>');
 
 }
 
