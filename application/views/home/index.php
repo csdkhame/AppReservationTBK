@@ -307,6 +307,18 @@
 .box-menu-select{
     box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
  }
+ .btn-close-img {
+    /* width: 200px; */
+    background: #4BB1C1;
+    /* text-transform: uppercase; */
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #4BB1C1;
+    /* position: absolute; */
+    right: 15px;
+    padding: 12px 20px;
+    bottom: 15px;
+}
 </style>
 	<div id="appendBox"></div>
 	<div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
@@ -343,6 +355,10 @@
     z-index: 3;">
     
                 <div style="padding:12px;">
+                    <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
+                <div  class="btn-close-img lng-close" ></div>
+                   
+                </div>
                    <input type="hidden" name="" value="" id="idimage">
 
                    <div id="jssor_1" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
@@ -363,10 +379,7 @@
 
 
                 
-                <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
-                <div  class="btn-close lng-close" ></div>
-                   
-                </div>
+                
             </div>
         </div>
 <div class="modal fade" id="updatelat" role="dialog">
