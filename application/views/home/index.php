@@ -186,6 +186,7 @@
         <div id="search-raeltime">
             <div class="col-md-12 " id="to-remove-class" >
                 <div class="card-contentrealtime">
+                <i class="material-icons" style="margin-top: 34px;position: fixed;font-weight: 600; display: none;">chevron_left</i>
                     <div class="box-search" id='boxRealtime'>
                        <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>
                         <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>

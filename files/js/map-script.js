@@ -55,6 +55,8 @@ $('#search-raeltime input').focus(function(){
 	$('#to-remove-class').removeClass();
 	$('#sectionsNav').hide();
 	$('#search-raeltime').css('margin-top','0px');
+	$('#search-raeltime').css('position','fixed');
+	$('#search-raeltime').css('box-shadow','0 2px 6px rgba(0,0,0,0.3)');
 
 	$('#delete_text').css('right','10px');
 	
