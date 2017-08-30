@@ -1142,14 +1142,6 @@ input:after {
     font-weight: 400;
 }
 
-.pac-container {
-    width: 100% !important;
-    position: absolute !important;
-    left: 0px !important;
-    top: 155px !important;
-    /* display: none; */
-    height: 100% !important;
-}
 
 .pac-item {
     /*    cursor: default !important;*/

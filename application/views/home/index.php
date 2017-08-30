@@ -335,7 +335,8 @@
                             </td>                            
                         </tr>
                     </table>
-                </div>							               
+                </div>	
+				<div id="list_place_push"></div>						               
             </div>
         </div>
 
@@ -450,44 +451,6 @@
     </div>
 </div>
 
-<div class="modal fade" id="showPlace" role="dialog">
-    <div class="modal-dialog" style="margin-top: 15px;    margin: 15px;">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" style="display: none;">
-          <button type="button" class="close" data-dismiss="modal" style="display: none;">&times;</button>
-           
-        </div>
-        	
-         					 <div class="media-body">             
-         					
-                               <select class="select-type-place" id="types_ofPlace">
-								  <option value="">Select Types</option>
-								  <option value="hospital">Hospital</option>
-								  <option value="store">Store</option>
-								  <option value="airport">Airport</option>
-								  <option value="cafe">Cafe</option>
-								  <option value="spa">Spa</option>
-								  <option value="bank">Bank</option>
-								  <option value="department_store">Department Store</option>
-								  <option value="lodging">Hotel,Resort</option>
-								</select>
-								<div style="overflow-y: scroll !important; " class="media-scroll" >
-                               <ul class="list-group" id="list_place_push" style="font-size: 15px;" >
-                               
-								</ul>
-								</div>                            
-                           </div>  
-        	
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
 
 
 
