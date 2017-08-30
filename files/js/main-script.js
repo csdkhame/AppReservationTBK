@@ -261,7 +261,7 @@ $(document).ready(function() {
 
                     }
                     $('#product_service').append('<div class="a-link-item col-lg-12" >' +
-                        '<div class="item-thumbnail2" >' +
+                        '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')">' +
                         '<img src="' + urlicon + data[0].data1[i].transfer_icon + '.jpg">' +
                         '</div>' +
                         '<table width="100%">' +
@@ -409,7 +409,7 @@ $(document).ready(function() {
 
 
             $('#product_service').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" >' +
+                '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\') >' +
                 '<img src="' + urlicon + dataService[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
@@ -866,7 +866,7 @@ $(document).ready(function() {
 
 
             $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" >' +
+                '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\') >' +
                 '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
@@ -953,7 +953,7 @@ $(document).ready(function() {
 
             }
             $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2">' +
+                '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')>' +
                 '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
@@ -1791,7 +1791,7 @@ function sendValueto(x) {
                     console.log(compae1join.length)
 
                     $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-                        '<div class="item-thumbnail2" >' +
+                        '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')>' +
                         '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
                         '</div>' +
                         '<table width="100%">' +
@@ -1882,7 +1882,7 @@ function sendValueto(x) {
 
                         }
                         $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                            '<div class="item-thumbnail2">' +
+                            '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')>' +
                             '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
                             '</div>' +
                             '<table width="100%">' +
@@ -2266,19 +2266,27 @@ function login() {
 //         map: map
 //     });
 // }
-var addr, latitude, longitude, addrcurent, placeIdcurent;
-$('#current-addr').on('click', getAddress);
+var addr, latitude, longitude, addrcurent, placeIdcurent
+$('#current-addr').on('click', getAddress)
 
 
 function sendplaceid(id) {
-    console.log(id);
-    placeIdcurent = id;
-    console.log(placeIdcurent);
+    console.log(id)
+    placeIdcurent = id
+    console.log(placeIdcurent)
 
 }
 
 function changeType() {
-    console.log(data1);
+    console.log(data1)
+
+
+}
+
+function getimage(i) {
+    console.log(i);
+    $('#img-car').show(500)
+    $('#idimage').val()
 
 
 }
@@ -2286,8 +2294,8 @@ function changeType() {
 function getAddress(address) {
 
 
-    console.log(placeIdcurent);
-    console.log(dataplacerel);
+    console.log(placeIdcurent)
+    console.log(dataplacerel)
     $.ajax({
         type: 'POST',
         url: '../service/curentPlace.php',
@@ -2303,7 +2311,7 @@ function getAddress(address) {
             console.log(aum_from)
 
         }
-    });
+    })
     for (var x = 0; x < dataplacerel.length; x++) {
         if (dataplacerel[x].place_id == placeIdcurent) {
             console.log(dataplacerel[i].place_id)

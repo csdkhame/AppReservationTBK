@@ -330,7 +330,8 @@
     position: fixed;
     z-index: 3;">
                 <div style="padding: 12px;">
-                   
+                   <input type="" name="" value="" id="idimage">
+
                     
                     
                 </div>
