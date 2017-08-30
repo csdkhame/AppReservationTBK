@@ -4,36 +4,36 @@
 
        // echo  $_COOKIE['lng'].'unde';
         $lng_all_type = 'All Type';
-        $lan_search_from = 'From: Type airport,hotel name, or location.';
-        $lan_search_to = 'To: Type airport,hotel name, or location.';
-        $lan_go_txt = 'where you go ?';
+        $lag_search_from = 'From: Type airport,hotel name, or location.';
+        $lag_search_to = 'To: Type airport,hotel name, or location.';
+        $lag_go_txt = 'where you go ?';
         $lng_from = 'From';
         $lng_to = 'To';
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
         $lng_all_type = 'All Type';
-        $lan_search_from = 'From: Type airport,hotel name, or location.';
-        $lan_search_to = 'To: Type airport,hotel name, or location.';
-        $lan_go_txt = 'where you go ?';
+        $lag_search_from = 'From: Type airport,hotel name, or location.';
+        $lag_search_to = 'To: Type airport,hotel name, or location.';
+        $lag_go_txt = 'where you go ?';
         $lng_from = 'From';
         $lng_to = 'To';
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
         $lng_all_type = 'ทุกประเภท';
-        $lan_search_from = 'จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
-        $lan_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
-        $lan_go_txt = 'คุณต้องการไปไหน ?';
+        $lag_search_from = 'จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
+        $lag_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
+        $lag_go_txt = 'คุณต้องการไปไหน ?';
         $lng_from = 'จาก';
         $lng_to = 'ไปยัง';
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
        $lng_all_type = '所有類型';
-       $lan_search_from = '从: 机场，酒店名称或位置。';
-       $lan_search_to = '至: 机场，酒店名称或位置。';
-       $lan_go_txt = '你去哪裡 ?';
+       $lag_search_from = '从: 机场，酒店名称或位置。';
+       $lag_search_to = '至: 机场，酒店名称或位置。';
+       $lag_go_txt = '你去哪裡 ?';
        $lng_from = '从';
        $lng_to = '至';
     }
@@ -191,7 +191,7 @@
                         <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
                         <div style="display: nones;" id="open-search">
                             <div style="border-bottom: 1px solid #333;display:nones;"></div>
-                            <input  type='text' class="form-control" placeholder="<? echo $lan_go_txt;?>" id="pac-input" style="border: none !important;" value="" style="margin: auto;border: none !important;padding: 10px; width: 100%;background: #fff;" />   
+                            <input  type='text' class="form-control" placeholder="<? echo $lag_go_txt;?>" id="pac-input" style="border: none !important;" value="" style="margin: auto;border: none !important;padding: 10px; width: 100%;background: #fff;" />   
                                     
                         </div>          
                     </div>
@@ -209,12 +209,12 @@
                         <div class="" id="current-addr">
                             <i class="material-icons">gps_fixed</i>
                         </div>
-                        <input type='text' class="" placeholder="<? echo  $lan_search_from;?>"  id='search-from' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
+                        <input type='text' class="" placeholder="<? echo  $lag_search_from;?>"  id='search-from' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
  <!-- -->                  <div style="border-bottom: 1px solid #333;"></div>
                         <div class="box-plancefrom" id="users">
                             <ul  class="list" id="box-plancefrom" name="character"></ul>
                         </div>                                        
-                        <input  type='text' class="" placeholder="<? echo  $lan_search_to;?>" id='search-to' style="border: none !important;padding: 10px; width: 100%;background: #fff;" />                                                
+                        <input  type='text' class="" placeholder="<? echo  $lag_search_to;?>" id='search-to' style="border: none !important;padding: 10px; width: 100%;background: #fff;" />                                                
                         <div class="box-planceto"  >
                             <ul  class="list" id="box-planceto" name="character"></ul>
                         </div>
