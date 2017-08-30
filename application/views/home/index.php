@@ -286,11 +286,7 @@
         </div>
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
-<style>
-	.pac-container{
-    top: 0px !important;
-	}
-</style>
+
 <div id="boxForAutoCom" style="width: 100%;
     height: 100vh;
     background: rgb(255, 255, 255);
@@ -304,7 +300,7 @@
 	<div id="appendBox"></div>
 	<div id="otherBox">
 		<div class="pac-item"><span class="pac-icon pac-icon-marker"></span>
-		<span class="pac-item-query">Home</span></div>
+		<i class="fa fa-home" aria-hidden="true"></i><span class="pac-item-query">Home</span></div>
 	</div>
 </div>  
 

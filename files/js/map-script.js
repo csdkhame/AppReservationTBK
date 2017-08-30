@@ -78,10 +78,8 @@ $('#search-raeltime input').focus(function(){
 	
 	$('#listPleacItem_0').appendTo('#appendBox');
 	$('#listPleacItem_0').removeClass();
-	$('#listPleacItem_0').css('width','100%');
-	$('#listPleacItem_0').css('position','absolute');
-	$('#listPleacItem_0').css('left','0px');
-	$('#listPleacItem_0').css('top','0px');
+	$('#listPleacItem_0').attr('style','');
+
 	
 /*    width: 100%;
     position: absolute;
