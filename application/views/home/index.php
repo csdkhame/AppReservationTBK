@@ -341,12 +341,7 @@
     position: fixed;
     z-index: 3;">
     
-                <div style="position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;">
+                <div style="padding:12px;">
                    <input type="" name="" value="" id="idimage">
 
                    <div id="jssor_1" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
