@@ -2287,6 +2287,10 @@ function getimage(i) {
     console.log(i);
     $('#img-car').show(500)
     $('#idimage').val(i)
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
 
 
 }
