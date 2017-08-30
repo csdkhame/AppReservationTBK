@@ -9,8 +9,6 @@
         $lan_go_txt = 'where you go ?';
         $lng_from = 'From';
         $lng_to = 'To';
-        
-        
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -20,7 +18,6 @@
         $lan_go_txt = 'where you go ?';
         $lng_from = 'From';
         $lng_to = 'To';
-        
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
@@ -30,8 +27,6 @@
         $lan_go_txt = 'คุณต้องการไปไหน ?';
         $lng_from = 'จาก';
         $lng_to = 'ไปยัง';
-        
-        
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
@@ -41,7 +36,6 @@
        $lan_go_txt = '你去哪裡 ?';
        $lng_from = '从';
        $lng_to = '至';
-       
     }
 ?>
 <input type="hidden" id="paramUrl" value="<?=$_GET[action];?>" />
@@ -190,7 +184,7 @@
  </div>
     	<div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div id="search-raeltime">
-            <div class="col-md-12 " >
+            <div class="col-md-12 " id="to-remove-class" >
                 <div class="card-contentrealtime">
                     <div class="box-search" id='boxRealtime'>
                        <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>
@@ -286,7 +280,7 @@
         </div>
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
-
+	   <button class="btn btn-sm" style="z-index: 20000; position: fixed; top: 54px;display: none;" id="back-clear"><i class="material-icons" style="font-size: 30px;">chevron_left</i></button>
 
         <div id="boxForAutoCom" >
             <div id="appendBox"></div>
@@ -296,12 +290,14 @@
                     <span class="fa fa-home fa-lg" aria-hidden="true"></span>
                     <span class="pac-item-query" style="padding: 7px;">
                         <span class="lng-home-locat pac-matched ">Home</span>
+                        <!--<div id="text_check_home"></div>-->
                     </span>
                 </div>
                 <div class="pac-item"  id="office-place-id" onclick="">
                     <span class="fa fa-building fa-lg" aria-hidden="true"></span>
                     <span class="pac-item-query" style="padding: 7px;">
                         <span class="lng-office-locat pac-matched ">Office</span>
+                        <!--<div id="text_check_office"></div>-->
                     </span>
                 </div> 
                 <div class="pac-item" id="nearbyId">

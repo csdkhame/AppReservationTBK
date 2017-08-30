@@ -1,71 +1,66 @@
-var click_save_place_txt
+var click_save_place_txt;
+var lang_to_map;
 if ($.cookie("lng") == 'cn') {
 click_save_place_txt = "没有记录 (按保存)";
+lang_to_map = 'zh-CN';
 }
 else if($.cookie("lng") == 'th'){
 	click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
+	lang_to_map = 'th';
 }
 else if($.cookie("lng") == 'en'){
 	click_save_place_txt = "No record (Click to save)";
+	lang_to_map = 'en';
 }
 else if($.cookie("lng") == undefined){
 	click_save_place_txt = "No record (Click to save)";
+	lang_to_map = 'en';
 }
 
 $('#delete_text').click(function(){
-	
 	$('#current').val('');
-	
-	
 });
 
 $('#open_map').on('click', initialize);
 $('#open_map').click(function() {
     console.log('Now Open Map!');
+});
 
+$('#back-clear').click(function(){
+	
+	resetMap();
+//	$(this).hide();
 });
 
 
-$('#btn-other').click(function() {
-
-    $('#btn-other').addClass('blinks');
-
-
-});
-
-$('#showPlace').on('hidden.bs.modal', function() {
-    $('.material-button-toggle').click();
-    $('#chk_val_search').val(0);
-    $('#btn-other').removeClass('blinks');
-    $('.material-button').show(500);
-    
-});
-
-/*$('#selectPlaceNearby').click(function() {
-    $('#btn_hide-show').click();
-});*/
-
-
-/*$('#pac-input').click(function() {
-    $('#selectPlace').show(1000);
-});*/
 
 function showHeader() {
     $('#btn-real-res').show(700);
-    $('.card-contentrealtime').show(700);
-    $('.card-contentrealtime').removeClass('hidden5');
-    $('#search-raeltime').css('margin-top', '112px');
+    $('#sectionsNav').show();
+    $('.box-menu-select').show();
+    
+    $('#to-remove-class').addClass('col-md-12 ');
+    $('#search-raeltime').css('margin-top','70px');
+    
+    $('#back-clear').hide(500);
 }
 
 function hideHeader() {
-    $('#search-raeltime').css('margin-top', '10px');
+    $('#sectionsNav').hide();
     $('#btn-real-res').hide(700);
-    $('.card-contentrealtime').addClass('hidden5');
+    $('.box-menu-select').hide();
+    
+    $('#to-remove-class').removeClass();
+    $('#search-raeltime').css('margin-top','0px');
+    
+    $('#back-clear').show(500);
+    
+    
 }
 
 
 $('#search-raeltime input').focus(function(){
-	$('#search-raeltime div[class="col-md-12 "]').removeClass();
+	$('#to-remove-class').removeClass();
 	$('#sectionsNav').hide();
 	$('#search-raeltime').css('margin-top','0px');
 
@@ -784,7 +779,7 @@ function placeRecord() {
                 var obj = JSON.parse(results);
                 $.each(obj, function(key, data) {
                     console.log(data);
-                    url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true';
+                    url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language='+lang_to_map;
                     if (data.s_type == '1') {
 
                         $('#selectHome').html('<i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectMyPlace(1,\'' + url + '\');"></i>');
@@ -813,6 +808,7 @@ function selectSavePlaceOfften(type_place) {
 
         hideHeader();
         $('#boxForAutoCom').hide();
+        
         $('#map').show();
         infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
         $('#search-raeltime').hide(700);
@@ -836,14 +832,15 @@ function selectSavePlaceOfften(type_place) {
 
             markerPlaceOfften.setPosition(newPos);
             console.log(newPos);
-            url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Newlat + ',' + Newlng + '&sensor=true';
+            url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Newlat + ',' + Newlng + '&sensor=true&language='+lang_to_map;
+
 
         });
       
         google.maps.event.addListener(map, 'dragend', function() {
 
             $.post(url, function(data) {
-                //					console.log(data.results[0].formatted_address);
+                					console.log(data);
                 infowindow.setContent('<div>' + data.results[0].formatted_address + '</div><div class="btn btn-sm btn-danger pull-right btn-part" onclick="savePlaceOften(1,' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">Save</div>');
                 infowindow.open(map, markerPlaceOfften);
 
@@ -948,18 +945,15 @@ function selectMyPlace(type_place, url) {
 }
 
 function resetMap() {
-    //	console.log(placeStart);
-    $('.material-button').css('background', '#2C98DE');
-    //$('.material-button').show(500);
-    $('.material-button').removeClass('blinks');
+
     showHeader();
     $('#search-raeltime').show(700);
     infowindow = new google.maps.InfoWindow();
     map.panTo(pos);
-    // marker2.setVisible(true);
+    
     markerPlaceOfften.setMap(null);
-    // marker2.setAnimation(null);
-    //markerPlaceOfften.setVisible(true);
+
+    markerPlaceOfften.setVisible(false);
     google.maps.event.clearListeners(map, 'center_changed');
     google.maps.event.clearListeners(map, 'dragend');
     //	map.fitBounds(placeStart.geometry.location);

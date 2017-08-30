@@ -40,7 +40,20 @@
 	<!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places"async defer> </script>
+	
+	<?php if(!$_COOKIE['lng']){
+        $lng_map = 'en'; 
+    }
+    else if($_COOKIE['lng'] == 'en'){
+         $lng_map = 'en';
+    }
+    else if($_COOKIE['lng'] == 'th'){
+        $lng_map = 'th';
+    }
+    else if($_COOKIE['lng'] == 'cn'){
+       $lng_map = 'zh-CN';
+    } ?>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places&language=<?=$lng_map;?>" async defer> </script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 
 	
   	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
