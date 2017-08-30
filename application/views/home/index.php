@@ -302,10 +302,11 @@
     top: 0px !important;
     /* display: none; */
     height: 100% !important;
+    box-shadow: none;
 }
 </style>
 	<div id="appendBox"></div>
-	<div style="border-bottom: 1px solid #333;display:nones;"></div>
+	<div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
 	<div id="otherBox">
 		<div class="pac-item"><span class="fa fa-home" aria-hidden="true"></span>
 		<span class="pac-item-query">Home</span></div>
