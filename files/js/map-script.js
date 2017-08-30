@@ -732,7 +732,8 @@ function appendPlace(place) {
     var lat = lo.lat;
     var lng = lo.lng;
     var address = place.name + " " + place.vicinity;
-    $('#list_place_push').append('<div class="list-group-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table width="100%"><tr><td>' + place.name + '</td><td align="right">' + icon + '</td></tr></table></div>');
+   /* $('#list_place_push').append('<div class="list-group-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table width="100%"><tr><td>' + place.name + '</td><td align="right">' + icon + '</td></tr></table></div>');*/
+   $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><span class="pac-icon"></span><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></span>');
 
 }
 
@@ -741,7 +742,7 @@ function filterPlace(map, location) {
     google.maps.event.addDomListener(selectTypePlace, 'change', function() {
         var value = $('#types_ofPlace').val();
         //  		alert(value);
-        $('.list-group-item').remove();
+        $('.placeNeary-item').remove();
         nearbyPlace(map, location, value)
     });
 }

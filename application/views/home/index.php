@@ -337,10 +337,9 @@
  
 	</div>
 	<div id="showNearbyPlace" style="display: none;">
-	<div style="margin: 10px;">
-	<table width="100%"><tr><td><div style="/*border-top: 1px solid #e6e6e6;*/
-    font-size: 11px;
-    color: #999;" id="outNearby" ><i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i></div>
+	<div style="margin: 14px;">
+	<table width="100%"><tr>
+	<td ><div style="/*border-top: 1px solid #e6e6e6;*/ font-size: 11px;color: #999;" id="outNearby" ><i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i></div>
     <td>	
 		<select class="select-type-place" id="types_ofPlace">
 								  <option value="">Select Types</option>
@@ -355,10 +354,13 @@
 								</select>
 								</td>
     </td></tr></table>
-	</div>							               
+    </div>
+	<div id="list_place_push"></div>
+	</div>
+								               
 	</div>
 	
-</div>
+
 
   
  <div id="img-car" style="z-index: 201;
