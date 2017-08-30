@@ -385,7 +385,7 @@
                             <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-05.jpg" /></div>
     </div>
     <!-- Trigger -->
-    <script>jssor_slider1_init('slider1_container');</script>
+    
 </div>
                     
                 </div>
