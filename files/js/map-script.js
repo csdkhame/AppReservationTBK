@@ -726,7 +726,7 @@ function callback(results, status) {
 
 function appendPlace(place) {
     /* var placeLoc = place.geometry.location;*/
-    console.log(place);
+//    console.log(place);
     var icon = '<img src="' + place.icon + '" width="30"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
@@ -765,13 +765,15 @@ function eventPlace(lat, lng, placeName) {
 function placeRecord() {
     	var id = $.cookie("login");
 //    var id = 2;
-
+	
     $.post("my_place_often/place_often", { "id": id }, function(results) {
-        console.log(results);
+        console.log(results+'11111111111111111111');
         if (results === 'false') {
-            $('#selectHome').html('<i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i>');
-            $('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(2);"></i>');
-
+            /*$('#selectHome').html('<i class="fa fa-home fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(1);"></i>');
+            $('#selectOffice').html('<i class="fa fa-building-o fa-2x" aria-hidden="true" onclick="selectSavePlaceOfften(2);"></i>');*/
+			$('#home-place-id').attr('onclick','selectSavePlaceOfften(1)');
+			$('#office-place-id').attr('onclick','selectSavePlaceOfften(1)');
+			
         } else {
             if (results) {
                 var obj = JSON.parse(results);

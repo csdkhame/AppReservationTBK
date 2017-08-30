@@ -33,7 +33,7 @@ class Often_model extends CI_Model {
 	return $array;
 
 	}
-  public function get_place_often() { 
+  	public function get_place_often() { 
      
      $id = $this->input->post('id');
      
