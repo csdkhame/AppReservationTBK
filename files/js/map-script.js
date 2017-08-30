@@ -26,14 +26,6 @@ $('#open_map').click(function() {
     console.log('Now Open Map!');
 });
 
-$('#back-clear').click(function(){
-	
-	resetMap();
-//	$(this).hide();
-});
-
-
-
 function showHeader() {
     $('#btn-real-res').show(700);
     $('#sectionsNav').show();
@@ -105,7 +97,7 @@ var check = 0;
 
 function initialize() {
 
-    var mapMinZoom = 14;
+    var mapMinZoom = 13;
     var mapMaxZoom = 18;
     var start;
     var end;
@@ -833,24 +825,27 @@ function selectSavePlaceOfften(type_place) {
             markerPlaceOfften.setPosition(newPos);
             console.log(newPos);
             url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Newlat + ',' + Newlng + '&sensor=true&language='+lang_to_map;
+			
+			 $.post(url, function(data) {
+	                					console.log(data);
+	                infowindow.setContent('<div>' + data.results[0].formatted_address + '</div><div class="btn btn-sm btn-danger pull-right btn-part" onclick="savePlaceOften(1,' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">Save</div>');
+	                infowindow.open(map, markerPlaceOfften);
 
+	            });
 
         });
       
-        google.maps.event.addListener(map, 'dragend', function() {
-
-            $.post(url, function(data) {
-                					console.log(data);
-                infowindow.setContent('<div>' + data.results[0].formatted_address + '</div><div class="btn btn-sm btn-danger pull-right btn-part" onclick="savePlaceOften(1,' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">Save</div>');
-                infowindow.open(map, markerPlaceOfften);
-
-            });
-        });
+      
 
 
     } 
 
-	
+$('#back-clear').click(function(){
+	resetMap();
+/*	markerCircle.setMap(null);
+	 markerPlaceOfften.setMap(null);
+//	$(this).hide();*/
+});
 
 
 function createAllMarker() {
@@ -863,10 +858,9 @@ function createAllMarker() {
     };
     markerPlaceOfften = new google.maps.Marker({
       /*  icon: pin,*/
-        map: map,
-        position: map.getCenter()
+        map: null
     });
-
+	markerPlaceOfften.setVisible(false);
     current_marker = {
         url: 'https://dotdotdottrip.com/pic/icon_marker.png',
         size: new google.maps.Size(71, 71),
@@ -874,14 +868,6 @@ function createAllMarker() {
         anchor: new google.maps.Point(17, 34),
         scaledSize: new google.maps.Size(35, 35)
     };
-
-
-    /*marker2 = new google.maps.Marker({
-        //           icon : current_marker,
-        draggable: true,
-        animation: google.maps.Animation.DROP,
-        map: map
-    });*/
 
     markerCircle = new google.maps.Marker({
         position: map.getCenter(),
@@ -945,17 +931,14 @@ function selectMyPlace(type_place, url) {
 }
 
 function resetMap() {
-
+	console.log('Reset Map');
+	markerPlaceOfften.setMap(null);
+	google.maps.event.clearListeners(map, 'center_changed');
+    google.maps.event.clearListeners(map, 'dragend');
     showHeader();
     $('#search-raeltime').show(700);
-    infowindow = new google.maps.InfoWindow();
+	infowindow.close();
+	infowindow = "";
     map.panTo(pos);
-    
-    markerPlaceOfften.setMap(null);
 
-    markerPlaceOfften.setVisible(false);
-    google.maps.event.clearListeners(map, 'center_changed');
-    google.maps.event.clearListeners(map, 'dragend');
-    //	map.fitBounds(placeStart.geometry.location);
-    placeRecord();
 }
