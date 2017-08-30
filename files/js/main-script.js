@@ -356,10 +356,7 @@ $(document).ready(function() {
 
 
         })
-        $('.btn-close-img').click(function() {
 
-            $('# img-car').hide(500)
-        })
         console.log(dataService)
 
 
@@ -471,6 +468,10 @@ $(document).ready(function() {
 
     //    //$("#pro-search").fadeOut(4000);
     //    });
+    $('.btn-close-img').click(function() {
+
+        $('#img-car').hide(500)
+    })
     $("#private-btn").click(function() {
         $(this).css({ "background-color": "#16b3b1", "color": " #fff " }
 

@@ -353,7 +353,13 @@
     transform: translate(-50%,-50%);
     position: fixed;
     z-index: 3;">
-    
+    <div style="text-align:center; background: #16b3b1;
+    padding: 5px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;">
+               <h4 class="lng-image">Image</h4>
+           </div>
                 <div style="padding:12px;">
                     <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
                 <div  class="btn-close-img lng-close" ></div>
@@ -361,7 +367,7 @@
                 </div>
                    <input type="hidden" name="" value="" id="idimage">
 
-                   <div id="jssor_1" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
+                   <div id="jssor_1" style="position: relative; top:60px; left: 0px; width: 600px; height: 300px;">
                             <!-- Slides Container -->
                         <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
        
