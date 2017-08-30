@@ -366,23 +366,28 @@
         align-items: center;
     }
     </style>
-                <div style="padding: 12px;">
+                <div style="position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;">
                    <input type="" name="" value="" id="idimage">
 
-                   <script>
-                      
-                      var swiper = new Swiper('.swiper-container');
-    </script>
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img u="image" src="<?php echo base_url(); ?>files/img/index-01.jpg" /></div>
-                            <div class="swiper-slide"><img u="image" src="<?php echo base_url(); ?>files/img/index-02.jpg" /></div>
-                            <div class="swiper-slide"><img u="image" src="<?php echo base_url(); ?>files/img/index-03.jpg" /></div>
-                            <div class="swiper-slide"><img u="image" src="<?php echo base_url(); ?>files/img/index-04.jpg" /></div>
-                            <div class="swiper-slide"><img u="image" src="<?php echo base_url(); ?>files/img/index-05.jpg" /></div>
-                            
-                        </div>
-                    </div>
+                   <div id="jssor_1" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
+                            <!-- Slides Container -->
+    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+       
+        <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-01.jpg" /></div>
+                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-02.jpg" /></div>
+                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-03.jpg" /></div>
+                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-04.jpg" /></div>
+                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-05.jpg" /></div>
+    </div>
+    <!-- Trigger -->
+    <script>jssor_slider1_init('slider1_container');</script>
+</div>
+                    
                 </div>
 
 

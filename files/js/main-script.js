@@ -2288,7 +2288,7 @@ function getimage(i) {
     $('#img-car').show(500)
     $('#idimage').val(i)
 
-
+    jssor_1_slider_init();
 
 }
 
