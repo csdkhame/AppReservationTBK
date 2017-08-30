@@ -26,10 +26,10 @@ public function view_user()
 
 		 $num_record =  $this->input->get('num',TRUE);
 		 $start =  $this->input->get('start',TRUE);
-		if($num_record=="" and $start==""){
+		/*if($num_record=="" and $start==""){
 			$num = 5;
 			header('Location: view_user?num='.$num.'&start=0&page=1');
-		}
+		}*/
 	
 		if($_COOKIE['login']) {
 			$id = $_COOKIE['login'];

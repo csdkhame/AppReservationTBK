@@ -75,10 +75,18 @@ $('#search-raeltime input').focus(function(){
 
 	$(this).attr("id","listPleacItem_"+index);
 	});
-});
-
-$('').click(function(){
+	
 	$('#listPleacItem_0').appendTo('#appendBox');
+	$('#listPleacItem_0').removeClass();
+	$('#listPleacItem_0').css('width','100%');
+	$('#listPleacItem_0').css('position','absolute');
+	$('#listPleacItem_0').css('left','0px');
+	$('#listPleacItem_0').css('top','0px');
+	
+/*    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;*/
 });
 
 

@@ -1102,7 +1102,7 @@ choosepic = "Choose Picture";
 acc = "Account";
 }else if($.cookie("lng")=="cn"){
 choosepic = "帐户";
-acc = "Account";
+acc = "帐户";
 }else if($.cookie("lng")=="th"){
 choosepic = "เลือกภาพ";
 acc = "บัญชี";

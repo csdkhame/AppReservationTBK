@@ -298,10 +298,14 @@
     overflow: hidden;
     top: 91px;
     display: none;" >
-	<div>
+<!--	<div>
 		<button class="btn btn-info">TEST</button>
-	</div>
+	</div>-->
 	<div id="appendBox"></div>
+	<div id="otherBox">
+		<div class="pac-item"><span class="pac-icon pac-icon-marker"></span>
+		<span class="pac-item-query">Home</span></div>
+	</div>
 </div>  
 
  <style>
