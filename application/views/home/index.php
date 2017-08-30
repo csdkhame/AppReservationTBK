@@ -329,10 +329,10 @@
                    <input type="" name="" value="" id="idimage">
 
                    <script>
-    jssor_slider1_init = function (containerId) {
+    jQuery(document).ready(function ($) {
         var options = { $AutoPlay: 1 };
-        var jssor_slider1 = new $JssorSlider$(containerId, options);
-    };
+        var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+    });
 </script>
 <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
                             <!-- Slides Container -->
