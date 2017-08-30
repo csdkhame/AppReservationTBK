@@ -75,7 +75,7 @@ $('#search-raeltime input').focus(function(){
 	});
 	
 	$('#listPleacItem_0').appendTo('#appendBox');
-	$('#listPleacItem_0').removeClass();
+//	$('#listPleacItem_0').removeClass();
 	
 
 	
