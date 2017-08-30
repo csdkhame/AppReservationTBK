@@ -2286,7 +2286,7 @@ function changeType() {
 function getimage(i) {
     console.log(i);
     $('#img-car').show(500)
-    $('#idimage').val()
+    $('#idimage').val(i)
 
 
 }
