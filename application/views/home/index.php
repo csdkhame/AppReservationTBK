@@ -287,41 +287,8 @@
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
 
-<div id="boxForAutoCom" style="width: 100%;
-    height: 100vh;
-    background: rgb(255, 255, 255);
-    position: relative;
-    overflow: hidden;
-    top: 91px;
-    display: none;" >
-<style>
-	.pac-container {
-    width: 100% !important;
-    position: unset !important;
-    left: 0px !important;
-    top: 0px !important;
-    /* display: none; */
-    height: 100% !important;
-    box-shadow: none;
-}
-.box-menu-select{
-    box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
- }
- .btn-close-img {
-    width: 59%;
-    /* position: fixed; */
-    /* width: 200px; */
-    background: #4BB1C1;
-    /* text-transform: uppercase; */
-    text-align: center;
-    color: #ffffff;
-    border: 1px solid #4BB1C1;
-    /* position: absolute; */
-    right: 15px;
-    transform: translate(38%,0%);
-    padding: 12px 0;
-}
-</style>
+<div id="boxForAutoCom" >
+
 	<div id="appendBox"></div>
 	<div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
 	<div id="otherBox">
@@ -362,28 +329,10 @@
 	
 
 
-  
- <div id="img-car" style="z-index: 201;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    /* background: rgba(0, 0, 0, 0.59); */
-    display: none;">
-            <div class="box-in-foget" style="    height: 100vh;
-    /* border-radius: 4px; */
-    background: #fff;
-    min-width: 100%;
-    /* height: auto; */
-    left: 50vw;
-    top: 50vh;
-    transform: translate(-50%,-50%);
-    position: fixed;
-    z-index: 3;">
-    <div style="text-align:center; background: #16b3b1;
-    padding: 5px;
-    color: #fff;
-    font-weight: 600;
-    text-align: center;">
+ 
+ <div id="img-car" >
+            <div class="box-in-foget" style="">
+    <div class="header-img" style="">
                <h4 class="lng-car"></h4>
            </div>
                 <div style="">

@@ -739,6 +739,8 @@ $(document).ready(function() {
             // $('#map').css('display', 'none');
             //$("#iconleft2").fadeIn(1000);
             //$("#iconleft").hide();
+            $("#show-hide-pro").hide();
+            $("#show-hide-pro2").hide();
             $("#pro-search").hide();
             $("#search-raeltime").hide();
 
