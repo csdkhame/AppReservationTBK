@@ -308,9 +308,12 @@
 	<div id="appendBox"></div>
 	<div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
 	<div id="otherBox">
-		<div class="pac-item"><span class="fa fa-home" aria-hidden="true"></span>
+		<div class="pac-item"><span class="fa fa-home fa-lg" aria-hidden="true"></span>
 		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Home</span></span>
-	</div>
+		</div>
+		<div class="pac-item"><span class="fa fa-building fa-lg" aria-hidden="true"></span>
+		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Office</span></span>
+		</div>
 </div>  
 
  <style>
