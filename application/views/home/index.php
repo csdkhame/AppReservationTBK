@@ -287,6 +287,7 @@
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
 
+
         <div id="boxForAutoCom" >
             <div id="appendBox"></div>
             <div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
@@ -337,6 +338,7 @@
                 </div>							               
             </div>
         </div>
+
 
  
         <div id="img-car" >
