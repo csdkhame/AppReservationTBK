@@ -298,14 +298,10 @@
                             <div  class="btn-send lng-send" style="padding: 12px 20px;" ></div>   
                         </div>
                     </div>
-                    <div id="check-email" style="text-align:center;display:none;margin-top: 50px;
-    font-size: 15px;
-    color: #333333;
-    margin-bottom: 10px;">
+                    <div id="check-email" style="text-align:center;display:none;margin-top: 50px; font-size: 15px; color: #333333;  margin-bottom: 10px;">
                         <span>Please check your email </span>
                     </div>
-                    <!-- <div type="button" class="btn-close" >Close</div> -->
-                    <!-- <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i> -->
+                    
                 </div>
                 <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
                 <div  class="btn-close lng-close" ></div>

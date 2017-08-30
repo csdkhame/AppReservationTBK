@@ -308,7 +308,32 @@
  .box-menu-select{
     box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
  }
- </style>  
+ </style> 
+ <div id="img-car" style="z-index: 20;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    /* background: rgba(0, 0, 0, 0.59); */
+    display: none;">
+            <div class="box-in-foget" style="    height: 100vh;
+    /* border-radius: 4px; */
+    background: #fff;
+    min-width: 100%;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 3;">
+                <div style="padding: 12px;">
+                   
+                    
+                    
+                </div>
+                
+               
+            </div>
+        </div>
 <div class="modal fade" id="updatelat" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content" style="max-height: 640px; overflow: hidden; overflow-y: scroll;">
