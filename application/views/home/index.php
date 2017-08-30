@@ -371,11 +371,7 @@
 
                    <script>
                       
-                        var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true
-    
-});
+                      var swiper = new Swiper('.swiper-container');
     </script>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
