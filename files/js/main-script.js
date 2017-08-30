@@ -356,6 +356,10 @@ $(document).ready(function() {
 
 
         })
+        $('.btn-close-img').click(function() {
+
+            $('# img-car').hide(500)
+        })
         console.log(dataService)
 
 
