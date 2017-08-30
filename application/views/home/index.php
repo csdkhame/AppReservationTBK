@@ -370,7 +370,7 @@
                    <input type="" name="" value="" id="idimage">
 
                    <script>
-    var swiper = new Swiper('.swiper-container');
+   
     </script>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
