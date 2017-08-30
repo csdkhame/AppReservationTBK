@@ -370,9 +370,11 @@
                    <input type="" name="" value="" id="idimage">
 
                    <script>
-                       $(document).ready(function() {
-                        var swiper = new Swiper('.swiper-container');
-  
+                      
+                        var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    
 });
     </script>
                     <div class="swiper-container">
