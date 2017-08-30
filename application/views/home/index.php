@@ -309,7 +309,7 @@
     box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
  }
  </style> 
- <div id="img-car" style="z-index: 20;
+ <div id="img-car" style="z-index: 201;
     position: fixed;
     left: 0px;
     top: 0px;
