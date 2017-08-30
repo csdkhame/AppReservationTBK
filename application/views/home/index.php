@@ -329,11 +329,33 @@
 		<div class="pac-item"><span class="fa fa-building fa-lg" aria-hidden="true"></span>
 		<span class="pac-item-query" style="padding: 7px;"><span class="lng-office-locat pac-matched ">Office</span></span>
 		</div> 
-		<div class="pac-item"><span class="fa fa-arrow-right fa-lg" aria-hidden="true"></span>
+		<div class="pac-item" id="nearbyId"><span class="fa fa-arrow-right fa-lg" aria-hidden="true"></span>
 		<span class="pac-item-query" style="padding: 7px;"><span class="lng-home-locat pac-matched ">Nearby Places</span></span>
 		</div>
  
-</div>
+	</div>
+	<div id="showNearbyPlace" style="display: none;">
+	<div style="margin: 10px;">
+	<table width="100%"><tr><td><div style="/*border-top: 1px solid #e6e6e6;*/
+    font-size: 11px;
+    color: #999;" id="outNearby" ><i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i></div>
+    <td>	
+		<select class="select-type-place" id="types_ofPlace">
+								  <option value="">Select Types</option>
+								  <option value="hospital">Hospital</option>
+								  <option value="store">Store</option>
+								  <option value="airport">Airport</option>
+								  <option value="cafe">Cafe</option>
+								  <option value="spa">Spa</option>
+								  <option value="bank">Bank</option>
+								  <option value="department_store">Department Store</option>
+								  <option value="lodging">Hotel,Resort</option>
+								</select>
+								</td>
+    </td></tr></table>
+	</div>							               
+	</div>
+	
 </div>
 
   
