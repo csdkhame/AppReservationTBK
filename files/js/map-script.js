@@ -60,8 +60,6 @@ function hideHeader() {
 }
 
 
-
-
 $('#search-raeltime input').focus(function(){
 	$('#search-raeltime div[class="col-md-12 "]').removeClass();
 	$('#sectionsNav').hide();
@@ -78,15 +76,14 @@ $('#search-raeltime input').focus(function(){
 	
 	$('#listPleacItem_0').appendTo('#appendBox');
 	$('#listPleacItem_0').removeClass();
-	$('#listPleacItem_0').attr('style','');
+	
 
 	
-/*    width: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;*/
 });
 
+$( "#current" ).keyup(function() {
+  $('#listPleacItem_0').attr('style','');
+});
 
 var map; //main map
 var marker2; // current position
@@ -170,7 +167,7 @@ function initAutocomplete(map, start, end) {
     inputStart.addEventListener('click', function() {
 
         document.getElementById("current").value = "";
-
+		
     });
 
     var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
