@@ -305,6 +305,7 @@
 }
 </style>
 	<div id="appendBox"></div>
+	<div style="border-bottom: 1px solid #333;display:nones;"></div>
 	<div id="otherBox">
 		<div class="pac-item"><span class="fa fa-home" aria-hidden="true"></span>
 		<span class="pac-item-query">Home</span></div>
