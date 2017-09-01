@@ -8,8 +8,9 @@ body {
     background: rgb(255, 255, 255);
     position: relative;
     overflow: hidden;
-    top: 91px;
-    display: none;
+/*    top: 91px;*/
+    top: 571px;
+/*    display: none;*/
 }
 
 .pac-container {
@@ -1218,4 +1219,8 @@ input:after {
 
 .pac-container {
     z-index: 10000000 !important;
+}
+
+.box-shadow-customize{
+	    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }

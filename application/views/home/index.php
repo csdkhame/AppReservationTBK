@@ -9,6 +9,7 @@
         $lag_go_txt = 'where you go ?';
         $lng_from = 'From';
         $lng_to = 'To';
+        $click_save_place_txt = "No record (Click to save)";
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -18,6 +19,7 @@
         $lag_go_txt = 'where you go ?';
         $lng_from = 'From';
         $lng_to = 'To';
+        $click_save_place_txt = "No record (Click to save)";
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
@@ -27,15 +29,18 @@
         $lag_go_txt = 'คุณต้องการไปไหน ?';
         $lng_from = 'จาก';
         $lng_to = 'ไปยัง';
+        $click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
+       
        $lng_all_type = '所有類型';
        $lag_search_from = '从: 机场，酒店名称或位置。';
        $lag_search_to = '至: 机场，酒店名称或位置。';
        $lag_go_txt = '你去哪裡 ?';
        $lng_from = '从';
        $lng_to = '至';
+       $click_save_place_txt = "没有记录 (按保存)";
     }
 ?>
 <input type="hidden" id="paramUrl" value="<?=$_GET[action];?>" />
@@ -186,7 +191,9 @@
         <div id="search-raeltime">
             <div class="col-md-12 " id="to-remove-class" >
                 <div class="card-contentrealtime">
-                <i class="material-icons" style="margin-top: 34px;position: fixed;font-weight: 600; display: none;">chevron_left</i>
+                <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
+                <i class="material-icons" style="margin-top: 30px;" >chevron_left</i>
+                </div>
                     <div class="box-search" id='boxRealtime'>
                        <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>
                         <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
@@ -281,24 +288,39 @@
         </div>
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
-	   <button class="btn btn-sm" style="z-index: 20000; position: fixed; top: 54px;display: none;" id="back-clear"><i class="material-icons" style="font-size: 30px;">chevron_left</i></button>
 
+		<div id="clear-all" style="z-index: 0; position: absolute; right: 0px; top: 320px;display: none;">
+		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 34px; height: 34px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
+		<i class="material-icons" style="    margin: 5px;
+    font-weight: 800;">clear</i>
+		</button></div>
+		
+		<div id="btn_CurrentLocation" style="z-index: 0; position: absolute; right: 0px; top: 275px;display: none;color: rgb(85, 85, 85);">
+		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 34px; height: 34px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
+		<i class="material-icons" style="    margin: 5px;
+    font-weight: 800;"><i class="material-icons">my_location</i></i>
+		</button></div>
+		
         <div id="boxForAutoCom" >
             <div id="appendBox"></div>
             <div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
             <div id="otherBox">
-                <div class="pac-item" id="home-place-id" onclick="">
+                <div class="pac-item" id="home-place-id" onclick="selectSavePlaceOfften(1,'save');">
                     <span class="fa fa-home fa-lg" aria-hidden="true"></span>
                     <span class="pac-item-query" style="padding: 7px;">
                         <span class="lng-home-locat pac-matched ">Home</span>
                         <!--<div id="text_check_home"></div>-->
+                        <button class="btn btn-xs" id="edit-home_select" style="right: 10px;margin: 3px;width: 1px;position: absolute;background-color: rgba(22, 179, 177, 0.81);display: none;" onclick="selectSavePlaceOfften(1,'edit')">
+                    	<i class="material-icons" style="right: 8px;">edit</i></button>
                     </span>
                 </div>
-                <div class="pac-item"  id="office-place-id" onclick="">
+                <div class="pac-item"  id="office-place-id" onclick="selectSavePlaceOfften(2,'save');">
                     <span class="fa fa-building fa-lg" aria-hidden="true"></span>
                     <span class="pac-item-query" style="padding: 7px;">
                         <span class="lng-office-locat pac-matched ">Office</span>
                         <!--<div id="text_check_office"></div>-->
+                    	<button class="btn btn-xs" id="edit-office_select" style="right: 10px;margin: 3px;width: 1px;position: absolute;background-color: rgba(22, 179, 177, 0.81);display: none;" onclick="selectSavePlaceOfften(2,'edit');">
+                    	<i class="material-icons" style="right: 8px;">edit</i></button>
                     </span>
                 </div> 
                 <div class="pac-item" id="nearbyId">
@@ -449,5 +471,6 @@
 </div>
 
 
-
+<input type="hidden" id="for_check_currentInput" value="0"/>
+<input type="hidden" id="for_check_endInput" value="0"/>
 

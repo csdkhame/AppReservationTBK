@@ -16,19 +16,31 @@ public function save()
 	{	
 		$id = $_COOKIE['login'];
 		if($id==""){
-			$id = 2;
+			echo "nologin";
+		}else{
+			 $data = $this->Often_model->save_often($id);
+			 echo json_encode($data);
 		}
-		 $data = $this->Often_model->save_often($id);
-		 echo json_encode($data);
-//		 echo $data;
-//		 echo 555555555;
 	}
 	
-	function place_often(){
+public function update()
+	{	
+		$id = $_COOKIE['login'];
+		if($id==""){
+			echo "nologin";
+		}else{
+			 $data = $this->Often_model->update_often($id);
+			 echo json_encode($data);
+		}
+	}
+	
+public function place_often(){
 
       $data = $this->Often_model->get_place_often();
 	  //$array = array($age);
 	  echo json_encode($data);
 
 	}	
+
+
 }?>
