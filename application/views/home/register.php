@@ -85,6 +85,10 @@
 }
 
     </style>
+<!--<?php 
+echo $from;
+?> -->
+<input type="hidden" id="to" value="<?=$to;?>"/>
     <div id="loading" style="display: none;">
             <div class="loading-in">               
                 <div class="loading-ld">
@@ -1037,7 +1041,9 @@ $.ajax({
     });
     
     $('#login').on('click', function() {
-       console.log(password+username)
+    	var type_login = $('#to').val();
+//    	alert(type_login);
+       console.log(password+username);
 //    alert('<?php echo base_url(); ?>login_control/process');
         $.ajax({
         type: 'POST',
@@ -1052,9 +1058,11 @@ $.ajax({
                  console.log('login status 0');
                  $.cookie("login",res.username);
                  console.log('<?php echo base_url(); ?>');
-                 window.location.href = "<?php echo base_url(); ?>home";
-                
-               
+                 if(type_login=='dasboard'){
+				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
+				 }else{
+				 	window.location.href = "<?php echo base_url(); ?>home";
+				 }
               }
               else if(res.status==1)
               {

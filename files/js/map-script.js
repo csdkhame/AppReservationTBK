@@ -4,6 +4,7 @@ var lng_distance,lng_usetime;
 var choose;
 
 if ($.cookie("lng") == 'cn') {
+please_login_txt = "请登录";
 click_save_place_txt = "没有记录 (按保存)";
 lang_to_map = 'zh-CN';
 lng_distance = '距离';
@@ -15,6 +16,7 @@ $('.lng-setpin-locat').text('在地图上设置位置');
 $('.lng-nearby-locat').text('附近的地方');
 }
 else if($.cookie("lng") == 'th'){
+please_login_txt = "กรุณาเข้าสู่ระบบ";
 click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
 lang_to_map = 'th';
 lng_distance = 'ระยะทาง';
@@ -26,6 +28,7 @@ $('.lng-setpin-locat').text('ตั้งตำแหน่งบนแผนท
 $('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
 }
 else if($.cookie("lng") == 'en'){
+	please_login_txt = "Please login";
 	click_save_place_txt = "No record (Click to save)";
 	lang_to_map = 'en';
 	lng_distance = 'Distance';
@@ -37,6 +40,7 @@ $('.lng-setpin-locat').text('');
 $('.lng-nearby-locat').text('');*/
 }
 else if($.cookie("lng") == undefined){
+	please_login_txt = "Please login";
 	click_save_place_txt = "No record (Click to save)";
 	lang_to_map = 'en';
 	lng_distance = 'Distance';
@@ -44,13 +48,15 @@ else if($.cookie("lng") == undefined){
 	choose = 'Choose';
 }
 
-$('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">'+click_save_place_txt+'</span>');
+if($.cookie("login")==undefined){
+	$('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">'+please_login_txt+'</span>');
+$('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">'+please_login_txt+'</span>');
+}else{
+	$('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">'+click_save_place_txt+'</span>');
 $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">'+click_save_place_txt+'</span>');
+}
 
-/*$('#delete_text').click(function(){
-	$('#current').val('');
-});
-*/
+
 $('#open_map').on('click', initialize);
 $('#open_map').click(function() {
     console.log('Now Open Map!');
@@ -105,13 +111,14 @@ function outSearchRealtime(){
 	setTimeout(function(){ 
 //	$('#map').css('display','block');
 	$('#boxForAutoCom').css('display','none');
+	$('.box-menu-select').show();
 	 }, 660);
 	
 }
 
 
 $('#search-raeltime input').focus(function(){
-	$('#boxForAutoCom').css('display','');
+	$('#boxForAutoCom').css('display','unset');
 	if(this.id=="current"){
 		$('#for_check_currentInput').val(1);
 		$('#for_check_endInput').val(0);
@@ -151,7 +158,9 @@ $('#search-raeltime input').focus(function(){
 	
 	$('#listPleacItem_0').appendTo('#appendBox');
 	$('#listPleacItem_1').appendTo('#appendBox');
-//	$('#listPleacItem_0').removeClass();
+	
+	
+	$('.box-menu-select').hide();
 
 });
 
@@ -831,17 +840,13 @@ function eventPlace(lat, lng, placeName) {
 
 function placeRecord() {
     	var id = $.cookie("login");
-//    var id = 2;
-//	console.log('id : '+id);
+
     $.post("my_place_often/place_often", { "id": id }, function(results) {
-//        console.log(results+'11111111111111111111');
+
         if (results === 'false') {
-			/*$('#home-place-id').attr('onclick','selectSavePlaceOfften(1)');
-			$('#office-place-id').attr('onclick','selectSavePlaceOfften(1)');*/
-			
-//			$('#office-place-id').attr('onclick','selectSavePlaceOfften(2)');
-			
-        } else {
+		
+        } 
+		else {
             if (results) {
                 var obj = JSON.parse(results);
                 console.log(obj);
@@ -851,20 +856,18 @@ function placeRecord() {
                     var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language='+lang_to_map;
                      $.post(url, function(data_place) {
 				            console.log(data_place);
-				            /*var add_find = data_place.results[0].formatted_address;
-				            var location_find = data_place.results[0].geometry.location;*/
-//				            console.log(data_place.results[0].formatted_address);
+
 				            if (data.s_type == '1') {
 		
 		                        $('#home-place-id').attr('onclick','selectMyPlace(1,"'+data_place.results[0].formatted_address+'",'+data.i_lat+','+data.i_lng+')');
-//		                        $('.lng-save_home_plac').remove();
+
 								$('.lng-save_home_place').html('<span class="lng-save_home_place" style="font-weight: 600;">'+data_place.results[0].formatted_address+'</span>');
 		                        $('#edit-home_select').show();
 		                    }
 		                    if (data.s_type == '2') {
 
 		                        $('#office-place-id').attr('onclick','selectMyPlace(2,"'+data_place.results[0].formatted_address+'",'+data.i_lat+','+data.i_lng+')');
-//		                         $('.lng-save_office_plac').remove();
+//		                       
 								$('.lng-save_Office_place').html('<span class="lng-save_Office_place" style="font-weight: 600;">'+data_place.results[0].formatted_address+'</span>');
 								$('#edit-office_select').show();
 		                    }
@@ -878,7 +881,13 @@ function placeRecord() {
 }
 
 function selectSavePlaceOfften(type_place,type_call) {
-		if(type_call=="save"){
+	
+		if($.cookie("login") == undefined){
+			alert(123);
+			return;
+		}else{
+		
+			if(type_call=="save")															{
 			type_call = 1;
 			var btn_color = "btn-danger";
 			if ($.cookie("lng") == 'cn') {
@@ -893,7 +902,8 @@ function selectSavePlaceOfften(type_place,type_call) {
 			else if($.cookie("lng") == undefined){
 				txt_save = "Record";
 			}
-		}else if(type_call=="edit"){
+		}
+			else if(type_call=="edit")															{
 			type_call = 2;
 			var btn_color = "btn-warning";
 			if ($.cookie("lng") == 'cn') {
@@ -909,35 +919,35 @@ function selectSavePlaceOfften(type_place,type_call) {
 				txt_save = "Update";
 			}
 		}
-        hideHeader();
-        $('#boxForAutoCom').hide();
-        $('#clear-all').show(500);
-        $('#map').show();
-        infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
-        $('#search-raeltime').hide(700);
-        $('#btn_CurrentLocation').show(500);
-        markerPlaceOfften.setMap(map);
-        //marker2.setVisible(false);
-        
-        markerPlaceOfften.setVisible(true);
- /*       markerPlaceOfften.setPosition(pos);
-        console.log(pos);*/
-        var url;
-        var Newlat;
-        var Newlng;
-        google.maps.event.addListener(map, 'center_changed', function() {
-            Newlat = map.getCenter().lat();
-            Newlng = map.getCenter().lng();
-            var newPos = {
-                lat: Newlat,
-                lng: Newlng
-            };
+	        hideHeader();
+	        $('#boxForAutoCom').hide();
+	        $('#clear-all').show(500);
+	        $('#map').show();
+	        infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
+	        $('#search-raeltime').hide(700);
+	        $('#btn_CurrentLocation').show(500);
+	        markerPlaceOfften.setMap(map);
+	        //marker2.setVisible(false);
+	        
+	        markerPlaceOfften.setVisible(true);
+	 /*       markerPlaceOfften.setPosition(pos);
+	        console.log(pos);*/
+	        var url;
+	        var Newlat;
+	        var Newlng;
+	        google.maps.event.addListener(map, 'center_changed', function() {
+	            Newlat = map.getCenter().lat();
+	            Newlng = map.getCenter().lng();
+	            var newPos = {
+	                lat: Newlat,
+	                lng: Newlng
+	            };
 
-            markerPlaceOfften.setPosition(newPos);
-            console.log(newPos);
-            url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Newlat + ',' + Newlng + '&sensor=true&language='+lang_to_map;
-			
-			 $.post(url, function(data) {
+	            markerPlaceOfften.setPosition(newPos);
+	            console.log(newPos);
+	            url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Newlat + ',' + Newlng + '&sensor=true&language='+lang_to_map;
+				
+				 $.post(url, function(data) 						{
 	                					console.log(data);
 	                infowindow.close();					
 infowindow.setContent('<div>' + data.results[0].formatted_address + '</div><div class="btn btn-sm '+btn_color+' pull-right btn-part" onclick="savePlaceOften('+type_call+',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">'+txt_save+'</div>');
@@ -946,10 +956,8 @@ infowindow.setContent('<div>' + data.results[0].formatted_address + '</div><div 
 
 	            });
 
-        });
-      
-      
-
+	        });
+		}
 
     } 
 

@@ -24,8 +24,10 @@ class Register extends CI_Controller {
 	 
 	public function index()
 	{
+		$to['to'] = $this->input->get('to');
+		
 		//$this->load->view('header');
-		$this->load->view('home/register');
+		$this->load->view('home/register',$to);
 		//$this->load->view('footer');
 	}
 	 

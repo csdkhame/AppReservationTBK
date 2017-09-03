@@ -52,7 +52,7 @@ public function view_user()
 		}
 		else{
 			
-			redirect('https://dotdotdottrip.com/Register', 'refresh');
+			redirect('https://dotdotdottrip.com/Register?to=dasboard', 'refresh');
 //			header("Location: http://www.yourwebsite.com/user.php");
 //		echo 55555555;
 

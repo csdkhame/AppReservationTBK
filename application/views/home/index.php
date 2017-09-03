@@ -388,7 +388,7 @@
                     </span>
                 </div> 
                 <div class="pac-item" id="setpinId" onclick="setPinLocation();">
-                    <span class="fa fa-map-pin fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
+                    <span class="fa fa-map-pin fa-lg" aria-hidden="true" style="font-size: 2.1em;    margin: 3px;"></span>
                     <span class="pac-item-query" style="padding: 7px;">
                         <span class="lng-setpin-locat pac-matched ">Set location on map</span>
                     </span>
