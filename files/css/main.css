@@ -10,7 +10,7 @@ body {
     overflow: auto;
 /*    top: 91px;*/
 /*    top: 0px;*/
-/*    display: none;*/
+    display: none;
 	bottom: unset;
 }
 

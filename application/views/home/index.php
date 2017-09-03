@@ -11,6 +11,15 @@
         $lng_to = 'To';
         $click_save_place_txt = "No record (Click to save)";
         
+        $select_type = "Select Types";
+        $hospital = "Hospital";
+        $store = "Store";
+        $airport = "Airport";
+        $cafe = "Cafe";
+        $spa = "Spa";
+        $bank = "Bank";
+        $depart_store = "Department Store";
+        $h_r = "Hotel,Resort";
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -21,6 +30,16 @@
         $lng_from = 'From';
         $lng_to = 'To';
         $click_save_place_txt = "No record (Click to save)";
+        
+        $select_type = "Select Types";
+        $hospital = "Hospital";
+        $store = "Store";
+        $airport = "Airport";
+        $cafe = "Cafe";
+        $spa = "Spa";
+        $bank = "Bank";
+        $depart_store = "Department Store";
+        $h_r = "Hotel,Resort";
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
@@ -31,6 +50,16 @@
         $lng_from = 'จาก';
         $lng_to = 'ไปยัง';
         $click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
+        
+        $select_type = "Select Types";
+        $hospital = "Hospital";
+        $store = "Store";
+        $airport = "Airport";
+        $cafe = "Cafe";
+        $spa = "Spa";
+        $bank = "Bank";
+        $depart_store = "Department Store";
+        $h_r = "Hotel,Resort";
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
@@ -42,6 +71,17 @@
        $lng_from = '从';
        $lng_to = '至';
        $click_save_place_txt = "没有记录 (按保存)";
+       
+        $select_type = "Select Types";
+        $hospital = "Hospital";
+        $store = "Store";
+        $airport = "Airport";
+        $cafe = "Cafe";
+        $spa = "Spa";
+        $bank = "Bank";
+        $depart_store = "Department Store";
+        $h_r = "Hotel,Resort";
+       
     }
 ?>
 <input type="hidden" id="paramUrl" value="<?=$_GET[action];?>" />
@@ -371,6 +411,7 @@
                             </td>
                             <td>	
                                 <select class="select-type-place" id="types_ofPlace">
+                                	
                                     <option value="">Select Types</option>
                                     <option value="hospital">Hospital</option>
                                     <option value="store">Store</option>

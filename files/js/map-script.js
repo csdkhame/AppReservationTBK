@@ -82,7 +82,7 @@ function outSearchRealtime(){
   		}, 600 );
 	 $( "#boxForAutoCom" ).animate({
 //	    top: "0px"
-	    bottom : "-500px"		
+	    bottom : "-800px"		
 	  }, 650 );
 	$('#out-search').hide();
 	$('#to-remove-class').addClass('col-md-12');
@@ -104,7 +104,7 @@ function outSearchRealtime(){
 	
 	setTimeout(function(){ 
 //	$('#map').css('display','block');
-	$('#boxForAutoCom').css('display','');
+	$('#boxForAutoCom').css('display','none');
 	 }, 660);
 	
 }
@@ -143,11 +143,7 @@ $('#search-raeltime input').focus(function(){
 	  bottom : "-90px"
 	  
   }, 650 ); 
-/*  $( "#marginBox" ).animate({
-//	  marginTop : "90px"
-  }, 850 );*/
-//	$('#marginBox').css('margin-top','90px');
-	
+
 	$( ".pac-container" ).each(function( index ) {
 
 	$(this).attr("id","listPleacItem_"+index);
@@ -794,14 +790,14 @@ function callback(results, status) {
 
 function appendPlace(place) {
     /* var placeLoc = place.geometry.location;*/
-
-    var icon = '<img src="' + place.icon + '" width="30"/>';
+//	console.log(place);
+    var icon = '<img src="' + place.icon + '" width="23"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
     var lng = lo.lng;
     var address = place.name + " " + place.vicinity;
 
-   $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><span class="pac-icon"></span><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></span>');
+   $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">'+icon+'</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></td></span></table></div>');
 
 }
 
