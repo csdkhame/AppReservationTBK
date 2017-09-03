@@ -6,11 +6,12 @@ body {
     width: 100%;
     height: 100vh;
     background: rgb(255, 255, 255);
-    position: relative;
-    overflow: hidden;
+    position: absolute;
+    overflow: auto;
 /*    top: 91px;*/
-    top: 571px;
+/*    top: 0px;*/
 /*    display: none;*/
+	bottom: unset;
 }
 
 .pac-container {

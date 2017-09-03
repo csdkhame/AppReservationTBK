@@ -10,6 +10,7 @@
         $lng_from = 'From';
         $lng_to = 'To';
         $click_save_place_txt = "No record (Click to save)";
+        
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -190,11 +191,12 @@
     	<div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div id="search-raeltime">
             <div class="col-md-12 " id="to-remove-class" >
-                <div class="card-contentrealtime">
-                <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
+                <div class="card-contentrealtime" style="background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);">
+               <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
                 <i class="material-icons" style="margin-top: 30px;" >chevron_left</i>
                 </div>
-                    <div class="box-search" id='boxRealtime'>
+                    
+                    <div class="box-search" id='boxRealtime' style="padding: 0px 8px;">
                        <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>
                         <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
                         <div style="display: nones;" id="open-search">
@@ -294,19 +296,41 @@
 		<i class="material-icons" style="    margin: 5px;
     font-weight: 800;">clear</i>
 		</button></div>
-		
+		<style>
+			.pac-icon-marker {
+			    background-position: -5px -248px !important ;
+			}
+			.pac-icon {
+			    width: 17px !important;
+			    height: 24px !important;
+			    margin-right: 7px !important;
+			    margin-top: 3px !important;
+			    display: inline-block;
+			    vertical-align: top;
+			    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);
+			    background-size: 52px !important;
+			}
+			#marginBox{
+				 margin-top: 0px;
+			}
+			   
+		</style>
 		<div id="btn_CurrentLocation" style="z-index: 0; position: absolute; right: 0px; top: 275px;display: none;color: rgb(85, 85, 85);">
 		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 34px; height: 34px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
 		<i class="material-icons" style="    margin: 5px;
     font-weight: 800;"><i class="material-icons">my_location</i></i>
 		</button></div>
-		
-        <div id="boxForAutoCom" >
+
+
+
+        <div id="boxForAutoCom">
+        	<div id="marginBox">
             <div id="appendBox"></div>
             <div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
             <div id="otherBox">
                 <div class="pac-item" id="home-place-id" onclick="selectSavePlaceOfften(1,'save');">
-                    <span class="fa fa-home fa-lg" aria-hidden="true"></span>
+                	
+                    <span class="fa fa-home fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
                     <span class="pac-item-query" style="padding: 7px;">
                         <span class="lng-home-locat pac-matched ">Home</span>
                         <!--<div id="text_check_home"></div>-->
@@ -315,7 +339,7 @@
                     </span>
                 </div>
                 <div class="pac-item"  id="office-place-id" onclick="selectSavePlaceOfften(2,'save');">
-                    <span class="fa fa-building fa-lg" aria-hidden="true"></span>
+                    <span class="fa fa-building fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
                     <span class="pac-item-query" style="padding: 7px;">
                         <span class="lng-office-locat pac-matched ">Office</span>
                         <!--<div id="text_check_office"></div>-->
@@ -323,11 +347,17 @@
                     	<i class="material-icons" style="right: 8px;">edit</i></button>
                     </span>
                 </div> 
-                <div class="pac-item" id="nearbyId">
-                    <span class="fa fa-arrow-right fa-lg" aria-hidden="true"></span>
+                <div class="pac-item" id="setpinId" onclick="setPinLocation();">
+                    <span class="fa fa-map-pin fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
                     <span class="pac-item-query" style="padding: 7px;">
-                        <span class="lng-home-locat pac-matched ">Nearby Places</span
-                    ></span>
+                        <span class="lng-setpin-locat pac-matched ">Set location on map</span>
+                    </span>
+                </div>
+                <div class="pac-item" id="nearbyId">
+                    <span class="fa fa-arrow-right fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
+                    <span class="pac-item-query" style="padding: 7px;">
+                        <span class="lng-nearby-locat pac-matched ">Nearby Places</span>
+                    </span>
                 </div>
             </div>
             <div id="showNearbyPlace" style="display: none;">
@@ -357,6 +387,7 @@
                 </div>	
 				<div id="list_place_push"></div>						               
             </div>
+			</div>
         </div>
 
 

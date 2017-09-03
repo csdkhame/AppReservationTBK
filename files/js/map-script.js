@@ -1,30 +1,49 @@
 var click_save_place_txt;
 var lang_to_map;
 var lng_distance,lng_usetime;
+var choose;
+
 if ($.cookie("lng") == 'cn') {
 click_save_place_txt = "没有记录 (按保存)";
 lang_to_map = 'zh-CN';
 lng_distance = '距离';
 lng_usetime = '使用时间';
+choose = '选择';
+$('.lng-home-locat').text('房子');
+$('.lng-office-locat').text('在工作中');
+$('.lng-setpin-locat').text('在地图上设置位置');
+$('.lng-nearby-locat').text('附近的地方');
 }
 else if($.cookie("lng") == 'th'){
 click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
 lang_to_map = 'th';
 lng_distance = 'ระยะทาง';
 lng_usetime = 'ใช้เวลา';
+choose = 'เลือก';
+$('.lng-home-locat').text('บ้าน');
+$('.lng-office-locat').text('ที่ทำงาน');
+$('.lng-setpin-locat').text('ตั้งตำแหน่งบนแผนที่');
+$('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
 }
 else if($.cookie("lng") == 'en'){
 	click_save_place_txt = "No record (Click to save)";
 	lang_to_map = 'en';
 	lng_distance = 'Distance';
 	lng_usetime = 'Use time';
+	choose = 'Choose';
+/*$('.lng-home-locat').text('Home');
+$('.lng-office-locat').text('');
+$('.lng-setpin-locat').text('');
+$('.lng-nearby-locat').text('');*/
 }
 else if($.cookie("lng") == undefined){
 	click_save_place_txt = "No record (Click to save)";
 	lang_to_map = 'en';
 	lng_distance = 'Distance';
 	lng_usetime = 'Use time';
+	choose = 'Choose';
 }
+
 $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">'+click_save_place_txt+'</span>');
 $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">'+click_save_place_txt+'</span>');
 
@@ -55,33 +74,44 @@ function hideHeader() {
     
     $('#to-remove-class').removeClass();
     $('#search-raeltime').css('margin-top','0px');
-    
-    
-    
-    
 }
 
 function outSearchRealtime(){
+	$( "#marginBox" ).animate({
+//	  marginTop : "0px"
+  		}, 600 );
 	 $( "#boxForAutoCom" ).animate({
-	    top: "571px"
+//	    top: "0px"
+	    bottom : "-500px"		
 	  }, 650 );
 	$('#out-search').hide();
 	$('#to-remove-class').addClass('col-md-12');
 	$('#sectionsNav').show();
-	$('#search-raeltime').css('margin-top','70px');
+	
+	 $( "#search-raeltime" ).animate({
+	    marginTop : "70px"
+//	    ,	   	position : "absolute"
+	  }, 600 );
+	
+	/*$('#search-raeltime').css('margin-top','70px');*/
 	$('#search-raeltime').css('position','absolute');
 	$('#search-raeltime').removeClass('box-shadow-customize');
 	$('#boxRealtime').css('margin-left','0px');
-	$('#boxRealtime').css('padding','0 12px');
-
-//	$('#boxForAutoCom').hide();
-	$('#map').css('display','block');
+	$('#boxRealtime').css('padding','0 8px');
+	
+	 
+	
+	
+	setTimeout(function(){ 
+//	$('#map').css('display','block');
+	$('#boxForAutoCom').css('display','');
+	 }, 660);
+	
 }
 
 
-
 $('#search-raeltime input').focus(function(){
-	
+	$('#boxForAutoCom').css('display','');
 	if(this.id=="current"){
 		$('#for_check_currentInput').val(1);
 		$('#for_check_endInput').val(0);
@@ -91,25 +121,33 @@ $('#search-raeltime input').focus(function(){
 		$('#for_check_endInput').val(1);
 		$('#for_check_currentInput').val(0);
 	}
-	
-	
-	
+
 	$('#to-remove-class').removeClass();
 	$('#sectionsNav').hide();
-	$('#search-raeltime').css('margin-top','0px');
+	
+	$( "#search-raeltime" ).animate({
+	    marginTop : "0px"
+//	    ,	   	position : "fixed"
+	  }, 600 );
+	
+	/*$('#search-raeltime').css('margin-top','0px');*/
 	$('#search-raeltime').css('position','fixed');
 	$('#search-raeltime').addClass('box-shadow-customize');
 	$('#boxRealtime').css('margin-left','25px');
 	$('#boxRealtime').css('padding','0 0px');
-	$('#out-search').show();
+	$('#out-search').show(650);
 
-//	$('#delete_text').css('right','10px');
-	
-//	$('#boxForAutoCom').show();
+
  $( "#boxForAutoCom" ).animate({
-    top: "91px"
-  }, 600 );
-	$('#map').css('display','none');
+//    top: "91px"
+	  bottom : "-90px"
+	  
+  }, 650 ); 
+/*  $( "#marginBox" ).animate({
+//	  marginTop : "90px"
+  }, 850 );*/
+//	$('#marginBox').css('margin-top','90px');
+	
 	$( ".pac-container" ).each(function( index ) {
 
 	$(this).attr("id","listPleacItem_"+index);
@@ -125,6 +163,7 @@ $( "#nearbyId" ).click(function() {
 	$('#otherBox').hide();
 	$('#showNearbyPlace').show(500);
 });
+
 $( "#outNearby" ).click(function() {
 	$('#showNearbyPlace').hide(500);
 	$('#otherBox').show(500);
@@ -365,7 +404,7 @@ function error(err) {
                 preserveViewport: true
             });
 //            map.getZoom();
-            map.setZoom(10);
+            map.setZoom(13);
             $('#clear-all').show(500);
             outSearchRealtime();
             
@@ -998,7 +1037,23 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
 function selectMyPlace(type_place,txtAdd,lat,lng) {
 //    console.log($(this).is(':focus'));
 //    alert(txtAdd);
-	
+	if(type_place==3){
+		if(infowindow){
+    		console.log(infowindow);
+			infowindow.close();
+			infowindow.setMap(null);
+			infowindow = null;
+		}
+		directionsDisplay.setMap(null);
+		markerPlaceOfften.setMap(null);
+		google.maps.event.clearListeners(map, 'center_changed');
+	    google.maps.event.clearListeners(map, 'dragend');
+	    showHeader();
+	    $('#search-raeltime').show(700);
+	    $('#clear-all').hide(500);	
+		$('#show-hide-pro2').hide(500);
+	   	outSearchRealtime();
+	}
 	if($('#for_check_currentInput').val()==1){
 		$('#current').val(txtAdd);
 		start = {
@@ -1061,7 +1116,7 @@ function selectMyPlace(type_place,txtAdd,lat,lng) {
                 preserveViewport: true
             });
 //            map.getZoom();
-            map.setZoom(10);
+            map.setZoom(13);
             $('#clear-all').show(500);
             outSearchRealtime();
             
@@ -1069,6 +1124,42 @@ function selectMyPlace(type_place,txtAdd,lat,lng) {
             
         });
   
+}
+
+function setPinLocation(){
+
+        hideHeader();
+        $('#boxForAutoCom').hide();
+        $('#clear-all').show(500);
+        $('#map').show();
+        infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
+        $('#search-raeltime').hide(700);
+        $('#btn_CurrentLocation').show(500);
+        markerPlaceOfften.setMap(map);
+        markerPlaceOfften.setVisible(true);
+        var url;
+        var Newlat;
+        var Newlng;
+        google.maps.event.addListener(map, 'center_changed', function() {
+            Newlat = map.getCenter().lat();
+            Newlng = map.getCenter().lng();
+            var newPos = {
+                lat: Newlat,
+                lng: Newlng
+            };
+
+            markerPlaceOfften.setPosition(newPos);
+            console.log(newPos);
+            url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Newlat + ',' + Newlng + '&sensor=true&language='+lang_to_map;
+			
+			 $.post(url, function(data) {
+	                console.log(data);
+	                infowindow.close();					
+	                var addr = data.results[0].formatted_address;
+infowindow.setContent('<div>' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: rgb(22, 179, 177);" onclick="selectMyPlace(3,\'' + addr + '\','+Newlat+','+Newlng+');">'+choose+'</div>');
+	                infowindow.open(map, markerPlaceOfften);
+	            });
+        });
 }
 
 function resetMap() {
