@@ -2,7 +2,8 @@ var click_save_place_txt;
 var lang_to_map;
 var lng_distance,lng_usetime;
 var choose;
-
+var success;
+var error;
 if ($.cookie("lng") == 'cn') {
 please_login_txt = "请登录";
 click_save_place_txt = "没有记录 (按保存)";
@@ -14,6 +15,8 @@ $('.lng-home-locat').text('房子');
 $('.lng-office-locat').text('在工作中');
 $('.lng-setpin-locat').text('在地图上设置位置');
 $('.lng-nearby-locat').text('附近的地方');
+success = '成功';
+error = '错误';
 }
 else if($.cookie("lng") == 'th'){
 please_login_txt = "กรุณาเข้าสู่ระบบ";
@@ -26,6 +29,8 @@ $('.lng-home-locat').text('บ้าน');
 $('.lng-office-locat').text('ที่ทำงาน');
 $('.lng-setpin-locat').text('ตั้งตำแหน่งบนแผนที่');
 $('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
+success = 'สำเร็จ';
+error = 'ผิดพลาด';
 }
 else if($.cookie("lng") == 'en'){
 	please_login_txt = "Please login";
@@ -34,6 +39,8 @@ else if($.cookie("lng") == 'en'){
 	lng_distance = 'Distance';
 	lng_usetime = 'Use time';
 	choose = 'Choose';
+	success = 'success';
+error = 'error';
 /*$('.lng-home-locat').text('Home');
 $('.lng-office-locat').text('');
 $('.lng-setpin-locat').text('');
@@ -46,6 +53,8 @@ else if($.cookie("lng") == undefined){
 	lng_distance = 'Distance';
 	lng_usetime = 'Use time';
 	choose = 'Choose';
+	success = 'success';
+error = 'error';
 }
 
 if($.cookie("login")==undefined){
@@ -92,7 +101,7 @@ function outSearchRealtime(){
 	  }, 650 );
 	$('#out-search').hide();
 	$('#to-remove-class').addClass('col-md-12');
-	$('#sectionsNav').show();
+	
 	
 	 $( "#search-raeltime" ).animate({
 	    marginTop : "70px"
@@ -112,6 +121,7 @@ function outSearchRealtime(){
 //	$('#map').css('display','block');
 	$('#boxForAutoCom').css('display','none');
 	$('.box-menu-select').show();
+	$('#sectionsNav').show();
 	 }, 660);
 	
 }
@@ -253,7 +263,6 @@ function initAutocomplete(map) {
         // marker2.setAnimation(null);
 
     });
-
    var inputStart = document.getElementById("current");
     inputStart.addEventListener('click', function() {
         document.getElementById("current").value = "";
@@ -303,14 +312,13 @@ check = check+1;
 	   	map.panTo(current);
 	   	lat_f = position.coords.latitude;
 	   	lng_f = position.coords.longitude;
-	   }else{
-//	   	console.log(check+" ++++++++++++++");
 	   }
 	
 	 geocoder = new google.maps.Geocoder;
 	 geocoder.geocode({ 'location': pos }, function(results, status) {
 
                 if (status === google.maps.GeocoderStatus.OK) {
+                	
                     if (results[1]) {
                         placeStart = results;
 
@@ -321,6 +329,7 @@ check = check+1;
 						}
                     }
                 }else{
+                	document.getElementById("current").value = "waiting...";
                 	if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
 			           setTimeout(function(){ console.log(status)  }, 9000);
 			          } 
@@ -440,16 +449,11 @@ $('#btn_CurrentLocation').click(function(){
              
         }, 500);
 	
+//		document.getElementById("current").value = "Loading...";
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                //				marker.setPosition(latlng);
-                //				map.setCenter(latlng);
-
                 map.panTo(latlng);
-
-                //				map.setZoom(14);
-
                 setTimeout(function() {
 
                     document.getElementById("current").value = placeStart[1].formatted_address;
@@ -822,19 +826,8 @@ function filterPlace(map, location) {
 
 function eventPlace(lat, lng, placeName) {
 
-//    var latlng = new google.maps.LatLng(lat, lng);
-//    map.panTo(latlng);
-    //marker2.setPosition(latlng);
-//    smoothZoom(map, 18, map.getZoom());
-//    $('#pac-input').val(placeName);
-	
+
 	selectMyPlace(3,placeName,lat,lng);
-	
-	
-  /*  $('#showPlace').modal('toggle');
-    $('#btn_CurrentLocation').show(500);*/
-
-
 
 }
 
@@ -883,7 +876,7 @@ function placeRecord() {
 function selectSavePlaceOfften(type_place,type_call) {
 	
 		if($.cookie("login") == undefined){
-			alert(123);
+			
 			return;
 		}else{
 		
@@ -989,7 +982,7 @@ function createAllMarker() {
             scale: 8,
             fillOpacity: 2,
             strokeWeight: 2,
-            fillColor: '#007aff',
+            fillColor: '#4ba5fe',
             strokeColor: '#ffffff'
         },
         draggable: true,
@@ -1013,11 +1006,12 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
             var obj = JSON.parse(results);
             console.log(obj.status);
             if (obj.status == true) {
-                swal("Successfuly!", "", "success");
+            	
+               swal(''+success+'', "", "success");
                 resetMap();
                 placeRecord();
             }else{
-				 swal("Error!", "", "error");
+				 swal(''+error+'', "", "success");
 			}
         });
     }
@@ -1028,11 +1022,11 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
             var obj = JSON.parse(results);
             console.log(results);
             if (obj.status == true) {
-                swal("Successfuly!", "", "success");
+                swal(''+success+'', "", "success");
                 resetMap();
                 placeRecord();
             }else{
-				 swal("Error!", "", "error");
+				 swal(''+error+'', "", "success");
 			}
         });
     }
@@ -1178,6 +1172,7 @@ function resetMap() {
 	directionsDisplay.setMap(null);
 	markerPlaceOfften.setMap(null);
 	marker.setMap(null);
+	marker.setVisible(false);
 	google.maps.event.clearListeners(map, 'center_changed');
     google.maps.event.clearListeners(map, 'dragend');
     showHeader();

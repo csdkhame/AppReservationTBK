@@ -231,19 +231,20 @@
     	<div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div id="search-raeltime">
             <div class="col-md-12 " id="to-remove-class" >
-                <div class="card-contentrealtime" style="background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);">
+                <div class="" style="background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);">
                <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
                 <i class="material-icons" style="margin-top: 30px;" >chevron_left</i>
                 </div>
                     
                     <div class="box-search" id='boxRealtime' style="padding: 0px 8px;">
-                       <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>
-                        <input type='text'   class="form-control" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
-                        <div style="display: nones;" id="open-search">
+                      <!-- <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>-->
+                        <input type='text'   class="" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
+                        
                             <div style="border-bottom: 1px solid #333;display:nones;"></div>
-                            <input  type='text' class="form-control" placeholder="<? echo $lag_go_txt;?>" id="pac-input" style="border: none !important;" value="" style="margin: auto;border: none !important;padding: 10px; width: 100%;background: #fff;" />   
+                            <input  type='text' class="" placeholder="<? echo $lag_go_txt;?>" id="pac-input"  value="" 
+                            style="border: none !important; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  height: 49px;" />   
                                     
-                        </div>          
+                               
                     </div>
                 </div>
             </div>
