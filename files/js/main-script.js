@@ -873,7 +873,7 @@ $(document).ready(function() {
 
 
             $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\') ">' +
+                '<div class="item-thumbnail2" onclick="getimage(\'' + compae1private[i].car_model + '\') ">' +
                 '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
@@ -960,7 +960,7 @@ $(document).ready(function() {
 
             }
             $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')">' +
+                '<div class="item-thumbnail2" onclick="getimage(\'' + compae1join[i].car_model + '\')">' +
                 '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
@@ -1889,7 +1889,7 @@ function sendValueto(x) {
 
                         }
                         $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                            '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')">' +
+                            '<div class="item-thumbnail2" onclick="getimage(\'' + compae1join[i].car_model + '\')">' +
                             '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
                             '</div>' +
                             '<table width="100%">' +
