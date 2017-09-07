@@ -436,7 +436,7 @@ $(document).ready(function() {
 
                 '</div>' +
                 '<div class="views-item" >' +
-                '<a  href="book?data=' + dataService[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+                '<a  href="book?data=' + dataService[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
 
                 '</div>' +
                 '</div>' +
@@ -1336,9 +1336,9 @@ function sendValue(x) {
     console.log(id_placefrom)
 
     $('.box-plancefrom').css('display', 'none');
-    
-    
-    
+
+
+
     //var sdata = {'id_from':id_placefrom,'pro_from' :pro_from,'aum_from':aum_from };
     //console.log(sdata)
     // $.each(dataplaceSend , function(i, val) { 

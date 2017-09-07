@@ -278,7 +278,7 @@
 
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="boxs-from">
                                             <td valign="top"  style="padding: 5px 0;"> 
                                                 <label style="text-align:left" >
                                                     <span class="lng-from"></span><span>:</span>
@@ -291,7 +291,7 @@
 
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="boxs-to">
                                             <td valign="top"  style="padding: 5px 0;"> 
                                             <label style="text-align:left" ><span class="lng-to"></span><span>:</span></label>
 
