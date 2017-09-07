@@ -287,7 +287,7 @@ $(document).ready(function() {
 
                         '</div>' +
                         '<div class="views-item" >' +
-                        '<a  href="book?data=' + data[0].data1[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+                        '<a  href="book?data=' + data[0].data1[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
 
                         '</div>' +
                         '</div>' +
@@ -1443,6 +1443,7 @@ function sendValueto(x) {
                 }, 2000);
             } else if (data.size == 0) {
                 $('#product_a').append('<div class="not-found">Product not Found</div>');
+                $('#loading').css('display', 'none');
 
             } else {
                 $('#ul-header2').css('display', 'block');
