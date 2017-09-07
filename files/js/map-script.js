@@ -472,7 +472,8 @@ $('#btn_CurrentLocation').click(function() {
 
 $('#clear-all').click(function() {
     $('#pac-input').val('');
-    $('#current').val(placeStart[1].formatted_address);
+    console.log(placeStart);
+//    $('#current').val(placeStart[1].formatted_address);
     resetMap();
 
 });
@@ -610,44 +611,47 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     }
                     console.log(compae1join.length)
 
-                    $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-                        '<div class="item-thumbnail2" >' +
-                        '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
-                        '</div>' +
-                        '<h2 class="searchresult_name" title="product name">' +
-                        '<span >' + car_topic + '</span>' +
-                        '<span class="hotel_num">' + indexs + '</span>' +
-                        '</h2>' +
-                        '<div class="box-province">' +
-                        '<p class="type-t">' +
-                        '<span class="car-type" >' + cartype + pax + '</span>' +
-                        '</p>' +
+                $('#product_a').append('<div class="a-link-item col-lg-12" >' +
+                '<div class="item-thumbnail2" >' +
+                '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
+                '</div>' +
+                '<table width="100%">' +
+                '<tr>' +
+                '<td style="width: 30px;">' +
+                '<span class="hotel_num">' + indexs + '</span>' +
+                '</td>' +
 
-                        '</div>' +
-                        '<div id="box-cost-view">' +
-                        '<div class="product_r">' +
-                        '<span class="base_price"></span>' +
-                        '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                '<td>' +
+                '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                '</td>' +
+                '</tr>' +
+                '</table>' +
+                '<div class="box-province">' +
+                '<p class="type-t">' +
+                '<span class="car-type" >' + cartype + pax + '</span>' +
+                '</p>' +
+                '</div>' +
+                '<div id="box-cost-view">' +
+                '<div class="product_r">' +
+                '<span class="base_price"></span>' +
+                '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
-                        '</div>' +
-                        '<div class="views-item">' +
-                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+                '</div>' +
+                '<div class="views-item" >' +
+                '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
 
-                        '</div>' +
-                        '</div>' +
-                        '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-                        '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
-                        '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                        '</div>' +
-                        '</div>'
+                '</div>' +
+                '</div>' +
+                '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
+                '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
+                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                '</div>' +
+                '</div>'
 
-                    );
-
-
+            );
 
 
-
-                }); //end private
+        });
 
                 var car_topic, cartype, pax;
                 if (compae1join.length != 0) {
@@ -684,46 +688,45 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                             $('.lng-capacity-info').html('Capacity info')
                             $('.lng-facilities').html('Facilities')
                         }
+                        
                         $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                            '<div class="item-thumbnail2">' +
-                            '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
-                            '</div>' +
-                            '<table width="100%">' +
-                            '<tr>' +
-                            '<td style="width: 30px;">' +
-                            '<span class="hotel_num">' + indexs + '</span>' +
-                            '</td>' +
+                '<div class="item-thumbnail2" ' +
+                '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
+                '</div>' +
+                '<table width="100%">' +
+                '<tr>' +
+                '<td style="width: 30px;">' +
+                '<span class="hotel_num">' + indexs + '</span>' +
+                '</td>' +
 
-                            '<td>' +
-                            '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-                            '</td>' +
-                            '</tr>' +
-                            '</table>' +
-                            '<div class="box-province">' +
-                            '<p class="type-t">' +
-                            '<span class="car-type" >' + cartype + pax + '</span>' +
-                            '</p>' +
+                '<td>' +
+                '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                '</td>' +
+                '</tr>' +
+                '</table>' +
+                '<div class="box-province">' +
+                '<p class="type-t">' +
+                '<span class="car-type" >' + cartype + pax + '</span>' +
+                '</p>' +
+                '</div>' +
+                '<div id="box-cost-view">' +
+                '<div class="product_r">' +
+                '<span class="base_price"></span>' +
+                '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
+                '</div>' +
+                '<div class="views-item" >' +
+                '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
 
-                            '</div>' +
-                            '<div id="box-cost-view">' +
-                            '<div class="product_r">' +
-                            '<span class="base_price"></span>' +
-                            '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
+                '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                '</div>' +
+                '</div>'
 
-                            '</div>' +
-                            '<div class="views-item" >' +
-                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
-
-                            '</div>' +
-                            '</div>' +
-                            '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-                            '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
-                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                            '</div>' +
-                            '</div>'
-
-                        );
+            );
 
 
                     });
