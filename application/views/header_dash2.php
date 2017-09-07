@@ -213,7 +213,8 @@ $( document ).ready(function() {
                         </li>-->
                         <li class="box-desboard">
                             <a href="<?php echo base_url(); ?>dashboard/view_user" class="feed">
-                                <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>                    
+                            <i class="material-icons" >dvr</i>
+                            <span style="text-transform: initial;" class="lng-management textmenu"></span>                    
                             </a>
                         </li>
                         
@@ -322,7 +323,7 @@ $( document ).ready(function() {
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_xclick" />
-                                <input type="hidden" name="business" value="shop@ekerner.com" />
+                                <input type="hidden" name="business" value="reservation@goldenbeachtour.com" />
                                 <input type="hidden" name="lc" value="AU" />
                                 <input type="hidden" name="item_name" value="Payment" />
                                 <input type="hidden" name="item_number" value="P1" />
