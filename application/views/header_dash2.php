@@ -319,7 +319,7 @@ $( document ).ready(function() {
     	</style>
     </nav>
     <section>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_xclick" />
                                 <input type="hidden" name="business" value="shop@ekerner.com" />
@@ -336,12 +336,28 @@ $( document ).ready(function() {
                                 <input type="hidden" name="cancel_return" value="http://www.ekerner.com/payments/?payment=cancelled" />
                                 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest" />
                                 <table>
-                                        <tr><td style="padding:0 5px 5px 0;">Amount AUD</td><td style="padding:0 5px 5px 0;"><input type="text" name="amount" maxlength="200" /></td></tr>
-                                        <tr><td style="padding:0 5px 5px 0;"><input type="hidden" name="on0" value="Reference" />Reference</td><td style="padding:0 5px 5px 0;"> <input type="text" name="os0" maxlength="200" /></td></tr>
-                                        <tr><td>&nbsp;</td><td style="padding:0 5px 5px 0;">
-                                                <!-- <input style="position:relative; left:-10px; background:#ffffff; border:0;" type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal . The safer, easier way to pay online." /> -->
-                                                <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" alt="Buy now with PayPal" />
-                                        </td></tr>
+                                    <tr>
+                                        <td style="padding:0 5px 5px 0;">Amount AUD
+                                        </td>
+                                        <td style="padding:0 5px 5px 0;">
+                                            <input type="text" name="amount" maxlength="200" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0 5px 5px 0;">
+                                            <input type="hidden" name="on0" value="Reference" />Reference
+                                        </td>
+                                        <td style="padding:0 5px 5px 0;"> 
+                                            <input type="text" name="os0" maxlength="200" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td style="padding:0 5px 5px 0;">
+                                            <input style="position:relative; left:-10px; background:#ffffff; border:0;" type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal . The safer, easier way to pay online." />
+                                            <img alt="" style="border:0;" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1" />
+                                        </td>
+                                    </tr>
                                 </table>
                             </fieldset>
                         </form>
