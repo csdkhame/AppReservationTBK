@@ -354,8 +354,8 @@ $( document ).ready(function() {
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td style="padding:0 5px 5px 0;">
-                                            <input style="position:relative; left:-10px; background:#ffffff; border:0;" type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal . The safer, easier way to pay online." />
-                                            <img alt="" style="border:0;" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1" />
+                                            <input style="position:relative; left:-10px; background:#ffffff; border:0;" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" name="submit" alt="PayPal . The safer, easier way to pay online." />
+                                            <!-- <img alt="" style="border:0;" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1" /> -->
                                         </td>
                                     </tr>
                                 </table>
