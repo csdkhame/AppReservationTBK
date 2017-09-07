@@ -972,7 +972,7 @@ function createAllMarker() {
         map: map
     });
 
-    marker = new google.maps.Marker({
+    endMarker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
         anchorPoint: new google.maps.Point(0, -29),
