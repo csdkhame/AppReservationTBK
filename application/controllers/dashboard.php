@@ -34,14 +34,12 @@ public function view_user()
 		if($_COOKIE['login']) {
 			$id = $_COOKIE['login'];
 			$user_level = $this->Getuser_model->getuser_pass_id($id);
-//			echo json_encode($user_level);
-			$this->session->set_userdata(array('i_id' => $user_level[0]->i_id,'i_rating'=> $user_level[0]->i_rating,'s_code'=>$user_level[0]->s_code,'s_code_ref'=>$user_level[0]->s_code_ref)); 
-//			$user_level = $this->session->userdata('i_rating');  
-			$user_level = $user_level[0]->i_rating; 
-			if($user_level==1){
-				$data = $this->Userview_model_dash->query_user($num_record,$start);
-			}else if($user_level==2){
-				$data = $this->Userview_model_dash->customerRef_list_cus($num_record,$start);
+
+			/*$this->session->set_userdata(array('i_id' => $user_level[0]->i_id,'i_rating'=> $user_level[0]->i_rating,'s_code'=>$user_level[0]->s_code,'s_code_ref'=>$user_level[0]->s_code_ref)); */
+
+			$level = $user_level[0]->i_rating; 
+			if($level==2){
+				$data = $this->Userview_model_dash->customerRef_list_cus($level,$user_level[0]->i_id,$user_level[0]->s_code,$user_level[0]->s_code_ref);
 				
 			}
 //			echo json_encode($data);
@@ -59,17 +57,7 @@ public function view_user()
 		}
 
 	}
-public function query_transfer()
-	{
-		//echo  $this->input->post('head_id');
-		$id_head = $this->input->post('head_id');
-  		$code = $this->input->post('code');
-  		if($code!=""){
-		$data = $this->Userview_model_dash->customerRef_list($id_head,$code);
-		echo json_encode($data);
-		}
-		
-	}
+
 public function get_user(){
 			$id = $_COOKIE['login'];
 			$user_level = $this->Getuser_model->getuser_pass_id($id);

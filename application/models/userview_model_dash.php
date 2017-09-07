@@ -54,69 +54,18 @@ class Userview_model_dash extends CI_Model {
 		
   }
 
-
-  public function customerRef_list($id_head,$code){
+  public function customerRef_list_cus($level,$id_head,$code,$code_ref){
   	
-	$this->db->select('*');
-	$this->db->where('s_code_ref',$code);
-	$query = $this->db->from('ap_order')->get();
-	if($query->num_rows > 0) {
-		 foreach($query->result() as $key=>$row){
-			
-			$curl_post_data = '{
-			"product_id" : "'.$row->product.'"
-			}';
-			$curl_response = '';
-			$headers = array();
-			$url = "http://services.t-booking.com/Product_dashboard";                               
-			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_ENCODING, 'gzip');
-			curl_setopt($curl, CURLOPT_HTTPHEADER , array(
-			     'Content-Type: application/x-www-form-urlencoded; charset=utf-8',
-			));
-			curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.6 (KHTML, like Gecko) Chrome/16.0.897.0 Safari/535.6");
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($curl, CURLOPT_REFERER, $url);
-			curl_setopt($curl, CURLOPT_URL, $url);  
-			curl_setopt($curl, CURLOPT_POST, 1);
-			curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
-			$curl_response = curl_exec($curl);
-			curl_close($curl);
-			$aaaa = json_decode($curl_response);
-
-
-					
-			$data[$key]['id_order'] = $aaaa[0]->id;
-			$data[$key]['topic_en'] = $aaaa[0]->topic_en;
-			$data[$key]['pax_en'] = $aaaa[0]->pax_en;
-			$data[$key]['car_topic_en'] = $aaaa[0]->car_topic_en;
-			$data[$key]['date_tran'] = $row->booking_date;
-			$data[$key]['total_price'] = $row->total_price;
-			$data[$key]['total_prison'] = $row->adult+$row->child;
-			
-		 }
-		 return $data;
-	}else{
-		return "Error";
-	}
-		
-
- 
-  }
-
-
-  public function customerRef_list_cus($num_record,$start){
-  	
-  	$id_head = $user_level = $this->session->userdata('i_id');  
+/*  	$id_head = $user_level = $this->session->userdata('i_id');  
   	$code = $user_level = $this->session->userdata('s_code');  
-  	$code_ref = $user_level = $this->session->userdata('s_code_ref');  
+  	$code_ref = $user_level = $this->session->userdata('s_code_ref');  */
 	
   	$this->db->select('*');
 	$this->db->where('s_code',$code);
+	$this->db->where('s_code !=',"");
 	$this->db->where('s_code_ref',$code_ref);
-/*	if($num_record!="" and $start!=""){
-			$this->db->limit($num_record,$start);
-		}*/
+	$this->db->where('s_code_ref !=',"");
+
 	$query = $this->db->from('ap_order')->get();
 	if($query->num_rows > 0) {
 		 foreach($query->result() as $key=>$row){
@@ -158,6 +107,7 @@ class Userview_model_dash extends CI_Model {
         
         $data['results'] = $data_row;
         $data['total_user'] = $num_user;
+        $data['levelme'] = $level;
         
 		return $data;
 	}
@@ -167,7 +117,6 @@ class Userview_model_dash extends CI_Model {
 	}
  
   }
-
 
   public function update_profile($data,$file_name){
   	$current = date('Y-m-d h:i:s a');

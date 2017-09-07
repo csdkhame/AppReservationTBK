@@ -137,7 +137,7 @@ $(window).scroll(function() {
     }
 ?>
 <?php
- $num_rec = $this->input->get('num'); 
+/* $num_rec = $this->input->get('num'); 
 	  $page_get = $this->input->get('page',TRUE);
 	  $start_get =  $this->input->get('start',TRUE);
 	  if($num_rec==""){
@@ -148,7 +148,8 @@ $(window).scroll(function() {
 	  }
 	   $page = $total_user/$num_rec;
 								$user_level = $this->session->userdata('i_rating');
-      							$user_id = $this->session->userdata('i_id');
+      							$user_id = $this->session->userdata('i_id');*/
+      							
 	  ?>
 	  <style>
 	  		.end-page {
@@ -186,6 +187,7 @@ $(window).scroll(function() {
 
 		</style>
 		<section >
+		
         <div class="container" style="padding: 0 10px;margin-top: 49px;">
 						<h4 class="lng-booking-infomation" style="    padding-left: 5px;"></h4>
 						<div style="display: none;" id="top-end_btn">
@@ -276,7 +278,7 @@ $(window).scroll(function() {
 </style>	
 							
       				
-							<?php if($user_level==1){ ?>
+							<?php if($levelme==1){ ?>
 							<div class="table-responsive">
                             <table id="bootstrap-table1" class="table table-hover">
                                 <thead>
@@ -307,7 +309,7 @@ $(window).scroll(function() {
                             </table>
      						</div>
 							<?php }
-							else if($user_level==2){ ?>
+							else if($levelme==2){ ?>
 							<div class="table-responsive">
                             <table id="bootstrap-table" class="table table-hover">
                                 <thead>
@@ -349,7 +351,11 @@ $(window).scroll(function() {
                                 </tbody>
                             </table>
      						</div>
-							<?php } ?>
+							<?php } 
+							if(!$results){
+								echo '<h3><strong>No Record</strong></h3>';
+							}
+							?>
 			<div style="display: none;">
 				<div class="fixed-table-pagination" style="display: none;">
 				   <div class="pull-left pagination-detail" style="margin: 10px;display: none;" >
@@ -510,35 +516,7 @@ function search() {
 </script>
 
 <script>
-	function view_ref(head_id,code){
-		//alert(123);
-		$( "#modal_showdata" ).html( '<div align="center"><img src="<?php echo base_url(); ?>dasboard/ring.gif" /></div>' );
-		$.post( "<?php echo base_url(); ?>dashboard/query_transfer",{"head_id":head_id,"code":code}, function( data ) {
-			//alert(data);
-			
-			if(data!=""){
-				$( "#modal_showdata" ).html( '<div id="showTableRef" class="" align="center"></div>' );
-				var obj = JSON.parse(data);
-//				console.log(obj);
-				$.each(obj, function(index, value) {
-				    console.log(value);
-				    $( "#showTableRef" ).append( '<table id="tb-'+index+'" class="table table-hover grad1"></table>' );
-				    $( "#tb-"+index ).append( '<tr><td><strong>Order</strong></td><td>'+value.id_order+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Topic</strong></td><td>'+value.topic_en+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Car</strong></td><td>'+value.pax_en+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Capacity</strong></td><td>'+value.car_topic_en+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Transfer date</strong></td><td>'+value.booking_date+'</td></tr>');
-				    $( "#tb-"+index ).append( '<tr><td><strong>Total Price</strong></td><td>'+value.total_price+'</td></tr>');
-//				    $( "#tb-json"+index ).html( '<tr><td>555</td></tr>' );
-				}); 
-			}
-			else{
-				$( "#modal_showdata" ).html( '<div><h2>No record</h2></div>' );
-			}
-			
-		});
-		$('#open_modal').click();	
-	}
+	
 
 	function view_order_level2(order_id){
 //			$( "#show_order" ).html( '<div align="center" ><img src="'+base_url+'dasboard/ring.gif" /></div>' );

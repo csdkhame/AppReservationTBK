@@ -196,6 +196,7 @@ var marker; //result end place
 var placeStart = [];
 var placeEnd = [];
 var infowindow = null;
+var infowindowDetailTravel = null;
 var lat_f, lng_f, lat_t, lng_t;
 var check = 0;
 var directionsDisplay, directionsService;
@@ -329,7 +330,7 @@ check = check+1;
 						}
                     }
                 }else{
-                	document.getElementById("current").value = "waiting...";
+//                	document.getElementById("current").value = "waiting...";
                 	if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
 			           setTimeout(function(){ console.log(status)  }, 9000);
 			          } 
@@ -360,7 +361,7 @@ function error(err) {
     autocomplete.bindTo('bounds', map);
     autocomplete.addListener('place_changed', function() {
 
-        marker.setVisible(false);
+//        marker.setVisible(false);
         var place = autocomplete.getPlace();
         placeEnd = place;
         if (place.geometry.viewport) {
@@ -372,16 +373,17 @@ function error(err) {
             map.setZoom(16); // Why 17? Because it looks good.
         }
 
-        marker.setPosition(placeEnd.geometry.location);
+        
         end = placeEnd.geometry.location;
-
         marker.setVisible(true);
+		marker.setPosition(end);
+        
         var request = {
             origin: start,
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
-		console.log(request);
+
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
             console.log(response.routes[0].legs);
@@ -393,7 +395,6 @@ function error(err) {
             lat_t = response.routes[0].legs[0].end_location.lat();
             lng_t = response.routes[0].legs[0].end_location.lng();
 
-//            console.log(distance);
             var radlat1 = Math.PI * lat_f / 180
             var radlat2 = Math.PI * lat_t / 180
             var theta = lng_f - lng_t;
@@ -402,14 +403,11 @@ function error(err) {
             dist = Math.acos(dist)
             dist = dist * 180 / Math.PI
             dist = dist * 60 * 1.609344;
-//            console.log(dist)
-                //if (unit=="K") { dist = dist * 1.609344 }
-                //if (unit=="N") { dist = dist * 0.8684 }
-                //return dist
+
             $('.a-link-item').remove();
             $('.not-found').remove();
             getProduct(lat_f,lng_f,dist,lat_t,lng_t);
-            var infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
+            infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
             infowindowDetailTravel.setContent('<div><p> '+lng_distance+ ' ' + distance + '</p><p>'+lng_usetime+' ' + duration + '</p></div>');
             infowindowDetailTravel.open(map, marker);
             directionsDisplay.setDirections(response);
@@ -417,7 +415,7 @@ function error(err) {
                 suppressMarkers: true,
                 preserveViewport: true
             });
-//            map.getZoom();
+
             map.setZoom(13);
             $('#clear-all').show(500);
             outSearchRealtime();
@@ -438,18 +436,19 @@ $('#btn_CurrentLocation').click(function(){
             {
             	i = 0;
             	$('#btn_CurrentLocation').css("color",'rgb(85, 85, 85)');
-//            	console.log(1);
+            	console.log(1);
             }
             else 
              { 
              	i = 1;
              	$('#btn_CurrentLocation').css('color', 'rgb(170,170,170)'); 
-//             	console.log(2);
+             	console.log(2);
              }
              
         }, 500);
 	
 //		document.getElementById("current").value = "Loading...";
+console.log(navigator.geolocation);
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -486,7 +485,7 @@ $('#clear-all').click(function(){
 
 function getProduct(lat_f,lng_f,dist,lat_t,lng_t) {
 
-console.log(lat_f+","+lng_f+" : "+lat_t+","+lng_t);
+//console.log(lat_f+","+lng_f+" : "+lat_t+","+lng_t);
 $.ajax({
                 type: 'POST',
                 url: '../service/servicereltime.php',
@@ -802,8 +801,6 @@ function callback(results, status) {
 }
 
 function appendPlace(place) {
-    /* var placeLoc = place.geometry.location;*/
-//	console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
@@ -1069,15 +1066,16 @@ function selectMyPlace(type_place,txtAdd,lat,lng) {
 		console.log(end);
 	}
 
-        marker.setPosition(end);
+     
         marker.setVisible(true);
+		marker.setPosition(end);
         
 	var request = {
             origin: start,
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
-		console.log(request);
+
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
             console.log(response.routes[0].legs);
@@ -1089,7 +1087,7 @@ function selectMyPlace(type_place,txtAdd,lat,lng) {
             lat_t = response.routes[0].legs[0].end_location.lat();
             lng_t = response.routes[0].legs[0].end_location.lng();
 
-//            console.log(distance);
+
             var radlat1 = Math.PI * lat_f / 180
             var radlat2 = Math.PI * lat_t / 180
             var theta = lng_f - lng_t;
@@ -1098,14 +1096,11 @@ function selectMyPlace(type_place,txtAdd,lat,lng) {
             dist = Math.acos(dist)
             dist = dist * 180 / Math.PI
             dist = dist * 60 * 1.609344;
-//            console.log(dist)
-                //if (unit=="K") { dist = dist * 1.609344 }
-                //if (unit=="N") { dist = dist * 0.8684 }
-                //return dist
+
             $('.a-link-item').remove();
             $('.not-found').remove();
             getProduct(lat_f,lng_f,dist,lat_t,lng_t);
-            var infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
+            infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
             infowindowDetailTravel.setContent('<div><p> '+lng_distance+ ' ' + distance + '</p><p>'+lng_usetime+' ' + duration + '</p></div>');
             infowindowDetailTravel.open(map, marker);
             directionsDisplay.setDirections(response);
@@ -1113,7 +1108,7 @@ function selectMyPlace(type_place,txtAdd,lat,lng) {
                 suppressMarkers: true,
                 preserveViewport: true
             });
-//            map.getZoom();
+
             map.setZoom(13);
             $('#clear-all').show(500);
             outSearchRealtime();
@@ -1167,11 +1162,17 @@ function resetMap() {
 			infowindow.setMap(null);
 			infowindow = null;
 		}
+	if(infowindowDetailTravel){
+    		console.log(infowindowDetailTravel);
+			infowindowDetailTravel.close();
+			infowindowDetailTravel.setMap(null);
+			infowindowDetailTravel = null;
+		}
 	console.log('Reset Map');
 	outSearchRealtime();
 	directionsDisplay.setMap(null);
 	markerPlaceOfften.setMap(null);
-	marker.setMap(null);
+//	marker.setMap(null);
 	marker.setVisible(false);
 	google.maps.event.clearListeners(map, 'center_changed');
     google.maps.event.clearListeners(map, 'dragend');

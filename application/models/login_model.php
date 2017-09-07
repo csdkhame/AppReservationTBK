@@ -98,7 +98,15 @@ class Login_model extends CI_Model {
          $username = $this->input->post('username');
       $password = $this->input->post('password');
       $data['s_username'] = $this->input->post('username');
-      $data['face_id'] = $this->input->post('password');
+      $data['s_email'] = $this->input->post('username');
+      
+      $type_login = $this->input->post('type');
+      if($type_login=='facebook'){
+	  	$data['face_id'] = $this->input->post('password');
+	  }
+	  else if($type_login=='google'){
+	  	$data['google_id'] = $this->input->post('password');
+	  }
       $data['i_rating'] = '2';
       $this->db->insert('ap_users',$data);      
       //$this->db->limit(100);
@@ -107,7 +115,7 @@ class Login_model extends CI_Model {
        
                         $rtn = '{"status":"0","username":"'.$getid.'"}';
 
-                        return $rtn;
+                        return $data;
                   
                          
         }

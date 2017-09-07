@@ -37,7 +37,8 @@
     
 
 </head>
-
+ <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <script src="https://apis.google.com/js/api:client.js"></script>
 <body style="background-color: #fff ">
 
     <style>
@@ -85,9 +86,7 @@
 }
 
     </style>
-<!--<?php 
-echo $from;
-?> -->
+
 <input type="hidden" id="to" value="<?=$to;?>"/>
     <div id="loading" style="display: none;">
             <div class="loading-in">               
@@ -252,6 +251,7 @@ echo $from;
                         <p>As a member using Go HolidayQuick, your booking is our priority.</p>
                     </div>
                 </div>
+                
                 <div class="log-social box-signin">
                     <div class="unit social-column">
                         <div class="social-inner">
@@ -261,13 +261,21 @@ echo $from;
                                     <span>Facebook</span>
                                 </a>
                             </div>
+                           
                             <div class="google-wrapper">
-                                <div>
-                                    <a id="google-login-button" href="javascript:;" onclick=""; return false class="google-auth inner google-login-auth">
-                                        <i class="fa fa-google-plus-square" style="font-size: 36px;"></i>
+								  <div id="gSignInWrapper">
+								    <!--<span class="label">Sign in with:</span>-->
+								    <div id="customBtn" class="google-auth inner google-login-auth">
+								      <i class="fa fa-google-plus-square" style="font-size: 36px; position: absolute; left: 16px;"></i>
+								      <span >Google</span>
+								    </div>
+								  </div>
+                               <!-- <div>
+                                    <a id="google-login-button"  class="google-auth inner google-login-auth" >
+                                        <i class="fa fa-google-plus-square" style="font-size: 36px; position: absolute; left: 16px;"></i>
                                         <span>Google</span>
                                     </a>
-                                </div>
+                                </div>-->
                             </div>
                             <div style="margin-top: 30px;">
                                 <div class=" btn-foget-pass " id="foget-pass" style="">
@@ -279,7 +287,7 @@ echo $from;
                 </div>
             </div>
         </div>
-    </div>
+
     <div id="foget-password">
             <div class="box-in-foget" >
                 <div style="padding: 12px;">
@@ -448,7 +456,8 @@ echo $from;
     font-weight: 700;
     display: block;
     line-height: 36px;
-    padding: 0 10px 0 0;
+/*    padding: 0 10px 0 0;*/
+    padding: 0 0px 0 0;
     text-decoration: none;
     cursor: pointer;
     min-width: 120px;
@@ -460,7 +469,8 @@ echo $from;
     font-weight: 700;
     display: block;
     line-height: 36px;
-    padding: 0 10px 0 0;
+/*    padding: 0 10px 0 0;*/
+    padding: 0 0px 0 0;
     text-decoration: none;
     cursor: pointer;
     min-width: 200px;
@@ -499,7 +509,7 @@ echo $from;
 .social-column .google-wrapper {
     text-align: center;
     margin-top: 20px;
-    display: none;
+/*    display: none;*/
 }
 .social-column .social-inner {
     display: table-cell;
@@ -801,9 +811,8 @@ echo $from;
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
     <!-- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js"></script>  -->
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
-  
-    
-    <style>
+ 
+<style>
         .index-page .header-filter:after, .presentation-page .header-filter:after {
     background: rgba(132,13,121,.88);
     background: linear-gradient(45deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%);
@@ -972,6 +981,7 @@ echo $from;
     }
 }
                     </style>
+
 <script>
 $(document).ready(function(){
     var username, password , username_signup ,password_signup,text_check,forget = '';
@@ -1248,7 +1258,7 @@ window.fbAsyncInit = function() {
         $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>login_control/processsocial',
-        data: {'username': response.email,'name':response.name,'password':response.id},
+        data: {'username': response.email,'name':response.name,'password':response.id,'type':'facebook'},
         //contentType: "application/json; application/x-www-form-urlencoded; charset=UTF-8",
         dataType: 'json',
         success: function(res) { 
@@ -1257,20 +1267,12 @@ window.fbAsyncInit = function() {
           if(res.status == 0)
               {
                  $.cookie("login",res.username);
-                   window.location.href = "<?php echo base_url(); ?>home";
-                
-               
+                   window.location.href = "<?php echo base_url(); ?>home";         
               }
               else 
-              {
-                
+              {    
                $('#message').html('Login not complete').css('color', 'red');
               }
-              
-          
-        
-           
-          
         }
     });
        
@@ -1295,8 +1297,69 @@ window.fbAsyncInit = function() {
 
        $('.box-signin').css('display','block');
     })
-   
 </script>
+
+
+<script>
+/**
+* Login with Google Account *
+*/
+  var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '1057940740113-3suf1lugga5kceuqg3jed67edke0l1dg.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
+
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+        /*  document.getElementById('name').innerText = "Signed in: " +
+              googleUser.getBasicProfile().getName();*/
+               var profile = googleUser.getBasicProfile();
+				  console.log('ID: ' + profile.getId());
+				  console.log('Name: ' + profile.getName());
+				  console.log('Image URL: ' + profile.getImageUrl());
+				  console.log('Email: ' + profile.getEmail()); 
+//				  console.log(profile); 
+				  
+				 $.ajax({
+			        type: 'POST',
+			        url: '<?php echo base_url(); ?>login_control/processsocial',
+			        data: {'username': profile.getEmail(),'name':profile.getName(),'password':profile.getId(),'type':'google'},
+
+			        dataType: 'json',
+			        success: function(res) { 
+			          console.log(res)
+			          console.log(res.status)
+			          if(res.status == 0)
+			              {
+			                 $.cookie("login",res.username);
+			                 window.location.href = "<?php echo base_url(); ?>home";         
+			              }
+			              else 
+			              {    
+			               $('#message').html('Login not complete').css('color', 'red');
+			              }
+			        }
+			    });
+				  
+        }, function(error) {
+          		   console.log(JSON.stringify(error, undefined, 2));
+        });
+  }
+  </script>
+<script>startApp();</script>
+
+
 </html>
 
 
