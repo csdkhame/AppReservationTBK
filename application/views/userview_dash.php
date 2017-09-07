@@ -164,16 +164,17 @@ $(window).scroll(function() {
     cursor: default;
 }
 .top-page {
-    position: fixed; 
+    position: fixed;
     left: auto;
     right: 0;
-  /*  top: 160px;*/
-      bottom: 150px;
+    /* top: 160px; */
+    bottom: 150px;
     opacity: .9;
     z-index: 3;
-    padding: 1rem;
+    padding: 10px;
     overflow-y: auto;
-    cursor: default;
+    /* cursor: default; */
+    background: #c5bfbf;
 }
 .table-responsive{
 			margin-bottom: 0 !important;
@@ -193,7 +194,7 @@ $(window).scroll(function() {
 						<div style="display: none;" id="top-end_btn">
 							<!--<button class="top-page btn btn-info"  onclick="scrollWin('top');" style="cursor: pointer;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
 							<button class="end-page btn btn-info"  onclick="scrollWin('end');"  style="cursor: pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>-->
-							<button class="top-page btn btn-info"  style="" onclick="scrollWin('top');"  style="cursor: pointer; display: none;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+							<div class="top-page "  style="" onclick="scrollWin('top');"  style="cursor: pointer; display: none;"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
 						</div>	 
 	  
 	  				<div class="toolbar" style="    background: #ffffff;

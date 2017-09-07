@@ -370,6 +370,11 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(data) {
             console.log(data)
+            if (data[0].area == "Service") {
+                $('.box-program').hide();
+                $('.boxs-to').hide();
+                $('.boxs-from').hide();
+            }
             console.log(data[0].province_name_en)
             if ($.cookie("lng") == 'cn') {
                 $('#cars_persion').html(data[0].car_topic_cn + data[0].pax_cn)
@@ -1302,7 +1307,7 @@ $(document).ready(function() {
                                         console.log(data);
                                         //console.log(s_email);
 
-                                        window.location.href = "https://dotdotdottrip.com";
+                                        window.location.href = "https://dotdotdottrip.com/dashboard/view_user";
 
                                     }
                                 });

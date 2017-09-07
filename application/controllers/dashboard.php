@@ -115,8 +115,9 @@ public function account_settings(){
 public function payment(){
 		
 		$this->load->view('header_dash2');
+		$this->load->view('payment');
 		/*$this->load->view('setting_acc_dash');*/
-		echo "<h2 style='    margin: 79px;'>Coming Soon</h2>";
+		// echo "<h2 style='    margin: 79px;'>Coming Soon</h2>";
 		$this->load->view('footer_dash2');
 		
 }	
