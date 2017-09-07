@@ -290,44 +290,9 @@ function initAutocomplete(map) {
     if (navigator.geolocation) {
         var id, target;
         id = navigator.geolocation.watchPosition(success, error, options);
-<<<<<<< HEAD
+
 //        console.log("id : "+id); 
       }
-      
-  
-function success(position) {
-  ///var crd = pos.coords;
-  var current  = {
-              lat: parseFloat(position.coords.latitude),
-              lng: parseFloat(position.coords.longitude)
-            };
-             
-console.log('success');
-pos = current;
-start = pos;
-markerCircle.setPosition(current);
-check = check+1;
-       if(check==1){
-       	
-	   	map.panTo(current);
-	   	lat_f = position.coords.latitude;
-	   	lng_f = position.coords.longitude;
-	   }
-	
-	 geocoder = new google.maps.Geocoder;
-	 geocoder.geocode({ 'location': pos }, function(results, status) {
-				console.log(results);
-                if (status === google.maps.GeocoderStatus.OK) {
-                	
-                    if (results[1]) {
-                        placeStart = results;
-
-                        addr = placeStart[1].formatted_address;
-                        if(check==1){
-=======
-        //        console.log("id : "+id); 
-    }
-
 
     function success(position) {
         ///var crd = pos.coords;
@@ -358,7 +323,7 @@ check = check+1;
 
                     addr = placeStart[1].formatted_address;
                     if (check == 1) {
->>>>>>> d37b9fd7af4cc49d1554596d6d489a9cf0561397
+
                         document.getElementById("current").value = addr;
 
                     }
@@ -371,7 +336,6 @@ check = check+1;
 
             }
         });
-
         nearbyPlace(map, pos, "");
         filterPlace(map, pos);
     };
@@ -563,6 +527,19 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                 } else if ($.cookie("lng") == undefined) {
                     cartype = data.cartype[0];
+<<<<<<< HEAD
+
+                }
+
+                console.log(data1)
+                console.log(cartype)
+
+                $.each(cartype, function(i, val) {
+                    var index2 = parseInt(i) + 1;
+                    $('#cartype').append('<option value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                    //dataProvince.push(data[i])
+                    //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+=======
 
                 }
 
@@ -585,7 +562,113 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     if (data1[i].type == 'Join') {
                         compae1join.push(data1[i])
                     }
+>>>>>>> d37b9fd7af4cc49d1554596d6d489a9cf0561397
 
+                })
+
+                console.log(compae2private.length)
+
+                if (compae1join.length == 0) {
+                    $('#join-btn').hide();
+                    $('#private-btn').css('width', '100%');
+
+                }
+                console.log(data.length)
+                dataproduct = data;
+                var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
+
+                //if (data[0].data1.length != 0) {
+                var car_topic, cartype, pax;
+                $.each(compae1private, function(i, val) {
+                    var indexs = parseInt(i) + 1;
+                    if ($.cookie("lng") == 'cn') {
+                        car_topic = compae1private[i].topic_cn;
+                        cartype = compae1private[i].car_topic_cn;
+                        pax = compae1private[i].pax_cn;
+                        lngbook = '預訂';
+                        lngcapacityinfo = '容量信息';
+                        lngfacilities = '设施';
+                    } else if ($.cookie("lng") == 'en') {
+                        car_topic = compae1private[i].topic_en;
+                        cartype = compae1private[i].car_topic_en;
+                        pax = compae1private[i].pax_en;
+                        lngbook = 'Book';
+                        lngcapacityinfo = 'Capacity info';
+                        lngfacilities = 'Facilities';
+                        // $('.lng-book').html('Facilities')
+                        // $('.lng-capacity-info').html('Capacity info')
+                        // $('.lng-facilities').html('Facilities')
+
+                    } else if ($.cookie("lng") == 'th') {
+                        car_topic = compae1private[i].topic_th;
+                        cartype = compae1private[i].car_topic_th;
+                        pax = compae1private[i].pax_th;
+                        lngbook = 'จอง';
+                        lngcapacityinfo = 'ข้อมูลความจุ';
+                        lngfacilities = 'สิ่งอำนวยความสะดวก';
+                        // $('.lng-book').html('จอง')
+                        // $('.lng-capacity-info').html('ข้อมูลความจุ')
+                        // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+
+                    } else if ($.cookie("lng") == undefined) {
+                        car_topic = compae1private[i].topic_en;
+                        cartype = compae1private[i].car_topic_en;
+                        pax = compae1private[i].pax_en;
+                        lngbook = 'Book';
+                        lngcapacityinfo = 'Capacity info';
+                        lngfacilities = 'Facilities';
+                        // $('.lng-book').html('Book')
+                        // $('.lng-capacity-info').html('Capacity info')
+                        // $('.lng-facilities').html('Facilities')
+
+                });
+                $.each(data1, function(i, val) {
+                    if (data1[i].type == 'Private') {
+                        compae1private.push(data1[i])
+                    }
+                    console.log(compae1join.length)
+
+                    $('#product_a').append('<div class="a-link-item col-lg-12" >' +
+                        '<div class="item-thumbnail2" >' +
+                        '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
+                        '</div>' +
+                        '<h2 class="searchresult_name" title="product name">' +
+                        '<span >' + car_topic + '</span>' +
+                        '<span class="hotel_num">' + indexs + '</span>' +
+                        '</h2>' +
+                        '<div class="box-province">' +
+                        '<p class="type-t">' +
+                        '<span class="car-type" >' + cartype + pax + '</span>' +
+                        '</p>' +
+
+                        '</div>' +
+                        '<div id="box-cost-view">' +
+                        '<div class="product_r">' +
+                        '<span class="base_price"></span>' +
+                        '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+                        '</div>' +
+                        '<div class="views-item">' +
+                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+
+                        '</div>' +
+                        '</div>' +
+                        '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
+                        '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+                        '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                        '</div>' +
+                        '</div>'
+
+                    );
+
+
+
+
+                    if (data1[i].type == 'Join') {
+                        compae1join.push(data1[i])
+                    }
+
+<<<<<<< HEAD
                 })
 
                 console.log(compae2private.length)
@@ -766,6 +849,91 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 } else {
                     $('#product_c').append('<div class="not-found">Product not Found</div>');
                 }
+=======
+                }); //end private
+
+                var car_topic, cartype, pax;
+                if (compae1join.length != 0) {
+                    $.each(compae1join, function(i, val) {
+                        var indexs = parseInt(i) + 1;
+                        if ($.cookie("lng") == 'cn') {
+                            car_topic = compae1join[i].topic_cn;
+                            cartype = compae1join[i].car_topic_cn;
+                            pax = compae1join[i].pax_cn;
+                            $('.lng-book').html('預訂')
+                            $('.lng-capacity-info').html('容量信息')
+                            $('.lng-facilities').html('设施')
+                        } else if ($.cookie("lng") == 'en') {
+                            car_topic = compae1join[i].topic_en;
+                            cartype = compae1join[i].car_topic_en;
+                            pax = compae1join[i].pax_en;
+                            $('.lng-book').html('Book')
+                            $('.lng-capacity-info').html('Capacity info')
+                            $('.lng-facilities').html('Facilities')
+
+                        } else if ($.cookie("lng") == 'th') {
+                            car_topic = compae1join[i].topic_th;
+                            cartype = compae1join[i].car_topic_th;
+                            pax = compae1join[i].pax_th;
+                            $('.lng-book').html('จอง')
+                            $('.lng-capacity-info').html('ข้อมูลความจุ')
+                            $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+
+                        } else if ($.cookie("lng") == undefined) {
+                            car_topic = compae1join[i].topic_en;
+                            cartype = compae1join[i].car_topic_en;
+                            pax = compae1join[i].pax_en;
+                            $('.lng-book').html('Book')
+                            $('.lng-capacity-info').html('Capacity info')
+                            $('.lng-facilities').html('Facilities')
+                        }
+                        $('#product_c').append('<div class="a-link-item col-lg-12" >' +
+                            '<div class="item-thumbnail2">' +
+                            '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
+                            '</div>' +
+                            '<table width="100%">' +
+                            '<tr>' +
+                            '<td style="width: 30px;">' +
+                            '<span class="hotel_num">' + indexs + '</span>' +
+                            '</td>' +
+
+                            '<td>' +
+                            '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</table>' +
+                            '<div class="box-province">' +
+                            '<p class="type-t">' +
+                            '<span class="car-type" >' + cartype + pax + '</span>' +
+                            '</p>' +
+
+
+                            '</div>' +
+                            '<div id="box-cost-view">' +
+                            '<div class="product_r">' +
+                            '<span class="base_price"></span>' +
+                            '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+                            '</div>' +
+                            '<div class="views-item" >' +
+                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
+
+                            '</div>' +
+                            '</div>' +
+                            '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
+                            '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
+                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                            '</div>' +
+                            '</div>'
+
+                        );
+
+
+                    });
+                } else {
+                    $('#product_c').append('<div class="not-found">Product not Found</div>');
+                }
+>>>>>>> d37b9fd7af4cc49d1554596d6d489a9cf0561397
 
 
 
