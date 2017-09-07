@@ -154,7 +154,9 @@
                         </li>-->
                         <li class="box-desboard">
                             <a href="<?php echo base_url(); ?>dashboard/view_user" class="feed">
-                                <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>                    
+                            <i class="material-icons" >dvr</i>
+                            <span style="text-transform: initial;" class="lng-management textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
                             </a>
                         </li>
                         <li class="dropdown" id="btnusers">
