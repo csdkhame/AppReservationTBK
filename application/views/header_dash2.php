@@ -323,7 +323,7 @@ $( document ).ready(function() {
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_xclick" />
-                                <input type="hidden" name="business" value="reservation@goldenbeachtour.com" />
+                                <input type="hidden" name="business" value="ozaclever-facilitator_api1.gmail.com" />
                                 <input type="hidden" name="lc" value="AU" />
                                 <input type="hidden" name="item_name" value="Payment" />
                                 <input type="hidden" name="item_number" value="P1" />
