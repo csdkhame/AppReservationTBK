@@ -1337,6 +1337,16 @@ function sendValue(x) {
 
     $('.box-plancefrom').css('display', 'none');
 
+		var start_st = {
+	            lat: parseFloat(lat_from),
+	            lng: parseFloat(lng_from)
+	        }
+        
+        console.log(start_st+" => Start");
+        
+        startMarker.setVisible(true);
+        map.panTo(start_st);
+        startMarker.setPosition(start_st);
 
 
     //var sdata = {'id_from':id_placefrom,'pro_from' :pro_from,'aum_from':aum_from };
@@ -1373,6 +1383,16 @@ function sendValueto(x) {
     $('#show-hide-pro2').hide();
     $('#pro-search').hide();
 
+	var end_st = {
+	            lat: parseFloat(lat_to),
+	            lng: parseFloat(lng_to)
+	        }
+        
+        console.log(end_st+" => Start");
+        
+        endMarker.setVisible(true);
+        map.panTo(end_st);
+        endMarker.setPosition(end_st);
 
 
     id_placeto = x;

@@ -199,7 +199,7 @@ var check = 0;
 var directionsDisplay, directionsService;
 var start;
 var end;
-
+    
 function initialize() {
 
     var mapMinZoom = 13;
@@ -265,6 +265,7 @@ function initAutocomplete(map) {
     var inputStart = document.getElementById("current");
     inputStart.addEventListener('click', function() {
         document.getElementById("current").value = "";
+        start = null;
     });
 
     var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
@@ -274,16 +275,19 @@ function initAutocomplete(map) {
         placeStart = autocompleteStart.getPlace();
 
         map.panTo(placeStart.geometry.location);
+       
         start = placeStart.geometry.location;
+        startMarker.setVisible(true);
+        startMarker.setPosition(start);
         lat_f = placeStart.geometry.location.lat();
         lng_f = placeStart.geometry.location.lng();
-
+		$('#clear-all').show(500);
 
     });
 
     var options = {
         enableHighAccuracy: true,
-        timeout: 500,
+        timeout: 1000,
         maximumAge: 0
     };
 
@@ -303,16 +307,16 @@ function initAutocomplete(map) {
 
         console.log('success');
         pos = current;
-        start = pos;
+        
         markerCircle.setPosition(current);
         check = check + 1;
         if (check == 1) {
-
+			start = pos;
             map.panTo(current);
             lat_f = position.coords.latitude;
             lng_f = position.coords.longitude;
         }
-
+//		console.log(check);
         geocoder = new google.maps.Geocoder;
         geocoder.geocode({ 'location': pos }, function(results, status) {
 
@@ -348,11 +352,9 @@ function initAutocomplete(map) {
 
     $('#current').focusout(function() {
         $(this).val(addr);
+        start = pos;
     });
-
-
-    directionsService = new google.maps.DirectionsService;
-    directionsDisplay = new google.maps.DirectionsRenderer();
+	
     var inputEnd = document.getElementById('pac-input');
 
     var autocomplete = new google.maps.places.Autocomplete(inputEnd);
@@ -380,7 +382,9 @@ function initAutocomplete(map) {
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
-
+        
+		directionsService = new google.maps.DirectionsService;
+    	directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
         	console.log(response);
@@ -411,7 +415,7 @@ function initAutocomplete(map) {
             getProduct(lat_f, lng_f, dist, lat_t, lng_t);
             infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
             infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-            infowindowDetailTravel.open(map, marker);
+            infowindowDetailTravel.open(map, endMarker);
             directionsDisplay.setDirections(response);
             directionsDisplay.setOptions({
                 suppressMarkers: true,
@@ -447,7 +451,7 @@ $('#btn_CurrentLocation').click(function() {
     }, 500);
 
     //		document.getElementById("current").value = "Loading...";
-    console.log(navigator.geolocation);
+//    console.log(navigator.geolocation);
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -1023,6 +1027,8 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
 function selectMyPlace(type_place, txtAdd, lat, lng) {
     //    console.log($(this).is(':focus'));
     //    alert(txtAdd);
+    directionsService = new google.maps.DirectionsService;
+    directionsDisplay = new google.maps.DirectionsRenderer();
     if (type_place == 3) {
         if (infowindow) {
             console.log(infowindow);
@@ -1046,7 +1052,17 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
             lat: parseFloat(lat),
             lng: parseFloat(lng)
         }
+        
         console.log(start);
+        startMarker.setVisible(true);
+        startMarker.setPosition(start);
+       
+       if(end == undefined){
+	   	 setTimeout(function(){$('#pac-input').focus(); }, 2000);
+	   }  
+     
+			
+	
     }
     if ($('#for_check_endInput').val() == 1) {
         $('#pac-input').val(txtAdd);
@@ -1055,12 +1071,18 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
             lng: parseFloat(lng)
         }
         console.log(end);
+        endMarker.setVisible(true);
+   		endMarker.setPosition(end);
+   		if(start == undefined){
+	   	 setTimeout(function(){$('#pac-input').focus(); }, 2000);
+	   }  
+   		
     }
 
 
-    endMarker.setVisible(true);
-    endMarker.setPosition(end);
-
+  	
+  	if(start != undefined && end != undefined){
+		
     var request = {
         origin: start,
         destination: end,
@@ -1096,7 +1118,7 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
         getProduct(lat_f, lng_f, dist, lat_t, lng_t);
         infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
         infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-        infowindowDetailTravel.open(map, marker);
+        infowindowDetailTravel.open(map, endMarker);
         directionsDisplay.setDirections(response);
         directionsDisplay.setOptions({
             suppressMarkers: true,
@@ -1110,7 +1132,7 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
 
 
     });
-
+	}
 }
 
 function setPinLocation() {
@@ -1165,9 +1187,12 @@ function resetMap() {
     console.log('Reset Map');
     outSearchRealtime();
     directionsDisplay.setMap(null);
+    directionsDisplay = null;
+    directionsService = null;
     markerPlaceOfften.setMap(null);
     //	marker.setMap(null);
     endMarker.setVisible(false);
+    startMarker.setVisible(false);
     google.maps.event.clearListeners(map, 'center_changed');
     google.maps.event.clearListeners(map, 'dragend');
     showHeader();
@@ -1175,5 +1200,7 @@ function resetMap() {
     $('#clear-all').hide(500);
     $('#show-hide-pro2').hide(500);
     map.panTo(pos);
-
+	start = null;
+	end = null;
+	$('#btn_CurrentLocation').show(700);
 }
