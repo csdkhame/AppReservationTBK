@@ -1325,33 +1325,33 @@ window.fbAsyncInit = function() {
         /*  document.getElementById('name').innerText = "Signed in: " +
               googleUser.getBasicProfile().getName();*/
                var profile = googleUser.getBasicProfile();
-				  console.log('ID: ' + profile.getId());
+				 /* console.log('ID: ' + profile.getId());
 				  console.log('Name: ' + profile.getName());
 				  console.log('Image URL: ' + profile.getImageUrl());
-				  console.log('Email: ' + profile.getEmail()); 
+				  console.log('Email: ' + profile.getEmail()); */
 //				  console.log(profile); 
+				  var url = '<?php echo base_url(); ?>login_control/processsocial';
+//				  alert(url);
 				  
-				 $.ajax({
-			        type: 'POST',
-			        url: '<?php echo base_url(); ?>login_control/processsocial',
-			        data: {'username': profile.getEmail(),'name':profile.getName(),'password':profile.getId(),'type':'google'},
-
-			        dataType: 'json',
-			        success: function(res) { 
-			          console.log(res)
-			          console.log(res.status)
-			          if(res.status == 0)
-			              {
-			                 $.cookie("login",res.username);
-			                 window.location.href = "<?php echo base_url(); ?>home";         
-			              }
-			              else 
-			              {    
-			               $('#message').html('Login not complete').css('color', 'red');
-			              }
-			        }
-			    });
+				  $.post( url, {'username': profile.getEmail(),'name':profile.getName(),'password':profile.getId(),'type':'google'} ,function( data ) {
+//					 	console.log(data);
+					 	var obj_c = JSON.parse(data);
+					 	console.log(obj_c.status);
+					 	 if(obj_c.status == 0)
+				              {
+				                 $.cookie("login",obj_c.username);
+				                   window.location.href = "<?php echo base_url(); ?>home";         
+				              }
+				              else 
+				              {    
+				               $('#message').html('Login not complete').css('color', 'red');
+				              }
+					});
+				 
 				  
+       
+       
+       
         }, function(error) {
           		   console.log(JSON.stringify(error, undefined, 2));
         });
