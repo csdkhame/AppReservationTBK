@@ -186,10 +186,10 @@ var map; //main map
 var marker2; // current position
 var markerPlaceOfften; // for pan to place offten
 var markerCircle; // point cerrtent locatont
-var current_marker, pin; // img marker
+var startMarker, pin; // img marker
 var pos; // current location (lat,lng)
 var geocoder;
-var marker; //result end place
+var endMarker; //result end place
 var placeStart = [];
 var placeEnd = [];
 var infowindow = null;
@@ -372,8 +372,8 @@ function initAutocomplete(map) {
 
 
         end = placeEnd.geometry.location;
-        marker.setVisible(true);
-        marker.setPosition(end);
+        endMarker.setVisible(true);
+        endMarker.setPosition(end);
 
         var request = {
             origin: start,
@@ -452,12 +452,14 @@ $('#btn_CurrentLocation').click(function() {
         navigator.geolocation.getCurrentPosition(function(position) {
             var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             map.panTo(latlng);
+            markerCircle.setPosition(latlng);
             setTimeout(function() {
 
                 document.getElementById("current").value = placeStart[1].formatted_address;
                 //		
                 // marker2.setPosition(latlng);
                 // marker2.setAnimation(google.maps.Animation.BOUNCE);
+                
                 smoothZoom(map, 17, map.getZoom());
 
                 //	          map.setZoom(16);
@@ -955,13 +957,6 @@ function createAllMarker() {
         map: null
     });
     markerPlaceOfften.setVisible(false);
-    current_marker = {
-        url: 'https://dotdotdottrip.com/pic/icon_marker.png',
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(35, 35)
-    };
 
     markerCircle = new google.maps.Marker({
         position: map.getCenter(),
@@ -982,6 +977,12 @@ function createAllMarker() {
         animation: google.maps.Animation.DROP,
         anchorPoint: new google.maps.Point(0, -29),
         label: "B"
+    });
+    startMarker = new google.maps.Marker({
+        map: map,
+        animation: google.maps.Animation.DROP,
+        anchorPoint: new google.maps.Point(0, -29),
+        label: "A"
     });
 
 }
@@ -1057,8 +1058,8 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
     }
 
 
-    marker.setVisible(true);
-    marker.setPosition(end);
+    endMarker.setVisible(true);
+    endMarker.setPosition(end);
 
     var request = {
         origin: start,
@@ -1166,7 +1167,7 @@ function resetMap() {
     directionsDisplay.setMap(null);
     markerPlaceOfften.setMap(null);
     //	marker.setMap(null);
-    marker.setVisible(false);
+    endMarker.setVisible(false);
     google.maps.event.clearListeners(map, 'center_changed');
     google.maps.event.clearListeners(map, 'dragend');
     showHeader();
