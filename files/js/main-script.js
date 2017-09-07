@@ -410,7 +410,7 @@ $(document).ready(function() {
 
 
             $('#product_service').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\') ">' +
+                '<div class="item-thumbnail2" onclick="getimage(\'' + dataService[i].car_model + '\') ">' +
                 '<img src="' + urlicon + dataService[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
@@ -1175,7 +1175,7 @@ $(document).ready(function() {
                             //$('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
 
                             //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-                            setvaluebox += '<li class="send-value" id="transferplace' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValue(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">' + data[i].address + '</div></li>';
+                            setvaluebox += '<li class="send-value" id="transferplace' + data[i].id + '" dataname ="' + data[i].topic + '" lat_f="' + data[i].latitude + '" lng_f="' + data[i].longitude + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValue(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">' + data[i].address + '</div></li>';
 
 
                         });
@@ -1314,7 +1314,8 @@ function create_word(input) {
 var dataplaceSend, id_placefrom, id_placeto, pro_from, pro_to, aum_from, aum_to, dataproduct, parame, compae1private = [],
     compae1join = [],
     compae2private = [],
-    compae2join = [];
+    compae2join = [],
+    lat_from, lng_from;
 //var datato = [];
 function sendValuetojs(data) {
     // console.log(data)
@@ -1326,6 +1327,10 @@ function sendValue(x) {
     pro_from = $('#transferplace' + x).attr('datapro');
     var name = $('#transferplace' + x).attr('dataname');
     aum_from = $('#transferplace' + x).attr('dataaum');
+    lat_from = $('#transferplace' + x).attr('lat_f');
+    lng_from = $('#transferplace' + x).attr('lng_f');
+    console.log(lat_from)
+    console.log(lng_from)
     $('#search-from').val(name)
     console.log(name)
     console.log(id_placefrom)
@@ -1354,8 +1359,11 @@ function sendValueto(x) {
     pro_to = $('#transferplace' + x).attr('datapro');
     lat_to = $('#transferplaceto' + x).attr('lat_t');
     lng_to = $('#transferplaceto' + x).attr('lng_t');
+
     console.log(lat_to)
     console.log(lng_to)
+    console.log(lat_from)
+    console.log(lng_from)
     $('#lat_to').val(lng_to);
     $('#lng_to').val(lng_to);
     $('#show-hide-pro2').hide();
@@ -1396,263 +1404,7 @@ function sendValueto(x) {
     var lat_s = $('#lat_to').val();
     var lng_s = $('#lng_to').val();
     var dist = "";
-    // if (rel == true) {
-    //     rel = false;
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: '../service/servicereltime.php',
-    //         data: { 'lat_f': lat_f, 'lng_f': lng_f, 'distance': dist, 'lat_t': lat_s, 'lng_t': lng_s },
-    //         //contentType: "application/json",
-    //         dataType: 'json',
-    //         success: function(data) {
-    //             console.log(data)
-    //             console.log(data.status)
-    //             if (data.status == '200. bad request') {
-    //                 $('#ul-header2').css('display', 'block');
-    //                 $('#container-product').css('display', 'block');
-    //                 $('#loading').css('display', 'block');
-    //                 setTimeout(function() {
-    //                     $('#loading').css('display', 'none');
-    //                     $('#show-hide-pro').css('display', 'block');
-    //                     $("#pro-search").slideDown('4000');
-    //                     $('#product_a').append('<div class="not-found">Product not Found</div>');
-    //                     $('#search-from').val('');
-    //                     $('#search-to').val('');
-    //                     $("#pro-search").animate({ 'margin-top': '0vh' });
-    //                 }, 2000);
-    //             } else {
-    //                 $('#ul-header2').css('display', 'block');
-    //                 $('#container-product').css('display', 'block');
-    //                 $('#loading').css('display', 'block');
-    //                 setTimeout(function() {
-    //                     $('#loading').css('display', 'none');
-    //                     $('#show-hide-pro').css('display', 'block');
 
-    //                     $("#pro-search").slideDown('4000');
-    //                     $("#pro-search").animate({ 'margin-top': '0vh' });
-    //                 }, 2000);
-    //                 var cartype;
-    //                 data1 = data.data1;
-    //                 if ($.cookie("lng") == 'cn') {
-    //                     cartype = data.cartype[1];
-
-    //                 } else if ($.cookie("lng") == 'en') {
-
-    //                     cartype = data.cartype[0];
-    //                 } else if ($.cookie("lng") == 'th') {
-    //                     cartype = data.cartype[2];
-
-
-    //                 } else if ($.cookie("lng") == undefined) {
-    //                     cartype = data.cartype[0];
-
-    //                 }
-
-    //                 console.log(data1)
-    //                 console.log(cartype)
-
-    //                 $.each(cartype, function(i, val) {
-    //                     var index2 = parseInt(i) + 1;
-    //                     $('#cartype').append('<option value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
-    //                     //dataProvince.push(data[i])
-    //                     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-
-
-    //                 });
-    //                 $.each(data1, function(i, val) {
-    //                     if (data1[i].type == 'Private') {
-    //                         compae1private.push(data1[i])
-    //                     }
-
-    //                     if (data1[i].type == 'Join') {
-    //                         compae1join.push(data1[i])
-    //                     }
-
-    //                 })
-
-    //                 console.log(compae2private.length)
-
-    //                 console.log(data.length)
-    //                 dataproduct = data;
-    //                 var urlicon = base_url + 'files/images/carmodelicon/';
-
-    //                 //if (data[0].data1.length != 0) {
-    //                 var car_topic, cartype, pax;
-    //                 $.each(compae1private, function(i, val) {
-    //                     var indexs = parseInt(i) + 1;
-    //                     if ($.cookie("lng") == 'cn') {
-    //                         car_topic = compae1private[i].topic_cn;
-    //                         cartype = compae1private[i].car_topic_cn;
-    //                         pax = compae1private[i].pax_cn;
-    //                         $('.lng-book').html('預訂')
-    //                         $('.lng-capacity-info').html('容量信息')
-    //                         $('.lng-facilities').html('设施')
-    //                     } else if ($.cookie("lng") == 'en') {
-    //                         car_topic = compae1private[i].topic_en;
-    //                         cartype = compae1private[i].car_topic_en;
-    //                         pax = compae1private[i].pax_en;
-    //                         $('.lng-book').html('Book')
-    //                         $('.lng-capacity-info').html('Capacity info')
-    //                         $('.lng-facilities').html('Facilities')
-
-    //                     } else if ($.cookie("lng") == 'th') {
-    //                         car_topic = compae1private[i].topic_th;
-    //                         cartype = compae1private[i].car_topic_th;
-    //                         pax = compae1private[i].pax_th;
-    //                         $('.lng-book').html('จอง')
-    //                         $('.lng-capacity-info').html('ข้อมูลความจุ')
-    //                         $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-
-    //                     } else if ($.cookie("lng") == undefined) {
-    //                         car_topic = compae1private[i].topic_en;
-    //                         cartype = compae1private[i].car_topic_en;
-    //                         pax = compae1private[i].pax_en;
-    //                         $('.lng-book').html('Book')
-    //                         $('.lng-capacity-info').html('Capacity info')
-    //                         $('.lng-facilities').html('Facilities')
-
-    //                     }
-    //                     console.log(compae1join.length)
-
-    //                     $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-    //                         '<div class="item-thumbnail2">' +
-    //                         '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
-    //                         '</div>' +
-    //                         '<table width="100%">' +
-    //                         '<tr>' +
-    //                         '<td style="width: 30px;">' +
-    //                         '<span class="hotel_num">' + indexs + '</span>' +
-    //                         '</td>' +
-
-    //                         '<td>' +
-    //                         '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-    //                         '</td>' +
-    //                         '</tr>' +
-    //                         '</table>' +
-    //                         '<div class="box-province">' +
-    //                         '<p class="type-t">' +
-    //                         '<span class="car-type" >' + cartype + pax + '</span>' +
-    //                         '</p>' +
-
-    //                         '</div>' +
-    //                         '<div id="box-cost-view">' +
-    //                         '<div class="product_r">' +
-    //                         '<span class="base_price"></span>' +
-    //                         '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-
-    //                         '</div>' +
-    //                         '<div class="views-item">' +
-    //                         '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
-
-    //                         '</div>' +
-    //                         '</div>' +
-    //                         '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-    //                         '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
-    //                         '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-    //                         '</div>' +
-    //                         '</div>'
-
-    //                     );
-
-
-
-
-
-    //                 }); //end private
-
-    //                 var car_topic, cartype, pax;
-    //                 if (compae1join.length != 0) {
-    //                     $.each(compae1join, function(i, val) {
-    //                         var indexs = parseInt(i) + 1;
-    //                         if ($.cookie("lng") == 'cn') {
-    //                             car_topic = compae1join[i].topic_cn;
-    //                             cartype = compae1join[i].car_topic_cn;
-    //                             pax = compae1join[i].pax_cn;
-    //                             $('.lng-book').html('預訂')
-    //                             $('.lng-capacity-info').html('容量信息')
-    //                             $('.lng-facilities').html('设施')
-    //                         } else if ($.cookie("lng") == 'en') {
-    //                             car_topic = compae1join[i].topic_en;
-    //                             cartype = compae1join[i].car_topic_en;
-    //                             pax = compae1join[i].pax_en;
-    //                             $('.lng-book').html('Book')
-    //                             $('.lng-capacity-info').html('Capacity info')
-    //                             $('.lng-facilities').html('Facilities')
-
-    //                         } else if ($.cookie("lng") == 'th') {
-    //                             car_topic = compae1join[i].topic_th;
-    //                             cartype = compae1join[i].car_topic_th;
-    //                             pax = compae1join[i].pax_th;
-    //                             $('.lng-book').html('จอง')
-    //                             $('.lng-capacity-info').html('ข้อมูลความจุ')
-    //                             $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-
-    //                         } else if ($.cookie("lng") == undefined) {
-    //                             car_topic = compae1join[i].topic_en;
-    //                             cartype = compae1join[i].car_topic_en;
-    //                             pax = compae1join[i].pax_en;
-    //                             $('.lng-book').html('Book')
-    //                             $('.lng-capacity-info').html('Capacity info')
-    //                             $('.lng-facilities').html('Facilities')
-    //                         }
-    //                         $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-    //                             '<div class="item-thumbnail2">' +
-    //                             '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
-    //                             '</div>' +
-    //                             '<table width="100%">' +
-    //                             '<tr>' +
-    //                             '<td style="width: 30px;">' +
-    //                             '<span class="hotel_num">' + indexs + '</span>' +
-    //                             '</td>' +
-
-    //                             '<td>' +
-    //                             '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-    //                             '</td>' +
-    //                             '</tr>' +
-    //                             '</table>' +
-    //                             '<div class="box-province">' +
-    //                             '<p class="type-t">' +
-    //                             '<span class="car-type" >' + cartype + pax + '</span>' +
-    //                             '</p>' +
-    //                             '</div>' +
-    //                             '<div id="box-cost-view">' +
-    //                             '<div class="product_r">' +
-    //                             '<span class="base_price"></span>' +
-    //                             '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-
-    //                             '</div>' +
-    //                             '<div class="views-item" >' +
-    //                             '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span class="lng-book"></span></a>' +
-
-    //                             '</div>' +
-    //                             '</div>' +
-    //                             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-    //                             '<p id="capacity"><span class="lng-capacity-info"></span></p>' +
-    //                             '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-    //                             '</div>' +
-    //                             '</div>'
-
-    //                         );
-
-
-    //                     });
-    //                 } else {
-    //                     $('#product_c').append('<div class="not-found">Product not Found</div>');
-    //                 }
-
-
-
-    //             }
-
-
-
-
-    //         },
-    //         error: function(err) {
-    //             console.log(err)
-    //         }
-    //     });
-    // } else {
 
     $.ajax({
         type: 'POST',
@@ -1664,6 +1416,8 @@ function sendValueto(x) {
             console.log(data)
             console.log(data.length)
             console.log(data.status)
+            console.log(data.size)
+
             if (data.status == '200. bad request') {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
@@ -1683,6 +1437,9 @@ function sendValueto(x) {
                     // $('#search-show').css('display', 'block')
                     //$('#content').css('display','block'); 
                 }, 2000);
+            } else if (data.size == 0) {
+                $('#product_a').append('<div class="not-found">Product not Found</div>');
+
             } else {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
