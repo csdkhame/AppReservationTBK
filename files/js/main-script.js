@@ -1337,16 +1337,16 @@ function sendValue(x) {
 
     $('.box-plancefrom').css('display', 'none');
 
-		var start_st = {
-	            lat: parseFloat(lat_from),
-	            lng: parseFloat(lng_from)
-	        }
-        
-        console.log(start_st+" => Start");
-        
-        startMarker.setVisible(true);
-        map.panTo(start_st);
-        startMarker.setPosition(start_st);
+    var start_st = {
+        lat: parseFloat(lat_from),
+        lng: parseFloat(lng_from)
+    }
+
+    console.log(start_st + " => Start");
+
+    startMarker.setVisible(true);
+    map.panTo(start_st);
+    startMarker.setPosition(start_st);
 
 
     //var sdata = {'id_from':id_placefrom,'pro_from' :pro_from,'aum_from':aum_from };
@@ -1383,16 +1383,16 @@ function sendValueto(x) {
     $('#show-hide-pro2').hide();
     $('#pro-search').hide();
 
-	var end_st = {
-	            lat: parseFloat(lat_to),
-	            lng: parseFloat(lng_to)
-	        }
-        
-        console.log(end_st+" => Start");
-        
-        endMarker.setVisible(true);
-        map.panTo(end_st);
-        endMarker.setPosition(end_st);
+    var end_st = {
+        lat: parseFloat(lat_to),
+        lng: parseFloat(lng_to)
+    }
+
+    console.log(end_st + " => Start");
+
+    endMarker.setVisible(true);
+    map.panTo(end_st);
+    endMarker.setPosition(end_st);
 
 
     id_placeto = x;
@@ -1462,8 +1462,24 @@ function sendValueto(x) {
                     //$('#content').css('display','block'); 
                 }, 2000);
             } else if (data.size == 0) {
-                $('#product_a').append('<div class="not-found">Product not Found</div>');
-                $('#loading').css('display', 'none');
+                $('#ul-header2').css('display', 'block');
+                $('#container-product').css('display', 'block');
+                // $('#pro-search').css('display', 'block');
+                $('#loading').css('display', 'block');
+                //$('#content').css('display','none');
+                setTimeout(function() {
+                    //$('#search-raeltime').css('display', 'none');
+                    // $('#map').css('display', 'none');
+                    $('#loading').css('display', 'none');
+                    $('#show-hide-pro').css('display', 'block');
+
+                    $("#pro-search").slideDown('4000'); //fadeIn(4000);
+                    $('#product_a').append('<div class="not-found">Product not Found</div>');
+                    $("#pro-search").animate({ 'margin-top': '0vh' });
+
+                    // $('#search-show').css('display', 'block')
+                    //$('#content').css('display','block'); 
+                }, 2000);
 
             } else {
                 $('#ul-header2').css('display', 'block');
