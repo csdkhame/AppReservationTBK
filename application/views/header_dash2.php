@@ -327,7 +327,7 @@ $( document ).ready(function() {
                                 <input type="hidden" name="lc" value="AU" />
                                 <input type="hidden" name="item_name" value="Payment" />
                                 <input type="hidden" name="item_number" value="P1" />
-                                <input type="hidden" name="currency_code" value="AUD" />
+                                <input type="hidden" name="currency_code" value="THB" />
                                 <input type="hidden" name="button_subtype" value="services" />
                                 <input type="hidden" name="no_note" value="0" />
                                 <input type="hidden" name="cn" value="Comments" />
@@ -355,7 +355,7 @@ $( document ).ready(function() {
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td style="padding:0 5px 5px 0;">
-                                            <input style="position:relative; left:-10px; background:#ffffff; border:0;" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" name="submit" alt="PayPal . The safer, easier way to pay online." />
+                                            <input style="position:relative; background:#ffffff; border:0;" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" name="submit" alt="PayPal . The safer, easier way to pay online." />
                                             <!-- <img alt="" style="border:0;" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1" /> -->
                                         </td>
                                     </tr>
