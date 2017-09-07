@@ -904,7 +904,7 @@ $(document).ready(function() {
                 '</div>' +
                 '</div>' +
                 '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-                '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
+                '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
                 '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
                 '</div>' +
                 '</div>'
