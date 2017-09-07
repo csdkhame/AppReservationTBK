@@ -332,8 +332,8 @@ $( document ).ready(function() {
                                 <input type="hidden" name="cn" value="Comments" />
                                 <input type="hidden" name="no_shipping" value="1" />
                                 <input type="hidden" name="rm" value="1" />
-                                <input type="hidden" name="return" value="http://www.ekerner.com/payments/?payment=success" />
-                                <input type="hidden" name="cancel_return" value="http://www.ekerner.com/payments/?payment=cancelled" />
+                                <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payment/?payment=success" />
+                                <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payment/?payment=cancelled" />
                                 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest" />
                                 <table>
                                     <tr>
