@@ -383,7 +383,12 @@ function initAutocomplete(map) {
 
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
-            console.log(response.routes[0].legs);
+        	console.log(response);
+        	console.log(status);
+        	if(status == 'ZERO_RESULTS'){
+				alert('no Directions Display');
+			}else{
+
             var distance = response.routes[0].legs[0].distance.text;
             var duration = response.routes[0].legs[0].duration.text;
 
@@ -417,7 +422,7 @@ function initAutocomplete(map) {
             $('#clear-all').show(500);
             outSearchRealtime();
 
-
+			}
 
         });
 
@@ -612,7 +617,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     console.log(compae1join.length)
 
                 $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" >' +
+                '<div class="item-thumbnail2" onclick="getimage(\'' + compae1private[i].car_model + '\') " >' +
                 '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
@@ -690,7 +695,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         }
                         
                         $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" ' +
+                '<div class="item-thumbnail2" onclick="getimage(\'' + compae1join[i].car_model + '\') " ' +
                 '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
                 '</div>' +
                 '<table width="100%">' +
@@ -1063,6 +1068,9 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
 
     directionsDisplay.setMap(map);
     directionsService.route(request, function(response, status) {
+    	if(status == 'ZERO_RESULTS'){
+				alert('no Directions Display');
+		}else{
         console.log(response.routes[0].legs);
         var distance = response.routes[0].legs[0].distance.text;
         var duration = response.routes[0].legs[0].duration.text;
@@ -1097,7 +1105,7 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
         map.setZoom(13);
         $('#clear-all').show(500);
         outSearchRealtime();
-
+		}
 
 
     });
