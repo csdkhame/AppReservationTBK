@@ -138,16 +138,26 @@ public function query_transfer_byuser(){
 			$data['lng'] = $lng;
 		}
   		$check = $this->input->post('check');
-			
-		$data['results'] = $this->Userview_model_dash->order_detail($id);
-			
-			if($check != ""){
+  		
+		if($check != ""){
 				$data['check'] = $check;
 			}else{
 				$data['check'] = "";
 			}
+			
+		if($id=="" or $id==null){
+			echo '<h1>Please check your value set</h1><br/>';
+			echo '<h2>Ex. URL : dashboard/query_transfer_byuser?order_id=voucher_number</h2>';
+			
+		}else{
+			$data['results'] = $this->Userview_model_dash->order_detail($id);
+			$this->load->view('voucher',$data);
+		}	
+		
+			
+			
 
-		$this->load->view('voucher',$data);
+		
 
 	
 	

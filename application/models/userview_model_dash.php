@@ -189,7 +189,7 @@ class Userview_model_dash extends CI_Model {
 		$this->db->where('invoice',$id);
 		$query = $this->db->from('ap_order')->get();
 		if($query->num_rows > 0) {
-			 foreach($query->result() as $key=>$row){
+		 foreach($query->result() as $key=>$row){
 			 	
 			$curl_post_data = '{"place_from" : "'.$row->place.'","place_to" : "'.$row->to_place.'"}';
 			$curl_response = '';
@@ -299,6 +299,10 @@ class Userview_model_dash extends CI_Model {
 			 }
 		 return $data;
 		 }
+		else
+		{
+			return ; 	
+		}
   }
 
 }

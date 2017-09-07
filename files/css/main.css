@@ -360,10 +360,11 @@ a:link {
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
     content: "";
-    display: inline-block;
+    display: none;
     position: absolute;
     left: 80px;
     top: -10px;
+    
 }
 
 .card-contentrealtime:after {
@@ -371,7 +372,7 @@ a:link {
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
     content: "";
-    display: inline-block;
+/*    display: inline-block;*/
     position: absolute;
     left: 260px;
     top: -10px;
