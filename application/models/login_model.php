@@ -50,7 +50,7 @@ class Login_model extends CI_Model {
      
   }
   function loginsocial() {
-
+	  $type_login = $this->input->post('type');
 
       // $username = 'ozaclever@gmail.com';
       // $password = '123';
@@ -63,20 +63,23 @@ class Login_model extends CI_Model {
       $this->db->from('ap_users');
       $this->db->where('s_username', ''.$username.'');
       $query = $this->db->get();
-
+	  
    
           if ($query->num_rows() > 0 )
           {
-            
+           
             foreach($query->result() as $row)
             {
                   $id = $row->i_id;
+                  
                   if ($password == $row->s_password) {
                         $rtn = '{"status":"0","username":"'.$row->i_id.'"}';
 
                         return $rtn;
                   }
                   else{
+                  	if($type_login=='facebook'){
+						 
                         if ($row->face_id == '') { //field not null
                               $data['face_id'] = $password; //id facebo0k
                               $this->db->where('i_id',''.$id.'');
@@ -88,24 +91,47 @@ class Login_model extends CI_Model {
                                     return $rtn;
                               }
                         }
-                        
+					}
+					
+					else if($type_login=='google'){
+						
+                        if ($row->google_id == '') { //field not null
+                              $data['google_id'] = $password; //id facebo0k
+                              $this->db->where('i_id',''.$id.'');
+                              $this->db->update('ap_users', $data);    
+                        }
+                        else{
+                        	
+                              if ($row->google_id == $password) { // check id face compare field face_id
+                              
+                                    $rtn = '{"status":"0","username":"'.$row->i_id.'"}';
+                                    return $rtn;
+                              }/*else{
+							  	return $row->google_id." : ".$this->input->post('password');
+	 		 					exit();
+							  }*/
+                        }
+					}
+					
                   }   
             
             
              } 
     }
     else{
+    	$current = date('Y-m-d h:i:s a');
          $username = $this->input->post('username');
       $password = $this->input->post('password');
       $data['s_username'] = $this->input->post('username');
       $data['s_email'] = $this->input->post('username');
+      $data['d_last_update'] = $current;
       
       $type_login = $this->input->post('type');
       if($type_login=='facebook'){
-	  	$data['face_id'] = $this->input->post('password');
+	  	$data['face_id'] = $password;
 	  }
 	  else if($type_login=='google'){
-	  	$data['google_id'] = $this->input->post('password');
+	  	$data['google_id'] = $password;
 	  }
       $data['i_rating'] = '2';
       $this->db->insert('ap_users',$data);      
@@ -113,9 +139,9 @@ class Login_model extends CI_Model {
       $getid = $this->db->insert_id();
       if ($getid) {
        
-                        $rtn = '{"status":"0","username":"'.$getid.'"}';
+                        $rtn = '{"status":"0","username":"'.$getid.'","password":"'.$password.'"}';
 
-                        return $data;
+                        return $rtn;
                   
                          
         }

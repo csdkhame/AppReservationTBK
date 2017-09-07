@@ -21,8 +21,8 @@ class Login_control extends CI_Controller {
 	function processsocial(){
       $data = $this->Login_model->loginsocial();
 	  //$array = array($age);
-	  print_r($data);
-
+	  echo $data;
+//echo "FUCKKK";
 	}
 	function checkmail(){
       $data = $this->Login_model->chackmail();
