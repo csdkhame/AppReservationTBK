@@ -5,6 +5,50 @@
     margin-top: 60px;
     font-size: 18px;
     font-weight: 400;">Playment</div>
+    <table class="table ">
+  		<tr>
+  			<td>
+  			<span class="lng-product"></span>
+  			</td>
+  			<td>
+  			<span id="pdname"></span>
+  			</td>
+  		</tr><tr>
+  			<td>
+  			<span class="voucher-lang lng-voucher-no"></span>
+  			</td>
+  			<td>
+  			<span id="voucher"></span>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  			<span class="amount-lang lng-amount"></span>
+  			</td>
+  			<td>
+  				<table>
+  					<tr>
+  						<td>
+		  					<span class="adult-lang lng-adult"></span> :	<span id="adult"></span>
+		  				</td>
+		  				<td width="10"></td>
+  						<td>
+  							<span class="child-lang lng-child"></span> :	<span id="child"></span>
+  						</td>
+  				</tr></table>
+  			</td>
+  		</tr>
+        <tr>
+  			<td>
+  			    <span class="price-lang lng-price"></span>
+  			</td>
+  			<td>
+  			    <span id="price"></span> <span class="currency"></span>
+  			</td>
+  		</tr>
+    </table>
+              
+         
     <!-- <div class="form-group form-inline required ">
                                                                            
                                                     <select class="textInput" name="orderid" id="orderid" class="" style="  ">
@@ -33,12 +77,12 @@
                                         <td style="padding:0 5px 5px 0;">Amount
                                         </td>
                                         <td style="padding:0 5px 5px 0;">
-                                            <input class="textInput"  type="text" name="amount" maxlength="200" />
+                                            <input class="textInput"  type="text" name="amount" id="amount" maxlength="200" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="padding:0 5px 5px 0;">
-                                            <input class="textInput" type="hidden" name="on0" value="Reference" />Reference
+                                            <input class="textInput" type="hidden" name="on0" value="Reference" id="reference"/>Reference
                                         </td>
                                         <td style="padding:0 5px 5px 0;"> 
                                             <input class="textInput" type="text" name="os0" maxlength="200" />
@@ -147,19 +191,64 @@ function getParameterByName(name, url) {
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
     console.log(getParameterByName('data')+"data")
+    if($.cookie("lng")=="en"){
+			//product_name = data.product_detail[0].topic_en;
+			//cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
+			$('.lng-flight').text('Flight');
+			$('.lng-car_type').text('Car type');
+			$('.lng-transfer_date').text('Date/Time');
+			$('.lng-num_of_car').text('Number of car');
+			$('.currency').text("baht.");
+		}else if ($.cookie("lng")=="cn"){
+			//product_name = data.product_detail[0].topic_cn;
+			//cartype = data.product_detail[0].car_topic_cn+" "+data.product_detail[0].pax_cn;
+			$('.lng-flight').text('	航班');
+			$('.lng-car_type').text('车型');
+			$('.lng-transfer_date').text('日期/时间');
+			$('.lng-num_of_car').text('车数');
+			$('.currency').text('铢');
+		}else if ($.cookie("lng")=="th"){
+			//product_name = data.product_detail[0].topic_th;
+			//cartype = data.product_detail[0].car_topic_th+" "+data.product_detail[0].pax_th;
+			$('.lng-flight').text('เที่ยวบิน');
+			$('.lng-car_type').text('ประเภทรถ');
+			$('.lng-transfer_date').text('วัน/เวลา');
+			$('.lng-num_of_car').text('จำนวนรถ');
+			$('.currency').text('บาท');
+		}else if($.cookie("lng")==undefined){
+			//product_name = data.product_detail[0].topic_en;
+			//cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
+			$('.lng-flight').text('Flight');
+			$('.lng-car_type').text('Car type');
+			$('.lng-transfer_date').text('Date/Time');
+			$('.lng-num_of_car').text('Number of car');
+			$('.currency').text("baht");
+		}
     $.ajax({
             type: 'POST',
-            url: '../getuser_control/mainpage',
-            data: { 'id': $.cookie("login") },
+            url: '../dashboard/pay',
+            data: { 'invoice': getParameterByName('data') },
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
                 console.log(data)
-                console.log(data[0].s_image)
-                console.log(data[0].s_code)
-                $('.box-login').show();
-                $('.box-login-non').hide();
-                $('.box-desboard').show();
+                $('#reference').val(data[0].s_code)
+                $('#amount').val(data[0].total_price)
+                $('#voucher').html('<a href="'+data[0].voucher_url+'" target="_blank">'+data[0].invoice+'<a>');
+                $('#adult').text(data[0].adult);
+                $('#child').text(data[0].child);
+                $('#num_of_car').text(data[0].numcar);
+                $('#arrival_date').text(data[0].arrival_date);
+                $('#arrival_time').text(data[0].arrival_time);
+                $('#from').text(data[0].from);
+                $('#to').text(data[0].to);
+                $('#arrival_flight').text(data[0].arrival_flight);
+                var book_date_f = data[0].booking_date;
+                var res = data[0].booking_date.replace(" ", "/"); 
+                $('#transfer_date').text(res);
+                $('#book_by').text(data[0].book_by);
+                $('#price').text(data[0].total_price);
+               
             }
         });
 

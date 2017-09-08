@@ -32,7 +32,7 @@ $(document).ready(function() {
         place_name, toplace_name, adress, adress_to, terminal, car_model,
         service, code, visa, guestcountry, datauser,
         code_r, code_ref, s_email,
-        flight, cost_a_nett, lng_getcountry;
+        flight, cost_a_nett, lng_getcountry, adresss;
 
     if ($.cookie("lng") == 'cn') {
         lng_getcountry = '请选择国家';
@@ -1307,7 +1307,7 @@ $(document).ready(function() {
                                         console.log(data);
                                         //console.log(s_email);
 
-                                        window.location.href = "https://dotdotdottrip.com/dashboard/view_user";
+
 
                                     }
                                 });
@@ -1315,7 +1315,7 @@ $(document).ready(function() {
                             } else {
                                 alert("please input data ");
                             }
-
+                            window.location.href = "https://dotdotdottrip.com/dashboard/view_user";
 
                         }
                     });

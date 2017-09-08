@@ -1368,6 +1368,7 @@ var data1;
 
 function sendValueto(x) {
     console.log(id_placefrom)
+    var notfound;
     var name = $('#transferplaceto' + x).attr('dataname');
     aum_to = $('#transferplaceto' + x).attr('dataaum');
     pro_to = $('#transferplace' + x).attr('datapro');
@@ -1428,7 +1429,20 @@ function sendValueto(x) {
     var lat_s = $('#lat_to').val();
     var lng_s = $('#lng_to').val();
     var dist = "";
+    if ($.cookie("lng") == 'cn') {
+        notfound = '产品没有找到';
 
+    } else if ($.cookie("lng") == 'en') {
+
+        notfound = 'Product not Found';
+    } else if ($.cookie("lng") == 'th') {
+        notfound = 'ไม่พบผลิตภัณฑ์';
+
+
+    } else if ($.cookie("lng") == undefined) {
+        notfound = 'Product not Found';
+
+    }
 
     $.ajax({
         type: 'POST',
@@ -1455,7 +1469,7 @@ function sendValueto(x) {
                     $('#show-hide-pro').css('display', 'block');
 
                     $("#pro-search").slideDown('4000'); //fadeIn(4000);
-                    $('#product_a').append('<div class="not-found">Product not Found</div>');
+                    $('#product_a').append('<div class="not-found">' + notfound + '</div>');
                     $("#pro-search").animate({ 'margin-top': '0vh' });
 
                     // $('#search-show').css('display', 'block')
@@ -1474,7 +1488,7 @@ function sendValueto(x) {
                     $('#show-hide-pro').css('display', 'block');
 
                     $("#pro-search").slideDown('4000'); //fadeIn(4000);
-                    $('#product_a').append('<div class="not-found">Product not Found</div>');
+                    $('#product_a').append('<div class="not-found">' + notfound + '</div>');
                     $("#pro-search").animate({ 'margin-top': '0vh' });
 
                     // $('#search-show').css('display', 'block')
@@ -1730,7 +1744,7 @@ function sendValueto(x) {
 
                     });
                 } else {
-                    $('#product_c').append('<div class="not-found">Product not Found</div>');
+                    $('#product_c').append('<div class="not-found">' + notfound + '</div>');
                 }
 
 

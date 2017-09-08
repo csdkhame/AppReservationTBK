@@ -80,38 +80,38 @@ class Login_model extends CI_Model {
                   else{
                   	if($type_login=='facebook'){
 						 
-                        if ($row->face_id == '') { //field not null
-                              $data['face_id'] = $password; //id facebo0k
-                              $this->db->where('i_id',''.$id.'');
-                              $this->db->update('ap_users', $data);    
-                        }
-                        else{
-                              if ($row->face_id == $password) { // check id face compare field face_id
-                                    $rtn = '{"status":"0","username":"'.$row->i_id.'"}';
-                                    return $rtn;
+                              if ($row->face_id == '') { //field not null
+                                    $data['face_id'] = $password; //id facebo0k
+                                    $this->db->where('i_id',''.$id.'');
+                                    $this->db->update('ap_users', $data);    
                               }
-                        }
-					}
+                              else{
+                                    if ($row->face_id == $password) { // check id face compare field face_id
+                                          $rtn = '{"status":"0","username":"'.$row->i_id.'"}';
+                                          return $rtn;
+                                    }
+                              }
+				}
 					
-					else if($type_login=='google'){
+				else if($type_login=='google'){
 						
-                        if ($row->google_id == '') { //field not null
-                              $data['google_id'] = $password; //id facebo0k
-                              $this->db->where('i_id',''.$id.'');
-                              $this->db->update('ap_users', $data);    
-                        }
-                        else{
-                        	
-                              if ($row->google_id == $password) { // check id face compare field face_id
-                              
-                                    $rtn = '{"status":"0","username":"'.$row->i_id.'"}';
-                                    return $rtn;
-                              }/*else{
-							  	return $row->google_id." : ".$this->input->post('password');
-	 		 					exit();
-							  }*/
-                        }
-					}
+                              if ($row->google_id == '') { //field not null
+                                    $data['google_id'] = $password; //id facebo0k
+                                    $this->db->where('i_id',''.$id.'');
+                                    $this->db->update('ap_users', $data);    
+                              }
+                              else{
+                                    
+                                    if ($row->google_id == $password) { // check id face compare field face_id
+                                    
+                                          $rtn = '{"status":"0","username":"'.$row->i_id.'"}';
+                                          return $rtn;
+                                    }/*else{
+                                                      return $row->google_id." : ".$this->input->post('password');
+                                                      exit();
+                                                }*/
+                              }
+				}
 					
                   }   
             
@@ -119,13 +119,19 @@ class Login_model extends CI_Model {
              } 
     }
     else{
+           
+      $num0 = (rand(10,100));
+      $num1 = date("Ymd");
+      //$num2 = (rand(100,1000));
+      //$num3 = time();
+      $randnum = $num0 . $num1 . $num2 . $num3;
     	$current = date('Y-m-d h:i:s a');
          $username = $this->input->post('username');
       $password = $this->input->post('password');
       $data['s_username'] = $this->input->post('username');
       $data['s_email'] = $this->input->post('username');
       $data['d_last_update'] = $current;
-      
+      $data['s_code'] = $randnum;
       $type_login = $this->input->post('type');
       if($type_login=='facebook'){
 	  	$data['face_id'] = $password;

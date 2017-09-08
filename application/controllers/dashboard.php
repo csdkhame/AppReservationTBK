@@ -6,6 +6,7 @@ class Dashboard extends CI_Controller {
     //$this->load->model('Test_model');
    $this->load->model('Userview_model_dash');
 	$this->load->model('Getuser_model');
+	$this->load->model('Pay_model');
  
   }
 
@@ -162,6 +163,12 @@ public function query_transfer_byuser(){
 
 	
 	
+}
+public function pay()
+{
+	$data = $this->Pay_model->pays();
+	//$array = array($age);
+	echo json_encode($data);
 }
 
 

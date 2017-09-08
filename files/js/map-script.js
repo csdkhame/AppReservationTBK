@@ -199,7 +199,7 @@ var check = 0;
 var directionsDisplay, directionsService;
 var start;
 var end;
-    
+
 function initialize() {
 
     var mapMinZoom = 13;
@@ -253,7 +253,16 @@ function initialize() {
 }
 
 function initAutocomplete(map) {
-    document.getElementById("current").value = "Loading...";
+    if ($.cookie("lng") == "en") {
+        document.getElementById("current").value = "Loading...";
+    } else if ($.cookie("lng") == "cn") {
+        document.getElementById("current").value = "加載...";
+    } else if ($.cookie("lng") == "th") {
+        document.getElementById("current").value = "โหลด...";
+    } else if ($.cookie("lng") == undefined) {
+        document.getElementById("current").value = "Loading...";
+    }
+
     createAllMarker();
 
     //    addYourLocationButton(map, marker2);
@@ -275,13 +284,13 @@ function initAutocomplete(map) {
         placeStart = autocompleteStart.getPlace();
 
         map.panTo(placeStart.geometry.location);
-       
+
         start = placeStart.geometry.location;
         startMarker.setVisible(true);
         startMarker.setPosition(start);
         lat_f = placeStart.geometry.location.lat();
         lng_f = placeStart.geometry.location.lng();
-		$('#clear-all').show(500);
+        $('#clear-all').show(500);
 
     });
 
@@ -307,16 +316,16 @@ function initAutocomplete(map) {
 
         console.log('success');
         pos = current;
-        
+
         markerCircle.setPosition(current);
         check = check + 1;
         if (check == 1) {
-			start = pos;
+            start = pos;
             map.panTo(current);
             lat_f = position.coords.latitude;
             lng_f = position.coords.longitude;
         }
-//		console.log(check);
+        //		console.log(check);
         geocoder = new google.maps.Geocoder;
         geocoder.geocode({ 'location': pos }, function(results, status) {
 
@@ -354,7 +363,7 @@ function initAutocomplete(map) {
         $(this).val(addr);
         start = pos;
     });
-	
+
     var inputEnd = document.getElementById('pac-input');
 
     var autocomplete = new google.maps.places.Autocomplete(inputEnd);
@@ -382,51 +391,51 @@ function initAutocomplete(map) {
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
-        
-		directionsService = new google.maps.DirectionsService;
-    	directionsDisplay = new google.maps.DirectionsRenderer();
+
+        directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
-        	console.log(response);
-        	console.log(status);
-        	if(status == 'ZERO_RESULTS'){
-				alert('no Directions Display');
-			}else{
+            console.log(response);
+            console.log(status);
+            if (status == 'ZERO_RESULTS') {
+                alert('no Directions Display');
+            } else {
 
-            var distance = response.routes[0].legs[0].distance.text;
-            var duration = response.routes[0].legs[0].duration.text;
+                var distance = response.routes[0].legs[0].distance.text;
+                var duration = response.routes[0].legs[0].duration.text;
 
-            console.log(response.routes[0].legs[0].end_location.lat())
-            console.log(response.routes[0].legs[0].end_location.lng())
-            lat_t = response.routes[0].legs[0].end_location.lat();
-            lng_t = response.routes[0].legs[0].end_location.lng();
+                console.log(response.routes[0].legs[0].end_location.lat())
+                console.log(response.routes[0].legs[0].end_location.lng())
+                lat_t = response.routes[0].legs[0].end_location.lat();
+                lng_t = response.routes[0].legs[0].end_location.lng();
 
-            var radlat1 = Math.PI * lat_f / 180
-            var radlat2 = Math.PI * lat_t / 180
-            var theta = lng_f - lng_t;
-            var radtheta = Math.PI * theta / 180
-            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-            dist = Math.acos(dist)
-            dist = dist * 180 / Math.PI
-            dist = dist * 60 * 1.609344;
+                var radlat1 = Math.PI * lat_f / 180
+                var radlat2 = Math.PI * lat_t / 180
+                var theta = lng_f - lng_t;
+                var radtheta = Math.PI * theta / 180
+                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                dist = Math.acos(dist)
+                dist = dist * 180 / Math.PI
+                dist = dist * 60 * 1.609344;
 
-            $('.a-link-item').remove();
-            $('.not-found').remove();
-            getProduct(lat_f, lng_f, dist, lat_t, lng_t);
-            infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
-            infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-            infowindowDetailTravel.open(map, endMarker);
-            directionsDisplay.setDirections(response);
-            directionsDisplay.setOptions({
-                suppressMarkers: true,
-                preserveViewport: true
-            });
+                $('.a-link-item').remove();
+                $('.not-found').remove();
+                getProduct(lat_f, lng_f, dist, lat_t, lng_t);
+                infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
+                infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
+                infowindowDetailTravel.open(map, endMarker);
+                directionsDisplay.setDirections(response);
+                directionsDisplay.setOptions({
+                    suppressMarkers: true,
+                    preserveViewport: true
+                });
 
-            map.setZoom(13);
-            $('#clear-all').show(500);
-            outSearchRealtime();
+                map.setZoom(13);
+                $('#clear-all').show(500);
+                outSearchRealtime();
 
-			}
+            }
 
         });
 
@@ -451,7 +460,7 @@ $('#btn_CurrentLocation').click(function() {
     }, 500);
 
     //		document.getElementById("current").value = "Loading...";
-//    console.log(navigator.geolocation);
+    //    console.log(navigator.geolocation);
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -463,7 +472,7 @@ $('#btn_CurrentLocation').click(function() {
                 //		
                 // marker2.setPosition(latlng);
                 // marker2.setAnimation(google.maps.Animation.BOUNCE);
-                
+
                 smoothZoom(map, 17, map.getZoom());
 
                 //	          map.setZoom(16);
@@ -484,13 +493,27 @@ $('#btn_CurrentLocation').click(function() {
 $('#clear-all').click(function() {
     $('#pac-input').val('');
     console.log(placeStart);
-//    $('#current').val(placeStart[1].formatted_address);
+    //    $('#current').val(placeStart[1].formatted_address);
     resetMap();
 
 });
 
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
+    var notfound;
+    if ($.cookie("lng") == 'cn') {
+        notfound = '产品没有找到';
 
+    } else if ($.cookie("lng") == 'en') {
+
+        notfound = 'Product not Found';
+    } else if ($.cookie("lng") == 'th') {
+        notfound = 'ไม่พบผลิตภัณฑ์';
+
+
+    } else if ($.cookie("lng") == undefined) {
+        notfound = 'Product not Found';
+
+    }
     //console.log(lat_f+","+lng_f+" : "+lat_t+","+lng_t);
     $.ajax({
         type: 'POST',
@@ -509,7 +532,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     $('#loading').css('display', 'none');
                     $('#show-hide-pro').css('display', 'block');
                     $("#pro-search").slideDown('4000');
-                    $('#product_a').append('<div class="not-found">Product not Found</div>');
+                    $('#product_a').append('<div class="not-found">' + notfound + '</div>');
                     $('#search-from').val('');
                     $('#search-to').val('');
                     $("#pro-search").animate({ 'margin-top': '0vh' });
@@ -622,47 +645,47 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     }
                     console.log(compae1join.length)
 
-                $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" onclick="getimage(\'' + compae1private[i].car_model + '\') " >' +
-                '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
-                '</div>' +
-                '<table width="100%">' +
-                '<tr>' +
-                '<td style="width: 30px;">' +
-                '<span class="hotel_num">' + indexs + '</span>' +
-                '</td>' +
+                    $('#product_a').append('<div class="a-link-item col-lg-12" >' +
+                        '<div class="item-thumbnail2" onclick="getimage(\'' + compae1private[i].car_model + '\') " >' +
+                        '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
+                        '</div>' +
+                        '<table width="100%">' +
+                        '<tr>' +
+                        '<td style="width: 30px;">' +
+                        '<span class="hotel_num">' + indexs + '</span>' +
+                        '</td>' +
 
-                '<td>' +
-                '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-                '</td>' +
-                '</tr>' +
-                '</table>' +
-                '<div class="box-province">' +
-                '<p class="type-t">' +
-                '<span class="car-type" >' + cartype + pax + '</span>' +
-                '</p>' +
-                '</div>' +
-                '<div id="box-cost-view">' +
-                '<div class="product_r">' +
-                '<span class="base_price"></span>' +
-                '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                        '<td>' +
+                        '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                        '</td>' +
+                        '</tr>' +
+                        '</table>' +
+                        '<div class="box-province">' +
+                        '<p class="type-t">' +
+                        '<span class="car-type" >' + cartype + pax + '</span>' +
+                        '</p>' +
+                        '</div>' +
+                        '<div id="box-cost-view">' +
+                        '<div class="product_r">' +
+                        '<span class="base_price"></span>' +
+                        '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
-                '</div>' +
-                '<div class="views-item" >' +
-                '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+                        '</div>' +
+                        '<div class="views-item" >' +
+                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
 
-                '</div>' +
-                '</div>' +
-                '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-                '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
-                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                '</div>' +
-                '</div>'
+                        '</div>' +
+                        '</div>' +
+                        '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
+                        '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
+                        '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                        '</div>' +
+                        '</div>'
 
-            );
+                    );
 
 
-        });
+                });
 
                 var car_topic, cartype, pax;
                 if (compae1join.length != 0) {
@@ -699,50 +722,50 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                             $('.lng-capacity-info').html('Capacity info')
                             $('.lng-facilities').html('Facilities')
                         }
-                        
+
                         $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" onclick="getimage(\'' + compae1join[i].car_model + '\') " ' +
-                '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
-                '</div>' +
-                '<table width="100%">' +
-                '<tr>' +
-                '<td style="width: 30px;">' +
-                '<span class="hotel_num">' + indexs + '</span>' +
-                '</td>' +
+                            '<div class="item-thumbnail2" onclick="getimage(\'' + compae1join[i].car_model + '\') " ' +
+                            '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
+                            '</div>' +
+                            '<table width="100%">' +
+                            '<tr>' +
+                            '<td style="width: 30px;">' +
+                            '<span class="hotel_num">' + indexs + '</span>' +
+                            '</td>' +
 
-                '<td>' +
-                '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-                '</td>' +
-                '</tr>' +
-                '</table>' +
-                '<div class="box-province">' +
-                '<p class="type-t">' +
-                '<span class="car-type" >' + cartype + pax + '</span>' +
-                '</p>' +
-                '</div>' +
-                '<div id="box-cost-view">' +
-                '<div class="product_r">' +
-                '<span class="base_price"></span>' +
-                '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                            '<td>' +
+                            '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</table>' +
+                            '<div class="box-province">' +
+                            '<p class="type-t">' +
+                            '<span class="car-type" >' + cartype + pax + '</span>' +
+                            '</p>' +
+                            '</div>' +
+                            '<div id="box-cost-view">' +
+                            '<div class="product_r">' +
+                            '<span class="base_price"></span>' +
+                            '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
-                '</div>' +
-                '<div class="views-item" >' +
-                '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+                            '</div>' +
+                            '<div class="views-item" >' +
+                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
 
-                '</div>' +
-                '</div>' +
-                '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-                '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
-                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                '</div>' +
-                '</div>'
+                            '</div>' +
+                            '</div>' +
+                            '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
+                            '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                            '</div>' +
+                            '</div>'
 
-            );
+                        );
 
 
                     });
                 } else {
-                    $('#product_c').append('<div class="not-found">Product not Found</div>');
+                    $('#product_c').append('<div class="not-found">' + notfound + '</div>');
                 }
 
 
@@ -1052,17 +1075,17 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
             lat: parseFloat(lat),
             lng: parseFloat(lng)
         }
-        
+
         console.log(start);
         startMarker.setVisible(true);
         startMarker.setPosition(start);
-       
-       if(end == undefined){
-	   	 setTimeout(function(){$('#pac-input').focus(); }, 2000);
-	   }  
-     
-			
-	
+
+        if (end == undefined) {
+            setTimeout(function() { $('#pac-input').focus(); }, 2000);
+        }
+
+
+
     }
     if ($('#for_check_endInput').val() == 1) {
         $('#pac-input').val(txtAdd);
@@ -1072,67 +1095,67 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
         }
         console.log(end);
         endMarker.setVisible(true);
-   		endMarker.setPosition(end);
-   		if(start == undefined){
-	   	 setTimeout(function(){$('#pac-input').focus(); }, 2000);
-	   }  
-   		
+        endMarker.setPosition(end);
+        if (start == undefined) {
+            setTimeout(function() { $('#pac-input').focus(); }, 2000);
+        }
+
     }
 
 
-  	
-  	if(start != undefined && end != undefined){
-		
-    var request = {
-        origin: start,
-        destination: end,
-        travelMode: google.maps.TravelMode.DRIVING
-    };
 
-    directionsDisplay.setMap(map);
-    directionsService.route(request, function(response, status) {
-    	if(status == 'ZERO_RESULTS'){
-				alert('no Directions Display');
-		}else{
-        console.log(response.routes[0].legs);
-        var distance = response.routes[0].legs[0].distance.text;
-        var duration = response.routes[0].legs[0].duration.text;
+    if (start != undefined && end != undefined) {
 
-        console.log(response.routes[0].legs[0].end_location.lat())
-        console.log(response.routes[0].legs[0].end_location.lng())
-        lat_t = response.routes[0].legs[0].end_location.lat();
-        lng_t = response.routes[0].legs[0].end_location.lng();
+        var request = {
+            origin: start,
+            destination: end,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+
+        directionsDisplay.setMap(map);
+        directionsService.route(request, function(response, status) {
+            if (status == 'ZERO_RESULTS') {
+                alert('no Directions Display');
+            } else {
+                console.log(response.routes[0].legs);
+                var distance = response.routes[0].legs[0].distance.text;
+                var duration = response.routes[0].legs[0].duration.text;
+
+                console.log(response.routes[0].legs[0].end_location.lat())
+                console.log(response.routes[0].legs[0].end_location.lng())
+                lat_t = response.routes[0].legs[0].end_location.lat();
+                lng_t = response.routes[0].legs[0].end_location.lng();
 
 
-        var radlat1 = Math.PI * lat_f / 180
-        var radlat2 = Math.PI * lat_t / 180
-        var theta = lng_f - lng_t;
-        var radtheta = Math.PI * theta / 180
-        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-        dist = Math.acos(dist)
-        dist = dist * 180 / Math.PI
-        dist = dist * 60 * 1.609344;
+                var radlat1 = Math.PI * lat_f / 180
+                var radlat2 = Math.PI * lat_t / 180
+                var theta = lng_f - lng_t;
+                var radtheta = Math.PI * theta / 180
+                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                dist = Math.acos(dist)
+                dist = dist * 180 / Math.PI
+                dist = dist * 60 * 1.609344;
 
-        $('.a-link-item').remove();
-        $('.not-found').remove();
-        getProduct(lat_f, lng_f, dist, lat_t, lng_t);
-        infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
-        infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-        infowindowDetailTravel.open(map, endMarker);
-        directionsDisplay.setDirections(response);
-        directionsDisplay.setOptions({
-            suppressMarkers: true,
-            preserveViewport: true
+                $('.a-link-item').remove();
+                $('.not-found').remove();
+                getProduct(lat_f, lng_f, dist, lat_t, lng_t);
+                infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
+                infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
+                infowindowDetailTravel.open(map, endMarker);
+                directionsDisplay.setDirections(response);
+                directionsDisplay.setOptions({
+                    suppressMarkers: true,
+                    preserveViewport: true
+                });
+
+                map.setZoom(13);
+                $('#clear-all').show(500);
+                outSearchRealtime();
+            }
+
+
         });
-
-        map.setZoom(13);
-        $('#clear-all').show(500);
-        outSearchRealtime();
-		}
-
-
-    });
-	}
+    }
 }
 
 function setPinLocation() {
@@ -1200,7 +1223,7 @@ function resetMap() {
     $('#clear-all').hide(500);
     $('#show-hide-pro2').hide(500);
     map.panTo(pos);
-	start = null;
-	end = null;
-	$('#btn_CurrentLocation').show(700);
+    start = null;
+    end = null;
+    $('#btn_CurrentLocation').show(700);
 }

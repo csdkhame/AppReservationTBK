@@ -322,7 +322,7 @@
                         </select>
                         <div id="box-pro-service" style=" overflow: scroll; margin-bottom: 100px;">
                             <div id="product_service">
-                            <div class="not-found" style="display:none">Product not Found</div>
+                            <div class="not-found lng-not-found" style="display:none"></div>
                             </div>
                         </div>
                     
