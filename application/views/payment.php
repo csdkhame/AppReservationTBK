@@ -5,12 +5,12 @@
     margin-top: 60px;
     font-size: 18px;
     font-weight: 400;">Playment</div>
-    <div class="form-group form-inline required ">
+    <!-- <div class="form-group form-inline required ">
                                                                            
                                                     <select class="textInput" name="orderid" id="orderid" class="" style="  ">
                                                         <option class="textInput" value="az_AZ" >booking ID</option>
                                                     </select>
-                                                </div>
+                                                </div> -->
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_xclick" />
