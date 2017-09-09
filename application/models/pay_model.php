@@ -142,6 +142,14 @@ class Pay_model extends CI_Model {
     // }
     // return FALSE;
   }
+  public function updatepay($x){
+    $data2['status_pay'] = '1';
+    $this->db->where('invoice', $x);
+    $this->db->update('ap_order', $data2);
+    if ($this->db->affected_rows() > 0) {
+      return $x;
+    }
+  }
 }
 
 ?>
