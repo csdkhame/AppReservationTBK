@@ -208,8 +208,12 @@ $( document ).ready(function() {
    <div style="    margin-top: 70px;
    "> 
   
-   <div>
-   <h4 style="margin: 8px;"><span class="lng-detail-order"></span></h4>         
+   <div style="width: 100%">
+   <table><tr><td>
+   <h4 style="margin: 8px;"><span class="lng-detail-order"></span></h4>   </td>      
+   <i class="fa fa-credit-card fa-2x" aria-hidden="true"></i>
+   </tr>
+   </table>
    </div>                                                                                        
   <div class="" style="padding: 8px;
     background-color: #fff;">         

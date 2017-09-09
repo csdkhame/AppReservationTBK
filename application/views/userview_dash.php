@@ -320,7 +320,7 @@ $(window).scroll(function() {
                                     <th class="text-center"><span class="lng-order"></span></th>
                                 	<!--<th data-sortable="true" class="text-center"><span class="lng-from"></span></th>
                                 	<th data-sortable="true" class="text-center"><span class="lng-to"></span></th>-->
-                                	 <th class="text-center"><span class="lng-status"></span></th>
+                                	 <th class="text-center"><span class="lng-payment"></span></th>
                                 	<!--<th data-sortable="true" class="text-center">Price</th>-->
                                 	
                                 </thead>
@@ -338,13 +338,21 @@ $(window).scroll(function() {
 									}else{
 										$class = "";
 									}
+									$status_pay = '';
+									if($show['status_pay']==0){
+										$status_pay = 'fail.png';
+									}else if($show['status_pay']==1){
+										$status_pay = 'success.png';
+									}
+									
                                 ?>
+                              
                                     <tr class="tr-hover" >
                                         <!--<td style="display: none;"></td>-->
                                     	<td ><? echo $show['date_time'];?> </td>
                                     	<td >
                                     	<div class="<?=$class;?>" style="    border-radius: 1px;" onclick="view_order_level2('<?=$show['invoice'];?>');"><?=$show['invoice'];?></div></td>
-                                    	<td><?=$show['status_pay'];?></td>
+                                    	<td><img src="<? echo base_url();?>pic/<?=$status_pay;?>" width="30px"/></td>
                                     	<!--<td ><?=$show['from'];?></td>
                                     	<td ><?=$show['to'];?></td>-->
                                     	<!--<td ><?=$show['total_price'];?></td>-->
