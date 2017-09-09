@@ -63,7 +63,7 @@ class Userview_model_dash extends CI_Model {
   	$this->db->select('*');
 	$this->db->where('s_code',$code);
 	$this->db->where('s_code !=',"");
-	$this->db->where('s_code_ref',$code_ref);
+	$this->db->or_where('s_code_ref',$code_ref);
 	$this->db->where('s_code_ref !=',"");
 
 	$query = $this->db->from('ap_order')->get();
@@ -98,6 +98,7 @@ class Userview_model_dash extends CI_Model {
 			$data_row[$key]['to'] = $aaaa[1]->topic;
 			$data_row[$key]['invoice'] = $row->invoice;
 			$data_row[$key]['date_time'] = $row->arrival_date;
+			$data_row[$key]['status_pay'] = $row->status_pay;
 				
 		 	//$data[] = $row;
 		 }

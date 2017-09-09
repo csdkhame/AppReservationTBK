@@ -1316,6 +1316,8 @@ var dataplaceSend, id_placefrom, id_placeto, pro_from, pro_to, aum_from, aum_to,
     compae2private = [],
     compae2join = [],
     lat_from, lng_from;
+    
+   var start_st,end_st;
 //var datato = [];
 function sendValuetojs(data) {
     // console.log(data)
@@ -1329,25 +1331,25 @@ function sendValue(x) {
     aum_from = $('#transferplace' + x).attr('dataaum');
     lat_from = $('#transferplace' + x).attr('lat_f');
     lng_from = $('#transferplace' + x).attr('lng_f');
-    console.log(lat_from)
-    console.log(lng_from)
+/*    console.log(lat_from)
+    console.log(lng_from)*/
     $('#search-from').val(name)
-    console.log(name)
-    console.log(id_placefrom)
+/*    console.log(name)
+    console.log(id_placefrom)*/
 
     $('.box-plancefrom').css('display', 'none');
 
-    var start_st = {
+    start_st = {
         lat: parseFloat(lat_from),
         lng: parseFloat(lng_from)
     }
 
-    console.log(start_st + " => Start");
+   console.log(start_st);
 
     startMarker.setVisible(true);
     map.panTo(start_st);
     startMarker.setPosition(start_st);
-
+ $('#clear-all').show(500);
 
     //var sdata = {'id_from':id_placefrom,'pro_from' :pro_from,'aum_from':aum_from };
     //console.log(sdata)
@@ -1367,7 +1369,7 @@ function sendValue(x) {
 var data1;
 
 function sendValueto(x) {
-    console.log(id_placefrom)
+//    console.log(id_placefrom)
     var notfound;
     var name = $('#transferplaceto' + x).attr('dataname');
     aum_to = $('#transferplaceto' + x).attr('dataaum');
@@ -1375,26 +1377,65 @@ function sendValueto(x) {
     lat_to = $('#transferplaceto' + x).attr('lat_t');
     lng_to = $('#transferplaceto' + x).attr('lng_t');
 
-    console.log(lat_to)
+/*    console.log(lat_to)
     console.log(lng_to)
     console.log(lat_from)
-    console.log(lng_from)
+    console.log(lng_from)*/
     $('#lat_to').val(lng_to);
     $('#lng_to').val(lng_to);
     $('#show-hide-pro2').hide();
     $('#pro-search').hide();
+
 
     var end_st = {
         lat: parseFloat(lat_to),
         lng: parseFloat(lng_to)
     }
 
-    console.log(end_st + " => Start");
+    console.log(end_st);
 
     endMarker.setVisible(true);
     map.panTo(end_st);
     endMarker.setPosition(end_st);
+	var requestThis = {
+            origin: start_st,
+            destination: end_st,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        console.log(requestThis);
+	    directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer();
+     directionsDisplay.setMap(map);
+        directionsService.route(requestThis, function(response, status) {
+            console.log(response);
+            console.log(status);
+            if (status == 'ZERO_RESULTS') {
+                alert('no Directions Display');
+            } else {
 
+            var distance = response.routes[0].legs[0].distance.text;
+//            console.log(distance+" +++++++++++++++++++");
+            var duration = response.routes[0].legs[0].duration.text;   
+            infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
+            infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
+            infowindowDetailTravel.open(map, endMarker);
+                directionsDisplay.setDirections(response);
+                directionsDisplay.setOptions({
+                    suppressMarkers: true,
+                    preserveViewport: true
+                });
+				if(response.routes[0].legs[0].distance.value>=25000){
+					map.setZoom(9);
+				}else{
+					map.setZoom(12);
+				}
+                
+                $('#clear-all').show(500);
+//                outSearchRealtime();
+
+            }
+
+        });
 
     id_placeto = x;
 
