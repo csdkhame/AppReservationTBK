@@ -357,7 +357,33 @@ $(window).scroll(function() {
      						</div>
 							<?php } 
 							if(!$results){
-								echo '<h3><strong>No Record</strong></h3>';
+								
+								
+								 if(!$_COOKIE['lng']){
+							 
+									// echo  $_COOKIE['lng'].'unde';
+									 $norecord = 'No Record';
+									 
+								 }
+								 else if($_COOKIE['lng'] == 'en'){
+									 //echo 'en';
+									 $norecord = 'No Record';
+									 
+								 }
+								 else if($_COOKIE['lng'] == 'th'){
+									 //echo 'th';
+									 $norecord = 'ไม่มีการบันทึก';
+									
+								 }
+								 else if($_COOKIE['lng'] == 'cn'){
+									// echo 'cn';
+									
+									$norecord = '没有记录';
+									
+									
+								 }
+							
+								echo '<h3 style="text-align: center;color: red;"><strong >'.$norecord.'</strong></h3>';
 							}
 							?>
 			<div style="display: none;">

@@ -122,6 +122,83 @@ public function payment(){
 		$this->load->view('footer_dash2');
 		
 }	
+public function payments(){
+	
+	$emailurl = "http://www.t-booking.com/";
+	// PayPal settings
+	$paypal_email = $_POST["payer_email"];
+	$return_url = $_POST["url_complete"];
+	$cancel_url = $_POST["url_cancel"];
+	$notify_url = 'https://dotdotdottrip.com/dashboard/payments';
+
+	$item_name = $_POST["item_name"];
+	$item_amount = $_POST["txt_amount"];
+	$paypal_url = "www.sandbox.paypal.com";
+	//echo $_POST["payer_email"].'</Br>'.$_POST["txt_amount"].'</Br>'.$_POST["txn_id"].'</Br>';
+	$item_name = 'Natthaphat hama';
+
+	// Include Functions
+	// Check if paypal request or response
+	if ($_POST["txn_id"] != '' ){
+		$querystring = '';
+		//echo 'in if';
+		// Firstly Append paypal account to querystring
+		$querystring .= "?business=".urlencode($paypal_email)."&";
+		
+		// Append amount& currency (£) to quersytring so it cannot be edited in html
+		
+		//The item name and amount can be brought in dynamically by querying the $_POST['item_number'] variable.
+		$querystring .= "item_name=".urlencode($item_name)."&";
+		$querystring .= "amount=".urlencode($item_amount)."&";
+		
+		//loop for posted values and append to querystring
+		foreach($_POST as $key => $value){
+			$value = urlencode(stripslashes($value));
+			$querystring .= "$key=$value&";
+		}
+		
+		// Append paypal return addresses
+		$querystring .= "return=".urlencode(stripslashes($return_url))."&";
+		$querystring .= "cancel_return=".urlencode(stripslashes($cancel_url))."&";
+		$querystring .= "notify_url=".urlencode($notify_url);
+		
+		// Append querystring with custom field
+		//$querystring .= "&custom=".USERID;
+		
+		// Redirect to paypal IPN
+		header('location:https://'.$paypal_url.'/cgi-bin/webscr'.$querystring);
+		exit();
+	} 
+	else {
+		echo 'in else ';
+		//Database Connection
+		//$link = mysql_connect($host, $user, $pass);
+		//mysql_select_db($db_name);
+		
+		// Response from Paypal
+
+		// read the post from PayPal system and add 'cmd'
+		$req = 'cmd=_notify-validate';
+		foreach ($_POST as $key => $value) {
+			$value = urlencode(stripslashes($value));
+			$value = preg_replace('/(.*[^%^0^D])(%0A)(.*)/i','${1}%0D%0A${3}',$value);// IPN fix
+			$req .= "&$key=$value";
+		}
+		
+		// assign posted variables to local variables
+		$data['item_name']			= $_POST['item_name'];
+		$data['item_number'] 		= $_POST['item_number'];
+		$data['payment_status'] 	= $_POST['payment_status'];
+		$data['payment_amount'] 	= $_POST['mc_gross'];
+		$data['payment_currency']	= $_POST['mc_currency'];
+		$data['txn_id']				= $_POST['txn_id'];
+		$data['receiver_email'] 	= $_POST['receiver_email'];
+		$data['payer_email'] 		= $_POST['payer_email'];
+		$data['custom'] 			= $_POST['custom'];	
+
+	}
+	
+}
 
 public function query_transfer_byuser(){
 	

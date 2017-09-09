@@ -2,9 +2,14 @@
     background: #fff;">
             <div class="container">
                 <div style="    text-align: center;
-    margin-top: 60px;
-    font-size: 18px;
-    font-weight: 400;">Playment</div>
+                margin-top: 60px;
+                padding: 8px;
+                margin-bottom: 20px;
+                font-size: 18px;
+                font-weight: 400;
+                border-bottom: dashed 1px #16b3b1 ;" >
+              <span class="lng-payment"></span>
+            </div>
     <table class="table ">
   		<tr>
   			<td>
@@ -45,9 +50,21 @@
   			<td>
   			    <span id="price"></span> <span class="currency"></span>
   			</td>
+          </tr>
+          <tr>
+  			<td>
+  			<span class="book_by-lang lng-book-by"></span>
+  			</td>
+  			<td>
+  			<span id="book_by"></span>
+  			</td>
   		</tr>
     </table>
-              
+       <style>
+           .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+               border-top: none;
+           }
+       </style>       
          
     <!-- <div class="form-group form-inline required ">
                                                                            
@@ -55,7 +72,39 @@
                                                         <option class="textInput" value="az_AZ" >booking ID</option>
                                                     </select>
                                                 </div> -->
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <form class="paypal" action="./payments" method="post" id="paypal_form" target="_blank">
+               
+                <input type="hidden" name="cmd" value="_xclick" />
+                <input type="hidden" name="no_note" value="1" />
+                <input type="hidden" name="lc" value="UK" />
+                <input type="hidden" name="currency_code" value="THB" />
+                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+                <input type="hidden" name="first_name" value="Customer's First Name"  />
+                <input type="hidden" name="last_name" value="Customer's Last Name"  />
+                <input type="hidden" name="payer_email" value="ozaclever-business@gmail.com"  />
+                <input type="hidden" name="item_number" value="988" id="item_number">
+               <!-- <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payments/?payment=success" />
+                <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payments/?payment=cancelled" /> -->
+                <input type="hidden" name="txn_id" value="Reference" id="reference" / >
+                
+                <table width="100%" style="   ">
+                    <tr>
+                        <td style="padding:0 5px 5px 0;"><span class="lng-amount"></span> (THB.)
+                        </td>
+                        <td style="padding:0 5px 5px 0;">
+                        <input type="number" name="txt_amount" class="textInput" holder="" id="amount"/>
+                        </td>
+                        
+                    </tr>                   
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td style="padding:0 5px 5px 0;">                           
+                            <input style="background: #ffffff;  border: 0; position: absolute; right: 21px;" type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png"  />                                           
+                        </td>
+                    </tr>
+                </table>
+            </form>
+          <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_xclick" />
                                 <input type="hidden" name="business" value="ozaclever-facilitator_api1.gmail.com" />
@@ -71,7 +120,7 @@
                                 <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payment/?payment=success" />
                                 <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payment/?payment=cancelled" />
                                 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest" />
-                                <table width="100%" style="    margin-top: 161px;">
+                                <table width="100%" style="   ">
                                 
                                     <tr>
                                         <td style="padding:0 5px 5px 0;">Amount
@@ -82,7 +131,7 @@
                                     </tr>
                                     <tr>
                                         <td style="padding:0 5px 5px 0;">
-                                            <input class="textInput" type="hidden" name="on0" value="Reference" id="reference"/>Reference
+                                            <input class="textInput" type="hidden" name="on0" value="Reference"/>Reference
                                         </td>
                                         <td style="padding:0 5px 5px 0;"> 
                                             <input class="textInput" type="text" name="os0" maxlength="200" />
@@ -95,12 +144,12 @@
     border: 0;
     position: absolute;
     right: 21px;" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" name="submit" alt="PayPal . The safer, easier way to pay online." />
-                                            <!-- <img alt="" style="border:0;" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1" /> -->
+                                           
                                         </td>
                                     </tr>
                                 </table>
                             </fieldset>
-                        </form>
+                        </form> -->
                         </div>
     </section>
     <style>
@@ -114,6 +163,7 @@
     <script>
     var base_url = 'https://dotdotdottrip.com/';
 $( document ).ready(function() {
+    var product_name;
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
 		var obj = JSON.parse(data);
 		$.each(obj, function (index, value) {
@@ -232,6 +282,28 @@ function getParameterByName(name, url) {
             dataType: 'json',
             success: function(data) {
                 console.log(data)
+                console.log(data[0].product_detail[0])
+                if($.cookie("lng")=="en"){
+                    product_name = data[0].product_detail[0].topic_en;
+                   
+                  
+                   
+                }else if ($.cookie("lng")=="cn"){
+                    product_name = data[0].product_detail[0].topic_cn;
+                  
+                   
+                }else if ($.cookie("lng")=="th"){
+                    product_name = data[0].product_detail[0].topic_th;
+                    
+                   
+                }else if($.cookie("lng")==undefined){
+                    product_name = data[0].product_detail[0].topic_en;
+                   
+                    
+                }
+                
+                $('#pdname').html(product_name)
+                $('#item_number').val(data[0].invoice)
                 $('#reference').val(data[0].s_code)
                 $('#amount').val(data[0].total_price)
                 $('#voucher').html('<a href="'+data[0].voucher_url+'" target="_blank">'+data[0].invoice+'<a>');
