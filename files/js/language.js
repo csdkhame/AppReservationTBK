@@ -143,6 +143,8 @@ $(document).ready(function() {
         $('.lng-loading').html('加載..');
         $('.lng-not-found').html('产品没有找到');
         $('.lng-no-record').html('没有记录');
+        $('.lng-payment').html('付款');
+
 
 
 
@@ -290,6 +292,8 @@ $(document).ready(function() {
         $('.lng-loading').html('Loading..');
         $('.lng-not-found').html('Product not Found');
         $('.lng-no-record').html('No Record');
+        $('.lng-payment').html('Payment');
+
 
 
 
@@ -435,6 +439,8 @@ $(document).ready(function() {
         $('.lng-loading').html('โหลด..');
         $('.lng-not-found').html('ไม่พบผลิตภัณฑ์');
         $('.lng-no-record').html('ไม่มีการบันทึก');
+        $('.lng-payment').html('การชำระเงิน');
+
 
 
 
@@ -568,6 +574,8 @@ $(document).ready(function() {
         $('.lng-loading').html('Loading..');
         $('.lng-not-found').html('Product not Found');
         $('.lng-no-record').html('No Record');
+        $('.lng-payment').html('Payment');
+
 
 
 
