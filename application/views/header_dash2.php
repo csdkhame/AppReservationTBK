@@ -218,7 +218,7 @@ $( document ).ready(function() {
                             </a>
                         </li>
                         
-                        <li class="box-payment">
+                        <li class="box-payment" style="display: none;">
                             <a href="<?php echo base_url(); ?>dashboard/payment" class="feed">
                               <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
                                 <i class="material-icons">payment</i><span style="text-transform: initial;" class="lng-payment_d textmenu">Payment</span>                  

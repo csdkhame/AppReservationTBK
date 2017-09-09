@@ -167,13 +167,20 @@ $( document ).ready(function() {
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
 	border: none !important;	
 }
+.btn-custom-me{
+	background-color: rgba(0, 188, 212, 0.98); 
+	bottom: 8px; 
+	color: #fff;
+/*	z-index: -1;*/
+}
 </style>
 
 	<div class="" style="position: fixed;
     background: #16B3B1;
     padding: 13px;
     padding-bottom: 0;
-    width: 100%;">
+    width: 100%;
+    z-index: 1;">
 		<div>
 			<div class="container">
 				
@@ -208,8 +215,15 @@ $( document ).ready(function() {
    <div style="    margin-top: 70px;
    "> 
   
-   <div>
-   <h4 style="margin: 8px;"><span class="lng-detail-order"></span></h4>         
+   <div style="width: 100%">
+   <table width="100%"><tr><td>
+   <h4 style="margin: 8px;"><span class="lng-detail-order"></span></h4></td>     
+   <td align="right" > 
+   <a class="btn btn-xs btn-custom-me"  href="" id="to_pay" >
+   	<span style="font-size: medium;font-weight: 700;" class="lng-paynow">Pay Now</span>
+   </a></td> 
+   </tr>
+   </table>
    </div>                                                                                        
   <div class="" style="padding: 8px;
     background-color: #fff;">         
@@ -360,6 +374,7 @@ $( document ).ready(function() {
     	var obj = <?=$json_data?>;
     	var data = obj[0];
     	console.log(obj);
+    	$('#to_pay').attr('href','https://dotdotdottrip.com/dashboard/payment?data='+data.invoice);
     	$('#voucher').html('<a href="'+data.voucher_url+'" target="_blank">'+data.invoice+'<a>');
     	$('#adult').text(data.adult);
     	$('#child').text(data.child);
@@ -388,6 +403,7 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('Date/Time');
 			$('.lng-num_of_car').text('Number of car');
 			$('.currency').text("baht.");
+			$('.lng-paynow').text("Pay Now");
 		}else if ($.cookie("lng")=="cn"){
 			product_name = data.product_detail[0].topic_cn;
 			cartype = data.product_detail[0].car_topic_cn+" "+data.product_detail[0].pax_cn;
@@ -396,6 +412,7 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('日期/时间');
 			$('.lng-num_of_car').text('车数');
 			$('.currency').text('铢');
+			$('.lng-paynow').text("现在付款");
 		}else if ($.cookie("lng")=="th"){
 			product_name = data.product_detail[0].topic_th;
 			cartype = data.product_detail[0].car_topic_th+" "+data.product_detail[0].pax_th;
@@ -404,6 +421,7 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('วัน/เวลา');
 			$('.lng-num_of_car').text('จำนวนรถ');
 			$('.currency').text('บาท');
+			$('.lng-paynow').text("ชำระตอนนี้");
 		}else if($.cookie("lng")==undefined){
 			product_name = data.product_detail[0].topic_en;
 			cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
@@ -412,6 +430,7 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('Date/Time');
 			$('.lng-num_of_car').text('Number of car');
 			$('.currency').text("baht");
+			$('.lng-paynow').text("Pay Now");
 		}
 		$('#pdname').text(product_name);
 		$('#car_type').text(cartype);

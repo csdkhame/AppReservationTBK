@@ -204,6 +204,7 @@ $(window).scroll(function() {
 														<? 
 																$adate = date('Y-m-d');
 																$date = date("Y-m-d",strtotime("-1 month",strtotime($adate)));
+																$latedate = date("Y-m-t",strtotime($adate));
 														?>
 							
 														<table width="100%">
@@ -213,7 +214,7 @@ $(window).scroll(function() {
 																		</td>
 																		<td width="2%"></td>
 																		<td  width="49%">
-																				<input id="date2"   class="datepicker"  name="date" type="text" value="<?=$adate;?>"  style="padding: 8px;      border: 1px solid #eeeeee;width:100%;">  
+				<input id="date2"   class="datepicker"  name="date" type="text" value="<?=$latedate;?>"  style="padding: 8px;      border: 1px solid #eeeeee;width:100%;">  
 																		</td>
 																</tr>
 														</table>
@@ -278,7 +279,7 @@ $(window).scroll(function() {
 }
 </style>	
 							
-      				
+      			
 							<?php if($levelme==1){ ?>
 							<div class="table-responsive">
                             <table id="bootstrap-table1" class="table table-hover">
@@ -317,8 +318,9 @@ $(window).scroll(function() {
                                    <!-- <th data-field="state" data-checkbox="true" style="display: none;"></th>-->
                                     <th class="text-center "><span class="lng-date"></span></th><center></center>
                                     <th class="text-center"><span class="lng-order"></span></th>
-                                	<th data-sortable="true" class="text-center"><span class="lng-from"></span></th>
-                                	<th data-sortable="true" class="text-center"><span class="lng-to"></span></th>
+                                	<!--<th data-sortable="true" class="text-center"><span class="lng-from"></span></th>
+                                	<th data-sortable="true" class="text-center"><span class="lng-to"></span></th>-->
+                                	 <th class="text-center"><span class="lng-payment"></span></th>
                                 	<!--<th data-sortable="true" class="text-center">Price</th>-->
                                 	
                                 </thead>
@@ -336,14 +338,23 @@ $(window).scroll(function() {
 									}else{
 										$class = "";
 									}
+									$status_pay = '';
+									if($show['status_pay']==0){
+										$status_pay = 'fail.png';
+									}else if($show['status_pay']==1){
+										$status_pay = 'success.png';
+									}
+									
                                 ?>
+                              
                                     <tr class="tr-hover" >
                                         <!--<td style="display: none;"></td>-->
                                     	<td ><? echo $show['date_time'];?> </td>
                                     	<td >
                                     	<div class="<?=$class;?>" style="    border-radius: 1px;" onclick="view_order_level2('<?=$show['invoice'];?>');"><?=$show['invoice'];?></div></td>
-                                    	<td ><?=$show['from'];?></td>
-                                    	<td ><?=$show['to'];?></td>
+                                    	<td><img src="<? echo base_url();?>pic/<?=$status_pay;?>" width="30px"/></td>
+                                    	<!--<td ><?=$show['from'];?></td>
+                                    	<td ><?=$show['to'];?></td>-->
                                     	<!--<td ><?=$show['total_price'];?></td>-->
                                     
                                     </tr>
@@ -595,7 +606,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 -->
 <script>
 	$( document ).ready(function() {
-    	
+    	console.log(<?=$json;?>);
     	findRowDate();
     	
 	

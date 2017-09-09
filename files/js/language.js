@@ -202,9 +202,6 @@ $(document).ready(function() {
 
 
 
-
-
-
     } else if ($.cookie("lng") == 'en') {
         $('.lng-private').html('Private');
         $('.lng-join').html('Join');
@@ -345,8 +342,6 @@ $(document).ready(function() {
 
 
 
-
-
     } else if ($.cookie("lng") == 'th') {
         $('.lng-private').html('รถส่วนตัว');
         $('.lng-join').html('รถร่วมบริการ');
@@ -480,7 +475,6 @@ $(document).ready(function() {
         $('.lng-address').html('ที่อยู่');
         $('.lng-country').html('ประเทศ');
         $('.lng-old-password').html('รหัสผ่านเก่า');
-
 
     } else if ($.cookie("lng") == undefined) {
         $('.lng-private').html('Private');
