@@ -119,20 +119,30 @@ $(window).scroll(function() {
 
        // echo  $_COOKIE['lng'].'unde';
         $lng_search_order = 'Search by order (e.x. 7033496)';
+        $paysuccess = 'Successfully';
+        $pend = 'Pending';
+        $norecord = 'No Record';
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
         $lng_search_order = 'Search by order (e.x. 7033496)';
-        
+        $paysuccess = 'Successfully';
+        $pend = 'Pending';
+        $norecord = 'No Record';
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
         $lng_search_order = 'ค้นหาตามใบสั่งซื้อ (e.x. 7033496)';
-        
+        $paysuccess = 'ชำระแล้ว';
+        $pend = 'รอดำเนินการ';
+        $norecord = 'ไม่มีการบันทึก';
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
        $lng_search_order = '按订单搜索（e.x. 7033496）';
+       $paysuccess = '成功支付';
+       $pend = '有待';
+       $norecord = '没有记录';
        
     }
 ?>
@@ -277,6 +287,9 @@ $(window).scroll(function() {
     color: #ffffff;
     background-color: #16B3B1;
 }
+.display-none{
+    display:none;
+}
 </style>	
 							
       			
@@ -326,25 +339,19 @@ $(window).scroll(function() {
                                 </thead>
                                 <tbody>
                                 <?php foreach($results as $show){ 
-//                                	$spec = strpos('a', 'abc');
-//                                	$date = substr($show['date_time'],0,$spec);
 									$mystring = $show['date_time'];
-									/*$findme   = ' ';
-									$pos = strpos($mystring, $findme);
-									$date = substr($show['date_time'],0,$pos);
-									$format = date('Y-m-d',$mystring);*/
 									if($show['invoice']!=" " and $show['invoice']!=null and $show['invoice']!=""){
 										$class = "btn-xs btn-voucher";
 									}else{
 										$class = "";
 									}
+									
 									$status_pay = '';
 									if($show['status_pay']==0){
-										$status_pay = 'fail.png';
+										$status_pay = $pend;
 									}else if($show['status_pay']==1){
-										$status_pay = 'success.png';
+										$status_pay = $paysuccess;
 									}
-									
                                 ?>
                               
                                     <tr class="tr-hover" >
@@ -352,7 +359,7 @@ $(window).scroll(function() {
                                     	<td ><? echo $show['date_time'];?> </td>
                                     	<td >
                                     	<div class="<?=$class;?>" style="    border-radius: 1px;" onclick="view_order_level2('<?=$show['invoice'];?>');"><?=$show['invoice'];?></div></td>
-                                    	<td><img src="<? echo base_url();?>pic/<?=$status_pay;?>" width="30px"/></td>
+                                    	<td><?=$status_pay;?></td>
                                     	<!--<td ><?=$show['from'];?></td>
                                     	<td ><?=$show['to'];?></td>-->
                                     	<!--<td ><?=$show['total_price'];?></td>-->
@@ -365,34 +372,11 @@ $(window).scroll(function() {
      						</div>
 							<?php } 
 							if(!$results){
-								
-								
-								 if(!$_COOKIE['lng']){
-							 
-									// echo  $_COOKIE['lng'].'unde';
-									 $norecord = 'No Record';
-									 
-								 }
-								 else if($_COOKIE['lng'] == 'en'){
-									 //echo 'en';
-									 $norecord = 'No Record';
-									 
-								 }
-								 else if($_COOKIE['lng'] == 'th'){
-									 //echo 'th';
-									 $norecord = 'ไม่มีการบันทึก';
-									
-								 }
-								 else if($_COOKIE['lng'] == 'cn'){
-									// echo 'cn';
-									
-									$norecord = '没有记录';
-									
-									
-								 }
-							
-								echo '<h3 style="text-align: center;color: red;"><strong >'.$norecord.'</strong></h3>';
+								$display = '';
+							}else{
+								$display = 'none';
 							}
+							echo '<h3 style="text-align: center;color: red;display:'.$display.';"  class="no-record"><strong  >'.$norecord.'</strong></h3>';
 							?>
 			<div style="display: none;">
 				<div class="fixed-table-pagination" style="display: none;">
@@ -620,7 +604,8 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	function findRowDate(){
 //		alert(555);
 		$('tr[class="tr-hover"]').css('display','');
-//		console.log(559999999999999999999955);
+//		$('tr[class="tr-hover"]').removeClass('display-none');
+
 		var dateFrom = $('#date1').val();
     	var dataTo = $('#date2').val();
     	var result ;
@@ -633,11 +618,20 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	      
 	      if(result==false){
 //		  	$(this).css('background-color','red');
-		  	$(this).css('display','none');
+//		  	$(this).addClass('display-none');
+			$('tr[class="tr-hover"]').css('display','none');
 		  }
-	      
-//		alert(dateFrom+" | "+dataCheck+" | "+dataTo);
 	    });
+	    
+	    
+//	    var rows = $("#bootstrap-table  tr[class='tr-hover']:not('.display-none')");
+	    var rows = $("#bootstrap-table  tr[class='tr-hover']:not('.display-none')");
+	  	if(rows.length<=0){
+			$('.no-record').css('display','');
+		}else{
+			$('.no-record').css('display','none');
+		}
+	    
 	}
 	
 	function checkBetween(dateFrom,dateTo,dateCheck){
