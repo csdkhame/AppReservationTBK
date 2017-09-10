@@ -92,10 +92,10 @@ function outSearchRealtime() {
     $("#marginBox").animate({
         //	  marginTop : "0px"
     }, 600);
-    $("#boxForAutoCom").animate({
+   /* $("#boxForAutoCom").animate({
         //	    top: "0px"
         bottom: "-800px"
-    }, 650);
+    }, 650);*/
     $('#out-search').hide();
     $('#to-remove-class').addClass('col-md-12');
 
@@ -110,13 +110,14 @@ function outSearchRealtime() {
     $('#search-raeltime').removeClass('box-shadow-customize');
     $('#boxRealtime').css('margin-left', '0px');
     $('#boxRealtime').css('padding', '0 8px');
-
+	
+	$("#boxForAutoCom").hide(700);
 
 
 
     setTimeout(function() {
         //	$('#map').css('display','block');
-        $('#boxForAutoCom').css('display', 'none');
+//        $('#boxForAutoCom').css('display', 'none');
         $('.box-menu-select').show();
         $('#sectionsNav').show();
     }, 660);
@@ -125,7 +126,7 @@ function outSearchRealtime() {
 
 
 $('#search-raeltime input').focus(function() {
-    $('#boxForAutoCom').css('display', 'unset');
+//    $('#boxForAutoCom').css('display', 'unset');
     if (this.id == "current") {
         $('#for_check_currentInput').val(1);
         $('#for_check_endInput').val(0);
@@ -150,13 +151,13 @@ $('#search-raeltime input').focus(function() {
     $('#boxRealtime').css('margin-left', '25px');
     $('#boxRealtime').css('padding', '0 0px');
     $('#out-search').show(650);
+	$("#boxForAutoCom").show(700);
 
-
-    $("#boxForAutoCom").animate({
+   /* $("#boxForAutoCom").animate({
         //    top: "91px"
         bottom: "-90px"
 
-    }, 650);
+    }, 650);*/
 
     $(".pac-container").each(function(index) {
 
@@ -991,7 +992,7 @@ function selectSavePlaceOfften(type_place, type_call) {
         var url;
         var Newlat;
         var Newlng;
-        google.maps.event.addListener(map, 'center_changed', function() {
+        google.maps.event.addListener(map, 'bounds_changed', function() {
             Newlat = map.getCenter().lat();
             Newlng = map.getCenter().lng();
             var newPos = {
@@ -1222,7 +1223,7 @@ function setPinLocation() {
     var url;
     var Newlat;
     var Newlng;
-    google.maps.event.addListener(map, 'center_changed', function() {
+    google.maps.event.addListener(map, 'bounds_changed', function() {
         Newlat = map.getCenter().lat();
         Newlng = map.getCenter().lng();
         var newPos = {
@@ -1259,9 +1260,12 @@ function resetMap() {
     }
     console.log('Reset Map');
     outSearchRealtime();
-    directionsDisplay.setMap(null);
-    directionsDisplay = null;
-    directionsService = null;
+    if(directionsDisplay){
+		 directionsDisplay.setMap(null);
+		 directionsDisplay = null;
+		 directionsService = null;
+	}
+   
     markerPlaceOfften.setMap(null);
     //	marker.setMap(null);
     endMarker.setVisible(false);

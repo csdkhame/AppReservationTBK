@@ -172,7 +172,7 @@ $( document ).ready(function() {
 	bottom: 8px; 
 	color: #fff;
 /*	z-index: -1;*/
-border-radius: 10px;
+    border-radius: 0px;
 }
 </style>
 
