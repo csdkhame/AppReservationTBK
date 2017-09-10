@@ -604,7 +604,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	function findRowDate(){
 //		alert(555);
 		$('tr[class="tr-hover"]').css('display','');
-//		$('tr[class="tr-hover"]').removeClass('display-none');
+
 
 		var dateFrom = $('#date1').val();
     	var dataTo = $('#date2').val();
@@ -618,15 +618,21 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	      
 	      if(result==false){
 //		  	$(this).css('background-color','red');
-//		  	$(this).addClass('display-none');
-			$('tr[class="tr-hover"]').css('display','none');
+		  	
+			$(this).css('display','none');
 		  }
 	    });
 	    
 	    
 //	    var rows = $("#bootstrap-table  tr[class='tr-hover']:not('.display-none')");
-	    var rows = $("#bootstrap-table  tr[class='tr-hover']:not('.display-none')");
-	  	if(rows.length<=0){
+//	    var rows = $("#bootstrap-table  tr[class='tr-hover']").css('display');
+
+	   var rows = $("tr[class='tr-hover']").filter(function() {
+		    return $(this).css('display') !== 'none';
+		}).length;
+//	    alert(rows);
+	    
+	  	if(rows<=0){
 			$('.no-record').css('display','');
 		}else{
 			$('.no-record').css('display','none');
