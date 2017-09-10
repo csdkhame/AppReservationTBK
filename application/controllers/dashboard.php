@@ -127,15 +127,15 @@ public function payments(){
 	$emailurl = "http://www.t-booking.com/";
 	// PayPal settings
 	$paypal_email = $_POST["payer_email"];
-	$return_url = $_POST["url_complete"];
-	$cancel_url = $_POST["url_cancel"];
+	$return_url = 'https://dotdotdottrip.com/dashboard/payment?data='.$_POST["item_number"].'&payment=success';
+	$cancel_url = 'https://dotdotdottrip.com/dashboard/payment?data='.$_POST["item_number"].'&payment=cancelled';
 	$notify_url = 'https://dotdotdottrip.com/dashboard/payments';
 
 	$item_name = $_POST["item_name"];
 	$item_amount = $_POST["txt_amount"];
 	$paypal_url = "www.sandbox.paypal.com";
 	//echo $_POST["payer_email"].'</Br>'.$_POST["txt_amount"].'</Br>'.$_POST["txn_id"].'</Br>';
-	$item_name = 'Natthaphat hama';
+	//$item_name = 'Natthaphat hama';
 
 	// Include Functions
 	// Check if paypal request or response
@@ -195,6 +195,8 @@ public function payments(){
 		$data['receiver_email'] 	= $_POST['receiver_email'];
 		$data['payer_email'] 		= $_POST['payer_email'];
 		$data['custom'] 			= $_POST['custom'];	
+		$idupdate = $_POST['payment_status'];
+		$data = $this->Pay_model->updatepay($idupdate);
 
 	}
 	

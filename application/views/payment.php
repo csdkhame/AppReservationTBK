@@ -82,6 +82,7 @@
                 <input type="hidden" name="first_name" value="Customer's First Name"  />
                 <input type="hidden" name="last_name" value="Customer's Last Name"  />
                 <input type="hidden" name="payer_email" value="ozaclever-business@gmail.com"  />
+                <input type="hidden" name="item_name" value="Customer's First Name"  id="item_name">
                 <input type="hidden" name="item_number" value="988" id="item_number">
                <!-- <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payments/?payment=success" />
                 <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payments/?payment=cancelled" /> -->
@@ -305,6 +306,7 @@ function getParameterByName(name, url) {
                 $('#pdname').html(product_name)
                 $('#item_number').val(data[0].invoice)
                 $('#reference').val(data[0].s_code)
+                $('#item_name').val(data[0].book_by)
                 $('#amount').val(data[0].total_price)
                 $('#voucher').html('<a href="'+data[0].voucher_url+'" target="_blank">'+data[0].invoice+'<a>');
                 $('#adult').text(data[0].adult);
