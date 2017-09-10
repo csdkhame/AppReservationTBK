@@ -122,6 +122,7 @@ public function payment(){
 		$this->load->view('footer_dash2');
 		
 }	
+
 public function payments(){
 	
 	$emailurl = "http://www.t-booking.com/";
@@ -243,6 +244,7 @@ public function query_transfer_byuser(){
 	
 	
 }
+
 public function pay()
 {
 	$data = $this->Pay_model->pays();

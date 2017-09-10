@@ -1097,18 +1097,58 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 <script>
 var choosepic;
 var acc;
+
 if($.cookie("lng")=="en"){
 choosepic = "Choose Picture";
 acc = "Account";
-}else if($.cookie("lng")=="cn"){
+var title = "Are you sure?";
+var text = "You want to change profile?";
+var yes = "Yes";
+var no = "Cancel";
+var success = 'Success';
+var success_txt = 'Update successfuly.';
+
+var error = 'Error';
+var error_txt = 'Something went wrong';
+}
+else if($.cookie("lng")=="cn"){
 choosepic = "帐户";
 acc = "帐户";
-}else if($.cookie("lng")=="th"){
+	var title = "你确定吗?";
+var text = "你想改变个人资料?";
+var yes = "同意";
+var no = "取消";
+var success = '成功';
+var success_txt = "成功更新";
+
+var error = '错误';
+var error_txt = '出了些问题';
+}
+else if($.cookie("lng")=="th"){
 choosepic = "เลือกภาพ";
 acc = "บัญชี";
-}else if($.cookie("lng")==undefined){
+var title = "คุณแน่ใจหรือไม่?";
+var text = "คุณต้องการเปลี่ยนโปรไฟล์รรือไม่?";
+var yes = "ตกลง";
+var no = "ยกเลิก";
+var success = 'สำเร็จ';
+var success_txt = 'อัพเดท สำเร็จ.';
+
+var error = 'ผิดพลาด';
+var error_txt = 'มีบางอย่างผิดพลาด';
+}
+else if($.cookie("lng")==undefined){
 choosepic = "Choose Picture";
 acc = "Account";
+var title = "Are you sure?";
+var text = "You want to change profile?";
+var yes = "Yes";
+var no = "Cancel";
+var success = 'Success';
+var success_txt = 'Update successfuly.';
+
+var error = 'Error';
+var error_txt = 'Something went wrong';
 }
 
 $('.lng-choose_pic').text(choosepic);
@@ -1117,22 +1157,6 @@ $('.lng-acc').text(acc);
 
 <script>
 	$( "#submit" ).click(function(e) {
-		
-if($.cookie("lng")=="en"){
-var title = "Are you sure?";
-var text = "You want to change profile?";
-}else if($.cookie("lng")=="cn"){
-	var title = "你确定吗?";
-var text = "你想改变个人资料?";
-}else if($.cookie("lng")=="th"){
-	var title = "คุณแน่ใจหรือไม่?";
-var text = "คุณต้องการเปลี่ยนโปรไฟล์รรือไม่?";
-}else if($.cookie("lng")==undefined){
-var title = "Are you sure?";
-var text = "You want to change profile?";
-}
-		
-		
 		 e.preventDefault();
 		swal({
 				  title: title,
@@ -1140,7 +1164,8 @@ var text = "You want to change profile?";
 				  type: "warning",
 				  showCancelButton: true,
 				  confirmButtonClass: "btn-danger",
-				  confirmButtonText: "Yes!",
+				  confirmButtonText: yes,
+				  cancelButtonText: no,
 				  closeOnConfirm: false
 				},
 				function(){
@@ -1164,11 +1189,11 @@ var text = "You want to change profile?";
 					                    //alert(php_script_response); // display response from the PHP script, if any
 					                    console.log(php_script_response);
 					                    if(php_script_response==1){
-											swal("Success!", "Update successfuly.", "success");
-											setTimeout(function(){ window.location.href = '<?php echo base_url(); ?>dashboard/account_settings'; }, 5000);
+											swal(""+success+"", ""+success_txt+"", "success");
+											setTimeout(function(){ window.location.href = '<?php echo base_url(); ?>dashboard/account_settings'; }, 4000);
 											
 										}else{
-											swal("Error!", "Something went wrong.", "error");
+											swal(""+error+"", ""+error_txt+"", "error");
 										}
 					                }
 					     });
@@ -1237,17 +1262,13 @@ $('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value
 $('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_en+' </option>');
 }	 
 
-/*$('#country_sekect').append('<option value="'+value.id+'" '+selected+' class="'+value.phonecode+'" > '+value.name_en+' </option>');*/
   	 });
   	   $("#div-country").removeClass("is-empty has-error");
   });  
-    
-    	
-    //$("#div-password").removeClass("is-empty has-error");	
-    //$('#password').val(obj[index].s_password);
+
 		});
 });  
-//   password_div
+
    $('#change_password').click(function(){
 		$('#change-password').show(700);
    });
@@ -1281,7 +1302,7 @@ swal("Error!", "Something went wrong!", "error");
 swal("Error!", "Something went wrong!", "error");	
 }
 		  }
-		 if(data==1){
+		  if(data==1){
 
 if($.cookie("lng")=="en"){
 swal("Success!", "" , "success");	
