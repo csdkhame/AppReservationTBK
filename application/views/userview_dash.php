@@ -290,6 +290,15 @@ $(window).scroll(function() {
 .display-none{
     display:none;
 }
+.btn-custom-pay{
+	background-color: rgba(0, 188, 212, 0.98); 
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    color: #ffffff;
+
+}
 </style>	
 							
       			
@@ -348,7 +357,7 @@ $(window).scroll(function() {
 									
 									$status_pay = '';
 									if($show['status_pay']==0){
-										$status_pay = $pend;
+						$status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;" href="https://dotdotdottrip.com/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
 									}else if($show['status_pay']==1){
 										$status_pay = $paysuccess;
 									}

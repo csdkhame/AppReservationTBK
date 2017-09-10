@@ -89,9 +89,9 @@ function hideHeader() {
 }
 
 function outSearchRealtime() {
-    $("#marginBox").animate({
+   /* $("#marginBox").animate({
         //	  marginTop : "0px"
-    }, 600);
+    }, 600);*/
    /* $("#boxForAutoCom").animate({
         //	    top: "0px"
         bottom: "-800px"
@@ -103,7 +103,7 @@ function outSearchRealtime() {
     $("#search-raeltime").animate({
         marginTop: "70px"
             //	    ,	   	position : "absolute"
-    }, 600);
+    }, 200);
 
     /*$('#search-raeltime').css('margin-top','70px');*/
     $('#search-raeltime').css('position', 'absolute');
@@ -143,7 +143,7 @@ $('#search-raeltime input').focus(function() {
     $("#search-raeltime").animate({
         marginTop: "0px"
             //	    ,	   	position : "fixed"
-    }, 600);
+    }, 200);
 
     /*$('#search-raeltime').css('margin-top','0px');*/
     $('#search-raeltime').css('position', 'fixed');
