@@ -6,7 +6,8 @@
         </div>
         <table class="table ">
             <tr>
-                <td colspan="2"><div class="status-pay" style></div></td>
+                <td colspan="2" align="center"><div class="status-pay" style="font-weight: 400;
+    font-size: 16px;"></div></td>
             </tr>
             <tr>
                 <td>
@@ -79,7 +80,7 @@
                 <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payments/?payment=cancelled" /> -->
                 <input type="hidden" name="txn_ids" value="Reference" id="reference" / >
                 
-                <table width="100%" style="   ">
+                <table width="100%" style="   " id="box-pay">
                     <tr>
                         <td style="padding:0 5px 5px 0;"><span class="lng-amount"></span> (THB.)
                         </td>
@@ -90,8 +91,8 @@
                     </tr>                   
                     <tr>
                         <td>&nbsp;</td>
-                        <td style="padding:0 5px 5px 0;">                           
-                            <input style="background: #ffffff;  border: 0; position: absolute; right: 21px;" type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png"  />                                           
+                        <td style="padding:0 5px 5px 0;" id="btn-pay">                           
+                            <input style="background: #ffffff;  border: 0; position: absolute; right: 21px;    margin-bottom: 100px;" type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png"  />                                           
                         </td>
                     </tr>
                 </table>
@@ -231,20 +232,69 @@ function getParameterByName(name, url) {
                 console.log(data)
                 console.log(data[0].product_detail[0])
                 if($.cookie("lng")=="en"){
-                    
+                    if(data[0].status_pay == 0){
+                        $('.status-pay').text('(wait for pay)');
+                        $('.status-pay').css('color','red');
+                        $('#box-pay').show()
+                        
+                    }
+                    else{
+                        $('.status-pay').text('(Already paid)');
+                        $('.status-pay').css('color','#4CAF50');
+                        $('#box-pay').hide()
+                          
+                    }
                     product_name = data[0].product_detail[0].topic_en;
                    
                   
                    
                 }else if ($.cookie("lng")=="cn"){
+                    if(data[0].status_pay == 0){
+                        $('.status-pay').text('(等待付款)');
+                        $('.status-pay').css('color','red');
+                        $('#box-pay').show()
+                        
+                        
+                    }
+                    else{
+                        $('.status-pay').text('(已經支付)'); 
+                        $('.status-pay').css('color','#4CAF50'); 
+                        $('#box-pay').hide()
+                    }
                     product_name = data[0].product_detail[0].topic_cn;
                   
                    
                 }else if ($.cookie("lng")=="th"){
+                    if(data[0].status_pay == 0){
+                        $('.status-pay').text('(รอจ่าย)');
+                        $('.status-pay').css('color','red');
+                        $('#box-pay').show()
+                        
+                       
+                        
+                    }
+                    else{
+                        $('.status-pay').text('(ชำระแล้ว)');  
+                        $('.status-pay').css('color','#4CAF50');
+                        $('#box-pay').hide()
+                    }
                     product_name = data[0].product_detail[0].topic_th;
                     
                    
                 }else if($.cookie("lng")==undefined){
+                    if(data[0].status_pay == 0){
+                        $('.status-pay').text('(wait for pay)');
+                        $('.status-pay').css('color','red');
+                        $('#box-pay').show()
+                        
+                        
+                    }
+                    else{
+                        $('.status-pay').text('(Already paid)');  
+                        $('.status-pay').css('color','#4CAF50');
+                        $('#box-pay').hide()
+                        
+                    }
                     product_name = data[0].product_detail[0].topic_en;
                    
                     

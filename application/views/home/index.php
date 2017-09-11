@@ -153,7 +153,7 @@
                 </div>
             </td> -->
         
-            <td width="20%" style="border-right: 1px solid #555;">
+            <td width="20%" style="">
                 <div class="btn-realtime" >
                     <table width="100%">
                         <tr>
@@ -170,7 +170,7 @@
                    
                 </div>
             </td>
-            <td width="20%" style="border-right: 1px solid #555;">
+            <td width="20%" style="">
                 <div class="btn-reservation" >
                 <table width="100%">
                         <tr>
@@ -188,7 +188,7 @@
                    
                 </div>
             </td>
-            <td width="20%" style="border-right: 1px solid #555;">
+            <td width="20%" style="">
                 <div class="btn-car-service" >
                 <table width="100%">
                         <tr>

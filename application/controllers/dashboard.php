@@ -128,7 +128,7 @@ public function payments(){
 	$webmail_cc = "gbtour.op@gmail.com"; 
 	//$emailurl = "http://tour - thailand.tk / demo / ";
 	$emailurl = "http://t-booking.com";
-	require_once('./phpmailer/class.phpmailer.php');
+	require_once('phpmailer/class.phpmailer.php');
 	$mail = new PHPMailer();
 	
 	
@@ -268,7 +268,7 @@ public function payments(){
 					$address = $row->total_price;
 					$address2 = "ozaclever@gmail.com"; 
 					
-					$mail->AddAddress($address, "Golden Beach Tour"); 
+					$mail->AddAddress($address2, "Golden Beach Tour"); 
 					 
 					
 					if ($_POST['mc_gross'] == $row->total_price) {
