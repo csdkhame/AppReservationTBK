@@ -520,7 +520,7 @@ $('#btn_CurrentLocation').click(function() {
 
                 document.getElementById("current").value = placeStart[1].formatted_address;
 
-                smoothZoom(map, 18, map.getZoom());
+                smoothZoom(map, 15, map.getZoom());
 
                 //	          map.setZoom(16);
                 $('#btn_CurrentLocation').hide('500');

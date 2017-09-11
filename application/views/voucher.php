@@ -395,7 +395,7 @@ $( document ).ready(function() {
     	
     	var product_name = "";
     	var cartype = "";
-    	
+    	var paysuccess , payowe, paynow;
     	
     	if($.cookie("lng")=="en"){
 			product_name = data.product_detail[0].topic_en;
@@ -405,7 +405,9 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('Date/Time');
 			$('.lng-num_of_car').text('Number of car');
 			$('.currency').text("baht.");
-			
+			paysuccess = 'Already paid';
+			payowe = 'Outstanding Balance';
+			paynow = 'Pay Now';
 		}else if ($.cookie("lng")=="cn"){
 			product_name = data.product_detail[0].topic_cn;
 			cartype = data.product_detail[0].car_topic_cn+" "+data.product_detail[0].pax_cn;
@@ -414,7 +416,9 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('日期/时间');
 			$('.lng-num_of_car').text('车数');
 			$('.currency').text('铢');
-			
+			paysuccess = '等待付款';
+			payowe = '未结余额';
+			paynow = '现在付款';
 		}else if ($.cookie("lng")=="th"){
 			product_name = data.product_detail[0].topic_th;
 			cartype = data.product_detail[0].car_topic_th+" "+data.product_detail[0].pax_th;
@@ -423,7 +427,9 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('วัน/เวลา');
 			$('.lng-num_of_car').text('จำนวนรถ');
 			$('.currency').text('บาท');
-			
+			paysuccess = 'ชำระแล้ว';
+			payowe = 'มียอดค้างชำระ';
+			paynow = 'ชำระตอนนี้';
 		}else if($.cookie("lng")==undefined){
 			product_name = data.product_detail[0].topic_en;
 			cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
@@ -432,11 +438,19 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('Date/Time');
 			$('.lng-num_of_car').text('Number of car');
 			$('.currency').text("baht");
-			
+			paysuccess = 'Already paid';
+			payowe = 'Outstanding Balance';
+			paynow = 'Pay Now';
 		}
 		
 		var check_pay = data.status_pay;
-		console.log(check_pay);
+		if(check_pay==0){
+			$('lng-paynow').text(paynow);
+		}else if (check_pay==1){
+			$('lng-paynow').text(paysuccess);
+		}else if (check_pay==2){
+			$('lng-paynow').text(payowe);
+		}
 		$('#pdname').text(product_name);
 		$('#car_type').text(cartype);
     	var area = data.product_detail[0].area;
