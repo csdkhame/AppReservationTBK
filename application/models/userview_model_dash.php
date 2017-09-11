@@ -213,6 +213,7 @@ class Userview_model_dash extends CI_Model {
 			$aaaa = json_decode($curl_response);
 			
 			 	$data[$key]['id'] = $row->id;
+			 	$data[$key]['status_pay'] = $row->status_pay;
 //			 	$data[$key]['arrival_date'] = $row->arrival_date;
 			 	$data[$key]['adult'] = $row->adult;
 			 	$data[$key]['child'] = $row->child;

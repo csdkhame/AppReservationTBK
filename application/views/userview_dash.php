@@ -119,16 +119,18 @@ $(window).scroll(function() {
 
        // echo  $_COOKIE['lng'].'unde';
         $lng_search_order = 'Search by order (e.x. 7033496)';
-        $paysuccess = 'Successfully';
+        $paysuccess = 'Pay Success';
         $pend = 'Pending';
         $norecord = 'No Record';
+        $owe = '';
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
         $lng_search_order = 'Search by order (e.x. 7033496)';
-        $paysuccess = 'Successfully';
+        $paysuccess = 'Pay Success';
         $pend = 'Pending';
         $norecord = 'No Record';
+        $owe = '';
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
@@ -136,6 +138,7 @@ $(window).scroll(function() {
         $paysuccess = 'ชำระแล้ว';
         $pend = 'รอดำเนินการ';
         $norecord = 'ไม่มีการบันทึก';
+        $owe = '';
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
@@ -143,6 +146,7 @@ $(window).scroll(function() {
        $paysuccess = '成功支付';
        $pend = '有待';
        $norecord = '没有记录';
+       $owe = '';
        
     }
 ?>
@@ -360,6 +364,9 @@ $(window).scroll(function() {
 						$status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;" href="https://dotdotdottrip.com/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
 									}else if($show['status_pay']==1){
 										$status_pay = $paysuccess;
+									}
+									else if($show['status_pay']==2){
+										$status_pay = $owe;
 									}
                                 ?>
                               

@@ -173,6 +173,7 @@ $( document ).ready(function() {
 	color: #fff;
 /*	z-index: -1;*/
     border-radius: 0px;
+    text-transform: capitalize;
 }
 </style>
 
@@ -433,6 +434,9 @@ $( document ).ready(function() {
 			$('.currency').text("baht");
 			
 		}
+		
+		var check_pay = data.status_pay;
+		console.log(check_pay);
 		$('#pdname').text(product_name);
 		$('#car_type').text(cartype);
     	var area = data.product_detail[0].area;
@@ -451,6 +455,10 @@ $( document ).ready(function() {
 				$('.lng-typet_transfer').text('วันที่มาถึง');
 				$('.lng-typet_transfer_time').text('เวลาที่มาถึง');
 
+			}else if($.cookie("lng")==undefined){
+				$('.lng-typet_transfer').text('Arrival date');
+				$('.lng-typet_transfer_time').text('Arrival time');
+				
 			}
 		}
 		else if(area=='Out'){
@@ -465,6 +473,10 @@ $( document ).ready(function() {
 			}else if ($.cookie("lng")=="th"){
 				$('.lng-typet_transfer').text('วันเดินทาง');
 				$('.lng-typet_transfer_time').text('เวลาเดินทาง');
+
+			}else if ($.cookie("lng")==undefined){
+				$('.lng-typet_transfer').text('Departure date');
+				$('.lng-typet_transfer_time').text('Departure time');
 
 			}
 //			console.log($.cookie("lng"));
@@ -483,6 +495,10 @@ $( document ).ready(function() {
 				$('.lng-typet_transfer').text('วันที่ใช้บริการ');
 				$('.lng-typet_transfer_time').text('เวลาที่ใช้บริการ');
 				
+			}else if($.cookie("lng")==undefined){
+				$('.lng-typet_transfer').text('Use date');
+				$('.lng-typet_transfer_time').text('Use time');
+	
 			}
 			
 			
