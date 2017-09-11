@@ -332,13 +332,13 @@ $( document ).ready(function() {
 
 </script>
 
-<form name="realtime" id="realtimeAction" action="<?php echo base_url(); ?>" method="POST" style="display: none;">
+<form name="realtime" id="realtimeAction" action="<?php echo base_url(); ?>" method="POST" style="display: nones;">
 <input type="hidden"  name="active" value="realtime"/>
 </form>
-<form name="reservation" id="reservationAction" action="<?php echo base_url(); ?>" method="POST" style="display: none;">
+<form name="reservation" id="reservationAction" action="<?php echo base_url(); ?>" method="POST" style="display: nones;">
 <input type="hidden"  name="active" value="reservation"/>
 </form>
-<form name="service" id="serviceAction" action="<?php echo base_url(); ?>" method="POST" style="display: none;">
+<form name="service" id="serviceAction" action="<?php echo base_url(); ?>" method="POST" style="display: nones;">
 <input type="hidden"  name="active" value="service"/>
 </form>
 <script>

@@ -325,7 +325,7 @@ function initAutocomplete(map) {
     if (navigator.geolocation) {
     	 var options = {
         enableHighAccuracy: true,
-        timeout: 6000
+        timeout: 60000
     };
 		    	  navigator.geolocation.getCurrentPosition(function(position,status) {
 //		          	console.log(status);

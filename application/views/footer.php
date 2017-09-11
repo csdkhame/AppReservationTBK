@@ -148,6 +148,7 @@ $( document ).ready(function() {
 	var url = new URL(url_string);
 	var c = url.searchParams.get("active");*/
   var active = '<?=$_POST['active']?>'; // That's for a string
+//  alert(active);
 	setTimeout(function(){ 
 	if( active=='realtime'){
 		$('.btn-realtime').click();
