@@ -1329,17 +1329,19 @@ window.fbAsyncInit = function() {
 				  console.log('Name: ' + profile.getName());
 				  console.log('Image URL: ' + profile.getImageUrl());
 				  console.log('Email: ' + profile.getEmail()); */
-//				  console.log(profile); 
+				  console.log(profile); 
 				  var url = '<?php echo base_url(); ?>login_control/processsocial';
 //				  alert(url);
 				  
-				  $.post( url, {'username': profile.getEmail(),'name':profile.getName(),'password':profile.getId(),'type':'google'} ,function( data ) {
+				  $.post( url, {'username': profile.getEmail(),'name':profile.getName(),'password':profile.getId(),'type':'google','img':profile.getImageUrl() } ,function( data ) {
 //					 	console.log(data);
 					 	var obj_c = JSON.parse(data);
 					 	console.log(obj_c.status);
+					 	console.log(obj_c);
 					 	 if(obj_c.status == 0)
 				              {
 				                 $.cookie("login",obj_c.username);
+//				                 $.cookie("logby",'google');
 				                   window.location.href = "<?php echo base_url(); ?>home";         
 				              }
 				              else 
