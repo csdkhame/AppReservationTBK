@@ -236,7 +236,190 @@
                 </div>    
             </div>
         </nav>
-            <div class="container-fluid">
+        <div class="box-menu-select">
+    <table width="100%">
+        <tr>
+            <td width="20%" style="">
+                <div class="btn-realtime" >
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 30px;">room</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-now-use" style="font-size: 10px;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </div>
+            </td>
+            <td width="20%" style="">
+                <div class="btn-reservation" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <i class="material-icons" style="font-size: 30px;" style="">search</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-advance-use" style="font-size: 10px;font-weight: 500;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="20%" style="">
+                <div class="btn-car-service" >
+                <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
+                            <!-- <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i>  -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                            <span class="lng-car-service" style="font-size: 10px; font-weight: 500;">Car service</span>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                   
+                </div>
+            </td>
+            <td width="20%" >
+                <div class="btn-management" >
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                            <!-- <i class="material-icons" style="font-size: 30px;">settings</i> -->
+                                
+                                <i class="material-icons" style="font-size: 30px;">dvr</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+            </td>
+        </tr>
+    </table>
+ </div>
+ <style>
+     .box-menu-select {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    background: #fff;
+    box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52);
+
+
+
+    /* height: 90px; */
+}
+.btn-reservation {
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #999999;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
+.btn-realtime {
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #999999;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
+.btn-home {
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #16B3B1;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
+.btn-management {
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #999999;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
+.btn-management a {
+    color: #999999;
+}
+.btn-car-service {
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #999999;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
+
+/*.btn-reservation:hover{
+        background-color: #FFC107;
+    }*/
+
+.btn-real-res {
+    position: absolute;
+    margin-top: 50px;
+    width: 100%;
+    z-index: 5;
+    text-align: center;
+}
+
+ </style>
+            <div class="container-fluid" style="margin-bottom: 80px;">
                 <div class="row">
                     <div class="container">
                         <div class="row">

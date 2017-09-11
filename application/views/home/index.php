@@ -134,25 +134,6 @@
 <div class="box-menu-select">
     <table width="100%">
         <tr>
-        <!-- <td width="20%" style="border-right: 1px solid #555;">
-                <div class="btn-home" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                            <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                            <span class="lng-home" style="font-size: 10px; color: #000; font-weight: 500;">Home</span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td> -->
-        
             <td width="20%" style="">
                 <div class="btn-realtime" >
                     <table width="100%">
