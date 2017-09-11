@@ -724,8 +724,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                     }
 //                    console.log(compae1join.length)
-					 /*var id_placefrom = val.
-            	    var id_placeto =  data1*/
+
                     $('#product_a').append('<div class="a-link-item col-lg-12" >' +
                         '<div class="item-thumbnail2" onclick="getimage(\'' + compae1private[i].car_model + '\') " >' +
                         '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
