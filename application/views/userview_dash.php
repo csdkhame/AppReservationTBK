@@ -119,7 +119,7 @@ $(window).scroll(function() {
 
        // echo  $_COOKIE['lng'].'unde';
         $lng_search_order = 'Search by order (e.x. 7033496)';
-        $paysuccess = 'Pay Success';
+        $paysuccess = 'Already paid';
         $pend = 'Pending';
         $norecord = 'No Record';
         $owe = '';
@@ -127,7 +127,7 @@ $(window).scroll(function() {
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
         $lng_search_order = 'Search by order (e.x. 7033496)';
-        $paysuccess = 'Pay Success';
+        $paysuccess = 'Already paid';
         $pend = 'Pending';
         $norecord = 'No Record';
         $owe = '';
@@ -143,7 +143,7 @@ $(window).scroll(function() {
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
        $lng_search_order = '按订单搜索（e.x. 7033496）';
-       $paysuccess = '成功支付';
+       $paysuccess = '等待付款';
        $pend = '有待';
        $norecord = '没有记录';
        $owe = '';

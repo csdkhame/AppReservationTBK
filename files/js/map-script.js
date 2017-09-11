@@ -17,7 +17,8 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-nearby-locat').text('附近的地方');
     success = '成功';
     error = '错误';
-} else if ($.cookie("lng") == 'th') {
+} 
+else if ($.cookie("lng") == 'th') {
     please_login_txt = "กรุณาเข้าสู่ระบบ";
     click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
     lang_to_map = 'th';
@@ -30,7 +31,8 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
     success = 'สำเร็จ';
     error = 'ผิดพลาด';
-} else if ($.cookie("lng") == 'en') {
+} 
+else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -43,7 +45,8 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-office-locat').text('');
     $('.lng-setpin-locat').text('');
     $('.lng-nearby-locat').text('');*/
-} else if ($.cookie("lng") == undefined) {
+} 
+else if ($.cookie("lng") == undefined) {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -325,7 +328,7 @@ function initAutocomplete(map) {
         timeout: 6000
     };
 		    	  navigator.geolocation.getCurrentPosition(function(position,status) {
-		          	console.log(status);
+//		          	console.log(status);
 		            var pos = {
 		              lat: position.coords.latitude,
 		              lng: position.coords.longitude
@@ -443,6 +446,7 @@ function initAutocomplete(map) {
 
                 $('.a-link-item').remove();
                 $('.not-found').remove();
+               
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
                 infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
@@ -520,7 +524,7 @@ $('#btn_CurrentLocation').click(function() {
 
                 document.getElementById("current").value = placeStart[1].formatted_address;
 
-                smoothZoom(map, 18, map.getZoom());
+                smoothZoom(map, 15, map.getZoom());
 
                 //	          map.setZoom(16);
                 $('#btn_CurrentLocation').hide('500');
@@ -550,18 +554,45 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     if ($.cookie("lng") == 'cn') {
         notfound = '产品没有找到';
 
-    } else if ($.cookie("lng") == 'en') {
+    } 
+	else if ($.cookie("lng") == 'en') {
 
         notfound = 'Product not Found';
-    } else if ($.cookie("lng") == 'th') {
+    } 
+	else if ($.cookie("lng") == 'th') {
         notfound = 'ไม่พบผลิตภัณฑ์';
 
 
-    } else if ($.cookie("lng") == undefined) {
+    } 
+	else if ($.cookie("lng") == undefined) {
         notfound = 'Product not Found';
 
     }
-    //console.log(lat_f+","+lng_f+" : "+lat_t+","+lng_t);
+//    console.log(lat_f+","+lng_f+" : "+lat_t+","+lng_t);
+    var id_placefrom , id_placeto ;
+     $.ajax({
+        type: 'POST',
+        url: '../service/getPlaceId.php',
+        data: { 'lat_c': lat_f, 'lng_c': lng_f },
+        //contentType: "application/json",
+        dataType: 'json',
+        success: function(data) {
+        	id_placefrom = data.id;
+        }
+		});
+		
+		$.ajax({
+        type: 'POST',
+        url: '../service/getPlaceId.php',
+        data: { 'lat_c': lat_t, 'lng_c': lng_t },
+        //contentType: "application/json",
+        dataType: 'json',
+        success: function(data) {
+        	id_placeto = data.id;
+        }
+		});
+    
+    
     $.ajax({
         type: 'POST',
         url: '../service/servicereltime.php',
@@ -569,8 +600,9 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         //contentType: "application/json",
         dataType: 'json',
         success: function(data) {
-            console.log(data)
-            console.log(data.status)
+            console.log(data);
+            console.log(data.status);
+//            console.log(data.detail);
             if (data.status == '200. bad request') {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
@@ -584,7 +616,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     $('#search-to').val('');
                     $("#pro-search").animate({ 'margin-top': '0vh' });
                 }, 2000);
-            } else {
+            } 
+			else {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
                 $('#loading').css('display', 'block');
@@ -612,9 +645,6 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                 }
 
-                console.log(data1)
-                console.log(cartype)
-
                 $.each(cartype, function(i, val) {
                     var index2 = parseInt(i) + 1;
                     $('#cartype').append('<option value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
@@ -635,7 +665,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 })
 
                 console.log(compae2private.length)
-
+				
                 if (compae1join.length == 0) {
                     $('#join-btn').hide();
                     $('#private-btn').css('width', '100%');
@@ -656,7 +686,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         lngbook = '預訂';
                         lngcapacityinfo = '容量信息';
                         lngfacilities = '设施';
-                    } else if ($.cookie("lng") == 'en') {
+                    } 
+					else if ($.cookie("lng") == 'en') {
                         car_topic = compae1private[i].topic_en;
                         cartype = compae1private[i].car_topic_en;
                         pax = compae1private[i].pax_en;
@@ -667,7 +698,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         // $('.lng-capacity-info').html('Capacity info')
                         // $('.lng-facilities').html('Facilities')
 
-                    } else if ($.cookie("lng") == 'th') {
+                    } 
+					else if ($.cookie("lng") == 'th') {
                         car_topic = compae1private[i].topic_th;
                         cartype = compae1private[i].car_topic_th;
                         pax = compae1private[i].pax_th;
@@ -678,7 +710,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         // $('.lng-capacity-info').html('ข้อมูลความจุ')
                         // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
 
-                    } else if ($.cookie("lng") == undefined) {
+                    } 
+					else if ($.cookie("lng") == undefined) {
                         car_topic = compae1private[i].topic_en;
                         cartype = compae1private[i].car_topic_en;
                         pax = compae1private[i].pax_en;
@@ -690,7 +723,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         // $('.lng-facilities').html('Facilities')
 
                     }
-                    console.log(compae1join.length)
+//                    console.log(compae1join.length)
 
                     $('#product_a').append('<div class="a-link-item col-lg-12" >' +
                         '<div class="item-thumbnail2" onclick="getimage(\'' + compae1private[i].car_model + '\') " >' +
@@ -913,13 +946,13 @@ function placeRecord() {
         } else {
             if (results) {
                 var obj = JSON.parse(results);
-                console.log(obj);
+//                console.log(obj);
 
                 $.each(obj, function(key, data) {
 
                     var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
                     $.post(url, function(data_place) {
-                        console.log(data_place);
+//                        console.log(data_place);
 
                         if (data.s_type == '1') {
 

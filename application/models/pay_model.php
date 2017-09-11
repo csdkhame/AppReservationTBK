@@ -47,7 +47,7 @@ class Pay_model extends CI_Model {
             $data[$key]['to'] = $aaaa[1]->topic;
             $data[$key]['guest_english'] = $row->guest_english;
             $data[$key]['status_pay'] = $row->status_pay;
-            $data[$key]['total_price'] = $row->total_price;
+            $data[$key]['total_price'] = number_format($row->total_price);
             $data[$key]['booking_date'] = $row->booking_date;
             $data[$key]['product'] = $row->product;
             $data[$key]['agent_ref'] = $row->agent_ref;

@@ -189,7 +189,7 @@ $(document).ready(function() {
         $('.lng-country').html('国家');
         $('.lng-old-password').html('舊密碼');
 		
-		$('.lng-paynow').text("现在付款");
+		
 
 
 
@@ -339,7 +339,7 @@ $(document).ready(function() {
         $('.lng-country').html('Country');
         $('.lng-old-password').html('Old Password');
 
-		$('.lng-paynow').text("Pay Now");
+		
 
 
 
@@ -478,7 +478,7 @@ $(document).ready(function() {
         $('.lng-country').html('ประเทศ');
         $('.lng-old-password').html('รหัสผ่านเก่า');
 
-		$('.lng-paynow').text("ชำระตอนนี้");
+		
 		
     } else if ($.cookie("lng") == undefined) {
         $('.lng-private').html('Private');
@@ -622,7 +622,7 @@ $(document).ready(function() {
         $('.lng-country').html('Country');
         $('.lng-old-password').html('Old Password');
 		
-		$('.lng-paynow').text("Pay Now");
+		
 
 
 
