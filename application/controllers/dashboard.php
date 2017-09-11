@@ -233,7 +233,7 @@ public function payments(){
 					$debit = $balane ;
 					
 					
-					$detail = "Total Topup ".$data['payment_amount']." THB <br /> Fee Rate 4.4% + 0.30$ <br />Total free ".$find_fee." THB <br /> Total Balance ".$balane." THB";
+					$detail = "Total Topup ".$data['payment_amount']." THB <br /> Fee Rate 4.4%  ".$debit." <br /> Total Balance ".$balane." THB";
 				
 						
 					$body = "

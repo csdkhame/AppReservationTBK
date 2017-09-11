@@ -1300,7 +1300,7 @@ $(document).ready(function() {
                                 $.ajax({
                                     type: 'POST',
                                     url: 'https://dotdotdottrip.com/sendemail.php',
-                                    data: { 'mail': s_email },
+                                    data: { 'mail': s_email, 'voucher': data.invoice },
                                     //contentType: "application/json",
                                     dataType: 'json',
                                     success: function(data) {

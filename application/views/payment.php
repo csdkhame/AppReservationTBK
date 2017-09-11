@@ -1,9 +1,13 @@
-<section style="height: 100vh; background: #fff;">
-    <div class="container">
-        <div style="overflow-y: scroll;">
-        <div style="text-align: center; margin-top: 60px; padding: 8px; margin-bottom: 20px; font-size: 18px; font-weight: 400; border-bottom: dashed 1px #16b3b1 ;" >
+<section style="height: 100vh;">
+    <div class="container" style="padding: 10px;  overflow-y: scroll;  ">
+        <div style="background: #fff;
+    margin-top: 52px;    padding-bottom: 50px;">
+    <div class="col-md-12">
+        <div class="col-md-12" style="text-align: center;padding-top: 25px; padding-bottom: 20px; margin-bottom: 20px; font-size: 18px; font-weight: 400; border-bottom: dashed 1px #16b3b1 ;" >
             <span class="lng-payment"></span>
         </div>
+</div>
+<div class="col-md-6">
         <table class="table ">
             <tr>
                 <td colspan="2" align="center"><div class="status-pay" style="font-weight: 400;
@@ -79,7 +83,7 @@
                <!-- <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payments/?payment=success" />
                 <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payments/?payment=cancelled" /> -->
                 <input type="hidden" name="txn_ids" value="Reference" id="reference" / >
-                
+               
                 <table width="100%" style="   " id="box-pay">
                     <tr>
                         <td style="padding:0 5px 5px 0;"><span class="lng-amount"></span> (THB.)
@@ -92,10 +96,11 @@
                     <tr>
                         <td>&nbsp;</td>
                         <td style="padding:0 5px 5px 0;" id="btn-pay">                           
-                            <input style="background: #ffffff;  border: 0; position: absolute; right: 21px;    margin-bottom: 100px;" type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png"  />                                           
+                            <input style="background: #ffffff;  border: 0; position: absolute; right: 21px;    " type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png"  />                                           
                         </td>
                     </tr>
                 </table>
+        </div>
             </form>
         </div>
         </div>

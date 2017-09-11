@@ -12,7 +12,7 @@ $webmail_port = 465;
 $webmail_username = "system@welovetaxi.com";
 $webmail_password = "system2017";
 
-
+$voucher = $_POST[voucher];
 $sendby = "Golden Beach Tour Co.,Ltd.";
   $mail->CharSet = "utf-8";
   $mail->IsSMTP();                           // 启用SMTP
@@ -26,9 +26,11 @@ $sendby = "Golden Beach Tour Co.,Ltd.";
   $mail->AddReplyTo("reservation@goldenbeachtour.com",''.$sendby.'');
   $mail->Subject = "Reservation : $res_no ";
   $mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
-  $mail->MsgHTML("test");
+  $mail->MsgHTML("https://dotdotdottrip.com/dashboard/query_transfer_byuser?order_id=".$_POST[voucher]);
   //$to =  $_POST[phone]
   $address = $_POST[mail];
+  
+  
   $mail->AddAddress($address, "");
     if(!$mail->Send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
