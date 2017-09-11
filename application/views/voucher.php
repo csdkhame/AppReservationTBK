@@ -172,6 +172,7 @@ $( document ).ready(function() {
 	bottom: 8px; 
 	color: #fff;
 /*	z-index: -1;*/
+    border-radius: 0px;
 }
 </style>
 
@@ -220,7 +221,7 @@ $( document ).ready(function() {
    <h4 style="margin: 8px;"><span class="lng-detail-order"></span></h4></td>     
    <td align="right" > 
    <a class="btn btn-xs btn-custom-me"  href="" id="to_pay" >
-   	<span style="font-size: medium;font-weight: 700;" class="lng-paynow">Pay Now</span>
+   	<span style="font-size: medium;/*font-weight: 700;*/" class="lng-paynow">Pay Now</span>
    </a></td> 
    </tr>
    </table>
@@ -403,7 +404,7 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('Date/Time');
 			$('.lng-num_of_car').text('Number of car');
 			$('.currency').text("baht.");
-			$('.lng-paynow').text("Pay Now");
+			
 		}else if ($.cookie("lng")=="cn"){
 			product_name = data.product_detail[0].topic_cn;
 			cartype = data.product_detail[0].car_topic_cn+" "+data.product_detail[0].pax_cn;
@@ -412,7 +413,7 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('日期/时间');
 			$('.lng-num_of_car').text('车数');
 			$('.currency').text('铢');
-			$('.lng-paynow').text("现在付款");
+			
 		}else if ($.cookie("lng")=="th"){
 			product_name = data.product_detail[0].topic_th;
 			cartype = data.product_detail[0].car_topic_th+" "+data.product_detail[0].pax_th;
@@ -421,7 +422,7 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('วัน/เวลา');
 			$('.lng-num_of_car').text('จำนวนรถ');
 			$('.currency').text('บาท');
-			$('.lng-paynow').text("ชำระตอนนี้");
+			
 		}else if($.cookie("lng")==undefined){
 			product_name = data.product_detail[0].topic_en;
 			cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
@@ -430,7 +431,7 @@ $( document ).ready(function() {
 			$('.lng-transfer_date').text('Date/Time');
 			$('.lng-num_of_car').text('Number of car');
 			$('.currency').text("baht");
-			$('.lng-paynow').text("Pay Now");
+			
 		}
 		$('#pdname').text(product_name);
 		$('#car_type').text(cartype);

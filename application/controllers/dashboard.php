@@ -16,10 +16,10 @@ public function index()
 		/*$this->load->view('header_dash');
 		$this->load->view('index_dash');
 		$this->load->view('footer_dash');*/
-		
-		$this->load->view('header');
+		redirect('https://dotdotdottrip.com/dashboard/view_user', 'refresh');
+/*		$this->load->view('header');
 		$this->load->view('index_dash');
-		$this->load->view('footer');
+		$this->load->view('footer');*/
 	}
 	
 public function view_user()
@@ -122,6 +122,7 @@ public function payment(){
 		$this->load->view('footer_dash2');
 		
 }	
+
 public function payments(){
 	
 	$webmail_cc = "gbtour.op@gmail.com"; 
@@ -353,6 +354,7 @@ public function query_transfer_byuser(){
 	
 	
 }
+
 public function pay()
 {
 	$data = $this->Pay_model->pays();
