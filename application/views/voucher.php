@@ -287,7 +287,7 @@ $( document ).ready(function() {
   			</td>
   		</tr>
   		
-  		<tr>
+  		<tr id="row_filght">
   			<td>
   			<span class="lng-flight">Flight</span>
   			</td>
@@ -377,7 +377,7 @@ $( document ).ready(function() {
     	var data = obj[0];
     	console.log(obj);
     	$('#to_pay').attr('href','https://dotdotdottrip.com/dashboard/payment?data='+data.invoice);
-    	$('#voucher').html('<a href="'+data.voucher_url+'" target="_blank">'+data.invoice+'<a>');
+    	$('#voucher').html('<a href="'+data.voucher_url+'" target="_blank">'+data.invoice+'</a>');
     	$('#adult').text(data.adult);
     	$('#child').text(data.child);
     	$('#num_of_car').text(data.numcar);
@@ -445,11 +445,14 @@ $( document ).ready(function() {
 		
 		var check_pay = data.status_pay;
 		if(check_pay==0){
-			$('lng-paynow').text(paynow);
+			$('.lng-paynow').text(paynow);
+			
 		}else if (check_pay==1){
-			$('lng-paynow').text(paysuccess);
+			$('.lng-paynow').text(paysuccess);
+			$('#to_pay').css('background-color','#4caf50'); 
 		}else if (check_pay==2){
-			$('lng-paynow').text(payowe);
+			$('.lng-paynow').text(payowe);
+			$('#to_pay').css('background-color','#ffc500'); 
 		}
 		$('#pdname').text(product_name);
 		$('#car_type').text(cartype);
@@ -497,6 +500,7 @@ $( document ).ready(function() {
 			
 		}
 		else if(area=='Point'){
+			$('#row_filght').hide();
 			if($.cookie("lng")=="en"){
 				$('.lng-typet_transfer').text('Use date');
 				$('.lng-typet_transfer_time').text('Use time');

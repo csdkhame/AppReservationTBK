@@ -222,7 +222,7 @@ class Userview_model_dash extends CI_Model {
 			 	$data[$key]['from'] = $aaaa[0]->topic;
 				$data[$key]['to'] = $aaaa[1]->topic;
 				$data[$key]['guest_english'] = $row->guest_english;
-				$data[$key]['total_price'] = $row->total_price;
+				$data[$key]['total_price'] = number_format($row->total_price);
 				$data[$key]['booking_date'] = $row->booking_date;
 				$data[$key]['product'] = $row->product;
 				$data[$key]['agent_ref'] = $row->agent_ref;
