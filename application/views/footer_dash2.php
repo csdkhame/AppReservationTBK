@@ -332,17 +332,29 @@ $( document ).ready(function() {
 
 </script>
 
+<form name="realtime" id="realtimeAction" action="<?php echo base_url(); ?>" method="POST" style="display: nones;">
+<input type="hidden"  name="active" value="realtime"/>
+</form>
+<form name="reservation" id="reservationAction" action="<?php echo base_url(); ?>" method="POST" style="display: nones;">
+<input type="hidden"  name="active" value="reservation"/>
+</form>
+<form name="service" id="serviceAction" action="<?php echo base_url(); ?>" method="POST" style="display: nones;">
+<input type="hidden"  name="active" value="service"/>
+</form>
 <script>
 $( document ).ready(function() {
 	
 	$('.btn-car-service').click(function(){
-    		window.location.href = '<?php echo base_url(); ?>';
+//    		window.location.href = '<?php echo base_url(); ?>?active=service';
+    		$( "#serviceAction" ).submit();
     	});
     	$('.btn-realtime').click(function(){
-    		window.location.href = '<?php echo base_url(); ?>';
+//    		window.location.href = '<?php echo base_url(); ?>?active=realtime';
+			$( "#realtimeAction" ).submit();
     	});
     	$('.btn-reservation').click(function(){
-    		window.location.href = '<?php echo base_url(); ?>';
+//    		window.location.href = '<?php echo base_url(); ?>?active=reservation';
+			$( "#reservationAction" ).submit();
     	});
     	$('.btn-management').click(function(){
     		window.location.href = '<?php echo base_url(); ?>dashboard/view_user';

@@ -325,7 +325,7 @@ function initAutocomplete(map) {
     if (navigator.geolocation) {
     	 var options = {
         enableHighAccuracy: true,
-        timeout: 6000
+        timeout: 60000
     };
 		    	  navigator.geolocation.getCurrentPosition(function(position,status) {
 //		          	console.log(status);
@@ -952,7 +952,7 @@ function placeRecord() {
 
                     var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
                     $.post(url, function(data_place) {
-//                        console.log(data_place);
+                        console.log(data_place);
 
                         if (data.s_type == '1') {
 
