@@ -552,7 +552,7 @@
     text-decoration: none;
     cursor: pointer;
     min-width: 200px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
 }
 .social-column .fb-wrapper {
     text-align: center;

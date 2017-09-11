@@ -1,7 +1,7 @@
-<section style="height: 100vh;">
+<section style="height: 100vh;background: #fff">
     <div class="container" style="padding: 10px;  overflow-y: scroll;  ">
         <div style="background: #fff;
-    margin-top: 52px;    padding-bottom: 50px;">
+    margin-top: 52px;    padding-bottom: 100px;">
     <div class="col-md-12">
         <div class="col-md-12" style="text-align: center;padding-top: 25px; padding-bottom: 20px; margin-bottom: 20px; font-size: 18px; font-weight: 400; border-bottom: dashed 1px #16b3b1 ;" >
             <span class="lng-payment"></span>
@@ -94,9 +94,9 @@
                         
                     </tr>                   
                     <tr>
-                        <td>&nbsp;</td>
-                        <td style="padding:0 5px 5px 0;" id="btn-pay">                           
-                            <input style="background: #ffffff;  border: 0; position: absolute; right: 21px;    " type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png"  />                                           
+                        
+                        <td colspan="2" style="padding:0 5px 5px 0;" id="btn-pay">                           
+                            <input style="background: #ffffff;  border: 0; margin-top: 15px;  " type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"  />                                           
                         </td>
                     </tr>
                 </table>

@@ -23,7 +23,7 @@ $(document).ready(function() {
                 $('.box-login-non').hide();
                 $('.box-desboard').show();
 
-				
+
                 if (data[0].s_image == '') {
                     $('#photo_profile').html('<img class="" src="' + base_url + 'pic/default-avatar.png">');
                     $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/default-avatar.png">');
@@ -31,10 +31,10 @@ $(document).ready(function() {
                     $('#photo_profile').html('<img   src="' + base_url + 'pic/' + data[0].s_image + '">');
                     $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/' + data[0].s_image + '">');
                 }
-                
-                
-                
-                
+
+
+
+
                 $('#usernamess').html(data[0].s_username);
                 $('#getname').html(data[0].s_name);
 
@@ -619,6 +619,7 @@ $(document).ready(function() {
             $('.btn-realtime').css({ 'background': '#ffffff' }, { 'color': '#999999' });
             $('#loading').css('display', 'none');
             window.location.href = base_url + "dashboard/view_user";
+            $("#show-hide-pro2").hide();
         }, 2000);
 
 
@@ -653,6 +654,7 @@ $(document).ready(function() {
             //  //$('#show-hide-pro2').show(); 
             // $(".btn-real-res").css({ 'text-align': 'center' });
             // $(".btn-realtime").hide();
+            $("#show-hide-pro2").hide();
             $('.btn-reservation').css({ 'background': '#16B3B1', 'color': '#ffffff' });
 
 
@@ -703,6 +705,7 @@ $(document).ready(function() {
 
             $("#list_place").fadeIn(1000);
             //$(".btn-reservation").hide();
+            $("#show-hide-pro2").hide();
             //             $('#selectPlace').css('z-index','1');
             $('#loading').css('display', 'none');
             $('#search-show').css('display', 'none')
@@ -1317,8 +1320,8 @@ var dataplaceSend, id_placefrom, id_placeto, pro_from, pro_to, aum_from, aum_to,
     compae2private = [],
     compae2join = [],
     lat_from, lng_from;
-    
-   var start_st,end_st;
+
+var start_st, end_st;
 //var datato = [];
 function sendValuetojs(data) {
     // console.log(data)
@@ -1332,11 +1335,11 @@ function sendValue(x) {
     aum_from = $('#transferplace' + x).attr('dataaum');
     lat_from = $('#transferplace' + x).attr('lat_f');
     lng_from = $('#transferplace' + x).attr('lng_f');
-/*    console.log(lat_from)
-    console.log(lng_from)*/
+    /*    console.log(lat_from)
+        console.log(lng_from)*/
     $('#search-from').val(name)
-/*    console.log(name)
-    console.log(id_placefrom)*/
+        /*    console.log(name)
+            console.log(id_placefrom)*/
 
     $('.box-plancefrom').css('display', 'none');
 
@@ -1345,12 +1348,12 @@ function sendValue(x) {
         lng: parseFloat(lng_from)
     }
 
-   console.log(start_st);
+    console.log(start_st);
 
     startMarker.setVisible(true);
     map.panTo(start_st);
     startMarker.setPosition(start_st);
- $('#clear-all').show(500);
+    $('#clear-all').show(500);
 
     //var sdata = {'id_from':id_placefrom,'pro_from' :pro_from,'aum_from':aum_from };
     //console.log(sdata)
@@ -1370,7 +1373,7 @@ function sendValue(x) {
 var data1;
 
 function sendValueto(x) {
-//    console.log(id_placefrom)
+    //    console.log(id_placefrom)
     var notfound;
     var name = $('#transferplaceto' + x).attr('dataname');
     aum_to = $('#transferplaceto' + x).attr('dataaum');
@@ -1378,10 +1381,10 @@ function sendValueto(x) {
     lat_to = $('#transferplaceto' + x).attr('lat_t');
     lng_to = $('#transferplaceto' + x).attr('lng_t');
 
-/*    console.log(lat_to)
-    console.log(lng_to)
-    console.log(lat_from)
-    console.log(lng_from)*/
+    /*    console.log(lat_to)
+        console.log(lng_to)
+        console.log(lat_from)
+        console.log(lng_from)*/
     $('#lat_to').val(lng_to);
     $('#lng_to').val(lng_to);
     $('#show-hide-pro2').hide();
@@ -1398,45 +1401,45 @@ function sendValueto(x) {
     endMarker.setVisible(true);
     map.panTo(end_st);
     endMarker.setPosition(end_st);
-	var requestThis = {
-            origin: start_st,
-            destination: end_st,
-            travelMode: google.maps.TravelMode.DRIVING
-        };
-        console.log(requestThis);
-	    directionsService = new google.maps.DirectionsService;
-        directionsDisplay = new google.maps.DirectionsRenderer();
-     directionsDisplay.setMap(map);
-        directionsService.route(requestThis, function(response, status) {
-            console.log(response);
-            console.log(status);
-            if (status == 'ZERO_RESULTS') {
-                alert('no Directions Display');
-            } else {
+    var requestThis = {
+        origin: start_st,
+        destination: end_st,
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+    console.log(requestThis);
+    directionsService = new google.maps.DirectionsService;
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
+    directionsService.route(requestThis, function(response, status) {
+        console.log(response);
+        console.log(status);
+        if (status == 'ZERO_RESULTS') {
+            alert('no Directions Display');
+        } else {
 
             var distance = response.routes[0].legs[0].distance.text;
-//            console.log(distance+" +++++++++++++++++++");
-            var duration = response.routes[0].legs[0].duration.text;   
+            //            console.log(distance+" +++++++++++++++++++");
+            var duration = response.routes[0].legs[0].duration.text;
             infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
             infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
             infowindowDetailTravel.open(map, endMarker);
-                directionsDisplay.setDirections(response);
-                directionsDisplay.setOptions({
-                    suppressMarkers: true,
-                    preserveViewport: true
-                });
-				if(response.routes[0].legs[0].distance.value>=25000){
-					map.setZoom(9);
-				}else{
-					map.setZoom(12);
-				}
-                
-                $('#clear-all').show(500);
-//                outSearchRealtime();
-
+            directionsDisplay.setDirections(response);
+            directionsDisplay.setOptions({
+                suppressMarkers: true,
+                preserveViewport: true
+            });
+            if (response.routes[0].legs[0].distance.value >= 25000) {
+                map.setZoom(9);
+            } else {
+                map.setZoom(12);
             }
 
-        });
+            $('#clear-all').show(500);
+            //                outSearchRealtime();
+
+        }
+
+    });
 
     id_placeto = x;
 
