@@ -7,6 +7,7 @@ var base_url = 'https://dotdotdottrip.com/';
 $(document).ready(function() {
     console.log("readysss!");
     console.log($.cookie("login"))
+    
     if ($.cookie("login")) {
         console.log($.cookie("login"))
             //        alert(base_url+'getuser_control/mainpage');
@@ -673,11 +674,8 @@ $(document).ready(function() {
 
 
     });
+    
     $('.btn-realtime').click(function() {
-
-
-
-
         //	  $('#selectPlace').show();
         $('#loading').css('display', 'block');
         //       $('#btn-real-res').css('display', 'none');

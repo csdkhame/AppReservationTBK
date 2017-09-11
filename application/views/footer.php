@@ -128,6 +128,7 @@ if(paramURL=="realtime"){
     margin-top: 10px !important;
                 	}
 </style>
+
 <script>
 $( document ).ready(function() {
 	
@@ -142,6 +143,23 @@ $( document ).ready(function() {
 	    }, 3000);
 				
 	});
+
+/*	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var c = url.searchParams.get("active");*/
+  var active = '<?=$_POST['active']?>'; // That's for a string
+	setTimeout(function(){ 
+	if( active=='realtime'){
+		$('.btn-realtime').click();
+	}else if( active=='reservation'){
+		$('.btn-reservation').click();
+	}
+	else if( active=='service'){
+		$('.btn-car-service').click();
+	}
+	
+	 }, 1500);
+	
 	
 });	
 </script>
