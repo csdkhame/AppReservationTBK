@@ -1,77 +1,68 @@
-<section style="    height: 100vh;
-    background: #fff;">
-            <div class="container">
-                <div style="    text-align: center;
-                margin-top: 60px;
-                padding: 8px;
-                margin-bottom: 20px;
-                font-size: 18px;
-                font-weight: 400;
-                border-bottom: dashed 1px #16b3b1 ;" >
-              <span class="lng-payment"></span>
-            </div>
-    <table class="table ">
-  		<tr>
-  			<td>
-  			<span class="lng-product"></span>
-  			</td>
-  			<td>
-  			<span id="pdname"></span>
-  			</td>
-  		</tr><tr>
-  			<td>
-  			<span class="voucher-lang lng-voucher-no"></span>
-  			</td>
-  			<td>
-  			<span id="voucher"></span>
-  			</td>
-  		</tr>
-  		<tr>
-  			<td>
-  			<span class="amount-lang lng-amount"></span>
-  			</td>
-  			<td>
-  				<table>
-  					<tr>
-  						<td>
-		  					<span class="adult-lang lng-adult"></span> :	<span id="adult"></span>
-		  				</td>
-		  				<td width="10"></td>
-  						<td>
-  							<span class="child-lang lng-child"></span> :	<span id="child"></span>
-  						</td>
-  				</tr></table>
-  			</td>
-  		</tr>
-        <tr>
-  			<td>
-  			    <span class="price-lang lng-price"></span>
-  			</td>
-  			<td>
-  			    <span id="price"></span> <span class="currency"></span>
-  			</td>
-          </tr>
-          <tr>
-  			<td>
-  			<span class="book_by-lang lng-book-by"></span>
-  			</td>
-  			<td>
-  			<span id="book_by"></span>
-  			</td>
-  		</tr>
-    </table>
+<section style="height: 100vh; background: #fff;">
+    <div class="container">
+        <div style="overflow-y: scroll;">
+        <div style="text-align: center; margin-top: 60px; padding: 8px; margin-bottom: 20px; font-size: 18px; font-weight: 400; border-bottom: dashed 1px #16b3b1 ;" >
+            <span class="lng-payment"></span>
+        </div>
+        <table class="table ">
+            <tr>
+                <td colspan="2"><div class="status-pay" style></div></td>
+            </tr>
+            <tr>
+                <td>
+                <span class="lng-product"></span>
+                </td>
+                <td>
+                <span id="pdname"></span>
+                </td>
+            </tr><tr>
+                <td>
+                <span class="voucher-lang lng-voucher-no"></span>
+                </td>
+                <td>
+                <span id="voucher"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <span class="amount-lang lng-amount"></span>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="adult-lang lng-adult"></span> :	<span id="adult"></span>
+                            </td>
+                            <td width="10"></td>
+                            <td>
+                                <span class="child-lang lng-child"></span> :	<span id="child"></span>
+                            </td>
+                    </tr></table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="price-lang lng-price"></span>
+                </td>
+                <td>
+                    <span id="price"></span> <span class="currency"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <span class="book_by-lang lng-book-by"></span>
+                </td>
+                <td>
+                <span id="book_by"></span>
+                </td>
+            </tr>
+        </table>
        <style>
            .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
                border-top: none;
            }
        </style>       
-         
-    <!-- <div class="form-group form-inline required ">
-                                                                           
-                                                    <select class="textInput" name="orderid" id="orderid" class="" style="  ">
-                                                        <option class="textInput" value="az_AZ" >booking ID</option>
-                                                    </select>
-                                                </div> -->
+
             <form class="paypal" action="./payments" method="post" id="paypal_form" target="_blank">
                
                 <input type="hidden" name="cmd" value="_xclick" />
@@ -86,7 +77,7 @@
                 <input type="hidden" name="item_number" value="988" id="item_number">
                <!-- <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payments/?payment=success" />
                 <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payments/?payment=cancelled" /> -->
-                <input type="hidden" name="txn_id" value="Reference" id="reference" / >
+                <input type="hidden" name="txn_ids" value="Reference" id="reference" / >
                 
                 <table width="100%" style="   ">
                     <tr>
@@ -105,53 +96,8 @@
                     </tr>
                 </table>
             </form>
-          <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                            <fieldset>
-                                <input type="hidden" name="cmd" value="_xclick" />
-                                <input type="hidden" name="business" value="ozaclever-facilitator_api1.gmail.com" />
-                                <input type="hidden" name="lc" value="AU" />
-                                <input type="hidden" name="item_name" value="Payment" />
-                                <input type="hidden" name="item_number" value="P1" />
-                                <input type="hidden" name="currency_code" value="THB" />
-                                <input type="hidden" name="button_subtype" value="services" />
-                                <input type="hidden" name="no_note" value="0" />
-                                <input type="hidden" name="cn" value="Comments" />
-                                <input type="hidden" name="no_shipping" value="1" />
-                                <input type="hidden" name="rm" value="1" />
-                                <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payment/?payment=success" />
-                                <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payment/?payment=cancelled" />
-                                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest" />
-                                <table width="100%" style="   ">
-                                
-                                    <tr>
-                                        <td style="padding:0 5px 5px 0;">Amount
-                                        </td>
-                                        <td style="padding:0 5px 5px 0;">
-                                            <input class="textInput"  type="text" name="amount" id="amount" maxlength="200" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:0 5px 5px 0;">
-                                            <input class="textInput" type="hidden" name="on0" value="Reference"/>Reference
-                                        </td>
-                                        <td style="padding:0 5px 5px 0;"> 
-                                            <input class="textInput" type="text" name="os0" maxlength="200" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td style="padding:0 5px 5px 0;">
-                                            <input style="    background: #ffffff;
-    border: 0;
-    position: absolute;
-    right: 21px;" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" name="submit" alt="PayPal . The safer, easier way to pay online." />
-                                           
-                                        </td>
-                                    </tr>
-                                </table>
-                            </fieldset>
-                        </form> -->
-                        </div>
+        </div>
+        </div>
     </section>
     <style>
     .textInput {
@@ -285,6 +231,7 @@ function getParameterByName(name, url) {
                 console.log(data)
                 console.log(data[0].product_detail[0])
                 if($.cookie("lng")=="en"){
+                    
                     product_name = data[0].product_detail[0].topic_en;
                    
                   
