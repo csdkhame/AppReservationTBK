@@ -212,6 +212,10 @@
     bottom: 0;
     z-index: 15;
     background: #fff;
+    box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52);
+
+
+
     /* height: 90px; */
 }
 	.loading-in{

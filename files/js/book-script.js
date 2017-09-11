@@ -177,7 +177,7 @@ $(document).ready(function() {
 
     });
     $('.btn-cale').click(function() {
-        alert('aaaa')
+        //alert('aaaa')
         var $input = $('#on_date').pickadate();
         var picker = $input.pickadate('picker');
         picker.close();
@@ -245,10 +245,47 @@ $(document).ready(function() {
         }
     })
     $('#btn-logout-user').click(function() {
-        alert("logout");
+        //alert("logout");
         $.removeCookie("login");
         window.location.reload(); //href = "https://dotdotdottrip.com/register";
     })
+    $('.btn-realtime').click(function() {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
+            console.log("aaaaa")
+            $('#loading').css('display', 'none');
+            window.location.href = base_url + "?section=picuphere";
+        }, 3000);
+
+
+    })
+    $('.btn-reservation').click(function() {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
+            console.log("aaaaa")
+            $('#loading').css('display', 'none');
+            window.location.href = base_url + "?section=search";
+        }, 3000);
+    })
+    $('.btn-car-service').click(function() {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
+            console.log("aaaaa")
+            $('#loading').css('display', 'none');
+            window.location.href = base_url + "?section=service";
+        }, 3000);
+    })
+    $('.btn-management').click(function() {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
+            console.log("aaaaa")
+            $('#loading').css('display', 'none');
+            window.location.href = base_url + "dashboard/view_user";
+        }, 3000);
+
+
+    })
+
     console.log("readysss!");
     //console.log($.cookie("login"))
     $('#selectcar').html('1')
