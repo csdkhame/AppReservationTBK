@@ -434,6 +434,9 @@ $( document ).ready(function() {
 			$('.currency').text("baht");
 			
 		}
+		
+		var check_pay = data.status_pay;
+		console.log(check_pay);
 		$('#pdname').text(product_name);
 		$('#car_type').text(cartype);
     	var area = data.product_detail[0].area;
