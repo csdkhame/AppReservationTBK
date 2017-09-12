@@ -51,7 +51,7 @@
 
 </head>
 
-<body class="presentation-page" style="background-color: #eee; ">
+<body class="presentation-page" style="background-color: #fff; ">
 
     <style>
         .page-header .container {

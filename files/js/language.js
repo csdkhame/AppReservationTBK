@@ -54,7 +54,14 @@ $(document).ready(function() {
             }
         }
     });
+    $('.box-login-non').click(function() {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
 
+            window.location.href = base_url + "register";
+        }, 2000);
+
+    });
     console.log($.cookie("lng"));
     if ($.cookie("lng") == 'cn') {
         $('.lng-private').html('专车');
@@ -188,8 +195,8 @@ $(document).ready(function() {
         $('.lng-address').html('地址');
         $('.lng-country').html('国家');
         $('.lng-old-password').html('舊密碼');
-		
-		
+
+
 
 
 
@@ -339,7 +346,7 @@ $(document).ready(function() {
         $('.lng-country').html('Country');
         $('.lng-old-password').html('Old Password');
 
-		
+
 
 
 
@@ -478,8 +485,8 @@ $(document).ready(function() {
         $('.lng-country').html('ประเทศ');
         $('.lng-old-password').html('รหัสผ่านเก่า');
 
-		
-		
+
+
     } else if ($.cookie("lng") == undefined) {
         $('.lng-private').html('Private');
         $('.lng-join').html('Join');
@@ -621,8 +628,8 @@ $(document).ready(function() {
         $('.lng-address').html('Address');
         $('.lng-country').html('Country');
         $('.lng-old-password').html('Old Password');
-		
-		
+
+
 
 
 

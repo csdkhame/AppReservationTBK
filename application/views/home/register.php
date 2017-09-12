@@ -114,7 +114,7 @@
                 </div>            
             </div>
         </nav>
-        <div class="box-menu-select">
+        <!-- <div class="box-menu-select">
     <table width="100%">
         <tr>
             <td width="20%" style="">
@@ -158,7 +158,7 @@
                         <tr>
                             <td align="center">
                             <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
-                            <!-- <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i>  -->
+                         
                             </td>
                         </tr>
                         <tr>
@@ -176,7 +176,7 @@
                     <table width="100%">
                         <tr>
                             <td align="center">
-                            <!-- <i class="material-icons" style="font-size: 30px;">settings</i> -->
+                         
                                 
                                 <i class="material-icons" style="font-size: 30px;">dvr</i>
                             </td>
@@ -192,7 +192,7 @@
         </tr>
     </table>
  </div>
-    </div>
+    </div> -->
    
     <div class="container">
         <div class="col-md-6" id="box-left" >
@@ -1418,7 +1418,7 @@ window.fbAsyncInit = function() {
       appId      : '1865903040340223',
       cookie     : true,
       xfbml      : true,
-      version    : 'v2.8'
+      version    : 'v2.9'
     });
     FB.AppEvents.logPageView();   
   };
