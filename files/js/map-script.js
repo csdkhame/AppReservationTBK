@@ -60,7 +60,8 @@ else if ($.cookie("lng") == undefined) {
 if ($.cookie("login") == undefined) {
     $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">' + please_login_txt + '</span>');
     $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">' + please_login_txt + '</span>');
-} else {
+} 
+else {
     $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">' + click_save_place_txt + '</span>');
     $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">' + click_save_place_txt + '</span>');
 }
@@ -321,23 +322,23 @@ function initAutocomplete(map) {
     });
 
    
-//setInterval(function(){ 
+
     if (navigator.geolocation) {
     	 var options = {
         enableHighAccuracy: true,
-        timeout: 60000
+        timeout: 6000
     };
 		    	  navigator.geolocation.getCurrentPosition(function(position,status) {
-//		          	console.log(status);
+
 		            var pos = {
 		              lat: position.coords.latitude,
 		              lng: position.coords.longitude
 		            };
 		            start = pos;
 		          
-		           
+		            markerCircle.setPosition(pos);
 		            map.setCenter(pos);
-					 geocoder = new google.maps.Geocoder;
+					geocoder = new google.maps.Geocoder;
 
 					latitude=position.coords.latitude;               
 					longitude= position.coords.longitude;
@@ -347,27 +348,30 @@ function initAutocomplete(map) {
 		    	
 		    	
 		        var id, target;
-		        id = navigator.geolocation.watchPosition(success, error, options);
-		          console.log("watchPosition : "+id); 
+		        setInterval(function(){ 
+		        id = navigator.geolocation.getCurrentPosition(success, error, options);
+//		        id = navigator.geolocation.watchPosition(success, error, options);
+//		          console.log("watchPosition : "+id); 
+		           }, 10000);
 		    });
 		}
-// }, 10000);
 
     function success(position) {
-        ///var crd = pos.coords;
+       
         var current = {
             lat: parseFloat(position.coords.latitude),
             lng: parseFloat(position.coords.longitude)
         };
 
         console.log('success');
+        console.log(current);
         pos = current;
-
+		
         markerCircle.setPosition(current);
         check = check + 1;
         if (check == 1) {
             start = pos;
-            map.panTo(current);
+//            map.panTo(current);
             lat_f = position.coords.latitude;
             lng_f = position.coords.longitude;
         }
@@ -416,7 +420,7 @@ function initAutocomplete(map) {
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
-
+		console.log(request);
         directionsService = new google.maps.DirectionsService;
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setMap(map);
@@ -456,7 +460,7 @@ function initAutocomplete(map) {
                     suppressMarkers: true,
                     preserveViewport: true
                 });
-
+//				console.log(directionsDisplay);
                if(response.routes[0].legs[0].distance.value>=25000){
 					map.setZoom(9);
 				}else{
@@ -1069,15 +1073,26 @@ function createAllMarker() {
         position: map.getCenter(),
         icon: {
             path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillOpacity: 2,
-            strokeWeight: 2,
-            fillColor: '#4ba5fe',
+            scale: 6.5,
+            fillOpacity: 1,
+            strokeWeight: 1,
+            fillColor: '#1b8cfe',
             strokeColor: '#ffffff'
         },
         draggable: true,
         map: map
     });
+
+	var circle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.2,
+            strokeWeight: 1,
+            fillColor: '#FF0000',
+            fillOpacity: 0.25,
+            map: map,
+            radius: Math.sqrt(1) * 30
+          });
+circle.bindTo('center', markerCircle, 'position');
 
     endMarker = new google.maps.Marker({
         map: map,
@@ -1310,7 +1325,8 @@ function resetMap() {
     $('#clear-all').hide(500);
     $('#show-hide-pro2').hide(500);
     map.panTo(pos);
-    start = null;
+  
+    start = pos;
     end = null;
     $('#btn_CurrentLocation').show(700);
 }
