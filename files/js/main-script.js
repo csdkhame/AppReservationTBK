@@ -1,13 +1,16 @@
 var rel = false;
 var dataplacerel, pro_id, pro_id_to, datacaedervice;
 var base_url = 'https://dotdotdottrip.com/';
+
 //var base_url = 'https://www.welovetaxi.com/app/transfer/';
 //var base_url = 'http://localhost/AppReservationTBK/';
 
 $(document).ready(function() {
+
+    $(this).attr("hiddenhref");
     console.log("readysss!");
     console.log($.cookie("login"))
-    
+
     if ($.cookie("login")) {
         console.log($.cookie("login"))
             //        alert(base_url+'getuser_control/mainpage');
@@ -23,8 +26,6 @@ $(document).ready(function() {
                 $('.box-login').show();
                 $('.box-login-non').hide();
                 $('.box-desboard').show();
-
-
                 if (data[0].s_image == '') {
                     $('#photo_profile').html('<img class="" src="' + base_url + 'pic/default-avatar.png">');
                     $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/default-avatar.png">');
@@ -32,10 +33,6 @@ $(document).ready(function() {
                     $('#photo_profile').html('<img   src="' + base_url + 'pic/' + data[0].s_image + '">');
                     $('.box-login').html('<img class="imgmemu" src="' + base_url + 'pic/' + data[0].s_image + '">');
                 }
-
-
-
-
                 $('#usernamess').html(data[0].s_username);
                 $('#getname').html(data[0].s_name);
 
@@ -676,7 +673,7 @@ $(document).ready(function() {
 
 
     });
-    
+
     $('.btn-realtime').click(function() {
         //	  $('#selectPlace').show();
         $('#loading').css('display', 'block');
@@ -2293,3 +2290,18 @@ $('#show_pd').click(function() {
     $('#show_pd_dialog').show(1000);
 
 });
+
+function toggleFullScreen() {
+    //alert("aaaa")
+    var doc = window.document;
+    var docEl = doc.documentElement;
+
+    var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+    var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+    if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+        requestFullScreen.call(docEl);
+    } else {
+        cancelFullScreen.call(doc);
+    }
+}
