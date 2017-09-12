@@ -877,7 +877,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                         <span class="input-group-addon">
                                                            <i class="material-icons">phone</i>
                                                         </span>
-                                                        <div class="form-group label-floating " id="div-phone">
+                                                        <div class="form-group label-floating is-empty has-error" id="div-phone">
                                                             <label class="control-label"><span class="lng-phone">Phone</span> 
                                                                 
                                                             </label>
@@ -891,7 +891,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                         <span class="input-group-addon">
                                                             <i class="material-icons">room</i>
                                                         </span>
-                                                        <div class="form-group label-floating " >
+                                                        <div class="form-group label-floating is-empty has-error" id="div-address">
                                                             <label class="control-label"><span class="lng-address">Address</span></label>
                                                             <textarea class="form-control" name="txt_address" id="txt_address"></textarea>
                                                             <span class="material-input"></span></div>
@@ -1190,7 +1190,7 @@ $('.lng-acc').text(acc);
 					                    console.log(php_script_response);
 					                    if(php_script_response==1){
 											swal(""+success+"", ""+success_txt+"", "success");
-											setTimeout(function(){ window.location.href = '<?php echo base_url(); ?>dashboard/account_settings'; }, 4000);
+											setTimeout(function(){ window.location.href = '<?php echo base_url(); ?>dashboard/account_settings'; }, 1500);
 											
 										}else{
 											swal(""+error+"", ""+error_txt+"", "error");
@@ -1222,19 +1222,31 @@ $(document).ready(function(){
  console.log(obj);
 		$.each(obj, function (index, value) {
 			$('#name').html(obj[index].s_name);
-			
-	$("#div-name").removeClass("is-empty has-error");	
-    $('#firstname').val(obj[index].s_first_name);
-    $("#div-lastname").removeClass("is-empty has-error");	
-    $('#lastname').val(obj[index].s_last_name);
-    $("#div-email").removeClass("is-empty has-error");	
-    $('#email').val(obj[index].s_email);
-    $("#div-phone").removeClass("is-empty has-error");	
-    $('#phone').val(obj[index].s_phone);
-	$("#div-username").removeClass("is-empty has-error");	
-    $('#username').val(obj[index].s_username);
-    $("#div-address").removeClass("is-empty has-error");	
-    $('#txt_address').val(obj[index].t_address);
+	if(obj[index].s_first_name!="")	{
+		$("#div-name").removeClass("is-empty has-error");	
+    	$('#firstname').val(obj[index].s_first_name);
+	}	
+	if(obj[index].s_last_name!="")	{
+		$("#div-lastname").removeClass("is-empty has-error");	
+    	$('#lastname').val(obj[index].s_last_name);
+	}	
+    if(obj[index].s_email!="")	{
+		 $("#div-email").removeClass("is-empty has-error");	
+   		 $('#email').val(obj[index].s_email);
+	}	
+	if(obj[index].s_phone!="")	{
+		 $("#div-phone").removeClass("is-empty has-error");	
+    	 $('#phone').val(obj[index].s_phone);
+	}
+    if(obj[index].s_username!="")	{
+		$("#div-username").removeClass("is-empty has-error");	
+    	$('#username').val(obj[index].s_username);
+	}
+	if(obj[index].t_address!="")	{
+		$("#div-address").removeClass("is-empty has-error");	
+    	$('#txt_address').val(obj[index].t_address);
+	}
+    
     
     $('#txt_avatar').val(obj[index].s_image);
     if(obj[index].s_image!=""){
