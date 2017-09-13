@@ -93,13 +93,7 @@ function hideHeader() {
 }
 
 function outSearchRealtime() {
-   /* $("#marginBox").animate({
-        //	  marginTop : "0px"
-    }, 600);*/
-   /* $("#boxForAutoCom").animate({
-        //	    top: "0px"
-        bottom: "-800px"
-    }, 650);*/
+
     $('#out-search').hide();
     $('#to-remove-class').addClass('col-md-12');
 
@@ -115,22 +109,21 @@ function outSearchRealtime() {
     $('#boxRealtime').css('margin-left', '0px');
     $('#boxRealtime').css('padding', '0 8px');
 	
-	$("#boxForAutoCom").hide(700);
+	$("#boxForAutoCom").hide();
 
 
 
     setTimeout(function() {
-        //	$('#map').css('display','block');
-//        $('#boxForAutoCom').css('display', 'none');
+      
         $('.box-menu-select').show();
         $('#sectionsNav').show();
-    }, 660);
-
+    }, 200);
+	
 }
 
 
 $('#search-raeltime input').focus(function() {
-//    $('#boxForAutoCom').css('display', 'unset');
+
     if (this.id == "current") {
         $('#for_check_currentInput').val(1);
         $('#for_check_endInput').val(0);
@@ -146,23 +139,14 @@ $('#search-raeltime input').focus(function() {
 
     $("#search-raeltime").animate({
         marginTop: "0px"
-            //	    ,	   	position : "fixed"
     }, 200);
 
-    /*$('#search-raeltime').css('margin-top','0px');*/
     $('#search-raeltime').css('position', 'fixed');
     $('#search-raeltime').addClass('box-shadow-customize');
     $('#boxRealtime').css('margin-left', '25px');
     $('#boxRealtime').css('padding', '0 0px');
     $('#out-search').show(650);
-	$("#boxForAutoCom").show(700);
-
-   /* $("#boxForAutoCom").animate({
-        //    top: "91px"
-        bottom: "-90px"
-
-    }, 650);*/
-
+	$("#boxForAutoCom").show();
     $(".pac-container").each(function(index) {
 
         $(this).attr("id", "listPleacItem_" + index);
@@ -173,20 +157,27 @@ $('#search-raeltime input').focus(function() {
 
 
     $('.box-menu-select').hide();
-
+//	 clearInterval(intervalTime);
 });
 
 $("#nearbyId").click(function() {
     $('#otherBox').hide();
-    $('#showNearbyPlace').show(500);
+    $('#showNearbyPlace').show(250);
 });
 
 $("#outNearby").click(function() {
-    $('#showNearbyPlace').hide(500);
-    $('#otherBox').show(500);
+    $('#showNearbyPlace').hide();
+    $('#otherBox').show(250);
 
 });
 
+$("#currentPosId").click(function(){
+			start = pos;
+            /*lat_f = position.coords.latitude;
+            lng_f = position.coords.longitude;*/
+            $(this).val(addr);
+            console.log(start);
+});
 var map; //main map
 var marker2; // current position
 var markerPlaceOfften; // for pan to place offten
@@ -205,6 +196,8 @@ var directionsDisplay, directionsService;
 var start;
 var end;
 var geocoder;
+var intervalTime; // animate
+var options
 
 function initialize() {
 
@@ -270,11 +263,8 @@ function initialize() {
         ]
 
     });
-    var list = document.getElementById('list_place');
-    map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(list);
-
-
-
+/*var list = document.getElementById('list_place');
+    map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(list);*/
     initAutocomplete(map);
 
 }
@@ -295,8 +285,6 @@ function initAutocomplete(map) {
     //    addYourLocationButton(map, marker2);
     google.maps.event.addListener(map, 'dragend', function() {
         $('#btn_CurrentLocation').show('500');
-        // marker2.setAnimation(null);
-
     });
     var inputStart = document.getElementById("current");
     inputStart.addEventListener('click', function() {
@@ -321,21 +309,16 @@ function initAutocomplete(map) {
 
     });
 
-   
-
     if (navigator.geolocation) {
-    	 var options = {
-        enableHighAccuracy: true,
-        timeout: 6000
-    };
+    	  options = {enableHighAccuracy: true,timeout: 6000};
 		    	  navigator.geolocation.getCurrentPosition(function(position,status) {
 
-		            var pos = {
+		             pos = {
 		              lat: position.coords.latitude,
 		              lng: position.coords.longitude
 		            };
 		            start = pos;
-		          
+//		            console.log(start);
 		            markerCircle.setPosition(pos);
 		            map.setCenter(pos);
 					geocoder = new google.maps.Geocoder;
@@ -347,16 +330,34 @@ function initAutocomplete(map) {
 					geocoderRun(latlng);
 		    	
 		    	
-		        var id, target;
-		        setInterval(function(){ 
-		        id = navigator.geolocation.getCurrentPosition(success, error, options);
-//		        id = navigator.geolocation.watchPosition(success, error, options);
-//		          console.log("watchPosition : "+id); 
-		           }, 10000);
-		    });
+		        var id=0, target;
+		       intervalTime = setInterval(function(){ 
+					      navigator.geolocation.getCurrentPosition(success, error, options);
+					       id = id+1 ;
+					       
+//					          console.log("watchPosition : "+id); 
+		           }, 2000);
+		            /*map-script.js?v=1505301327:376 {lat: 7.883871993992427, lng: 98.42687577009201}
+map-script.js?v=1505301327:377 {lat: 7.884097826782425, lng: 98.42695087194443}*/           
+/*		           var lat1 = 7.883871993992427;
+		           var lon1 = 98.42687577009201;
+		           var lat2 = 7.884097826782425;
+		           var lon2 = 98.42695087194443;
+		        var dlon = lon2 - lon1 ;
+				var	dlat = lat2 - lat1 ;
+				var a = (Math.sin(dlat/2))^2 + Math.cos(lat1) * Math.cos(lat2) * (Math.sin(dlon/2))^2 ;
+				var c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a) ) ;
+//				var d = R * c (where R is the radius of the Earth)
+                
+                
+		        console.log(c);
+		        console.log(a);*/
+		    });	    
 		}
 
-    function success(position) {
+
+
+    /*function success(position) {
        
         var current = {
             lat: parseFloat(position.coords.latitude),
@@ -364,34 +365,59 @@ function initAutocomplete(map) {
         };
 
         console.log('success');
-        console.log(current);
+//        console.log(current);
         pos = current;
 		
         markerCircle.setPosition(current);
         check = check + 1;
         if (check == 1) {
             start = pos;
-//            map.panTo(current);
             lat_f = position.coords.latitude;
             lng_f = position.coords.longitude;
+            geocoderRun(pos);
         }
-     
-        geocoderRun(pos);
-        
+     	console.log(check%2);
         nearbyPlace(map, pos, "");
         filterPlace(map, pos);
-    };
+    };*/
+	function success(position) {
+       
+        var current = {
+            lat: parseFloat(position.coords.latitude),
+            lng: parseFloat(position.coords.longitude)
+        };
 
+//        console.log('success');
+//        console.log(current);
+//        pos = current;
+		if( JSON.stringify(current) != JSON.stringify(start) ){
+			 console.log(current);
+			 console.log(start);
+			 pos = current;
+			 start = pos;
+			 geocoderRun(pos);
+		}
+
+			/*	var radlat1 = Math.PI * current.lat / 180
+                var radlat2 = Math.PI * pos.lat / 180
+                var theta = current.lng - pos.lng;
+                var radtheta = Math.PI * theta / 180
+                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                dist = Math.acos(dist)
+                dist = dist * 180 / Math.PI
+                dist = dist * 60 * 1.609344;*/
+    
+               
+    };
+    
     function error(err) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
     };
 
-
-
-    $('#current').focusout(function() {
+   /* $('#current').focusout(function() {
         $(this).val(addr);
         start = pos;
-    });
+    });*/
 
     var inputEnd = document.getElementById('pac-input');
 
@@ -489,7 +515,7 @@ function geocoderRun(latlng){
 
                     addr = placeStart[1].formatted_address;
                 
-                        document.getElementById("current").value = addr;
+                	document.getElementById("current").value = addr;
                 }
             } else {
                
@@ -499,16 +525,16 @@ function geocoderRun(latlng){
 
             }
         });
-
+		nearbyPlace(map, latlng, "");
+        filterPlace(map, latlng);
 }
-
 
 $('#btn_CurrentLocation').click(function() {
     var i = 0;
     var animationInterval = setInterval(function() {
         if (i == 1) {
             i = 0;
-            $('#btn_CurrentLocation').css("color", 'rgb(85, 85, 85)');
+            $('#btn_CurrentLocation').css("color", 'rgb(35,35,35)');
             console.log(1);
         } else {
             i = 1;
@@ -532,7 +558,7 @@ $('#btn_CurrentLocation').click(function() {
 
                 //	          map.setZoom(16);
                 $('#btn_CurrentLocation').hide('500');
-                $('#btn_CurrentLocation').css('color', 'rgb(85, 85, 85)');
+                $('#btn_CurrentLocation').css('color', 'rgb(35,35,35)');
             }, 1000)
 
             clearInterval(animationInterval);
@@ -540,7 +566,7 @@ $('#btn_CurrentLocation').click(function() {
         });
     } else {
         clearInterval(animationInterval);
-        $('#btn_CurrentLocation').css('color', 'rgb(85, 85, 85)');
+        $('#btn_CurrentLocation').css('color', 'rgb(35,35,35)');
     }
 
 });

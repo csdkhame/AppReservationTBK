@@ -313,8 +313,8 @@
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
 
-		<div id="clear-all" style="z-index: 0; position: absolute; right: 0px; top: 320px;display: none;">
-		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 34px; height: 34px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
+		<div id="clear-all" style="z-index: 0; position: absolute; right: 0px; bottom: 120px;display: none;color: rgb(35, 35, 35);">
+		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 50px; height: 50px; border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
 		<i class="material-icons" style="    margin: 5px;
     font-weight: 800;">clear</i>
 		</button></div>
@@ -334,11 +334,19 @@
 			}
 			#marginBox{
 				margin-top: 90px;
+				background-color: #fff;
+				position: relative;
 			}
-			   
+			 .pac-item-query{
+			 	    font-size: 13px;
+				    padding-right: 3px;
+				    padding: 7px;
+				    color: #000;
+			 }  
 		</style>
-		<div id="btn_CurrentLocation" style="z-index: 0; position: absolute; right: 0px; top: 275px;display: none;color: rgb(85, 85, 85);">
-		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 34px; height: 34px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
+
+		<div id="btn_CurrentLocation" style="z-index: 0; position: absolute; right: 0px; /*top: 275px;*/    bottom: 190px;display: none;color: rgb(35,35,35);">
+		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 50px; height: 50px; border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
 		<i class="material-icons" style="    margin: 5px;
     font-weight: 800;"><i class="material-icons">my_location</i></i>
 		</button></div>
@@ -346,12 +354,18 @@
 
 
         <div id="boxForAutoCom">
+        	<div style="padding: 7px 7px 0 7px;">
         	<div id="marginBox">
             <div id="appendBox"></div>
-            <div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:nones;"></div>
+            <div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:none;"></div>
             <div id="otherBox">
+            	<div class="pac-item" id="currentPosId">
+                    <span class="material-icons" aria-hidden="true" style="font-size: 2.1em;line-height: .75em; vertical-align: -40%; margin-left: -3px;color: #4285F4;">my_location</span>
+                    <span class="pac-item-query" style="padding: 7px;">
+                        <span class="lng-nearby-locat pac-matched ">Current position</span>
+                    </span>
+                </div>
                 <div class="pac-item" id="home-place-id" onclick="selectSavePlaceOfften(1,'save');">
-                	
                     <span class="fa fa-home fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
                     <span class="pac-item-query" style="padding: 7px;">
                         <span class="lng-home-locat pac-matched ">Home</span>
@@ -383,7 +397,7 @@
                 </div>
             </div>
             <div id="showNearbyPlace" style="display: none;">
-                <div style="margin: 10px;">
+                <div style="margin: 8px;padding-top: 5px;">
                     <table width="100%">
                         <tr>
                             <td>
@@ -410,6 +424,7 @@
                 </div>	
 				<div id="list_place_push"></div>						               
             </div>
+			</div>
 			</div>
         </div>
 
