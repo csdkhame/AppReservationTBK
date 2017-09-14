@@ -62,7 +62,7 @@ $(document).ready(function() {
         }, 2000);
 
     });
-    console.log($.cookie("lng"));
+    // console.log($.cookie("lng"));
     if ($.cookie("lng") == 'cn') {
         $('.lng-private').html('专车');
         $('.lng-join').html('拼车');
