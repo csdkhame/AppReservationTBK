@@ -32,8 +32,8 @@
      * The date picker constructor
      */
     function DatePicker(picker, settings) {
-        console.log(picker)
-        console.log(settings)
+        // console.log(picker)
+        // console.log(settings)
 
         var calendar = this,
             element = picker.$node[0],
@@ -51,7 +51,7 @@
                     // For normal browsers.
                     getComputedStyle(picker.$root[0]).direction == 'rtl'
             }
-        console.log(calendar)
+            // console.log(calendar)
 
         calendar.settings = settings
         calendar.$node = picker.$node
@@ -158,7 +158,7 @@
 
             var calendar = this,
                 calendarItem = calendar.item
-            console.log(calendarItem)
+                // console.log(calendarItem)
 
             // If the value is `null` just set it immediately.
             if (value === null) {
