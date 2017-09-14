@@ -316,7 +316,7 @@ $(document).ready(function() {
 
             $('#loading').css('display', 'none');
 
-        }, 2000);
+        }, 500);
 
         dataService = [];
         ctypeservice = this.value;
@@ -600,6 +600,7 @@ $(document).ready(function() {
 
 
     });
+
     $('#search-from').click(function() {
         $(this).val('');
     });
@@ -618,7 +619,7 @@ $(document).ready(function() {
             $('#loading').css('display', 'none');
             window.location.href = base_url + "dashboard/view_user";
             $("#show-hide-pro2").hide();
-        }, 2000);
+        }, 500);
 
 
     });
@@ -633,7 +634,7 @@ $(document).ready(function() {
             $('.btn-management').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
             $('#loading').css('display', 'none');
-        }, 2000);
+        }, 500);
 
     });
     $('.btn-reservation').click(function() {
@@ -669,7 +670,7 @@ $(document).ready(function() {
             $('#loading').css('display', 'none');
             //$('').css('display', 'block')
             //$('#content').css('display','block'); 
-        }, 2000);
+        }, 500);
 
 
     });
@@ -712,7 +713,7 @@ $(document).ready(function() {
 
 
             //$('#content').css('display','block'); 
-        }, 2000);
+        }, 500);
 
         /*   $( "#maps" ).html( "1111" );*/
 
@@ -756,7 +757,7 @@ $(document).ready(function() {
 
 
             //$('#content').css('display','block'); 
-        }, 2000);
+        }, 500);
     });
     $('#cartype').on('change', changeType);
     $('#cartype').on('change', function() {
@@ -770,7 +771,7 @@ $(document).ready(function() {
             $('#loading').css('display', 'none');
             $('#product_a').css('display', 'block');
             $('#box-prosearch').css('display', 'block');
-        }, 2000);
+        }, 500);
         compae1private = [];
         compae1join = [];
         data2 = [];
@@ -1030,7 +1031,7 @@ $(document).ready(function() {
         setTimeout(function() {
 
             window.location.href = base_url + "register";
-        }, 2000);
+        }, 500);
 
     });
     // setTimeout(function(){
@@ -1514,7 +1515,7 @@ function sendValueto(x) {
 
                     // $('#search-show').css('display', 'block')
                     //$('#content').css('display','block'); 
-                }, 2000);
+                }, 500);
             } else if (data.size == 0) {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
@@ -1533,7 +1534,7 @@ function sendValueto(x) {
 
                     // $('#search-show').css('display', 'block')
                     //$('#content').css('display','block'); 
-                }, 2000);
+                }, 500);
 
             } else {
                 $('#ul-header2').css('display', 'block');
@@ -1551,7 +1552,7 @@ function sendValueto(x) {
                     $("#pro-search").animate({ 'margin-top': '0vh' });
                     // $('#search-show').css('display', 'block')
                     //$('#content').css('display','block'); 
-                }, 2000);
+                }, 500);
 
                 data1 = data.data1;
                 var cartype;

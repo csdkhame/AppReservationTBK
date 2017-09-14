@@ -328,6 +328,14 @@ $( document ).ready(function() {
   			<span id="price"></span> <span class="currency"></span>
   			</td>
   		</tr>
+  		<tr id="other_row">
+  			<td>
+  			<span class="lng-other"></span>
+  			</td>
+  			<td>
+  			<span id="other"></span> 
+  			</td>
+  		</tr>
   </table>
   </div>
   
@@ -391,6 +399,11 @@ $( document ).ready(function() {
     	$('#transfer_date').text(res);
     	$('#book_by').text(data.book_by);
     	$('#price').text(data.total_price);
+    	$('#other').text(data.other);
+    	if(data.other=="" || data.other==undefined){
+			$('#other_row').hide();
+		}
+    	
     	
     	
     	var product_name = "";
@@ -408,7 +421,8 @@ $( document ).ready(function() {
 			paysuccess = 'Already paid';
 			payowe = 'Outstanding Balance';
 			paynow = 'Pay Now';
-		}else if ($.cookie("lng")=="cn"){
+		}
+		else if ($.cookie("lng")=="cn"){
 			product_name = data.product_detail[0].topic_cn;
 			cartype = data.product_detail[0].car_topic_cn+" "+data.product_detail[0].pax_cn;
 			$('.lng-flight').text('	航班');
@@ -419,7 +433,8 @@ $( document ).ready(function() {
 			paysuccess = '等待付款';
 			payowe = '未结余额';
 			paynow = '现在付款';
-		}else if ($.cookie("lng")=="th"){
+		}
+		else if ($.cookie("lng")=="th"){
 			product_name = data.product_detail[0].topic_th;
 			cartype = data.product_detail[0].car_topic_th+" "+data.product_detail[0].pax_th;
 			$('.lng-flight').text('เที่ยวบิน');
@@ -430,7 +445,8 @@ $( document ).ready(function() {
 			paysuccess = 'ชำระแล้ว';
 			payowe = 'มียอดค้างชำระ';
 			paynow = 'ชำระตอนนี้';
-		}else if($.cookie("lng")==undefined){
+		}
+		else if($.cookie("lng")==undefined){
 			product_name = data.product_detail[0].topic_en;
 			cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
 			$('.lng-flight').text('Flight');
