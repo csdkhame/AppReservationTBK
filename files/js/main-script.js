@@ -2246,7 +2246,14 @@ function getAddress(address) {
             aum_from = data.aum;
             console.log(id_placefrom)
             console.log(aum_from)
-
+		    lat_from = data.lat;
+		    lng_from = data.lng;
+		    
+		    start_st = {
+		        lat: parseFloat(lat_from),
+		        lng: parseFloat(lng_from)
+		    }
+		    
         }
     })
     for (var x = 0; x < dataplacerel.length; x++) {

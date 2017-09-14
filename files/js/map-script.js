@@ -172,10 +172,9 @@ $("#outNearby").click(function() {
 });
 
 $("#currentPosId").click(function(){
-			start = pos;
-            /*lat_f = position.coords.latitude;
-            lng_f = position.coords.longitude;*/
-            $(this).val(addr);
+			start = pos;	
+			selectMyPlace('current', addr, start.lat, start.lng) 
+//            $(this).val(addr);
             console.log(start);
 });
 var map; //main map
@@ -337,25 +336,9 @@ function initAutocomplete(map) {
 					       
 //					          console.log("watchPosition : "+id); 
 		           }, 2000);
-		            /*map-script.js?v=1505301327:376 {lat: 7.883871993992427, lng: 98.42687577009201}
-map-script.js?v=1505301327:377 {lat: 7.884097826782425, lng: 98.42695087194443}*/           
-/*		           var lat1 = 7.883871993992427;
-		           var lon1 = 98.42687577009201;
-		           var lat2 = 7.884097826782425;
-		           var lon2 = 98.42695087194443;
-		        var dlon = lon2 - lon1 ;
-				var	dlat = lat2 - lat1 ;
-				var a = (Math.sin(dlat/2))^2 + Math.cos(lat1) * Math.cos(lat2) * (Math.sin(dlon/2))^2 ;
-				var c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a) ) ;
-//				var d = R * c (where R is the radius of the Earth)
-                
-                
-		        console.log(c);
-		        console.log(a);*/
+		          
 		    });	    
 		}
-
-
 
     /*function success(position) {
        
@@ -386,19 +369,8 @@ map-script.js?v=1505301327:377 {lat: 7.884097826782425, lng: 98.42695087194443}*
             lat: parseFloat(position.coords.latitude),
             lng: parseFloat(position.coords.longitude)
         };
-
-//        console.log('success');
-//        console.log(current);
-//        pos = current;
-		if( JSON.stringify(current) != JSON.stringify(start) ){
-			 console.log(current);
-			 console.log(start);
-			 pos = current;
-			 start = pos;
-			 geocoderRun(pos);
-		}
-
-			/*	var radlat1 = Math.PI * current.lat / 180
+		
+/*		var radlat1 = Math.PI * current.lat / 180
                 var radlat2 = Math.PI * pos.lat / 180
                 var theta = current.lng - pos.lng;
                 var radtheta = Math.PI * theta / 180
@@ -406,18 +378,19 @@ map-script.js?v=1505301327:377 {lat: 7.884097826782425, lng: 98.42695087194443}*
                 dist = Math.acos(dist)
                 dist = dist * 180 / Math.PI
                 dist = dist * 60 * 1.609344;*/
-    
-               
+		
+		if( JSON.stringify(current) != JSON.stringify(start) ){
+			 console.log(current);
+			 console.log(start);
+			 pos = current;
+			 start = pos;
+			 geocoderRun(pos);
+		}      
     };
     
     function error(err) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
     };
-
-   /* $('#current').focusout(function() {
-        $(this).val(addr);
-        start = pos;
-    });*/
 
     var inputEnd = document.getElementById('pac-input');
 
@@ -480,7 +453,9 @@ map-script.js?v=1505301327:377 {lat: 7.884097826782425, lng: 98.42695087194443}*
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
                 infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-                infowindowDetailTravel.open(map, endMarker);
+//                infowindowDetailTravel.open(map, endMarker);
+//				infowindowDetailTravel.setPosition(response.routes[0].legs[0].step[1].end_location);
+				infowindowDetailTravel.open(map);
                 directionsDisplay.setDirections(response);
                 directionsDisplay.setOptions({
                     suppressMarkers: true,
@@ -1110,10 +1085,10 @@ function createAllMarker() {
     });
 
 	var circle = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#2673f2',
             strokeOpacity: 0.2,
             strokeWeight: 1,
-            fillColor: '#FF0000',
+            fillColor: '#4285F4',
             fillOpacity: 0.25,
             map: map,
             radius: Math.sqrt(1) * 30
@@ -1311,7 +1286,7 @@ function setPinLocation() {
 
         $.post(url, function(data) {
             console.log(data);
-            infowindow.close();
+//            infowindow.close();
             var addr = data.results[0].formatted_address;
             infowindow.setContent('<div>' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: rgb(22, 179, 177);" onclick="selectMyPlace(3,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div>');
             infowindow.open(map, markerPlaceOfften);
