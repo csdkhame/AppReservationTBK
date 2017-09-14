@@ -8,12 +8,12 @@ var base_url = 'https://dotdotdottrip.com/';
 $(document).ready(function() {
 
     $(this).attr("hiddenhref");
-    console.log("readysss!");
-    console.log($.cookie("login"))
+    // console.log("readysss!");
+    // console.log($.cookie("login"))
 
     if ($.cookie("login")) {
-        console.log($.cookie("login"))
-            //        alert(base_url+'getuser_control/mainpage');
+        // console.log($.cookie("login"))
+        //        alert(base_url+'getuser_control/mainpage');
         $.ajax({
             type: 'POST',
             url: '../getuser_control/mainpage',
@@ -21,8 +21,8 @@ $(document).ready(function() {
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
-                console.log(data)
-                console.log(data[0].s_image)
+                // console.log(data)
+                // console.log(data[0].s_image)
                 $('.box-login').show();
                 $('.box-login-non').hide();
                 $('.box-desboard').show();
@@ -88,7 +88,7 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(data) {
             dataplacerel = data;
-            console.log(data)
+            // console.log(data)
 
         }
     });
@@ -99,7 +99,7 @@ $(document).ready(function() {
         //contentType: "application/json",
         dataType: 'json',
         success: function(data) {
-            console.log(data)
+            // console.log(data)
             if ($.cookie("lng") == 'en') {
                 $.each(data, function(i, val) {
                     $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
@@ -521,7 +521,7 @@ $(document).ready(function() {
     $('#loading').css('display', 'block');
     $('#content').css('display', 'none');
     setTimeout(function() {
-        console.log("aaaaa")
+        // console.log("aaaaa")
         $('#loading').css('display', 'none');
         $('#content').css('display', 'block');
     }, 3000);
@@ -2247,14 +2247,14 @@ function getAddress(address) {
             aum_from = data.aum;
             console.log(id_placefrom)
             console.log(aum_from)
-		    lat_from = data.lat;
-		    lng_from = data.lng;
-		    
-		    start_st = {
-		        lat: parseFloat(lat_from),
-		        lng: parseFloat(lng_from)
-		    }
-		    
+            lat_from = data.lat;
+            lng_from = data.lng;
+
+            start_st = {
+                lat: parseFloat(lat_from),
+                lng: parseFloat(lng_from)
+            }
+
         }
     })
     for (var x = 0; x < dataplacerel.length; x++) {
