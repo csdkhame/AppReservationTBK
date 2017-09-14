@@ -99,6 +99,8 @@ class Userview_model_dash extends CI_Model {
 			$data_row[$key]['invoice'] = $row->invoice;
 			$data_row[$key]['date_time'] = $row->arrival_date;
 			$data_row[$key]['status_pay'] = $row->status_pay;
+			$data_row[$key]['status_pay_driver'] = $row->status_pay_driver;
+			$data_row[$key]['status_confirm'] = $row->	status_confirm;
 				
 		 	//$data[] = $row;
 		 }

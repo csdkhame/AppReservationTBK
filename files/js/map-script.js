@@ -884,18 +884,19 @@ function smoothZoom(map, max, cnt) {
 function nearbyPlace(map, location, value) {
     placeRecord();
     var service = new google.maps.places.PlacesService(map);
-    if (value != "") {
-        service.nearbySearch({
+    if (value == 0) {
+    	service.nearbySearch({
+            location: location,
+            radius: 1500,
+//            type: ['spa','airport','hospital','restaurant','department_store','lodging','point_of_interest']
+            type: ['spa','airport','restaurant','department_store','lodging','point_of_interest']
+        }, callback);
+      
+    } else {
+          service.nearbySearch({
             location: location,
             radius: 1500,
             type: ['' + value + '']
-        }, callback);
-    } else {
-        service.nearbySearch({
-            location: location,
-            radius: 1500
-                /*,
-                type: ['store','airport','cafe','hospital','bank']*/
         }, callback);
     }
 
@@ -914,6 +915,7 @@ function callback(results, status) {
 }
 
 function appendPlace(place) {
+	console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
@@ -923,13 +925,30 @@ function appendPlace(place) {
     $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">' + icon + '</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></td></span></table></div>');
 
 }
-
 function filterPlace(map, location) {
     var selectTypePlace = document.querySelector('#types_ofPlace');
     google.maps.event.addDomListener(selectTypePlace, 'change', function() {
         var value = $('#types_ofPlace').val();
         //  		alert(value);
         $('.placeNeary-item').remove();
+        
+        if(value==0){
+			value = 0;
+		}else if(value==1){
+			value = "hospital";
+		}else if(value==2){
+			value = "airport";
+		}else if(value==3){
+			value = "spa";
+		}else if(value==4){
+			value = "restaurant";
+		}else if(value==5){
+			value = "department_store";
+		}else if(value==6){
+			value = "lodging";
+		}else if(value==7){
+			value = "point_of_interest";
+		}
         nearbyPlace(map, location, value)
     });
 }
