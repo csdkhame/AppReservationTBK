@@ -397,7 +397,7 @@
                 </div>
             </div>
             <div id="showNearbyPlace" style="display: none;">
-                <div style="margin: 8px;padding-top: 5px;">
+                <div style="margin: 8px;padding-top: 5px;padding-bottom: 2px;">
                     <table width="100%">
                         <tr>
                             <td>
