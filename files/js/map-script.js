@@ -453,9 +453,7 @@ function initAutocomplete(map) {
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
                 infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-//                infowindowDetailTravel.open(map, endMarker);
-				infowindowDetailTravel.setPosition(response.routes[0].legs[0].step[1].end_location);
-				infowindowDetailTravel.open(map);
+                infowindowDetailTravel.open(map, endMarker);
                 directionsDisplay.setDirections(response);
                 directionsDisplay.setOptions({
                     suppressMarkers: true,
@@ -1118,13 +1116,13 @@ circle.bindTo('center', markerCircle, 'position');
         map: map,
         animation: google.maps.Animation.DROP,
         anchorPoint: new google.maps.Point(0, -29),
-        label: "B"
+        label: "E"
     });
     startMarker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
         anchorPoint: new google.maps.Point(0, -29),
-        label: "A"
+        label: "S"
     });
 
 }

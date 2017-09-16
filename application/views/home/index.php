@@ -313,8 +313,8 @@
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
 
-		<div id="clear-all" style="z-index: 0; position: absolute; right: 0px; bottom: 120px;display: none;color: rgb(35, 35, 35);">
-		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 50px; height: 50px; border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
+		<div id="clear-all" style="z-index: 0; position: absolute; right: 0px; bottom: 120px;display: none;color: #fff;">
+		<button title="Your Location" style="background-color:  #4285F4; border: none; outline: none; width: 50px; height: 50px; border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
 		<i class="material-icons" style="    margin: 5px;
     font-weight: 800;">clear</i>
 		</button></div>
