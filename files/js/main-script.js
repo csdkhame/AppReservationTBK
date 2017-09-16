@@ -602,6 +602,7 @@ $(document).ready(function() {
     });
     $('#search-from').click(function() {
         $(this).val('');
+        $('#clear-all').click();
     });
     $('#search-to').click(function() {
         $(this).val('');
@@ -1460,6 +1461,7 @@ function sendValueto(x) {
 
 
     $('.a-link-item').remove();
+    $('#cartype').html('');
     $('.not-found').remove();
     compae1private = [];
     compae1join = [];
@@ -1597,6 +1599,11 @@ function sendValueto(x) {
                 if (compae1join.length == 0) {
                     $('#join-btn').hide();
                     $('#private-btn').css('width', '100%');
+
+                }
+                if (compae1private.length == 0) {
+                    $('#private-btn').hide();
+                    $('#join-btn').css('width', '100%');
 
                 }
                 dataproduct = data;

@@ -36,17 +36,43 @@ $(document).ready(function() {
 
     if ($.cookie("lng") == 'cn') {
         lng_getcountry = '请选择国家';
+        $('#terms-of-use').html('<span>' +
+            '<B>一. </B> 请注意，黄色或者绿色车牌为合法运营车辆。如看到其他颜色牌照可拒绝上车，并请联系我们热线。<br /><br />' +
+            '<B>二. </B> 上⻋车请系好安全带，不然如遇警察检查需自己付罚款，如有意外保险⽆无法赔偿。<br /><br />' +
+            '<B>三. </B> 上下车请保管好自己的物品。如有遗失，概不负责。<br /><br />' +
+            '<B>四. </B> 如发生司机由于不可抗力因素未接到，在约定时间后5-15分钟内，请客人及时联系我们的24小时中文热线，如等待超过30分钟，请客人需及时自行打车离开！<br /><br />' +
+            '我们会退还订单费用，如客人有打车凭证提供，我们将补偿打车费用，但是其他费用一律不负责赔偿，请知晓！</span>');
     } else if ($.cookie("lng") == 'en') {
         lng_getcountry = 'Please select country';
+        $('#terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
+
+            '<B>2.</B> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br /><br>' +
+
+            '<B>3.</B> Please check your belongings before leaving. We are not responsible for any loss.<br /><br>' +
+
+            '<B>4.</B> If the driver did not arrive on time in 5-15 minutes, please contact our 24-hour hotline,Such as waiting for more than 30 minutes, please kindly get another taxi. We will refund the cost of the order, if the guest able to provide the taxi voucher that they took, we will refund the taxi costs. Please be noticed the other fees are not responsible for refund..</span>');
 
     } else if ($.cookie("lng") == 'th') {
         lng_getcountry = 'โปรดเลือกประเทศ';
+        $('#terms-of-use').html('<span >' +
+            '<B>1.</B> โปรดทราบว่ามีเพียงแผ่นป้ายทะเบียนรถสีเขียวหรือสีเหลืองเท่านั้นที่ใช้เป็นยานพาหนะขนส่งสาธารณะที่ถูกต้องตามกฎหมาย หากคุณเห็นป้ายทะเบียนรถเป็นสีอื่น คุณสามารถปฏิเสธการโดยสารได้ และโปรดติดต่อสายด่วนของเรา<br /><br />' +
+            '<B >2.</B> กรุณาคาดเข็มขัดนิรภัย มิฉะนั้นในกรณีที่มีการเรียกตรวจสอบจากตำรวจ คุณต้องต้องจ่ายค่าปรับเอง และในกรณีที่เกิดอุบัติเหตุ คุณจะไม่สามารถได้รับค่าชดเชยจากบริษัทประกันภัย<br /><br />' +
+            '<B>3.</B> โปรดตรวจสอบทรัพย์สินของคุณก่อนที่รถจะออกเดินทางหรือรถถึงที่หมาย เราจะไม่รับผิดชอบต่อความสูญเสียในกรณีใดๆ ทั้งสิ้น<br /><br />' +
+            '<B>4.</B> ในกรณีที่มีเหตุสุดวิสัยคนขับไม่ได้รับรอเกิน 5-15 นาทีจากเวลาที่ตกลงกัน โปรดติดต่อศูนย์บริการตลอด 24 ชั่วโมงสายด่วนทันที ถ้ารอคอยมากกว่า 30 นาที กรุณาเรียกรถเอง! เราจะคืนเงินให้ท่าน100%ในการจอง และจะคืนเงินที่ท่านเรียกรถ (แต่ต้องมีหลักฐานใบเสร็จหรือรูปยืนยัน) แต่จะไม่รับผิดชอบค่าเสียหายอื่น  โปรดทราบ!</span> ');
 
     } else if ($.cookie("lng") == undefined) {
+        $('#terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
+
+            '<B>2.</B> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br /><br>' +
+
+            '<B>3.</B> Please check your belongings before leaving. We are not responsible for any loss.<br /><br>' +
+
+            '<B>4.</B> If the driver did not arrive on time in 5-15 minutes, please contact our 24-hour hotline,Such as waiting for more than 30 minutes, please kindly get another taxi. We will refund the cost of the order, if the guest able to provide the taxi voucher that they took, we will refund the taxi costs. Please be noticed the other fees are not responsible for refund..</span>');
         lng_getcountry = 'Please select country';
 
 
     }
+
     $('#sumnum').html(parseInt(sum_adult_child));
 
 
@@ -220,12 +246,14 @@ $(document).ready(function() {
     });
 
     $('#acceptanceuser').change(function() {
+        var urlimg = 'https://dotdotdottrip.com/';
         if (this.checked) {
             console.log('in case user')
             console.log(datauser)
+                // $('#numbercountry').append('<span id="select"><img id="imgcountry" src="' + urlimg + 'files/img/flag/icon/' + img + '.png' + '">' + '<span>(+' + x + ')' + ' ' + name + '</span></span>');
             console.log($('#email').val(datauser[0].s_email))
             $('#s_username').val(datauser[0].s_email);
-            $('#email').val(datauser[0].s_email);
+            $('#email').val(datauser[0].s_username);
             $('#phone').val(+' ' + datauser[0].s_phone);
             $('#phonecode').html('+' + datauser[0].s_phone_code);
             $('#guestcountry').val(datauser[0].i_country);
@@ -343,6 +371,9 @@ $(document).ready(function() {
 
     //     }
     // });
+    $('.close').click(function() {
+        $('#codecountry').hide();
+    })
     $.ajax({
         type: 'POST',
         url: '../getcountry_control/process',
@@ -377,6 +408,8 @@ $(document).ready(function() {
     //$('#code').html('code country')
     $('#select-country').click(function() {
         var url = 'https://dotdotdottrip.com/';
+        $('#codecountry').show(500);
+        $('#select-name').html('')
         $.ajax({
             type: 'POST',
             url: 'https://dotdotdottrip.com/getcountry_control/process',
@@ -386,7 +419,7 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data)
                 datacountry = data;
-                $('#codecountry').modal('show');
+
                 $.each(data, function(i, val) {
 
                     //alert('aaa')
@@ -736,7 +769,34 @@ $(document).ready(function() {
     });
 
 
+    // $('#num_cars').on('click', function() {
+    //     $('#num_cars').html('')
+    for (var i = 1; i <= 5; i++) {
+        console.log(i)
+        $('#num_cars').append('<option value="' + i + '" label="' + i + '"></option>');
+        //dataProvince.push(data[i])
+        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+    }
+    // })
     $('#num_cars').on('change', function() {
+        //$('#num_cars').html('');
+        console.log('aaaaa')
+            //var data = 5;
+            //console.log(data)
+            // for (var i = 1; i <= 5; i++) {
+            //     $('#num_cars').append('<option value="' + i + '" label="' + i + '" none=""></option>');
+            //     //dataProvince.push(data[i])
+            //     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+        // }
+        // for (var i = 0; i <= 5; i++) {
+        //     console.log(i)
+        //     $('#num_cars').append('<option value=' + i + '>' + i + '</option>')
+        // }
+
         num_cars = this.value;
         if (type != 'Join') {
             $('#numsumprice').html(parseInt(costproduct) * parseInt(num_cars) + ' ' + '฿')
@@ -836,6 +896,16 @@ $(document).ready(function() {
             $('#sumnum').html(parseInt(sum_adult_child));
             $('#totalprice').html(total_price + ' ' + '฿')
             $('#selectcar').html(selectcar)
+            $('#num_cars').html('')
+            $('#num_cars').append('<option value="' + selectcar + '" label="' + selectcar + '" none=""></option>');
+            for (var i = 1; i <= 5; i++) {
+                console.log(i)
+                $('#num_cars').append('<option value="' + i + '" label="' + i + '"></option>');
+                //dataProvince.push(data[i])
+                //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+            }
             $('#checksum').html(checksumperson)
             $('#numsumprice').html(total_price + ' ' + '฿')
         }
@@ -969,17 +1039,17 @@ $(document).ready(function() {
 
     })
     $('#flight').on('change', function() {
-        flight = this.value;
-        console.log(flight)
-        $('#textflight').html(flight)
+            flight = this.value;
+            console.log(flight)
+            $('#textflight').html(flight)
 
 
 
-    })
-    $('#numbercountry').on('click', function() {
-        //alert("aaaa");
-        $('#codecountry').modal('show');
-    });
+        })
+        // $('#numbercountry').on('click', function() {
+        //     //alert("aaaa");
+        //     $('#codecountry').modal('show');
+        // });
     $('.btn-close').on('click', function() {
         $('#waning-flight').hide(500);
     });
@@ -1375,8 +1445,14 @@ $(document).ready(function() {
 function sendCountry(x) {
     var url = 'https://dotdotdottrip.com/';
     console.log(x)
-    $.cookie("phonecode", x);
-    $('#codecountry').modal('hide');
+    if (x == undefined) {
+        $.cookie("phonecode", '');
+        x = '';
+    } else {
+        $.cookie("phonecode", x);
+    }
+
+    $('#codecountry').hide();
     var name = $('#ct' + x).attr('dataname');
     var img = $('#ct' + x).attr('img');
     //$('#code').html(x)

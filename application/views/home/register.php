@@ -1165,7 +1165,7 @@ $.ajax({
         //contentType: "application/json",
         dataType: 'json',
         success: function(data) { 
-          console.log(data)
+        //   console.log(data)
           
         
            
@@ -1528,7 +1528,7 @@ window.fbAsyncInit = function() {
   };
 
   function attachSignin(element) {
-    console.log(element.id);
+    // console.log(element.id);
     auth2.attachClickHandler(element, {},
         function(googleUser) {
         /*  document.getElementById('name').innerText = "Signed in: " +
