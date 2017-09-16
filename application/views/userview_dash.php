@@ -116,13 +116,13 @@ $(window).scroll(function() {
 <?php 
    
     if(!$_COOKIE['lng']){
-
        // echo  $_COOKIE['lng'].'unde';
         $lng_search_order = 'Search by order (e.x. 7033496)';
         $paysuccess = 'Already paid';
         $pend = 'Pending';
         $norecord = 'No Record';
         $owe = '';
+        $paydriver = 'Pay Driver';
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -131,6 +131,7 @@ $(window).scroll(function() {
         $pend = 'Pending';
         $norecord = 'No Record';
         $owe = '';
+        $paydriver = 'Pay Driver';
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
@@ -139,6 +140,7 @@ $(window).scroll(function() {
         $pend = 'รอดำเนินการ';
         $norecord = 'ไม่มีการบันทึก';
         $owe = '';
+        $paydriver = 'จ่ายกับคนขับ';
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
@@ -147,6 +149,7 @@ $(window).scroll(function() {
        $pend = '有待';
        $norecord = '没有记录';
        $owe = '';
+       $paydriver = '薪酬司机';
        
     }
 ?>
@@ -301,7 +304,6 @@ $(window).scroll(function() {
     cursor: pointer;
     text-align: center;
     color: #ffffff;
-
 }
 </style>	
 							
@@ -361,7 +363,11 @@ $(window).scroll(function() {
 									
 									$status_pay = '';
 									if($show['status_pay']==0){
-						$status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;" href="https://dotdotdottrip.com/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
+										if($show['status_pay_driver']==1)	{
+									$status_pay = $paydriver;
+										}else{	
+							$status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;font-size: 13px;" href="https://dotdotdottrip.com/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
+										}
 									}else if($show['status_pay']==1){
 										$status_pay = $paysuccess;
 									}
@@ -375,7 +381,7 @@ $(window).scroll(function() {
                                     	<td ><? echo $show['date_time'];?> </td>
                                     	<td >
                                     	<div class="<?=$class;?>" style="    border-radius: 1px;" onclick="view_order_level2('<?=$show['invoice'];?>');"><?=$show['invoice'];?></div></td>
-                                    	<td><?=$status_pay;?></td>
+                                    	<td style="    font-size: 13.5px;"><?=$status_pay;?></td>
                                     	<!--<td ><?=$show['from'];?></td>
                                     	<td ><?=$show['to'];?></td>-->
                                     	<!--<td ><?=$show['total_price'];?></td>-->

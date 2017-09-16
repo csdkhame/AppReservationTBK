@@ -195,10 +195,8 @@ $(document).ready(function() {
         $('.lng-address').html('地址');
         $('.lng-country').html('国家');
         $('.lng-old-password').html('舊密碼');
-
-
-
-
+        $('.lng-other').html('其他');
+        $('.lng-paynow').html('现在付款');
 
 
 
@@ -345,7 +343,8 @@ $(document).ready(function() {
         $('.lng-address').html('Address');
         $('.lng-country').html('Country');
         $('.lng-old-password').html('Old Password');
-
+        $('.lng-other').html('Other');
+		$('.lng-paynow').html('Pay Now');
 
 
 
@@ -447,16 +446,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
         /////////////// Dash ///////////////////////////////////////
         $('#terms-of-use').html('<span >' +
             '<B>1.</B> โปรดทราบว่ามีเพียงแผ่นป้ายทะเบียนรถสีเขียวหรือสีเหลืองเท่านั้นที่ใช้เป็นยานพาหนะขนส่งสาธารณะที่ถูกต้องตามกฎหมาย หากคุณเห็นป้ายทะเบียนรถเป็นสีอื่น คุณสามารถปฏิเสธการโดยสารได้ และโปรดติดต่อสายด่วนของเรา<br /><br />' +
@@ -484,8 +473,10 @@ $(document).ready(function() {
         $('.lng-address').html('ที่อยู่');
         $('.lng-country').html('ประเทศ');
         $('.lng-old-password').html('รหัสผ่านเก่า');
-
-
+		$('.lng-other').html('อื่นๆ');
+		$('.lng-paynow').html('ชำระตอนนี้');
+		
+		
 
     } else if ($.cookie("lng") == undefined) {
         $('.lng-private').html('Private');
@@ -580,7 +571,7 @@ $(document).ready(function() {
         $('.lng-not-found').html('Product not Found');
         $('.lng-no-record').html('No Record');
         $('.lng-payment').html('Payment');
-
+		
 
 
 
@@ -628,8 +619,8 @@ $(document).ready(function() {
         $('.lng-address').html('Address');
         $('.lng-country').html('Country');
         $('.lng-old-password').html('Old Password');
-
-
+		$('.lng-other').html('Other');
+		$('.lng-paynow').html('Pay Now');
 
 
 

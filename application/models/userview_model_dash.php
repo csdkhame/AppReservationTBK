@@ -99,6 +99,8 @@ class Userview_model_dash extends CI_Model {
 			$data_row[$key]['invoice'] = $row->invoice;
 			$data_row[$key]['date_time'] = $row->arrival_date;
 			$data_row[$key]['status_pay'] = $row->status_pay;
+			$data_row[$key]['status_pay_driver'] = $row->status_pay_driver;
+			$data_row[$key]['status_confirm'] = $row->	status_confirm;
 				
 		 	//$data[] = $row;
 		 }
@@ -213,7 +215,7 @@ class Userview_model_dash extends CI_Model {
 			$aaaa = json_decode($curl_response);
 			
 			 	$data[$key]['id'] = $row->id;
-			 	$data[$key]['status_pay'] = $row->status_pay;
+			 	
 //			 	$data[$key]['arrival_date'] = $row->arrival_date;
 			 	$data[$key]['adult'] = $row->adult;
 			 	$data[$key]['child'] = $row->child;
@@ -241,6 +243,11 @@ class Userview_model_dash extends CI_Model {
 				$data[$key]['s_code_ref'] = $row->s_code_ref;
 				$data[$key]['s_code'] = $row->s_code;
 				$data[$key]['voucher_url'] = $row->voucher_url;
+				$data[$key]['other'] = $row->other;
+				$data[$key]['cost_a_nett'] = $row->cost_a_nett;
+				$data[$key]['status_pay'] = $row->status_pay;
+				$data[$key]['status_confirm'] = $row->status_confirm;
+				$data[$key]['status_pay_driver'] = $row->status_pay_driver;
 				
 				
 		$this->db->select('s_name');

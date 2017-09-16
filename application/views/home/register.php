@@ -101,12 +101,12 @@
         <nav class="navbar  navbar-color-on-scroll" id="sectionsNav">
             <div class="container" >
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                   <!-- <button type="button" class="navbar-toggle" data-toggle="collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
+                    </button>-->
                     <i class="material-icons" id="iconhome" style="    position: absolute;
     font-size: 30px;
     right: 20px;

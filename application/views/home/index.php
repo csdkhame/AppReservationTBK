@@ -397,7 +397,7 @@
                 </div>
             </div>
             <div id="showNearbyPlace" style="display: none;">
-                <div style="margin: 8px;padding-top: 5px;">
+                <div style="margin: 8px;padding-top: 5px;padding-bottom: 2px;">
                     <table width="100%">
                         <tr>
                             <td>
@@ -405,10 +405,23 @@
                                     <i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>
                                 </div>
                             </td>
-                            <td>	
+                            <td>
+                            <?php 
+                            
+                            $type_nearby_en = array("All Types", "Hospital", "Airport", "Spa", "Restaurant", "Department Store", "Hotel,Resort","Points of interest");
+                            $type_nearby_th = array("ทุกประเภท", "โรงพยาบาล", "สนามบิน", "สปา", "ร้านอาหาร","ห้างสรรพสินค้า", "โรงแรม,รีสอร์ท","จุดน่าสนใจ");
+                            $type_nearby_cn = array("所有类别", "医院", "机场", "温泉", "餐厅","百货商店" ,"酒店，度假村","兴趣点");
+                            ?> 	
                                 <select class="select-type-place" id="types_ofPlace">
                                 	
-                                    <option value="">Select Types</option>
+                                	<?php
+                                	$type_vale = 0;
+                                	foreach($type_nearby_en as $item){
+									     echo '<option value="'.$type_vale.'">'.$item.'</option>';
+									     $type_vale+=1;
+									 }
+                                	?>
+                                   <!-- <option value="">All Types</option>
                                     <option value="hospital">Hospital</option>
                                     <option value="store">Store</option>
                                     <option value="airport">Airport</option>
@@ -416,7 +429,7 @@
                                     <option value="spa">Spa</option>
                                     <option value="bank">Bank</option>
                                     <option value="department_store">Department Store</option>
-                                    <option value="lodging">Hotel,Resort</option>
+                                    <option value="lodging">Hotel,Resort</option>-->
                                 </select>
                             </td>                            
                         </tr>
