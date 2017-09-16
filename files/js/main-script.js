@@ -1462,7 +1462,7 @@ function sendValueto(x) {
 
 
     $('.a-link-item').remove();
-    $('#cartype').html('');
+    //$('#cartype').html('');
     $('.not-found').remove();
     compae1private = [];
     compae1join = [];
@@ -1607,6 +1607,10 @@ function sendValueto(x) {
                     $('#join-btn').css('width', '100%');
                     $('#private').hide();
                     $('#join').show();
+                    $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+
+                    );
+
 
                 }
                 dataproduct = data;
@@ -1718,7 +1722,7 @@ function sendValueto(x) {
                             lngfacilities = '设施';
                         } else if ($.cookie("lng") == 'en') {
                             car_topic = compae1join[i].topic_en;
-                            cartype = joinrivate[i].car_topic_en;
+                            cartype = compae1join[i].car_topic_en;
                             pax = compae1join[i].pax_en;
                             lngbook = 'Book';
                             lngcapacityinfo = 'Capacity info';
