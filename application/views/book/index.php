@@ -635,12 +635,12 @@
                                                         <tr >
                                                             <td align="center">
                                                                 <select class="form-control form-inline asd" id="num_cars"  name="num_cars" style="width: 100%" required>                                                                                                            
-                                                                    <option value="1">1</option>            
+                                                                    <!-- <option value="1">1</option>            
                                                                     <option value="2">2</option>            
                                                                     <option value="3">3</option>            
                                                                     <option value="4">4</option>            
                                                                     <option value="5">5</option>            
-                                                                    <option value="6">6</option>            
+                                                                    <option value="6">6</option>             -->
                                                                 </select>
                                                             </td>
                                                         </tr>
@@ -789,12 +789,12 @@
                                             </div>
                                         </div>    
                                         <div class="col-md-6">                                            
-                                                <div class="form-group form-inline required ">
+                                                <!-- <div class="form-group form-inline required ">
                                                                            
                                                     <select class="textInput" name="guestcountry" id="guestcountry" class="" style="  ">
                                                         <option class="textInput" value="az_AZ" ><? echo $lng_your_country;?></option>
                                                     </select>
-                                                </div>
+                                                </div> -->
                                            
                                             <div class="contact_info">
                                                
@@ -838,220 +838,35 @@
                                         </div> 
                                     </div>     
                                 </div>
+                               
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;">
+                            <span class="lng-terms-of-use"></span>
+                            </div>
+                            <div class="card">
+                                
                                 <div class="col-md-12">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
-                                            <span class="lng-acceptance-of-terms"></span>
-                                        </label>
-                                    </div>
+                                <div id="terms-of-use"></div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div  class="addbook" id="addbook" value='Book' style=" background: #009688; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px; display:none" />book
-                                    </div>                                    
-                                </div>
+                                
+                                     <div class="checkbox">
+                                         <label>
+                                             <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
+                                             <span class="lng-acceptance-of-terms"></span>
+                                         </label>
+                                     </div>
+                                 </div>
+                                 <div class="col-md-12">
+                                     <div  class="addbook" id="addbook" value='Book' style=" background: #009688; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px; display:none" />book
+                                     </div>                                    
+                                 </div>
                             </div>
                         </div>
                        
-                       
-                       
-                        <!-- <div class="row">
-                            <div class="card">
-                                <div>
-                                    <span class="lng-contact-infomation"></span>
-                                <div>
-                                <div>
-                                <div class="tab-pane" id="address">
-                                <div class="row">
-                                    <div class="col-md-8">                  
-                                        <div class="" id="view-product-all-item">
-                                            <div class="box-info-item">
-                                                <div>
-                                                    <table width="100%">
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;"> 
-                                                                <span class="lng-product-name"></span><span>:</span>
-
-                                                            </td>
-                                                            <td>
-                                                                <span>
-                                                                    <span  id="name_product"></span>
-                                                                    <span>(</span>
-                                                                    <span class="lng-transports" style="color: #fb833f;" ></span><span>)</span>
-                                                                </span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                            <span class="lng-car-type"></span><span>:</span>
-                                                            </td>
-                                                            <td >
-                                                                <span style="color: #333;" id="cars_type"></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                                <span class="lng-pick-up-from"></span><span>:</span>
-                                                            </td>
-                                                            <td>
-                                                                <span style="color: #333;" id="pickup_from"></span><span style="margin-left: 100px;"></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                                <span class="lng-pick-up-to"></span><span>:</span>
-                                                                
-                                                            </td>
-                                                            <td>
-                                                            <span style="color: #333;" id="pickup_to"></span><span style="margin-left: 100px;"></span>
-                                                                
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                                <span id="date-final"></span>
-                                                                
-                                                            </td>
-                                                            <td>
-                                                                <span style="color: #333;" class="" id="ondate_samary"></span>
-                                                                
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                            <span id="time-final"></span>
-                                                            </td>
-                                                            <td>
-                                                                <span style="color: #333;" class="" id="ontime_samary"></span>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            
-                                                <div class="orderBoxdetail">
-                                                    <table width="100%">
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                                <span class="lng-first-name"></span><span>:</span>
-                                                        </td>
-                                                        <td>
-                                                            <span id="summaryname"></span>
-                                                        </td> 
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                                
-                                                                    <span class="lng-phone"></span><span>:</span>
-                                                            
-                                                            </td>
-                                                            <td>
-                                                                <span id="summaryphone" ></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                            
-                                                                    <span class="lng-email"></span><span >:</span>                                            
-                                                            
-                                                            </td>
-                                                            <td>
-                                                                <span  id="summaryemail"></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                                
-                                                                    <span class="lng-flight"></span><span >:</span>
-                                                                
-                                                            </td>
-                                                            <td>
-                                                                <span id="textflight"></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td valign="top" width="100px" style="padding: 5px 0;">
-                                                                
-                                                                    <span class="lng-other"></span><span >:</span>                                          
-                                                            
-                                                            </td>
-                                                            <td>
-                                                                <span id="summaryother"></span>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4" id="detail-price">
-                                        <div class="box-list-summery">
-                                            <div >
-                                                <div  >
-                                                    <div id="book-info">
-                                                        <span class="lng-car"></span><span>:</span>
-                                                        
-                                                    </div>
-                                                        <span style="color: #fb833f;" id="carsummary"></span><span></span>
-                                                        <span style="color: #fb833f;float:right;" id="costsummary"></span>
-                                                    </div>
-                                                <div >
-                                                <div id="book-info">
-                                                    <span class="lng-price"></span><span>/</span><span class="lng-car"></span><span>:</span>
-                                                            
-                                                </div>
-                                                        
-                                                    <span style="color: #fb833f;float:right;" id="costproduct"></span>
-                                            </div>
-                                            <div >
-                                                <div id="book-info">
-                                                    <span class="lng-adult"></span><span >:</span>
-                                                        
-                                                </div>
-                                                    <span style="color: #fb833f;" id="adultsummary"></span>
-                                                    <span style="color: #fb833f;float:right;">-</span>
-                                            </div>
-                                            <div >
-                                                <div id="book-info">
-                                                    <span class="lng-child"></span><span >:</span>
-                                                            
-                                                </div>
-                                                    <span style="color: #fb833f;" id="childsummary"></span>
-
-                                                            
-                                                    <span style="color: #fb833f;float:right;">-</span>                                    
-                                            </div>
-                                                    
-                                            </div>
-                                                <div class="summtotal">
-                                                    <span style="color: #000000"><span class="lng-sum-total"></span><span>:</span></span>
-                                                        
-                                                
-                                                    <span style="color: #fb833f;float: right;" id="totalprice"></span> 
-                                                </div> 
-                                                <div class="box-book-pay"> 
-                                                    <div class="btn-books" >
-                                                        <span class="lng-book"></span>
-                                                
-                                                    </div>
-                                            
-                                                    <p class="ng-binding"></p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    <div class="col-lg-12" >
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
-                                                    <span class="lng-acceptance-of-terms"></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -1071,8 +886,23 @@
                 </div>
             </div>
         </div>
+        <div id="codecountry" style="z-index: 20; position: fixed; left: 0px; top: 0px; display: none;">
+            <div class="" style="height: 100vh; background: #fff;  min-width: 100%; left: 50vw; top: 50vh; transform: translate(-50%,-50%); position: fixed; z-index: 3;    overflow-y: scroll;">
+            <div class="" style="padding: 12px 15px 0; */">
+                        <button  class="close"  style="font-size:30px;color: #000;">&times;</button>
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button> -->
+                    </div>
+                <div style="">
+                    
+                  
 
-        <div class="modal fade" id="codecountry" role="dialog">
+                   <div class="box-country">
+                            <ul id="select-name"> </ul>
+                        </div>
+                </div>
+            </div>
+        </div> 
+        <div class="modal fade" id="" role="dialog">
             <div class="modal-dialog" style="margin: 0; margin-top: 0 !important;">
                 <div class="modal-content" style="width: 100%; height: 100vh; overflow: hidden;  overflow-y: scroll;    border-radius: 0 !important;">
                     <div class="modal-header" style="padding: 12px 15px 0; */">
@@ -1080,9 +910,9 @@
                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button> -->
                     </div>    
                     <div class="modal-body" style="padding: 0">                                    
-                        <div class="box-country">
+                        <!-- <div class="box-country">
                             <ul id="select-name"> </ul>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="modal-footer">
                                     <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
@@ -1102,7 +932,8 @@
                 margin-top: 10px !important;
             }
 
-        </style>           
+        </style> 
+                  
         <div class="modal fade" id="login">
             <div class="modal-dialog col-md-8">
                 <div class="modal-content">
@@ -1182,8 +1013,17 @@
     
         
     </div>
+  
 </body>
 <style>
+    #terms-of-use {
+    padding: 10px;
+    /* border-radius: 4px; */
+    font-size: 16px;
+    border: 1px solid #81C8D3;
+    margin-top: 5px;
+    background-color: #fff;
+}
 .addbook{
     background: #16B3B1;
     width: 100%;
@@ -1556,7 +1396,7 @@
                         padding-right: 10px;
                     }
                     .box-country ul li:hover{
-                        background-color: #ffd000;
+                        background-color:#009688;
                         color: #000;
                     }
                     #textcountry{

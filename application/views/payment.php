@@ -62,7 +62,7 @@
                 <span id="book_by"></span>
                 </td>
             </tr>
-            <tr id="box-pay">
+            <tr class="box-pay">
                 <td>
                 <span class="lng-amount"></span> (THB.)
                 </td>
@@ -70,13 +70,31 @@
                 <input type="number" name="txt_amount" class="textInput" holder="" id="amount"/>
                 </td>
             </tr>
+            <tr  class="box-pay">                        
+                <td align="center" colspan="2" style="" id="btn-pay">                           
+                    <input style="background: #ffffff;  border: 0; width:99% " type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"  disabled/>                                           
+                </td>
+            </tr>
+                   
+            <tr class="box-pay">
+                
+                <td colspan="2">
+                    <div class="pay-driver" style="color: #3b5998; */
+    font-weight: 700;
+    display: block;
+    /* line-height: 36px; */
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    min-width: 120px;
+    /* border-radius: 4px; */
+    text-align: center;
+    color: #ffffff;
+    /* border: 1px solid #16B3B1; */
+    background-color: #16B3B1;">Pay Driver</div>
+                </td>
+            </tr>
             <tr>
-                        
-                        <td align="center" colspan="2" style="" id="btn-pay">                           
-                            <input style="background: #ffffff;  border: 0; width:99% " type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"  />                                           
-                        </td>
-                    </tr>
-                    <tr>
                         
                         <td align="center" colspan="2" style="" id="btn-pay">                           
                         </br>                  
@@ -152,6 +170,19 @@ $( document ).ready(function() {
         console.log('logout')
         $.removeCookie("login");
         window.location.href = base_url + "register";
+    })
+    $('.pay-driver').on('click', function() {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>dashboard/paydriver',
+            data: { 'data': getParameterByName('data') },
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+                window.location.href =  "https://dotdotdottrip.com/dashboard/view_user"
+            }
+        });
     })
 	
 	if ($.cookie("login")) {
@@ -263,15 +294,21 @@ function getParameterByName(name, url) {
                 console.log(data[0].product_detail[0])
                 if($.cookie("lng")=="en"){
                     if(data[0].status_pay == 0){
-                        $('.status-pay').text('(wait for pay)');
-                        $('.status-pay').css('color','red');
-                        $('#box-pay').show()
+                        if(data[0].status_pay_driver == 1){
+                            $('.status-pay').text('(Pay driver)');
+                        }
+                        else{
+                            $('.status-pay').text('(wait for pay)');
+                            $('.status-pay').css('color','red');
+                        }
+                        
+                        $('.box-pay').show()
                         
                     }
                     else{
                         $('.status-pay').text('(Already paid)');
                         $('.status-pay').css('color','#4CAF50');
-                        $('#box-pay').hide()
+                        $('.box-pay').hide()
                           
                     }
                     product_name = data[0].product_detail[0].topic_en;
@@ -280,25 +317,37 @@ function getParameterByName(name, url) {
                    
                 }else if ($.cookie("lng")=="cn"){
                     if(data[0].status_pay == 0){
-                        $('.status-pay').text('(等待付款)');
-                        $('.status-pay').css('color','red');
-                        $('#box-pay').show()
+                        if(data[0].status_pay_driver == 1){
+                            $('.status-pay').text('(Pay driver)');
+                        }
+                        else{
+                            $('.status-pay').text('(等待付款)');
+                            $('.status-pay').css('color','red');
+                        }
+                       
+                        $('.box-pay').show()
                         
                         
                     }
                     else{
                         $('.status-pay').text('(已經支付)'); 
                         $('.status-pay').css('color','#4CAF50'); 
-                        $('#box-pay').hide()
+                        $('.box-pay').hide()
                     }
                     product_name = data[0].product_detail[0].topic_cn;
                   
                    
                 }else if ($.cookie("lng")=="th"){
                     if(data[0].status_pay == 0){
-                        $('.status-pay').text('(รอจ่าย)');
-                        $('.status-pay').css('color','red');
-                        $('#box-pay').show()
+                        if(data[0].status_pay_driver == 1){
+                            $('.status-pay').text('(Pay driver)');
+                        }
+                        else{
+                            $('.status-pay').text('(รอจ่าย)');
+                            $('.status-pay').css('color','red');
+                        }
+                        
+                        $('.box-pay').show()
                         
                        
                         
@@ -306,23 +355,29 @@ function getParameterByName(name, url) {
                     else{
                         $('.status-pay').text('(ชำระแล้ว)');  
                         $('.status-pay').css('color','#4CAF50');
-                        $('#box-pay').hide()
+                        $('.box-pay').hide()
                     }
                     product_name = data[0].product_detail[0].topic_th;
                     
                    
                 }else if($.cookie("lng")==undefined){
                     if(data[0].status_pay == 0){
-                        $('.status-pay').text('(wait for pay)');
-                        $('.status-pay').css('color','red');
-                        $('#box-pay').show()
+                        if(data[0].status_pay_driver == 1){
+                            $('.status-pay').text('(Pay driver)');
+                        }
+                        else{
+                            $('.status-pay').text('(wait for pay)');
+                            $('.status-pay').css('color','red');
+                        }
+                        
+                        $('.box-pay').show()
                         
                         
                     }
                     else{
                         $('.status-pay').text('(Already paid)');  
                         $('.status-pay').css('color','#4CAF50');
-                        $('#box-pay').hide()
+                        $('.box-pay').hide()
                         
                     }
                     product_name = data[0].product_detail[0].topic_en;

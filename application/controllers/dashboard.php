@@ -361,6 +361,12 @@ public function pay()
 	//$array = array($age);
 	echo json_encode($data);
 }
+public function paydriver()
+{
+	$data = $this->Pay_model->paydriverm();
+	//$array = array($age);
+	echo json_encode($data);
+}
 
 
 	
