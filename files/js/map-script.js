@@ -885,7 +885,7 @@ function nearbyPlace(map, location, value) {
     if (value == 0) {
     	service.nearbySearch({
             location: location,
-            radius: 1500,
+            radius: 2000,
 //            type: ['spa','airport','hospital','restaurant','department_store','lodging','point_of_interest']
             type: ['spa','airport','restaurant','department_store','lodging','point_of_interest']
         }, callback);
@@ -913,7 +913,7 @@ function callback(results, status) {
 }
 
 function appendPlace(place) {
-	console.log(place);
+//	console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
@@ -1116,13 +1116,13 @@ circle.bindTo('center', markerCircle, 'position');
         map: map,
         animation: google.maps.Animation.DROP,
         anchorPoint: new google.maps.Point(0, -29),
-        label: "E"
+        label: "B"
     });
     startMarker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
         anchorPoint: new google.maps.Point(0, -29),
-        label: "S"
+        label: "A"
     });
 
 }
@@ -1174,7 +1174,7 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
         }
         directionsDisplay.setMap(null);
         markerPlaceOfften.setMap(null);
-        google.maps.event.clearListeners(map, 'center_changed');
+        google.maps.event.clearListeners(map, 'bounds_changed');
         google.maps.event.clearListeners(map, 'dragend');
         showHeader();
         $('#search-raeltime').show(700);
@@ -1338,8 +1338,14 @@ function resetMap() {
     startMarker.setVisible(false);
     google.maps.event.clearListeners(map, 'center_changed');
     google.maps.event.clearListeners(map, 'dragend');
+    google.maps.event.clearListeners(map, 'bounds_changed');
     showHeader();
-    $('#search-raeltime').show(700);
+    if($('#search-show').css('display')=='block'){
+		
+	}else{
+		 $('#search-raeltime').show(700);
+	}
+   
     $('#clear-all').hide(500);
     $('#show-hide-pro2').hide(500);
     map.panTo(pos);
