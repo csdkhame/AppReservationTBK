@@ -7,7 +7,7 @@ header('Content-type: text/html; charset=utf-8');
 // }';
 //$request = stripslashes( $_POST[request]);
 //$field = stripslashes( $_POST[field]);
-$curl_post_data = '{"from":"'.$_POST[from].'"}';
+$curl_post_data = '{"stay":"'.$_POST[from].'"}';
 					
 					
 $curl_response = '';
@@ -19,7 +19,7 @@ $curl_response = '';
 $headers = array();
 //$headers[] = 'Content-Type: application/json';
 //$headers[] = 'API-KEY: ea1b6d331a20b66041369a63251410d4ec748f27';
-$url = "http://www.services.t-booking.com/Product/product_service";
+$url = "http://services.t-booking.com/Product/product_stay";
 //echo $url;
                                 
 $curl = curl_init();
