@@ -152,6 +152,16 @@ $(document).ready(function() {
     $('#province').on('change', function() {
         pro_id = this.value;
         console.log(pro_id)
+        $.ajax({
+            type: 'POST',
+            url: base_url + 'service/getstayto.php',
+            data: { 'from': pro_id },
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+            }
+        })
 
     });
     $('#provinceto').on('change', function() {
