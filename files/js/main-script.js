@@ -92,76 +92,128 @@ $(document).ready(function() {
 
         }
     });
-    $.ajax({
-        type: 'POST',
-        url: '../getprovince_control/process',
-        data: { 'lng': $.cookie("lng") },
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(data) {
-            // console.log(data)
-            if ($.cookie("lng") == 'en') {
-                $.each(data, function(i, val) {
-                    $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
-                    $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
-                    //dataProvince.push(data[i])
-                    //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '../getprovince_control/process',
+    //     data: { 'lng': $.cookie("lng") },
+    //     //contentType: "application/json",
+    //     dataType: 'json',
+    //     success: function(data) {
+    //         // console.log(data)
+    //         if ($.cookie("lng") == 'en') {
+    //             $.each(data, function(i, val) {
+    //                 $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
+    //                 //$('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
+    //                 //dataProvince.push(data[i])
+    //                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
 
-                });
-            } else if ($.cookie("lng") == 'th') {
-                $.each(data, function(i, val) {
-                    $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
-                    $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
-                    //dataProvince.push(data[i])
-                    //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+    //             });
+    //         } else if ($.cookie("lng") == 'th') {
+    //             $.each(data, function(i, val) {
+    //                 $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
+    //                 // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
+    //                 //dataProvince.push(data[i])
+    //                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
 
-                });
-            } else if ($.cookie("lng") == 'cn') {
-                $.each(data, function(i, val) {
-                    $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
-                    $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
-                    //dataProvince.push(data[i])
-                    //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+    //             });
+    //         } else if ($.cookie("lng") == 'cn') {
+    //             $.each(data, function(i, val) {
+    //                 $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
+    //                 // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
+    //                 //dataProvince.push(data[i])
+    //                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
 
-                });
-            } else {
-                $.each(data, function(i, val) {
-                    $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
-                    $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
-                    //dataProvince.push(data[i])
-                    //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+    //             });
+    //         } else if ($.cookie("lng") == undefined) {
+    //             $.each(data, function(i, val) {
+    //                 $('#province').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
+    //                 // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
+    //                 //dataProvince.push(data[i])
+    //                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
 
-                });
-            }
-            //datacountry = data;
-            // $('#codecountry').modal('show');
-            // $.each(data, function(i, val) {
-            //     $('#guestcountry').append('<option value="' + data[i].name_en + '" label="' + data[i].name_en + '" none=""></option>');
-            //     //dataProvince.push(data[i])
-            //     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+    //             });
+    //         }
+    //         //datacountry = data;
+    //         // $('#codecountry').modal('show');
+    //         // $.each(data, function(i, val) {
+    //         //     $('#guestcountry').append('<option value="' + data[i].name_en + '" label="' + data[i].name_en + '" none=""></option>');
+    //         //     //dataProvince.push(data[i])
+    //         //     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
 
-            // });
+    //         // });
 
-        }
-    });
+    //     }
+    // });
     $('#province').on('change', function() {
         pro_id = this.value;
         console.log(pro_id)
+        $('.stayto').remove()
+        $.ajax({
+            type: 'POST',
+            url: base_url + 'service/getstayto.php',
+            data: { 'from': pro_id },
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+
+                console.log(data)
+                var datastay = data[0].data1;
+                console.log(datastay)
+                if ($.cookie("lng") == 'en') {
+                    $.each(datastay, function(i, val) {
+                        //$('#province').append('<option value="' + data[i].stay_to + '" label="' + data[i].name + '"></option>');
+                        $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name + '"></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                } else if ($.cookie("lng") == 'th') {
+                    $.each(datastay, function(i, val) {
+                        //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
+                        $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name_th + '"></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                } else if ($.cookie("lng") == 'cn') {
+                    $.each(datastay, function(i, val) {
+                        //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
+                        $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name_cn + '"></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                } else if ($.cookie("lng") == undefined) {
+                    $.each(datastay, function(i, val) {
+                        //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
+                        $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name + '"></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                }
+            }
+        })
 
     });
     $('#provinceto').on('change', function() {
         pro_id_to = this.value;
+        console.log(pro_id_to)
 
         var parampro = {
             "from": pro_id,
             "to": pro_id_to,
         };
-
+        $('.a-link-item').remove()
         console.log(parampro)
         $('#loading').show()
         $.ajax({
@@ -310,8 +362,9 @@ $(document).ready(function() {
 
         $('#loading').css('display', 'block');
         $('.a-link-item').remove();
-        //$('#typecarservice').remove();
 
+        //$('#typecarservice').remove();
+        $('#product_service').animate({ scrollTop: 0 }, '500');
         setTimeout(function() {
 
             $('#loading').css('display', 'none');
@@ -721,6 +774,65 @@ $(document).ready(function() {
     });
     $('.btn-car-service').click(function() {
         //	  $('#selectPlace').show();
+        $('.stayfrom').remove();
+        $.ajax({
+            type: 'POST',
+            url: base_url + 'service/getstay.php',
+            //data: { 'lng': $.cookie("lng") },
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+                var datastayfrom = data[0].data1;
+                if ($.cookie("lng") == 'en') {
+                    $.each(datastayfrom, function(i, val) {
+                        $('#province').append('<option class="stayfrom" value="' + datastayfrom[i].stay + '" label="' + datastayfrom[i].name + '"></option>');
+                        //$('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                } else if ($.cookie("lng") == 'th') {
+                    $.each(datastayfrom, function(i, val) {
+                        $('#province').append('<option class="stayfrom" value="' + datastayfrom[i].stay + '" label="' + datastayfrom[i].name_th + '"></option>');
+                        // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                } else if ($.cookie("lng") == 'cn') {
+                    $.each(datastayfrom, function(i, val) {
+                        $('#province').append('<option class="stayfrom" value="' + datastayfrom[i].stay + '" label="' + datastayfrom[i].name_cn + '"></option>');
+                        // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                } else if ($.cookie("lng") == undefined) {
+                    $.each(datastayfrom, function(i, val) {
+                        $('#province').append('<option class="stayfrom" value="' + datastayfrom[i].stay + '" label="' + datastayfrom[i].name + '"></option>');
+                        // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                    });
+                }
+                //datacountry = data;
+                // $('#codecountry').modal('show');
+                // $.each(data, function(i, val) {
+                //     $('#guestcountry').append('<option value="' + data[i].name_en + '" label="' + data[i].name_en + '" none=""></option>');
+                //     //dataProvince.push(data[i])
+                //     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                // });
+
+            }
+        });
         $('#loading').css('display', 'block');
         //       $('#btn-real-res').css('display', 'none');
         $('#opennut').click();
