@@ -317,7 +317,7 @@ function initAutocomplete(map) {
 		              lng: position.coords.longitude
 		            };
 		            start = pos;
-//		            console.log(start);
+		            console.log(start);
 		            markerCircle.setPosition(pos);
 		            map.setCenter(pos);
 					geocoder = new google.maps.Geocoder;
@@ -335,34 +335,11 @@ function initAutocomplete(map) {
 					       id = id+1 ;
 					       
 //					          console.log("watchPosition : "+id); 
-		           }, 2000);
+		           }, 5000);
 		          
 		    });	    
 		}
 
-    /*function success(position) {
-       
-        var current = {
-            lat: parseFloat(position.coords.latitude),
-            lng: parseFloat(position.coords.longitude)
-        };
-
-        console.log('success');
-//        console.log(current);
-        pos = current;
-		
-        markerCircle.setPosition(current);
-        check = check + 1;
-        if (check == 1) {
-            start = pos;
-            lat_f = position.coords.latitude;
-            lng_f = position.coords.longitude;
-            geocoderRun(pos);
-        }
-     	console.log(check%2);
-        nearbyPlace(map, pos, "");
-        filterPlace(map, pos);
-    };*/
 	function success(position) {
        
         var current = {
@@ -370,16 +347,18 @@ function initAutocomplete(map) {
             lng: parseFloat(position.coords.longitude)
         };
 		
-/*		var radlat1 = Math.PI * current.lat / 180
+		var radlat1 = Math.PI * current.lat / 180
                 var radlat2 = Math.PI * pos.lat / 180
                 var theta = current.lng - pos.lng;
                 var radtheta = Math.PI * theta / 180
                 var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
                 dist = Math.acos(dist)
                 dist = dist * 180 / Math.PI
-                dist = dist * 60 * 1.609344;*/
-		
-		if( JSON.stringify(current) != JSON.stringify(start) ){
+                dist = dist * 60 * 1.609344;
+		var m = dist*1000;
+		console.log(m);
+//		if( JSON.stringify(current) != JSON.stringify(start) ){
+		if( m > 70  ){
 			 console.log(current);
 			 console.log(start);
 			 pos = current;
@@ -413,7 +392,7 @@ function initAutocomplete(map) {
         end = placeEnd.geometry.location;
         endMarker.setVisible(true);
         endMarker.setPosition(end);
-
+		
         var request = {
             origin: start,
             destination: end,
@@ -423,6 +402,8 @@ function initAutocomplete(map) {
         directionsService = new google.maps.DirectionsService;
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setMap(map);
+        lat_f = start.lat;
+        lng_f = start.lng;
         directionsService.route(request, function(response, status) {
             console.log(response);
             console.log(status);
@@ -485,9 +466,7 @@ function geocoderRun(latlng){
 
                 if (results[1]) {
                     placeStart = results;
-
                     addr = placeStart[1].formatted_address;
-                
                 	document.getElementById("current").value = addr;
                 }
             } else {
@@ -571,7 +550,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         notfound = 'Product not Found';
 
     }
-//    console.log(lat_f+","+lng_f+" : "+lat_t+","+lng_t);
+    console.log(lat_f+","+lng_f+" : "+lat_t+","+lng_t);
     var id_placefrom , id_placeto ;
      $.ajax({
         type: 'POST',
@@ -885,7 +864,7 @@ function nearbyPlace(map, location, value) {
     if (value == 0) {
     	service.nearbySearch({
             location: location,
-            radius: 2000,
+            radius: 10000,
 //            type: ['spa','airport','hospital','restaurant','department_store','lodging','point_of_interest']
             type: ['spa','airport','restaurant','department_store','lodging','point_of_interest']
         }, callback);
@@ -893,7 +872,7 @@ function nearbyPlace(map, location, value) {
     } else {
           service.nearbySearch({
             location: location,
-            radius: 1500,
+            radius: 10000,
             type: ['' + value + '']
         }, callback);
     }
@@ -913,14 +892,14 @@ function callback(results, status) {
 }
 
 function appendPlace(place) {
-//	console.log(place);
+	console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
     var lng = lo.lng;
     var address = place.name + " " + place.vicinity;
-
-    $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">' + icon + '</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></td></span></table></div>');
+	var btn = '<button class="btn btn-xs">'+place.photos[0].html_attributions+'</button>';
+    $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">' + icon + '</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></td><td></td></span></table></div>');
 
 }
 function filterPlace(map, location) {
