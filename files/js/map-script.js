@@ -1203,7 +1203,8 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
-
+		lat_f = start.lat;
+        lng_f = start.lng;
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
             if (status == 'ZERO_RESULTS') {
