@@ -119,7 +119,7 @@ function outSearchRealtime() {
 
 
 $('#search-raeltime input').focus(function() {
-
+	
     if (this.id == "current") {
         $('#for_check_currentInput').val(1);
         $('#for_check_endInput').val(0);
@@ -171,6 +171,7 @@ $("#currentPosId").click(function() {
     start = pos;
     selectMyPlace('current', addr, start.lat, start.lng)
         //            $(this).val(addr);
+        
     console.log(start);
 });
 var map; //main map
