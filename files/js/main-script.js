@@ -152,6 +152,7 @@ $(document).ready(function() {
     $('#province').on('change', function() {
         pro_id = this.value;
         console.log(pro_id)
+        var lng;
         if ($.cookie("lng") == undefined) {
             lng = 'en';
         } else {
@@ -785,12 +786,14 @@ $(document).ready(function() {
     });
     $('.btn-car-service').click(function() {
         //	  $('#selectPlace').show();
+        var lng;
         $('.stayfrom').remove();
         if ($.cookie("lng") == undefined) {
             lng = 'en';
         } else {
             lng = $.cookie("lng");
         }
+        console.log(lng)
         $.ajax({
             type: 'POST',
             url: base_url + 'service/getstay.php',
