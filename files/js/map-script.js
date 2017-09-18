@@ -892,7 +892,7 @@ function callback(results, status) {
 }
 
 function appendPlace(place) {
-	console.log(place);
+//	console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
@@ -902,6 +902,7 @@ function appendPlace(place) {
     $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">' + icon + '</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></td><td></td></span></table></div>');
 
 }
+
 function filterPlace(map, location) {
     var selectTypePlace = document.querySelector('#types_ofPlace');
     google.maps.event.addDomListener(selectTypePlace, 'change', function() {
@@ -1139,7 +1140,7 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
     }
 }
 
-function selectMyPlace(type_place, txtAdd, lat, lng) {
+function selectMyPlace(type_place, txtAdd, latti, lngti) {
     //    console.log($(this).is(':focus'));
     //    alert(txtAdd);
     directionsService = new google.maps.DirectionsService;
@@ -1164,8 +1165,8 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
     if ($('#for_check_currentInput').val() == 1) {
         $('#current').val(txtAdd);
         start = {
-            lat: parseFloat(lat),
-            lng: parseFloat(lng)
+            lat: parseFloat(latti),
+            lng: parseFloat(lngti)
         }
 
         console.log(start);
@@ -1182,8 +1183,8 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
     if ($('#for_check_endInput').val() == 1) {
         $('#pac-input').val(txtAdd);
         end = {
-            lat: parseFloat(lat),
-            lng: parseFloat(lng)
+            lat: parseFloat(latti),
+            lng: parseFloat(lngti)
         }
         console.log(end);
         endMarker.setVisible(true);
@@ -1193,9 +1194,7 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
         }
 
     }
-
-
-
+    
     if (start != undefined && end != undefined) {
 
         var request = {
@@ -1203,7 +1202,8 @@ function selectMyPlace(type_place, txtAdd, lat, lng) {
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
-
+		lat_f = start.lat;
+        lng_f = start.lng;
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
             if (status == 'ZERO_RESULTS') {
