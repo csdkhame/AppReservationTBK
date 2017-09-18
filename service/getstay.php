@@ -7,7 +7,7 @@ header('Content-type: text/html; charset=utf-8');
 // }';
 //$request = stripslashes( $_POST[request]);
 //$field = stripslashes( $_POST[field]);
-//$curl_post_data = '{"stay":"'.$_POST[from].'"}';
+$curl_post_data = '{"stay":"'.$_POST[from].'","lng":"'.$_POST[lng].'"}';
 					
 					
 $curl_response = '';
@@ -35,7 +35,7 @@ curl_setopt($curl, CURLOPT_REFERER, $url);
 curl_setopt($curl, CURLOPT_URL, $url);  
 
 curl_setopt($curl, CURLOPT_POST, 1);
-//curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
 $curl_response = curl_exec($curl);
 //echo $curl_response;
 curl_close($curl);

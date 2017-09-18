@@ -152,11 +152,16 @@ $(document).ready(function() {
     $('#province').on('change', function() {
         pro_id = this.value;
         console.log(pro_id)
+        if ($.cookie("lng") == undefined) {
+            lng = 'en';
+        } else {
+            lng = $.cookie("lng");
+        }
         $('.stayto').remove()
         $.ajax({
             type: 'POST',
             url: base_url + 'service/getstayto.php',
-            data: { 'from': pro_id },
+            data: { 'from': pro_id, 'lng': lng },
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
@@ -207,11 +212,17 @@ $(document).ready(function() {
     });
     $('#provinceto').on('change', function() {
         pro_id_to = this.value;
+        var lng;
         console.log(pro_id_to)
-
+        if ($.cookie("lng") == undefined) {
+            lng = 'en';
+        } else {
+            lng = $.cookie("lng");
+        }
         var parampro = {
             "from": pro_id,
             "to": pro_id_to,
+            "lng": lng,
         };
         $('.a-link-item').remove()
         console.log(parampro)
@@ -775,10 +786,15 @@ $(document).ready(function() {
     $('.btn-car-service').click(function() {
         //	  $('#selectPlace').show();
         $('.stayfrom').remove();
+        if ($.cookie("lng") == undefined) {
+            lng = 'en';
+        } else {
+            lng = $.cookie("lng");
+        }
         $.ajax({
             type: 'POST',
             url: base_url + 'service/getstay.php',
-            //data: { 'lng': $.cookie("lng") },
+            data: { 'lng': lng },
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
