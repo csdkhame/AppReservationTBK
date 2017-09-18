@@ -7,7 +7,7 @@ header('Content-type: text/html; charset=utf-8');
 // }';
 //$request = stripslashes( $_POST[request]);
 //$field = stripslashes( $_POST[field]);
-$curl_post_data = '{"from":"'.$_POST[from].'","to":"'.$_POST[to].'"}';
+$curl_post_data = '{"from":"'.$_POST[from].'","to":"'.$_POST[to].'","lng":"'.$_POST[lng].'"}';
 					
 					
 $curl_response = '';
