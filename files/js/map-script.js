@@ -17,7 +17,8 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-nearby-locat').text('附近的地方');
     success = '成功';
     error = '错误';
-} else if ($.cookie("lng") == 'th') {
+} 
+else if ($.cookie("lng") == 'th') {
     please_login_txt = "กรุณาเข้าสู่ระบบ";
     click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
     lang_to_map = 'th';
@@ -30,7 +31,8 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
     success = 'สำเร็จ';
     error = 'ผิดพลาด';
-} else if ($.cookie("lng") == 'en') {
+} 
+else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -43,7 +45,8 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-office-locat').text('');
     $('.lng-setpin-locat').text('');
     $('.lng-nearby-locat').text('');*/
-} else if ($.cookie("lng") == undefined) {
+} 
+else if ($.cookie("lng") == undefined) {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
