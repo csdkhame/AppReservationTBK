@@ -529,7 +529,9 @@ $('#clear-all').click(function() {
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var notfound;
 
-
+    $('.a-link-item').remove();
+    $('.not-found').remove();
+    $('.typerel').remove();
     if ($.cookie("lng") == 'cn') {
         notfound = '产品没有找到';
 
@@ -1218,9 +1220,7 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
                 dist = dist * 180 / Math.PI
                 dist = dist * 60 * 1.609344;
 
-                $('.a-link-item').remove();
-                $('.not-found').remove();
-                $('.typerel').remove();
+
 
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
