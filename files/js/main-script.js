@@ -237,6 +237,8 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data)
                 $('.a-link-item').remove();
+                $('.typeservice').remove();
+
 
 
                 $('#loading').hide();
@@ -273,7 +275,7 @@ $(document).ready(function() {
 
                 $.each(cartype, function(i, val) {
                     var index2 = parseInt(i) + 1;
-                    $('#typecarservice').append('<option value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                    $('#typecarservice').append('<option class="typeservice" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
                     //dataProvince.push(data[i])
                     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
@@ -374,6 +376,7 @@ $(document).ready(function() {
 
         $('#loading').css('display', 'block');
         $('.a-link-item').remove();
+        $('.typeservice').remove();
 
         //$('#typecarservice').remove();
         $('#product_service').animate({ scrollTop: 0 }, '500');
