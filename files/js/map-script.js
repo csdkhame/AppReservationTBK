@@ -528,7 +528,7 @@ $('#clear-all').click(function() {
 
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var notfound;
-
+    console.log('in case')
     $('.a-link-item').remove();
     $('.not-found').remove();
     $('.typerel').remove();
