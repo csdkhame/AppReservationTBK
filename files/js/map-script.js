@@ -17,8 +17,7 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-nearby-locat').text('附近的地方');
     success = '成功';
     error = '错误';
-} 
-else if ($.cookie("lng") == 'th') {
+} else if ($.cookie("lng") == 'th') {
     please_login_txt = "กรุณาเข้าสู่ระบบ";
     click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
     lang_to_map = 'th';
@@ -31,8 +30,7 @@ else if ($.cookie("lng") == 'th') {
     $('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
     success = 'สำเร็จ';
     error = 'ผิดพลาด';
-} 
-else if ($.cookie("lng") == 'en') {
+} else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -45,8 +43,7 @@ else if ($.cookie("lng") == 'en') {
     $('.lng-office-locat').text('');
     $('.lng-setpin-locat').text('');
     $('.lng-nearby-locat').text('');*/
-} 
-else if ($.cookie("lng") == undefined) {
+} else if ($.cookie("lng") == undefined) {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -60,8 +57,7 @@ else if ($.cookie("lng") == undefined) {
 if ($.cookie("login") == undefined) {
     $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">' + please_login_txt + '</span>');
     $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">' + please_login_txt + '</span>');
-} 
-else {
+} else {
     $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">' + click_save_place_txt + '</span>');
     $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">' + click_save_place_txt + '</span>');
 }
@@ -127,15 +123,15 @@ $('#search-raeltime input').focus(function() {
     if (this.id == "current") {
         $('#for_check_currentInput').val(1);
         $('#for_check_endInput').val(0);
-//        $(this).val('');
+        //        $(this).val('');
     }
 
     if (this.id == "pac-input") {
         $('#for_check_endInput').val(1);
         $('#for_check_currentInput').val(0);
-//        $(this).val('');
+        //        $(this).val('');
     }
-    
+
     $('#to-remove-class').removeClass();
     $('#sectionsNav').hide();
 
@@ -159,8 +155,8 @@ $('#search-raeltime input').focus(function() {
 
 
     $('.box-menu-select').hide();
-    
-     if (infowindow) {
+
+    if (infowindow) {
         console.log(infowindow);
         infowindow.close();
         infowindow.setMap(null);
@@ -190,7 +186,7 @@ $('#search-raeltime input').focus(function() {
 
     start = pos;
     end = null;
-//    $('#btn_CurrentLocation').show(700);
+    //    $('#btn_CurrentLocation').show(700);
 });
 
 $("#nearbyId").click(function() {
@@ -559,6 +555,7 @@ $('#pac-input').click(function() {
     $('.a-link-item').remove();
     $('.not-found').remove();
     $('.typerel').remove();
+    resetMap();
 })
 $('#clear-all').click(function() {
     $('#pac-input').val('');
@@ -571,9 +568,9 @@ $('#clear-all').click(function() {
 
 });
 
-$( "#current" ).focusout(function() {
-    	$('#current').val(placeStart[1].formatted_address);
-  });
+$("#current").focusout(function() {
+    $('#current').val(placeStart[1].formatted_address);
+});
 
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var notfound;
