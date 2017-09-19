@@ -423,8 +423,8 @@ function initAutocomplete(map) {
                 dist = dist * 180 / Math.PI
                 dist = dist * 60 * 1.609344;
 
-                $('.a-link-item').remove();
-                $('.not-found').remove();
+               /* $('.a-link-item').remove();
+                $('.not-found').remove();*/
 
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
@@ -1219,8 +1219,8 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
                 dist = dist * 180 / Math.PI
                 dist = dist * 60 * 1.609344;
 
-                $('.a-link-item').remove();
-                $('.not-found').remove();
+               /* $('.a-link-item').remove();
+                $('.not-found').remove();*/
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
                 infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
