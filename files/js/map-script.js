@@ -529,9 +529,7 @@ $('#clear-all').click(function() {
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var notfound;
     console.log('in case')
-    $('.a-link-item').remove();
-    $('.not-found').remove();
-    $('.typerel').remove();
+
     if ($.cookie("lng") == 'cn') {
         notfound = '产品没有找到';
 
@@ -580,6 +578,9 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         success: function(data) {
             console.log(data);
             console.log(data.status);
+            $('.a-link-item').remove();
+            $('.not-found').remove();
+            $('.typerel').remove();
             //            console.log(data.detail);
             if (data.status == '200. bad request') {
                 $('#ul-header2').css('display', 'block');
