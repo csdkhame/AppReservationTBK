@@ -123,7 +123,7 @@ function outSearchRealtime() {
 
 
 $('#search-raeltime input').focus(function() {
-	
+
     if (this.id == "current") {
         $('#for_check_currentInput').val(1);
         $('#for_check_endInput').val(0);
@@ -208,7 +208,7 @@ $("#currentPosId").click(function() {
     start = pos;
     selectMyPlace('current', addr, start.lat, start.lng)
         //            $(this).val(addr);
-        
+
     console.log(start);
 });
 var map; //main map
@@ -460,8 +460,8 @@ function initAutocomplete(map) {
                 dist = dist * 180 / Math.PI
                 dist = dist * 60 * 1.609344;
 
-               /* $('.a-link-item').remove();
-                $('.not-found').remove();*/
+                /* $('.a-link-item').remove();
+                 $('.not-found').remove();*/
 
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
@@ -569,8 +569,7 @@ $( "#current" ).focusout(function() {
 
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var notfound;
-    $('.typerel').remove();
-    $('.a-link-item').remove();
+    console.log('in case')
 
     if ($.cookie("lng") == 'cn') {
         notfound = '产品没有找到';
@@ -620,6 +619,9 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         success: function(data) {
             console.log(data);
             console.log(data.status);
+            $('.a-link-item').remove();
+            $('.not-found').remove();
+            $('.typerel').remove();
             //            console.log(data.detail);
             if (data.status == '200. bad request') {
                 $('#ul-header2').css('display', 'block');
@@ -1260,8 +1262,8 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
                 dist = dist * 180 / Math.PI
                 dist = dist * 60 * 1.609344;
 
-               /* $('.a-link-item').remove();
-                $('.not-found').remove();*/
+
+
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
                 infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
