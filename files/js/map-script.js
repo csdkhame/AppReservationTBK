@@ -517,10 +517,18 @@ $('#btn_CurrentLocation').click(function() {
     }
 
 });
-
+$('#pac-input').click(function() {
+    $('#pac-input').val('');
+    $('.a-link-item').remove();
+    $('.not-found').remove();
+    $('.typerel').remove();
+})
 $('#clear-all').click(function() {
     $('#pac-input').val('');
     console.log(placeStart);
+    $('.a-link-item').remove();
+    $('.not-found').remove();
+    $('.typerel').remove();
     //    $('#current').val(placeStart[1].formatted_address);
     resetMap();
 
@@ -529,6 +537,8 @@ $('#clear-all').click(function() {
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var notfound;
     console.log('in case')
+    compae1private = [];
+    compae1join = [];
 
     if ($.cookie("lng") == 'cn') {
         notfound = '产品没有找到';
