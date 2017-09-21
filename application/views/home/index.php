@@ -362,7 +362,7 @@
             	<div class="pac-item" id="currentPosId">
                     <span class="material-icons" aria-hidden="true" style="font-size: 2.1em;line-height: .75em; vertical-align: -40%; margin-left: -3px;color: #4285F4;">my_location</span>
                     <span class="pac-item-query" style="padding: 7px;">
-                        <span class="lng-nearby-locat pac-matched ">Current position</span>
+                        <span class="lng-current-pos pac-matched ">Current position</span>
                     </span>
                 </div>
                 <div class="pac-item" id="home-place-id" onclick="selectSavePlaceOfften(1,'save');">

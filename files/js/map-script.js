@@ -15,6 +15,7 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-office-locat').text('在工作中');
     $('.lng-setpin-locat').text('在地图上设置位置');
     $('.lng-nearby-locat').text('附近的地方');
+    $('.lng-current-pos').text('当前位置');
     success = '成功';
     error = '错误';
     document.getElementById("current").value = "加載...";
@@ -33,6 +34,7 @@ else if ($.cookie("lng") == 'th') {
     success = 'สำเร็จ';
     error = 'ผิดพลาด';
     document.getElementById("current").value = "โหลด...";
+    $('.lng-current-pos').text('ตำแหน่งปัจจุบัน');
 } 
 else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
@@ -44,6 +46,7 @@ else if ($.cookie("lng") == 'en') {
     success = 'success';
     error = 'error';
      document.getElementById("current").value = "Loading...";
+     $('.lng-current-pos').text('Current Position');
     /*$('.lng-home-locat').text('Home');
     $('.lng-office-locat').text('');
     $('.lng-setpin-locat').text('');
@@ -58,6 +61,7 @@ else if ($.cookie("lng") == undefined) {
     choose = 'Choose';
     success = 'success';
     error = 'error';
+    $('.lng-current-pos').text('Current Position');
      document.getElementById("current").value = "Loading...";
 }
 
