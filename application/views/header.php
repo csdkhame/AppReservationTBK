@@ -341,7 +341,6 @@
 
 @media screen and (max-width: 767px){
     .user {
-        
         display:block;
     }
 }
