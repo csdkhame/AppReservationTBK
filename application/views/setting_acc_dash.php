@@ -1,3 +1,4 @@
+
 <style>
 .form-control {
   height: 36px;
@@ -835,7 +836,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                             </div>
                             <h6><span class="lng-choose_pic">Choose Picture</span></h6>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" style="background-color: #fff;">
                                                 
                                                     <div class="input-group">
                                                         <span class="input-group-addon">
@@ -1128,7 +1129,7 @@ else if($.cookie("lng")=="th"){
 choosepic = "เลือกภาพ";
 acc = "บัญชี";
 var title = "คุณแน่ใจหรือไม่?";
-var text = "คุณต้องการเปลี่ยนโปรไฟล์รรือไม่?";
+var text = "คุณต้องการเปลี่ยนโปรไฟล์หรือไม่?";
 var yes = "ตกลง";
 var no = "ยกเลิก";
 var success = 'สำเร็จ';

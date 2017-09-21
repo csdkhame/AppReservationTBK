@@ -53,7 +53,9 @@
     else if($_COOKIE['lng'] == 'cn'){
        $lng_map = 'zh-CN';
     } ?>
+    
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places&language=<?=$lng_map;?>" async defer> </script>
+	
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 
 	
   	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
@@ -175,9 +177,93 @@ $( document ).ready(function() {
 </div>-->
 </html>
 
+<style>
+.map-bg {    
+    background: url(images/map-bg.jpg) no-repeat;
+    background-position: 0px 0px;
+    background-size: auto;
+    width: 100%;
+    height: 440px; /*adjust to the height of your image*/
+    position: relative;
+}
 
+.marker {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -50px; /*positions our marker*/
+    left: -50px; /*positions our marker*/
+    display: block;  
+}
 
+.pin {
+/*    width: 20px;
+    height: 20px;*/
+    width: 17px;
+    height: 17px;
+    position: relative;
+   /* top: 38px;
+    left: 38px;*/
+    top: 42px;
+    left: 42px;
+    background: rgba(5, 124, 255, 1);    
+    border: 2px solid #FFF;
+    border-radius: 50%;
+    z-index: 1000;
+}
 
+/*.pin-effect {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    display: block;
+    background: rgba(5, 124, 255, 0.6);
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulsate 2400ms ease-out infinite;
+}*/
+.pin-effect {
+       width: 50px;
+    height: 50px;
+    position: absolute;
+    /* top: 9px; */
+    display: block;
+    background: rgba(5, 124, 255, 0.6);
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulsate 2400ms ease-out infinite;
+    /* left: 20px; */
+    /* margin: 10px; */
+    margin-left: 25.5px;
+    /* padding: 13px; */
+    /* margin: 20px; */
+    top: 26px;
+    /* left: 38px; */
+}
+@keyframes pulsate {
+    0% {
+    transform: scale(0.1);
+    opacity: 0;
+    }
+    50% {
+    opacity: 1;
+    }
+    100% {
+    transform: scale(1.2);
+    opacity: 0;
+    }
+}
+	</style>
+
+<script src="https://cdn.rawgit.com/googlemaps/js-rich-marker/gh-pages/src/richmarker.js"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry"></script>-->
+<!--<script src="<?php echo base_url(); ?>files/js/richmarker.js?v=<?=time();?>"></script>-->
+<!--<div id="map_canvas"></div>-->
+<div id="marker" display="hidden" class="marker" style="display: none;">
+  <div class="pin"></div>
+  <div class="pin-effect"></div>
+</div>
 
 
 

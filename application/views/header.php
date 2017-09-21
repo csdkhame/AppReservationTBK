@@ -28,7 +28,7 @@
 
 	
 
-    <body class="presentation-page" >
+    <body class="presentation-page" style="overflow-x: hidden;" >
         <div id="loading">
             <div class="loading-in" >               
                 <div class="loading-ld" >

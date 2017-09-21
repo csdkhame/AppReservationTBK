@@ -472,7 +472,7 @@ $(document).ready(function() {
         $('.lng-last-name').html('นามสกุล');
         $('.lng-address').html('ที่อยู่');
         $('.lng-country').html('ประเทศ');
-        $('.lng-old-password').html('รหัสผ่านเก่า');
+        $('.lng-old-password').html('รหัสผ่านเดิม');
 		$('.lng-other').html('อื่นๆ');
 		$('.lng-paynow').html('ชำระตอนนี้');
 		

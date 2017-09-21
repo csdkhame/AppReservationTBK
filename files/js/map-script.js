@@ -17,6 +17,7 @@ if ($.cookie("lng") == 'cn') {
     $('.lng-nearby-locat').text('附近的地方');
     success = '成功';
     error = '错误';
+    document.getElementById("current").value = "加載...";
 } 
 else if ($.cookie("lng") == 'th') {
     please_login_txt = "กรุณาเข้าสู่ระบบ";
@@ -31,6 +32,7 @@ else if ($.cookie("lng") == 'th') {
     $('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
     success = 'สำเร็จ';
     error = 'ผิดพลาด';
+    document.getElementById("current").value = "โหลด...";
 } 
 else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
@@ -41,6 +43,7 @@ else if ($.cookie("lng") == 'en') {
     choose = 'Choose';
     success = 'success';
     error = 'error';
+     document.getElementById("current").value = "Loading...";
     /*$('.lng-home-locat').text('Home');
     $('.lng-office-locat').text('');
     $('.lng-setpin-locat').text('');
@@ -55,6 +58,7 @@ else if ($.cookie("lng") == undefined) {
     choose = 'Choose';
     success = 'success';
     error = 'error';
+     document.getElementById("current").value = "Loading...";
 }
 
 if ($.cookie("login") == undefined) {
@@ -117,7 +121,7 @@ function outSearchRealtime() {
         $('.box-menu-select').show();
         $('#sectionsNav').show();
     }, 200);
-
+	$('#outNearby').click();
 }
 
 
@@ -132,9 +136,13 @@ $('#search-raeltime input').focus(function() {
     if (this.id == "pac-input") {
         $('#for_check_endInput').val(1);
         $('#for_check_currentInput').val(0);
-        //        $(this).val('');
+        $(this).val('');
     }
 
+    $('.a-link-item').remove();
+	$('.not-found').remove();
+	$('.typerel').remove();
+		    
     $('#to-remove-class').removeClass();
     $('#sectionsNav').hide();
 
@@ -157,7 +165,7 @@ $('#search-raeltime input').focus(function() {
     $('#listPleacItem_1').appendTo('#appendBox');
 
 
-    $('.box-menu-select').hide();
+   $('.box-menu-select').hide();
 
     if (infowindow) {
         console.log(infowindow);
@@ -230,7 +238,7 @@ var end;
 var geocoder;
 var intervalTime; // animate
 var options
-
+var markerTest;
 function initialize() {
 
     var mapMinZoom = 13;
@@ -299,18 +307,7 @@ function initialize() {
 }
 
 function initAutocomplete(map) {
-    if ($.cookie("lng") == "en") {
-        document.getElementById("current").value = "Loading...";
-    } else if ($.cookie("lng") == "cn") {
-        document.getElementById("current").value = "加載...";
-    } else if ($.cookie("lng") == "th") {
-        document.getElementById("current").value = "โหลด...";
-    } else if ($.cookie("lng") == undefined) {
-        document.getElementById("current").value = "Loading...";
-    }
-
-    createAllMarker();
-
+	createAllMarker();
     //    addYourLocationButton(map, marker2);
     google.maps.event.addListener(map, 'dragend', function() {
         $('#btn_CurrentLocation').show('500');
@@ -319,6 +316,7 @@ function initAutocomplete(map) {
     inputStart.addEventListener('click', function() {
         document.getElementById("current").value = "";
         start = null;
+        console.log(start);
     });
 
     var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
@@ -348,8 +346,15 @@ function initAutocomplete(map) {
             };
             start = pos;
             console.log(start);
-            markerCircle.setPosition(pos);
+//            markerCircle.setPosition(pos);
+//            markerTest.setPosition(pos);
+			var curPosition = new google.maps.LatLng(pos);
+			console.log(map.getCenter());
+			
+ 			markerTest.setPosition(curPosition);
+ 			
             map.setCenter(pos);
+           $('#marker').show();
             geocoder = new google.maps.Geocoder;
 
             latitude = position.coords.latitude;
@@ -389,11 +394,14 @@ function initAutocomplete(map) {
         var m = dist * 1000;
         console.log(m);
         //		if( JSON.stringify(current) != JSON.stringify(start) ){
-        if (m > 70) {
+        if (m > 50) {
             console.log(current);
             console.log(start);
             pos = current;
             start = pos;
+            var curPosition = new google.maps.LatLng(pos);
+ 			markerTest.setPosition(curPosition);
+// 			map.panTo(pos);
             geocoderRun(pos);
         }
     };
@@ -419,13 +427,14 @@ function initAutocomplete(map) {
             map.setZoom(16); // Why 17? Because it looks good.
         }
 
-
+		
         end = placeEnd.geometry.location;
         endMarker.setVisible(true);
         endMarker.setPosition(end);
-
+		
+		var origin = new google.maps.LatLng(start);
         var request = {
-            origin: start,
+            origin: origin,
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
@@ -531,8 +540,9 @@ $('#btn_CurrentLocation').click(function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            markerTest.setPosition(latlng);
             map.panTo(latlng);
-            markerCircle.setPosition(latlng);
+//            markerCircle.setPosition(latlng);
             setTimeout(function() {
 
                 document.getElementById("current").value = placeStart[1].formatted_address;
@@ -553,13 +563,14 @@ $('#btn_CurrentLocation').click(function() {
     }
 
 });
-$('#pac-input').click(function() {
+
+/*$('#pac-input').click(function() {
     $('#pac-input').val('');
     $('.a-link-item').remove();
     $('.not-found').remove();
     $('.typerel').remove();
-    resetMap();
-})
+//    resetMap();
+})*/
 $('#clear-all').click(function() {
     $('#pac-input').val('');
     console.log(placeStart);
@@ -573,6 +584,8 @@ $('#clear-all').click(function() {
 
 $("#current").focusout(function() {
     $('#current').val(placeStart[1].formatted_address);
+    start = pos;
+    console.log(start);
 });
 
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
@@ -936,14 +949,14 @@ function callback(results, status) {
 }
 
 function appendPlace(place) {
-    //	console.log(place);
+//    console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
     var lng = lo.lng;
     var address = place.name + " " + place.vicinity;
     var btn = '<button class="btn btn-xs">' + place.photos[0].html_attributions + '</button>';
-    $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">' + icon + '</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></td><td></td></span></table></div>');
+    $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">' + icon + '</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></span><span class="lng-save_home_place" style="font-weight: 600;">'+place.vicinity+'</span></td></tr></table></div>');
 
 }
 
@@ -1071,7 +1084,7 @@ function selectSavePlaceOfften(type_place, type_call) {
         var url;
         var Newlat;
         var Newlng;
-        google.maps.event.addListener(map, 'bounds_changed', function() {
+        google.maps.event.addListener(map, 'center_changed', function() {
             Newlat = map.getCenter().lat();
             Newlng = map.getCenter().lng();
             var newPos = {
@@ -1098,6 +1111,20 @@ function selectSavePlaceOfften(type_place, type_call) {
 }
 
 function createAllMarker() {
+	
+
+    var div = document.getElementById("marker"); // document.createElement('DIV');
+        // div.innerHTML = '<div class="my-other-marker">I am flat marker!</div>';
+     markerTest = new RichMarker({
+          map: map,
+          position: map.getCenter(),
+         /* draggable: true,*/
+          flat: true,
+          anchor: RichMarkerPosition.MIDDLE,
+          content: div
+        });
+//       markerTest.setVisible(map.getCenter());
+	
     pin = {
         url: 'https://dotdotdottrip.com/pic/marker_often.png',
         size: new google.maps.Size(71, 71),
@@ -1135,7 +1162,8 @@ function createAllMarker() {
         radius: Math.sqrt(1) * 30
     });
     circle.bindTo('center', markerCircle, 'position');
-
+ markerCircle.setVisible(false);
+ circle.setVisible(false);
     endMarker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
@@ -1240,14 +1268,17 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
     }
 
     if (start != undefined && end != undefined) {
-
+		
+		var destination = new google.maps.LatLng(end);
+		var origin = new google.maps.LatLng(start);
         var request = {
-            origin: start,
-            destination: end,
+            origin: origin,
+            destination: destination,
             travelMode: google.maps.TravelMode.DRIVING
         };
         lat_f = start.lat;
         lng_f = start.lng;
+        console.log(request);
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
             if (status == 'ZERO_RESULTS') {

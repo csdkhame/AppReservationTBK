@@ -10,8 +10,6 @@ class Userview_model_dash extends CI_Model {
   
   public function query_user($num_record,$start) { 
      		    
-      	
-		
 		$this->db->select('i_id,s_username,s_name,s_email,i_rating,s_code');
 		if($num_record!="" and $start!=""){
 			$this->db->limit($num_record,$start);
@@ -122,6 +120,7 @@ class Userview_model_dash extends CI_Model {
   }
 
   public function update_profile($data,$file_name){
+  	
   	$current = date('Y-m-d h:i:s a');
   
 	foreach($data as $key=>$value){
@@ -131,6 +130,8 @@ class Userview_model_dash extends CI_Model {
 	}
 	$data_each['d_last_update'] = $current;
   	$result_backup = $this->db->insert('ap_users_log',$old_data[0]);
+  	mysql_query("SET NAMES UFT8"); 
+	mysql_query("SET character_set_results=utf-8"); 
 	$this->db->where('i_id', $data[0]->i_id)->update('ap_users_log', $data_each);
 				  
   	$result_backup = 1;
@@ -153,6 +154,8 @@ class Userview_model_dash extends CI_Model {
   	$new_data['s_name'] = $this->input->post('firstname')." ".$this->input->post('lastname');
   	
   	$new_data['t_address'] = $address;
+  	mysql_query("SET NAMES UFT8"); 
+	mysql_query("SET character_set_results=utf-8"); 
   	$result_insert = $this->db->where('i_id', ''.$_COOKIE['login'].'')->update('ap_users', $new_data);
   	
   		return $result_insert;

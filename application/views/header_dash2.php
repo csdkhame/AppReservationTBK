@@ -150,18 +150,23 @@ $( document ).ready(function() {
                                 <div id="usernamess"></div>                             
                                 <b class="caret"></b>
                             </a>
-                             <ul class="dropdown-menu dropdown-with-icons">
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <!-- <li>
+                                    <a href="" >
+                                    <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
+                    
+                                    </a>
+                                </li> -->
+                                 <ul class="dropdown-menu dropdown-with-icons">
                                 
                                <li class="box-setting">
                             <a href="<? echo base_url(); ?>dashboard/account_settings" class="feed">
                               <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
-                               <i class="material-icons">settings</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
+                                <i class="material-icons">settings</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
                             </a>
                         </li>
                         
                             </ul>
-                            <ul class="dropdown-menu dropdown-with-icons">
-                                
                                 <li id="btn-logout-user">
                                     <a>
                                         <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
@@ -170,8 +175,6 @@ $( document ).ready(function() {
                                 </li>
                         
                             </ul>
-                            
-                           
                         </li>
                         <li class="dropdown" id="btnlogin">
                             <div class="user">
@@ -193,11 +196,12 @@ $( document ).ready(function() {
                         </li> -->
                        <!-- <li class="dropdown" id="btnusers">
                             <a  class="dropdown-toggle" data-toggle="dropdown">
-                               
+                                 <div style="width: 100%;text-align: center;"> 
                                 <i class="material-icons">shopping_basket</i><span style="text-transform: initial;" class="lng-product textmenu"></span>
                                 
                                 <b class="caret"></b>
                             </a>
+                            
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
                                     <a href="<?php echo base_url(); ?>" class="feed" >
@@ -208,20 +212,14 @@ $( document ).ready(function() {
                                     <a href="<?php echo base_url(); ?>tour">
                                         <i class="material-icons">style</i><span class="lng-tours textmenu"></span>                    
                                     </a>
-                                </li>                        
+                                </li>                         
                             </ul>
                         </li>-->
                         <li class="box-desboard">
                             <a href="<?php echo base_url(); ?>dashboard/view_user" class="feed">
                             <i class="material-icons" >dvr</i>
-                            <span style="text-transform: initial;" class="lng-management textmenu"></span>                    
-                            </a>
-                        </li>
-                        
-                        <li class="box-payment" style="display: none;">
-                            <a href="<?php echo base_url(); ?>dashboard/payment" class="feed">
-                              <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
-                                <i class="material-icons">payment</i><span style="text-transform: initial;" class="lng-payment_d textmenu">Payment</span>                  
+                            <span style="text-transform: initial;" class="lng-management textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
                             </a>
                         </li>
                         <li class="dropdown" id="btnusers">

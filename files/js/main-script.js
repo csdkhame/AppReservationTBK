@@ -789,6 +789,8 @@ $(document).ready(function() {
     });
     $('.btn-car-service').click(function() {
         //	  $('#selectPlace').show();
+        $('#btn_CurrentLocation').hide();
+        $('#clear-all').hide();
         var lng;
         $('.stayfrom').remove();
         if ($.cookie("lng") == undefined) {
