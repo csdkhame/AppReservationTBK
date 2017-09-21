@@ -55,7 +55,6 @@
     } ?>
     
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places&language=<?=$lng_map;?>" async defer> </script>
-	
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 
 	
   	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
@@ -76,7 +75,7 @@
 
 	</script>
 	<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
-	<script>
+<script>
 		var paramURL = $('#paramUrl').val();
 console.log("::::"+paramURL);
 if(paramURL=="realtime"){
@@ -256,7 +255,7 @@ $( document ).ready(function() {
 }
 	</style>
 
-<script src="https://cdn.rawgit.com/googlemaps/js-rich-marker/gh-pages/src/richmarker.js"></script>
+<script src="https://cdn.rawgit.com/googlemaps/js-rich-marker/gh-pages/src/richmarker.js?v=<?=time();?>"></script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry"></script>-->
 <!--<script src="<?php echo base_url(); ?>files/js/richmarker.js?v=<?=time();?>"></script>-->
 <!--<div id="map_canvas"></div>-->

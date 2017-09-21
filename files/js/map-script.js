@@ -304,13 +304,22 @@ function initialize() {
         ]
 
     });
-    /*var list = document.getElementById('list_place');
-        map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(list);*/
-    initAutocomplete(map);
+    
+     var div = document.getElementById("marker"); // document.createElement('DIV');
+        // div.innerHTML = '<div class="my-other-marker">I am flat marker!</div>';
+     markerTest = new RichMarker({
+          map: map,
+          position: map.getCenter(),
+          flat: true,
+          anchor: RichMarkerPosition.MIDDLE,
+          content: div
+        });
+//       markerTest.setVisible(map.getCenter());    
+    a(map);
 
 }
 
-function initAutocomplete(map) {
+function a(map) {
 	createAllMarker();
     //    addYourLocationButton(map, marker2);
     google.maps.event.addListener(map, 'dragend', function() {
@@ -324,20 +333,16 @@ function initAutocomplete(map) {
     });
 
     var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
-    autocompleteStart.bindTo('bounds', map);
-    autocompleteStart.addListener('place_changed', function(ev) {
-        //         	 
+	    autocompleteStart.bindTo('bounds', map);
+	    autocompleteStart.addListener('place_changed', function(ev) {     	 
         placeStart = autocompleteStart.getPlace();
-
         map.panTo(placeStart.geometry.location);
-
         start = placeStart.geometry.location;
         startMarker.setVisible(true);
         startMarker.setPosition(start);
         lat_f = placeStart.geometry.location.lat();
         lng_f = placeStart.geometry.location.lng();
         $('#clear-all').show(500);
-
     });
 
     if (navigator.geolocation) {
@@ -1117,17 +1122,7 @@ function selectSavePlaceOfften(type_place, type_call) {
 function createAllMarker() {
 	
 
-    var div = document.getElementById("marker"); // document.createElement('DIV');
-        // div.innerHTML = '<div class="my-other-marker">I am flat marker!</div>';
-     markerTest = new RichMarker({
-          map: map,
-          position: map.getCenter(),
-         /* draggable: true,*/
-          flat: true,
-          anchor: RichMarkerPosition.MIDDLE,
-          content: div
-        });
-//       markerTest.setVisible(map.getCenter());
+   
 	
     pin = {
         url: 'https://dotdotdottrip.com/pic/marker_often.png',
@@ -1231,7 +1226,8 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
         directionsDisplay.setMap(null);
         markerPlaceOfften.setMap(null);
         google.maps.event.clearListeners(map, 'bounds_changed');
-        google.maps.event.clearListeners(map, 'dragend');
+        google.maps.event.clearListeners(map, 'center_changed');
+//        google.maps.event.clearListeners(map, 'dragend');
         showHeader();
         $('#search-raeltime').show(700);
         $('#clear-all').hide(500);
@@ -1347,7 +1343,7 @@ function setPinLocation() {
     var url;
     var Newlat;
     var Newlng;
-    google.maps.event.addListener(map, 'bounds_changed', function() {
+    google.maps.event.addListener(map, 'center_changed', function() {
         Newlat = map.getCenter().lat();
         Newlng = map.getCenter().lng();
         var newPos = {
@@ -1395,7 +1391,7 @@ function resetMap() {
     endMarker.setVisible(false);
     startMarker.setVisible(false);
     google.maps.event.clearListeners(map, 'center_changed');
-    google.maps.event.clearListeners(map, 'dragend');
+//    google.maps.event.clearListeners(map, 'dragend');
     google.maps.event.clearListeners(map, 'bounds_changed');
     showHeader();
     if ($('#search-show').css('display') == 'block') {
@@ -1410,5 +1406,8 @@ function resetMap() {
 
     start = pos;
     end = null;
-    $('#btn_CurrentLocation').show(700);
+   /* $('#btn_CurrentLocation').show(700);*/
+    google.maps.event.addListener(map, 'dragend', function() {
+        $('#btn_CurrentLocation').show('500');
+    });
 }
