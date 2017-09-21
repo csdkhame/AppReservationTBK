@@ -376,7 +376,7 @@ $(document).ready(function() {
 
         $('#loading').css('display', 'block');
         $('.a-link-item').remove();
-        $('.typeservice').remove();
+        //$('.typeservice').remove();
 
         //$('#typecarservice').remove();
         $('#product_service').animate({ scrollTop: 0 }, '500');
