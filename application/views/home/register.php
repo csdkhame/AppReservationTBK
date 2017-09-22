@@ -1157,7 +1157,7 @@ text-align: center;
 <script>
 $(document).ready(function(){
     var username, password , username_signup ,password_signup,text_check,forget = '';
-    var base_url = "https://www.welovetaxi.com/app/booking/"
+    var base_url = "https://www.welovetaxi.com/app/booking/";
 $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>getuserlog_control/process',
