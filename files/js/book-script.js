@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var base_url = 'https://dotdotdottrip.com/';
+    var base_url = 'https://welovetaxi.com/app/booking/';
     $('#loading').css('display', 'block');
     $('#content').css('display', 'none');
     setTimeout(function() {
@@ -246,7 +246,7 @@ $(document).ready(function() {
     });
 
     $('#acceptanceuser').change(function() {
-        var urlimg = 'https://dotdotdottrip.com/';
+        var urlimg = 'https://welovetaxi.com/app/booking/';
         if (this.checked) {
             console.log('in case user')
             console.log(datauser)
@@ -407,12 +407,12 @@ $(document).ready(function() {
 
     //$('#code').html('code country')
     $('#select-country').click(function() {
-        var url = 'https://dotdotdottrip.com/';
+        var url = 'https://welovetaxi.com/app/booking/';
         $('#codecountry').show(500);
         $('#select-name').html('')
         $.ajax({
             type: 'POST',
-            url: 'https://dotdotdottrip.com/getcountry_control/process',
+            url: url + 'getcountry_control/process',
             //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
             //contentType: "application/json",
             dataType: 'json',
@@ -1085,7 +1085,7 @@ $(document).ready(function() {
         console.log(code_ref + 'code_ref');
         console.log(area)
         console.log(cost_a_nett)
-        var url2 = 'https://dotdotdottrip.com/';
+        var url2 = 'https://welovetaxi.com/app/booking/';
 
         console.log(flight)
         if ((area == 'In' || area == 'Out') && flight == undefined) {
@@ -1097,7 +1097,7 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 type: 'POST',
-                url: 'https://dotdotdottrip.com/savebook_control/process',
+                url: url + 'savebook_control/process',
                 data: {
                     'from': getParameterByName('from'),
                     'to': getParameterByName('to'),
@@ -1396,7 +1396,7 @@ $(document).ready(function() {
                     console.log(param)
                     $.ajax({
                         type: 'POST',
-                        url: 'https://dotdotdottrip.com/savebook_control/saveapi',
+                        url: base_url + 'savebook_control/saveapi',
                         data: param,
                         //contentType: "application/json",
                         dataType: 'json',
@@ -1406,7 +1406,7 @@ $(document).ready(function() {
                             if (data.status == 202) {
                                 $.ajax({
                                     type: 'POST',
-                                    url: 'https://dotdotdottrip.com/sendemail.php',
+                                    url: url + 'sendemail.php',
                                     data: { 'mail': s_email, 'voucher': data.invoice },
                                     //contentType: "application/json",
                                     dataType: 'json',
@@ -1422,7 +1422,7 @@ $(document).ready(function() {
                             } else {
                                 alert("please input data ");
                             }
-                            window.location.href = "https://dotdotdottrip.com/dashboard/view_user";
+                            window.location.href = url + "dashboard/view_user";
 
                         }
                     });
@@ -1443,7 +1443,7 @@ $(document).ready(function() {
 });
 
 function sendCountry(x) {
-    var url = 'https://dotdotdottrip.com/';
+    var url = 'https://welovetaxi.com/app/booking/';
     console.log(x)
     if (x == undefined) {
         $.cookie("phonecode", '');

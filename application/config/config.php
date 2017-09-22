@@ -23,8 +23,8 @@
 |
 */
 //$config['base_url'] = 'https://dotdotdottrip.com/';
-//$config['base_url'] = 'https://www.welovetaxi.com/app/transfer/';
-$config['base_url'] = 'http://localhost/AppReservationTBK/';
+$config['base_url'] = 'https://www.welovetaxi.com/app/booking/';
+//$config['base_url'] = 'http://localhost/AppReservationTBK/';
 // $config['base_url'] = '';
 
 /*

@@ -1,8 +1,8 @@
 var rel = false;
 var dataplacerel, pro_id, pro_id_to, datacaedervice;
-var base_url = 'https://dotdotdottrip.com/';
+// var base_url = 'https://dotdotdottrip.com/';
 
-//var base_url = 'https://www.welovetaxi.com/app/transfer/';
+var base_url = 'https://www.welovetaxi.com/app/booking/';
 //var base_url = 'http://localhost/AppReservationTBK/';
 
 $(document).ready(function() {
