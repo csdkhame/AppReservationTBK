@@ -260,17 +260,18 @@
 
 <script>
 if($.cookie("lng")=="en"){
-var title = "Logout ?";
-var text = "Do you want to logout?";
+var title_logout = "Logout ?";
+var text_logout = "Do you want to logout?";
+
 }else if($.cookie("lng")=="cn"){
-var title = "登出 ?";
-var text = "คุณต้องการออกจากระบบ ?";
+var title_logout = "登出 ?";
+var text_logout = "คุณต้องการออกจากระบบ ?";
 }else if($.cookie("lng")=="th"){
-var title = "ออกจากระบบ ?";
-var text = "你要退出吗？";
+var title_logout = "ออกจากระบบ ?";
+var text_logout = "你要退出吗？";
 }else if($.cookie("lng")==undefined){
-var title = "Logout ?";
-var text = "Do you want to logout?";
+var title_logout = "Logout ?";
+var text_logout = "Do you want to logout?";
 }	 
 var base_url = 'https://www.welovetaxi.com/app/booking/';
 $( document ).ready(function() {
@@ -283,12 +284,12 @@ $( document ).ready(function() {
 	$('#btn-logout-user').on('click', function() {
 		
 swal({
-  title: ''+title+'',
-  text: ''+text+'',
+  title: ''+title_logout+'',
+  text: ''+text_logout+'',
   type: "warning",
   showCancelButton: true,
   confirmButtonClass: "btn-danger",
-  confirmButtonText: "Yes, delete it!",
+  confirmButtonText: yes,
   closeOnConfirm: false
 },
 function(){
