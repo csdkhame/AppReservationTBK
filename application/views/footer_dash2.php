@@ -260,13 +260,17 @@
 
 <script>
 if($.cookie("lng")=="en"){
-var title = "";
+var title = "Logout ?";
+var text = "Do you want to logout?";
 }else if($.cookie("lng")=="cn"){
-var title = "";
+var title = "登出 ?";
+var text = "คุณต้องการออกจากระบบ ?";
 }else if($.cookie("lng")=="th"){
-var title = "";
+var title = "ออกจากระบบ ?";
+var text = "你要退出吗？";
 }else if($.cookie("lng")==undefined){
-var title = "";
+var title = "Logout ?";
+var text = "Do you want to logout?";
 }	 
 var base_url = 'https://dotdotdottrip.com/';
 $( document ).ready(function() {
@@ -279,8 +283,8 @@ $( document ).ready(function() {
 	$('#btn-logout-user').on('click', function() {
 		
 swal({
-  title: "Are you sure?",
-  text: "Your will not be able to recover this imaginary file!",
+  title: ''+title+'',
+  text: ''+text+'',
   type: "warning",
   showCancelButton: true,
   confirmButtonClass: "btn-danger",
