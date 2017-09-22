@@ -161,7 +161,7 @@ $(document).ready(function() {
         $('.stayto').remove()
         $.ajax({
             type: 'POST',
-            url: 'https://welovetaxi.com/app/booking/service/getstayto.php',
+            url: 'https://www.welovetaxi.com/app/booking/service/getstayto.php',
             data: { 'from': pro_id, 'lng': lng },
             //contentType: "application/json",
             dataType: 'json',
@@ -801,7 +801,7 @@ $(document).ready(function() {
         console.log(lng)
         $.ajax({
             type: 'POST',
-            url: 'https://welovetaxi.com/app/booking/service/getstay.php',
+            url: 'https://www.welovetaxi.com/app/booking/service/getstay.php',
             data: { 'lng': lng },
             //contentType: "application/json",
             dataType: 'json',
@@ -1144,41 +1144,41 @@ $(document).ready(function() {
     // $('body').addClass('loaded');
     //          $('#text-load').css('display','none') 
     var quotations = [];
-    if($.cookie("lng")=="en"){
-var title_logout = "Logout ?";
-var text_logout = "Do you want to logout?";
+    if ($.cookie("lng") == "en") {
+        var title_logout = "Logout ?";
+        var text_logout = "Do you want to logout?";
 
-}else if($.cookie("lng")=="cn"){
-var title_logout = "登出 ?";
-var text_logout = "คุณต้องการออกจากระบบ ?";
-}else if($.cookie("lng")=="th"){
-var title_logout = "ออกจากระบบ ?";
-var text_logout = "你要退出吗？";
-}else if($.cookie("lng")==undefined){
-var title_logout = "Logout ?";
-var text_logout = "Do you want to logout?";
-}	 
+    } else if ($.cookie("lng") == "cn") {
+        var title_logout = "登出 ?";
+        var text_logout = "คุณต้องการออกจากระบบ ?";
+    } else if ($.cookie("lng") == "th") {
+        var title_logout = "ออกจากระบบ ?";
+        var text_logout = "你要退出吗？";
+    } else if ($.cookie("lng") == undefined) {
+        var title_logout = "Logout ?";
+        var text_logout = "Do you want to logout?";
+    }
     $('#btn-logout-user').on('click', function() {
-       
-       swal({
-  title: ''+title_logout+'',
-  text: ''+text_logout+'',
-  type: "warning",
-  showCancelButton: true,
-  confirmButtonClass: "btn-danger",
-  confirmButtonText: yes,
-  closeOnConfirm: false
-},
-function(){
-	console.log('logout');
-        $.removeCookie("login");
-       
-  		 window.location.href = base_url + "register";
-  
-});
-       /* console.log('logout')
-        $.removeCookie("login");
-        window.location.href = base_url + "register";*/
+
+        swal({
+                title: '' + title_logout + '',
+                text: '' + text_logout + '',
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: yes,
+                closeOnConfirm: false
+            },
+            function() {
+                console.log('logout');
+                $.removeCookie("login");
+
+                window.location.href = base_url + "register";
+
+            });
+        /* console.log('logout')
+         $.removeCookie("login");
+         window.location.href = base_url + "register";*/
     })
     $('.btn-show-select').click(function() {
         console.log('hide-show');
