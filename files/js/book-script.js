@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var base_url = 'https://welovetaxi.com/app/booking/';
+    var base_url = 'https://www.welovetaxi.com/app/booking/';
     $('#loading').css('display', 'block');
     $('#content').css('display', 'none');
     setTimeout(function() {
@@ -121,7 +121,7 @@ $(document).ready(function() {
             //        alert(base_url+'getuser_control/mainpage');
         $.ajax({
             type: 'POST',
-            url: '../getuser_control/mainpage',
+            url: 'https://www.welovetaxi.com/app/booking/getuser_control/mainpage',
             data: { 'id': $.cookie("login") },
             //contentType: "application/json",
             dataType: 'json',
@@ -246,7 +246,7 @@ $(document).ready(function() {
     });
 
     $('#acceptanceuser').change(function() {
-        var urlimg = 'https://welovetaxi.com/app/booking/';
+        var urlimg = 'https://www.welovetaxi.com/app/booking/';
         if (this.checked) {
             console.log('in case user')
             console.log(datauser)
@@ -333,7 +333,7 @@ $(document).ready(function() {
     console.log(getParameterByName('to'))
     $.ajax({
         type: 'POST',
-        url: '../service/getplace.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/getplace.php',
         data: { 'from': getParameterByName('from'), 'to': getParameterByName('to') },
         //contentType: "application/json",
         dataType: 'json',
@@ -376,7 +376,7 @@ $(document).ready(function() {
     })
     $.ajax({
         type: 'POST',
-        url: '../getcountry_control/process',
+        url: 'https://www.welovetaxi.com/app/booking/getcountry_control/process',
         //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
         //contentType: "application/json",
         dataType: 'json',
@@ -407,7 +407,7 @@ $(document).ready(function() {
 
     //$('#code').html('code country')
     $('#select-country').click(function() {
-        var url = 'https://welovetaxi.com/app/booking/';
+        var url = 'https://www.welovetaxi.com/app/booking/';
         $('#codecountry').show(500);
         $('#select-name').html('')
         $.ajax({
@@ -434,7 +434,7 @@ $(document).ready(function() {
     });
     $.ajax({
         type: 'POST',
-        url: '../service/getDetail.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/getDetail.php',
         data: { 'id': getParameterByName('data') },
         //contentType: "application/json",
         dataType: 'json',
