@@ -372,16 +372,14 @@ function a(map) {
             var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 
             geocoderRun(latlng);
-
-
+            
             var id = 0,
                 target;
-            intervalTime = setInterval(function() {
-                navigator.geolocation.getCurrentPosition(success, error, options);
-                id = id + 1;
-
-                //					          console.log("watchPosition : "+id); 
-            }, 5000);
+	            intervalTime = setInterval(function() {
+	                navigator.geolocation.getCurrentPosition(success, error, options);
+	                id = id + 1;
+	                //console.log("watchPosition : "+id); 
+	            }, 5000);
 
         });
     }

@@ -366,7 +366,7 @@ $(window).scroll(function() {
 										if($show['status_pay_driver']==1)	{
 									$status_pay = $paydriver;
 										}else{	
-							$status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;font-size: 13px;" href="https://dotdotdottrip.com/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
+$status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;font-size: 13px;" href="https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
 										}
 									}else if($show['status_pay']==1){
 										$status_pay = $paysuccess;

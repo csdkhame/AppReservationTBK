@@ -148,8 +148,24 @@ $( document ).ready(function() {
 /*	var url_string = window.location.href;
 	var url = new URL(url_string);
 	var c = url.searchParams.get("active");*/
-  var active = '<?=$_POST['active']?>'; // That's for a string
-//  alert(active);
+/*  var active = '<?=$_POST['active']?>'; // That's for a string
+  console.log(active);
+	setTimeout(function(){ 
+	if( active=='realtime'){
+		$('.btn-realtime').click();
+	}else if( active=='reservation'){
+		$('.btn-reservation').click();
+	}
+	else if( active=='service'){
+		$('.btn-car-service').click();
+	}
+	active = '';
+	 }, 4000);*/
+<?php
+session_start();
+?>
+	var active = '<?=$_SESSION["active"];?>';
+	console.log('Session : '+active);
 	setTimeout(function(){ 
 	if( active=='realtime'){
 		$('.btn-realtime').click();
@@ -160,9 +176,8 @@ $( document ).ready(function() {
 		$('.btn-car-service').click();
 	}
 	
-	 }, 1500);
-	
-	
+	 }, 4000);
+<?php session_unset(); ?>	
 });	
 </script>
 
