@@ -1157,7 +1157,7 @@ text-align: center;
 <script>
 $(document).ready(function(){
     var username, password , username_signup ,password_signup,text_check,forget = '';
-    var base_url = "https://dotdotdottrip.com/"
+    var base_url = "https://www.welovetaxi.com/app/booking/"
 $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>getuserlog_control/process',
@@ -1234,7 +1234,7 @@ $.ajax({
         if(forget != ''){
             $.ajax({
             type: 'POST',
-            url: 'https://dotdotdottrip.com/fogetpassword.php',
+            url: base_url+'fogetpassword.php',
             data: { 'mail': forget },
             //contentType: "application/json",
             //dataType: 'json',
@@ -1310,7 +1310,7 @@ $.ajax({
             $('.btn-reservation').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
            // $('#loading').css('display', 'none');
-            window.location.href = "https://dotdotdottrip.com/";
+            window.location.href = base_url+"";
         }, 2000);
 
 
@@ -1323,7 +1323,7 @@ $.ajax({
             $('.btn-reservation').css('color', '#999999');
             $('.btn-realtime').css('color', '#999999');
             $('#loading').css('display', 'none');
-            window.location.href = "https://dotdotdottrip.com/";
+            window.location.href = base_url+"";
         }, 2000);
 
 
