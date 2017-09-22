@@ -87,7 +87,11 @@
 
     </style>
 
+<input type="hidden" id="by" value="<?=$by;?>"/>
+<input type="hidden" id="data" value="<?=$data;?>"/>
+<input type="hidden" id="from" value="<?=$from;?>"/>
 <input type="hidden" id="to" value="<?=$to;?>"/>
+
     <div id="loading" style="display: none;">
             <div class="loading-in">               
                 <div class="loading-ld">
@@ -1157,14 +1161,14 @@ text-align: center;
 <script>
 $(document).ready(function(){
 	
-	<?php
+/*	<?php
 	session_start();
 	?>
 	var data = '<?=$_SESSION["data"];?>';
 	var from = '<?=$_SESSION["from"];?>';
 	var to = '<?=$_SESSION["to"];?>';
 	
-	console.log('ValueSession : '+data+' '+from+' '+to);
+	console.log('ValueSession : '+data+' '+from+' '+to);*/
 	
     var username, password , username_signup ,password_signup,text_check,forget = '';
     var base_url = "https://www.welovetaxi.com/app/booking/";
@@ -1268,9 +1272,13 @@ $.ajax({
        // $('#foget-password').fadeOut(500)
         window.location.reload();
     });
-    
+    	
+    	
     $('#login').on('click', function() {
-    	var type_login = $('#to').val();
+var type_login = $('#by').val();
+    	var param_data = $('#data').val();
+    	var param_from = $('#from').val();
+    	var param_to = $('#to').val();
 //    	alert(type_login);
        console.log(password+username);
 //    alert('<?php echo base_url(); ?>login_control/process');
@@ -1290,8 +1298,11 @@ $.ajax({
                  if(type_login=='dasboard'){
 				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
 				 }else if(type_login=='book'){
-//				 	window.location.href = "<?php echo base_url(); ?>home";
+//						alert(param_data+" "+param_from+" "+param_to);
+				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to;
 					
+				 }else{
+				 	window.location.href = "<?php echo base_url(); ?>";
 				 }
               }
               else if(res.status==1)
@@ -1383,7 +1394,9 @@ $.ajax({
           
         }
     });
+    
     });
+    
      $('#registered').on('click', function() {
         console.log('in case signup')
         console.log(text_check)
@@ -1465,6 +1478,10 @@ window.fbAsyncInit = function() {
     }
   }
   function checkLoginState() {
+  	var type_login = $('#by').val();
+    	var param_data = $('#data').val();
+    	var param_from = $('#from').val();
+    	var param_to = $('#to').val();
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=name,email', function(response) {
         console.log(response)
@@ -1481,7 +1498,16 @@ window.fbAsyncInit = function() {
           if(res.status == 0)
               {
                  $.cookie("login",res.username);
-                   window.location.href = "<?php echo base_url(); ?>home";         
+                   /*window.location.href = "<?php echo base_url(); ?>home";   */   
+                   if(type_login=='dasboard'){
+				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
+				 }else if(type_login=='book'){
+//						alert(param_data+" "+param_from+" "+param_to);
+				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to;
+					
+				 }else{
+				 	window.location.href = "<?php echo base_url(); ?>";
+				 }   
               }
               else 
               {    
@@ -1546,7 +1572,10 @@ window.fbAsyncInit = function() {
 				  console.log(profile); 
 				  var url = '<?php echo base_url(); ?>login_control/processsocial';
 //				  alert(url);
-				  
+				  var type_login = $('#by').val();
+    	var param_data = $('#data').val();
+    	var param_from = $('#from').val();
+    	var param_to = $('#to').val();
 				  $.post( url, {'username': profile.getEmail(),'name':profile.getName(),'password':profile.getId(),'type':'google','img':profile.getImageUrl() } ,function( data ) {
 //					 	console.log(data);
 					 	var obj_c = JSON.parse(data);
@@ -1556,7 +1585,16 @@ window.fbAsyncInit = function() {
 				              {
 				                 $.cookie("login",obj_c.username);
 //				                 $.cookie("logby",'google');
-				                   window.location.href = "<?php echo base_url(); ?>home";         
+//				                   window.location.href = "<?php echo base_url(); ?>home";    
+if(type_login=='dasboard'){
+				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
+				 }else if(type_login=='book'){
+//						alert(param_data+" "+param_from+" "+param_to);
+				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to;
+					
+				 }else{
+				 	window.location.href = "<?php echo base_url(); ?>";
+				 }     
 				              }
 				              else 
 				              {    

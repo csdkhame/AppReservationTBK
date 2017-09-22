@@ -1223,6 +1223,7 @@ $( "#country_sekect" ).change(function() {
   var code = $('#country_sekect :selected').attr('class');
 //  console.log(code);
  $('#code_phone').val(code);
+
 });
 	
 	
@@ -1281,13 +1282,13 @@ if(value.id == country_id ){
 	selected = "";
 }
 if($.cookie("lng")=="en"){
-$('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_en+' </option>');
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' class="'+value.phonecode+'" > '+value.name_en+' </option>');
 }else if($.cookie("lng")=="cn"){
-$('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_cn+' </option>');
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' class="'+value.phonecode+'"> '+value.name_cn+' </option>');
 }else if($.cookie("lng")=="th"){
-$('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_th+' </option>');
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' class="'+value.phonecode+'"> '+value.name_th+' </option>');
 }else if($.cookie("lng")==undefined){
-$('#country_sekect').append('<option value="'+value.id+'" '+selected+' > '+value.name_en+' </option>');
+$('#country_sekect').append('<option value="'+value.id+'" '+selected+' class="'+value.phonecode+'"> '+value.name_en+' </option>');
 }	 
 
   	 });

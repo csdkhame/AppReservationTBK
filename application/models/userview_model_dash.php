@@ -146,7 +146,7 @@ class Userview_model_dash extends CI_Model {
   	$new_data['s_phone'] = $this->input->post('phone');
   	$new_data['s_username'] = $this->input->post('username');
   	$new_data['i_country'] = $this->input->post('country');
-  	$new_data['s_phone_code'] = $this->input->post('code_phone');
+  	$new_data['s_phone_code'] = 555;
   	/*if($this->input->post('new_password')==!"" or $this->input->post('new_password')==!NULL){
 		$new_data['s_password'] = $this->input->post('new_password');
 	}*/
@@ -158,7 +158,7 @@ class Userview_model_dash extends CI_Model {
 	mysql_query("SET character_set_results=utf-8"); 
   	$result_insert = $this->db->where('i_id', ''.$_COOKIE['login'].'')->update('ap_users', $new_data);
   	
-  		return $result_insert;
+  		return $result_insert ;
 	}else{
 		return "false";
 	}

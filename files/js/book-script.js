@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var data, from , to;
     var base_url = 'https://www.welovetaxi.com/app/booking/';
     $('#loading').css('display', 'block');
     $('#content').css('display', 'none');
@@ -344,6 +345,19 @@ $(document).ready(function() {
     console.log(getParameterByName('data'))
     console.log(getParameterByName('from'))
     console.log(getParameterByName('to'))
+     var data =	getParameterByName('data');
+ var from =	getParameterByName('from');
+ var to = getParameterByName('to');
+ 
+   	$('.box-login-non').click(function() {
+ 
+
+
+		console.log(data+" "+from+" "+to);
+       window.location.href = "https://www.welovetaxi.com/app/booking/register?by=book&data="+data+"&from="+from+"&to="+to;
+        
+    });
+ 
     $.ajax({
         type: 'POST',
         url: 'https://www.welovetaxi.com/app/booking/service/getplace.php',
