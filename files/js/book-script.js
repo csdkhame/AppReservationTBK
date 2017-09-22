@@ -248,9 +248,8 @@ $(document).ready(function() {
     var getemail, getphone;
     $('#acceptanceuser').change(function() {
         if ($.cookie("login") != undefined) {
-            if (!this.checked) {
-                $('#pleselogin').hide()
-            }
+
+
             ckgetuser = true;
             var urlimg = 'https://www.welovetaxi.com/app/booking/';
             if (this.checked) {
@@ -281,7 +280,13 @@ $(document).ready(function() {
                 $('.label-floating').removeClass('is-focused');
             }
         } else {
-            $('#pleselogin').show()
+            console.log(this.checked)
+            if (this.checked == false) {
+                $('#pleselogin').hide()
+            } else {
+                $('#pleselogin').show()
+
+            }
         }
 
     })
