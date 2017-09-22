@@ -1097,7 +1097,7 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 type: 'POST',
-                url: url + 'savebook_control/process',
+                url: 'https://www.welovetaxi.com/app/booking/savebook_control/process',
                 data: {
                     'from': getParameterByName('from'),
                     'to': getParameterByName('to'),
@@ -1396,7 +1396,7 @@ $(document).ready(function() {
                     console.log(param)
                     $.ajax({
                         type: 'POST',
-                        url: base_url + 'savebook_control/saveapi',
+                        url: 'https://www.welovetaxi.com/app/booking/savebook_control/saveapi',
                         data: param,
                         //contentType: "application/json",
                         dataType: 'json',
