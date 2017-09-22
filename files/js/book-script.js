@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var base_url = 'https://welovetaxi.com/app/booking/';
+    var base_url = 'https://www.welovetaxi.com/app/booking/';
     $('#loading').css('display', 'block');
     $('#content').css('display', 'none');
     setTimeout(function() {
@@ -121,7 +121,7 @@ $(document).ready(function() {
             //        alert(base_url+'getuser_control/mainpage');
         $.ajax({
             type: 'POST',
-            url: '../getuser_control/mainpage',
+            url: 'https://www.welovetaxi.com/app/booking/getuser_control/mainpage',
             data: { 'id': $.cookie("login") },
             //contentType: "application/json",
             dataType: 'json',
@@ -244,18 +244,22 @@ $(document).ready(function() {
             this.set('select', date); // Set to current date on load
         }
     });
-
+    var ckgetuser = false;
+    var getemail, getphone;
     $('#acceptanceuser').change(function() {
-        var urlimg = 'https://welovetaxi.com/app/booking/';
+        ckgetuser = true;
+        var urlimg = 'https://www.welovetaxi.com/app/booking/';
         if (this.checked) {
             console.log('in case user')
             console.log(datauser)
                 // $('#numbercountry').append('<span id="select"><img id="imgcountry" src="' + urlimg + 'files/img/flag/icon/' + img + '.png' + '">' + '<span>(+' + x + ')' + ' ' + name + '</span></span>');
             console.log($('#email').val(datauser[0].s_email))
+            getemail = datauser[0].s_email;
+            getphone = datauser[0].s_phone;
             $('#s_username').val(datauser[0].s_email);
             $('#email').val(datauser[0].s_username);
-            $('#phone').val(+' ' + datauser[0].s_phone);
-            $('#phonecode').html('+' + datauser[0].s_phone_code);
+            $('#phone').val(' ' + datauser[0].s_phone);
+            $('#phonecode').html(datauser[0].s_phone_code);
             $('#guestcountry').val(datauser[0].i_country);
             $('#name_lastname').val(datauser[0].s_first_name + ' ' + datauser[0].s_last_name);
             $('.label-floating').addClass('is-focused');
@@ -333,7 +337,7 @@ $(document).ready(function() {
     console.log(getParameterByName('to'))
     $.ajax({
         type: 'POST',
-        url: '../service/getplace.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/getplace.php',
         data: { 'from': getParameterByName('from'), 'to': getParameterByName('to') },
         //contentType: "application/json",
         dataType: 'json',
@@ -376,7 +380,7 @@ $(document).ready(function() {
     })
     $.ajax({
         type: 'POST',
-        url: '../getcountry_control/process',
+        url: 'https://www.welovetaxi.com/app/booking/getcountry_control/process',
         //data: {'province':province,'field' :field_nane,'request':request,'method_name':method_name,'from':table },
         //contentType: "application/json",
         dataType: 'json',
@@ -407,7 +411,7 @@ $(document).ready(function() {
 
     //$('#code').html('code country')
     $('#select-country').click(function() {
-        var url = 'https://welovetaxi.com/app/booking/';
+        var url = 'https://www.welovetaxi.com/app/booking/';
         $('#codecountry').show(500);
         $('#select-name').html('')
         $.ajax({
@@ -434,7 +438,7 @@ $(document).ready(function() {
     });
     $.ajax({
         type: 'POST',
-        url: '../service/getDetail.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/getDetail.php',
         data: { 'id': getParameterByName('data') },
         //contentType: "application/json",
         dataType: 'json',
@@ -1063,6 +1067,10 @@ $(document).ready(function() {
         //    }
         //  });
         var data;
+        if (ckgetuser == true) {
+            email = getemail;
+            phone = getphone;
+        }
         console.log(code)
         console.log(namecountry)
         console.log(num_cars)
@@ -1088,16 +1096,17 @@ $(document).ready(function() {
         var url2 = 'https://welovetaxi.com/app/booking/';
 
         console.log(flight)
-        if ((area == 'In' || area == 'Out') && flight == undefined) {
+        if ((area == 'In' || area == 'Out') && flight == undefined && $.cookie("phonecode") == undefined) {
 
             $('#waning-flight').fadeIn(500);
             //alert("aaaa");
 
 
         } else {
+
             $.ajax({
                 type: 'POST',
-                url: url + 'savebook_control/process',
+                url: 'https://www.welovetaxi.com/app/booking/savebook_control/process',
                 data: {
                     'from': getParameterByName('from'),
                     'to': getParameterByName('to'),
@@ -1396,7 +1405,7 @@ $(document).ready(function() {
                     console.log(param)
                     $.ajax({
                         type: 'POST',
-                        url: base_url + 'savebook_control/saveapi',
+                        url: 'https://www.welovetaxi.com/app/booking/savebook_control/saveapi',
                         data: param,
                         //contentType: "application/json",
                         dataType: 'json',
@@ -1406,7 +1415,7 @@ $(document).ready(function() {
                             if (data.status == 202) {
                                 $.ajax({
                                     type: 'POST',
-                                    url: url + 'sendemail.php',
+                                    url: 'https://www.welovetaxi.com/app/booking/sendemail.php',
                                     data: { 'mail': s_email, 'voucher': data.invoice },
                                     //contentType: "application/json",
                                     dataType: 'json',
@@ -1414,15 +1423,14 @@ $(document).ready(function() {
                                         console.log(data);
                                         //console.log(s_email);
 
-
-
                                     }
                                 });
+                                window.location.href = "https://www.welovetaxi.com/app/booking/dashboard/view_user";
 
                             } else {
                                 alert("please input data ");
                             }
-                            window.location.href = url + "dashboard/view_user";
+
 
                         }
                     });
