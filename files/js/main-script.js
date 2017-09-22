@@ -16,7 +16,7 @@ $(document).ready(function() {
         //        alert(base_url+'getuser_control/mainpage');
         $.ajax({
             type: 'POST',
-            url: '../getuser_control/mainpage',
+            url: base_url + 'getuser_control/mainpage',
             data: { 'id': $.cookie("login") },
             //contentType: "application/json",
             dataType: 'json',
