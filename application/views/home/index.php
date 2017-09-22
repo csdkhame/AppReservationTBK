@@ -301,7 +301,7 @@
                         <select class="textInput" name="typecarservice" id="typecarservice" style="display:none">
                             <option  class="textInput" value="All Type" ><?php echo  $lng_all_type;?></option>                                                                
                         </select>
-                        <div id="box-pro-service" style=" overflo-y: scroll; margin-bottom: 100px;">
+                        <div id="box-pro-service" style=" overflow-y: scroll; margin-bottom: 100px;">
                             <div id="product_service">
                             <div class="not-found lng-not-found" style="display:none"></div>
                             </div>
