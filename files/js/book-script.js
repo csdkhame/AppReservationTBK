@@ -278,8 +278,10 @@ $(document).ready(function() {
         } else {
             console.log(this.checked)
             if (this.checked == false) {
+                //alert('false')
                 $('#pleselogin').hide()
             } else {
+                // alert('true')
                 $('#pleselogin').show()
 
             }
