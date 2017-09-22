@@ -1656,7 +1656,7 @@ function sendValueto(x) {
 
     $.ajax({
         type: 'POST',
-        url: '../service/service.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/service.php',
         data: parame,
         //contentType: "application/json",
         dataType: 'json',
@@ -2031,7 +2031,7 @@ function getcondition(i) {
     };
     $.ajax({
         type: 'POST',
-        url: '../service/getCapacity.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/getCapacity.php',
         data: { 'car_model': i },
         //contentType: "application/json",
         dataType: 'json',
