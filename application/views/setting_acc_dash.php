@@ -1178,7 +1178,9 @@ $('.lng-acc').text(acc);
 				  type: "warning",
 				  showCancelButton: true,
 				  confirmButtonClass: "btn-danger",
-				  confirmButtonText: yes,
+          confirmButtonText: yes,
+          confirmButtonColor: '#0d6b6a',
+          cancelButtonColor: '#d33',
 				  cancelButtonText: no,
 				  closeOnConfirm: false
 				},

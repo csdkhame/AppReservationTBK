@@ -157,7 +157,7 @@
 }
     </style>
     <script>
-    var base_url = 'https://dotdotdottrip.com/';
+    var base_url = 'https://www.welovetaxi.com/app/booking/';
 $( document ).ready(function() {
     var product_name;
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
