@@ -2416,7 +2416,7 @@ function getAddress(address) {
     console.log(dataplacerel)
     $.ajax({
         type: 'POST',
-        url: '../service/curentPlace.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/curentPlace.php',
         data: { 'lat_c': latitude, 'lng_c': longitude },
         //contentType: "application/json",
         dataType: 'json',
