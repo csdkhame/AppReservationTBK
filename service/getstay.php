@@ -1,5 +1,6 @@
 <?php 
-header('Content-type: text/html; charset=utf-8');
+header('Content-type: text/html; charset=utf-8;application/xml');
+// header('Content-type: application/xml');
 //  $curl_post_data = '{
 //     "request" : "'.$_POST[province].'",
 //      "field":{"0":"id","1":"topic","2":"stay"}
