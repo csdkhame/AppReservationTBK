@@ -277,10 +277,10 @@ $(document).ready(function() {
         } else {
             console.log(this.checked)
             if (this.checked == false) {
-                alert('false')
+                //alert('false')
                 $('#pleselogin').hide()
             } else {
-                alert('true')
+                // alert('true')
                 $('#pleselogin').show()
 
             }
