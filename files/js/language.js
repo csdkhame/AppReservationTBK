@@ -151,6 +151,8 @@ $(document).ready(function() {
         $('.lng-not-found').html('产品没有找到');
         $('.lng-no-record').html('没有记录');
         $('.lng-payment').html('付款');
+        $('.lng-plese-login').html('请登录');
+
 
 
 
@@ -296,6 +298,7 @@ $(document).ready(function() {
         $('.lng-not-found').html('Product not Found');
         $('.lng-no-record').html('No Record');
         $('.lng-payment').html('Payment');
+        $('.lng-plese-login').html('Please sign in');
 
 
 
@@ -344,7 +347,7 @@ $(document).ready(function() {
         $('.lng-country').html('Country');
         $('.lng-old-password').html('Old Password');
         $('.lng-other').html('Other');
-		$('.lng-paynow').html('Pay Now');
+        $('.lng-paynow').html('Pay Now');
 
 
 
@@ -443,6 +446,8 @@ $(document).ready(function() {
         $('.lng-not-found').html('ไม่พบผลิตภัณฑ์');
         $('.lng-no-record').html('ไม่มีการบันทึก');
         $('.lng-payment').html('การชำระเงิน');
+        $('.lng-plese-login').html('กรุณาเข้าสู่ระบบ');
+
 
 
 
@@ -473,10 +478,10 @@ $(document).ready(function() {
         $('.lng-address').html('ที่อยู่');
         $('.lng-country').html('ประเทศ');
         $('.lng-old-password').html('รหัสผ่านเดิม');
-		$('.lng-other').html('อื่นๆ');
-		$('.lng-paynow').html('ชำระตอนนี้');
-		
-		
+        $('.lng-other').html('อื่นๆ');
+        $('.lng-paynow').html('ชำระตอนนี้');
+
+
 
     } else if ($.cookie("lng") == undefined) {
         $('.lng-private').html('Private');
@@ -571,7 +576,9 @@ $(document).ready(function() {
         $('.lng-not-found').html('Product not Found');
         $('.lng-no-record').html('No Record');
         $('.lng-payment').html('Payment');
-		
+        $('.lng-plese-login').html('Please sign in');
+
+
 
 
 
@@ -619,8 +626,8 @@ $(document).ready(function() {
         $('.lng-address').html('Address');
         $('.lng-country').html('Country');
         $('.lng-old-password').html('Old Password');
-		$('.lng-other').html('Other');
-		$('.lng-paynow').html('Pay Now');
+        $('.lng-other').html('Other');
+        $('.lng-paynow').html('Pay Now');
 
 
 

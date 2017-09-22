@@ -242,34 +242,48 @@ $(document).ready(function() {
     var ckgetuser = false;
     var getemail, getphone;
     $('#acceptanceuser').change(function() {
-        ckgetuser = true;
-        var urlimg = 'https://www.welovetaxi.com/app/booking/';
-        if (this.checked) {
-            console.log('in case user')
-            console.log(datauser)
-                // $('#numbercountry').append('<span id="select"><img id="imgcountry" src="' + urlimg + 'files/img/flag/icon/' + img + '.png' + '">' + '<span>(+' + x + ')' + ' ' + name + '</span></span>');
-            console.log($('#email').val(datauser[0].s_email))
-            getemail = datauser[0].s_email;
-            getphone = datauser[0].s_phone;
-            $('#s_username').val(datauser[0].s_email);
-            $('#email').val(datauser[0].s_username);
-            $('#phone').val(' ' + datauser[0].s_phone);
-            $('#phonecode').html(datauser[0].s_phone_code);
-            $('#guestcountry').val(datauser[0].i_country);
-            $('#name_lastname').val(datauser[0].s_first_name + ' ' + datauser[0].s_last_name);
-            $('.label-floating').addClass('is-focused');
-            $('#summaryphone').html('+' + datauser[0].s_phone_code + datauser[0].s_phone);
-            $('#summaryemail').html(datauser[0].s_email);
+        if ($.cookie("login") != undefined) {
 
+
+            ckgetuser = true;
+            var urlimg = 'https://www.welovetaxi.com/app/booking/';
+            if (this.checked) {
+                console.log('in case user')
+                console.log(datauser)
+                    // $('#numbercountry').append('<span id="select"><img id="imgcountry" src="' + urlimg + 'files/img/flag/icon/' + img + '.png' + '">' + '<span>(+' + x + ')' + ' ' + name + '</span></span>');
+                console.log($('#email').val(datauser[0].s_email))
+                getemail = datauser[0].s_email;
+                getphone = datauser[0].s_phone;
+                $('#s_username').val(datauser[0].s_email);
+                $('#email').val(datauser[0].s_username);
+                $('#phone').val(' ' + datauser[0].s_phone);
+                $('#phonecode').html(datauser[0].s_phone_code);
+                $('#guestcountry').val(datauser[0].i_country);
+                $('#name_lastname').val(datauser[0].s_first_name + ' ' + datauser[0].s_last_name);
+                $('.label-floating').addClass('is-focused');
+                $('#summaryphone').html('+' + datauser[0].s_phone_code + datauser[0].s_phone);
+                $('#summaryemail').html(datauser[0].s_email);
+
+            } else {
+
+                $('#email').val('');
+                $('#s_username').val('');
+                $('#phone').val('');
+                $('#phonecode').html('').ass;
+                $('#guestcountry').val('');
+                $('#name_lastname').val('');
+                $('.label-floating').removeClass('is-focused');
+            }
         } else {
-            $('#email').val('');
-            $('#s_username').val('');
-            $('#phone').val('');
-            $('#phonecode').html('').ass;
-            $('#guestcountry').val('');
-            $('#name_lastname').val('');
-            $('.label-floating').removeClass('is-focused');
+            console.log(this.checked)
+            if (this.checked == false) {
+                $('#pleselogin').hide()
+            } else {
+                $('#pleselogin').show()
+
+            }
         }
+
     })
     $('#btn-logout-user').click(function() {
         //alert("logout");
