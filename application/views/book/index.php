@@ -786,7 +786,7 @@
                                                     <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
                                                     <span class="lng-get-detail"></span>
                                                 </label>
-                                                <div id="pleselogin" class="lng-plese-login" style="color: red; text-align: center; font-weight: 400; font-size: 16px; margin-top: 12px;">Plese login</div>
+                                                <div id="pleselogin" class="lng-plese-login" style="color: red; text-align: center; font-weight: 400; font-size: 16px; margin-top: 12px;display:none">Plese login</div>
                                             </div>
                                         </div>    
                                         <div class="col-md-6">                                            
