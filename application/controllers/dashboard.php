@@ -53,7 +53,7 @@ public function view_user()
 		else{
 			
 //			redirect('https://dotdotdottrip.com/Register?to=dasboard', 'refresh');
-			redirect('https://www.welovetaxi.com/app/booking/Register?to=dasboard', 'refresh');
+			redirect('https://www.welovetaxi.com/app/booking/register?to=dasboard', 'refresh');
 //			header("Location: http://www.yourwebsite.com/user.php");
 //		echo 55555555;
 
