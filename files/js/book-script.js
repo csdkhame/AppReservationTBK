@@ -244,18 +244,22 @@ $(document).ready(function() {
             this.set('select', date); // Set to current date on load
         }
     });
-
+    var ckgetuser = false;
+    var getemail, getphone;
     $('#acceptanceuser').change(function() {
+        ckgetuser = true;
         var urlimg = 'https://www.welovetaxi.com/app/booking/';
         if (this.checked) {
             console.log('in case user')
             console.log(datauser)
                 // $('#numbercountry').append('<span id="select"><img id="imgcountry" src="' + urlimg + 'files/img/flag/icon/' + img + '.png' + '">' + '<span>(+' + x + ')' + ' ' + name + '</span></span>');
             console.log($('#email').val(datauser[0].s_email))
+            getemail = datauser[0].s_email;
+            getphone = datauser[0].s_phone;
             $('#s_username').val(datauser[0].s_email);
             $('#email').val(datauser[0].s_username);
-            $('#phone').val(+' ' + datauser[0].s_phone);
-            $('#phonecode').html('+' + datauser[0].s_phone_code);
+            $('#phone').val(' ' + datauser[0].s_phone);
+            $('#phonecode').html(datauser[0].s_phone_code);
             $('#guestcountry').val(datauser[0].i_country);
             $('#name_lastname').val(datauser[0].s_first_name + ' ' + datauser[0].s_last_name);
             $('.label-floating').addClass('is-focused');
@@ -1063,6 +1067,10 @@ $(document).ready(function() {
         //    }
         //  });
         var data;
+        if (ckgetuser == true) {
+            email = getemail;
+            phone = getphone;
+        }
         console.log(code)
         console.log(namecountry)
         console.log(num_cars)
@@ -1088,13 +1096,14 @@ $(document).ready(function() {
         var url2 = 'https://welovetaxi.com/app/booking/';
 
         console.log(flight)
-        if ((area == 'In' || area == 'Out') && flight == undefined) {
+        if ((area == 'In' || area == 'Out') && flight == undefined && $.cookie("phonecode") == undefined) {
 
             $('#waning-flight').fadeIn(500);
             //alert("aaaa");
 
 
         } else {
+
             $.ajax({
                 type: 'POST',
                 url: 'https://www.welovetaxi.com/app/booking/savebook_control/process',
@@ -1414,15 +1423,14 @@ $(document).ready(function() {
                                         console.log(data);
                                         //console.log(s_email);
 
-
-
                                     }
                                 });
+                                window.location.href = "https://www.welovetaxi.com/app/booking/dashboard/view_user";
 
                             } else {
                                 alert("please input data ");
                             }
-                            window.location.href = url + "dashboard/view_user";
+
 
                         }
                     });
