@@ -259,6 +259,15 @@
 
 
 <script>
+if($.cookie("lng")=="en"){
+var title = "";
+}else if($.cookie("lng")=="cn"){
+var title = "";
+}else if($.cookie("lng")=="th"){
+var title = "";
+}else if($.cookie("lng")==undefined){
+var title = "";
+}	 
 var base_url = 'https://dotdotdottrip.com/';
 $( document ).ready(function() {
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
@@ -268,9 +277,24 @@ $( document ).ready(function() {
 		});
 	});
 	$('#btn-logout-user').on('click', function() {
-        console.log('logout')
+		
+swal({
+  title: "Are you sure?",
+  text: "Your will not be able to recover this imaginary file!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false
+},
+function(){
+	console.log('logout');
         $.removeCookie("login");
-        window.location.href = base_url + "register";
+       
+  		 window.location.href = base_url + "register";
+  
+});
+        
     })
 	
 	if ($.cookie("login")) {
