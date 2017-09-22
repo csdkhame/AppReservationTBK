@@ -19,8 +19,7 @@ if ($.cookie("lng") == 'cn') {
     success = '成功';
     error = '错误';
     document.getElementById("current").value = "加載...";
-} 
-else if ($.cookie("lng") == 'th') {
+} else if ($.cookie("lng") == 'th') {
     please_login_txt = "กรุณาเข้าสู่ระบบ";
     click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
     lang_to_map = 'th';
@@ -35,8 +34,7 @@ else if ($.cookie("lng") == 'th') {
     error = 'ผิดพลาด';
     document.getElementById("current").value = "โหลด...";
     $('.lng-current-pos').text('ตำแหน่งปัจจุบัน');
-} 
-else if ($.cookie("lng") == 'en') {
+} else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -45,14 +43,13 @@ else if ($.cookie("lng") == 'en') {
     choose = 'Choose';
     success = 'success';
     error = 'error';
-     document.getElementById("current").value = "Loading...";
-     $('.lng-current-pos').text('Current Position');
+    document.getElementById("current").value = "Loading...";
+    $('.lng-current-pos').text('Current Position');
     /*$('.lng-home-locat').text('Home');
     $('.lng-office-locat').text('');
     $('.lng-setpin-locat').text('');
     $('.lng-nearby-locat').text('');*/
-} 
-else if ($.cookie("lng") == undefined) {
+} else if ($.cookie("lng") == undefined) {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -62,7 +59,7 @@ else if ($.cookie("lng") == undefined) {
     success = 'success';
     error = 'error';
     $('.lng-current-pos').text('Current Position');
-     document.getElementById("current").value = "Loading...";
+    document.getElementById("current").value = "Loading...";
 }
 
 if ($.cookie("login") == undefined) {
@@ -125,7 +122,7 @@ function outSearchRealtime() {
         $('.box-menu-select').show();
         $('#sectionsNav').show();
     }, 200);
-	$('#outNearby').click();
+    $('#outNearby').click();
 }
 
 
@@ -144,9 +141,9 @@ $('#search-raeltime input').focus(function() {
     }
 
     $('.a-link-item').remove();
-	$('.not-found').remove();
-	$('.typerel').remove();
-		    
+    $('.not-found').remove();
+    $('.typerel').remove();
+
     $('#to-remove-class').removeClass();
     $('#sectionsNav').hide();
 
@@ -169,7 +166,7 @@ $('#search-raeltime input').focus(function() {
     $('#listPleacItem_1').appendTo('#appendBox');
 
 
-   $('.box-menu-select').hide();
+    $('.box-menu-select').hide();
 
     if (infowindow) {
         console.log(infowindow);
@@ -243,6 +240,7 @@ var geocoder;
 var intervalTime; // animate
 var options
 var markerTest;
+
 function initialize() {
 
     var mapMinZoom = 13;
@@ -304,23 +302,23 @@ function initialize() {
         ]
 
     });
-    
-     var div = document.getElementById("marker"); // document.createElement('DIV');
-        // div.innerHTML = '<div class="my-other-marker">I am flat marker!</div>';
-     markerTest = new RichMarker({
-          map: map,
-          position: map.getCenter(),
-          flat: true,
-          anchor: RichMarkerPosition.MIDDLE,
-          content: div
-        });
-//       markerTest.setVisible(map.getCenter());    
+
+    var div = document.getElementById("marker"); // document.createElement('DIV');
+    // div.innerHTML = '<div class="my-other-marker">I am flat marker!</div>';
+    markerTest = new RichMarker({
+        map: map,
+        position: map.getCenter(),
+        flat: true,
+        anchor: RichMarkerPosition.MIDDLE,
+        content: div
+    });
+    //       markerTest.setVisible(map.getCenter());    
     a(map);
 
 }
 
 function a(map) {
-	createAllMarker();
+    createAllMarker();
     //    addYourLocationButton(map, marker2);
     google.maps.event.addListener(map, 'dragend', function() {
         $('#btn_CurrentLocation').show('500');
@@ -333,8 +331,8 @@ function a(map) {
     });
 
     var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
-	    autocompleteStart.bindTo('bounds', map);
-	    autocompleteStart.addListener('place_changed', function(ev) {     	 
+    autocompleteStart.bindTo('bounds', map);
+    autocompleteStart.addListener('place_changed', function(ev) {
         placeStart = autocompleteStart.getPlace();
         map.panTo(placeStart.geometry.location);
         start = placeStart.geometry.location;
@@ -355,15 +353,15 @@ function a(map) {
             };
             start = pos;
             console.log(start);
-//            markerCircle.setPosition(pos);
-//            markerTest.setPosition(pos);
-			var curPosition = new google.maps.LatLng(pos);
-			console.log(map.getCenter());
-			
- 			markerTest.setPosition(curPosition);
- 			
+            //            markerCircle.setPosition(pos);
+            //            markerTest.setPosition(pos);
+            var curPosition = new google.maps.LatLng(pos);
+            console.log(map.getCenter());
+
+            markerTest.setPosition(curPosition);
+
             map.setCenter(pos);
-           $('#marker').show();
+            $('#marker').show();
             geocoder = new google.maps.Geocoder;
 
             latitude = position.coords.latitude;
@@ -409,8 +407,8 @@ function a(map) {
             pos = current;
             start = pos;
             var curPosition = new google.maps.LatLng(pos);
- 			markerTest.setPosition(curPosition);
-// 			map.panTo(pos);
+            markerTest.setPosition(curPosition);
+            // 			map.panTo(pos);
             geocoderRun(pos);
         }
     };
@@ -436,12 +434,12 @@ function a(map) {
             map.setZoom(16); // Why 17? Because it looks good.
         }
 
-		
+
         end = placeEnd.geometry.location;
         endMarker.setVisible(true);
         endMarker.setPosition(end);
-		
-		var origin = new google.maps.LatLng(start);
+
+        var origin = new google.maps.LatLng(start);
         var request = {
             origin: origin,
             destination: end,
@@ -551,7 +549,7 @@ $('#btn_CurrentLocation').click(function() {
             var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             markerTest.setPosition(latlng);
             map.panTo(latlng);
-//            markerCircle.setPosition(latlng);
+            //            markerCircle.setPosition(latlng);
             setTimeout(function() {
 
                 document.getElementById("current").value = placeStart[1].formatted_address;
@@ -958,14 +956,14 @@ function callback(results, status) {
 }
 
 function appendPlace(place) {
-//    console.log(place);
+    //    console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';
     var lo = place.geometry.location.toJSON();
     var lat = lo.lat;
     var lng = lo.lng;
     var address = place.name + " " + place.vicinity;
     var btn = '<button class="btn btn-xs">' + place.photos[0].html_attributions + '</button>';
-    $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">' + icon + '</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></span><span class="lng-save_home_place" style="font-weight: 600;">'+place.vicinity+'</span></td></tr></table></div>');
+    $('#list_place_push').append('<div class="placeNeary-item pac-item" id="' + place.id + '" onclick="eventPlace(' + lat + ',' + lng + ',\'' + address + '\');"><table><tr><td><span class="">' + icon + '</span></td><td><span class="pac-item-query" style="padding: 7px;"><span class="pac-matched ">' + place.name + '</span></span><span class="lng-save_home_place" style="font-weight: 600;">' + place.vicinity + '</span></td></tr></table></div>');
 
 }
 
@@ -1120,10 +1118,10 @@ function selectSavePlaceOfften(type_place, type_call) {
 }
 
 function createAllMarker() {
-	
 
-   
-	
+
+
+
     pin = {
         url: 'https://dotdotdottrip.com/pic/marker_often.png',
         size: new google.maps.Size(71, 71),
@@ -1161,8 +1159,8 @@ function createAllMarker() {
         radius: Math.sqrt(1) * 30
     });
     circle.bindTo('center', markerCircle, 'position');
- markerCircle.setVisible(false);
- circle.setVisible(false);
+    markerCircle.setVisible(false);
+    circle.setVisible(false);
     endMarker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
@@ -1180,7 +1178,7 @@ function createAllMarker() {
 
 function savePlaceOften(type_call, lat, lng, place_id, type_place) {
     if (type_call == 1) {
-        var url_placeoften = base_url + 'my_place_often/save';
+        var url_placeoften = 'https://welovetaxi.com/app/booking/my_place_often/save';
         console.log(url_placeoften);
         $.post(url_placeoften, { lat: lat, lng: lng, place_id: place_id, type_place: type_place }, function(results) {
             var obj = JSON.parse(results);
@@ -1195,7 +1193,7 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
             }
         });
     } else if (type_call == 2) {
-        var url_placeoften = base_url + 'my_place_often/update';
+        var url_placeoften = 'https://welovetaxi.com/app/booking/my_place_often/update';
         console.log(url_placeoften);
         $.post(url_placeoften, { lat: lat, lng: lng, place_id: place_id, type_place: type_place }, function(results) {
             var obj = JSON.parse(results);
@@ -1227,7 +1225,7 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
         markerPlaceOfften.setMap(null);
         google.maps.event.clearListeners(map, 'bounds_changed');
         google.maps.event.clearListeners(map, 'center_changed');
-//        google.maps.event.clearListeners(map, 'dragend');
+        //        google.maps.event.clearListeners(map, 'dragend');
         showHeader();
         $('#search-raeltime').show(700);
         $('#clear-all').hide(500);
@@ -1268,9 +1266,9 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
     }
 
     if (start != undefined && end != undefined) {
-		
-		var destination = new google.maps.LatLng(end);
-		var origin = new google.maps.LatLng(start);
+
+        var destination = new google.maps.LatLng(end);
+        var origin = new google.maps.LatLng(start);
         var request = {
             origin: origin,
             destination: destination,
@@ -1391,7 +1389,7 @@ function resetMap() {
     endMarker.setVisible(false);
     startMarker.setVisible(false);
     google.maps.event.clearListeners(map, 'center_changed');
-//    google.maps.event.clearListeners(map, 'dragend');
+    //    google.maps.event.clearListeners(map, 'dragend');
     google.maps.event.clearListeners(map, 'bounds_changed');
     showHeader();
     if ($('#search-show').css('display') == 'block') {
@@ -1406,7 +1404,7 @@ function resetMap() {
 
     start = pos;
     end = null;
-   /* $('#btn_CurrentLocation').show(700);*/
+    /* $('#btn_CurrentLocation').show(700);*/
     google.maps.event.addListener(map, 'dragend', function() {
         $('#btn_CurrentLocation').show('500');
     });
