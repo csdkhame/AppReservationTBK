@@ -6,7 +6,20 @@
   font-size: 14px;
   line-height: 1.42857;
 }
-
+.sweet-alert button {
+    width: 100px;
+    background-color: #0d6b6a ;
+    color: white;
+    border: none;
+    box-shadow: none;
+    font-size: 17px;
+    font-weight: 500;
+    -webkit-border-radius: 4px;
+    border-radius: 5px;
+    padding: 10px 32px;
+    margin: 26px 5px 0 5px;
+    cursor: pointer;
+}
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="date"].form-control,
   input[type="time"].form-control,
