@@ -230,7 +230,7 @@ $(document).ready(function() {
         $('#loading').show()
         $.ajax({
             type: 'POST',
-            url: 'https://welovetaxi.com/app/booking/service/carservice.php',
+            url: 'https://www.welovetaxi.com/app/booking/service/carservice.php',
             data: parampro,
             //contentType: "application/json",
             dataType: 'json',
@@ -1322,7 +1322,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: 'https://welovetaxi.com/app/booking/service/servicepro.php',
+                url: 'https://www.welovetaxi.com/app/booking/service/servicepro.php',
                 data: { 'input': input.value.toLowerCase() },
                 //contentType: "application/json",
                 dataType: 'json',
@@ -1416,7 +1416,7 @@ $(document).ready(function() {
         if (input.value.length >= 3) {
             $.ajax({
                 type: 'POST',
-                url: 'https://welovetaxi.com/app/booking/service/servicepro.php',
+                url: 'https://www.welovetaxi.com/app/booking/service/servicepro.php',
                 data: { 'input': input.value.toLowerCase() },
                 //contentType: "application/json",
                 dataType: 'json',
