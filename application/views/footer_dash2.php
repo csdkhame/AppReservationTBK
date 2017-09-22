@@ -272,7 +272,7 @@ var text = "你要退出吗？";
 var title = "Logout ?";
 var text = "Do you want to logout?";
 }	 
-var base_url = 'https://dotdotdottrip.com/';
+var base_url = 'https://www.welovetaxi.com/app/booking/';
 $( document ).ready(function() {
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
 		var obj = JSON.parse(data);
@@ -299,7 +299,7 @@ function(){
   
 });
         
-    })
+    });
 	
 	if ($.cookie("login")) {
         console.log($.cookie("login"))
