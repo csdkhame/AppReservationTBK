@@ -1406,7 +1406,7 @@ $(document).ready(function() {
                             if (data.status == 202) {
                                 $.ajax({
                                     type: 'POST',
-                                    url: url + 'sendemail.php',
+                                    url: 'https://www.welovetaxi.com/app/booking/sendemail.php',
                                     data: { 'mail': s_email, 'voucher': data.invoice },
                                     //contentType: "application/json",
                                     dataType: 'json',
