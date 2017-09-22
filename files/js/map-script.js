@@ -622,7 +622,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var id_placefrom, id_placeto;
     $.ajax({
         type: 'POST',
-        url: '../service/getPlaceId.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/getPlaceId.php',
         data: { 'lat_c': lat_f, 'lng_c': lng_f },
         //contentType: "application/json",
         dataType: 'json',
@@ -633,7 +633,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
     $.ajax({
         type: 'POST',
-        url: '../service/getPlaceId.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/getPlaceId.php',
         data: { 'lat_c': lat_t, 'lng_c': lng_t },
         //contentType: "application/json",
         dataType: 'json',
@@ -645,7 +645,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
     $.ajax({
         type: 'POST',
-        url: '../service/servicereltime.php',
+        url: 'https://www.welovetaxi.com/app/booking/service/servicereltime.php',
         data: { 'lat_f': lat_f, 'lng_f': lng_f, 'distance': dist, 'lat_t': lat_t, 'lng_t': lng_t },
         //contentType: "application/json",
         dataType: 'json',
