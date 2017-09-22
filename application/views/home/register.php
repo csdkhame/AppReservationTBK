@@ -1156,6 +1156,16 @@ text-align: center;
 
 <script>
 $(document).ready(function(){
+	
+	<?php
+	session_start();
+	?>
+	var data = '<?=$_SESSION["data"];?>';
+	var from = '<?=$_SESSION["from"];?>';
+	var to = '<?=$_SESSION["to"];?>';
+	
+	console.log('ValueSession : '+data+' '+from+' '+to);
+	
     var username, password , username_signup ,password_signup,text_check,forget = '';
     var base_url = "https://www.welovetaxi.com/app/booking/";
 $.ajax({
@@ -1279,8 +1289,9 @@ $.ajax({
                  console.log('<?php echo base_url(); ?>');
                  if(type_login=='dasboard'){
 				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
-				 }else{
-				 	window.location.href = "<?php echo base_url(); ?>home";
+				 }else if(type_login=='book'){
+//				 	window.location.href = "<?php echo base_url(); ?>home";
+					
 				 }
               }
               else if(res.status==1)
@@ -1395,12 +1406,6 @@ $.ajax({
                     console.log("incomplete insert")
                 }
                 
-                  
-                  
-              
-            
-               
-              
             }
         });
     }
