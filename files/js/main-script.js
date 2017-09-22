@@ -2415,38 +2415,38 @@ function getAddress(address) {
     console.log(placeIdcurent)
     console.log(dataplacerel)
     $.ajax({
-        type: 'POST',
-        url: 'https://www.welovetaxi.com/app/booking/service/curentPlace.php',
-        data: { 'lat_c': latitude, 'lng_c': longitude },
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(data) {
-            //console.log(data[0])
-            console.log(data)
-            id_placefrom = data.id;
-            aum_from = data.aum;
-            console.log(id_placefrom)
-            console.log(aum_from)
-            lat_from = data.lat;
-            lng_from = data.lng;
+            type: 'POST',
+            url: 'https://www.welovetaxi.com/app/booking/service/curentPlace.php',
+            data: { 'lat_c': latitude, 'lng_c': longitude },
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                //console.log(data[0])
+                console.log(data)
+                id_placefrom = data.id;
+                aum_from = data.aum;
+                console.log(id_placefrom)
+                console.log(aum_from)
+                lat_from = data.lat;
+                lng_from = data.lng;
 
-            start_st = {
-                lat: parseFloat(lat_from),
-                lng: parseFloat(lng_from)
+                start_st = {
+                    lat: parseFloat(lat_from),
+                    lng: parseFloat(lng_from)
+                }
+
             }
+        })
+        // for (var x = 0; x < dataplacerel.length; x++) {
+        //     if (dataplacerel[x].place_id == placeIdcurent) {
+        //         console.log(dataplacerel[i].place_id)
 
-        }
-    })
-    for (var x = 0; x < dataplacerel.length; x++) {
-        if (dataplacerel[x].place_id == placeIdcurent) {
-            console.log(dataplacerel[i].place_id)
-
-        } else {
-            console.log('not same');
-        }
+    //     } else {
+    //         console.log('not same');
+    //     }
 
 
-    }
+    // }
 
     rel = true;
     console.log(rel)
