@@ -171,13 +171,8 @@ $(document).ready(function() {
 
 
         // $('.dropdown-menu').css('display','none')
-
-
-
     }
-    $('.box-login-non').click(function() {
-        window.location.href = base_url + "register";
-    });
+
     $('#previous').on('click', function() {
         $('#addbook').css('display', 'none');
         $('#acceptance').prop('checked', false);

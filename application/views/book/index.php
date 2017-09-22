@@ -1355,6 +1355,15 @@
    
     <!-- <script src="<?php echo base_url(); ?>files/js/modernizr-2.6.2.min.js"></script> -->
   
+  <script>
+  	$('.box-login-non').click(function() {
+ 
+		
+		
+        window.location.href = "https://www.welovetaxi.com/app/booking/register?to=book";
+        
+    });
+  </script>
     
     <style>
        
