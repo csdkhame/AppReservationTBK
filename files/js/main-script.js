@@ -80,18 +80,18 @@ $(document).ready(function() {
     //           }
     //       });
 
-    $.ajax({
-        type: 'POST',
-        url: base_url + 'getproduct_c/getproduct',
-        //data: { 'id': $.cookie("login") },
-        //contentType: "application/json",
-        dataType: 'json',
-        success: function(data) {
-            dataplacerel = data;
-            // console.log(data)
+    // $.ajax({
+    //     type: 'POST',
+    //     url: 'https://welovetaxi.com/app/booking/getproduct_c/getproduct',
+    //     //data: { 'id': $.cookie("login") },
+    //     //contentType: "application/json",
+    //     dataType: 'json',
+    //     success: function(data) {
+    //         dataplacerel = data;
+    //         // console.log(data)
 
-        }
-    });
+    //     }
+    // });
     // $.ajax({
     //     type: 'POST',
     //     url: '../getprovince_control/process',
@@ -161,7 +161,7 @@ $(document).ready(function() {
         $('.stayto').remove()
         $.ajax({
             type: 'POST',
-            url: base_url + 'service/getstayto.php',
+            url: 'https://welovetaxi.com/app/booking/service/getstayto.php',
             data: { 'from': pro_id, 'lng': lng },
             //contentType: "application/json",
             dataType: 'json',
@@ -230,7 +230,7 @@ $(document).ready(function() {
         $('#loading').show()
         $.ajax({
             type: 'POST',
-            url: base_url + 'service/carservice.php',
+            url: 'https://welovetaxi.com/app/booking/service/carservice.php',
             data: parampro,
             //contentType: "application/json",
             dataType: 'json',
@@ -283,7 +283,7 @@ $(document).ready(function() {
                 });
                 $.each(data[0].data1, function(i, val) {
                     var indexs = parseInt(i) + 1;
-                    var urlicon = '../files/images/carmodelicon/';
+                    var urlicon = base_url + 'files/images/carmodelicon/';
                     if ($.cookie("lng") == 'cn') {
                         car_topic = data[0].data1[i].topic_cn;
                         cartype = data[0].data1[i].car_topic_cn;
@@ -429,7 +429,7 @@ $(document).ready(function() {
 
 
         var car_topic, cartype, pax;
-        var urlicon = '../files/images/carmodelicon/';
+        var urlicon = base_url + 'files/images/carmodelicon/';
         //if (data[0].data1.length != 0) {
         $.each(dataService, function(i, val) {
             var indexs = parseInt(i) + 1;
@@ -801,7 +801,7 @@ $(document).ready(function() {
         console.log(lng)
         $.ajax({
             type: 'POST',
-            url: base_url + 'service/getstay.php',
+            url: 'https://welovetaxi.com/app/booking/service/getstay.php',
             data: { 'lng': lng },
             //contentType: "application/json",
             dataType: 'json',
@@ -962,7 +962,7 @@ $(document).ready(function() {
         console.log(compae1join);
 
         var car_topic, cartype, pax;
-        var urlicon = '../files/images/carmodelicon/';
+        var urlicon = base_url + 'files/images/carmodelicon/';
         //if (data[0].data1.length != 0) {
         $.each(compae1private, function(i, val) {
             var indexs = parseInt(i) + 1;
@@ -1291,7 +1291,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: base_url + 'service/servicepro.php',
+                url: 'https://welovetaxi.com/app/booking/service/servicepro.php',
                 data: { 'input': input.value.toLowerCase() },
                 //contentType: "application/json",
                 dataType: 'json',
@@ -1385,7 +1385,7 @@ $(document).ready(function() {
         if (input.value.length >= 3) {
             $.ajax({
                 type: 'POST',
-                url: base_url + 'service/servicepro.php',
+                url: 'https://welovetaxi.com/app/booking/service/servicepro.php',
                 data: { 'input': input.value.toLowerCase() },
                 //contentType: "application/json",
                 dataType: 'json',
