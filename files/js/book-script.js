@@ -248,6 +248,9 @@ $(document).ready(function() {
     var getemail, getphone;
     $('#acceptanceuser').change(function() {
         if ($.cookie("login") != undefined) {
+            if (!this.checked) {
+                $('#pleselogin').hide()
+            }
             ckgetuser = true;
             var urlimg = 'https://www.welovetaxi.com/app/booking/';
             if (this.checked) {
@@ -268,7 +271,7 @@ $(document).ready(function() {
                 $('#summaryemail').html(datauser[0].s_email);
 
             } else {
-                $('#pleselogin').hide()
+
                 $('#email').val('');
                 $('#s_username').val('');
                 $('#phone').val('');
