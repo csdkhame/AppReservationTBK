@@ -26,7 +26,7 @@ $sendby = "Golden Beach Tour Co.,Ltd.";
   $mail->AddReplyTo("reservation@goldenbeachtour.com",''.$sendby.'');
   $mail->Subject = "Reservation : $res_no ";
   $mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
-  $mail->MsgHTML("https://dotdotdottrip.com/dashboard/query_transfer_byuser?order_id=".$_POST[voucher]);
+  $mail->MsgHTML("https://www.welovetaxi.com/app/booking/dashboard/query_transfer_byuser?order_id=".$_POST[voucher]);
   //$to =  $_POST[phone]
   $address = $_POST[mail];
   
