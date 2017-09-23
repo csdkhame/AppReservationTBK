@@ -259,20 +259,37 @@
 
 
 <script>
-if($.cookie("lng")=="en"){
-var title_logout = "Logout ?";
-var text_logout = "Do you want to logout?";
+// if($.cookie("lng")=="en"){
+// var title_logout = "Logout ?";
+// var text_logout = "Do you want to logout?";
 
-}else if($.cookie("lng")=="cn"){
-var title_logout = "登出 ?";
-var text_logout = "คุณต้องการออกจากระบบ ?";
-}else if($.cookie("lng")=="th"){
-var title_logout = "ออกจากระบบ ?";
-var text_logout = "你要退出吗？";
-}else if($.cookie("lng")==undefined){
-var title_logout = "Logout ?";
-var text_logout = "Do you want to logout?";
-}	 
+// }else if($.cookie("lng")=="cn"){
+// var title_logout = "登出 ?";
+// var text_logout = "คุณต้องการออกจากระบบ ?";
+// }else if($.cookie("lng")=="th"){
+// var title_logout = "ออกจากระบบ ?";
+// var text_logout = "你要退出吗？";
+// }else if($.cookie("lng")==undefined){
+// var title_logout = "Logout ?";
+// var text_logout = "Do you want to logout?";
+// }
+if ($.cookie("lng") == "en") {
+        var title_logout = "Logout ?";
+        var text_logout = "Do you want to logout?";
+		var yes = "Yes";
+    } else if ($.cookie("lng") == "cn") {
+        var title_logout = "登出 ?";
+        var text_logout = "คุณต้องการออกจากระบบ ?";
+        var yes = "是";
+    } else if ($.cookie("lng") == "th") {
+        var title_logout = "ออกจากระบบ ?";
+        var text_logout = "你要退出吗？";
+        var yes = "ใช่";
+    } else if ($.cookie("lng") == undefined) {
+        var title_logout = "Logout ?";
+        var text_logout = "Do you want to logout?";
+        var yes = "Yes";
+    }	 
 var base_url = 'https://www.welovetaxi.com/app/booking/';
 $( document ).ready(function() {
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
