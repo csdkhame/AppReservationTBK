@@ -177,7 +177,7 @@ $( document ).ready(function() {
 }
 </style>
 
-	<div class="" style="position: fixed;
+	<div class="" style="
     background: #16B3B1;
     padding: 13px;
     padding-bottom: 0;
@@ -214,7 +214,7 @@ $( document ).ready(function() {
 
 <div class="container" style="padding:10px;">
   <!--<h3>View Order</h3>-->
-   <div style="    margin-top: 70px;
+   <div style="    
    "> 
   
    <div style="width: 100%">
@@ -384,7 +384,7 @@ $( document ).ready(function() {
     	var obj = <?=$json_data?>;
     	var data = obj[0];
     	console.log(obj);
-    	$('#to_pay').attr('href','https://dotdotdottrip.com/dashboard/payment?data='+data.invoice);
+    	$('#to_pay').attr('href','https://www.welovetaxi.com/app/booking/dashboard/payment?data='+data.invoice);
     	$('#voucher').html('<a href="'+data.voucher_url+'" target="_blank">'+data.invoice+'</a>');
     	$('#adult').text(data.adult);
     	$('#child').text(data.child);
