@@ -24,6 +24,9 @@ class Register extends CI_Controller {
 	 
 	public function index()
 	{
+		$to['by'] = $this->input->get('by');
+		$to['data'] = $this->input->get('data');
+		$to['from'] = $this->input->get('from');
 		$to['to'] = $this->input->get('to');
 		
 		//$this->load->view('header');

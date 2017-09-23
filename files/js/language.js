@@ -56,10 +56,10 @@ $(document).ready(function() {
     });
     $('.box-login-non').click(function() {
         $('#loading').css('display', 'block');
-        setTimeout(function() {
+//        setTimeout(function() {
 
-            window.location.href = base_url + "register";
-        }, 2000);
+//            window.location.href = base_url + "register";
+//        }, 2000);
 
     });
     // console.log($.cookie("lng"));

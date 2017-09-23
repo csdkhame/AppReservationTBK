@@ -53,7 +53,7 @@ public function view_user()
 		else{
 			
 //			redirect('https://dotdotdottrip.com/Register?to=dasboard', 'refresh');
-			redirect('https://www.welovetaxi.com/app/booking/register?to=dasboard', 'refresh');
+			redirect('https://www.welovetaxi.com/app/booking/register?by=dasboard', 'refresh');
 //			header("Location: http://www.yourwebsite.com/user.php");
 //		echo 55555555;
 
@@ -68,7 +68,7 @@ public function get_user(){
 }
 
 public function update_profile(){
-	
+	/* $this->input->post('code_phone');*/
 		$id = $_COOKIE['login'];
 		$data = $this->Getuser_model->getuser_pass_id($id);
 		
@@ -85,6 +85,7 @@ public function update_profile(){
 	    }	
 			$result = $this->Userview_model_dash->update_profile($data,$file_name);
 			echo $result;
+		
 	
 }
 	/********** ************/
