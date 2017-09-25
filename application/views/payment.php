@@ -1,7 +1,7 @@
 <section style="height: 100vh;background: #fff;     margin-bottom: 35px;">
     <div class="container" style="    ">
         <div style="
-    margin-top: 52px;    overflow-y: scroll;">
+    margin-top: 52px">
     <div class="col-md-12">
         <div class="col-md-12" style="text-align: center; padding-bottom: 10px;  font-size: 18px; font-weight: 400; border-bottom: dashed 1px #16b3b1 ;" >
             <span class="lng-payment"></span>
@@ -67,16 +67,17 @@
                 <span class="lng-amount"></span> (THB.)
                 </td>
                 <td>
-                <input type="number" name="txt_amount" class="textInput" holder="" id="amount"/>
+                <input type="number" name="txt_amount" class="textInput" holder="" id="amount" />
+                <!-- disabled -->
                 </td>
             </tr>
             <tr  class="box-pay">                        
                 <td align="center" colspan="2" style="" id="btn-pay">                           
-                    <input style="background: #ffffff;  border: 0; width:99% " type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"  disabled/>                                           
+                    <input style="background: #ffffff;  border: 0; width:99% " type="image" name="submit" value="Submit Payment" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"  />                                           
                 </td>
             </tr>
                    
-            <tr class="box-pay">
+            <!-- <tr class="box-pay">
                 
                 <td colspan="2">
                     <div class="pay-driver" style="color: #3b5998; */
@@ -93,7 +94,7 @@
     /* border: 1px solid #16B3B1; */
     background-color: #16B3B1;">Pay Driver</div>
                 </td>
-            </tr>
+            </tr> -->
             <tr>
                         
                         <td align="center" colspan="2" style="" id="btn-pay">                           
