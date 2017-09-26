@@ -328,7 +328,8 @@
     /* height: 90px; */
 }
 .btn-reservation {
-    padding: 8px 0;
+    line-height: 0.8;
+    /* padding: 8px 0; */
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
@@ -343,7 +344,8 @@
 }
 
 .btn-realtime {
-    padding: 8px 0;
+    line-height: 0.8;
+    /* padding: 8px 0; */
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
@@ -373,7 +375,8 @@
 }
 
 .btn-management {
-    padding: 8px 0;
+    line-height: 0.8;
+    /* padding: 8px 0; */
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
@@ -391,7 +394,8 @@
     color: #999999;
 }
 .btn-car-service {
-    padding: 8px 0;
+    line-height: 0.8;
+    /* padding: 8px 0; */
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
@@ -411,6 +415,7 @@
     }*/
 
 .btn-real-res {
+    line-height: 0.8;
     position: absolute;
     margin-top: 50px;
     width: 100%;

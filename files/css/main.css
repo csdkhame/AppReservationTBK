@@ -1,21 +1,26 @@
 body {
     height: 100vh;
 }
-.placeNeary-item{
-	overflow-x: scroll;
-	
+
+.placeNeary-item {
+    overflow-x: scroll;
 }
+
 ::-webkit-scrollbar {
     -webkit-appearance: none;
 }
+
 ::-webkit-scrollbar:vertical {
-/*    width: 0px;*/
-display: none;
+    /*    width: 0px;*/
+    display: none;
 }
+
 ::-webkit-scrollbar:horizontal {
-/*    height: 0px;*/
-display: none;
+    /*    height: 0px;*/
+    display: none;
 }
+
+
 /*::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, .5);
     border-radius: 10px;
@@ -112,7 +117,7 @@ display: none;
 }
 
 .btn-car-service {
-    padding: 8px 0;
+    /* padding: 8px 0; */
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
@@ -405,6 +410,7 @@ a:link {
 }
 
 .btn-reservation {
+    line-height: 0.8;
     padding: 8px 0;
     font-size: 16px;
     /* font-weight: 400; */
@@ -420,6 +426,7 @@ a:link {
 }
 
 .btn-realtime {
+    line-height: 0.8;
     padding: 8px 0;
     font-size: 16px;
     /* font-weight: 400; */
@@ -435,6 +442,7 @@ a:link {
 }
 
 .btn-home {
+    line-height: 0.8;
     padding: 8px 0;
     font-size: 16px;
     /* font-weight: 400; */
@@ -450,7 +458,9 @@ a:link {
 }
 
 .btn-management {
+    line-height: 0.8;
     padding: 8px 0;
+    line-height: 0.8;
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */

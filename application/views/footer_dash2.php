@@ -129,8 +129,73 @@
     </table>
  </div>
  <style>
+     .btn-reservation {
+    line-height: 0.8;
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #999999;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
+.btn-realtime {
+    line-height: 0.8;
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #999999;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
+.btn-home {
+    line-height: 0.8;
+    padding: 8px 0;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #16B3B1;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
+
+.btn-management {
+    line-height: 0.8;
+    padding: 8px 0;
+    /* line-height: 0.8; */
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* position: absolute; */
+    width: 100%;
+    /* border-radius: 4px; */
+    /* padding: 12px; */
+    color: #999999;
+    text-align: center;
+    /* display: inline-block; */
+    /* background-color: #2196f3; */
+    z-index: 1;
+}
  	.btn-management {
     padding: 8px 0;
+    line-height: 0.8;
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
