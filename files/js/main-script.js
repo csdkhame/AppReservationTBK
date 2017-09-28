@@ -1768,6 +1768,7 @@ function sendValueto(x) {
                 console.log(compae2private.length)
                 console.log(compae1join);
                 console.log(data.length)
+                console.log(compae1private)
                 if (compae1join.length == 0) {
                     $('#join-btn').hide();
                     $('#private-btn').css('width', '100%');
@@ -1783,6 +1784,9 @@ function sendValueto(x) {
                     );
 
 
+                } else {
+                    $('#private').show();
+                    $('#private-btn').show();
                 }
                 dataproduct = data;
                 var urlicon = base_url + 'files/images/carmodelicon/';
