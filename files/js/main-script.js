@@ -675,6 +675,7 @@ $(document).ready(function() {
     });
     $('#search-to').click(function() {
         $(this).val('');
+        $('#clear-all').click();
     });
     $('.btn-management').click(function() {
         $('#loading').css('display', 'block');
@@ -1147,7 +1148,7 @@ $(document).ready(function() {
     if ($.cookie("lng") == "en") {
         var title_logout = "Logout ?";
         var text_logout = "Do you want to logout?";
-		var yes = "Yes";
+        var yes = "Yes";
     } else if ($.cookie("lng") == "cn") {
         var title_logout = "登出 ?";
         var text_logout = "คุณต้องการออกจากระบบ ?";
