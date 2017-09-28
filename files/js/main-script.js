@@ -671,11 +671,11 @@ $(document).ready(function() {
 
     $('#search-from').click(function() {
         $(this).val('');
-//        $('#clear-all').click();
+        //        $('#clear-all').click();
     });
     $('#search-to').click(function() {
         $(this).val('');
-//        $('#clear-all').click();
+        //        $('#clear-all').click();
     });
     $('.btn-management').click(function() {
         $('#loading').css('display', 'block');
@@ -1558,12 +1558,12 @@ function sendValueto(x) {
     $('#show-hide-pro2').hide();
     $('#pro-search').hide();
 
-	 if (directionsDisplay) {
+    if (directionsDisplay) {
         directionsDisplay.setMap(null);
         directionsDisplay = null;
         directionsService = null;
     }
-	if (infowindow) {
+    if (infowindow) {
         console.log(infowindow);
         infowindow.close();
         infowindow.setMap(null);
@@ -1649,7 +1649,7 @@ function sendValueto(x) {
 
 
     $('.a-link-item').remove();
-    //$('#cartype').html('');
+    $('.typeproduce').remove();
     $('.not-found').remove();
     compae1private = [];
     compae1join = [];
@@ -1765,7 +1765,7 @@ function sendValueto(x) {
 
                 $.each(cartype, function(i, val) {
                     var index2 = parseInt(i) + 1;
-                    $('#cartype').append('<option value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                    $('#cartype').append('<option class="typeproduce" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
                     //dataProvince.push(data[i])
                     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
