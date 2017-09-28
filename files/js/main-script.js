@@ -671,11 +671,11 @@ $(document).ready(function() {
 
     $('#search-from').click(function() {
         $(this).val('');
-        $('#clear-all').click();
+//        $('#clear-all').click();
     });
     $('#search-to').click(function() {
         $(this).val('');
-        $('#clear-all').click();
+//        $('#clear-all').click();
     });
     $('.btn-management').click(function() {
         $('#loading').css('display', 'block');
@@ -1558,7 +1558,23 @@ function sendValueto(x) {
     $('#show-hide-pro2').hide();
     $('#pro-search').hide();
 
-
+	 if (directionsDisplay) {
+        directionsDisplay.setMap(null);
+        directionsDisplay = null;
+        directionsService = null;
+    }
+	if (infowindow) {
+        console.log(infowindow);
+        infowindow.close();
+        infowindow.setMap(null);
+        infowindow = null;
+    }
+    if (infowindowDetailTravel) {
+        console.log(infowindowDetailTravel);
+        infowindowDetailTravel.close();
+        infowindowDetailTravel.setMap(null);
+        infowindowDetailTravel = null;
+    }
     var end_st = {
         lat: parseFloat(lat_to),
         lng: parseFloat(lng_to)
