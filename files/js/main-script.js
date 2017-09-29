@@ -1,7 +1,7 @@
 var rel = false;
 var dataplacerel, pro_id, pro_id_to, datacaedervice;
 // var base_url = 'https://dotdotdottrip.com/';
-
+// alert('asdsadas')
 var base_url = 'https://www.welovetaxi.com/app/booking/';
 //var base_url = 'http://localhost/AppReservationTBK/';
 
@@ -1558,72 +1558,72 @@ function sendValueto(x) {
     $('#show-hide-pro2').hide();
     $('#pro-search').hide();
 
-    if (directionsDisplay) {
-        directionsDisplay.setMap(null);
-        directionsDisplay = null;
-        directionsService = null;
-    }
-    if (infowindow) {
-        console.log(infowindow);
-        infowindow.close();
-        infowindow.setMap(null);
-        infowindow = null;
-    }
-    if (infowindowDetailTravel) {
-        console.log(infowindowDetailTravel);
-        infowindowDetailTravel.close();
-        infowindowDetailTravel.setMap(null);
-        infowindowDetailTravel = null;
-    }
-    var end_st = {
-        lat: parseFloat(lat_to),
-        lng: parseFloat(lng_to)
-    }
+    // if (directionsDisplay) {
+    //     directionsDisplay.setMap(null);
+    //     directionsDisplay = null;
+    //     directionsService = null;
+    // }
+    // if (infowindow) {
+    //     console.log(infowindow);
+    //     infowindow.close();
+    //     infowindow.setMap(null);
+    //     infowindow = null;
+    // }
+    // if (infowindowDetailTravel) {
+    //     console.log(infowindowDetailTravel);
+    //     infowindowDetailTravel.close();
+    //     infowindowDetailTravel.setMap(null);
+    //     infowindowDetailTravel = null;
+    // }
+    // var end_st = {
+    //     lat: parseFloat(lat_to),
+    //     lng: parseFloat(lng_to)
+    // }
 
-    console.log(end_st);
+    // console.log(end_st);
 
-    endMarker.setVisible(true);
-    map.panTo(end_st);
-    endMarker.setPosition(end_st);
-    var requestThis = {
-        origin: start_st,
-        destination: end_st,
-        travelMode: google.maps.TravelMode.DRIVING
-    };
-    console.log(requestThis);
-    directionsService = new google.maps.DirectionsService;
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    directionsDisplay.setMap(map);
-    directionsService.route(requestThis, function(response, status) {
-        console.log(response);
-        console.log(status);
-        if (status == 'ZERO_RESULTS') {
-            alert('no Directions Display');
-        } else {
+    // endMarker.setVisible(true);
+    // map.panTo(end_st);
+    // endMarker.setPosition(end_st);
+    // var requestThis = {
+    //     origin: start_st,
+    //     destination: end_st,
+    //     travelMode: google.maps.TravelMode.DRIVING
+    // };
+    // console.log(requestThis);
+    // directionsService = new google.maps.DirectionsService;
+    // directionsDisplay = new google.maps.DirectionsRenderer();
+    // directionsDisplay.setMap(map);
+    // directionsService.route(requestThis, function(response, status) {
+    //     console.log(response);
+    //     console.log(status);
+    //     if (status == 'ZERO_RESULTS') {
+    //         alert('no Directions Display');
+    //     } else {
 
-            var distance = response.routes[0].legs[0].distance.text;
-            //            console.log(distance+" +++++++++++++++++++");
-            var duration = response.routes[0].legs[0].duration.text;
-            infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
-            infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-            infowindowDetailTravel.open(map, endMarker);
-            directionsDisplay.setDirections(response);
-            directionsDisplay.setOptions({
-                suppressMarkers: true,
-                preserveViewport: true
-            });
-            if (response.routes[0].legs[0].distance.value >= 25000) {
-                map.setZoom(9);
-            } else {
-                map.setZoom(12);
-            }
+    //         var distance = response.routes[0].legs[0].distance.text;
+    //         //            console.log(distance+" +++++++++++++++++++");
+    //         var duration = response.routes[0].legs[0].duration.text;
+    //         infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
+    //         infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
+    //         infowindowDetailTravel.open(map, endMarker);
+    //         directionsDisplay.setDirections(response);
+    //         directionsDisplay.setOptions({
+    //             suppressMarkers: true,
+    //             preserveViewport: true
+    //         });
+    //         if (response.routes[0].legs[0].distance.value >= 25000) {
+    //             map.setZoom(9);
+    //         } else {
+    //             map.setZoom(12);
+    //         }
 
-            $('#clear-all').show(500);
-            //                outSearchRealtime();
+    //         $('#clear-all').show(500);
+    //         //                outSearchRealtime();
 
-        }
+    //     }
 
-    });
+    // });
 
     id_placeto = x;
 
