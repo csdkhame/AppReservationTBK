@@ -227,7 +227,7 @@ $(window).scroll(function() {
 														<table width="100%">
 																<tr>
 																		<td width="49%">
-																				<input id="date1"   class="datepicker"  name="date" type="text" value="<?=$date;?>" style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
+			 <input id="date1"   class="datepicker"  name="date" type="text" value="<?=$date;?>" style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
 																		</td>
 																		<td width="2%"></td>
 																		<td  width="49%">
@@ -518,11 +518,7 @@ var date=$('#date1').val();
             this.set('select', date); // Set to current date on load
         }
         });
-        
-      
-        
-        
-   
+
 </script>
 
 <script>
