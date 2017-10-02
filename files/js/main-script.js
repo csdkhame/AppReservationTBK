@@ -1,7 +1,7 @@
 var rel = false;
 var dataplacerel, pro_id, pro_id_to, datacaedervice;
 // var base_url = 'https://dotdotdottrip.com/';
-
+// alert('asdsadas')
 var base_url = 'https://www.welovetaxi.com/app/booking/';
 //var base_url = 'http://localhost/AppReservationTBK/';
 
@@ -671,11 +671,11 @@ $(document).ready(function() {
 
     $('#search-from').click(function() {
         $(this).val('');
-//        $('#clear-all').click();
+        //        $('#clear-all').click();
     });
     $('#search-to').click(function() {
         $(this).val('');
-//        $('#clear-all').click();
+        //        $('#clear-all').click();
     });
     $('.btn-management').click(function() {
         $('#loading').css('display', 'block');
@@ -1558,72 +1558,72 @@ function sendValueto(x) {
     $('#show-hide-pro2').hide();
     $('#pro-search').hide();
 
-	 if (directionsDisplay) {
-        directionsDisplay.setMap(null);
-        directionsDisplay = null;
-        directionsService = null;
-    }
-	if (infowindow) {
-        console.log(infowindow);
-        infowindow.close();
-        infowindow.setMap(null);
-        infowindow = null;
-    }
-    if (infowindowDetailTravel) {
-        console.log(infowindowDetailTravel);
-        infowindowDetailTravel.close();
-        infowindowDetailTravel.setMap(null);
-        infowindowDetailTravel = null;
-    }
-    var end_st = {
-        lat: parseFloat(lat_to),
-        lng: parseFloat(lng_to)
-    }
+    // if (directionsDisplay) {
+    //     directionsDisplay.setMap(null);
+    //     directionsDisplay = null;
+    //     directionsService = null;
+    // }
+    // if (infowindow) {
+    //     console.log(infowindow);
+    //     infowindow.close();
+    //     infowindow.setMap(null);
+    //     infowindow = null;
+    // }
+    // if (infowindowDetailTravel) {
+    //     console.log(infowindowDetailTravel);
+    //     infowindowDetailTravel.close();
+    //     infowindowDetailTravel.setMap(null);
+    //     infowindowDetailTravel = null;
+    // }
+    // var end_st = {
+    //     lat: parseFloat(lat_to),
+    //     lng: parseFloat(lng_to)
+    // }
 
-    console.log(end_st);
+    // console.log(end_st);
 
-    endMarker.setVisible(true);
-    map.panTo(end_st);
-    endMarker.setPosition(end_st);
-    var requestThis = {
-        origin: start_st,
-        destination: end_st,
-        travelMode: google.maps.TravelMode.DRIVING
-    };
-    console.log(requestThis);
-    directionsService = new google.maps.DirectionsService;
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    directionsDisplay.setMap(map);
-    directionsService.route(requestThis, function(response, status) {
-        console.log(response);
-        console.log(status);
-        if (status == 'ZERO_RESULTS') {
-            alert('no Directions Display');
-        } else {
+    // endMarker.setVisible(true);
+    // map.panTo(end_st);
+    // endMarker.setPosition(end_st);
+    // var requestThis = {
+    //     origin: start_st,
+    //     destination: end_st,
+    //     travelMode: google.maps.TravelMode.DRIVING
+    // };
+    // console.log(requestThis);
+    // directionsService = new google.maps.DirectionsService;
+    // directionsDisplay = new google.maps.DirectionsRenderer();
+    // directionsDisplay.setMap(map);
+    // directionsService.route(requestThis, function(response, status) {
+    //     console.log(response);
+    //     console.log(status);
+    //     if (status == 'ZERO_RESULTS') {
+    //         alert('no Directions Display');
+    //     } else {
 
-            var distance = response.routes[0].legs[0].distance.text;
-            //            console.log(distance+" +++++++++++++++++++");
-            var duration = response.routes[0].legs[0].duration.text;
-            infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
-            infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-            infowindowDetailTravel.open(map, endMarker);
-            directionsDisplay.setDirections(response);
-            directionsDisplay.setOptions({
-                suppressMarkers: true,
-                preserveViewport: true
-            });
-            if (response.routes[0].legs[0].distance.value >= 25000) {
-                map.setZoom(9);
-            } else {
-                map.setZoom(12);
-            }
+    //         var distance = response.routes[0].legs[0].distance.text;
+    //         //            console.log(distance+" +++++++++++++++++++");
+    //         var duration = response.routes[0].legs[0].duration.text;
+    //         infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
+    //         infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
+    //         infowindowDetailTravel.open(map, endMarker);
+    //         directionsDisplay.setDirections(response);
+    //         directionsDisplay.setOptions({
+    //             suppressMarkers: true,
+    //             preserveViewport: true
+    //         });
+    //         if (response.routes[0].legs[0].distance.value >= 25000) {
+    //             map.setZoom(9);
+    //         } else {
+    //             map.setZoom(12);
+    //         }
 
-            $('#clear-all').show(500);
-            //                outSearchRealtime();
+    //         $('#clear-all').show(500);
+    //         //                outSearchRealtime();
 
-        }
+    //     }
 
-    });
+    // });
 
     id_placeto = x;
 
@@ -1649,7 +1649,7 @@ function sendValueto(x) {
 
 
     $('.a-link-item').remove();
-    //$('#cartype').html('');
+    $('.typeproduce').remove();
     $('.not-found').remove();
     compae1private = [];
     compae1join = [];
@@ -1765,7 +1765,7 @@ function sendValueto(x) {
 
                 $.each(cartype, function(i, val) {
                     var index2 = parseInt(i) + 1;
-                    $('#cartype').append('<option value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                    $('#cartype').append('<option class="typeproduce" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
                     //dataProvince.push(data[i])
                     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
@@ -1784,6 +1784,7 @@ function sendValueto(x) {
                 console.log(compae2private.length)
                 console.log(compae1join);
                 console.log(data.length)
+                console.log(compae1private)
                 if (compae1join.length == 0) {
                     $('#join-btn').hide();
                     $('#private-btn').css('width', '100%');
@@ -1799,6 +1800,9 @@ function sendValueto(x) {
                     );
 
 
+                } else {
+                    $('#private').show();
+                    $('#private-btn').show();
                 }
                 dataproduct = data;
                 var urlicon = base_url + 'files/images/carmodelicon/';

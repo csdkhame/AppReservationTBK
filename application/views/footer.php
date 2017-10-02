@@ -55,9 +55,11 @@
     } ?>
     
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places&language=<?=$lng_map;?>" async defer> </script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 
+    
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 
 	
-  	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
+      <script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
+      <script src="https://cdn.rawgit.com/googlemaps/js-rich-marker/gh-pages/src/richmarker.js?v=<?=time();?>"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time();?>"></script>
 	<!--<script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script_test.js?v=<?=time();?>"></script> -->	
 	<script src="<?php echo base_url(); ?>files/js/list.min.js" type="text/javascript"></script>
@@ -127,71 +129,7 @@ if(paramURL=="realtime"){
 }
 #table1{
     margin-top: 10px !important;
-                	}
-</style>
-
-<script>
-$( document ).ready(function() {
-	
-	$('.navbar-collapse .feed').click( function(){
-//		alert(123);
-		$('#loading').css('display', 'block');
-	    $('#content').css('display', 'none');
-	    setTimeout(function() {
-//	        console.log("aaaaa")
-	        $('#loading').css('display', 'none');
-	        $('#content').css('display', 'block');
-	    }, 3000);
-				
-	});
-
-/*	var url_string = window.location.href;
-	var url = new URL(url_string);
-	var c = url.searchParams.get("active");*/
-/*  var active = '<?=$_POST['active']?>'; // That's for a string
-  console.log(active);
-	setTimeout(function(){ 
-	if( active=='realtime'){
-		$('.btn-realtime').click();
-	}else if( active=='reservation'){
-		$('.btn-reservation').click();
-	}
-	else if( active=='service'){
-		$('.btn-car-service').click();
-	}
-	active = '';
-	 }, 4000);*/
-<?php
-session_start();
-?>
-	var active = '<?=$_SESSION["active"];?>';
-	console.log('Session : '+active);
-	setTimeout(function(){ 
-	if( active=='realtime'){
-		$('.btn-realtime').click();
-	}else if( active=='reservation'){
-		$('.btn-reservation').click();
-	}
-	else if( active=='service'){
-		$('.btn-car-service').click();
-	}
-	
-	 }, 4000);
-<?php session_unset(); ?>	
-});	
-</script>
-
-<!--<div id="close_streetview" dir="ltr" jstcache="0" style="z-index: 24601; position: absolute; left: 0px; top: 0px;">
-	<div jstcache="45" class="gm-iv-container gm-iv-small-container" jsan="t-_EPk2VOG1I0,7.gm-iv-container,7.gm-iv-small-container">
-		 <div jsaction="closeControl.click" class="gm-iv-close"> <div class="gm-iv-back">
-		 	<div jstcache="42" class="gm-iv-back-icon-background gm-iv-back-icon" jsan="7.gm-iv-back-icon-background,7.gm-iv-back-icon"> </div>
-			</div> 
-		</div> 
-	</div>
-</div>-->
-</html>
-
-<style>
+}
 .map-bg {    
     background: url(images/map-bg.jpg) no-repeat;
     background-position: 0px 0px;
@@ -268,16 +206,66 @@ session_start();
     opacity: 0;
     }
 }
-	</style>
+</style>
 
-<script src="https://cdn.rawgit.com/googlemaps/js-rich-marker/gh-pages/src/richmarker.js?v=<?=time();?>"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry"></script>-->
-<!--<script src="<?php echo base_url(); ?>files/js/richmarker.js?v=<?=time();?>"></script>-->
-<!--<div id="map_canvas"></div>-->
-<div id="marker" display="hidden" class="marker" style="display: none;">
+<script>
+$( document ).ready(function() {
+	
+	$('.navbar-collapse .feed').click( function(){
+//		alert(123);
+		$('#loading').css('display', 'block');
+	    $('#content').css('display', 'none');
+	    setTimeout(function() {
+//	        console.log("aaaaa")
+	        $('#loading').css('display', 'none');
+	        $('#content').css('display', 'block');
+	    }, 3000);
+				
+	});
+
+/*	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var c = url.searchParams.get("active");
+/*  
+  console.log(active);
+	setTimeout(function(){ 
+	if( active=='realtime'){
+		$('.btn-realtime').click();
+	}else if( active=='reservation'){
+		$('.btn-reservation').click();
+	}
+	else if( active=='service'){
+		$('.btn-car-service').click();
+	}
+	active = '';
+	 }, 4000);*/
+<?php
+session_start();
+?>
+	var active = '<?=$_SESSION["active"];?>';
+	console.log('Session : '+active);
+	setTimeout(function(){ 
+	if( active=='realtime'){
+		$('.btn-realtime').click();
+	}else if( active=='reservation'){
+		$('.btn-reservation').click();
+	}
+	else if( active=='service'){
+		$('.btn-car-service').click();
+	}
+	
+	 }, 4000);
+<?php session_unset(); ?>	
+});	
+</script>
+
+<div id="marker" class="marker" style="display: none;">
   <div class="pin"></div>
   <div class="pin-effect"></div>
 </div>
+</html>
+
+
 
 
 
