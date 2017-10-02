@@ -19,8 +19,7 @@ if ($.cookie("lng") == 'cn') {
     success = '成功';
     error = '错误';
     document.getElementById("current").value = "加載...";
-} 
-else if ($.cookie("lng") == 'th') {
+} else if ($.cookie("lng") == 'th') {
     please_login_txt = "กรุณาเข้าสู่ระบบ";
     click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
     lang_to_map = 'th';
@@ -35,8 +34,7 @@ else if ($.cookie("lng") == 'th') {
     error = 'ผิดพลาด';
     document.getElementById("current").value = "โหลด...";
     $('.lng-current-pos').text('ตำแหน่งปัจจุบัน');
-} 
-else if ($.cookie("lng") == 'en') {
+} else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -51,8 +49,7 @@ else if ($.cookie("lng") == 'en') {
     $('.lng-office-locat').text('');
     $('.lng-setpin-locat').text('');
     $('.lng-nearby-locat').text('');*/
-} 
-else if ($.cookie("lng") == undefined) {
+} else if ($.cookie("lng") == undefined) {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -68,8 +65,7 @@ else if ($.cookie("lng") == undefined) {
 if ($.cookie("login") == undefined) {
     $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">' + please_login_txt + '</span>');
     $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">' + please_login_txt + '</span>');
-} 
-else {
+} else {
     $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">' + click_save_place_txt + '</span>');
     $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">' + click_save_place_txt + '</span>');
 }
@@ -307,15 +303,15 @@ function initialize() {
 
     });
 
-    var div = document.getElementById("marker"); // document.createElement('DIV');
+    // var div = document.getElementById("marker"); // document.createElement('DIV');
     // div.innerHTML = '<div class="my-other-marker">I am flat marker!</div>';
-   /* markerTest = new RichMarker({
-        map: map,
-        position: map.getCenter(),
-        flat: true,
-        anchor: RichMarkerPosition.MIDDLE,
-        content: div
-    });*/
+    /* markerTest = new RichMarker({
+         map: map,
+         position: map.getCenter(),
+         flat: true,
+         anchor: RichMarkerPosition.MIDDLE,
+         content: div
+     });*/
     //       markerTest.setVisible(map.getCenter());    
     a(map);
 
@@ -342,7 +338,7 @@ function a(map) {
             var curPosition = new google.maps.LatLng(pos);
             console.log(map.getCenter());
 
-          /*  markerTest.setPosition(curPosition);*/
+            /*  markerTest.setPosition(curPosition);*/
 
             map.setCenter(pos);
             $('#marker').show();
@@ -353,20 +349,20 @@ function a(map) {
             var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 
             geocoderRun(latlng);
-            
+
             var id = 0,
                 target;
-	          /*  intervalTime = setInterval(function() {
-	                navigator.geolocation.getCurrentPosition(success, error, options);
-	                id = id + 1;
-	                //console.log("watchPosition : "+id); 
-	            }, 5000);*/
+            /*  intervalTime = setInterval(function() {
+                  navigator.geolocation.getCurrentPosition(success, error, options);
+                  id = id + 1;
+                  //console.log("watchPosition : "+id); 
+              }, 5000);*/
 
         });
     }
 
     function success(position) {
-		 console.log(start);
+        console.log(start);
         var current = {
             lat: parseFloat(position.coords.latitude),
             lng: parseFloat(position.coords.longitude)
@@ -389,7 +385,7 @@ function a(map) {
             pos = current;
             start = pos;
             var curPosition = new google.maps.LatLng(pos);
-//            markerTest.setPosition(curPosition);
+            //            markerTest.setPosition(curPosition);
             markerCircle.setPosition(curPosition);
             // 			map.panTo(pos);
             geocoderRun(pos);
@@ -400,7 +396,7 @@ function a(map) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
     };
 
-	 var inputStart = document.getElementById("current");
+    var inputStart = document.getElementById("current");
     inputStart.addEventListener('click', function() {
         document.getElementById("current").value = "";
         start = null;
@@ -412,8 +408,8 @@ function a(map) {
     autocompleteStart.addListener('place_changed', function(ev) {
         placeStart = autocompleteStart.getPlace();
         map.panTo(placeStart.geometry.location);
-//        start = placeStart.geometry.location;
-       var current = {
+        //        start = placeStart.geometry.location;
+        var current = {
             lat: parseFloat(placeStart.geometry.location.lat()),
             lng: parseFloat(placeStart.geometry.location.lat())
         };
@@ -422,10 +418,10 @@ function a(map) {
         startMarker.setPosition(start);
         lat_f = placeStart.geometry.location.lat();
         lng_f = placeStart.geometry.location.lng();
-         console.log(start);
+        console.log(start);
         $('#clear-all').show(500);
     });
-	
+
     var inputEnd = document.getElementById('pac-input');
 
     var autocomplete = new google.maps.places.Autocomplete(inputEnd);
@@ -438,8 +434,7 @@ function a(map) {
         if (place.geometry.viewport) {
             map.fitBounds(placeEnd.geometry.viewport);
             map.setZoom(16);
-        } 
-        else {
+        } else {
             map.setCenter(placeEnd.geometry.location);
             map.setZoom(16); // Why 17? Because it looks good.
         }
@@ -449,8 +444,8 @@ function a(map) {
         endMarker.setVisible(true);
         endMarker.setPosition(end);
 
-//      var origin = new google.maps.LatLng(start);
-console.log(start);
+        //      var origin = new google.maps.LatLng(start);
+        console.log(start);
         var request = {
             origin: start,
             destination: end,
@@ -462,7 +457,7 @@ console.log(start);
         directionsDisplay.setMap(map);
         /*lat_f = start.lat;
         lng_f = start.lng;*/
-         console.log(lat_f+"//"+lng_f);
+        console.log(lat_f + "//" + lng_f);
         directionsService.route(request, function(response, status) {
             console.log(response);
             console.log(status);
@@ -489,7 +484,7 @@ console.log(start);
 
                 /* $('.a-link-item').remove();
                  $('.not-found').remove();*/
-//				 console.log(lat_f + "," + lng_f + " : " + lat_t + "," + lng_t);
+                //				 console.log(lat_f + "," + lng_f + " : " + lat_t + "," + lng_t);
                 getProduct(lat_f, lng_f, dist, lat_t, lng_t);
                 infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
                 infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
@@ -561,7 +556,7 @@ $('#btn_CurrentLocation').click(function() {
             var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             markerTest.setPosition(latlng);
             map.panTo(latlng);
-                        markerCircle.setPosition(latlng);
+            markerCircle.setPosition(latlng);
             setTimeout(function() {
 
                 document.getElementById("current").value = placeStart[1].formatted_address;
@@ -627,7 +622,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         notfound = 'Product not Found';
 
     }
-   
+
     var id_placefrom, id_placeto;
     $.ajax({
         type: 'POST',
@@ -1171,8 +1166,8 @@ function createAllMarker() {
         radius: Math.sqrt(1) * 30
     });
     circle.bindTo('center', markerCircle, 'position');
-   /*markerCircle .setVisible(false);
-    circle.setVisible(false);*/
+    /*markerCircle .setVisible(false);
+     circle.setVisible(false);*/
     endMarker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,

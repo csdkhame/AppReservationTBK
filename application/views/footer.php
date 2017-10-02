@@ -55,7 +55,7 @@
     } ?>
     
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJa08ZMaSnJP5A6EsL9wxqdDderh7zU90&libraries=places&language=<?=$lng_map;?>" async defer> </script>
-    <script src="https://cdn.rawgit.com/googlemaps/js-rich-marker/gh-pages/src/richmarker.js?v=<?=time();?>"></script>
+    <!-- <script src="https://cdn.rawgit.com/googlemaps/js-rich-marker/gh-pages/src/richmarker.js?v=<?=time();?>"></script> -->
     
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/main-script.js?v=<?=time();?>"></script> 	
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/map-script.js?v=<?=time();?>"></script> 
@@ -139,6 +139,7 @@ if(paramURL=="realtime"){
 }
 
 .marker {
+    display:none !im;
     width: 100px;
     height: 100px;
     position: absolute;
@@ -155,6 +156,7 @@ if(paramURL=="realtime"){
     position: relative;
    /* top: 38px;
     left: 38px;*/
+    display:none;
     top: 42px;
     left: 42px;
     background: rgba(5, 124, 255, 1);    
@@ -175,6 +177,7 @@ if(paramURL=="realtime"){
     animation: pulsate 2400ms ease-out infinite;
 }*/
 .pin-effect {
+    display:none;
        width: 50px;
     height: 50px;
     position: absolute;
@@ -257,11 +260,6 @@ session_start();
 <?php session_unset(); ?>	
 });	
 </script>
-
-<div id="marker" class="marker" style="display: none;">
-  <div class="pin"></div>
-  <div class="pin-effect"></div>
-</div>
 </html>
 
 
