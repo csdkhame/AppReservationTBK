@@ -554,7 +554,7 @@ $('#btn_CurrentLocation').click(function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            markerTest.setPosition(latlng);
+//            markerTest.setPosition(latlng);
             map.panTo(latlng);
             markerCircle.setPosition(latlng);
             setTimeout(function() {
