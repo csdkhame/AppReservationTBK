@@ -168,11 +168,12 @@
                         
                     </div>
                     <form id="checkout" >
-				  <div id="token_errors"></div>
+				 
 
 				  <input type="hidden" name="omise_token">
 				  <input type="hidden" class="form-control" id="datain" name="data" >
-				  <input type="hidden" class="form-control" id="amount" name="amount">
+                  <input type="hidden" class="form-control" id="amount" name="amount">
+                  <!-- <input type="hidden" name="item_namec" value="Customer's First Name"  id="item_namec"> -->
 				  
                   
 
@@ -181,7 +182,7 @@
 		          		
 		          	
 		            	<div class="control-label label_name">Cardholder Name</div>		            
-		              	<input type="text" data-omise="holder_name" class="iname" id="creditname"  placeholder="Ex. John Smith"pattern="\w+ \w+.*" title="Fill your first and last name" required>		            
+		              	<input type="text" data-omise="holder_name" class="iname" id="creditname" name="creditname"  placeholder="Ex. John Smith"pattern="\w+ \w+.*" title="Fill your first and last name" required>		            
 		          </div>
 				  <div class="control-group" >	
 		            <div class="control-label label_cardnumber">Card Number</div>		            	
@@ -207,7 +208,7 @@
 		                  <p class="maxtext3">Must be 3 digits!</p>
 		                  <p class="maxtext4">Must be 4 digits!</p>                
 		          </div>
-
+                  <div id="token_errors"></div>
 		          <input type="submit" id="create_token" class="btn-submit"  value="Submit" >
 		          
 		         
@@ -504,12 +505,10 @@
     margin-bottom: 10px;
 			}
 			.iname{
-				width: 100%;
+                width: 100%;
                 color: #000;
-                height: 20px;
-                /* border-radius: 26px; */
                 font-size: 16px;
-                padding: 20px 20px;
+                padding: 8px 20px;
                 margin-bottom: 20px;
                 border: 1px solid #16B3B1;
 			    
@@ -548,22 +547,17 @@
                 text-align: center;
                 display: block;
                 border: 1px solid #16B3B1;
-                padding: 10px 0;
-                color: #7640f4;
+                padding: 8px 0;
+                color: #000;
 			}
 			.cardnumber{
 				
                 width: 23.5%;
-                height: 20px;
-                /* border-radius: 26px; */
-                font-size: 16px;
-                min-height: 45px;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
+                text-align: center;
                 box-sizing: border-box;
                 margin-bottom: 20px;
                 border: 1px solid #16B3B1;
-                padding: 20px;
+                padding: 8px;
                 color: #000;
 			    
 
@@ -665,35 +659,26 @@
 			}
 			.numdate{
 				width: 80px;
-				/* margin-left: 5px; */
-			    display: inline-block;
-			    height: 20px;
-			    /* border-radius: 26px; */
-			    font-size: 16px;
-			    min-height: 45px;
-			    -webkit-box-sizing: border-box;
-			    -moz-box-sizing: border-box;
-			    box-sizing: border-box;
-			    margin-bottom: 20px;
-			    border: 1px solid #16B3B1;
-			    padding: 20px;
-			    color: #000;
+                display: inline-block;
+                font-size: 16px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                border: 1px solid #16B3B1;
+                padding: 8px;
+                text-align: center;
+                margin-right: 8px;
+                color: #000;
 			}
 			.numyear{
-				width: 245px;
-				margin-left: 5px;
-			    display: inline-block;
-			    height: 20px;
-			    /* border-radius: 26px; */
-			    font-size: 16px;
-			    min-height: 45px;
-			    -webkit-box-sizing: border-box;
-			    -moz-box-sizing: border-box;
-			    box-sizing: border-box;
-			    margin-bottom: 20px;
-			    border: 1px solid #16B3B1;
-			    padding: 15px;
-			    color: #000;
+                width: 245px;
+                margin-left: 5px;
+                display: inline-block;
+                font-size: 16px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                border: 1px solid #16B3B1;
+                padding: 8px 20px;
+                color: #000;
 			}
 			.label_slad{
 				display: inline-block;
@@ -747,28 +732,18 @@
 
 
 			}
+			
 			#token_errors{
-				color: red;
-				color: red;
-			    position: absolute;
-			    top: 480px;
-			    font-size: 20px;
-			    left: 228px;
-			}
-
-			#token_errors{
-				color: red;
-				color: red;
-			    position: absolute;
-			    top: 480px;
-			    font-size: 20px;
-			    left: 228px;
+                color: red;
+                position: absolute;
+                margin-top: 10px;
+                font-size: 16px;
 			}
     </style>
     <script>
     var base_url = 'https://www.welovetaxi.com/app/booking/';
 $( document ).ready(function() {
-    var product_name;
+    var product_name,total_amount = 0;
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
 		var obj = JSON.parse(data);
 		$.each(obj, function (index, value) {
@@ -788,11 +763,11 @@ $( document ).ready(function() {
     $('#datain').val(getParameterByName('data'))
     $("#checkout").submit(function () {
 					  //$('#token_errors').css('display','none');
-					  $('.btn-submit').css('color', '#f1a100');
-					  $('.btn-submit').css('background', '#f1a100');
-					  $('#floatingCirclesG').css('display','block');
+					//   $('.btn-submit').css('color', '#f1a100');
+					//   $('.btn-submit').css('background', '#f1a100');
+					//   $('#floatingCirclesG').css('display','block');
 					  var form = $(this);
-                      form.find("input[type=submit]").prop("disabled", true);
+                    //   form.find("input[type=submit]").prop("disabled", true);
 					  var card = {
 					    "name": form.find("[data-omise=holder_name]").val(),
 					    "number": form.find("[data-omise=number1]").val()+form.find("[data-omise=number2]").val()+form.find("[data-omise=number3]").val()+form.find("[data-omise=number4]").val(),
@@ -816,7 +791,7 @@ $( document ).ready(function() {
 					      form.find("[data-omise=expiration_month]").val("");
 					      form.find("[data-omise=expiration_year]").val("");
 					      form.find("[data-omise=security_code]").val("");
-					      form.find("[data-omise=amount]").val("");
+					     
 					    
 					    //   form.find("input[type=submit]").prop("disabled", false);
 					    } else {
@@ -826,20 +801,23 @@ $( document ).ready(function() {
                             //console.log(find("[data-omise=amount]").val())
                             var param = {
                                 "omise_token": response.id,
-                                "amount":  $("#amount").val(),
-                                "data":  getParameterByName('data')
+                                "amount":  total_amount,
+                                "data":  getParameterByName('data'),
+                                "creditname" : $("#creditname").val()
+
                             };
                             console.log(param)
                             $.ajax({
                             type: 'POST',
-                            url: 'https://www.welovetaxi.com/app/booking/service/checkout.php',
+                            url: 'https://www.welovetaxi.com/app/booking/dashboard/paycredit',
                             data: param,
                             //contentType: "application/json",
                             //dataType: 'json',
                             success: function(data) {
                                 console.log(data)
                                 // form.find("[name=omise_token]").val(response.id);
-					            form.get(0).submit();
+                               ///form.get(0).submit();
+                               location.reload();
                             }
                         });
 					    	//alert("dsadsadas");
@@ -1135,6 +1113,7 @@ function getParameterByName(name, url) {
                 $('#item_number').val(data[0].invoice)
                 $('#reference').val(data[0].s_code)
                 $('#item_name').val(data[0].book_by)
+                $('#item_namec').val(data[0].book_by)
                 $('#amount').val(data[0].total_price)
                 $('#voucher').html('<a href="'+data[0].voucher_url+'" target="_blank">'+data[0].invoice+'<a>');
                 $('#adult').text(data[0].adult);
@@ -1152,6 +1131,7 @@ function getParameterByName(name, url) {
                 $('#price').text(data[0].total_price);
                 $('#total_amount').text(data[0].total_price);
                 $('#amount').val();
+                total_amount = data[0].totalpay
                 
                
             }

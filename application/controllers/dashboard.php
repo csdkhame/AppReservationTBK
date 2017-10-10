@@ -317,6 +317,9 @@ public function payments(){
 }
 public function paycredit(){
 	
+	
+	require_once('omise-php/lib/Omise.php');
+	//require_once dirname(__FILE__).'./omise-php/lib/Omise.php';
 	$webmail_cc = "gbtour.op@gmail.com"; 
 	//$emailurl = "http://tour - thailand.tk / demo / ";
 	$emailurl = "http://t-booking.com";
@@ -339,170 +342,102 @@ public function paycredit(){
 	  $mail->Host = $webmail_host; // SMTP server
 	  $mail->Port = $webmail_port;                 // set the SMTP port for the GMAIL server
 	  $mail->Username = $webmail_username;     // SMTP server username
-	  $mail->Password = $webmail_password ;            // SMTP server password 
-	 
-	//date_default_timezone_set("Asia/Bangkok");
-	$paypal_email = $_POST["payer_email"];
-	$return_url = 'https://dotdotdottrip.com/dashboard/payment?data='.$_POST["item_number"].'&payment=success';
-	$cancel_url = 'https://dotdotdottrip.com/dashboard/payment?data='.$_POST["item_number"].'&payment=cancelled';
-	//$notify_url = 'https://dotdotdottrip.com/dashboard/payments';
-
-	$item_name = $_POST["item_name"];
-	$item_amount = $_POST["txt_amount"];
-	$paypal_url = "www.sandbox.paypal.com";
-	//echo $_POST["payer_email"].'</Br>'.$_POST["txt_amount"].'</Br>'.$_POST["txn_id"].'</Br>';
+	  $mail->Password = $webmail_password ; 
+	define('OMISE_API_VERSION', '2015-11-17');
+	// define('OMISE_PUBLIC_KEY', 'PUBLIC_KEY');
+	// define('OMISE_SECRET_KEY', 'SECRET_KEY');
+	define('OMISE_PUBLIC_KEY', 'pkey_test_59iaxcc7zsr77n4nbkb');
+	define('OMISE_SECRET_KEY', 'skey_test_59iaxcc8idh2bqub4ia');
+	$x = $_POST[amount];
+	$totalamount = $x*100;
+	//echo $totalamount.'=='.$_POST["omise_token"].$_POST["data"];
+	//echo $_POST[amount] .'==='.$x;
+	$charge = OmiseCharge::create(array(
+	  'amount' => $totalamount,
+	  'currency' => 'THB',
+	  'card' => $_POST["omise_token"]
+	));
 	
-
-	// Include Functions
-	// Check if paypal request or response
-	if ($_POST["txn_ids"] != ''  ){
-		$querystring = '';
-		//echo 'in if';
-		// Firstly Append paypal account to querystring
-		$querystring .= "?business=".urlencode($paypal_email)."&";
-		
-		// Append amount& currency (£) to quersytring so it cannot be edited in html
-		
-		//The item name and amount can be brought in dynamically by querying the $_POST['item_number'] variable.
-		$querystring .= "item_name=".urlencode($item_name)."&";
-		$querystring .= "amount=".urlencode($item_amount)."&";
-		
-		//loop for posted values and append to querystring
-		foreach($_POST as $key => $value){
-			$value = urlencode(stripslashes($value));
-			$querystring .= "$key=$value&";
-		}
-		
-		// Append paypal return addresses
-		$querystring .= "return=".urlencode(stripslashes($return_url))."&";
-		$querystring .= "cancel_return=".urlencode(stripslashes($cancel_url))."&";
-		$querystring .= "notify_url=".urlencode($notify_url);
-		
-		
-		header('location:https://'.$paypal_url.'/cgi-bin/webscr'.$querystring);
-		exit();
-	} 
-	else {
-		
-		// Response from Paypal
-
-		// read the post from PayPal system and add 'cmd'
-		$req = 'cmd=_notify-validate';
-		foreach ($_POST as $key => $value) {
-			$value = urlencode(stripslashes($value));
-			$value = preg_replace('/(.*[^%^0^D])(%0A)(.*)/i','${1}%0D%0A${3}',$value);// IPN fix
-			$req .= "&$key=$value";
-		}
-		
-		$idupdate = $_POST['item_number'];
-		$data['item_name']			= $_POST['item_name'];
-		$data['item_number'] 		= $_POST['item_number'];
-		$data['payment_status'] 	= $_POST['payment_status'];
-		$data['payment_amount'] 	= $_POST['mc_gross'];
-		$data['payment_currency']	= $_POST['mc_currency'];
-		$data['txn_id']				= $_POST['txn_id'];
-		$data['receiver_email'] 	= $_POST['receiver_email'];
-		$data['payer_email'] 		= $_POST['payer_email'];
-		$data['custom'] 			= $_POST['custom'];
-		
-		//$result = $this->db->insert('ap_credit_paypal',$data );
-		
-		$this->db->select('invoice,total_price,email');      
-		//$this->db->limit(100);
-		$this->db->from('ap_order');
-		$this->db->where('invoice', ''.$_POST['item_number'].'');
-		$query = $this->db->get();	
-	 
-			if ($query->num_rows() > 0 )
-			{			 
-			  	foreach($query->result() as $row)
-			  	{
-					$find_fee = ( $data['payment_amount'] * 4.4 ) / 100  ;
-					$find_fee = $find_fee + $row->total_price ;
-					$balane = $data['payment_amount'] - $find_fee;
+	if ($charge['status'] == 'successful') {
+	  
+			$idupdate                 = $_POST[data];
+			$data['item_name']			  = $_POST[creditname];
+			$data['item_number'] 		  = $_POST[data];
+			$data['payment_status']   = 'Completed';
+			$data['payment_amount'] 	= $_POST[amount];
+			$data['payment_currency']	= 'THB';
+			$data['txn_id']				    = $charge['id'];
+			//$data['receiver_email'] = $_POST['receiver_email'];
+		  //$data['payer_email'] 		= $_POST['payer_email'];
+			// $data['custom'] 			    = $_POST[custom];
+			
+			
+		// 	//echo $data."===".$_POST[data];
+			$this->db->select('invoice,total_price,email');      
+			//$this->db->limit(100);
+			$this->db->from('ap_order');
+			$this->db->where('invoice', $_POST[data]);
+			$query = $this->db->get();
+				if ($query->num_rows() > 0 )
+				{			 
+				  	foreach($query->result() as $row)
+				  	{
+						$ddd = $row->email;
+		     			$data['receiver_email'] 	= $ddd;
+			  			$data['payer_email'] 		= $ddd;
+			//   echo  $row;
+						$find_fee = ( $_POST[amount] * 4 ) / 100  ;
+						$find_fee = $find_fee + $row->total_price ;
+						$balane = $_POST[amount] - $find_fee;
+						$debit = $balane ;
+						$detail = "Total Topup ".$_POST[amount]." THB <br /> Fee Rate 4%  ".$debit." <br /> Total Balance ".$balane." THB";
 					
-					
-					$debit = $balane ;
-					
-					
-					$detail = "Total Topup ".$data['payment_amount']." THB <br /> Fee Rate 4.4%  ".$debit." <br /> Total Balance ".$balane." THB";
-				
+							
+						$body = "
 						
-					$body = "
-					
-					Date : ".date('Y-m-d')." <br/>
-					Amount : ".$debit." THB. <br/><br/>
-					
-					<p>Payment With PayPal</p> <br/>
-					
-					-----------------------------------------------------------------------------------<br />
-					".$detail."
-					
-					
-					";
-				
-					
-					
-				
-					 
-					//$mail->MsgHTML(file_get_contents("".$emailurl."/send_from.php?name=admin/pay/agent/invoice/&file=transfer&invoice=".$member_in."&code=".$rand_se.""));
-					
-					
-
-
-
-					$mail->SetFrom("reservation@goldenbeachtour.com", ''.$sendby.'');
-					$mail->AddReplyTo("reservation@goldenbeachtour.com",''.$sendby.'');
-					$mail->Subject    = "TEST V4 !!!!!! ( Thailand ) You have new cash from Amount $debit  THB. Please Check Now.";
-					
-					$mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
-					$mail->MsgHTML($body);
-					$address = $row->total_price;
-					$address2 = "ozaclever@gmail.com"; 
-					
-					$mail->AddAddress($address2, "Golden Beach Tour"); 
-					 
-					
-					if ($_POST['mc_gross'] == $row->total_price) {
+						Date : ".date('Y-m-d')." <br/>
+						Amount : ".$debit." THB. <br/><br/>
+						
+						<p>Payment With PayPal</p> <br/>
+						
+						-----------------------------------------------------------------------------------<br />
+						".$detail."
+						";
+						$mail->SetFrom("reservation@goldenbeachtour.com", ''.$sendby.'');
+						$mail->AddReplyTo("reservation@goldenbeachtour.com",''.$sendby.'');
+						$mail->Subject    = "TEST V4 !!!!!! ( Thailand ) You have new cash from Amount $debit  THB. Please Check Now.";					
+						$mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+						$mail->MsgHTML($body);
+						$address = $row->total_price;
+						$address2 = "ozaclever@gmail.com"; 					
+						$mail->AddAddress($address2, "Golden Beach Tour"); 
 						$data['status_pay'] = 1;
 						$data2['status_pay'] = 1;
-						$result = $this->db->insert('ap_credit_paypal',$data );
+						//print_r($data) ;
+						$this->db->insert('ap_credit_paypal', $data );
 						$this->db->where('invoice', $idupdate);
 						$this->db->update('ap_order', $data2);
-						if(!$mail->Send()) {
-							
-							  echo "Mailer Error: " . $mail->ErrorInfo;
-							
-							} else {
-							
-							echo "";
-							 
-							
-							}
-						 
-					}
-					else{
-						$data['status_pay'] = 2;
-						$data2['status_pay'] = 2;
-						$result = $this->db->insert('ap_credit_paypal',$data );
-						$this->db->where('invoice', $idupdate);
-						$this->db->update('ap_order', $data2);
-						if(!$mail->Send()) {
-							
-							  echo "Mailer Error: " . $mail->ErrorInfo;
-							
-							} else {
-							
-							echo "";
-							 
-							
-							}
-					}
-			   }
-			}
+							if(!$mail->Send()) {
+								
+								  echo "Mailer Error: " . $mail->ErrorInfo;
+								
+								} else {
+								
+								echo "1";
+								 
+								
+								}
+				   }
+				}
+			
+			//$data = $this->Pay_model->updatepay($idupdate);
 		
-		//$data = $this->Pay_model->updatepay($idupdate);
-	}
+	} else {
+	  echo 'Fail';
+	}	
+	// print('<pre>');
+	// print_r($charge);
+	// print('</pre>');	
 }
 
 public function query_transfer_byuser(){
