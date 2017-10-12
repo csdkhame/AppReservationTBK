@@ -3,14 +3,14 @@
 header('Content-type: text/html; charset=utf-8');
 // header('Content-type: application/xml');
 
-$curl_post_data = '{"offsite":"internet_banking_scb","currency":"thb","amount":"1200"}';
+$curl_post_data = '{"offsite":"internet_banking_scb","currency":"thb","amount":"100000","return_uri":"https://www.welovetaxi.com/app/booking/dashboard/payment?data=7000624"}';
 			//	"api":"pkey_test_59iaxcc7zsr77n4nbkb",	
 					
 $curl_response = '';
 
 
 $headers = array();
-$url = "https://api.omise.co/charges/skey_test_59iaxcc8idh2bqub4ia";
+$url = "https://api.omise.co/charges \ -u skey_test_59iaxcc8idh2bqub4ia:";
                 
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_ENCODING, 'gzip');

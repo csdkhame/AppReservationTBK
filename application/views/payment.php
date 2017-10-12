@@ -92,6 +92,8 @@
 }
 .channel li span{
    font-size:15px;
+   line-height: 2.5;
+   vertical-align: super;
    
 }
 </style>
@@ -101,21 +103,23 @@
             <div class="box-in-foget" >
             <div style="    border-bottom: 1px solid #ddd;
     text-align: center;
-    padding: 10px;    font-size: 16px;" class="lng-omise-gateway">We Love<i class="fa fa-times pull-right" style="    font-size: 22px;" id="close" aria-hidden="true"></i></div>
+    padding: 10px;    font-size: 16px;" class="lng-omise-gateway">    <i class="fa fa-money pad" style="font-size: 35px; color: #4caf50;" aria-hidden="true"></i><span style="    text-align: center;vertical-align: super;" class="lng-omise-gateway">Payment Channel</span><i class="fa fa-times pull-right" style="    font-size: 22px;" id="close" aria-hidden="true"></i></div>
     
     <div align="center" style="margin-top:30px;">
-    <i class="fa fa-money " style="    font-size: 27px;
-    color: #aaa;" aria-hidden="true"></i>
+ 
     </div>
                 <div style="padding: 12px;padding-top:0">
                    <div class="col-md-12" id="forget">
                    <!-- <i class="fa fa-chevron-left" aria-hidden="true"></i><span>Back</span> -->
-                       <h5 style="    text-align: center;" class="lng-omise-gateway">Payment Channel</h5>
+                      
                         <!-- <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
                             <span class="lng-please-input-email">Please input your email </span>
                         </div> -->
                         <ul class="channel" style="list-style: none; padding-left: 6px;">
-                            <li class="credit-card"><i class="fa fa-credit-card pad" aria-hidden="true"></i><span>Credit Card</span></li>
+                            <li class="credit-card">
+                            <i class="fa fa-credit-card pad" aria-hidden="true"  style="color:#1a53f0;font-size: 30px;"></i>
+                                <!-- <img src="<?php echo base_url(); ?>files/img/omi.png" width="42" alt="" style="    margin-left: -5px;"> -->
+                                <span style="color:#333;   ">Credit Card</span></li>
                         <li>
                         <form class="paypal" action="./payments" method="post" id="paypal_form" target="_blank">
                          
@@ -134,9 +138,9 @@
                <!-- <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payments/?payment=success" />
                 <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payments/?payment=cancelled" /> -->
                 <input type="hidden" name="txn_ids" value="Reference" id="reference" / >
-                        <i class="fa fa-paypal pad" aria-hidden="true"></i><span><input style="background: #ffffff;  border: 0;  " type="image" name="submit" value="Paypal"   /></span>
+                        <i class="fa fa-paypal pad" aria-hidden="true" style="color:#253b80;    font-size: 30px;"></i><span><input style="background: #ffffff;  border: 0; color:#333; " type="image" name="submit" value="Paypal"   /></span>
                         </form></li>
-                        <li class="internet-banking"><i class="fa fa-linkedin-square pad" aria-hidden="true"></i><span>Internet Banking</span></li>
+                        <li class="internet-banking"><i class="fa fa-linkedin-square pad" aria-hidden="true" style="color:#e91e63;font-size: 30px;"></i><span style="color:#333">Internet Banking</span></li>
                         <!-- <li><i class="fa fa-credit-card" aria-hidden="true"></i><span>Credit Card</span></li> -->
                         </ul>
                     </div>
@@ -151,22 +155,24 @@
         </div>
         <div id="foget-password2">
             <div class="box-in-foget2" >
-            <div style=" border-bottom: 1px solid #ddd;
-    text-align: center;
-    padding: 10px;    font-size: 16px;" class="lng-omise-gateway">We Love<i class="fa fa-times pull-right" style="    font-size: 22px;" id="close-credit-card" aria-hidden="true"></i></div>
+            <div style=" border-bottom: 1px solid #ddd;  text-align: center;  padding: 10px; font-size: 16px;" class="lng-omise-gateway">
+            <img src="https://assets.omise.co/assets/omise-logo-a86debcb438f41aa395a868ff43fe67090e277d44dea080cd2d51baec405ea71.svg" alt="" width="100">    
+            <i class="fa fa-times pull-right" style="    font-size: 22px;" id="close-credit-card" aria-hidden="true"></i>
+</div>
     
-    <div align="center" style="margin-top:30px;">
-    <i class="fa fa-credit-card " aria-hidden="true" style="    font-size: 27px;
-    color: #aaa;"></i>
+    <!-- <div align="center" style="margin-top: 40px; margin-bottom: 20px;"> -->
+    <!-- <i class="fa fa-credit-card " aria-hidden="true" style="    font-size: 27px;
+    color: #aaa;"></i> -->
+   
     <!-- <i class="fa fa-money "  aria-hidden="true"></i> -->
-    </div>
-                <div style="padding: 12px;padding-top:0">
-                   <div class="col-md-12" id="forget">
+    <!-- </div> -->
+                <div style="padding: 20px;padding-top:0">
+                   <!-- <div class="col-md-12" id="forget"> -->
                    <!-- <i class="fa fa-chevron-left" aria-hidden="true"></i><span>Back</span> -->
-                       <h5 style="    text-align: center;" class="lng-omise-gateway">Credit Card</h5>
+                       <!-- <h5 style="    text-align: center;" class="lng-omise-gateway">Credit Card</h5> -->
                      
                         
-                    </div>
+                    <!-- </div> -->
                     <form id="checkout" >
 				 
 
@@ -226,29 +232,112 @@
 
         <div id="foget-password3">
             <div class="box-in-foget3" >
-            <div style="    border-bottom: 1px solid #ddd;
-    text-align: center;
-    padding: 10px;    font-size: 16px;" class="lng-omise-gateway">We Love<i class="fa fa-times pull-right" style="    font-size: 22px;" id="close-internet-banking" aria-hidden="true"></i></div>
+            <div style="    border-bottom: 1px solid #ddd;  text-align: center;  padding: 10px;    font-size: 16px;font-weight: 400;" class="lng-omise-gateway"> 
+       
+                 <i class="fa fa-linkedin-square pad"  style="    font-size: 35px; color: #e91e63;"></i><span style="text-align: center;color: #333;vertical-align: super;" class="lng-omise-gateway" >Internet Banking</span>
+                <!-- <td> </td> -->
+            
+        </table>
+            
+       
+        <i class="fa fa-times pull-right" style="font-size: 22px;" id="close-internet-banking" aria-hidden="true"></i></div>
     
     <div align="center" style="margin-top:30px;">
    
-    <i class="fa fa-credit-card pad" aria-hidden="true" style="    font-size: 27px;
-    color: #aaa;"></i>
-    
+   
+    <style>
+.omise-logo-wrapper         { display: inline-block; padding: 5px; margin-right:10px; border-radius: 2px; vertical-align: top; }
+.omise-logo-wrapper img     { width: 25px; height:25px; }
+.omise-banking-text-wrapper { display: inline-block;
+   
+    color: #333; }
+.secondary-text             { color: #aaa; font-size: 80%; }
+.scb { background: #4e2e7f; }
+.ktb { background: #1ba5e1; }
+.bay { background: #fec43b; }
+.bbl { background: #1e4598; }
+.circle{
+    position: absolute;
+    right: 0;
+    top: 12px;
+}
+.check{
+    position: absolute;
+    right: 0;
+    top: 12px;
+}
+</style>
     </div>
                 <div style="padding: 12px;padding-top:0">
                    <div class="col-md-12" id="forget">
                    <!-- <i class="fa fa-chevron-left" aria-hidden="true"></i><span>Back</span> -->
-                       <h5 style="    text-align: center;" class="lng-omise-gateway">Internet Banking</h5>
+                      
                         <!-- <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
                             <span class="lng-please-input-email">Please input your email </span>
                         </div> -->
                         <ul class="channel" style="list-style: none; padding-left: 6px;">
-                        <li ><img class="img-bank" src="<?php echo base_url(); ?>files/img/scb.svg" alt=""><span>Siam Commercial Bank</span></li>
+                        <li >                       
+                            <div class="radio">
+                                <label style="padding-left:0;width:100%">                        
+                                    <div class="omise-logo-wrapper scb">
+                                        <img src="<?php echo base_url(); ?>files/img/omise-offsite-scb.svg" class="scb" />
+                                    </div>
+                                    <div class="omise-banking-text-wrapper">
+                                        <span class="">Siam Commercial Bank</span>
+                                        <!-- <span class="rate secondary-text">Fee: 15 THB (same zone), 30 THB (out zone)</span> -->
+                                    
+                                    </div>
+                                    <input type="radio" data-omise="offsite_provider" id="omise_offsite_scb" name="offsite_provider" value="internet_banking_scb" style="position: absolute;  right: 0;  top: 12px;"/>                       
+                                </label>
+                            </div>            
+                            <!-- <img class="img-bank" src="<?php//echo base_url(); ?>files/img/scb.svg" alt=""><span>Siam Commercial Bank</span> -->
+                        </li>
                         
-                        <li ><img class="img-bank" src="<?php echo base_url(); ?>files/img/ktb.svg" alt=""><span>Krungthai Bank</span></li>
-                        <li ><img class="img-bank" src="<?php echo base_url(); ?>files/img/bbl.svg" alt=""><span>Krungsri Bank</span></li>
-                        <li ><img class="img-bank" src="<?php echo base_url(); ?>files/img/bay.svg" alt=""><span>Bankok Bank</span></li>
+                        <li >
+                        <div class="radio">
+                            <label style="padding-left:0;width:100%">
+                                <input type="radio" data-omise="offsite_provider" id="omise_offsite_ktb" name="offsite_provider" value="internet_banking_ktb" />
+                                <div class="omise-logo-wrapper ktb">
+                                    <img src="<?php echo base_url(); ?>files/img/omise-offsite-ktb.svg" class="ktb" />
+                                </div>
+                                <div class="omise-banking-text-wrapper">
+                                    <span class="">Krungthai Bank</span>
+                                    
+                                </div>
+                            </label>
+                        </div>
+                            <!-- <img class="img-bank" src="<?php echo base_url(); ?>files/img/ktb.svg" alt=""><span>Krungthai Bank</span> -->
+                        </li>
+                        <li >
+                        <div class="radio">
+                            <label style="padding-left:0;width:100%">
+                                <input type="radio" data-omise="offsite_provider" id="omise_offsite_bay" name="offsite_provider" value="internet_banking_bay" />
+                                <div class="omise-logo-wrapper bay">
+                                    <img src="<?php echo base_url(); ?>files/img/omise-offsite-bay.svg" class="bay" />
+                                </div>
+                                <div class="omise-banking-text-wrapper">
+                                    <span class="">Krungsri Bank</span>
+                                    <!-- <span class="rate secondary-text">Fee: 15 THB (same zone), 15 THB (out zone)</span> -->
+                                </div>
+                            </label>
+                        </div>
+                            <!-- <img class="img-bank" src="<?php echo base_url(); ?>files/img/bbl.svg" alt=""><span>Krungsri Bank</span> -->
+                        </li>
+                        <li >
+                        <div class="radio">
+                            <label style="padding-left:0;width:100%">
+                                <input type="radio" data-omise="offsite_provider" id="omise_offsite_bbl" name="offsite_provider" value="internet_banking_bbl" />
+                                <div class="omise-logo-wrapper bbl">
+                                    <img src="<?php echo base_url(); ?>files/img/omise-offsite-bbl.svg" class="bbl" />
+                                </div>
+                                <div class="omise-banking-text-wrapper">
+                                    <span class="">Bangkok Bank</span>
+                                    <!-- <span class="rate secondary-text">Fee: 15 THB (same zone), 20 THB (out zone)</span> -->
+                                </div>
+                            </label>
+                        </div>
+                            <!-- <img class="img-bank" src="<?php echo base_url(); ?>files/img/bay.svg" alt=""><span>Bankok Bank</span> -->
+                        </li>
                        
                         </ul>
                     </div>
@@ -502,7 +591,7 @@
 .label_name{
     display: block;
     font-size: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 			}
 			.iname{
                 width: 100%;
@@ -517,7 +606,7 @@
 			.label_cardnumber{
 				display: block;
                 font-size: 16px;
-                margin-bottom: 10px;
+                margin-bottom: 5px;
                 /* font-weight: 200; */
                 /* line-height: 10px; */
                 /* margin-right: 90px; */
@@ -534,13 +623,13 @@
 
                 display: block;
                 font-size: 15px;
-                margin-bottom: 10px;
+                margin-bottom: 5px;
 
 			}
 			.label_cardcvv{
                 font-size: 15px;
                 display: inline-block;
-                margin-bottom: 10px;
+                margin-bottom: 5px;
 			}
 			.ccv{
                 font-size: 16px;
@@ -552,7 +641,7 @@
 			}
 			.cardnumber{
 				
-                width: 23.5%;
+                width: 23.4%;
                 text-align: center;
                 box-sizing: border-box;
                 margin-bottom: 20px;
@@ -591,7 +680,7 @@
 
 			    
 			}
-			.btn-submit{				
+			/* .btn-submit{				
                 position: fixed;
                 bottom: 15px;
                 right: 15px;
@@ -609,7 +698,24 @@
 
 
 
-			}
+            } */
+            .btn-submit {
+    margin-top: 40px;
+    /* position: absolute; */
+    /* bottom: 15px; */
+    /* right: 15px; */
+    left: 15px;
+    width: 100%;
+    color: #eee;
+    display: inline-block;
+    padding: 13px;
+    font-size: 16px;
+    border: aliceblue;
+    border-radius: 0;
+    background: -o-linear-gradient(#ebaf00, #f1a100);
+    background: -moz-linear-gradient(#ebaf00, #f1a100);
+    background: linear-gradient(#16B3B1, #16B3B1);
+}
 			.btn-submit:focus{
 
 				outline: none;
@@ -670,7 +776,7 @@
                 color: #000;
 			}
 			.numyear{
-                width: 245px;
+                width: 68%;
                 margin-left: 5px;
                 display: inline-block;
                 font-size: 16px;

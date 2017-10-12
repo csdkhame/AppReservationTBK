@@ -2113,10 +2113,10 @@ fieldset[disabled] .form-group.is-focused .radio label {
 
 .radio label span {
     display: block;
-    position: absolute;
-    left: 10px;
-    top: 2px;
-    transition-duration: 0.2s;
+    /* position: absolute; */
+    /* left: 10px;
+    top: 2px; */
+    /* transition-duration: 0.2s; */
 }
 
 .radio label .circle {
