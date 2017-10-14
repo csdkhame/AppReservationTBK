@@ -439,6 +439,127 @@ public function paycredit(){
 	// print_r($charge);
 	// print('</pre>');	
 }
+public function checkout() {
+	// define('OMISE_PUBLIC_KEY', 'pkey_test_59iaxcc7zsr77n4nbkb');
+	define('OMISE_SECRET_KEY', 'skey_test_59iaxcc8idh2bqub4ia');
+	//$curl_post_data = '{"offsite":"internet_banking_scb","currency":"thb","amount":"100000","return_uri":"https://www.welovetaxi.com/app/booking/dashboard/payment?data=7000624"}';
+	//	"api":"pkey_test_59iaxcc7zsr77n4nbkb",	
+	$postdata = array(
+		'offsite' => 'internet_banking_scb',
+		'amount' => "100000",
+		'currency' => 'thb',
+		'return_uri' => "https://www.welovetaxi.com/app/booking/dashboard/payment?data=7000624"
+		
+	)
+;			
+$curl_response = '';
+
+
+$headers = array();
+$url = "https://api.omise.co/charges";		
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_ENCODING, 'gzip');
+curl_setopt($curl, CURLOPT_HTTPHEADER , array(
+'Content-Type: application/x-www-form-urlencoded; charset=utf-8',
+));
+curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.6 (KHTML, like Gecko) Chrome/16.0.897.0 Safari/535.6");
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+curl_setopt($curl, CURLOPT_REFERER, $url);
+curl_setopt($curl, CURLOPT_URL, $url);  
+
+curl_setopt($curl, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_USERPWD, "chrg_test_59m3qzhgff6o77vln9h");//-u
+curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
+$curl_response = curl_exec($curl);
+
+curl_close($curl);
+
+$message = iconv("incoming-charset", "utf-8", $curl_response);
+$aaaa = json_decode($curl_response);
+echo json_encode($aaaa);
+	// require_once('omise-php/lib/Omise.php');
+	// define('OMISE_PUBLIC_KEY', 'pkey_test_59iaxcc7zsr77n4nbkb');
+	// define('OMISE_SECRET_KEY', 'skey_test_59iaxcc8idh2bqub4ia');
+	// $charge = OmiseCharge::create(array(
+	// 	"amount"      => '10000',
+	// 	"currency"    => 'THB',
+	// 	"description" => 'TEST',
+	// 	"return_uri"  => 'https://www.welovetaxi.com/app/booking/dashboard/payment?data=7000624',
+	// 	//$this->url->link('payment/omise/checkoutcallback&order_id='.$order_id, '', 'SSL'),
+	// 	"offsite"     => 'internet_banking_scb'
+	//   ));
+	 // echo $omise_charge;
+	// $omise_charge = OmiseCharge::create(array(
+	// 							"amount"      => '10000',
+	// 							"currency"    => 'THB',
+	// 							"description" => 'TEST',
+	// 							"return_uri"  => 'https://www.welovetaxi.com/app/booking/dashboard/payment?data=7000624',
+	// 							//$this->url->link('payment/omise/checkoutcallback&order_id='.$order_id, '', 'SSL'),
+	// 							"offsite"     => 'internet_banking_scb'
+	// 						));
+						
+}
+// public function checkout() {
+// 	if (!empty($this->request->post['offsite_provider'])) {
+// 		$this->load->library('omise');
+// 		$this->load->library('omise-php/lib/Omise');
+// 		$this->load->model('payment/omise');
+// 		$this->load->model('checkout/order');
+// 		// Get Omise configuration.
+// 		$omise = array();
+// 		if ($this->config->get('omise_test_mode')) {
+// 			$omise['pkey'] = $this->config->get('omise_pkey_test');
+// 			$omise['skey'] = $this->config->get('omise_skey_test');
+// 		} else {
+// 			$omise['pkey'] = $this->config->get('omise_pkey');
+// 			$omise['skey'] = $this->config->get('omise_skey');
+// 		}
+// 		// Create a order history with `Processing` status
+// 		$order_id    = $this->session->data['order_id'];
+// 		$order_info  = $this->model_checkout_order->getOrder($order_id);
+// 		$order_total = $this->currency->format($order_info['total'], $order_info['currency_code'], '', false);
+// 		if ($order_info) {
+// 			try {
+// 				// Try to create an offsite charge.
+// 				$omise_charge = OmiseCharge::create(
+// 					array(
+// 						"amount"      => OmisePluginHelperCharge::amount($order_info['currency_code'], $order_total),
+// 						"currency"    => $this->currency->getCode(),
+// 						"description" => $this->request->post['description'],
+// 						"return_uri"  => $this->url->link('payment/omise/checkoutcallback&order_id='.$order_id, '', 'SSL'),
+// 						"offsite"     => $this->request->post['offsite_provider']
+// 					),
+// 					$omise['pkey'],
+// 					$omise['skey']
+// 				);
+// 				// Status: failed.
+// 				if ($omise_charge['failure_code'] || $omise_charge['failure_code']) {
+// 					throw new Exception($omise_charge['failure_code'].': '.$omise_charge['failure_code'], 1);
+// 				}
+// 				$this->model_payment_omise->addChargeTransaction($order_id, $omise_charge['id']);
+// 				// Status: processing.
+// 				$this->model_checkout_order->addOrderHistory($order_id, 2);
+// 				echo json_encode(array(
+// 					'omise'    => $omise_charge,
+// 					'captured' => $omise_charge['captured'],
+// 					'redirect' => $omise_charge['authorize_uri']
+// 				));
+// 			} catch (Exception $e) {
+// 				// Status: failed.
+// 				$error_message = $this->searchErrorTranslation('Payment ' . $e->getMessage());
+// 				$this->model_checkout_order->addOrderHistory($order_id, 10, $error_message);
+// 				echo json_encode(array(
+// 					'error' => $error_message
+// 				));
+// 			}
+// 		} else {
+// 			echo json_encode(array('error' => 'Cannot find your order, please try again.'));
+// 		}
+// 	} else {
+// 		echo json_encode(array('error' => 'Please select a bank from the list.'));
+// 	}
+// }
 
 public function query_transfer_byuser(){
 	

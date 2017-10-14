@@ -275,6 +275,8 @@
                         <!-- <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
                             <span class="lng-please-input-email">Please input your email </span>
                         </div> -->
+                        <form>
+                            
                         <ul class="channel" style="list-style: none; padding-left: 6px;">
                         <li >                       
                             <div class="radio">
@@ -340,10 +342,19 @@
                         </li>
                        
                         </ul>
-                    </div>
+                            <div class="buttons">        
+                                <i class="omise-submitting fa fa-spinner fa-spin"></i>
+            
+                                <input type="submit" value="<?php echo $button_confirm; ?>" class=" btn-checkout" style="100%"  value="Submit" />
+        
+                            </div>
+                    </form>
+                </div>
                    
                     
                 </div>
+                 <!-- Button -->
+    
                 <!-- <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;">  -->
                 <!-- <div  class="btn-close lng-close" ></div> -->
                    
@@ -500,6 +511,23 @@
         </div>
     </section>
 <style>
+    .btn-checkout{
+        margin-top: 40px;
+    /* position: absolute; */
+    /* bottom: 15px; */
+    /* right: 15px; */
+    left: 15px;
+    width: 100%;
+    color: #eee;
+    display: inline-block;
+    padding: 13px;
+    font-size: 16px;
+    border: aliceblue;
+    border-radius: 0;
+    background: -o-linear-gradient(#ebaf00, #f1a100);
+    background: -moz-linear-gradient(#ebaf00, #f1a100);
+    background: linear-gradient(#16B3B1, #16B3B1);
+    }
 .img-bank{
     width: 30px;
     margin-right: 10px;  
@@ -856,6 +884,52 @@ $( document ).ready(function() {
 			$('#name').html(obj[index].s_name);
 		});
     });
+
+    //===============================================
+    $("#omise-form-checkout").submit(function() {
+        var form            = $(this),
+            alertSuccess    = form.find(".alert-success"),
+            alertError      = form.find(".alert-error"),
+            spinner         = form.find('.omise-submitting');
+        // Show spinner icon.
+        spinner.addClass('loading');
+        // Hidden alert box
+        alertError.removeClass('show');
+        alertSuccess.removeClass('show');
+        // Disable the submit button to avoid repeated click.
+        form.find("input[type=submit]").prop("disabled", true);
+        // Charge with internet banking.
+        var posting = $.post("https://www.welovetaxi.com/app/booking/service/inBank.php", {
+            "offsite_provider": form.find("[data-omise=offsite_provider]:checked").val()
+            // "description": "Charge an internet banking from OpenCart that order id is <?php echo $orderid; ?> from <?php echo $billemail; ?>"
+        });
+        posting
+            .done(function(resp) {
+                spinner.removeClass('loading');
+                resp = JSON.parse(resp);
+                if (typeof resp === "object") {
+                    if (typeof resp.error !== "undefined") {
+                        alertError.html(resp.error).addClass('show');
+                    } else {
+                        if (typeof resp.redirect !== "undefined") {
+                            console.log('redirect');
+                            window.location = resp.redirect;
+                        } else {
+                            form.get(0).submit();
+                        }
+                    }
+                }
+                form.find("input[type=submit]").prop("disabled", false);
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                spinner.removeClass('loading');
+                alertError.html("Omise "+errorThrown).addClass('show');
+                form.find("input[type=submit]").prop("disabled", false);
+            });
+        // Prevent the form from being submitted;
+        return false;
+    });
+    //================================================================= 
     // function getParameterByName(name, url) {
     //     if (!url) url = window.location.href;
     //     name = name.replace(/[\[\]]/g, "\\$&");
@@ -973,16 +1047,16 @@ $( document ).ready(function() {
         //$('#foget-password').hide()
         $('#foget-password3').fadeIn(500);
         //alert('asasasa')
-        // $.ajax({
-        //     type: 'POST',
-        //     url: 'https://www.welovetaxi.com/app/booking/service/inBank.php',
-        //    // data: { 'from': pro_id, 'lng': lng },
-        //     //contentType: "application/json",
-        //     dataType: 'json',
-        //     success: function(data) {
-        //         console.log(data)
-        //     }
-        // });
+        $.ajax({
+            type: 'POST',
+            url: 'https://www.welovetaxi.com/app/booking/dashboard/checkout',
+           // data: { 'from': pro_id, 'lng': lng },
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+            }
+        });
         
     })
     $('#close').on('click', function() {
