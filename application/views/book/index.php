@@ -539,7 +539,7 @@
                                                 <td >
                                                     <div class='input-group '  style="width: 100%">
                                                     <!-- <input type="text"> -->
-                                                     <input id="on_date"   class="datepicker asd"  name="date" type="text" autofocuss  >  
+                                                     <input id="on_date"   class="datepicker asd form-control"  name="date" type="text" autofocuss  >  
                                                     <!-- <input type="text"> -->
                                                     <!-- <input type="text" data-role="date" id="on_date" class="form-control asd date-input-css"> -->
                                                         <!-- <input type='date' id="on_date" class="form-control asd" value="<?php date("Y-m-d");?>" min="<?php date("Y-m-d");?>" data-date-format="d-M-yyyy"> -->
@@ -774,6 +774,21 @@
                                             </tr>
                                         </table>
                                     </div>
+                                    <div class="form-group form-inline">
+                                    <table width="100%">
+                                            <tr>
+                                                <td width="20%"  style="padding-right: 10px;">
+                                                    <label style="text-align:left" ><span class="lng-remark"></span><span>:</span></label>
+                                                </td>
+                                                <td width="80%">
+                                                    <div style="width:100%">                                                    
+                                                        <input type="text" class="form-control asd" id="other"  style="width:100%" >
+                                                    </div>   
+                                                </td>
+                                            </tr>
+                                        </table>
+                                                
+                                    </div> 
                                 </div> 
                             </div>
                         </div>
@@ -838,9 +853,7 @@
                                                     <input type="text" class="textInput" placeholder="<? echo $lng_flight?>" id="flight" >
                                                
                                             </div>
-                                            <div class="form-group form-inline">
-                                                <input type="text" class="textInput" placeholder="<? echo $lng_other?>" id="other" >
-                                            </div>            
+                                                       
                                         </div> 
                                     </div>     
                                 </div>

@@ -83,7 +83,7 @@
 <!-- <div class="col-md-6"> -->
 <style>
 .channel li{
-    padding: 12px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #ddd;
 }
 .pad{
@@ -101,13 +101,18 @@
 
 <div id="foget-password">
             <div class="box-in-foget" >
-            <div style="    border-bottom: 1px solid #ddd;
-    text-align: center;
-    padding: 10px;    font-size: 16px;" class="lng-omise-gateway">    <i class="fa fa-money pad" style="font-size: 35px; color: #4caf50;" aria-hidden="true"></i><span style="    text-align: center;vertical-align: super;" class="lng-omise-gateway">Payment Channel</span><i class="fa fa-times pull-right" style="    font-size: 22px;" id="close" aria-hidden="true"></i></div>
+            <div style="text-align: center;
+    padding: 30px 10px;
+    font-size: 16px;" class="lng-omise-gateway">   
+     <!-- <i class="fa fa-money pad" style="font-size: 35px; color: #4caf50;" aria-hidden="true"></i> -->
+     <span style="    text-align: center;vertical-align: super;" class="lng-omise-gateway">Payment Channel</span><i class="fa fa-times pull-right" style="font-size: 22px;
+    position: fixed;
+    right: 15px;
+    top: 15px;" id="close" aria-hidden="true"></i></div>
     
-    <div align="center" style="margin-top:30px;">
+    <!-- <div align="center" style="margin-top:30px;">
  
-    </div>
+    </div> -->
                 <div style="padding: 12px;padding-top:0">
                    <div class="col-md-12" id="forget">
                    <!-- <i class="fa fa-chevron-left" aria-hidden="true"></i><span>Back</span> -->
@@ -131,7 +136,7 @@
                 
                 <input type="hidden" name="first_name" value="Customer's First Name"  />
                 <input type="hidden" name="last_name" value="Customer's Last Name"  />
-                <input type="hidden" name="payer_email" value="ozaclever-business@gmail.com"  />
+                <input type="hidden" name="payer_email" value="ozaclever-busines-2@gmail.com"  />
                 <input type="hidden" name="item_name" value="Customer's First Name"  id="item_name">
                 <input type="hidden" name="item_number" value="988" id="item_number">
                 <input type="hidden" type="number" name="txt_amount" class="textInput"  id="amount" />
@@ -140,7 +145,9 @@
                 <input type="hidden" name="txn_ids" value="Reference" id="reference" / >
                         <i class="fa fa-paypal pad" aria-hidden="true" style="color:#253b80;    font-size: 30px;"></i><span><input style="background: #ffffff;  border: 0; color:#333; " type="image" name="submit" value="Paypal"   /></span>
                         </form></li>
-                        <li class="internet-banking"><i class="fa fa-linkedin-square pad" aria-hidden="true" style="color:#e91e63;font-size: 30px;"></i><span style="color:#333">Internet Banking</span></li>
+                        <!-- <li class="internet-banking">
+                            <i class="fa fa-university pad" aria-hidden="true" style="color:#e91e63;font-size: 30px;"></i>
+                        <span style="color:#333">Internet Banking</span></li> -->
                         <!-- <li><i class="fa fa-credit-card" aria-hidden="true"></i><span>Credit Card</span></li> -->
                         </ul>
                     </div>
@@ -232,17 +239,23 @@
 
         <div id="foget-password3">
             <div class="box-in-foget3" >
-            <div style="    border-bottom: 1px solid #ddd;  text-align: center;  padding: 10px;    font-size: 16px;font-weight: 400;" class="lng-omise-gateway"> 
+            <div style="    text-align: center;
+    padding: 30px 10px;
+    font-size: 16px;font-weight: 400;" class="lng-omise-gateway"> 
        
-                 <i class="fa fa-linkedin-square pad"  style="    font-size: 35px; color: #e91e63;"></i><span style="text-align: center;color: #333;vertical-align: super;" class="lng-omise-gateway" >Internet Banking</span>
+                 <!-- <i class="fa fa-linkedin-square pad"  style="    font-size: 35px; color: #e91e63;"></i> -->
+                 <span style="text-align: center;color: #333;vertical-align: super;" class="lng-omise-gateway" >Internet Banking</span>
                 <!-- <td> </td> -->
             
-        </table>
+        <!-- </table> -->
             
        
-        <i class="fa fa-times pull-right" style="font-size: 22px;" id="close-internet-banking" aria-hidden="true"></i></div>
+        <i class="fa fa-times pull-right" style="    font-size: 22px;
+    position: fixed;
+    right: 15px;
+    top: 15px;" id="close-internet-banking" aria-hidden="true"></i></div>
     
-    <div align="center" style="margin-top:30px;">
+   
    
    
     <style>
@@ -267,7 +280,7 @@
     top: 12px;
 }
 </style>
-    </div>
+    
                 <div style="padding: 12px;padding-top:0">
                    <div class="col-md-12" id="forget">
                    <!-- <i class="fa fa-chevron-left" aria-hidden="true"></i><span>Back</span> -->
@@ -343,9 +356,9 @@
                        
                         </ul>
                             <div class="buttons">        
-                                <i class="omise-submitting fa fa-spinner fa-spin"></i>
+                                <!-- <i class="omise-submitting fa fa-spinner fa-spin"></i> -->
             
-                                <input type="submit" value="<?php echo $button_confirm; ?>" class=" btn-checkout" style="100%"  value="Submit" />
+                                <input type="submit" class=" btn-checkout" style="100%"  value="Submit" />
         
                             </div>
                     </form>
@@ -886,49 +899,49 @@ $( document ).ready(function() {
     });
 
     //===============================================
-    $("#omise-form-checkout").submit(function() {
-        var form            = $(this),
-            alertSuccess    = form.find(".alert-success"),
-            alertError      = form.find(".alert-error"),
-            spinner         = form.find('.omise-submitting');
-        // Show spinner icon.
-        spinner.addClass('loading');
-        // Hidden alert box
-        alertError.removeClass('show');
-        alertSuccess.removeClass('show');
-        // Disable the submit button to avoid repeated click.
-        form.find("input[type=submit]").prop("disabled", true);
-        // Charge with internet banking.
-        var posting = $.post("https://www.welovetaxi.com/app/booking/service/inBank.php", {
-            "offsite_provider": form.find("[data-omise=offsite_provider]:checked").val()
-            // "description": "Charge an internet banking from OpenCart that order id is <?php echo $orderid; ?> from <?php echo $billemail; ?>"
-        });
-        posting
-            .done(function(resp) {
-                spinner.removeClass('loading');
-                resp = JSON.parse(resp);
-                if (typeof resp === "object") {
-                    if (typeof resp.error !== "undefined") {
-                        alertError.html(resp.error).addClass('show');
-                    } else {
-                        if (typeof resp.redirect !== "undefined") {
-                            console.log('redirect');
-                            window.location = resp.redirect;
-                        } else {
-                            form.get(0).submit();
-                        }
-                    }
-                }
-                form.find("input[type=submit]").prop("disabled", false);
-            })
-            .fail(function(jqXHR, textStatus, errorThrown) {
-                spinner.removeClass('loading');
-                alertError.html("Omise "+errorThrown).addClass('show');
-                form.find("input[type=submit]").prop("disabled", false);
-            });
-        // Prevent the form from being submitted;
-        return false;
-    });
+    // $("#omise-form-checkout").submit(function() {
+    //     var form            = $(this),
+    //         alertSuccess    = form.find(".alert-success"),
+    //         alertError      = form.find(".alert-error"),
+    //         spinner         = form.find('.omise-submitting');
+    //     // Show spinner icon.
+    //     spinner.addClass('loading');
+    //     // Hidden alert box
+    //     alertError.removeClass('show');
+    //     alertSuccess.removeClass('show');
+    //     // Disable the submit button to avoid repeated click.
+    //     form.find("input[type=submit]").prop("disabled", true);
+    //     // Charge with internet banking.
+    //     var posting = $.post("https://www.welovetaxi.com/app/booking/service/inBank.php", {
+    //         "offsite_provider": form.find("[data-omise=offsite_provider]:checked").val()
+    //         // "description": "Charge an internet banking from OpenCart that order id is <?php echo $orderid; ?> from <?php echo $billemail; ?>"
+    //     });
+    //     posting
+    //         .done(function(resp) {
+    //             spinner.removeClass('loading');
+    //             resp = JSON.parse(resp);
+    //             if (typeof resp === "object") {
+    //                 if (typeof resp.error !== "undefined") {
+    //                     alertError.html(resp.error).addClass('show');
+    //                 } else {
+    //                     if (typeof resp.redirect !== "undefined") {
+    //                         console.log('redirect');
+    //                         window.location = resp.redirect;
+    //                     } else {
+    //                         form.get(0).submit();
+    //                     }
+    //                 }
+    //             }
+    //             form.find("input[type=submit]").prop("disabled", false);
+    //         })
+    //         .fail(function(jqXHR, textStatus, errorThrown) {
+    //             spinner.removeClass('loading');
+    //             alertError.html("Omise "+errorThrown).addClass('show');
+    //             form.find("input[type=submit]").prop("disabled", false);
+    //         });
+    //     // Prevent the form from being submitted;
+    //     return false;
+    // });
     //================================================================= 
     // function getParameterByName(name, url) {
     //     if (!url) url = window.location.href;

@@ -154,8 +154,8 @@ public function payments(){
 	 
 	//date_default_timezone_set("Asia/Bangkok");
 	$paypal_email = $_POST["payer_email"];
-	$return_url = 'https://dotdotdottrip.com/dashboard/payment?data='.$_POST["item_number"].'&payment=success';
-	$cancel_url = 'https://dotdotdottrip.com/dashboard/payment?data='.$_POST["item_number"].'&payment=cancelled';
+	$return_url = 'https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$_POST["item_number"].'&payment=success';
+	$cancel_url = 'https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$_POST["item_number"].'&payment=cancelled';
 	//$notify_url = 'https://dotdotdottrip.com/dashboard/payments';
 
 	$item_name = $_POST["item_name"];
@@ -440,19 +440,22 @@ public function paycredit(){
 	// print('</pre>');	
 }
 public function checkout() {
-	// define('OMISE_PUBLIC_KEY', 'pkey_test_59iaxcc7zsr77n4nbkb');
+	define('OMISE_API_VERSION', '2015-11-17');
+	require_once('omise-php/lib/Omise.php');
+	define('OMISE_PUBLIC_KEY', 'pkey_test_59iaxcc7zsr77n4nbkb');
 	define('OMISE_SECRET_KEY', 'skey_test_59iaxcc8idh2bqub4ia');
 	//$curl_post_data = '{"offsite":"internet_banking_scb","currency":"thb","amount":"100000","return_uri":"https://www.welovetaxi.com/app/booking/dashboard/payment?data=7000624"}';
 	//	"api":"pkey_test_59iaxcc7zsr77n4nbkb",	
 	$postdata = array(
 		'offsite' => 'internet_banking_scb',
 		'amount' => "100000",
-		'currency' => 'thb',
+		'currency' => 'thb',	
 		'return_uri' => "https://www.welovetaxi.com/app/booking/dashboard/payment?data=7000624"
+		
 		
 	)
 ;			
-$curl_response = '';
+//$curl_response = '';
 
 
 $headers = array();
@@ -469,7 +472,7 @@ curl_setopt($curl, CURLOPT_REFERER, $url);
 curl_setopt($curl, CURLOPT_URL, $url);  
 
 curl_setopt($curl, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_USERPWD, "chrg_test_59m3qzhgff6o77vln9h");//-u
+curl_setopt($curl, CURLOPT_USERPWD, "pkey_test_59iaxcc7zsr77n4nbkb:");//-u
 curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
 $curl_response = curl_exec($curl);
 

@@ -1121,7 +1121,11 @@ $(document).ready(function() {
         var url2 = 'https://welovetaxi.com/app/booking/';
 
         console.log(flight)
-        if ((area == 'In' || area == 'Out') && flight == undefined && $.cookie("phonecode") == undefined) {
+        console.log(area)
+        console.log($.cookie("phonecode"))
+        //console.log(flight)
+        if ((area == 'In' || area == 'Out') && flight == undefined ) {
+            // && $.cookie("phonecode") == undefined
 
             $('#waning-flight').fadeIn(500);
             //alert("aaaa");

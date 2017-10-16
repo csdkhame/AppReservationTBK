@@ -106,6 +106,8 @@ $(document).ready(function() {
         $('.lng-phone').html('电话');
         $('.lng-email').html('电子邮件');
         $('.lng-other').html('其他');
+        $('.lng-remark').html('備註');
+        
         $('.lng-flight').html('航班');
         $('.lng-sum-total').html('总计');
         $('.lng-acceptance-of-terms').html('接受条款');
@@ -299,6 +301,8 @@ $(document).ready(function() {
         $('.lng-no-record').html('No Record');
         $('.lng-payment').html('Payment');
         $('.lng-plese-login').html('Please sign in');
+        $('.lng-remark').html('Remark');
+        
 
 
 
@@ -447,6 +451,7 @@ $(document).ready(function() {
         $('.lng-no-record').html('ไม่มีการบันทึก');
         $('.lng-payment').html('การชำระเงิน');
         $('.lng-plese-login').html('กรุณาเข้าสู่ระบบ');
+        $('.lng-remark').html('ข้อสังเกต');
 
 
 
@@ -577,6 +582,7 @@ $(document).ready(function() {
         $('.lng-no-record').html('No Record');
         $('.lng-payment').html('Payment');
         $('.lng-plese-login').html('Please sign in');
+        $('.lng-remark').html('Remark');
 
 
 
