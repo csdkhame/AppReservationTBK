@@ -153,15 +153,15 @@ public function payments(){
 	  $mail->Password = $webmail_password ;            // SMTP server password 
 	 
 	//date_default_timezone_set("Asia/Bangkok");
-	$paypal_email = $_POST["payer_email"];
-	$return_url = 'https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$_POST["item_number"].'&payment=success';
-	$cancel_url = 'https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$_POST["item_number"].'&payment=cancelled';
+	$paypal_email = $_POST[payer_email];
+	$return_url = 'https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$_POST[item_number].'&payment=success';
+	$cancel_url = 'https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$_POST[item_number].'&payment=cancelled';
 	//$notify_url = 'https://dotdotdottrip.com/dashboard/payments';
 
-	$item_name = $_POST["item_name"];
-	$item_amount = $_POST["txt_amount"];
+	$item_name = $_POST[item_name];
+	$item_amount = $_POST[txt_amount];
 	$paypal_url = "www.sandbox.paypal.com";
-	//echo $_POST["payer_email"].'</Br>'.$_POST["txt_amount"].'</Br>'.$_POST["txn_id"].'</Br>';
+	//echo $_POST["payer_email"].'</Br>'.$_POST["txt_amount"].'</Br>'.$_POST["txn_ids"].'</Br>'.$_POST["item_name"].'</Br>';
 	
 
 	// Include Functions
@@ -204,39 +204,39 @@ public function payments(){
 			$value = preg_replace('/(.*[^%^0^D])(%0A)(.*)/i','${1}%0D%0A${3}',$value);// IPN fix
 			$req .= "&$key=$value";
 		}
-		
+		//echo $_POST['item_name'].'</Br>'.$_POST['item_number'].'</Br>'.$_POST['payment_status'].'</Br>';
 		$idupdate = $_POST['item_number'];
-		$data['item_name']			= $_POST['item_name'];
-		$data['item_number'] 		= $_POST['item_number'];
-		$data['payment_status'] 	= $_POST['payment_status'];
-		$data['payment_amount'] 	= $_POST['mc_gross'];
-		$data['payment_currency']	= $_POST['mc_currency'];
-		$data['txn_id']				= $_POST['txn_id'];
-		$data['receiver_email'] 	= $_POST['receiver_email'];
-		$data['payer_email'] 		= $_POST['payer_email'];
-		$data['custom'] 			= $_POST['custom'];
+		$data['item_name']			= $_POST[item_name];
+		$data['item_number'] 		= $_POST[item_number];
+		$data['payment_status'] 	= $_POST[payment_status];
+		$data['payment_amount'] 	= $_POST[mc_gross];
+		$data['payment_currency']	= $_POST[mc_currency];
+		$data['txn_id']				= $_POST[txn_id];
+		$data['receiver_email'] 	= $_POST[receiver_email];
+		$data['payer_email'] 		= $_POST[payer_email];
+		$data['custom'] 			= $_POST[custom];
 		
 		//$result = $this->db->insert('ap_credit_paypal',$data );
 		
 		$this->db->select('invoice,total_price,email');      
 		//$this->db->limit(100);
 		$this->db->from('ap_order');
-		$this->db->where('invoice', ''.$_POST['item_number'].'');
+		$this->db->where('invoice', $_POST[item_number]);
 		$query = $this->db->get();	
 	 
 			if ($query->num_rows() > 0 )
 			{			 
 			  	foreach($query->result() as $row)
 			  	{
-					$find_fee = ( $data['payment_amount'] * 4.4 ) / 100  ;
+					$find_fee = ( $data[payment_amount] * 4.4 ) / 100  ;
 					$find_fee = $find_fee + $row->total_price ;
-					$balane = $data['payment_amount'] - $find_fee;
+					$balane = $data[payment_amount] - $find_fee;
 					
 					
 					$debit = $balane ;
 					
 					
-					$detail = "Total Topup ".$data['payment_amount']." THB <br /> Fee Rate 4.4%  ".$debit." <br /> Total Balance ".$balane." THB";
+					$detail = "Total Topup ".$data[payment_amount]." THB <br /> Fee Rate 4.4%  ".$debit." <br /> Total Balance ".$balane." THB";
 				
 						
 					$body = "

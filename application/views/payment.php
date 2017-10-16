@@ -478,7 +478,7 @@
     text-align: center;
     color: #ffffff;
     /* border: 1px solid #16B3B1; */
-    background-color: #16B3B1;">Pay now</div>
+    background-color: #16B3B1;"><span class="lng-paynow"></span></div>
                 </td>
             </tr>
             <tr>
