@@ -349,7 +349,15 @@ public function paycredit(){
 	define('OMISE_PUBLIC_KEY', 'pkey_test_59iaxcc7zsr77n4nbkb');
 	define('OMISE_SECRET_KEY', 'skey_test_59iaxcc8idh2bqub4ia');
 	$x = $_POST[amount];
+	// $c = ($x*3.8)/100;
+	// $vat = ($c*7.0)/100;
+	// //print_r($c);
+	// $charge = $c*100;
+	// $totalvat = $vat*100;
 	$totalamount = $x*100;
+	// $int = intval($totalamount);
+	//print_r($totalamount);
+	//print_r($totalamount);
 	//echo $totalamount.'=='.$_POST["omise_token"].$_POST["data"];
 	//echo $_POST[amount] .'==='.$x;
 	$charge = OmiseCharge::create(array(

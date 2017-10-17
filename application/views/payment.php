@@ -1307,7 +1307,7 @@ function getParameterByName(name, url) {
                 $('#reference').val(data[0].s_code)
                 $('#item_name').val(data[0].book_by)
                 $('#item_namec').val(data[0].book_by)
-                $('#amount').val(data[0].total_price)
+                //$('#amount').val(data[0].total_price)
                 $('#voucher').html('<a href="'+data[0].voucher_url+'" target="_blank">'+data[0].invoice+'<a>');
                 $('#adult').text(data[0].adult);
                 $('#child').text(data[0].child);
@@ -1323,7 +1323,11 @@ function getParameterByName(name, url) {
                 $('#book_by').text(data[0].book_by);
                 $('#price').text(data[0].total_price);
                 $('#total_amount').text(data[0].total_price);
-                $('#amount').val();
+                console.log(data[0].total_price*4.4)
+                var charg = (parseInt(data[0].total_price)*4.4)/100;
+                var sumcost = parseInt(data[0].total_price)+charg;
+                console.log(sumcost)
+                $('#amount').val(data[0].total_price);
                 total_amount = data[0].totalpay
                 
                
@@ -1333,4 +1337,5 @@ function getParameterByName(name, url) {
 	});
 
 
+    
 </script>

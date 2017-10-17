@@ -197,9 +197,9 @@ $( document ).ready(function() {
 				</div>
 				<div align="center" style="    margin-top: 10px;">
 				
-						<span class="textBox" style="font-size: 12px;"><b><span id="from"></span></b></span>
+						<span class="textBox" style="font-size: 15px;"><b><span id="from"></span></b></span>
 							<strong style="font-size: 17px;color: white;"><span id="text" >-</span></strong>
-							<span class="textBox" style="font-size: 12px;"><b><span id="to"></span></b></span>
+							<span class="textBox" style="font-size: 15px;"><b><span id="to"></span></b></span>
 						
 					</div>
 				
