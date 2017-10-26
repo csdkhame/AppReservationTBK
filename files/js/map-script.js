@@ -332,7 +332,9 @@ function a(map) {
                 lng: position.coords.longitude
             };
             start = pos;
+           
             console.log(start);
+           
             markerCircle.setPosition(pos);
             //            markerTest.setPosition(pos);
             var curPosition = new google.maps.LatLng(pos);
@@ -346,6 +348,11 @@ function a(map) {
 
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
+            lat_f =position.coords.latitude;
+            lng_f =position.coords.longitude;
+            
+            console.log(lat_f);
+            console.log(lng_f);
             var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 
             geocoderRun(latlng);
@@ -362,6 +369,7 @@ function a(map) {
     }
 
     function success(position) {
+        // alert("aaaa")
         console.log(start);
         var current = {
             lat: parseFloat(position.coords.latitude),
@@ -419,6 +427,8 @@ function a(map) {
         lat_f = placeStart.geometry.location.lat();
         lng_f = placeStart.geometry.location.lng();
         console.log(start);
+        console.log(lat_f);
+        console.log(lng_f);
         $('#clear-all').show(500);
     });
 
@@ -656,6 +666,9 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         success: function(data) {
             console.log(data);
             console.log(data.status);
+            console.log(data.length)
+            
+            console.log(data.size)
             $('.a-link-item').remove();
             $('.not-found').remove();
             $('.typerel').remove();
@@ -1284,6 +1297,8 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
         lat_f = start.lat;
         lng_f = start.lng;
         console.log(request);
+        console.log(lat_f);
+        console.log(lng_f);
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
             if (status == 'ZERO_RESULTS') {
