@@ -395,7 +395,7 @@
 }
 .btn-car-service {
     line-height: 0.8;
-    /* padding: 8px 0; */
+    padding: 8px 0;
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */

@@ -665,15 +665,28 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         dataType: 'json',
         success: function(data) {
             console.log(data);
-            console.log(data.status);
-            console.log(data.length)
+            // console.log(data.status);
+            // console.log(data.length)
             
-            console.log(data.size)
+            // console.log(data.size)
+            parame = { "place_default": data[0].data1.from, "place_default_to":data[0].data1.to};
+            console.log(parame)
+            $.ajax({
+                type: 'POST',
+                url: 'https://www.welovetaxi.com/app/booking/service/service.php',
+                data: parame,
+                //contentType: "application/json",
+                dataType: 'json',
+                success: function(data2) {
+                    console.log(data2)
+                    console.log(data2.length)
+                    console.log(data2.status)
+                    console.log(data2.size)
             $('.a-link-item').remove();
             $('.not-found').remove();
             $('.typerel').remove();
             //            console.log(data.detail);
-            if (data.status == '200. bad request') {
+            if (data2.status == '200. bad request') {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
                 $('#loading').css('display', 'block');
@@ -698,30 +711,74 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     $("#pro-search").animate({ 'margin-top': '0vh' });
                 }, 2000);
                 var cartype;
-                data1 = data.data1;
-                if ($.cookie("lng") == 'cn') {
-                    cartype = data.cartype[1];
+                data1 = data2.data1;
+                cartype = data2.car_topic;
+                console.log(data1)
+                console.log(cartype)
+                  $.each(cartype, function(i, val) {
+                    var index2 = parseInt(i) + 1;
+                    var type,typeshow,pax;
+                    type = cartype[i].pax_id;
+                    if ($.cookie("lng") == 'cn') {
+                       // type = cartype[i].pax_id;
+                        typeshow = cartype[i].car_topic_cn;
+                        pax = cartype[i].pax_cn;
 
                 } else if ($.cookie("lng") == 'en') {
 
-                    cartype = data.cartype[0];
+                   
+                    typeshow = cartype[i].car_topic_en;
+                    pax = cartype[i].pax_en;
                 } else if ($.cookie("lng") == 'th') {
-                    cartype = data.cartype[2];
+                   // type = vacartypel[i].pax_id;
+                    typeshow = cartype[i].car_topic_th;
+                    pax = cartype[i].pax_th;
 
 
                 } else if ($.cookie("lng") == undefined) {
-                    cartype = data.cartype[0];
+                   // type = cartype[i].car_topic_en;
+                    typeshow = cartype[i].car_topic_en;
+                    pax = cartype[i].pax_en;
 
                 }
-
-                $.each(cartype, function(i, val) {
-                    var index2 = parseInt(i) + 1;
-                    $('#cartype').append('<option class="typerel" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                console.log(type)
+                console.log(cartype)
+                    
+                // label="' + type + '"
+                $('#cartype').append('<option class="typeservice" value="' + cartype[i].pax_id + '" ><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></option>');
+                
+                    //$('#typecarservice').append('<li class="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                     //dataProvince.push(data[i])
                     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
-
+                    // if(index2 == datalength-1){
+                    //     alert('aaaaa')
+                        
+                    // }
                 });
+                // if ($.cookie("lng") == 'cn') {
+                //     cartype = data.cartype[1];
+
+                // } else if ($.cookie("lng") == 'en') {
+
+                //     cartype = data.cartype[0];
+                // } else if ($.cookie("lng") == 'th') {
+                //     cartype = data.cartype[2];
+
+
+                // } else if ($.cookie("lng") == undefined) {
+                //     cartype = data.cartype[0];
+
+                // }
+
+                // $.each(cartype, function(i, val) {
+                //     var index2 = parseInt(i) + 1;
+                //     $('#cartype').append('<option class="typerel" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                //     //dataProvince.push(data[i])
+                //     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                // });
                 $.each(data1, function(i, val) {
                     if (data1[i].type == 'Private') {
                         compae1private.push(data1[i])
@@ -818,7 +875,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                         '</div>' +
                         '<div class="views-item" >' +
-                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + data[0].data1.from + '&to=' + data[0].data1.to + '" > <span >' + lngbook + '</span></a>' +
 
                         '</div>' +
                         '</div>' +
@@ -896,7 +953,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                             '</div>' +
                             '<div class="views-item" >' +
-                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + data[0].data1.from + '&to=' + data[0].data1.to + '" > <span >' + lngbook + '</span></a>' +
 
                             '</div>' +
                             '</div>' +
@@ -920,12 +977,16 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
 
 
-
-        },
-        error: function(err) {
-            console.log(err)
         }
+        // },
+        // error: function(err) {
+        //     console.log(err)
+        // }
+    
     });
+}
+});
+    
 
 
 }

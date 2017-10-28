@@ -245,280 +245,177 @@ $(document).ready(function() {
                 datacaedervice = data[0];
                 if (data[0].data1.length == 0) {
                     //$('#product_service').removeClass('.not-found');
-                    $('#typecarservice').hide()
+                    $('#foget-password').hide()
                     $('.not-found').show()
                 } else {
-                    $('#typecarservice').show(20)
+                    
                         //$('#product_service').removeClass('.not-found');
                     $('.not-found').hide()
-
-
-                }
-
-
-                if ($.cookie("lng") == 'cn') {
-                    cartype = data[0].cartype[1];
-
-                } else if ($.cookie("lng") == 'en') {
-
-                    cartype = data[0].cartype[0];
-                } else if ($.cookie("lng") == 'th') {
-                    cartype = data[0].cartype[2];
-
-
-                } else if ($.cookie("lng") == undefined) {
-                    cartype = data[0].cartype[0];
-
-                }
-                console.log(data1)
-                console.log(cartype)
-
-                $.each(cartype, function(i, val) {
-                    var index2 = parseInt(i) + 1;
-                    $('#typecarservice').append('<option class="typeservice" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
-                    //dataProvince.push(data[i])
-                    //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-
-
-                });
-                $.each(data[0].data1, function(i, val) {
-                    var indexs = parseInt(i) + 1;
-                    var urlicon = base_url + 'files/images/carmodelicon/';
-                    if ($.cookie("lng") == 'cn') {
-                        car_topic = data[0].data1[i].topic_cn;
-                        cartype = data[0].data1[i].car_topic_cn;
-                        pax = data[0].data1[i].pax_cn;
-                        lngbook = '預訂';
-                        lngcapacityinfo = '容量信息';
-                        lngfacilities = '设施';
+                    $('#foget-password').show(500)
+                    cartype = data[0].car_topic;
+                    var datalength = data[0].car_topic;
+                    console.log(datalength.Length)
+                    // if ($.cookie("lng") == 'cn') {
+                    //     cartype = data[0].car_topic;
+    
+                    // } else if ($.cookie("lng") == 'en') {
+    
+                    //     cartype = data[0].car_topic[0];
+                    // } else if ($.cookie("lng") == 'th') {
+                    //     cartype = data[0].car_topic;
+    
+    
+                    // } else if ($.cookie("lng") == undefined) {
+                    //     cartype = data[0].car_topic;
+    
+                    // }
+                    console.log(data1)
+                    
+    
+                    $.each(cartype, function(i, val) {
+                        var index2 = parseInt(i) + 1;
+                        var type,typeshow,pax;
+                        type = cartype[i].pax_id;
+                        if ($.cookie("lng") == 'cn') {
+                           // type = cartype[i].pax_id;
+                            typeshow = cartype[i].car_topic_cn;
+                            pax = cartype[i].pax_cn;
+    
                     } else if ($.cookie("lng") == 'en') {
-                        car_topic = data[0].data1[i].topic_en;
-                        cartype = data[0].data1[i].car_topic_en;
-                        pax = data[0].data1[i].pax_en;
-                        lngbook = 'Book';
-                        lngcapacityinfo = 'Capacity info';
-                        lngfacilities = 'Facilities';
-                        // $('.lng-book').html('Facilities')
-                        // $('.lng-capacity-info').html('Capacity info')
-                        // $('.lng-facilities').html('Facilities')
-
+    
+                       
+                        typeshow = cartype[i].car_topic_en;
+                        pax = cartype[i].pax_en;
                     } else if ($.cookie("lng") == 'th') {
-                        car_topic = data[0].data1[i].topic_th;
-                        cartype = data[0].data1[i].car_topic_th;
-                        pax = data[0].data1[i].pax_th;
-                        lngbook = 'จอง';
-                        lngcapacityinfo = 'ข้อมูลความจุ';
-                        lngfacilities = 'สิ่งอำนวยความสะดวก';
-                        // $('.lng-book').html('จอง')
-                        // $('.lng-capacity-info').html('ข้อมูลความจุ')
-                        // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-
+                       // type = vacartypel[i].pax_id;
+                        typeshow = cartype[i].car_topic_th;
+                        pax = cartype[i].pax_th;
+    
+    
                     } else if ($.cookie("lng") == undefined) {
-                        car_topic = data[0].data1[i].topic_en;
-                        cartype = data[0].data1[i].car_topic_en;
-                        pax = data[0].data1[i].pax_en;
-                        lngbook = 'Book';
-                        lngcapacityinfo = 'Capacity info';
-                        lngfacilities = 'Facilities';
-                        // $('.lng-book').html('Book')
-                        // $('.lng-capacity-info').html('Capacity info')
-                        // $('.lng-facilities').html('Facilities')
-
+                       // type = cartype[i].car_topic_en;
+                        typeshow = cartype[i].car_topic_en;
+                        pax = cartype[i].pax_en;
+    
                     }
-                    $('#product_service').append('<div class="a-link-item col-lg-12" >' +
-                        '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')">' +
-                        '<img src="' + urlicon + data[0].data1[i].transfer_icon + '.jpg">' +
-                        '</div>' +
-                        '<table width="100%">' +
-                        '<tr>' +
-                        '<td style="width: 30px;">' +
-                        '<span class="hotel_num">' + indexs + '</span>' +
-                        '</td>' +
+                    console.log(type)
+                    console.log(cartype.length)
+                        
+                    // label="' + type + '"
+                        $('#typecarservice').append('<li class="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                        //dataProvince.push(data[i])
+                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+    
+                        // if(index2 == datalength-1){
+                        //     alert('aaaaa')
+                            
+                        // }
+                    });
+                   
+                    
+                    console.log('aaaaaaaa')
+                    $('#selectype').show();
+                    $('#typecarservice').prop("selected", true).change();
+                   // $( 'select .typeservice#' ).attr( "checked" )
+                   // $("#typecarservice").val($("#typecarservice option:first").val()).change();
+                    $.each(data[0].data1, function(i, val) {
+                        var indexs = parseInt(i) + 1;
+                        var urlicon = base_url + 'files/images/carmodelicon/';
+                        if ($.cookie("lng") == 'cn') {
+                            car_topic = data[0].data1[i].topic_cn;
+                            cartype = data[0].data1[i].car_topic_cn;
+                            pax = data[0].data1[i].pax_cn;
+                            lngbook = '預訂';
+                            lngcapacityinfo = '容量信息';
+                            lngfacilities = '设施';
+                        } else if ($.cookie("lng") == 'en') {
+                            car_topic = data[0].data1[i].topic_en;
+                            cartype = data[0].data1[i].car_topic_en;
+                            pax = data[0].data1[i].pax_en;
+                            lngbook = 'Book';
+                            lngcapacityinfo = 'Capacity info';
+                            lngfacilities = 'Facilities';
+                            // $('.lng-book').html('Facilities')
+                            // $('.lng-capacity-info').html('Capacity info')
+                            // $('.lng-facilities').html('Facilities')
+    
+                        } else if ($.cookie("lng") == 'th') {
+                            car_topic = data[0].data1[i].topic_th;
+                            cartype = data[0].data1[i].car_topic_th;
+                            pax = data[0].data1[i].pax_th;
+                            lngbook = 'จอง';
+                            lngcapacityinfo = 'ข้อมูลความจุ';
+                            lngfacilities = 'สิ่งอำนวยความสะดวก';
+                            // $('.lng-book').html('จอง')
+                            // $('.lng-capacity-info').html('ข้อมูลความจุ')
+                            // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+    
+                        } else if ($.cookie("lng") == undefined) {
+                            car_topic = data[0].data1[i].topic_en;
+                            cartype = data[0].data1[i].car_topic_en;
+                            pax = data[0].data1[i].pax_en;
+                            lngbook = 'Book';
+                            lngcapacityinfo = 'Capacity info';
+                            lngfacilities = 'Facilities';
+                            // $('.lng-book').html('Book')
+                            // $('.lng-capacity-info').html('Capacity info')
+                            // $('.lng-facilities').html('Facilities')
+    
+                        }
+                        $('#product_service').append('<div class="a-link-item col-lg-12" >' +
+                            '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')">' +
+                            '<img src="' + urlicon + data[0].data1[i].transfer_icon + '.jpg">' +
+                            '</div>' +
+                            '<table width="100%">' +
+                            '<tr>' +
+                            '<td style="width: 30px;">' +
+                            '<span class="hotel_num">' + indexs + '</span>' +
+                            '</td>' +
+    
+                            '<td>' +
+                            '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</table>' +
+                            '<div class="box-province">' +
+                            '<p class="type-t">' +
+                            '<span class="car-type" >' + cartype + pax + '</span>' +
+                            '</p>' +
+                            '</div>' +
+                            '<div id="box-cost-view">' +
+                            '<div class="product_r">' +
+                            '<span class="base_price"></span>' +
+                            '<span class="sala">' + data[0].data1[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+    
+                            '</div>' +
+                            '<div class="views-item" >' +
+                            '<a  href="book?data=' + data[0].data1[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
+    
+                            '</div>' +
+                            '</div>' +
+                            '<div id="i-list"   onclick="getcondition(\'' + data[0].data1[i].car_model + '\')">' +
+                            '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
+                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                            '</div>' +
+                            '</div>'
+    
+                        );
+                        
+    
+    
+                    });
 
-                        '<td>' +
-                        '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-                        '</td>' +
-                        '</tr>' +
-                        '</table>' +
-                        '<div class="box-province">' +
-                        '<p class="type-t">' +
-                        '<span class="car-type" >' + cartype + pax + '</span>' +
-                        '</p>' +
-                        '</div>' +
-                        '<div id="box-cost-view">' +
-                        '<div class="product_r">' +
-                        '<span class="base_price"></span>' +
-                        '<span class="sala">' + data[0].data1[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+                   
+                }
 
-                        '</div>' +
-                        '<div class="views-item" >' +
-                        '<a  href="book?data=' + data[0].data1[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
-
-                        '</div>' +
-                        '</div>' +
-                        '<div id="i-list"   onclick="getcondition(\'' + data[0].data1[i].car_model + '\')">' +
-                        '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
-                        '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                        '</div>' +
-                        '</div>'
-
-                    );
-
-
-                });
+                
 
 
             }
         });
 
     });
-    $('#typecarservice').on('change', function() {
-
-        $('#loading').css('display', 'block');
-        $('.a-link-item').remove();
-        //$('.typeservice').remove();
-
-        //$('#typecarservice').remove();
-        $('#product_service').animate({ scrollTop: 0 }, '500');
-        setTimeout(function() {
-
-            $('#loading').css('display', 'none');
-
-        }, 500);
-
-        dataService = [];
-        ctypeservice = this.value;
-        console.log(ctypeservice)
-
-        console.log(datacaedervice)
-        $.each(datacaedervice.data1, function(i, val) {
-            if ($.cookie("lng") == 'cn') {
-                if (datacaedervice.data1[i].car_topic_cn == ctypeservice) {
-                    dataService.push(datacaedervice.data1[i])
-                } else if (ctypeservice == 'All Type') {
-                    dataService.push(datacaedervice.data1[i])
-                }
-            } else if ($.cookie("lng") == 'en') {
-                if (datacaedervice.data1[i].car_topic_en == ctypeservice) {
-                    dataService.push(datacaedervice.data1[i])
-                } else if (ctypeservice == 'All Type') {
-                    dataService.push(datacaedervice.data1[i])
-                }
-
-            } else if ($.cookie("lng") == 'th') {
-                if (datacaedervice.data1[i].car_topic_th == ctypeservice) {
-                    dataService.push(datacaedervice.data1[i])
-                } else if (ctypeservice == 'All Type') {
-                    dataService.push(datacaedervice.data1[i])
-                }
-
-            } else if ($.cookie("lng") == undefined) {
-                if (datacaedervice.data1[i].car_topic_en == ctypeservice) {
-                    dataService.push(datacaedervice.data1[i])
-                } else if (ctypeservice == 'All Type') {
-                    dataService.push(datacaedervice.data1[i])
-                }
-
-            }
-
-
-        })
-
-        console.log(dataService)
-
-
-
-        var car_topic, cartype, pax;
-        var urlicon = base_url + 'files/images/carmodelicon/';
-        //if (data[0].data1.length != 0) {
-        $.each(dataService, function(i, val) {
-            var indexs = parseInt(i) + 1;
-            if ($.cookie("lng") == 'cn') {
-                car_topic = dataService[i].topic_cn;
-                cartype = dataService[i].car_topic_cn;
-                pax = dataService[i].pax_cn;
-                lngbook = '預訂';
-                lngcapacityinfo = '容量信息';
-                lngfacilities = '设施';
-            } else if ($.cookie("lng") == 'en') {
-                car_topic = dataService[i].topic_en;
-                cartype = dataService[i].car_topic_en;
-                pax = dataService[i].pax_en;
-                lngbook = 'Book';
-                lngcapacityinfo = 'Capacity info';
-                lngfacilities = 'Facilities';
-                // $('.lng-book').html('Facilities')
-                // $('.lng-capacity-info').html('Capacity info')
-                // $('.lng-facilities').html('Facilities')
-
-            } else if ($.cookie("lng") == 'th') {
-                car_topic = dataService[i].topic_th;
-                cartype = dataService[i].car_topic_th;
-                pax = dataService[i].pax_th;
-                lngbook = 'จอง';
-                lngcapacityinfo = 'ข้อมูลความจุ';
-                lngfacilities = 'สิ่งอำนวยความสะดวก';
-                // $('.lng-book').html('จอง')
-                // $('.lng-capacity-info').html('ข้อมูลความจุ')
-                // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-
-            } else if ($.cookie("lng") == undefined) {
-                car_topic = dataService[i].topic_en;
-                cartype = dataService[i].car_topic_en;
-                pax = dataService[i].pax_en;
-                lngbook = 'Book';
-                lngcapacityinfo = 'Capacity info';
-                lngfacilities = 'Facilities';
-                // $('.lng-book').html('Book')
-                // $('.lng-capacity-info').html('Capacity info')
-                // $('.lng-facilities').html('Facilities')
-
-            }
-
-
-            $('#product_service').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" onclick="getimage(\'' + dataService[i].car_model + '\') ">' +
-                '<img src="' + urlicon + dataService[i].transfer_icon + '.jpg">' +
-                '</div>' +
-                '<table width="100%">' +
-                '<tr>' +
-                '<td style="width: 30px;">' +
-                '<span class="hotel_num">' + indexs + '</span>' +
-                '</td>' +
-
-                '<td>' +
-                '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-                '</td>' +
-                '</tr>' +
-                '</table>' +
-                '<div class="box-province">' +
-                '<p class="type-t">' +
-                '<span class="car-type" >' + cartype + pax + '</span>' +
-                '</p>' +
-                '</div>' +
-                '<div id="box-cost-view">' +
-                '<div class="product_r">' +
-                '<span class="base_price"></span>' +
-                '<span class="sala">' + dataService[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-
-                '</div>' +
-                '<div class="views-item" >' +
-                '<a  href="book?data=' + dataService[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
-
-                '</div>' +
-                '</div>' +
-                '<div id="i-list"   onclick="getcondition(\'' + dataService[i].car_model + '\')">' +
-                '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
-                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                '</div>' +
-                '</div>'
-
-            );
-
-
-        }); //end private
-
-    });
+    
 
 
 
@@ -808,6 +705,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
                 console.log(data)
+                console.log('*********************************')
                 var datastayfrom = data[0].data1;
                 if ($.cookie("lng") == 'en') {
                     $.each(datastayfrom, function(i, val) {
@@ -918,27 +816,27 @@ $(document).ready(function() {
         console.log(data1)
         $.each(data1, function(i, val) {
             if ($.cookie("lng") == 'cn') {
-                if (data1[i].car_topic_cn == ctype) {
+                if (data1[i].pax_id == ctype) {
                     data2.push(data1[i])
                 } else if (ctype == 'All Type') {
                     data2.push(data1[i])
                 }
             } else if ($.cookie("lng") == 'en') {
-                if (data1[i].car_topic_en == ctype) {
+                if (data1[i].pax_id == ctype) {
                     data2.push(data1[i])
                 } else if (ctype == 'All Type') {
                     data2.push(data1[i])
                 }
 
             } else if ($.cookie("lng") == 'th') {
-                if (data1[i].car_topic_th == ctype) {
+                if (data1[i].pax_id == ctype) {
                     data2.push(data1[i])
                 } else if (ctype == 'All Type') {
                     data2.push(data1[i])
                 }
 
             } else if ($.cookie("lng") == undefined) {
-                if (data1[i].car_topic_en == ctype) {
+                if (data1[i].pax_id == ctype) {
                     data2.push(data1[i])
                 } else if (ctype == 'All Type') {
                     data2.push(data1[i])
@@ -1184,6 +1082,9 @@ $(document).ready(function() {
          $.removeCookie("login");
          window.location.href = base_url + "register";*/
     })
+    $('#selectype').click(function(){
+        $('#foget-password').show(500);
+    });
     $('.btn-show-select').click(function() {
         console.log('hide-show');
         $('.box-menu-select').css('bottom', '-200px')
@@ -1536,7 +1437,170 @@ function sendValue(x) {
 /**************************************************************************************/
 /**********************************select place to***********************************/
 /**************************************************************************************/
+function sendpax(x) {
+    console.log(x)
+    $('#foget-password').hide();
+   $('#loading').css('display', 'block');
+   $('.a-link-item').remove();
+   //$('.typeservice').remove();
 
+   //$('#typecarservice').remove();
+   $('#product_service').animate({ scrollTop: 0 }, '500');
+   setTimeout(function() {
+
+       $('#loading').css('display', 'none');
+    //    $('#selectype').css('display', 'none');
+    
+   }, 500);
+
+   dataService = [];
+   ctypeservice = x;
+   console.log(ctypeservice)
+
+   console.log(datacaedervice)
+   $.each(datacaedervice.data1, function(i, val) {
+       
+       
+       if ($.cookie("lng") == 'cn') {
+           if (datacaedervice.data1[i].pax_id == ctypeservice) {
+               dataService.push(datacaedervice.data1[i])
+               $('#selectype').html( datacaedervice.data1[i].car_topic_cn+' '+'<span style="    color: #f44336;">'+datacaedervice.data1[i].pax_cn+'</span>')
+           } else if (ctypeservice == '0') {
+               dataService.push(datacaedervice.data1[i])
+               $('#selectype').html( '所有類型')
+               
+               
+           }
+       } else if ($.cookie("lng") == 'en') {
+           if (datacaedervice.data1[i].pax_id == ctypeservice) {
+               dataService.push(datacaedervice.data1[i])
+               $('#selectype').html( datacaedervice.data1[i].car_topic_en+' '+'<span style="    color: #f44336;">'+datacaedervice.data1[i].pax_en+'</span>')
+           } else if (ctypeservice == '0') {
+               dataService.push(datacaedervice.data1[i])
+               $('#selectype').html( 'All Type')
+               
+           }
+
+       } else if ($.cookie("lng") == 'th') {
+           if (datacaedervice.data1[i].pax_id == ctypeservice) {
+               dataService.push(datacaedervice.data1[i])
+               $('#selectype').html(datacaedervice.data1[i].car_topic_th+' '+'<span style="    color: #f44336;">'+datacaedervice.data1[i].pax_th+'</span>')
+           } else if (ctypeservice == '0') {
+               dataService.push(datacaedervice.data1[i])
+               $('#selectype').html( 'ทุกประเภท')
+               
+           }
+
+       } else if ($.cookie("lng") == undefined) {
+           if (datacaedervice.data1[i].pax_id == ctypeservice) {
+               dataService.push(datacaedervice.data1[i])
+               $('#selectype').html( datacaedervice.data1[i].car_topic_en+' '+'<span style="    color: #f44336;">'+datacaedervice.data1[i].pax_en+'</span>')
+           } else if (ctypeservice == '0') {
+               dataService.push(datacaedervice.data1[i])
+               $('#selectype').html( 'All Type')
+               
+           }
+
+       }
+
+
+   })
+
+   console.log(dataService)
+
+
+
+   var car_topic, cartype, pax;
+   var urlicon = base_url + 'files/images/carmodelicon/';
+   //if (data[0].data1.length != 0) {
+   $.each(dataService, function(i, val) {
+       var indexs = parseInt(i) + 1;
+       if ($.cookie("lng") == 'cn') {
+           car_topic = dataService[i].topic_cn;
+           cartype = dataService[i].car_topic_cn;
+           pax = dataService[i].pax_cn;
+           lngbook = '預訂';
+           lngcapacityinfo = '容量信息';
+           lngfacilities = '设施';
+       } else if ($.cookie("lng") == 'en') {
+           car_topic = dataService[i].topic_en;
+           cartype = dataService[i].car_topic_en;
+           pax = dataService[i].pax_en;
+           lngbook = 'Book';
+           lngcapacityinfo = 'Capacity info';
+           lngfacilities = 'Facilities';
+           // $('.lng-book').html('Facilities')
+           // $('.lng-capacity-info').html('Capacity info')
+           // $('.lng-facilities').html('Facilities')
+
+       } else if ($.cookie("lng") == 'th') {
+           car_topic = dataService[i].topic_th;
+           cartype = dataService[i].car_topic_th;
+           pax = dataService[i].pax_th;
+           lngbook = 'จอง';
+           lngcapacityinfo = 'ข้อมูลความจุ';
+           lngfacilities = 'สิ่งอำนวยความสะดวก';
+           // $('.lng-book').html('จอง')
+           // $('.lng-capacity-info').html('ข้อมูลความจุ')
+           // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+
+       } else if ($.cookie("lng") == undefined) {
+           car_topic = dataService[i].topic_en;
+           cartype = dataService[i].car_topic_en;
+           pax = dataService[i].pax_en;
+           lngbook = 'Book';
+           lngcapacityinfo = 'Capacity info';
+           lngfacilities = 'Facilities';
+           // $('.lng-book').html('Book')
+           // $('.lng-capacity-info').html('Capacity info')
+           // $('.lng-facilities').html('Facilities')
+
+       }
+
+
+       $('#product_service').append('<div class="a-link-item col-lg-12" >' +
+           '<div class="item-thumbnail2" onclick="getimage(\'' + dataService[i].car_model + '\') ">' +
+           '<img src="' + urlicon + dataService[i].transfer_icon + '.jpg">' +
+           '</div>' +
+           '<table width="100%">' +
+           '<tr>' +
+           '<td style="width: 30px;">' +
+           '<span class="hotel_num">' + indexs + '</span>' +
+           '</td>' +
+
+           '<td>' +
+           '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+           '</td>' +
+           '</tr>' +
+           '</table>' +
+           '<div class="box-province">' +
+           '<p class="type-t">' +
+           '<span class="car-type" >' + cartype + pax + '</span>' +
+           '</p>' +
+           '</div>' +
+           '<div id="box-cost-view">' +
+           '<div class="product_r">' +
+           '<span class="base_price"></span>' +
+           '<span class="sala">' + dataService[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+           '</div>' +
+           '<div class="views-item" >' +
+           '<a  href="book?data=' + dataService[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
+
+           '</div>' +
+           '</div>' +
+           '<div id="i-list"   onclick="getcondition(\'' + dataService[i].car_model + '\')">' +
+           '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
+           '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+           '</div>' +
+           '</div>'
+
+       );
+
+    //    foget-password
+   }); //end private
+
+}
 /**********************************END***********************************/
 var data1;
 
@@ -1688,7 +1752,7 @@ function sendValueto(x) {
 
             if (data.status == '200. bad request') {
                 $('#ul-header2').css('display', 'block');
-                $('#container-product').css('display', 'block');
+                $('#container-product').css('display','block');
                 // $('#pro-search').css('display', 'block');
                 $('#loading').css('display', 'block');
                 //$('#content').css('display','none');
@@ -1746,31 +1810,59 @@ function sendValueto(x) {
                 data1 = data.data1;
                 var cartype;
                 data1 = data.data1;
-                if ($.cookie("lng") == 'cn') {
-                    cartype = data.cartype[1];
+                cartype = data.car_topic;
+                console.log(data1)
+                console.log(cartype)
+                  $.each(cartype, function(i, val) {
+                    var index2 = parseInt(i) + 1;
+                    var type,typeshow,pax;
+                    type = cartype[i].pax_id;
+                    if ($.cookie("lng") == 'cn') {
+                       // type = cartype[i].pax_id;
+                        typeshow = cartype[i].car_topic_cn;
+                        pax = cartype[i].pax_cn;
 
                 } else if ($.cookie("lng") == 'en') {
 
-                    cartype = data.cartype[0];
+                   
+                    typeshow = cartype[i].car_topic_en;
+                    pax = cartype[i].pax_en;
                 } else if ($.cookie("lng") == 'th') {
-                    cartype = data.cartype[2];
+                   // type = vacartypel[i].pax_id;
+                    typeshow = cartype[i].car_topic_th;
+                    pax = cartype[i].pax_th;
 
 
                 } else if ($.cookie("lng") == undefined) {
-                    cartype = data.cartype[0];
+                   // type = cartype[i].car_topic_en;
+                    typeshow = cartype[i].car_topic_en;
+                    pax = cartype[i].pax_en;
 
                 }
-                console.log(data1)
-                console.log(cartype)
-
-                $.each(cartype, function(i, val) {
-                    var index2 = parseInt(i) + 1;
-                    $('#cartype').append('<option class="typeproduce" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                console.log(type)
+                console.log(cartype.length)
+                    
+                // label="' + type + '"
+                $('#cartype').append('<option class="typeproduce" value="' + cartype[i].pax_id + '" ><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></option>');
+                
+                    //$('#typecarservice').append('<li class="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                     //dataProvince.push(data[i])
                     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
-
+                    // if(index2 == datalength-1){
+                    //     alert('aaaaa')
+                        
+                    // }
                 });
+
+                // $.each(cartype, function(i, val) {
+                //     var index2 = parseInt(i) + 1;
+                //     $('#cartype').append('<option class="typeproduce" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');
+                //     //dataProvince.push(data[i])
+                //     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+                // });
                 $.each(data1, function(i, val) {
                     if (data1[i].type == 'Private') {
                         compae1private.push(data1[i])

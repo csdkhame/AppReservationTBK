@@ -9,8 +9,45 @@
     max-width: 300px;
     margin-top: 40px;
   } */
+  .loading-in{
+    height: 115px;
+    /* border-radius: 4px; */
+    background: #fff;
+    min-width: 15rem;
+    /* height: auto; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    z-index: 10;
+}
+.loading-ld{
+    font-weight: 500;
+    color: #000;
+    padding: 35px;
+    text-align: center;
+}
+#loading{
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.59);
+    display: nones;
+}
   </style>
-
+ <div id="loading" style="z-index: 9999;  position: fixed;  width: 100vw;   height: 100vh;   left: 0;    top: 0;   background: rgba(0, 0, 0, 0.59);    display: nones;">
+        <div style="height: 115px;  border-radius: 4px;  background: #fff;  min-width: 15rem;   /* height: auto; */    left: 50vw;   top: 50vh;   transform: translate(-50%,-50%);   position: fixed;    z-index: 10000;">
+            <div>
+                <div style="font-weight: 500;  color: #000; padding: 35px; text-align: center;">
+                    <div style="font-size: 15px">Loading</div>
+                    <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i>
+                </div>            
+            </div>
+        </div>
+    </div>
 <section style="height: 100vh;background: #fff;     margin-bottom: 35px;">
     <div class="container" style="    ">
         <div style="
@@ -741,7 +778,7 @@
 
             } */
             .btn-submit {
-    margin-top: 40px;
+    margin-top: 62px;
     /* position: absolute; */
     /* bottom: 15px; */
     /* right: 15px; */
@@ -895,6 +932,7 @@ $( document ).ready(function() {
 		var obj = JSON.parse(data);
 		$.each(obj, function (index, value) {
 			$('#name').html(obj[index].s_name);
+            $('#loading').hide();
 		});
     });
 
@@ -957,7 +995,7 @@ $( document ).ready(function() {
     $("#checkout").submit(function () {
 					  //$('#token_errors').css('display','none');
 					//   $('.btn-submit').css('color', '#f1a100');
-					//   $('.btn-submit').css('background', '#f1a100');
+					$('#loading').show();
 					//   $('#floatingCirclesG').css('display','block');
 					  var form = $(this);
                     //   form.find("input[type=submit]").prop("disabled", true);
@@ -985,6 +1023,7 @@ $( document ).ready(function() {
 					      form.find("[data-omise=expiration_year]").val("");
 					      form.find("[data-omise=security_code]").val("");
 					     
+					$('#loading').hide();
 					    
 					    //   form.find("input[type=submit]").prop("disabled", false);
 					    } else {
@@ -1026,6 +1065,7 @@ $( document ).ready(function() {
 					  return false;
 					});
     $('.pay-omise').on('click', function() {
+        $('#loading').show();
         $('#foget-password').fadeIn(500);
         //alert('asasasa')
         $.ajax({
@@ -1036,13 +1076,15 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function(data) {
                 console.log(data)
+                $('#loading').hide();
             }
         });
         
     })
     $('.credit-card').on('click', function() {
-        //$('#foget-password').hide()
+        $('#loading').show();
         $('#foget-password2').fadeIn(500);
+        $('#loading').hide();
         //alert('asasasa')
         // $.ajax({
         //     type: 'POST',
@@ -1056,6 +1098,10 @@ $( document ).ready(function() {
         // });
         
     })
+    $('.paypal').on('click', function() {
+        $('#loading').show();
+        $('#loading').hide();
+    });
     $('.internet-banking').on('click', function() {
         //$('#foget-password').hide()
         $('#foget-password3').fadeIn(500);

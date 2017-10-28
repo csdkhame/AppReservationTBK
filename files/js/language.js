@@ -75,8 +75,8 @@ $(document).ready(function() {
         $('.lng-language').html('语言');
         $('.lng-settings-account').html('设置帐户');
         $('.lng-logout').html('登出');
-        //        $('.lng-advance-use').html('提前使用');
-        $('.lng-advance-use').html('搜索车');
+        //$('.lng-advance-use').html('提前使用');
+        $('.lng-advance-use').html('提前使用');
         $('.lng-now-use').html('现在使用');
         $('.lng-search').html('搜索');
         $('.lng-dashboard').html('报告与管理');
@@ -154,6 +154,7 @@ $(document).ready(function() {
         $('.lng-no-record').html('没有记录');
         $('.lng-payment').html('付款');
         $('.lng-plese-login').html('请登录');
+        $('.lng-please-select-type').html('請選擇類型');
 
 
 
@@ -225,7 +226,7 @@ $(document).ready(function() {
         $('.lng-settings-account').html('Settings Account');
         $('.lng-logout').html('Logout');
         //home
-        $('.lng-advance-use').html('Search transfer');
+        $('.lng-advance-use').html('Advance use');
         $('.lng-now-use').html('Pick Up Here');
         $('.lng-search').html('Search');
         $('.lng-dashboard').html('Report&management');
@@ -302,6 +303,8 @@ $(document).ready(function() {
         $('.lng-payment').html('Payment');
         $('.lng-plese-login').html('Please sign in');
         $('.lng-remark').html('Remark');
+        $('.lng-please-select-type').html('	Please select type');
+        
         
 
 
@@ -370,7 +373,7 @@ $(document).ready(function() {
         $('.lng-settings-account').html('ตั้งค่าบัญชี');
         $('.lng-logout').html(' ออกจากระบบ');
         //        $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
-        $('.lng-advance-use').html('ค้นหารถ');
+        $('.lng-advance-use').html('ใช้ล่วงหน้า');
         $('.lng-now-use').html('รับที่นี่');
         $('.lng-search').html(' ค้นหา');
         $('.lng-dashboard').html('รายงานและการจัดการ');
@@ -485,6 +488,8 @@ $(document).ready(function() {
         $('.lng-old-password').html('รหัสผ่านเดิม');
         $('.lng-other').html('อื่นๆ');
         $('.lng-paynow').html('ชำระตอนนี้');
+        $('.lng-please-select-type').html('โปรดเลือกประเภท');
+        
 
 
 
@@ -502,7 +507,7 @@ $(document).ready(function() {
         $('.lng-logout').html('Logout');
         //home
         //        $('.lng-advance-use').html('Find transfer');
-        $('.lng-advance-use').html('Search transfer');
+        $('.lng-advance-use').html('Advance use');
         $('.lng-now-use').html('Pick Up Here');
         $('.lng-search').html('Search');
         $('.lng-dashboard').html('Report&management');
@@ -583,7 +588,8 @@ $(document).ready(function() {
         $('.lng-payment').html('Payment');
         $('.lng-plese-login').html('Please sign in');
         $('.lng-remark').html('Remark');
-
+        $('.lng-please-select-type').html('	Please select type');
+        
 
 
 

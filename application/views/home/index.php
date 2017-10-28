@@ -113,7 +113,7 @@
             <div>
                 <div class="container" style="display:none;" id="container-product">
                     <div class="row">
-                        <div class="col-md-9" style="    padding: 10px;">
+                        <div class="col-md-12" style="padding: 10px;">
                             <div class="col-lg-12">
                                 <div class="row"></div>
                             </div>
@@ -276,7 +276,7 @@
 }
            </style>
             <div style="    margin-top: 10px;">
-                <div class="col-md-6">  
+                <div class="col-md-12 col-sx-12">  
                     <!-- <div>
                         <span>
                             From
@@ -296,11 +296,62 @@
                         <select class="textInput" name="provinceto" id="provinceto" class="" style="  ">
                             <option class="textInput" value="az_AZ" ><? echo  $lng_to;?></option>
                         </select>
-                   
-                   
-                        <select class="textInput" name="typecarservice" id="typecarservice" style="display:none">
-                            <option  class="textInput" value="All Type" ><?php echo  $lng_all_type;?></option>                                                                
-                        </select>
+                       
+                            <div  class="textInput" value="All Type" id="selectype" style="display:none"></div>
+                            <?php ////echo  $lng_all_type;?>                                                            
+</div>
+                   <style>
+                       #foget-password{
+    z-index: 20; 
+    position: fixed; 
+    /* width: 100vw; 
+    height: 100vh;  */
+    left: 0px; top: 0px; 
+    /* background: rgba(0, 0, 0, 0.59); */
+    display:none;
+}
+.box-in-foget{
+    height: 100vh;
+        /* border-radius: 4px; */
+        /* background: rgba(0, 0, 0, 0.75); */
+        min-width: 100%;
+        background:#fff;
+        /* height: auto; */
+        left: 50vw;
+        top: 50vh;
+        
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 3;
+}
+                   </style>
+                        <div id="foget-password">
+            <div class="box-in-foget" >
+               
+                   <div  id="pax-box">
+                      
+                       <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
+                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                            <span class="lng-please-select-type"></span>
+                        </div>
+                        <div class="col-md-12 boxpax" > 
+                        <ul class="" name="typecarservice" id="typecarservice" >
+                            <li value="All Type" onclick="sendpax(0)" style="box-shadow: 0px 13px 16px 0px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    padding: 15px 15px;
+    background: #fff;
+    margin-bottom: 5px;"><?php echo  $lng_all_type;?>
+                            </li>                                                                
+</ul>
+</div>
+                    </div>
+                    
+                    
+                
+                
+            </div>
+        </div>
+                        
                         <div id="box-pro-service" style=" overflow-y: scroll; margin-bottom: 100px;">
                             <div id="product_service">
                             <div class="not-found lng-not-found" style="display:none"></div>

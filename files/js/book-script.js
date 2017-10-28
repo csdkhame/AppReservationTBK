@@ -476,6 +476,13 @@ $(document).ready(function() {
             }
             console.log(data[0].province_name_en)
             if ($.cookie("lng") == 'cn') {
+                if(data[0].area == 'Service_day' || data[0].area == 'Service'){
+                    $('#province').html(data[0].province_name_cn);
+                    $('#province_to').html(data[0].province_name_to_cn);
+                }
+                $('#province').html(data[0].province_name_cn);
+                $('#province_to').html(data[0].province_name_to_cn);
+
                 $('#cars_persion').html(data[0].car_topic_cn + data[0].pax_cn)
                 $('#price').html(data[0].cost_a + ' ' + '฿')
                 $('#product').html(data[0].topic_cn)
@@ -484,6 +491,12 @@ $(document).ready(function() {
                 $('#costsummary').html(data[0].cost_a + ' ' + '฿')
                 $('#numsumprice').html(data[0].cost_a + ' ' + '฿')
             } else if ($.cookie("lng") == 'en') {
+                if(data[0].area == 'Service_day' || data[0].area == 'Service'){
+                    $('#province').html(data[0].province_name_en);
+                    $('#province_to').html(data[0].province_name_to_en);
+                }
+                
+
                 $('#cars_persion').html(data[0].car_topic_en + data[0].pax_en)
                 $('#price').html(data[0].cost_a + ' ' + '฿')
                 $('#product').html(data[0].topic_en)
@@ -492,6 +505,11 @@ $(document).ready(function() {
                 $('#costsummary').html(data[0].cost_a + ' ' + '฿')
                 $('#numsumprice').html(data[0].cost_a + ' ' + '฿')
             } else if ($.cookie("lng") == 'th') {
+                if(data[0].area == 'Service_day' || data[0].area == 'Service'){
+                    $('#province').html(data[0].province_name_th);
+                    $('#province_to').html(data[0].province_name_to_th);
+                }
+                
                 $('#cars_persion').html(data[0].car_topic_th + data[0].pax_th)
                 $('#price').html(data[0].cost_a + ' ' + '฿')
                 $('#product').html(data[0].topic_th)
@@ -500,6 +518,11 @@ $(document).ready(function() {
                 $('#costsummary').html(data[0].cost_a + ' ' + '฿')
                 $('#numsumprice').html(data[0].cost_a + ' ' + '฿')
             } else if ($.cookie("lng") == undefined) {
+                if(data[0].area == 'Service_day' || data[0].area == 'Service'){
+                    $('#province').html(data[0].province_name_en);
+                    $('#province_to').html(data[0].province_name_to_en);
+                }
+                
                 $('#cars_persion').html(data[0].car_topic_en + data[0].pax_en)
                 $('#price').html(data[0].cost_a + ' ' + '฿')
                 $('#product').html(data[0].topic_en)
