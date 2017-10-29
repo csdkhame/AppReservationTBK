@@ -148,7 +148,8 @@ $(document).ready(function() {
         $('.lng-change-password').html('更改密碼');
         $('.lng-change').html('更改');
         $('.lng-not-same').html('密码不一样');
-        $('.lng-car-service').html('用车服务');
+        // $('.lng-car-service').html('用车服务');
+        $('.lng-car-service').html('租小时');
         $('.lng-loading').html('加載..');
         $('.lng-not-found').html('产品没有找到');
         $('.lng-no-record').html('没有记录');
@@ -296,7 +297,8 @@ $(document).ready(function() {
         $('.lng-change-password').html('Change password');
         $('.lng-change').html('Change');
         $('.lng-not-same').html('Password not same');
-        $('.lng-car-service').html('Car service');
+        $('.lng-car-service').html('Rent hour');
+        // $('.lng-car-service').html('Car service');
         $('.lng-loading').html('Loading..');
         $('.lng-not-found').html('Product not Found');
         $('.lng-no-record').html('No Record');
@@ -306,6 +308,7 @@ $(document).ready(function() {
         $('.lng-please-select-type').html('	Please select type');
         
         
+
 
 
 
@@ -448,13 +451,16 @@ $(document).ready(function() {
         $('.lng-not-same').html('รหัสผ่านไม่เหมือนกัน');
         $('.lng-detail-order').html('รายละเอียดสั่งซื้อ');
         $('.lng-voucher-no').html('เลขที่วอเชอร์');
-        $('.lng-car-service').html('บริการรถ');
+        $('.lng-car-service').html('เช่าชั่วโมง');
+        // $('.lng-car-service').html('บริการรถ');
         $('.lng-loading').html('โหลด..');
         $('.lng-not-found').html('ไม่พบผลิตภัณฑ์');
         $('.lng-no-record').html('ไม่มีการบันทึก');
         $('.lng-payment').html('การชำระเงิน');
         $('.lng-plese-login').html('กรุณาเข้าสู่ระบบ');
         $('.lng-remark').html('ข้อสังเกต');
+
+
 
 
 
@@ -581,7 +587,9 @@ $(document).ready(function() {
         $('.lng-change').html('Change');
         $('.lng-not-same').html('Password not same');
         $('.lng-date').html('date');
-        $('.lng-car-service').html('Car service');
+        // $('.lng-car-service').html('Car service');
+        $('.lng-car-service').html('Rent hour');
+        
         $('.lng-loading').html('Loading..');
         $('.lng-not-found').html('Product not Found');
         $('.lng-no-record').html('No Record');

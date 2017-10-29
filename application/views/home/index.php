@@ -106,7 +106,10 @@
             <div class=" " style=" padding: 12px 10px; padding-bottom: 0;">
                 <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
                 <!-- <dic class="" name="cartype" id="cartype" class="" style="     margin: auto;"> -->
-                    <div  class="textInput" id="select_pax_use" ></div>                                                                
+                    <div  class="" id="select_pax_use" style="border: 1px solid #dfdfdf;
+    padding: 8px;
+    /* margin: 8px 0; */
+    width: 100%;"></div>                                                                
                 <!-- </div> -->
 
 
@@ -150,6 +153,8 @@
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
                         <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-please-select-type"></span>
+                            <i class="material-icons closepop">close</i>
+
                         </div>
                         <div class="col-md-12 boxpax" style="text-align: left;" > 
                         <ul class="" name="typecarservice" id="paxuse" >
@@ -166,10 +171,7 @@
             <div>
                 <div class="container" style="display:none;" id="container-product">
                     <div class="row">
-                        <div class="col-md-12" style="padding: 10px;">
-                            <div class="col-lg-12">
-                                <div class="row"></div>
-                            </div>
+                        <div class="col-md-12" style="padding: 10px;">                            
                             <div class="tab-content" id="move-product">
                                 <div class="tab-pane active" id="private" >
                                     <div id="product_a"></div>
@@ -447,6 +449,11 @@
     padding: 15px;
     border-bottom: 1px solid #ddd;
 }
+.closepop{
+    position: absolute;
+    right: 15px;
+}
+
 /* #box-pax-use{
     list-style: none;
     padding-left: 0;
@@ -478,6 +485,8 @@
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
                         <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-please-select-type"></span>
+                            <i class="material-icons closepop">close</i>
+
                         </div>
                         <div class="col-md-12 boxpax" > 
                         <ul class="" name="typecarservice" id="typecarservice" >
@@ -496,6 +505,7 @@
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
                         <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-from">From</span>
+                            <i class="material-icons closepop">close</i>
                         </div>
                         <div class="col-md-12 boxpax" > 
                         <ul class="" name="typecarservice" id="province" >
@@ -515,6 +525,8 @@
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
                         <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-to">To</span>
+                            <i class="material-icons closepop">close</i>
+
                         </div>
                         <div class="col-md-12 boxpax" > 
                         <ul class="" name="typecarservice" id="provinceto" >
@@ -527,8 +539,10 @@
         </div>
         <!-- END -->
                         
-                        <div id="box-pro-service" style=" overflow-y: scroll; margin-bottom: 100px;">
-                            <div id="product_service">
+                        <div id="box-pro-service" style="  margin-bottom: 100px;">
+                            <div id="product_service" style="height: 58vh;
+    overflow-y: scroll;
+    width: 100%;">
                             <div class="not-found lng-not-found" style="display:none"></div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ var dataplaceSend, id_placefrom, id_placeto, pro_from, pro_to, aum_from, aum_to,
 compae1join = [],
 compae2private = [],
 compae2join = [],
-lat_from, lng_from,proFrom,proTo;
+lat_from, lng_from,proFrom,proTo,dataUse;
 
 var start_st, end_st;
 // var base_url = 'https://dotdotdottrip.com/';
@@ -545,6 +545,13 @@ $(document).ready(function() {
             }
         })
     })
+    $('.closepop').click(function() {
+        // alert('aaaa')
+        $('#foget-password').hide(500)
+        $('#box-province').hide(500)
+        $('#box-provinceto').hide(500)
+        $('#box-pax-use').hide(500)
+    });
     /**********************************************************/
     /************* GET PROVINCE TO, FROM SERVICE **************/
     /**********************************************************/
@@ -574,15 +581,15 @@ $(document).ready(function() {
                     });
                 } else if ($.cookie("lng") == 'th') {
                     $.each(datastayfrom, function(i, val) {
-                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name_th + '</span></li>');
+                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name_th+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name_th + '</span></li>');
                     });
                 } else if ($.cookie("lng") == 'cn') {
                     $.each(datastayfrom, function(i, val) {
-                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name_cn + '</span></li>');
+                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name_cn+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name_cn + '</span></li>');
                     });
                 } else if ($.cookie("lng") == undefined) {
                     $.each(datastayfrom, function(i, val) {
-                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name_cn + '</span></li>');
+                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name + '</span></li>');
                     });
                 }
             }
@@ -1113,7 +1120,7 @@ function sendproto(x){
                 }
                 console.log(type)
                 console.log(cartype.length)
-                    $('#typecarservice').append('<li class="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                    $('#typecarservice').append('<li class="typeservice" id="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                    
                 });
                
@@ -1271,52 +1278,103 @@ function sendpaxuse(x) {
         $('#product_a').css('display', 'block');
         $('#box-prosearch').css('display', 'block');
     }, 500);
+    comparedata = [];
     compae1private = [];
     compae1join = [];
     data2 = [];
-    ctype = this.value;
+    ctype = x;
+    getdataservice = dataUse.car_topic
     console.log(ctype)
-    console.log(data1)
-    $.each(data1, function(i, val) {
+    console.log(getdataservice)
+    console.log(dataUse)
+
+    $.each(getdataservice, function(i, val) {
+       
+       
+       if ($.cookie("lng") == 'cn') {
+           if (getdataservice[i].pax_id == ctype) {
+               
+               $('#selectype').html( getdataservice[i].car_topic_cn+' '+'<span style="    color: #f44336;">'+getdataservice[i].pax_cn+'</span>')
+           } else if (ctype == '0') {
+               // comparedata.push(datacaedervice.data1[i])
+               $('#selectype').html( '所有類型')
+               
+               
+           }
+       } else if ($.cookie("lng") == 'en') {
+           if (getdataservice[i].pax_id == ctype) {
+               // comparedata.push(datacaedervice.data1[i])
+               $('#select_pax_use').html( getdataservice[i].car_topic_en+' '+'<span style="    color: #f44336;">'+getdataservice[i].pax_en+'</span>')
+           } else if (ctype == '0') {
+               // comparedata.push(datacaedervice.data1[i])
+               $('#select_pax_use').html( 'All Type')
+               
+           }
+
+       } else if ($.cookie("lng") == 'th') {
+           if (getdataservice[i].pax_id == ctype) {
+               // comparedata.push(datacaedervice.data1[i])
+               $('#select_pax_use').html(getdataservice[i].car_topic_th+' '+'<span style="    color: #f44336;">'+getdataservice[i].pax_th+'</span>')
+           } else if (ctype == '0') {
+               // comparedata.push(datacaedervice.data1[i])
+               $('#select_pax_use').html( 'ทุกประเภท')
+               
+           }
+
+       } else if ($.cookie("lng") == undefined) {
+           if (getdataservice[i].pax_id == ctype) {
+               // comparedata.push(datacaedervice.data1[i])
+               $('#select_pax_use').html( getdataservice[i].car_topic_en+' '+'<span style="    color: #f44336;">'+getdataservice[i].pax_en+'</span>')
+           } else if (ctype == '0') {
+               // comparedata.push(datacaedervice.data1[i])
+               $('#select_pax_use').html( 'All Type')
+               
+           }
+
+       }
+
+
+   })
+    $.each(dataUse.data1, function(i, val) {
         if ($.cookie("lng") == 'cn') {
-            if (data1[i].pax_id == ctype) {
-                data2.push(data1[i])
-            } else if (ctype == 'All Type') {
-                data2.push(data1[i])
+            if (dataUse.data1[i].pax_id == ctype) {
+                comparedata.push(dataUse.data1[i])
+            } else if (ctype == 0) {
+                 comparedata.push(dataUse.data1[i])
             }
         } else if ($.cookie("lng") == 'en') {
-            if (data1[i].pax_id == ctype) {
-                data2.push(data1[i])
-            } else if (ctype == 'All Type') {
-                data2.push(data1[i])
+            if (dataUse.data1[i].pax_id == x) {
+                comparedata.push(dataUse.data1[i])
+            } else if (ctype == 0) {
+                 comparedata.push(dataUse[0].data1[i])
             }
 
         } else if ($.cookie("lng") == 'th') {
-            if (data1[i].pax_id == ctype) {
-                data2.push(data1[i])
-            } else if (ctype == 'All Type') {
-                data2.push(data1[i])
+            if (dataUse.data1[i].pax_id == ctype) {
+                 comparedata.push(dataUse.data1[i])
+            } else if (ctype == 0) {
+                 comparedata.push(dataUse.data1[i])
             }
 
         } else if ($.cookie("lng") == undefined) {
-            if (data1[i].pax_id == ctype) {
-                data2.push(data1[i])
-            } else if (ctype == 'All Type') {
-                data2.push(data1[i])
+            if (dataUse.data1[i].pax_id == ctype) {
+                 comparedata.push(dataUse.data1[i])
+            } else if (ctype == 0) {
+                 comparedata.push(dataUse.data1[i])
             }
 
         }
 
 
     })
-    console.log(data2)
-    $.each(data2, function(i, val) {
-        if (data2[i].type == 'Private') {
-            compae1private.push(data2[i])
+    console.log(comparedata)
+    $.each(comparedata, function(i, val) {
+        if (comparedata[i].type == 'Private') {
+            compae1private.push(comparedata[i])
         }
 
-        if (data2[i].type == 'Join') {
-            compae1join.push(data2[i])
+        if (comparedata[i].type == 'Join') {
+            compae1join.push(comparedata[i])
         }
 
 
@@ -1723,16 +1781,23 @@ function sendValueto(x) {
     var dist = "";
     if ($.cookie("lng") == 'cn') {
         notfound = '产品没有找到';
+        $('#select_pax_use').html('所有類型')
 
     } else if ($.cookie("lng") == 'en') {
 
         notfound = 'Product not Found';
+        $('#select_pax_use').html('All Type')
+
     } else if ($.cookie("lng") == 'th') {
         notfound = 'ไม่พบผลิตภัณฑ์';
+        $('#select_pax_use').html('ทุกประเภท')
+
 
 
     } else if ($.cookie("lng") == undefined) {
         notfound = 'Product not Found';
+        $('#select_pax_use').html('All Type')
+        
 
     }
 
@@ -1744,9 +1809,11 @@ function sendValueto(x) {
         dataType: 'json',
         success: function(data) {
             console.log(data)
+            dataUse = data;
             console.log(data.length)
             console.log(data.status)
             console.log(data.size)
+            $('#box-pax-use').show(500)
 
             if (data.status == '200. bad request') {
                 $('#ul-header2').css('display', 'block');
@@ -1837,7 +1904,7 @@ function sendValueto(x) {
                 console.log(cartype.length)
                   
                 // label="' + type + '"
-                $('#paxuse').append('<li class="typeproduce'+cartype[i].transfer_id+'"  onclick="sendpaxuse(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                $('#paxuse').append('<li class="typeproduce" id="typeproduce'+cartype[i].transfer_id+'"  onclick="sendpaxuse(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                 
                 // $('#paxuse').append('<option class="typeproduce" value="' + cartype[i].pax_id + '" ><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></option>');
                 
