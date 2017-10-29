@@ -1,5 +1,12 @@
 var rel = false;
 var dataplacerel, pro_id, pro_id_to, datacaedervice;
+var dataplaceSend, id_placefrom, id_placeto, pro_from, pro_to, aum_from, aum_to, dataproduct, parame, compae1private = [],
+compae1join = [],
+compae2private = [],
+compae2join = [],
+lat_from, lng_from,proFrom,proTo;
+
+var start_st, end_st;
 // var base_url = 'https://dotdotdottrip.com/';
 // alert('asdsadas')
 var base_url = 'https://www.welovetaxi.com/app/booking/';
@@ -152,267 +159,69 @@ $(document).ready(function() {
     $('#province').on('change', function() {
         pro_id = this.value;
         console.log(pro_id)
-        var lng;
-        if ($.cookie("lng") == undefined) {
-            lng = 'en';
-        } else {
-            lng = $.cookie("lng");
-        }
-        $('.stayto').remove()
-        $.ajax({
-            type: 'POST',
-            url: 'https://www.welovetaxi.com/app/booking/service/getstayto.php',
-            data: { 'from': pro_id, 'lng': lng },
-            //contentType: "application/json",
-            dataType: 'json',
-            success: function(data) {
+        // var lng;
+        // if ($.cookie("lng") == undefined) {
+        //     lng = 'en';
+        // } else {
+        //     lng = $.cookie("lng");
 
-                console.log(data)
-                var datastay = data[0].data1;
-                console.log(datastay)
-                if ($.cookie("lng") == 'en') {
-                    $.each(datastay, function(i, val) {
-                        //$('#province').append('<option value="' + data[i].stay_to + '" label="' + data[i].name + '"></option>');
-                        $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name + '"></option>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+        // }
+        // $('.stayto').remove()
+        // $.ajax({
+        //     type: 'POST',
+        //     url: 'https://www.welovetaxi.com/app/booking/service/getstayto.php',
+        //     data: { 'from': pro_id, 'lng': lng },
+        //     //contentType: "application/json",
+        //     dataType: 'json',
+        //     success: function(data) {
 
-
-                    });
-                } else if ($.cookie("lng") == 'th') {
-                    $.each(datastay, function(i, val) {
-                        //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
-                        $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name_th + '"></option>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+        //         console.log(data)
+        //         var datastay = data[0].data1;
+        //         console.log(datastay)
+        //         if ($.cookie("lng") == 'en') {
+        //             $.each(datastay, function(i, val) {
+        //                 //$('#province').append('<option value="' + data[i].stay_to + '" label="' + data[i].name + '"></option>');
+        //                 $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name + '"></option>');
+        //                 //dataProvince.push(data[i])
+        //                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
 
-                    });
-                } else if ($.cookie("lng") == 'cn') {
-                    $.each(datastay, function(i, val) {
-                        //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
-                        $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name_cn + '"></option>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+        //             });
+        //         } else if ($.cookie("lng") == 'th') {
+        //             $.each(datastay, function(i, val) {
+        //                 //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
+        //                 $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name_th + '"></option>');
+        //                 //dataProvince.push(data[i])
+        //                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
 
-                    });
-                } else if ($.cookie("lng") == undefined) {
-                    $.each(datastay, function(i, val) {
-                        //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
-                        $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name + '"></option>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+        //             });
+        //         } else if ($.cookie("lng") == 'cn') {
+        //             $.each(datastay, function(i, val) {
+        //                 //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
+        //                 $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name_cn + '"></option>');
+        //                 //dataProvince.push(data[i])
+        //                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
 
 
-                    });
-                }
-            }
-        })
+        //             });
+        //         } else if ($.cookie("lng") == undefined) {
+        //             $.each(datastay, function(i, val) {
+        //                 //$('#province').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
+        //                 $('#provinceto').append('<option class="stayto" value="' + datastay[i].stay_to + '" label="' + datastay[i].name + '"></option>');
+        //                 //dataProvince.push(data[i])
+        //                 //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+        //             });
+        //         }
+        //     }
+        // })
 
     });
     $('#provinceto').on('change', function() {
         pro_id_to = this.value;
-        var lng;
-        console.log(pro_id_to)
-        if ($.cookie("lng") == undefined) {
-            lng = 'en';
-        } else {
-            lng = $.cookie("lng");
-        }
-        var parampro = {
-            "from": pro_id,
-            "to": pro_id_to,
-            "lng": lng,
-        };
-        $('.a-link-item').remove()
-        console.log(parampro)
-        $('#loading').show()
-        $.ajax({
-            type: 'POST',
-            url: 'https://www.welovetaxi.com/app/booking/service/carservice.php',
-            data: parampro,
-            //contentType: "application/json",
-            dataType: 'json',
-            success: function(data) {
-                console.log(data)
-                $('.a-link-item').remove();
-                $('.typeservice').remove();
-
-
-
-                $('#loading').hide();
-                datacaedervice = data[0];
-                if (data[0].data1.length == 0) {
-                    //$('#product_service').removeClass('.not-found');
-                    $('#foget-password').hide()
-                    $('.not-found').show()
-                } else {
-                    
-                        //$('#product_service').removeClass('.not-found');
-                    $('.not-found').hide()
-                    $('#foget-password').show(500)
-                    cartype = data[0].car_topic;
-                    var datalength = data[0].car_topic;
-                    console.log(datalength.Length)
-                    // if ($.cookie("lng") == 'cn') {
-                    //     cartype = data[0].car_topic;
-    
-                    // } else if ($.cookie("lng") == 'en') {
-    
-                    //     cartype = data[0].car_topic[0];
-                    // } else if ($.cookie("lng") == 'th') {
-                    //     cartype = data[0].car_topic;
-    
-    
-                    // } else if ($.cookie("lng") == undefined) {
-                    //     cartype = data[0].car_topic;
-    
-                    // }
-                    console.log(data1)
-                    
-    
-                    $.each(cartype, function(i, val) {
-                        var index2 = parseInt(i) + 1;
-                        var type,typeshow,pax;
-                        type = cartype[i].pax_id;
-                        if ($.cookie("lng") == 'cn') {
-                           // type = cartype[i].pax_id;
-                            typeshow = cartype[i].car_topic_cn;
-                            pax = cartype[i].pax_cn;
-    
-                    } else if ($.cookie("lng") == 'en') {
-    
-                       
-                        typeshow = cartype[i].car_topic_en;
-                        pax = cartype[i].pax_en;
-                    } else if ($.cookie("lng") == 'th') {
-                       // type = vacartypel[i].pax_id;
-                        typeshow = cartype[i].car_topic_th;
-                        pax = cartype[i].pax_th;
-    
-    
-                    } else if ($.cookie("lng") == undefined) {
-                       // type = cartype[i].car_topic_en;
-                        typeshow = cartype[i].car_topic_en;
-                        pax = cartype[i].pax_en;
-    
-                    }
-                    console.log(type)
-                    console.log(cartype.length)
-                        
-                    // label="' + type + '"
-                        $('#typecarservice').append('<li class="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-    
-                        // if(index2 == datalength-1){
-                        //     alert('aaaaa')
-                            
-                        // }
-                    });
-                   
-                    
-                    console.log('aaaaaaaa')
-                    $('#selectype').show();
-                    $('#typecarservice').prop("selected", true).change();
-                   // $( 'select .typeservice#' ).attr( "checked" )
-                   // $("#typecarservice").val($("#typecarservice option:first").val()).change();
-                    $.each(data[0].data1, function(i, val) {
-                        var indexs = parseInt(i) + 1;
-                        var urlicon = base_url + 'files/images/carmodelicon/';
-                        if ($.cookie("lng") == 'cn') {
-                            car_topic = data[0].data1[i].topic_cn;
-                            cartype = data[0].data1[i].car_topic_cn;
-                            pax = data[0].data1[i].pax_cn;
-                            lngbook = '預訂';
-                            lngcapacityinfo = '容量信息';
-                            lngfacilities = '设施';
-                        } else if ($.cookie("lng") == 'en') {
-                            car_topic = data[0].data1[i].topic_en;
-                            cartype = data[0].data1[i].car_topic_en;
-                            pax = data[0].data1[i].pax_en;
-                            lngbook = 'Book';
-                            lngcapacityinfo = 'Capacity info';
-                            lngfacilities = 'Facilities';
-                            // $('.lng-book').html('Facilities')
-                            // $('.lng-capacity-info').html('Capacity info')
-                            // $('.lng-facilities').html('Facilities')
-    
-                        } else if ($.cookie("lng") == 'th') {
-                            car_topic = data[0].data1[i].topic_th;
-                            cartype = data[0].data1[i].car_topic_th;
-                            pax = data[0].data1[i].pax_th;
-                            lngbook = 'จอง';
-                            lngcapacityinfo = 'ข้อมูลความจุ';
-                            lngfacilities = 'สิ่งอำนวยความสะดวก';
-                            // $('.lng-book').html('จอง')
-                            // $('.lng-capacity-info').html('ข้อมูลความจุ')
-                            // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-    
-                        } else if ($.cookie("lng") == undefined) {
-                            car_topic = data[0].data1[i].topic_en;
-                            cartype = data[0].data1[i].car_topic_en;
-                            pax = data[0].data1[i].pax_en;
-                            lngbook = 'Book';
-                            lngcapacityinfo = 'Capacity info';
-                            lngfacilities = 'Facilities';
-                            // $('.lng-book').html('Book')
-                            // $('.lng-capacity-info').html('Capacity info')
-                            // $('.lng-facilities').html('Facilities')
-    
-                        }
-                        $('#product_service').append('<div class="a-link-item col-lg-12" >' +
-                            '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')">' +
-                            '<img src="' + urlicon + data[0].data1[i].transfer_icon + '.jpg">' +
-                            '</div>' +
-                            '<table width="100%">' +
-                            '<tr>' +
-                            '<td style="width: 30px;">' +
-                            '<span class="hotel_num">' + indexs + '</span>' +
-                            '</td>' +
-    
-                            '<td>' +
-                            '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-                            '</td>' +
-                            '</tr>' +
-                            '</table>' +
-                            '<div class="box-province">' +
-                            '<p class="type-t">' +
-                            '<span class="car-type" >' + cartype + pax + '</span>' +
-                            '</p>' +
-                            '</div>' +
-                            '<div id="box-cost-view">' +
-                            '<div class="product_r">' +
-                            '<span class="base_price"></span>' +
-                            '<span class="sala">' + data[0].data1[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-    
-                            '</div>' +
-                            '<div class="views-item" >' +
-                            '<a  href="book?data=' + data[0].data1[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
-    
-                            '</div>' +
-                            '</div>' +
-                            '<div id="i-list"   onclick="getcondition(\'' + data[0].data1[i].car_model + '\')">' +
-                            '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
-                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                            '</div>' +
-                            '</div>'
-    
-                        );
-                        
-    
-    
-                    });
-
-                   
-                }
-
-                
-
-
-            }
-        });
+        
 
     });
     
@@ -685,10 +494,62 @@ $(document).ready(function() {
         /*   $( "#maps" ).html( "1111" );*/
 
     });
-    $('.btn-car-service').click(function() {
-        //	  $('#selectPlace').show();
-        $('#btn_CurrentLocation').hide();
-        $('#clear-all').hide();
+    // $('.stayfrom').click(function() {
+    // var pro = $('#transferplace' + x).attr('datapro');
+    // console.log(pro)
+    
+    // });
+
+    /**********************************************************/
+    /************ GET PROVINCE FROM, FROM SERVICE *************/
+    /**********************************************************/
+    $('#selectproto').click(function(){
+        $('#box-provinceto').show(500);
+        var lng;
+        if ($.cookie("lng") == undefined) {
+            lng = 'en';
+        } else {
+            lng = $.cookie("lng");
+    
+        }
+        $('.stayto').remove()
+        console.log(proFrom)
+        $.ajax({
+            type: 'POST',
+            url: 'https://www.welovetaxi.com/app/booking/service/getstayto.php',
+            data: { 'from': proFrom, 'lng': lng },
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+    
+                console.log(data)
+                var datastay = data[0].data1;
+                console.log(datastay)
+                if ($.cookie("lng") == 'en') {
+                    $.each(datastay, function(i, val) {
+                        $('#provinceto').append('<li class="stayto" id="proTo'+datastay[i].stay_to+'" proTo="'+datastay[i].name+'"   onclick="sendproto(\''+datastay[i].stay_to+'\');"><span>' + datastay[i].name + '</span></li>');
+                    });
+                } else if ($.cookie("lng") == 'th') {
+                    $.each(datastay, function(i, val) {
+                        $('#provinceto').append('<li class="stayto" id="proTo'+datastay[i].stay_to+'" proTo="'+datastay[i].name_th+'"  onclick="sendproto(\''+datastay[i].stay_to+'\');"><span>' + datastay[i].name_th + '</span></li>');
+                    });
+                } else if ($.cookie("lng") == 'cn') {
+                    $.each(datastay, function(i, val) {
+                        $('#provinceto').append('<li class="stayto" id="proTo'+datastay[i].stay_to+'" proTo="'+datastay[i].name_cn+'"  onclick="sendproto(\''+datastay[i].stay_to+'\');"><span>' + datastay[i].name_cn + '</span></li>');
+                    });
+                } else if ($.cookie("lng") == undefined) {
+                    $.each(datastay, function(i, val) {
+                        $('#provinceto').append('<li class="stayto" id="proTo'+datastay[i].stay_to+'" proTo="'+datastay[i].name+'"  onclick="sendproto(\''+datastay[i].stay_to+'\');"><span>' + datastay[i].name + '</span></li>');                
+                    });
+                }
+            }
+        })
+    })
+    /**********************************************************/
+    /************* GET PROVINCE TO, FROM SERVICE **************/
+    /**********************************************************/
+    $('#selectpro').click(function() {
+        $('#box-province').show(500);
         var lng;
         $('.stayfrom').remove();
         if ($.cookie("lng") == undefined) {
@@ -709,59 +570,61 @@ $(document).ready(function() {
                 var datastayfrom = data[0].data1;
                 if ($.cookie("lng") == 'en') {
                     $.each(datastayfrom, function(i, val) {
-                        $('#province').append('<option class="stayfrom" value="' + datastayfrom[i].stay + '" label="' + datastayfrom[i].name + '"></option>');
-                        //$('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-
-
+                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name + '</span></li>');
                     });
                 } else if ($.cookie("lng") == 'th') {
                     $.each(datastayfrom, function(i, val) {
-                        $('#province').append('<option class="stayfrom" value="' + datastayfrom[i].stay + '" label="' + datastayfrom[i].name_th + '"></option>');
-                        // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name_th + '"></option>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-
-
+                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name_th + '</span></li>');
                     });
                 } else if ($.cookie("lng") == 'cn') {
                     $.each(datastayfrom, function(i, val) {
-                        $('#province').append('<option class="stayfrom" value="' + datastayfrom[i].stay + '" label="' + datastayfrom[i].name_cn + '"></option>');
-                        // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name_cn + '"></option>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-
-
+                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name_cn + '</span></li>');
                     });
                 } else if ($.cookie("lng") == undefined) {
                     $.each(datastayfrom, function(i, val) {
-                        $('#province').append('<option class="stayfrom" value="' + datastayfrom[i].stay + '" label="' + datastayfrom[i].name + '"></option>');
-                        // $('#provinceto').append('<option value="' + data[i].id + '" label="' + data[i].name + '"></option>');
-                        //dataProvince.push(data[i])
-                        //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-
-
+                        $('#province').append('<li class="stayfrom" id="proFrom'+datastayfrom[i].stay+'" proFrom="'+datastayfrom[i].name+'"  onclick="sendpro(\''+datastayfrom[i].stay+'\');"><span>' + datastayfrom[i].name_cn + '</span></li>');
                     });
                 }
-                //datacountry = data;
-                // $('#codecountry').modal('show');
-                // $.each(data, function(i, val) {
-                //     $('#guestcountry').append('<option value="' + data[i].name_en + '" label="' + data[i].name_en + '" none=""></option>');
-                //     //dataProvince.push(data[i])
-                //     //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
-
-
-                // });
-
             }
         });
+    });
+    $('.btn-car-service').click(function() {
+        //	  $('#selectPlace').show();
+        $('#btn_CurrentLocation').hide();
+        $('#clear-all').hide();
+        
+        
+        
         $('#loading').css('display', 'block');
         //       $('#btn-real-res').css('display', 'none');
         $('#opennut').click();
         //$('#content').css('display','none');
         setTimeout(function() {
             $('#box-car-service').show(500);
+            if ($.cookie("lng") == 'en') {
+               
+                    $('#selectpro').html('From')
+                    $('#selectproto').html('To')
+                
+            } else if ($.cookie("lng") == 'th') {
+                
+                    $('#selectpro').html('จาก')
+                    $('#selectproto').html('ไปยัง')
+                    
+              
+            } else if ($.cookie("lng") == 'cn') {
+               
+                    $('#selectpro').html('从')
+                    $('#selectproto').html('至')
+                    
+               
+            } else if ($.cookie("lng") == undefined) {
+               
+                    $('#selectpro').html('From')
+                    $('#selectproto').html('To')
+                    
+               
+            }
             $('#map').hide();
             $('.btn-car-service').css({ 'background': '#16B3B1', 'color': '#ffffff' });
 
@@ -798,245 +661,7 @@ $(document).ready(function() {
     $('#cartype').on('change', changeType);
     $('#cartype').on('change', function() {
         $('.a-link-item').remove();
-        $('#box-prosearch').css('display', 'none');
-        $('#product_a').css('display', 'none');
-        $('#loading').css('display', 'block');
-
-        setTimeout(function() {
-            console.log("aaaaa")
-            $('#loading').css('display', 'none');
-            $('#product_a').css('display', 'block');
-            $('#box-prosearch').css('display', 'block');
-        }, 500);
-        compae1private = [];
-        compae1join = [];
-        data2 = [];
-        ctype = this.value;
-        console.log(ctype)
-        console.log(data1)
-        $.each(data1, function(i, val) {
-            if ($.cookie("lng") == 'cn') {
-                if (data1[i].pax_id == ctype) {
-                    data2.push(data1[i])
-                } else if (ctype == 'All Type') {
-                    data2.push(data1[i])
-                }
-            } else if ($.cookie("lng") == 'en') {
-                if (data1[i].pax_id == ctype) {
-                    data2.push(data1[i])
-                } else if (ctype == 'All Type') {
-                    data2.push(data1[i])
-                }
-
-            } else if ($.cookie("lng") == 'th') {
-                if (data1[i].pax_id == ctype) {
-                    data2.push(data1[i])
-                } else if (ctype == 'All Type') {
-                    data2.push(data1[i])
-                }
-
-            } else if ($.cookie("lng") == undefined) {
-                if (data1[i].pax_id == ctype) {
-                    data2.push(data1[i])
-                } else if (ctype == 'All Type') {
-                    data2.push(data1[i])
-                }
-
-            }
-
-
-        })
-        console.log(data2)
-        $.each(data2, function(i, val) {
-            if (data2[i].type == 'Private') {
-                compae1private.push(data2[i])
-            }
-
-            if (data2[i].type == 'Join') {
-                compae1join.push(data2[i])
-            }
-
-
-        })
-        console.log(compae1join);
-
-        var car_topic, cartype, pax;
-        var urlicon = base_url + 'files/images/carmodelicon/';
-        //if (data[0].data1.length != 0) {
-        $.each(compae1private, function(i, val) {
-            var indexs = parseInt(i) + 1;
-            if ($.cookie("lng") == 'cn') {
-                car_topic = compae1private[i].topic_cn;
-                cartype = compae1private[i].car_topic_cn;
-                pax = compae1private[i].pax_cn;
-                lngbook = '預訂';
-                lngcapacityinfo = '容量信息';
-                lngfacilities = '设施';
-            } else if ($.cookie("lng") == 'en') {
-                car_topic = compae1private[i].topic_en;
-                cartype = compae1private[i].car_topic_en;
-                pax = compae1private[i].pax_en;
-                lngbook = 'Book';
-                lngcapacityinfo = 'Capacity info';
-                lngfacilities = 'Facilities';
-                // $('.lng-book').html('Facilities')
-                // $('.lng-capacity-info').html('Capacity info')
-                // $('.lng-facilities').html('Facilities')
-
-            } else if ($.cookie("lng") == 'th') {
-                car_topic = compae1private[i].topic_th;
-                cartype = compae1private[i].car_topic_th;
-                pax = compae1private[i].pax_th;
-                lngbook = 'จอง';
-                lngcapacityinfo = 'ข้อมูลความจุ';
-                lngfacilities = 'สิ่งอำนวยความสะดวก';
-                // $('.lng-book').html('จอง')
-                // $('.lng-capacity-info').html('ข้อมูลความจุ')
-                // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-
-            } else if ($.cookie("lng") == undefined) {
-                car_topic = compae1private[i].topic_en;
-                cartype = compae1private[i].car_topic_en;
-                pax = compae1private[i].pax_en;
-                lngbook = 'Book';
-                lngcapacityinfo = 'Capacity info';
-                lngfacilities = 'Facilities';
-                // $('.lng-book').html('Book')
-                // $('.lng-capacity-info').html('Capacity info')
-                // $('.lng-facilities').html('Facilities')
-
-            }
-
-
-            $('#product_a').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" onclick="getimage(\'' + compae1private[i].car_model + '\') ">' +
-                '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
-                '</div>' +
-                '<table width="100%">' +
-                '<tr>' +
-                '<td style="width: 30px;">' +
-                '<span class="hotel_num">' + indexs + '</span>' +
-                '</td>' +
-
-                '<td>' +
-                '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-                '</td>' +
-                '</tr>' +
-                '</table>' +
-                '<div class="box-province">' +
-                '<p class="type-t">' +
-                '<span class="car-type" >' + cartype + pax + '</span>' +
-                '</p>' +
-                '</div>' +
-                '<div id="box-cost-view">' +
-                '<div class="product_r">' +
-                '<span class="base_price"></span>' +
-                '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-
-                '</div>' +
-                '<div class="views-item" >' +
-                '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
-
-                '</div>' +
-                '</div>' +
-                '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-                '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
-                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                '</div>' +
-                '</div>'
-
-            );
-
-
-        }); //end private
-
-
-
-        $.each(compae1join, function(i, val) {
-            var indexs = parseInt(i) + 1;
-            if ($.cookie("lng") == 'cn') {
-                car_topic = compae1join[i].topic_cn;
-                cartype = compae1join[i].car_topic_cn;
-                pax = compae1join[i].pax_cn;
-                lngbook = '預訂';
-                lngcapacityinfo = '容量信息';
-                lngfacilities = '设施';
-            } else if ($.cookie("lng") == 'en') {
-                car_topic = compae1join[i].topic_en;
-                cartype = compae1join[i].car_topic_en;
-                pax = compae1join[i].pax_en;
-                lngbook = 'Book';
-                lngcapacityinfo = 'Capacity info';
-                lngfacilities = 'Facilities';
-                // $('.lng-book').html('Facilities')
-                // $('.lng-capacity-info').html('Capacity info')
-                // $('.lng-facilities').html('Facilities')
-
-            } else if ($.cookie("lng") == 'th') {
-                car_topic = compae1join[i].topic_th;
-                cartype = compae1join[i].car_topic_th;
-                pax = compae1join[i].pax_th;
-                lngbook = 'จอง';
-                lngcapacityinfo = 'ข้อมูลความจุ';
-                lngfacilities = 'สิ่งอำนวยความสะดวก';
-                // $('.lng-book').html('จอง')
-                // $('.lng-capacity-info').html('ข้อมูลความจุ')
-                // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
-
-            } else if ($.cookie("lng") == undefined) {
-                car_topic = compae1join[i].topic_en;
-                cartype = compae1join[i].car_topic_en;
-                pax = compae1join[i].pax_en;
-                lngbook = 'Book';
-                lngcapacityinfo = 'Capacity info';
-                lngfacilities = 'Facilities';
-                // $('.lng-book').html('Book')
-                // $('.lng-capacity-info').html('Capacity info')
-                // $('.lng-facilities').html('Facilities')
-
-            }
-            $('#product_c').append('<div class="a-link-item col-lg-12" >' +
-                '<div class="item-thumbnail2" onclick="getimage(\'' + compae1join[i].car_model + '\')">' +
-                '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
-                '</div>' +
-                '<table width="100%">' +
-                '<tr>' +
-                '<td style="width: 30px;">' +
-                '<span class="hotel_num">' + indexs + '</span>' +
-                '</td>' +
-
-                '<td>' +
-                '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
-                '</td>' +
-                '</tr>' +
-                '</table>' +
-                '<div class="box-province">' +
-                '<p class="type-t">' +
-                '<span class="car-type" >' + cartype + pax + '</span>' +
-                '</p>' +
-                '</div>' +
-                '<div id="box-cost-view">' +
-                '<div class="product_r">' +
-                '<span class="base_price"></span>' +
-                '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
-
-                '</div>' +
-                '<div class="views-item" >' +
-                '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
-
-                '</div>' +
-                '</div>' +
-                '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-                '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
-                '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
-                '</div>' +
-                '</div>'
-
-            );
-
-
-        });
-
+        
     });
 
 
@@ -1084,6 +709,9 @@ $(document).ready(function() {
     })
     $('#selectype').click(function(){
         $('#foget-password').show(500);
+    });
+    $('#select_pax_use').click(function(){
+        $('#box-pax-use').show(500);
     });
     $('.btn-show-select').click(function() {
         console.log('hide-show');
@@ -1384,18 +1012,208 @@ function create_word(input) {
 /**************************************************************************************/
 /**********************************select place from***********************************/
 /**************************************************************************************/
-var dataplaceSend, id_placefrom, id_placeto, pro_from, pro_to, aum_from, aum_to, dataproduct, parame, compae1private = [],
-    compae1join = [],
-    compae2private = [],
-    compae2join = [],
-    lat_from, lng_from;
 
-var start_st, end_st;
 //var datato = [];
 function sendValuetojs(data) {
     // console.log(data)
     dataplaceSend = data;
 }
+
+
+/*************************************/
+/********** GET DATA PROFROM************/
+/*************************************/
+
+function sendpro(x){
+    console.log(x)
+    proFrom = x;
+    console.log(proFrom)
+    $('#selectpro').html($('#proFrom' + x).attr('profrom'))
+    
+    $('#box-province').hide();
+}
+
+/*************************************/
+/********** GET DATA PROTO************/
+/*************************************/
+
+function sendproto(x){
+    console.log(x)
+    proTo = x;
+    console.log(proTo)
+    $('#selectproto').html($('#proTo' + x).attr('proto'))
+    
+    $('#box-provinceto').hide();
+    var lng;
+    
+    if ($.cookie("lng") == undefined) {
+        lng = 'en';
+    } else {
+        lng = $.cookie("lng");
+    }
+    var parampro = {
+        "from": proFrom,
+        "to": proTo,
+        "lng": lng,
+    };
+    $('.a-link-item').remove()
+    console.log(parampro)
+    $('#loading').show()
+    $.ajax({
+        type: 'POST',
+        url: 'https://www.welovetaxi.com/app/booking/service/carservice.php',
+        data: parampro,
+        //contentType: "application/json",
+        dataType: 'json',
+        success: function(data) {
+            console.log(data)
+            $('.a-link-item').remove();
+            $('.typeservice').remove();
+
+
+
+            $('#loading').hide();
+            datacaedervice = data[0];
+            if (data[0].data1.length == 0) {
+                //$('#product_service').removeClass('.not-found');
+                $('#foget-password').hide()
+                $('.not-found').show()
+            } else {
+                
+                    //$('#product_service').removeClass('.not-found');
+                $('.not-found').hide()
+                $('#foget-password').show(500)
+                cartype = data[0].car_topic;
+                var datalength = data[0].car_topic;
+                console.log(datalength.Length)
+                
+                console.log(data1)
+                
+
+                $.each(cartype, function(i, val) {
+                    var index2 = parseInt(i) + 1;
+                    var type,typeshow,pax;
+                    type = cartype[i].pax_id;
+                    if ($.cookie("lng") == 'cn') {
+                        typeshow = cartype[i].car_topic_cn;
+                        pax = cartype[i].pax_cn;
+
+                } else if ($.cookie("lng") == 'en') {
+
+                   
+                    typeshow = cartype[i].car_topic_en;
+                    pax = cartype[i].pax_en;
+                } else if ($.cookie("lng") == 'th') {
+                    typeshow = cartype[i].car_topic_th;
+                    pax = cartype[i].pax_th;
+                } else if ($.cookie("lng") == undefined) {
+                    typeshow = cartype[i].car_topic_en;
+                    pax = cartype[i].pax_en;
+
+                }
+                console.log(type)
+                console.log(cartype.length)
+                    $('#typecarservice').append('<li class="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                   
+                });
+               
+                
+                console.log('aaaaaaaa')
+                $('#selectype').show();
+                $.each(data[0].data1, function(i, val) {
+                    var indexs = parseInt(i) + 1;
+                    var urlicon = base_url + 'files/images/carmodelicon/';
+                    if ($.cookie("lng") == 'cn') {
+                        car_topic = data[0].data1[i].topic_cn;
+                        cartype = data[0].data1[i].car_topic_cn;
+                        pax = data[0].data1[i].pax_cn;
+                        lngbook = '預訂';
+                        lngcapacityinfo = '容量信息';
+                        lngfacilities = '设施';
+                    } else if ($.cookie("lng") == 'en') {
+                        car_topic = data[0].data1[i].topic_en;
+                        cartype = data[0].data1[i].car_topic_en;
+                        pax = data[0].data1[i].pax_en;
+                        lngbook = 'Book';
+                        lngcapacityinfo = 'Capacity info';
+                        lngfacilities = 'Facilities';
+
+                    } else if ($.cookie("lng") == 'th') {
+                        car_topic = data[0].data1[i].topic_th;
+                        cartype = data[0].data1[i].car_topic_th;
+                        pax = data[0].data1[i].pax_th;
+                        lngbook = 'จอง';
+                        lngcapacityinfo = 'ข้อมูลความจุ';
+                        lngfacilities = 'สิ่งอำนวยความสะดวก';
+                        // $('.lng-book').html('จอง')
+                        // $('.lng-capacity-info').html('ข้อมูลความจุ')
+                        // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+
+                    } else if ($.cookie("lng") == undefined) {
+                        car_topic = data[0].data1[i].topic_en;
+                        cartype = data[0].data1[i].car_topic_en;
+                        pax = data[0].data1[i].pax_en;
+                        lngbook = 'Book';
+                        lngcapacityinfo = 'Capacity info';
+                        lngfacilities = 'Facilities';
+                        // $('.lng-book').html('Book')
+                        // $('.lng-capacity-info').html('Capacity info')
+                        // $('.lng-facilities').html('Facilities')
+
+                    }
+                    $('#product_service').append('<div class="a-link-item col-lg-12" >' +
+                        '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')">' +
+                        '<img src="' + urlicon + data[0].data1[i].transfer_icon + '.jpg">' +
+                        '</div>' +
+                        '<table width="100%">' +
+                        '<tr>' +
+                        '<td style="width: 30px;">' +
+                        '<span class="hotel_num">' + indexs + '</span>' +
+                        '</td>' +
+
+                        '<td>' +
+                        '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                        '</td>' +
+                        '</tr>' +
+                        '</table>' +
+                        '<div class="box-province">' +
+                        '<p class="type-t">' +
+                        '<span class="car-type" >' + cartype + pax + '</span>' +
+                        '</p>' +
+                        '</div>' +
+                        '<div id="box-cost-view">' +
+                        '<div class="product_r">' +
+                        '<span class="base_price"></span>' +
+                        '<span class="sala">' + data[0].data1[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+                        '</div>' +
+                        '<div class="views-item" >' +
+                        '<a  href="book?data=' + data[0].data1[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
+
+                        '</div>' +
+                        '</div>' +
+                        '<div id="i-list"   onclick="getcondition(\'' + data[0].data1[i].car_model + '\')">' +
+                        '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
+                        '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                        '</div>' +
+                        '</div>'
+
+                    );
+                    
+
+
+                });
+
+               
+            }
+
+            
+
+
+        }
+    });
+}
+
 
 function sendValue(x) {
     id_placefrom = x;
@@ -1437,6 +1255,255 @@ function sendValue(x) {
 /**************************************************************************************/
 /**********************************select place to***********************************/
 /**************************************************************************************/
+
+
+function sendpaxuse(x) {
+    $('#box-pax-use').hide();
+    $('#loading').css('display', 'block');
+    $('.a-link-item').remove();
+    $('#box-prosearch').css('display', 'none');
+    $('#product_a').css('display', 'none');
+    // $('#loading').css('display', 'block');
+
+    setTimeout(function() {
+        console.log("aaaaa")
+        $('#loading').css('display', 'none');
+        $('#product_a').css('display', 'block');
+        $('#box-prosearch').css('display', 'block');
+    }, 500);
+    compae1private = [];
+    compae1join = [];
+    data2 = [];
+    ctype = this.value;
+    console.log(ctype)
+    console.log(data1)
+    $.each(data1, function(i, val) {
+        if ($.cookie("lng") == 'cn') {
+            if (data1[i].pax_id == ctype) {
+                data2.push(data1[i])
+            } else if (ctype == 'All Type') {
+                data2.push(data1[i])
+            }
+        } else if ($.cookie("lng") == 'en') {
+            if (data1[i].pax_id == ctype) {
+                data2.push(data1[i])
+            } else if (ctype == 'All Type') {
+                data2.push(data1[i])
+            }
+
+        } else if ($.cookie("lng") == 'th') {
+            if (data1[i].pax_id == ctype) {
+                data2.push(data1[i])
+            } else if (ctype == 'All Type') {
+                data2.push(data1[i])
+            }
+
+        } else if ($.cookie("lng") == undefined) {
+            if (data1[i].pax_id == ctype) {
+                data2.push(data1[i])
+            } else if (ctype == 'All Type') {
+                data2.push(data1[i])
+            }
+
+        }
+
+
+    })
+    console.log(data2)
+    $.each(data2, function(i, val) {
+        if (data2[i].type == 'Private') {
+            compae1private.push(data2[i])
+        }
+
+        if (data2[i].type == 'Join') {
+            compae1join.push(data2[i])
+        }
+
+
+    })
+    console.log(compae1join);
+
+    var car_topic, cartype, pax;
+    var urlicon = base_url + 'files/images/carmodelicon/';
+    //if (data[0].data1.length != 0) {
+    $.each(compae1private, function(i, val) {
+        var indexs = parseInt(i) + 1;
+        if ($.cookie("lng") == 'cn') {
+            car_topic = compae1private[i].topic_cn;
+            cartype = compae1private[i].car_topic_cn;
+            pax = compae1private[i].pax_cn;
+            lngbook = '預訂';
+            lngcapacityinfo = '容量信息';
+            lngfacilities = '设施';
+        } else if ($.cookie("lng") == 'en') {
+            car_topic = compae1private[i].topic_en;
+            cartype = compae1private[i].car_topic_en;
+            pax = compae1private[i].pax_en;
+            lngbook = 'Book';
+            lngcapacityinfo = 'Capacity info';
+            lngfacilities = 'Facilities';
+            // $('.lng-book').html('Facilities')
+            // $('.lng-capacity-info').html('Capacity info')
+            // $('.lng-facilities').html('Facilities')
+
+        } else if ($.cookie("lng") == 'th') {
+            car_topic = compae1private[i].topic_th;
+            cartype = compae1private[i].car_topic_th;
+            pax = compae1private[i].pax_th;
+            lngbook = 'จอง';
+            lngcapacityinfo = 'ข้อมูลความจุ';
+            lngfacilities = 'สิ่งอำนวยความสะดวก';
+            // $('.lng-book').html('จอง')
+            // $('.lng-capacity-info').html('ข้อมูลความจุ')
+            // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+
+        } else if ($.cookie("lng") == undefined) {
+            car_topic = compae1private[i].topic_en;
+            cartype = compae1private[i].car_topic_en;
+            pax = compae1private[i].pax_en;
+            lngbook = 'Book';
+            lngcapacityinfo = 'Capacity info';
+            lngfacilities = 'Facilities';
+            // $('.lng-book').html('Book')
+            // $('.lng-capacity-info').html('Capacity info')
+            // $('.lng-facilities').html('Facilities')
+
+        }
+
+
+        $('#product_a').append('<div class="a-link-item col-lg-12" >' +
+            '<div class="item-thumbnail2" onclick="getimage(\'' + compae1private[i].car_model + '\') ">' +
+            '<img src="' + urlicon + compae1private[i].transfer_icon + '.jpg">' +
+            '</div>' +
+            '<table width="100%">' +
+            '<tr>' +
+            '<td style="width: 30px;">' +
+            '<span class="hotel_num">' + indexs + '</span>' +
+            '</td>' +
+
+            '<td>' +
+            '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+            '</td>' +
+            '</tr>' +
+            '</table>' +
+            '<div class="box-province">' +
+            '<p class="type-t">' +
+            '<span class="car-type" >' + cartype + pax + '</span>' +
+            '</p>' +
+            '</div>' +
+            '<div id="box-cost-view">' +
+            '<div class="product_r">' +
+            '<span class="base_price"></span>' +
+            '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+            '</div>' +
+            '<div class="views-item" >' +
+            '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+
+            '</div>' +
+            '</div>' +
+            '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
+            '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
+            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+            '</div>' +
+            '</div>'
+
+        );
+
+
+    }); //end private
+
+
+
+    $.each(compae1join, function(i, val) {
+        var indexs = parseInt(i) + 1;
+        if ($.cookie("lng") == 'cn') {
+            car_topic = compae1join[i].topic_cn;
+            cartype = compae1join[i].car_topic_cn;
+            pax = compae1join[i].pax_cn;
+            lngbook = '預訂';
+            lngcapacityinfo = '容量信息';
+            lngfacilities = '设施';
+        } else if ($.cookie("lng") == 'en') {
+            car_topic = compae1join[i].topic_en;
+            cartype = compae1join[i].car_topic_en;
+            pax = compae1join[i].pax_en;
+            lngbook = 'Book';
+            lngcapacityinfo = 'Capacity info';
+            lngfacilities = 'Facilities';
+            // $('.lng-book').html('Facilities')
+            // $('.lng-capacity-info').html('Capacity info')
+            // $('.lng-facilities').html('Facilities')
+
+        } else if ($.cookie("lng") == 'th') {
+            car_topic = compae1join[i].topic_th;
+            cartype = compae1join[i].car_topic_th;
+            pax = compae1join[i].pax_th;
+            lngbook = 'จอง';
+            lngcapacityinfo = 'ข้อมูลความจุ';
+            lngfacilities = 'สิ่งอำนวยความสะดวก';
+            // $('.lng-book').html('จอง')
+            // $('.lng-capacity-info').html('ข้อมูลความจุ')
+            // $('.lng-facilities').html('สิ่งอำนวยความสะดวก ')
+
+        } else if ($.cookie("lng") == undefined) {
+            car_topic = compae1join[i].topic_en;
+            cartype = compae1join[i].car_topic_en;
+            pax = compae1join[i].pax_en;
+            lngbook = 'Book';
+            lngcapacityinfo = 'Capacity info';
+            lngfacilities = 'Facilities';
+            // $('.lng-book').html('Book')
+            // $('.lng-capacity-info').html('Capacity info')
+            // $('.lng-facilities').html('Facilities')
+
+        }
+        $('#product_c').append('<div class="a-link-item col-lg-12" >' +
+            '<div class="item-thumbnail2" onclick="getimage(\'' + compae1join[i].car_model + '\')">' +
+            '<img src="' + urlicon + compae1join[i].transfer_icon + '.jpg">' +
+            '</div>' +
+            '<table width="100%">' +
+            '<tr>' +
+            '<td style="width: 30px;">' +
+            '<span class="hotel_num">' + indexs + '</span>' +
+            '</td>' +
+
+            '<td>' +
+            '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+            '</td>' +
+            '</tr>' +
+            '</table>' +
+            '<div class="box-province">' +
+            '<p class="type-t">' +
+            '<span class="car-type" >' + cartype + pax + '</span>' +
+            '</p>' +
+            '</div>' +
+            '<div id="box-cost-view">' +
+            '<div class="product_r">' +
+            '<span class="base_price"></span>' +
+            '<span class="sala">' + compae1join[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+            '</div>' +
+            '<div class="views-item" >' +
+            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+
+            '</div>' +
+            '</div>' +
+            '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
+            '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+            '</div>' +
+            '</div>'
+
+        );
+
+
+    });
+
+}
+
+
+
 function sendpax(x) {
     console.log(x)
     $('#foget-password').hide();
@@ -1613,81 +1680,12 @@ function sendValueto(x) {
     lat_to = $('#transferplaceto' + x).attr('lat_t');
     lng_to = $('#transferplaceto' + x).attr('lng_t');
 
-    /*    console.log(lat_to)
-        console.log(lng_to)
-        console.log(lat_from)
-        console.log(lng_from)*/
     $('#lat_to').val(lng_to);
     $('#lng_to').val(lng_to);
     $('#show-hide-pro2').hide();
     $('#pro-search').hide();
 
-    // if (directionsDisplay) {
-    //     directionsDisplay.setMap(null);
-    //     directionsDisplay = null;
-    //     directionsService = null;
-    // }
-    // if (infowindow) {
-    //     console.log(infowindow);
-    //     infowindow.close();
-    //     infowindow.setMap(null);
-    //     infowindow = null;
-    // }
-    // if (infowindowDetailTravel) {
-    //     console.log(infowindowDetailTravel);
-    //     infowindowDetailTravel.close();
-    //     infowindowDetailTravel.setMap(null);
-    //     infowindowDetailTravel = null;
-    // }
-    // var end_st = {
-    //     lat: parseFloat(lat_to),
-    //     lng: parseFloat(lng_to)
-    // }
-
-    // console.log(end_st);
-
-    // endMarker.setVisible(true);
-    // map.panTo(end_st);
-    // endMarker.setPosition(end_st);
-    // var requestThis = {
-    //     origin: start_st,
-    //     destination: end_st,
-    //     travelMode: google.maps.TravelMode.DRIVING
-    // };
-    // console.log(requestThis);
-    // directionsService = new google.maps.DirectionsService;
-    // directionsDisplay = new google.maps.DirectionsRenderer();
-    // directionsDisplay.setMap(map);
-    // directionsService.route(requestThis, function(response, status) {
-    //     console.log(response);
-    //     console.log(status);
-    //     if (status == 'ZERO_RESULTS') {
-    //         alert('no Directions Display');
-    //     } else {
-
-    //         var distance = response.routes[0].legs[0].distance.text;
-    //         //            console.log(distance+" +++++++++++++++++++");
-    //         var duration = response.routes[0].legs[0].duration.text;
-    //         infowindowDetailTravel = new google.maps.InfoWindow({ maxWidth: 200 });
-    //         infowindowDetailTravel.setContent('<div><p> ' + lng_distance + ' ' + distance + '</p><p>' + lng_usetime + ' ' + duration + '</p></div>');
-    //         infowindowDetailTravel.open(map, endMarker);
-    //         directionsDisplay.setDirections(response);
-    //         directionsDisplay.setOptions({
-    //             suppressMarkers: true,
-    //             preserveViewport: true
-    //         });
-    //         if (response.routes[0].legs[0].distance.value >= 25000) {
-    //             map.setZoom(9);
-    //         } else {
-    //             map.setZoom(12);
-    //         }
-
-    //         $('#clear-all').show(500);
-    //         //                outSearchRealtime();
-
-    //     }
-
-    // });
+    
 
     id_placeto = x;
 
@@ -1813,12 +1811,12 @@ function sendValueto(x) {
                 cartype = data.car_topic;
                 console.log(data1)
                 console.log(cartype)
+                $('#box-pax-use').show(500) 
                   $.each(cartype, function(i, val) {
                     var index2 = parseInt(i) + 1;
                     var type,typeshow,pax;
                     type = cartype[i].pax_id;
                     if ($.cookie("lng") == 'cn') {
-                       // type = cartype[i].pax_id;
                         typeshow = cartype[i].car_topic_cn;
                         pax = cartype[i].pax_cn;
 
@@ -1828,22 +1826,20 @@ function sendValueto(x) {
                     typeshow = cartype[i].car_topic_en;
                     pax = cartype[i].pax_en;
                 } else if ($.cookie("lng") == 'th') {
-                   // type = vacartypel[i].pax_id;
                     typeshow = cartype[i].car_topic_th;
                     pax = cartype[i].pax_th;
-
-
                 } else if ($.cookie("lng") == undefined) {
-                   // type = cartype[i].car_topic_en;
                     typeshow = cartype[i].car_topic_en;
                     pax = cartype[i].pax_en;
 
                 }
                 console.log(type)
                 console.log(cartype.length)
-                    
+                  
                 // label="' + type + '"
-                $('#cartype').append('<option class="typeproduce" value="' + cartype[i].pax_id + '" ><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></option>');
+                $('#paxuse').append('<li class="typeproduce'+cartype[i].transfer_id+'"  onclick="sendpaxuse(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                
+                // $('#paxuse').append('<option class="typeproduce" value="' + cartype[i].pax_id + '" ><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></option>');
                 
                     //$('#typecarservice').append('<li class="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                     //dataProvince.push(data[i])
@@ -1854,7 +1850,21 @@ function sendValueto(x) {
                         
                     // }
                 });
+                // var element = document.getElementById('cartype');
+                // var e = document.createEvent('MouseEvents');
+                // e.initEvent('click', true, true);
+                // element.dispatchEvent(e);
+$('#cartype').click();
+$(document).ready(function() {
+//$('#cartype').on('change',  (function() {
+    // $(this).children(':selected').trigger('click');
+//}));
+});
 
+
+//    $(document).click(function(e) {
+//   $('#cartype').attr('size',0);
+// });
                 // $.each(cartype, function(i, val) {
                 //     var index2 = parseInt(i) + 1;
                 //     $('#cartype').append('<option class="typeproduce" value="' + cartype[i] + '" label="' + cartype[i] + '" none=""></option>');

@@ -93,6 +93,7 @@
     <div id="show-hide-pro2">
         <i class="material-icons" style="color: rgb(22, 179, 177); font-size: 35px;">keyboard_arrow_up</i>
     </div>
+      
     <div id="pro-search">
         <div class="nav nav-pills nav-pills-warning" id="ul-header2" style="" >
         <div class="" align="center" style="display: inline-block;    width: 100%;
@@ -104,11 +105,63 @@
             </div>
             <div class=" " style=" padding: 12px 10px; padding-bottom: 0;">
                 <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
-                <select class="" name="cartype" id="cartype" class="" style="     margin: auto;">
-                    <option value="All Type" ><?php echo  $lng_all_type;?></option>                                                                
-                </select>
-            </div>             
-        </div>         
+                <!-- <dic class="" name="cartype" id="cartype" class="" style="     margin: auto;"> -->
+                    <div  class="textInput" id="select_pax_use" ></div>                                                                
+                <!-- </div> -->
+
+
+            </div>
+            <style>
+        #box-pax-use{
+    z-index: 20; 
+    position: fixed; 
+    /* width: 100vw; 
+    height: 100vh;  */
+    left: 0px; top: 0px; 
+    /* background: rgba(0, 0, 0, 0.59); */
+    display:none;
+}
+.box-pax-use-in{
+    height: 100vh;
+        /* border-radius: 4px; */
+        /* background: rgba(0, 0, 0, 0.75); */
+        min-width: 100%;
+        background:#fff;
+        /* height: auto; */
+        left: 50vw;
+        top: 50vh;
+        
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 3;
+}
+                #paxuse{
+    list-style: none;
+    padding-left: 0;
+}
+#paxuse li{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+                   </style>
+        <div id="box-pax-use">
+            <div class="box-pax-use-in" >               
+                   <div  id="pax-box">                      
+                       <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
+                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                            <span class="lng-please-select-type"></span>
+                        </div>
+                        <div class="col-md-12 boxpax" style="text-align: left;" > 
+                        <ul class="" name="typecarservice" id="paxuse" >
+                            <li value="All Type" onclick="sendpaxuse(0)" style="padding: 15px; border-bottom: 1px solid #ddd;"><?php echo  $lng_all_type;?>
+                            </li>                                                                
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>              
+        </div> 
+             
         <div id="box-prosearch">
             <div>
                 <div class="container" style="display:none;" id="container-product">
@@ -283,9 +336,9 @@
                         </span>
                     </div>                                           -->
                                                                                          
-                        <select class="textInput" name="province" id="province" class="" style="  ">
-                            <option class="textInput" value="az_AZ" ><? echo  $lng_from;?></option>
-                        </select>
+                        <!-- <select class="textInput" name="province" id="province" class="" style="  "> -->
+                            <div class="textInput" id="selectpro"></div>
+                        <!-- </select> -->
                     
                      
                     <!-- <div>
@@ -293,9 +346,9 @@
                             To
                         </span>
                     </div>                                                                        -->
-                        <select class="textInput" name="provinceto" id="provinceto" class="" style="  ">
-                            <option class="textInput" value="az_AZ" ><? echo  $lng_to;?></option>
-                        </select>
+                        <!-- <select class="textInput" name="provinceto" id="provinceto" class="" style="  "> -->
+                            <div class="textInput"  id="selectproto"></div>
+                        <!-- </select> -->
                        
                             <div  class="textInput" value="All Type" id="selectype" style="display:none"></div>
                             <?php ////echo  $lng_all_type;?>                                                            
@@ -324,33 +377,155 @@
         position: fixed;
         z-index: 3;
 }
+#box-province{
+    z-index: 20; 
+    position: fixed; 
+    /* width: 100vw; 
+    height: 100vh;  */
+    left: 0px; top: 0px; 
+    /* background: rgba(0, 0, 0, 0.59); */
+    display:none;
+}
+.box-province-in{
+    height: 100vh;
+        /* border-radius: 4px; */
+        /* background: rgba(0, 0, 0, 0.75); */
+        min-width: 100%;
+        background:#fff;
+        /* height: auto; */
+        left: 50vw;
+        top: 50vh;
+        
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 3;
+}
+#box-provinceto{
+    z-index: 20; 
+    position: fixed; 
+    /* width: 100vw; 
+    height: 100vh;  */
+    left: 0px; top: 0px; 
+    /* background: rgba(0, 0, 0, 0.59); */
+    display:none;
+}
+.box-provinceto-in{
+    height: 100vh;
+        /* border-radius: 4px; */
+        /* background: rgba(0, 0, 0, 0.75); */
+        min-width: 100%;
+        background:#fff;
+        /* height: auto; */
+        left: 50vw;
+        top: 50vh;
+        
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 3;
+}
+#province{
+    list-style: none;
+    padding-left: 0;
+}
+#province li{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+#provinceto{
+    list-style: none;
+    padding-left: 0;
+}
+#provinceto li{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+#typecarservice{
+    list-style: none;
+    padding-left: 0;
+}
+#typecarservice li{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+/* #box-pax-use{
+    list-style: none;
+    padding-left: 0;
+}
+#box-pax-use-in li{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+} */
                    </style>
-                        <div id="foget-password">
-            <div class="box-in-foget" >
-               
-                   <div  id="pax-box">
-                      
+        <!-- <div id="box-pax-use">
+            <div class="box-pax-use-in" >               
+                   <div  id="pax-box">                      
+                     
+                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                            <span class="lng-please-select-type"></span>
+                        </div>
+                        <div class="col-md-12 boxpax" > 
+                        <ul class="" name="typecarservice" id="paxuse" >
+                            <li value="All Type" onclick="sendpax(0)" style="padding: 15px; border-bottom: 1px solid #ddd;"><?php echo  $lng_all_type;?>
+                            </li>                                                                
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div id="foget-password">
+            <div class="box-in-foget" >               
+                   <div  id="pax-box">                      
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
                         <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-please-select-type"></span>
                         </div>
                         <div class="col-md-12 boxpax" > 
                         <ul class="" name="typecarservice" id="typecarservice" >
-                            <li value="All Type" onclick="sendpax(0)" style="box-shadow: 0px 13px 16px 0px rgba(0, 0, 0, 0.3);
-    list-style: none;
-    padding: 15px 15px;
-    background: #fff;
-    margin-bottom: 5px;"><?php echo  $lng_all_type;?>
+                            <li value="All Type" onclick="sendpax(0)" style="padding: 15px; border-bottom: 1px solid #ddd;"><?php echo  $lng_all_type;?>
                             </li>                                                                
-</ul>
-</div>
+                        </ul>
                     </div>
-                    
-                    
-                
-                
+                </div>
             </div>
         </div>
+
+        <!-- PRO -->
+        <div id="box-province">
+            <div class="box-province-in" >               
+                   <div  id="pax-box">                      
+                       <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
+                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                            <span class="lng-from">From</span>
+                        </div>
+                        <div class="col-md-12 boxpax" > 
+                        <ul class="" name="typecarservice" id="province" >
+                            <!-- <li ><? echo  $lng_from;?>
+                            </li>                                                                 -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END -->
+
+        <!-- PRO TO -->
+        <div id="box-provinceto">
+            <div class="box-provinceto-in" >               
+                   <div  id="pax-box">                      
+                       <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
+                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                            <span class="lng-to">To</span>
+                        </div>
+                        <div class="col-md-12 boxpax" > 
+                        <ul class="" name="typecarservice" id="provinceto" >
+                            <!-- <li  style="box-shadow: 0px 13px 16px 0px rgba(0, 0, 0, 0.3);list-style: none;padding: 15px 15px;  background: #fff; margin-bottom: 5px;"><? echo  $lng_to;?>
+                            </li>                                                                 -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END -->
                         
                         <div id="box-pro-service" style=" overflow-y: scroll; margin-bottom: 100px;">
                             <div id="product_service">
