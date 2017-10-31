@@ -236,6 +236,7 @@
                 </div>    
             </div>
         </nav>
+        
         <div class="box-menu-select">
     <table width="100%">
         <tr>
@@ -249,7 +250,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-now-use" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -266,7 +267,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-advance-use" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -285,7 +286,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                            <span class="lng-car-service" style="font-size: 10px; font-weight: 500;">Car service</span>
+                            <span class="lng-car-service" style="font-size: 13px;">Car service</span>
                             </td>
                         </tr>
                     </table>
@@ -305,7 +306,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
+                                <span class="lng-management" style="font-size: 13px;">Management</span>
                             </td>
                         </tr>
                     </table>
@@ -321,7 +322,7 @@
     bottom: 0;
     z-index: 2;
     background: #fff;
-    box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52);
+    /* box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52); */
 
 
 
@@ -336,7 +337,7 @@
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #999999;
+    color: #333;
     text-align: center;
     /* display: inline-block; */
     /* background-color: #2196f3; */
@@ -352,7 +353,7 @@
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #999999;
+    color: #333;
     text-align: center;
     /* display: inline-block; */
     /* background-color: #2196f3; */
@@ -383,7 +384,7 @@
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #999999;
+    color: #333;
     text-align: center;
     /* display: inline-block; */
     /* background-color: #2196f3; */
@@ -402,7 +403,7 @@
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #999999;
+    color: #333;
     text-align: center;
     /* display: inline-block; */
     /* background-color: #2196f3; */
@@ -533,7 +534,7 @@
                                     <div class="form-group form-inline">
                                         <table width="100%">
                                             <tr>
-                                                <td >
+                                                <td width="100px">
                                                     <label style="text-align:left" id="datetext"></label>   
                                                 </td>
                                                 <td >
@@ -571,7 +572,7 @@
                                     <div class="form-group form-inline">
                                         <table width="100%">
                                             <tr>
-                                                <td width="">
+                                                <td width="100px">
                                                     <label style="text-align:left" id="texttime"></label>
                                                 </td>
                                                 <td>
@@ -632,10 +633,10 @@
                                     <div class="form-person form-group " id="car-show">
                                         <table width="100%">
                                             <tr>
-                                                <td width="20%"  style="padding-right: 10px;">
+                                                <td width="100"  style="padding-right: 10px;">
                                                     <label style="text-align:left" ><span class="lng-car"></span><span>:</span></label>
                                                 </td>
-                                                <td width="80%">
+                                                <td width="">
                                                     <table width="100%">
                                                         <tr >
                                                             <td align="center">
@@ -661,7 +662,7 @@
                                                     <div style="margin-right: 10px;">
                                                         <table width="100%">
                                                             <tr>
-                                                                <td width="40%">
+                                                                <td width="100">
                                                                     <label style="text-align:left" ><span class="lng-adult"></span><span>:</span></label>
                                                                 </td>
                                                                 <td>
@@ -705,7 +706,7 @@
                                                 <td>
                                                     <table width="100%">
                                                         <tr>
-                                                            <td width="40%">
+                                                            <td width="">
                                                                 <label style="text-align:left" ><span class="lng-child"></span><span>:</span></label>
                                                             </td>
                                                             <td>
@@ -737,7 +738,7 @@
                                     <div class="form-person form-group " id="visa-show">
                                         <table width="100%">
                                             <tr>
-                                                <td  style="padding-right: 10px;">
+                                                <td width="100px"  style="padding-right: 10px;">
                                                     <label style="text-align:left" ><span class="lng-visa"></span><span>:</span></label>
                                                 </td>
                                                 <td >
@@ -759,7 +760,7 @@
                                     <div class="form-person form-group " id="box-terminal" style="display: none;">
                                         <table width="100%">
                                             <tr>
-                                                <td width=""  style="padding-right: 10px;">
+                                                <td width="100"  style="padding-right: 10px;">
                                                     <label style="text-align:left" ><span class="lng-departure-terminal"></span><span>:</span></label>
                                                 </td>
                                                 <td width="">
@@ -777,10 +778,10 @@
                                     <div class="form-group form-inline">
                                     <table width="100%">
                                             <tr>
-                                                <td width="20%"  style="padding-right: 10px;">
+                                                <td width="100"  style="padding-right: 10px;">
                                                     <label style="text-align:left" ><span class="lng-remark"></span><span>:</span></label>
                                                 </td>
-                                                <td width="80%">
+                                                <td width="">
                                                     <div style="width:100%">                                                    
                                                         <input type="text" class="form-control asd" id="other"  style="width:100%" >
                                                     </div>   

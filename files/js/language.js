@@ -156,6 +156,8 @@ $(document).ready(function() {
         $('.lng-payment').html('付款');
         $('.lng-plese-login').html('请登录');
         $('.lng-please-select-type').html('請選擇類型');
+        $('.lng-a-place').html('请选择上车地点');
+        
 
 
 
@@ -306,6 +308,8 @@ $(document).ready(function() {
         $('.lng-plese-login').html('Please sign in');
         $('.lng-remark').html('Remark');
         $('.lng-please-select-type').html('	Please select type');
+        $('.lng-a-place').html('Please select a place to ride');
+        
         
         
 
@@ -495,6 +499,8 @@ $(document).ready(function() {
         $('.lng-other').html('อื่นๆ');
         $('.lng-paynow').html('ชำระตอนนี้');
         $('.lng-please-select-type').html('โปรดเลือกประเภท');
+        $('.lng-a-place').html('กรุณาเลือกสถานที่ขึ้นรถ');
+        
         
 
 
@@ -597,6 +603,7 @@ $(document).ready(function() {
         $('.lng-plese-login').html('Please sign in');
         $('.lng-remark').html('Remark');
         $('.lng-please-select-type').html('	Please select type');
+        $('.lng-a-place').html('Please select a place to ride');
         
 
 

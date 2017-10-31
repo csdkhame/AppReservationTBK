@@ -386,12 +386,14 @@ $(document).ready(function() {
     $('.btn-management').click(function() {
         $('#loading').css('display', 'block');
         setTimeout(function() {
+            $('.box_option').hide(500)
+            
             $('.btn-management').css({ 'background': '#16B3B1' }, { 'color': '#ffffff' });
-            $('.btn-car-service').css({ 'background': '#ffffff' }, { 'color': '#999999' });
+            $('.btn-car-service').css({ 'background': '#ffffff' }, { 'color': '#333' });
 
-            $('.btn-home').css({ 'background': '#ffffff' }, { 'color': '#999999' });
-            $('.btn-reservation').css({ 'background': '#ffffff' }, { 'color': '#999999' });
-            $('.btn-realtime').css({ 'background': '#ffffff' }, { 'color': '#999999' });
+            $('.btn-home').css({ 'background': '#ffffff' }, { 'color': '#333' });
+            $('.btn-reservation').css({ 'background': '#ffffff' }, { 'color': '#333' });
+            $('.btn-realtime').css({ 'background': '#ffffff' }, { 'color': '#333' });
             $('#loading').css('display', 'none');
             window.location.href = base_url + "dashboard/view_user";
             $("#show-hide-pro2").hide();
@@ -403,12 +405,14 @@ $(document).ready(function() {
         $('#loading').css('display', 'block');
 
         setTimeout(function() {
+            $('.box_option').hide(500)
+            
             $('.btn-home').css('color', '#16B3B1');
-            $('.btn-car-service').css('color', '#999999');
+            $('.btn-car-service').css('color', '#333');
 
-            $('.btn-reservation').css('color', '#999999');
-            $('.btn-management').css('color', '#999999');
-            $('.btn-realtime').css('color', '#999999');
+            $('.btn-reservation').css('color', '#333');
+            $('.btn-management').css('color', '#333');
+            $('.btn-realtime').css('color', '#333');
             $('#loading').css('display', 'none');
         }, 500);
 
@@ -419,6 +423,7 @@ $(document).ready(function() {
 
         //$('#content').css('display','none');
         setTimeout(function() {
+            $('.box_option').hide(500)
             $('#box-car-service').hide();
             $('#map').show(500);
             // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
@@ -433,10 +438,10 @@ $(document).ready(function() {
             $('.btn-reservation').css({ 'background': '#16B3B1', 'color': '#ffffff' });
 
 
-            $('.btn-home').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-management').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-home').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-management').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#333' });
 
             $("#search-show").fadeIn(1000);
 
@@ -460,13 +465,14 @@ $(document).ready(function() {
         setTimeout(function() {
             $('#box-car-service').hide();
             $('#map').show(500);
+            $('.box_option').show(500)
             $('.btn-realtime').css({ 'background': '#16B3B1', 'color': '#ffffff' });
 
 
-            $('.btn-reservation').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-home').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-management').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-reservation').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-home').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-management').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#333' });
 
             //$("#iconhome").fadeIn(1000);
             // $('#map').css('display', 'none');
@@ -551,6 +557,7 @@ $(document).ready(function() {
         $('#box-province').hide(500)
         $('#box-provinceto').hide(500)
         $('#box-pax-use').hide(500)
+        $('#box-pax-rel').hide(500)
     });
     /**********************************************************/
     /************* GET PROVINCE TO, FROM SERVICE **************/
@@ -610,25 +617,26 @@ $(document).ready(function() {
             $('#box-car-service').show(500);
             if ($.cookie("lng") == 'en') {
                
-                    $('#selectpro').html('From')
-                    $('#selectproto').html('To')
+               
+                    $('#selectpro').html('From Province')
+                    $('#selectproto').html('To Province')
                 
             } else if ($.cookie("lng") == 'th') {
-                
-                    $('#selectpro').html('จาก')
-                    $('#selectproto').html('ไปยัง')
+               
+                    $('#selectpro').html('จากจังหวัด')
+                    $('#selectproto').html('ไปยังจังหวัด')
                     
               
             } else if ($.cookie("lng") == 'cn') {
                
-                    $('#selectpro').html('从')
-                    $('#selectproto').html('至')
+                    $('#selectpro').html('從省')
+                    $('#selectproto').html('到省')
                     
-               
+                    
             } else if ($.cookie("lng") == undefined) {
                
-                    $('#selectpro').html('From')
-                    $('#selectproto').html('To')
+                $('#selectpro').html('From Province')
+                $('#selectproto').html('To Province')
                     
                
             }
@@ -637,10 +645,10 @@ $(document).ready(function() {
 
             // $('.btn-car-service').css('color', '#16B3B1');
 
-            $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-reservation').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-home').css({ 'background': '#ffffff', 'color': '#999999' });
-            $('.btn-management').css({ 'background': '#ffffff', 'color': '#999999' });
+            $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-reservation').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-home').css({ 'background': '#ffffff', 'color': '#333' });
+            $('.btn-management').css({ 'background': '#ffffff', 'color': '#333' });
             //$("#iconhome").fadeIn(1000);
             // $('#map').css('display', 'none');
             //$("#iconleft2").fadeIn(1000);
@@ -1081,6 +1089,7 @@ function sendproto(x){
 
             $('#loading').hide();
             datacaedervice = data[0];
+            console.log(datacaedervice)
             if (data[0].data1.length == 0) {
                 //$('#product_service').removeClass('.not-found');
                 $('#foget-password').hide()
@@ -1091,36 +1100,48 @@ function sendproto(x){
                 $('.not-found').hide()
                 $('#foget-password').show(500)
                 cartype = data[0].car_topic;
+                var datasort = new Array()
+                $.each(cartype, function(i, val) {
+                    datasort.push(cartype[i])
+                });
+                
+                datasort.sort(function(a, b){return a.person-b.person});
+                console.log(datasort)
                 var datalength = data[0].car_topic;
                 console.log(datalength.Length)
+                console.log(cartype)
                 
                 console.log(data1)
-                
 
-                $.each(cartype, function(i, val) {
+
+                $.each(datasort, function(i, val) {
                     var index2 = parseInt(i) + 1;
                     var type,typeshow,pax;
-                    type = cartype[i].pax_id;
+                    type = datasort[i].pax_id;
                     if ($.cookie("lng") == 'cn') {
-                        typeshow = cartype[i].car_topic_cn;
-                        pax = cartype[i].pax_cn;
+                        $('#selectype').html( '所有類型')
+                        typeshow = datasort[i].car_topic_cn;
+                        pax = datasort[i].pax_cn;
 
                 } else if ($.cookie("lng") == 'en') {
+                    $('#selectype').html( 'All Type')
 
                    
-                    typeshow = cartype[i].car_topic_en;
-                    pax = cartype[i].pax_en;
+                    typeshow = datasort[i].car_topic_en;
+                    pax = datasort[i].pax_en;
                 } else if ($.cookie("lng") == 'th') {
-                    typeshow = cartype[i].car_topic_th;
-                    pax = cartype[i].pax_th;
+                    $('#selectype').html( 'ทุกประเภท')
+                    typeshow = datasort[i].car_topic_th;
+                    pax = datasort[i].pax_th;
                 } else if ($.cookie("lng") == undefined) {
-                    typeshow = cartype[i].car_topic_en;
-                    pax = cartype[i].pax_en;
+                    $('#selectype').html( 'All Type')
+                    typeshow = datasort[i].car_topic_en;
+                    pax = datasort[i].pax_en;
 
                 }
                 console.log(type)
-                console.log(cartype.length)
-                    $('#typecarservice').append('<li class="typeservice" id="typeservice'+cartype[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                console.log(datasort.length)
+                    $('#typecarservice').append('<li class="typeservice" id="typeservice'+datasort[i].transfer_id+'"  onclick="sendpax(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                    
                 });
                
@@ -1294,10 +1315,10 @@ function sendpaxuse(x) {
        if ($.cookie("lng") == 'cn') {
            if (getdataservice[i].pax_id == ctype) {
                
-               $('#selectype').html( getdataservice[i].car_topic_cn+' '+'<span style="    color: #f44336;">'+getdataservice[i].pax_cn+'</span>')
+               $('#select_pax_use').html( getdataservice[i].car_topic_cn+' '+'<span style="    color: #f44336;">'+getdataservice[i].pax_cn+'</span>')
            } else if (ctype == '0') {
                // comparedata.push(datacaedervice.data1[i])
-               $('#selectype').html( '所有類型')
+               $('#select_pax_use').html( '所有類型')
                
                
            }
@@ -1728,7 +1749,10 @@ function sendpax(x) {
 }
 /**********************************END***********************************/
 var data1;
-
+function getsort(a,b) {
+    return a.person - b.person;
+    
+}
 function sendValueto(x) {
     //    console.log(id_placefrom)
     var notfound;
@@ -1769,7 +1793,7 @@ function sendValueto(x) {
 
 
     $('.a-link-item').remove();
-    $('.typeproduce').remove();
+    $('.typeproduct').remove();
     $('.not-found').remove();
     compae1private = [];
     compae1join = [];
@@ -1876,35 +1900,46 @@ function sendValueto(x) {
                 var cartype;
                 data1 = data.data1;
                 cartype = data.car_topic;
+
+                var datasort = new Array()
+                $.each(cartype, function(i, val) {
+                    datasort.push(cartype[i])
+                });
+                
+                datasort.sort(function(a, b){return a.person-b.person});
+                console.log(datasort)
+
+
+
                 console.log(data1)
                 console.log(cartype)
                 $('#box-pax-use').show(500) 
-                  $.each(cartype, function(i, val) {
+                  $.each(datasort, function(i, val) {
                     var index2 = parseInt(i) + 1;
                     var type,typeshow,pax;
-                    type = cartype[i].pax_id;
+                    type = datasort[i].pax_id;
                     if ($.cookie("lng") == 'cn') {
-                        typeshow = cartype[i].car_topic_cn;
-                        pax = cartype[i].pax_cn;
+                        typeshow = datasort[i].car_topic_cn;
+                        pax = datasort[i].pax_cn;
 
                 } else if ($.cookie("lng") == 'en') {
 
                    
-                    typeshow = cartype[i].car_topic_en;
-                    pax = cartype[i].pax_en;
+                    typeshow = datasort[i].car_topic_en;
+                    pax = datasort[i].pax_en;
                 } else if ($.cookie("lng") == 'th') {
-                    typeshow = cartype[i].car_topic_th;
-                    pax = cartype[i].pax_th;
+                    typeshow = datasort[i].car_topic_th;
+                    pax = datasort[i].pax_th;
                 } else if ($.cookie("lng") == undefined) {
-                    typeshow = cartype[i].car_topic_en;
-                    pax = cartype[i].pax_en;
+                    typeshow = datasort[i].car_topic_en;
+                    pax = datasort[i].pax_en;
 
                 }
                 console.log(type)
-                console.log(cartype.length)
+                console.log(datasort.length)
                   
                 // label="' + type + '"
-                $('#paxuse').append('<li class="typeproduce" id="typeproduce'+cartype[i].transfer_id+'"  onclick="sendpaxuse(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                $('#paxuse').append('<li class="typeproduct" id="typeproduce'+datasort[i].transfer_id+'"  onclick="sendpaxuse(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                 
                 // $('#paxuse').append('<option class="typeproduce" value="' + cartype[i].pax_id + '" ><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></option>');
                 

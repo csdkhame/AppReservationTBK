@@ -189,9 +189,13 @@ $( document ).ready(function() {
 				<div class="header" align="center">
 					<strong class="lng-detail-order"></strong>
 					<? if($check!=""){ ?>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="    margin-right: -20px;
-				" id="close_dialog">
-							<i class="fa fa-times" aria-hidden="true" ></i></button>
+							<!-- <button type="button" data-dismiss="modal" aria-label="Close" style="    margin-right: -20px;
+				" > -->
+				<i class="material-icons " id="close_dialog" style="position: absolute;  right: 15px;">close</i>
+               
+                            
+			</div>
+		<!-- </button> -->
 							<? } ?>
 							
 				</div>

@@ -9,6 +9,8 @@
         $lag_go_txt = 'where you go ?';
         $lng_from = 'From';
         $lng_to = 'To';
+        $lng_from_pro = 'From Province';
+        $lng_to_pro = 'To Province';
         $click_save_place_txt = "No record (Click to save)";
         
         $select_type = "Select Types";
@@ -29,6 +31,8 @@
         $lag_go_txt = 'where you go ?';
         $lng_from = 'From';
         $lng_to = 'To';
+        $lng_from_pro = 'From Province';
+        $lng_to_pro = 'To Province';
         $click_save_place_txt = "No record (Click to save)";
         
         $select_type = "Select Types";
@@ -49,6 +53,8 @@
         $lag_go_txt = 'คุณต้องการไปไหน ?';
         $lng_from = 'จาก';
         $lng_to = 'ไปยัง';
+        $lng_from_pro = 'จากจังหวัด';
+        $lng_to_pro = 'ไปยังจังหวัด';
         $click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
         
         $select_type = "Select Types";
@@ -70,6 +76,8 @@
        $lag_go_txt = '你去哪裡 ?';
        $lng_from = '从';
        $lng_to = '至';
+       $lng_from_pro = '從省';
+       $lng_to_pro = '到省';
        $click_save_place_txt = "没有记录 (按保存)";
        
         $select_type = "Select Types";
@@ -146,6 +154,41 @@
     padding: 15px;
     border-bottom: 1px solid #ddd;
 }
+#box-pax-rel{
+    z-index: 20; 
+    position: fixed; 
+    /* width: 100vw; 
+    height: 100vh;  */
+    left: 0px; top: 0px; 
+    /* background: rgba(0, 0, 0, 0.59); */
+    display:none;
+}
+.box-pax-rel-in{
+    height: 100vh;
+        /* border-radius: 4px; */
+        /* background: rgba(0, 0, 0, 0.75); */
+        min-width: 100%;
+        background:#fff;
+        /* height: auto; */
+        left: 50vw;
+        top: 50vh;
+        
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 3;
+}
+                #paxuse{
+    list-style: none;
+    padding-left: 0;
+}
+#paxrel{
+    list-style: none;
+    padding-left: 0;
+}
+#paxrel li{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
                    </style>
         <div id="box-pax-use">
             <div class="box-pax-use-in" >               
@@ -164,7 +207,25 @@
                     </div>
                 </div>
             </div>
-        </div>              
+        </div>
+        <!-- <div id="box-pax-rel">
+            <div class="box-pax-rel-in" >               
+                   <div  id="pax-box">                      
+                      
+                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                            <span class="lng-please-select-type"></span>
+                            <i class="material-icons closepop">close</i>
+
+                        </div>
+                        <div class="col-md-12 boxpax" style="text-align: left;" > 
+                        <ul class="" name="typecarservice" id="paxrel" >
+                            <li value="All Type" onclick="sendpaxrel(0)" style="padding: 15px; border-bottom: 1px solid #ddd;"><?php echo  $lng_all_type;?>
+                            </li>                                                                
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>                -->
         </div> 
              
         <div id="box-prosearch">
@@ -186,6 +247,10 @@
             </div>
         </div>
     </div>
+    <style>
+       
+        
+    </style>
 <div class="box-menu-select">
     <table width="100%">
         <tr>
@@ -199,7 +264,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-now-use" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -216,7 +281,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-advance-use" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -235,7 +300,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                            <span class="lng-car-service" style="font-size: 10px; font-weight: 500;">Car service</span>
+                            <span class="lng-car-service" style="font-size: 13px;">Car service</span>
                             </td>
                         </tr>
                     </table>
@@ -255,7 +320,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
+                                <span class="lng-management" style="font-size: 13px;">Management</span>
                             </td>
                         </tr>
                     </table>
@@ -263,25 +328,52 @@
             </td>
         </tr>
     </table>
+<style>
+    .box_option{
+        background-color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+        cursor: pointer;
+        position: absolute;
+        bottom: 72px;
+        /* padding: 8px; */
+        right: 20px;
+        z-index: 101;
+        text-align: center;
+        font-size: 26px;
+        line-height: 1.3;
+        display:none;
+    }
+</style>
  </div>
-    	<div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div class="box_option">
+        <i class="material-icons" style="line-height: 1.7; font-size: 25px;">place</i>
+        </div>
         <div id="search-raeltime">
-            <div class="col-md-12 " id="to-remove-class" >
-                <div class="" style="background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);">
-               <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
+            <div class="" id="to-remove-class" >
+                <div class="" style="">
+               <!-- <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
                 <i class="material-icons" style="margin-top: 30px;" >chevron_left</i>
-                </div>
+                </div> -->
                     
-                    <div class="box-search" id='boxRealtime' style="padding: 0px 8px;">
+                    <div class="box-search" id='boxRealtime' >
                       <!-- <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>-->
-                        <input type='text'   class="" placeholder=""  id='current' style="border: none !important;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
+                        <input type='text'    placeholder=""  id='current' style="border: 1px solid #16b3b1;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
                         
-                            <div style="border-bottom: 1px solid #333;display:nones;"></div>
-                            <input  type='text' class="" placeholder="<? echo $lag_go_txt;?>" id="pac-input"  value="" 
-                            style="border: none !important; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  height: 49px;" />   
-                                    
+                            <!-- <div style="border-bottom: 1px solid #333;display:nones;"></div> -->
+                          
+                                      
                                
                     </div>
+                    <div class="box-searchto" id='boxRealtimeto' style="display:none">
+                    <input type='text'  placeholder="<? echo $lag_go_txt;?>" id="pac-input"  
+                            style="border: 1px solid #16b3b1; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  height: 49px;" /> 
+                    </div>
+                    <div id="appendBox"></div>
+                    
                 </div>
             </div>
             <input type="hidden" id="chk_val_search" value="0" />
@@ -314,13 +406,13 @@
             </div>            
         </div>
         <div id="box-car-service" style="width: 100%;height: 100vh;display:none;background: #fff;    position: relative;
-     overflow: hidden; ">
+     overflow: hidden;z-index: 100; ">
            <div style="text-align:center; background: #16b3b1;
     padding: 5px;
     color: #fff;
     font-weight: 600;
     text-align: center;">
-               <h4 class="lng-car-service"></h4>
+               <h4 class="lng-a-place"></h4>
            </div>
            <style>
            .textInput {
@@ -553,8 +645,21 @@
        <div id="map" style="width: 100%;height: 100vh;"></div>         
 
 
-		<div id="clear-all" style="z-index: 0; position: absolute; right: 20px; bottom: 120px;display: none;color: #fff;">
-		<button title="Your Location" style="background-color:  #4285F4; border: none; outline: none; width: 50px; height: 50px; border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
+		<div id="clear-all" style="    z-index: 0;
+    position: absolute;
+    right: 20px;
+    bottom: 130px;
+    color: rgb(255, 255, 255);display: none;">
+		<button title="Your Location" style="    background-color: #4285F4;
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+    cursor: pointer;
+    right: 15px;
+    padding: 0px;">
 		<i class="material-icons" style="    margin: 5px;
     font-weight: 800;">clear</i>
 		</button></div>
@@ -573,7 +678,7 @@
 			    background-size: 52px !important;
 			}
 			#marginBox{
-				margin-top: 90px;
+				/* margin-top: 90px; */
 				background-color: #fff;
 				position: relative;
 			}
@@ -586,7 +691,16 @@
 		</style>
 
 		<div id="btn_CurrentLocation" style="z-index: 0; position: absolute; right: 20px; /*top: 275px;*/    bottom: 190px;display: none;color: rgb(35,35,35);">
-		<button title="Your Location" style="background-color: rgb(255, 255, 255); border: none; outline: none; width: 50px; height: 50px; border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px; cursor: pointer; margin-right: 10px; padding: 0px;">
+		<button title="Your Location" style="background-color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+    cursor: pointer;
+    right: 15px;
+    padding: 0px;">
 		<i class="material-icons" style="    margin: 5px;
     font-weight: 800;"><i class="material-icons">my_location</i></i>
 		</button></div>
@@ -594,9 +708,9 @@
 
 
         <div id="boxForAutoCom">
-        	<div style="padding: 7px 7px 0 7px;">
+        	<div style="padding: 0 15px">
         	<div id="marginBox">
-            <div id="appendBox"></div>
+           
             <div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:none;"></div>
             <div id="otherBox">
             	<div class="pac-item" id="currentPosId">

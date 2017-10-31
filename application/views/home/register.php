@@ -118,7 +118,7 @@
                 </div>            
             </div>
         </nav>
-        <!-- <div class="box-menu-select">
+        <div class="box-menu-select">
     <table width="100%">
         <tr>
             <td width="20%" style="">
@@ -131,7 +131,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-now-use" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -148,7 +148,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-advance-use" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -167,7 +167,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                            <span class="lng-car-service" style="font-size: 10px; font-weight: 500;">Car service</span>
+                            <span class="lng-car-service" style="font-size: 13px; ">Car service</span>
                             </td>
                         </tr>
                     </table>
@@ -187,7 +187,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-management" style="font-size: 10px; font-weight: 500;">Management</span>
+                                <span class="lng-management" style="font-size: 13px; ">Management</span>
                             </td>
                         </tr>
                     </table>
@@ -196,7 +196,7 @@
         </tr>
     </table>
  </div>
-    </div> -->
+    </div>
    
     <div class="container">
         <div class="col-md-6" id="box-left" >
@@ -372,9 +372,21 @@
 
     <div id="foget-password">
             <div class="box-in-foget" >
+            <div style="    background: rgb(22, 179, 177);
+    color: #fff;
+    padding: 18px;
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 10px;">
+               
+                    <span style="text-align: center;" class="lng-foget-pass">ลืมรหัสผ่าน </span>
+                    <i class="material-icons btn-close">close</i>
+               
+                            
+            </div>
                 <div style="padding: 12px;">
                    <div class="col-md-12" id="forget"> 
-                       <h4 style="    text-align: center;" class="lng-foget-pass">ลืมรหัสผ่าน</h4>
+                       
                         <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
                             <span class="lng-please-input-email">Please input your email </span>
                         </div>
@@ -397,10 +409,10 @@
                     </div>
                     
                 </div>
-                <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
-                <div  class="btn-close lng-close" ></div>
+                <!-- <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
+                    <div  class="btn-close lng-close" ></div>
                     <div class="btn-login-forget lng-login" ></div>
-                </div>
+                </div> -->
             </div>
         </div>
 </section>
@@ -462,16 +474,8 @@
         z-index: 3;
 }
 .btn-close {
-    /*width: 200px; */
-    background: #4BB1C1;
-    /* text-transform: uppercase; */
-    text-align: center;
-    color: #ffffff;
-    border: 1px solid #4BB1C1;
-    /* position: absolute; */
+    position: absolute; 
     right: 15px;
-    padding: 12px 20px;
-    bottom: 15px;
 }
 
 .btn-login{
@@ -1060,14 +1064,15 @@ box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52);
 /* height: 90px; */
 }
 .btn-reservation {
-padding: 8px 0;
+    line-height: 0.8;
+    padding: 8px 0;
 font-size: 16px;
 /* font-weight: 400; */
 /* position: absolute; */
 width: 100%;
 /* border-radius: 4px; */
 /* padding: 12px; */
-color: #999999;
+color: #333;
 text-align: center;
 /* display: inline-block; */
 /* background-color: #2196f3; */
@@ -1075,14 +1080,15 @@ z-index: 1;
 }
 
 .btn-realtime {
-padding: 8px 0;
+    line-height: 0.8;
+    padding: 8px 0;
 font-size: 16px;
 /* font-weight: 400; */
 /* position: absolute; */
 width: 100%;
 /* border-radius: 4px; */
 /* padding: 12px; */
-color: #999999;
+color: #333;
 text-align: center;
 /* display: inline-block; */
 /* background-color: #2196f3; */
@@ -1105,14 +1111,15 @@ z-index: 1;
 }
 
 .btn-management {
-padding: 8px 0;
+    line-height: 0.8;
+    padding: 8px 0;
 font-size: 16px;
 /* font-weight: 400; */
 /* position: absolute; */
 width: 100%;
 /* border-radius: 4px; */
 /* padding: 12px; */
-color: #999999;
+color: #333;
 text-align: center;
 /* display: inline-block; */
 /* background-color: #2196f3; */
@@ -1123,14 +1130,15 @@ z-index: 1;
 color: #999999;
 }
 .btn-car-service {
-padding: 8px 0;
+    line-height: 0.8;
+    padding: 8px 0;
 font-size: 16px;
 /* font-weight: 400; */
 /* position: absolute; */
 width: 100%;
 /* border-radius: 4px; */
 /* padding: 12px; */
-color: #999999;
+color: #333;
 text-align: center;
 /* display: inline-block; */
 /* background-color: #2196f3; */
@@ -1151,8 +1159,7 @@ text-align: center;
 }
 
 @media screen and (max-width: 767px){
-    .user {
-        
+    .user {        
         display:block;
     }
 }

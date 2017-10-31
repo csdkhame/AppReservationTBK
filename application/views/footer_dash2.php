@@ -50,8 +50,7 @@
     <table width="100%">
         <tr>
             <td width="20%" style="/*border-right: 1px solid #555;*/">
-                <div class="btn-realtime" style="    background: rgb(255, 255, 255);
-    color: rgb(153, 153, 153);" >
+                <div class="btn-realtime" style="" >
                     <table width="100%">
                         <tr>
                             <td align="center">
@@ -60,7 +59,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-now-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-now-use" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -68,8 +67,7 @@
                 </div>
             </td>
             <td width="20%" style="/*border-right: 1px solid #555;*/">
-                <div class="btn-reservation" style="    background: rgb(255, 255, 255);
-    color: rgb(153, 153, 153);" >
+                <div class="btn-reservation" style=" ">
                 <table width="100%">
                         <tr>
                             <td align="center">
@@ -78,7 +76,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-advance-use" style="font-size: 10px;font-weight: 500;"></span>
+                                <span class="lng-advance-use" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -87,8 +85,7 @@
                 </div>
             </td>
             <td width="20%" style="/*border-right: 1px solid #555;*/">
-                <div class="btn-car-service" style="    background: rgb(255, 255, 255);
-    color: rgb(153, 153, 153);" >
+                <div class="btn-car-service" style="" >
                 <table width="100%">
                         <tr>
                             <td align="center">
@@ -98,7 +95,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                            <span class="lng-car-service" style="font-size: 10px; font-weight: 500;">Car service</span>
+                            <span class="lng-car-service" style="font-size: 13px;">Car service</span>
                             </td>
                         </tr>
                     </table>
@@ -107,8 +104,7 @@
                 </div>
             </td>
             <td width="20%" >
-                <div class="btn-management" style="    background: rgb(22, 179, 177);
-    color: rgb(255, 255, 255);" >
+                <div class="btn-management" style=" " >
                     <table width="100%">
                         <tr>
                             <td align="center">
@@ -119,7 +115,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-management" style="font-size: 10px; font-weight: 500;">My Booking</span>
+                                <span class="lng-management" style="font-size: 13px;">My Booking</span>
                             </td>
                         </tr>
                     </table>
@@ -129,16 +125,16 @@
     </table>
  </div>
  <style>
-     .btn-reservation {
+.btn-reservation {
     line-height: 0.8;
-    padding: 8px 0;
+    /* padding: 8px 0; */
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #999999;
+    color: #333;
     text-align: center;
     /* display: inline-block; */
     /* background-color: #2196f3; */
@@ -147,14 +143,14 @@
 
 .btn-realtime {
     line-height: 0.8;
-    padding: 8px 0;
+    /* padding: 8px 0; */
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #999999;
+    color: #333;
     text-align: center;
     /* display: inline-block; */
     /* background-color: #2196f3; */
@@ -162,7 +158,6 @@
 }
 
 .btn-home {
-    line-height: 0.8;
     padding: 8px 0;
     font-size: 16px;
     /* font-weight: 400; */
@@ -180,29 +175,28 @@
 .btn-management {
     line-height: 0.8;
     padding: 8px 0;
-    /* line-height: 0.8; */
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #999999;
+    color: #fff;
     text-align: center;
     /* display: inline-block; */
-    /* background-color: #2196f3; */
+    background-color: #16B3B1;
     z-index: 1;
 }
- 	.btn-management {
+.btn-car-service{
+line-height: 0.8;
     padding: 8px 0;
-    line-height: 0.8;
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
     width: 100%;
     /* border-radius: 4px; */
     /* padding: 12px; */
-    color: #16B3B1;
+    color: #333;
     text-align: center;
     /* display: inline-block; */
     /* background-color: #2196f3; */

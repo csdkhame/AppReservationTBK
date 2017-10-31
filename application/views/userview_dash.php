@@ -356,7 +356,7 @@ $(window).scroll(function() {
                                 <?php foreach($results as $show){ 
 									$mystring = $show['date_time'];
 									if($show['invoice']!=" " and $show['invoice']!=null and $show['invoice']!=""){
-										$class = "btn-xs btn-voucher";
+										$class = "btn-voucher";
 									}else{
 										$class = "";
 									}
@@ -381,7 +381,7 @@ $status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;font-
                                     	<td ><? echo $show['date_time'];?> </td>
                                     	<td >
                                     	<div class="<?=$class;?>" style="    border-radius: 1px;" onclick="view_order_level2('<?=$show['invoice'];?>');"><?=$show['invoice'];?></div></td>
-                                    	<td style="    font-size: 13.5px;"><?=$status_pay;?></td>
+                                    	<td><?=$status_pay;?></td>
                                     	<!--<td ><?=$show['from'];?></td>
                                     	<td ><?=$show['to'];?></td>-->
                                     	<!--<td ><?=$show['total_price'];?></td>-->
