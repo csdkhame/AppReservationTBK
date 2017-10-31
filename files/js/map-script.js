@@ -438,7 +438,7 @@ function a(map) {
     var inputStart = document.getElementById("current");
     inputStart.addEventListener('click', function() {
         document.getElementById("current").value = "";
-        start = null;
+        // start = null;
         console.log(start);
     });
 
@@ -574,6 +574,7 @@ function geocoderRun(latlng) {
 
             if (results[1]) {
                 placeStart = results;
+                console.log(placeStart)
                 addr = placeStart[1].formatted_address;
                 // document.getElementById("current").value = addr;
             }
@@ -641,12 +642,19 @@ $('#btn_CurrentLocation').click(function() {
 })*/
 $('#clear-all').click(function() {
     $('#pac-input').val('');
+    $('#current').val('');
     console.log(placeStart);
     $('.a-link-item').remove();
     $('.not-found').remove();
     $('.typerel').remove();
     $('#boxRealtimeto').hide(500)
     $('#boxRealtime').show(500)
+    curentFromTo ='';
+    lat_t = '';
+    lng_t = '';
+    lat_f = '';
+    lng_f = '';
+
     //    $('#current').val(placeStart[1].formatted_address);
     resetMap();
 
@@ -1671,7 +1679,7 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
         $('#show-hide-pro2').hide(500);
         outSearchRealtime();
     }
-    if (curentFromTo = 'From') {
+    if (curentFromTo == 'From') {
         
         //alert('aaaaa')
         $('#current').val(txtAdd);
@@ -1695,8 +1703,8 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
 
 
     }
-    else if(curentFromTo = 'To'){
-        
+    else if(curentFromTo == 'To'){
+        console.log('in case to')
 
         $('#pac-input').val(txtAdd);
         end = {
@@ -1706,13 +1714,25 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
         console.log(end);
         endMarker.setVisible(true);
         endMarker.setPosition(end);
+        lat_t = end.lat;
+        lng_t = end.lng;
         if (start == undefined) {
             setTimeout(function() { $('#pac-input').focus(); }, 2000);
         }
 
     }
+    // else{
+    //     curentsame = {
+    //         lat: parseFloat(latti),
+    //         lng: parseFloat(lngti)
+    //     }
+    //     lat_t = curentsame.lat;
+    //     lng_t = curentsame.lng;
+    //     lat_f = curentsame.lat;
+    //     lng_f = curentsame.lng;
+    // }
 
-    if (start != undefined && end != undefined) {
+    if ((lat_t != undefined && lng_t != undefined) && (lat_f != undefined && lng_f != undefined)) {
 
         var destination = new google.maps.LatLng(end);
         var origin = new google.maps.LatLng(start);
