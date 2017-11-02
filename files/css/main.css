@@ -34,7 +34,7 @@ body {
 #boxForAutoCom {
     width: 100%;
     position: absolute;
-    top: 40vh;
+    bottom: 125px;
     display: none;
 }
 #boxForAutoCom:before {
