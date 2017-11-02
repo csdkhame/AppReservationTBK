@@ -423,6 +423,8 @@ $(document).ready(function() {
 
         //$('#content').css('display','none');
         setTimeout(function() {
+            $('#boxForAutoCom').hide(500)
+            
             $('.box_option').hide(500)
             $('#box-car-service').hide();
             $('#map').show(500);
@@ -614,6 +616,8 @@ $(document).ready(function() {
         $('#opennut').click();
         //$('#content').css('display','none');
         setTimeout(function() {
+            $('#boxForAutoCom').hide(500)
+            $('.box_option').hide(500)
             $('#box-car-service').show(500);
             if ($.cookie("lng") == 'en') {
                

@@ -253,6 +253,8 @@ $("#outNearby").click(function() {
 $("#currentPosId").click(function() {
     start = pos;
     checkshow = false;
+    console.log(lat_f)
+    console.log(lng_f)
     
     $('#boxForAutoCom').hide(500)
     
@@ -265,6 +267,8 @@ $("#currentPosId").click(function() {
 
     }
     console.log(curentFromTo)
+    console.log(start.lat)
+    console.log(start.lng)
     selectMyPlace('current', addr, start.lat, start.lng)
         //            $(this).val(addr);
 
@@ -438,7 +442,7 @@ function a(map) {
     var inputStart = document.getElementById("current");
     inputStart.addEventListener('click', function() {
         document.getElementById("current").value = "";
-        // start = null;
+        //start = null;
         console.log(start);
     });
 
@@ -460,16 +464,22 @@ function a(map) {
         //        start = placeStart.geometry.location;
         var current = {
             lat: parseFloat(placeStart.geometry.location.lat()),
-            lng: parseFloat(placeStart.geometry.location.lat())
+            lng: parseFloat(placeStart.geometry.location.lng())
         };
         start = current;
         startMarker.setVisible(true);
         startMarker.setPosition(start);
         lat_f = placeStart.geometry.location.lat();
         lng_f = placeStart.geometry.location.lng();
+       
+        console.log('*********************AUTO FROM************************')
         console.log(start);
         console.log(lat_f);
         console.log(lng_f);
+        console.log(lat_t);
+        console.log(lng_t);
+
+        console.log('********************************************************')
         $('#clear-all').show(500);
     });
 
@@ -511,7 +521,7 @@ function a(map) {
         directionsDisplay.setMap(map);
         /*lat_f = start.lat;
         lng_f = start.lng;*/
-        console.log(lat_f + "//" + lng_f);
+        
         directionsService.route(request, function(response, status) {
             console.log(response);
             console.log(status);
@@ -526,7 +536,16 @@ function a(map) {
                 console.log(response.routes[0].legs[0].end_location.lng())
                 lat_t = response.routes[0].legs[0].end_location.lat();
                 lng_t = response.routes[0].legs[0].end_location.lng();
+                console.log('*********************AUTO FROM************************')
 
+                console.log(start)
+                console.log(end)
+                console.log(lat_f);
+                console.log(lng_f);
+                console.log(lat_t);
+                console.log(lng_t);
+        
+                console.log('********************************************************')
                 var radlat1 = Math.PI * lat_f / 180
                 var radlat2 = Math.PI * lat_t / 180
                 var theta = lng_f - lng_t;
@@ -650,10 +669,10 @@ $('#clear-all').click(function() {
     $('#boxRealtimeto').hide(500)
     $('#boxRealtime').show(500)
     curentFromTo ='';
-    lat_t = '';
-    lng_t = '';
-    lat_f = '';
-    lng_f = '';
+    // lat_t = '';
+    // lng_t = '';
+    // lat_f = '';
+    // lng_f = '';
 
     //    $('#current').val(placeStart[1].formatted_address);
     resetMap();
@@ -1659,6 +1678,12 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
 function selectMyPlace(type_place, txtAdd, latti, lngti) {
     //    console.log($(this).is(':focus'));
     //    alert(txtAdd);
+    if($('#boxRealtimeto').css('display') == 'none'){
+        curentFromTo = 'From';
+    }
+    else{
+        curentFromTo = 'To';
+    }
     directionsService = new google.maps.DirectionsService;
     directionsDisplay = new google.maps.DirectionsRenderer();
     if (type_place == 3) {
@@ -1679,16 +1704,17 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
         $('#show-hide-pro2').hide(500);
         outSearchRealtime();
     }
+    // alert(curentFromTo)
     if (curentFromTo == 'From') {
         
-        //alert('aaaaa')
+        console.log('in case from')
         $('#current').val(txtAdd);
         start = {
             lat: parseFloat(latti),
             lng: parseFloat(lngti)
         }
 
-        console.log(start);
+        //console.log(start);
         startMarker.setVisible(true);
         startMarker.setPosition(start);
         lat_f = start.lat;
@@ -1711,7 +1737,7 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
             lat: parseFloat(latti),
             lng: parseFloat(lngti)
         }
-        console.log(end);
+       // console.log(end);
         endMarker.setVisible(true);
         endMarker.setPosition(end);
         lat_t = end.lat;
@@ -1731,8 +1757,13 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
     //     lat_f = curentsame.lat;
     //     lng_f = curentsame.lng;
     // }
-
-    if ((lat_t != undefined && lng_t != undefined) && (lat_f != undefined && lng_f != undefined)) {
+    console.log(start)
+    console.log(end)
+    console.log(lat_t)
+console.log(lng_t)
+console.log(lat_f)
+console.log(lng_f)
+    if (start != undefined && end != undefined)  {
 
         var destination = new google.maps.LatLng(end);
         var origin = new google.maps.LatLng(start);
@@ -1743,10 +1774,13 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
         };
         
         console.log(request);
+        console.log('**********************************')
         console.log(lat_f);
         console.log(lng_f);
         console.log(lat_t);
         console.log(lng_t);
+        console.log('**********************************')
+        
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
             if (status == 'ZERO_RESULTS') {
