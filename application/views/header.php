@@ -260,7 +260,7 @@
 }
 .loading-in{
     height: 115px;
-    /* border-radius: 4px; */
+    border-radius: 25px;
     background: #fff;
     min-width: 15rem;
     /* height: auto; */

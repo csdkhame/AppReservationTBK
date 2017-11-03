@@ -53,7 +53,12 @@
         <div style="
     margin-top: 52px">
     <div class="col-md-12">
-        <div class="col-md-12" style="text-align: center; padding-bottom: 10px;  font-size: 18px; font-weight: 400; border-bottom: dashed 1px #16b3b1 ;" >
+        <div class="col-md-12" style="text-align: center;
+    padding-bottom: 12px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    border-bottom: dashed 2px #16b3b1;" >
             <span class="lng-payment"></span>
         </div>
 </div>
@@ -507,11 +512,11 @@
     font-weight: 700;
     display: block;
     /* line-height: 36px; */
-    padding: 10px;
+    padding: 12px;
     text-decoration: none;
     cursor: pointer;
     min-width: 120px;
-    /* border-radius: 4px; */
+    border-radius: 25px; 
     text-align: center;
     color: #ffffff;
     /* border: 1px solid #16B3B1; */

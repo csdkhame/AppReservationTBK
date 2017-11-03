@@ -419,13 +419,31 @@ $(document).ready(function() {
     });
     $('.btn-reservation').click(function() {
         // alert("aaaa");
+        if ($.cookie("lng") == "en") {
+            $('#search-from').val('From: Type airport,hotel name, or location.');
+            // $lag_search_to = 'To: Type airport,hotel name, or location.';
+           
+        } else if ($.cookie("lng") == "cn") {
+            $('#search-from').val('从: 机场，酒店名称或位置。');
+            // $lag_search_to = '至: 机场，酒店名称或位置。';
+        } else if ($.cookie("lng") == "th") {
+            $('#search-from').val('จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง');
+            // $lag_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
+        } else if ($.cookie("lng") == undefined) {
+            $('#search-from').val('From: Type airport,hotel name, or location.');
+            // $lag_search_to = 'To: Type airport,hotel name, or location.';
+        }
         $('#loading').css('display', 'block');
+       
+       
 
         //$('#content').css('display','none');
         setTimeout(function() {
             $('#boxForAutoCom').hide(500)
             
             $('.box_option').hide(500)
+            $('.box_to').hide(500)
+            $('.box_from').show(500)
             $('#box-car-service').hide();
             $('#map').show(500);
             // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
@@ -560,6 +578,7 @@ $(document).ready(function() {
         $('#box-provinceto').hide(500)
         $('#box-pax-use').hide(500)
         $('#box-pax-rel').hide(500)
+        $('#img-car').hide(500)
     });
     /**********************************************************/
     /************* GET PROVINCE TO, FROM SERVICE **************/
@@ -895,7 +914,7 @@ $(document).ready(function() {
                             //$('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
 
                             //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-                            setvaluebox += '<li class="send-value" id="transferplace' + data[i].id + '" dataname ="' + data[i].topic + '" lat_f="' + data[i].latitude + '" lng_f="' + data[i].longitude + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValue(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">' + data[i].address + '</div></li>';
+                            setvaluebox += '<li class="send-value" id="transferplace' + data[i].id + '" dataname ="' + data[i].topic + '" lat_f="' + data[i].latitude + '" lng_f="' + data[i].longitude + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '"onclick="sendValue(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;    font-size: 30px; color: #16b3b1;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px;">' + data[i].address + '</div></li>';
 
 
                         });
@@ -988,7 +1007,7 @@ $(document).ready(function() {
                             //$('#box-plancefrom').append('<li><span class="name">'+data[i].id+'</span></li>');
 
                             //dataProvince.push(data[i])<li><h3 class="name"></h3><p class="born"></p></li>
-                            setvalueboxto += '<li class="send-value" id="transferplaceto' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '" lat_t="' + data[i].latitude + '" lng_t="' + data[i].longitude + '"onclick="sendValueto(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px">' + data[i].address + '</div></li>';
+                            setvalueboxto += '<li class="send-value" id="transferplaceto' + data[i].id + '" dataname ="' + data[i].topic + '" datapro="' + data[i].pro + '" dataaum="' + data[i].pro + '" lat_t="' + data[i].latitude + '" lng_t="' + data[i].longitude + '"onclick="sendValueto(\'' + data[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px; font-size: 30px; color: #16b3b1;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data[i].topic + '</span><br><span style="text-align: left;font-size:13px;">' + data[i].address + '</div></li>';
 
 
                         });
@@ -1248,6 +1267,8 @@ function sendproto(x){
 
 
 function sendValue(x) {
+    $('.box_to').show(500);
+    $('.box_from').hide(500)
     id_placefrom = x;
     pro_from = $('#transferplace' + x).attr('datapro');
     var name = $('#transferplace' + x).attr('dataname');

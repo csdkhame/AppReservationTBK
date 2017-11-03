@@ -58,7 +58,7 @@
 }
 .loading-in{
     height: 115px;
-    /* border-radius: 4px; */
+    border-radius: 25px;
     background: #fff;
     min-width: 15rem;
     /* height: auto; */
@@ -339,7 +339,16 @@
                         <div class="social-inner">
                             <div class="fb-wrapper">
                                 <a id="facebook-login-button"  class="fb-auth inner facebook-login-auth" scope="public_profile,email" onclick="login();" return false>
-                                    <i class=" fa fa-facebook-official " style="font-size: 36px; position: absolute; left: 16px;"></i>
+                                    <!-- <i class=" fa fa-facebook-official " style="font-size: 36px; position: absolute; left: 16px;"></i> -->
+                                    <div class=" pull-left" style=" position: absolute;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    border-radius: 50%;
+    background: #3b5998;">
+                                                <i class="fa fa-facebook"> </i>
+</div>
                                     <span>Facebook</span>
                                 </a>
                             </div>
@@ -348,7 +357,16 @@
 								  <div id="gSignInWrapper">
 								    <!--<span class="label">Sign in with:</span>-->
 								    <div id="customBtn" class="google-auth inner google-login-auth">
-								      <i class="fa fa-google-plus-square" style="font-size: 36px; position: absolute; left: 16px;"></i>
+                                    <div class="" style="position: absolute;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    border-radius: 50%;
+    background: #dd4b39;">
+                                                <i class="fa fa-google"> </i>
+</div>
+								      <!-- <i class="fa fa-google-plus-square" style="font-size: 36px; position: absolute; left: 16px;"></i> -->
 								      <span >Google</span>
 								    </div>
 								  </div>
@@ -427,7 +445,8 @@
     position: absolute;
     text-align: center;
     right: 0px;
-    margin-top: 15px;   
+    margin-top: 15px;
+    border-radius: 25px;   
 }
 .btn-login-forget{
     text-transform: uppercase;
@@ -479,18 +498,15 @@
 }
 
 .btn-login{
-    /* color: #3b5998; */
     font-weight: 700;
     display: block;
-    /* line-height: 36px; */
     padding: 10px;
     text-decoration: none;
     cursor: pointer;
     min-width: 120px;
-    /* border-radius: 4px; */
+    border-radius: 25px;
     text-align: center;
     color: #ffffff;
-    /* border: 1px solid #16B3B1; */
     background-color: #16B3B1;
 
 
@@ -533,7 +549,8 @@
     color: #ffffff;
     background: #333333;
     text-align: center;
-    padding: 10px;
+    padding: 12px;
+    border-radius: 25px;
 }
 
 .social-column .fb-wrapper .inner {
@@ -542,25 +559,26 @@
     font-weight: 700;
     display: block;
     line-height: 36px;
-/*    padding: 0 10px 0 0;*/
-    padding: 0 0px 0 0;
+    /* padding: 0 10px 0 0; */
+    padding: 3px;
     text-decoration: none;
     cursor: pointer;
     min-width: 120px;
-    /* border-radius: 4px; */
+    border-radius: 25px;
 }
 .social-column .google-wrapper .inner {
     color: #ea4335;
     border: 1px solid #ea4335;
+    
     font-weight: 700;
     display: block;
     line-height: 36px;
-/*    padding: 0 10px 0 0;*/
-    padding: 0 0px 0 0;
+    /* padding: 0 10px 0 0; */
+    padding: 3px;
     text-decoration: none;
     cursor: pointer;
-    min-width: 200px;
-    /* border-radius: 4px; */
+    min-width: 120px;
+    border-radius: 25px;
 }
 .social-column .fb-wrapper {
     text-align: center;
@@ -1059,7 +1077,8 @@ width: 100%;
 bottom: 0;
 z-index: 1;
 background: #fff;
-box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52);
+/* box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52); */
+box-shadow: 0px 0px 0.9px #888, 0px 0px 0px rgba(136, 136, 136, 0.52);
 
 /* height: 90px; */
 }

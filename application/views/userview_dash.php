@@ -206,8 +206,8 @@ $(window).scroll(function() {
 		</style>
 		<section >
 		
-        <div class="container" style="padding: 0 10px;margin-top: 49px;">
-						<h4 class="lng-booking-infomation" style="    padding-left: 5px;"></h4>
+        <div class="container" style="padding: 0 10px;margin-top: 35px;">
+						<h4 class="lng-booking-infomation" style="text-align: center; margin-bottom: 15px;"></h4>
 						<div style="display: none;" id="top-end_btn">
 							<!--<button class="top-page btn btn-info"  onclick="scrollWin('top');" style="cursor: pointer;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
 							<button class="end-page btn btn-info"  onclick="scrollWin('end');"  style="cursor: pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>-->
@@ -227,24 +227,35 @@ $(window).scroll(function() {
 														<table width="100%">
 																<tr>
 																		<td width="49%">
-			 <input id="date1"   class="datepicker"  name="date" type="text" value="<?=$date;?>" style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
+			 <input id="date1"   class="datepicker"  name="date" type="text" value="<?=$date;?>" style="    width: 100%;
+    padding: 10px;
+    border: 1px solid #16B3B1;
+    border-radius: 25px;">  
 																		</td>
 																		<td width="2%"></td>
 																		<td  width="49%">
-				<input id="date2"   class="datepicker"  name="date" type="text" value="<?=$latedate;?>"  style="padding: 8px;      border: 1px solid #eeeeee;width:100%;">  
+				<input id="date2"   class="datepicker"  name="date" type="text" value="<?=$latedate;?>"  style="    width: 100%;
+    padding: 10px;
+    border: 1px solid #16B3B1;
+    border-radius: 25px;">  
 																		</td>
 																</tr>
 														</table>
 														<div style="  margin: 15px 0;
     margin-bottom: 0;">
-																<input id="search_order"   class=""  name="date" type="text" value="" onkeyup="search()" placeholder="<? echo $lng_search_order;?>"  style="padding: 8px;     border: 1px solid #eeeeee;width:100%;">  
+																<input id="search_order"   class=""  name="date" type="text" value="" onkeyup="search()" placeholder="<? echo $lng_search_order;?>"  style="padding: 10px;
+    border: 1px solid #16B3B1;
+    border-radius: 25px;
+    width: 100%;">  
 							
 														</div>
 					
 												</div>
                     </div>
    					<div class="">
-                <div style="background-color: white;  padding: 8px;">
+                <div style="padding: 8px;
+    border-radius: 12px;
+    border: 1px solid #ddd;">
                     
 <style>
 .tr-hover:hover {
@@ -292,7 +303,8 @@ $(window).scroll(function() {
 
     text-align: center;
     color: #ffffff;
-    background-color: #16B3B1;
+	background-color: #16B3B1;
+	border-radius: 25px;
 }
 .display-none{
     display:none;
@@ -342,7 +354,7 @@ $(window).scroll(function() {
 							else if($levelme==2){ ?>
 							<div class="table-responsive">
                             <table id="bootstrap-table" class="table table-hover">
-                                <thead>
+                                <thead style="    background: #ddd;">
                                    <!-- <th data-field="state" data-checkbox="true" style="display: none;"></th>-->
                                     <th class="text-center "><span class="lng-date"></span></th><center></center>
                                     <th class="text-center"><span class="lng-order"></span></th>
@@ -366,7 +378,7 @@ $(window).scroll(function() {
 										if($show['status_pay_driver']==1)	{
 									$status_pay = $paydriver;
 										}else{	
-$status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;font-size: 13px;" href="https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
+$status_pay = '<a class=" btn-xs btn-custom-pay" style="font-size: 13px;" href="https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
 										}
 									}else if($show['status_pay']==1){
 										$status_pay = $paysuccess;
@@ -380,7 +392,7 @@ $status_pay = '<a class=" btn-xs btn-custom-pay" style="border-radius: 1px;font-
                                         <!--<td style="display: none;"></td>-->
                                     	<td ><? echo $show['date_time'];?> </td>
                                     	<td >
-                                    	<div class="<?=$class;?>" style="    border-radius: 1px;" onclick="view_order_level2('<?=$show['invoice'];?>');"><?=$show['invoice'];?></div></td>
+                                    	<div class="<?=$class;?>" onclick="view_order_level2('<?=$show['invoice'];?>');"><?=$show['invoice'];?></div></td>
                                     	<td><?=$status_pay;?></td>
                                     	<!--<td ><?=$show['from'];?></td>
                                     	<td ><?=$show['to'];?></td>-->

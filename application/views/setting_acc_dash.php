@@ -15,10 +15,13 @@
     font-size: 17px;
     font-weight: 500;
     -webkit-border-radius: 4px;
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 10px 32px;
     margin: 26px 5px 0 5px;
     cursor: pointer;
+}
+.card{
+  box-shadow:none !important;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="date"].form-control,
@@ -930,35 +933,29 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                
                                                     </div>
                                                     <div style="margin-top: 30px;    padding: 0 12px;">
-                                                    <div class=" btn-change " id="change_password" style="    color: #3b5998;
-    display: block;
-    /* line-height: 36px; */
-    padding: 10px;
-    text-decoration: none;
-    cursor: pointer;
-    min-width: 120px;
-    /* border-radius: 4px; */
-    text-align: center;
-    color: #ffffff;
-    /* border: 1px solid #16B3B1; */
-    background-color: #333;" >
+                                                    <div class=" btn-change " id="change_password" style="display: block;
+                                                    padding: 12px;
+                                                    text-decoration: none;
+                                                    cursor: pointer;
+                                                    min-width: 120px;
+                                                    border-radius: 25px;
+                                                    text-align: center;
+                                                    color: #ffffff;
+                                                    background-color: #333;" >
                                                         <span class="lng-change-password">Change password</span>
                                                     </div>
                             </div>
 
 													 <div style="margin-top: 12px;    padding: 0 12px;">
-                                                    <div class="btn-change " id="submit" style="    color: #3b5998;
-    display: block;
-    /* line-height: 36px; */
-    padding: 10px;
-    text-decoration: none;
-    cursor: pointer;
-    min-width: 120px;
-    /* border-radius: 4px; */
-    text-align: center;
-    color: #ffffff;
-    /* border: 1px solid #16B3B1; */
-    background-color: #16B3B1;" >
+                                                    <div class="btn-change " id="submit" style="display: block;
+                                                    padding: 10px;
+                                                    text-decoration: none;
+                                                    cursor: pointer;
+                                                    min-width: 120px;
+                                                    border-radius: 25px;
+                                                    text-align: center;
+                                                    color: #ffffff;
+                                                    background-color: #16B3B1;" >
                                                         <span class="lng-send">Send</span>
                                                     </div>
                             </div>
@@ -1017,13 +1014,27 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     right: 0px;
     margin-top: 15px;
 }
+.closepop{
+  position: absolute;
+    right: 15px;
+}
   </style>           
   				                                  
                  <div id="change-password" style="display: none;">
             <div class="box-in-foget">
+            <div style="background: rgb(22, 179, 177);
+    color: #fff;
+    padding: 18px;
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 10px;">
+                     <span style="    text-align: center;" class="lng-change_pass lng-change-password"></span>
+                       <i class="material-icons closepop">close</i>
+                       </div> 
                 <div style="padding: 12px;">
-                   <div class="col-md-12" id="forget"> 
-                       <h4 style="    text-align: center;" class="lng-change_pass lng-change-password"></h4>
+                   <div class="col-md-12" id="forget">
+                     
+                       
                        <!-- <div style="margin-top: 50px; font-size: 15px; color: #333333;margin-bottom: 10px;">
                             <span class="lng-please-input-email">Please input your email</span>
                         </div>-->
@@ -1082,10 +1093,10 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                     
                 </div>
                <!-- <div id="status"></div>-->
-                <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
-                <div class="btn-close lng-close">Close</div>
+                <!-- <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;">  -->
+                <!-- <div class="btn-close lng-close">Close</div> -->
                   <!--  <div class="btn-login-forget lng-login">Login</div>-->
-                </div>
+                <!-- </div> -->
             </div>
         </div>
                   
@@ -1348,8 +1359,9 @@ $('#change-password').hide(700);
 		});
 		
 		
-	});
-	$('.btn-close').click(function(){
+  });
+  
+	$('.closepop').click(function(){
 		$('#change-password').hide(700);
 		
 	});

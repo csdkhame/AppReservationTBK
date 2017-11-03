@@ -1,7 +1,16 @@
 body {
     height: 100vh;
 }
-
+#select_pax_use{
+    border: 1px solid #dfdfdf;
+    padding: 12px;
+    /* margin: 8px 0; */
+    width: 100%;
+    border-radius: 25px;
+}
+#appendBox{
+    border-radius:25px 
+}
 .placeNeary-item {
     overflow-x: scroll;
 }
@@ -72,6 +81,7 @@ body {
     /* display: none; */
     height: 100% !important;
     box-shadow: none;
+    border-radius:25px 
 }
 
 .box-menu-select {
@@ -264,6 +274,11 @@ body {
 
 #private-btn {
     background: #16B3B1;
+    border-radius: 25px;
+
+}
+#join-btn{
+    border-radius: 25px;
 }
 
 #current-addr {
@@ -662,10 +677,10 @@ input:after {
     min-height: 240px;
     margin-top: 0px;
     margin-bottom: 10px;
-    /* border-radius: 4px; */
+    border-radius: 15px;
     /* border: 1px solid #ccc; */
     padding: 10px;
-    box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 5px 7px 2px rgba(0, 0, 0, 0.15);
     /* background: #f5f5f5; */
 }
 
@@ -783,39 +798,27 @@ input:after {
 }
 
 .views-item {
-    /* background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
-    background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%); */
-    /* border: 1px solid #E68E00; */
     color: #FFFFFF;
     background: #16B3B1;
-    /* width: 117px; */
     text-align: center;
-    /* height: 35px; */
     padding: 10px 60px;
     position: relative;
-    /* margin-left: 83.5%; */
-    /* border-radius: 4px; */
+    border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
 }
 
 #i-list {
-    margin-right: 53px;
-    margin-top: -10px;
     float: right;
     right: 0;
     position: absolute;
     border: 1px solid #009688;
     font-size: 20px;
     text-align: center;
-    /* margin-left: 38%; */
     width: 82px;
     color: #000;
     height: 62px;
-    /* line-height: 1.5; */
-    /* border-radius: 4px; */
-    /* background: #ebefc2; */
-    /* margin-top: -18px; */
+    border-radius: 15px;
     cursor: pointer;
 }
 
@@ -833,28 +836,32 @@ input:after {
 
 #box-plancefrom li {
     list-style: none;
-    padding: 15px 8px;
+    padding: 8px 15px;
     /* padding-left: 0; */
     font-size: 15px;
+    
+    border-radius: 25px;
 }
 
 #box-planceto li {
     list-style: none;
-    padding: 8px 35px;
+    padding: 8px 15px;
     /* padding-left: 0; */
     font-size: 15px;
+    border-radius: 25px;
 }
 
 .box-info {
     border: 1px solid #ebefc2;
     height: 500px;
     padding: 17px 3px;
-    background: #FFF176;
+    background: #16B3B1;
     border-radius: 5px;
 }
 
 #box-plancefrom li:hover {
-    background-color: #ffcd00;
+    background-color: #16B3B1;
+    color: #fff;
 }
 
 #box-planceto li:hover {
@@ -864,14 +871,14 @@ input:after {
 .box-plancefrom {
     padding-left: 0;
     display: none;
-    max-height: 385px;
+    max-height: 75vh;
     position: absolute;
     overflow-x: hidden;
     overflow-y: scroll;
     overflow: hidden;
     width: 92%;
     padding: 0px;
-    margin-left: -13px;
+    /* margin-left: -13px; */
     z-index: 100;
     /* border-bottom: 1px solid rgb(221, 221, 221);
     border-right: 1px solid rgb(221, 221, 221);
@@ -889,29 +896,28 @@ input:after {
 .box-planceto {
     padding-left: 0;
     display: none;
-    max-height: 385px;
+    max-height:75vh;
     position: absolute;
     overflow-x: hidden;
     overflow-y: scroll;
     overflow: hidden;
-    width: 92%;
+    width: 92vw;
     padding: 0px;
     /* margin-left: -13px; */
     z-index: 100;
-    /*border-bottom: 1px solid rgb(221, 221, 221);
-    border-right: 1px solid rgb(221, 221, 221);
-    border-left: 1px solid rgb(221, 221, 221);*/
-    border-radius: 0px 5px 5px;
+    /* border-radius: 0px 5px 5px; */
     overflow-y: scroll;
     overflow-x: none;
 }
 
 #box-plancefrom {
     padding-left: 0;
+    margin-top: 15px;
 }
 
 #box-planceto {
     padding-left: 0;
+    margin-top: 15px;
 }
 
 .form-control,

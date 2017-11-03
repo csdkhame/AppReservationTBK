@@ -114,10 +114,7 @@
             <div class=" " style=" padding: 12px 10px; padding-bottom: 0;">
                 <!-- <label style="text-align:left" for="language">Guest name of your country</label>       -->
                 <!-- <dic class="" name="cartype" id="cartype" class="" style="     margin: auto;"> -->
-                    <div  class="" id="select_pax_use" style="border: 1px solid #dfdfdf;
-    padding: 8px;
-    /* margin: 8px 0; */
-    width: 100%;"></div>                                                                
+                    <div  class="" id="select_pax_use" style=""></div>                                                                
                 <!-- </div> -->
 
 
@@ -361,7 +358,7 @@
                     
                     <div class="box-search" id='boxRealtime' >
                       <!-- <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>-->
-                        <input type='text'    placeholder=""  id='current' style="border: 1px solid #16b3b1;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333"/>
+                        <input type='text'    placeholder=""  id='current' style="border: 1px solid #16b3b1;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333;border-radius: 25px"/>
                         
                             <!-- <div style="border-bottom: 1px solid #333;display:nones;"></div> -->
                           
@@ -370,7 +367,7 @@
                     </div>
                     <div class="box-searchto" id='boxRealtimeto' style="display:none">
                     <input type='text'  placeholder="<? echo $lag_go_txt;?>" id="pac-input"  
-                            style="border: 1px solid #16b3b1; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  height: 49px;" /> 
+                            style="border: 1px solid #16b3b1; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  height: 49px;border-radius: 25px" /> 
                     </div>
                     <div id="appendBox"></div>
                     
@@ -383,20 +380,40 @@
 
         <div style="" id="search-show">            
             <div class="col-md-12 " >
-                <div class="card-content" style=" background-image: linear-gradient(-179deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);">
+                <div class="card-content" style=" ">
                     <div class="box-search">
                         <div class="" id="current-addr">
                             <i class="material-icons">gps_fixed</i>
                         </div>
-                        <input type='text' class="" placeholder="<? echo  $lag_search_from;?>"  id='search-from' style="border: none !important;padding: 10px; width: 100%;background: #fff;"/>
- <!-- -->                  <div style="border-bottom: 1px solid #333;"></div>
-                        <div class="box-plancefrom" id="users">
-                            <ul  class="list" id="box-plancefrom" name="character"></ul>
-                        </div>                                        
-                        <input  type='text' class="" placeholder="<? echo  $lag_search_to;?>" id='search-to' style="border: none !important;padding: 10px; width: 100%;background: #fff;" />                                                
+                        <div class="box_from">
+                            <input type='text' class="" placeholder="<? echo  $lag_search_from;?>"  id='search-from' style="border: 1px solid #16b3b1;
+    padding: 10px;
+    width: 100%;
+    background: #fff;
+    display: nones;
+    margin: auto;
+    color: #333;
+    border-radius: 25px;"/>
+                    <!-- <div style="border-bottom: 1px solid #333;"></div> -->
+                            <div class="box-plancefrom" id="users">
+                                <ul  class="list" id="box-plancefrom" name="character"></ul>
+                            </div> 
+                        </div>
+                        <div class="box_to" style="display:none">
+                        <input  type='text' class="" placeholder="<? echo  $lag_search_to;?>" id='search-to' style="border: 1px solid #16b3b1;
+    padding: 10px;
+    width: 100%;
+    background: #fff;
+    display: nones;
+    margin: auto;
+    color: #333;
+    border-radius: 25px;" />                                                
                         <div class="box-planceto"  >
                             <ul  class="list" id="box-planceto" name="character"></ul>
                         </div>
+                        </div>
+                                                               
+                        
                         <input type="hidden" name="" value="" id="lat_from">
                         <input type="hidden" name="" value="" id="lng_from">
                         <input type="hidden" name="" value="" id="lat_to">
@@ -416,10 +433,11 @@
            </div>
            <style>
            .textInput {
-    border: 1px solid #dfdfdf;
-    padding: 8px;
-    margin: 8px 0;
-    width: 100%;
+            border: 1px solid #16b3b1;
+            padding: 12px;
+            margin: 8px 0;
+            width: 100%;
+            border-radius: 25px;
 }
            </style>
             <div style="    margin-top: 10px;">
@@ -799,24 +817,31 @@
  
         <div id="img-car" >
             <div class="box-in-foget" style="">
-                <div class="header-img" style="">
-                    <h4 class="lng-car"></h4>
+                <div  style="    background: rgb(22, 179, 177);
+    color: #fff;
+    padding: 18px;
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 10px;">
+                    <span class="lng-car"></span>
+                    <i class="material-icons closepop" style="    right: 125px;">close</i>
+
                 </div>
                 <div style="">
-                    <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
+                    <!-- <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
                         <div  class="btn-close-img lng-close" ></div>
-                    </div>
+                    </div> -->
                    <input type="hidden" name="" value="" id="idimage">
 
                    <div id="jssor_1" style="position: relative; top:60px; left: 0px; width: 600px; height: 300px;">
                             <!-- Slides Container -->
                         <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
        
-                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-01.jpg" /></div>
-                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-02.jpg" /></div>
-                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-03.jpg" /></div>
-                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-04.jpg" /></div>
-                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/index-05.jpg" /></div>
+                            <div class="col-md-12"><img u="image" src="<?php echo base_url(); ?>files/img/1.jpg" /></div>
+                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/2.jpg" /></div>
+                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/3.jpg" /></div>
+                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/4.jpg" /></div>
+                            <div ><img u="image" src="<?php echo base_url(); ?>files/img/5.jpg" /></div>
                         </div>
                     </div>
                 </div>

@@ -181,6 +181,8 @@
     right: 15px;
     padding: 12px 20px;
     bottom: 15px;
+    font-size: 15px;
+    border-radius: 25px;
 }
 
 .btn-login{

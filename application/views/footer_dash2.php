@@ -288,12 +288,14 @@ line-height: 0.8;
     transform: translate(-50%,-50%);
     position: fixed;
     z-index: 10;
+    border-radius: 25px;
 }
 .loading-ld{
     font-weight: 500;
     color: #000;
     padding: 35px;
     text-align: center;
+    
 }
 #loading{
     z-index: 9999;
@@ -351,6 +353,12 @@ if ($.cookie("lng") == "en") {
     }	 
 var base_url = 'https://www.welovetaxi.com/app/booking/';
 $( document ).ready(function() {
+    $('#loading').css('display', 'block');
+        setTimeout(function() {
+            console.log("aaaaa")
+            $('#loading').css('display', 'none');
+           
+        }, 3000);
     $.post( "<?php echo base_url(); ?>dashboard/get_user", function( data ) {
 		var obj = JSON.parse(data);
 		$.each(obj, function (index, value) {
