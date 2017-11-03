@@ -881,7 +881,7 @@
                                      </div>
                                  </div>
                                  <div class="col-md-12">
-                                     <div  class="addbook" id="addbook" value='Book' style=" background: #009688; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px; display:none" />book
+                                     <div  class="addbook" id="addbook" value='Book' style=" background: #009688; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px; display:none;border-radius: 25px;" />book
                                      </div>                                    
                                  </div>
                             </div>
@@ -1003,7 +1003,7 @@
         </div>
         <div id="waning-flight" style="z-index: 9999; position: fixed; width: 100vw; height: 100vh; left: 0px; top: 0px; background: rgba(0, 0, 0, 0.59); display: none;">
         <div style="height: 165px;
-    /* border-radius: 4px; */
+   border-radius: 15px; 
     background: #fff;
     min-width: 30rem;
     /* height: auto; */
@@ -1038,7 +1038,7 @@
 <style>
     #terms-of-use {
     padding: 10px;
-    /* border-radius: 4px; */
+    border-radius: 15px;
     font-size: 16px;
     border: 1px solid #81C8D3;
     margin-top: 5px;
@@ -1054,15 +1054,16 @@
     display: none;
 }
 .btn-close{
-      /* width: 200px; */
-      background: #4BB1C1;
-      text-transform: uppercase;
-      text-align: center;
-      color: #fff;
-      position: absolute;
-      right: 15px;
-      padding: 12px 20px;
-      bottom: 15px;
+    width: 75px;
+    background: #4BB1C1;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    padding: 8px 20px;
+    bottom: 15px;
+    border-radius: 25px;
 }
 .checkbox input[type=checkbox]:checked+.checkbox-material .check {
     background: #009688 !important;
@@ -1075,17 +1076,18 @@
     border: 1px solid rgb(0, 150, 136)!important;
     overflow: hidden;
     z-index: 1;
-    border-radius: 0px;
+    border-radius: 5px;
 }
 .textInput{
     border: 1px solid #dfdfdf;
     padding: 8px;
     margin: 8px 0;
     width: 100%;
+    border-radius: 25px;
 }
 .card {
     
-    margin-bottom: 0 !important;
+    margin-bottom: 15px !important;
     }
 .row {
     margin-right: -12px !important;
@@ -1098,7 +1100,7 @@
     box-shadow: none;
 }
 .card {
-    border-radius: 0 !important;
+    border-radius: 15px !important;
     
 }
 .wizard-card{
