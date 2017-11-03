@@ -212,7 +212,7 @@
                                 <span class="input-group-addon">
                                     <i class="material-icons">face</i>
                                 </span>
-                                <button class="btn btn-warning btn-sm" id="checkmail" style="position: absolute; right: 0; z-index: 100;  margin-top: 2px; padding: 5px 10px;">
+                                <button class="btn btn-warning btn-sm" id="checkmail" style="position: absolute; right: 0; z-index: 100;  margin-top: 2px; padding: 5px 10px;border-radius: 15px;">
                                     <span class="lng-check"></span>
                                 </button>
                                 <div class="form-group label-floating is-empty">
@@ -530,7 +530,7 @@
     text-decoration: none;
     cursor: pointer;
     min-width: 120px;
-    /* border-radius: 4px; */
+    border-radius: 25px;
     text-align: center;
      color: #ffffff;
 

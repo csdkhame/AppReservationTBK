@@ -1399,7 +1399,8 @@
 }
 #box-image{
     width: 100%;
-    /* border-radius: 4px; */
+    border-radius: 15px;
+    margin-top: 5px;
 }
 #images-icon{
     width: 200px;
