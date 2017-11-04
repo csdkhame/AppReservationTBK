@@ -882,7 +882,7 @@
 			        <div style="padding: 3px 3px;  border-radius: 8px; background: #fff;">
 			            <div style="margin-left: 3%; padding-top: 9px;">
 			                <B >1.</B> 
-                            <img src="https://dotdotdottrip.com/files/img/air.png"  style="margin: 8px;"> 
+                            <img src="<?php echo base_url(); ?>/files/img/air.png"  style="margin: 8px;"> 
 			                <span class="lng-conditioner"></span>			                            
 			            </div>
 			            <div style="margin-left: 3%;padding-bottom: 9px;">

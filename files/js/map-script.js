@@ -27,6 +27,8 @@ var options;
 var markerTest;
 var checkshow = false;
 var datacaedervice,dataRel;
+var dataPlacefrom;
+var dataPlaceto;
 
 var curentFromTo = '';
 if ($.cookie("lng") == 'cn') {
@@ -756,6 +758,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
             // console.log(data.length)
             
             // console.log(data.size)
+            dataPlacefrom = data[0].data1.from;
+            dataPlaceto = data[0].data1.to;
             parame = { "place_default": data[0].data1.from, "place_default_to":data[0].data1.to};
             console.log(parame)
             $.ajax({
@@ -978,7 +982,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                         '</div>' +
                         '<div class="views-item" >' +
-                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + data[0].data1.from + '&to=' + data[0].data1.to + '" > <span >' + lngbook + '</span></a>' +
+                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '" > <span >' + lngbook + '</span></a>' +
 
                         '</div>' +
                         '</div>' +
@@ -1285,7 +1289,7 @@ function sendpaxrel(x) {
 
             '</div>' +
             '<div class="views-item" >' +
-            '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+            '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '" > <span >' + lngbook + '</span></a>' +
 
             '</div>' +
             '</div>' +
