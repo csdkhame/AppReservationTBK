@@ -11,7 +11,7 @@ var start_st, end_st;
 // alert('asdsadas')
 var base_url = 'https://www.welovetaxi.com/app/booking/';
 //var base_url = 'http://localhost/AppReservationTBK/';
-
+var  reltimeclick;
 $(document).ready(function() {
 
     $(this).attr("hiddenhref");
@@ -246,6 +246,10 @@ $(document).ready(function() {
         $('#img-car').hide(500)
     })
     $("#private-btn").click(function() {
+        $('#private').show();
+        $('#join').hide();
+        $('#private').addClass('active');
+        $('#join').removeClass('active');
         $(this).css({ "background-color": "#16b3b1", "color": " #fff " }
 
         );
@@ -253,7 +257,10 @@ $(document).ready(function() {
 
     });
     $("#join-btn").click(function() {
-
+        $('#private').hide();
+        $('#join').show();
+        $('#private').removeClass('active');
+        $('#join').addClass('active');
 
         $(this).css({ "background-color": "#16b3b1", "color": "#fff" }
 
@@ -266,11 +273,42 @@ $(document).ready(function() {
     $("#show-hide-pro").click(function() {
         //alert("aaa")
         //$("#first").animate({'width': 0}, 'slow', function(){ 
-        //$().hide(); 
-        $(this).fadeOut(50);
-        $("#show-hide-pro2").fadeIn(50);
+        //$().hide();
+        $('#pac-input').val('');
+        $('#current').val('');
+        console.log(placeStart);
+        $('.a-link-item').remove();
+        $('.not-found').remove();
+        $('.typerel').remove();
+        $('#boxRealtimeto').hide(500)
+        $('#boxRealtime').show(500)
+        curentFromTo ='';
+        if ($.cookie("lng") == 'cn') {
+           
+            document.getElementById("current").value = "你的立場...";
+        } else if ($.cookie("lng") == 'th') {
+            document.getElementById("current").value = "ตำแหน่งของคุณ...";
+           
+        } else if ($.cookie("lng") == 'en') {
+           
+            document.getElementById("current").value = "Your position...";
+            
+        } else if ($.cookie("lng") == undefined) {
+            
+            document.getElementById("current").value = "Your position...";
+        }
+        // lat_t = '';
+        // lng_t = '';
+        // lat_f = '';
+        // lng_f = '';
+    
+        //    $('#current').val(placeStart[1].formatted_address);
+        resetMap();
+        $('#pro-search').hide(500) 
+        $(this).hide(50);
+        // $("#show-hide-pro2").fadeIn(50);
         //$('#').show(); 
-        $("#pro-search").animate({ 'margin-top': '100vh' });
+        // $("#pro-search").animate({ 'margin-top': '100vh' });
         //});
         //$("#pro-search").fadeOut(4000);
     });
@@ -419,6 +457,7 @@ $(document).ready(function() {
     });
     $('.btn-reservation').click(function() {
         // alert("aaaa");
+        reltimeclick = 0;
         if ($.cookie("lng") == "en") {
             $('#search-from').val('From: Type airport,hotel name, or location.');
             // $lag_search_to = 'To: Type airport,hotel name, or location.';
@@ -477,15 +516,20 @@ $(document).ready(function() {
     });
 
     $('.btn-realtime').click(function() {
+        reltimeclick = 1;
         //	  $('#selectPlace').show();
         $('#loading').css('display', 'block');
         //       $('#btn-real-res').css('display', 'none');
         $('#opennut').click();
         //$('#content').css('display','none');
         setTimeout(function() {
+            $('#boxRealtime').show(500);
+            
+            $('#boxRealtimeto').hide(500);
             $('#box-car-service').hide();
             $('#map').show(500);
             $('.box_option').show(500)
+            
             $('.btn-realtime').css({ 'background': '#16B3B1', 'color': '#ffffff' });
 
 
@@ -749,7 +793,13 @@ $(document).ready(function() {
         $('#foget-password').show(500);
     });
     $('#select_pax_use').click(function(){
-        $('#box-pax-use').show(500);
+        if(reltimeclick == 1){
+            $('#box-pax-rel').show(500);
+        }
+        else{
+            $('#box-pax-use').show(500);
+        }
+        
     });
     $('.btn-show-select').click(function() {
         console.log('hide-show');
@@ -1303,6 +1353,8 @@ function sendValue(x) {
 
     //     }
     // }); 
+
+    
 }
 
 /**************************************************************************************/
@@ -1329,6 +1381,7 @@ function sendpaxuse(x) {
     compae1join = [];
     data2 = [];
     ctype = x;
+    
     getdataservice = dataUse.car_topic
     console.log(ctype)
     console.log(getdataservice)
@@ -1360,7 +1413,7 @@ function sendpaxuse(x) {
        } else if ($.cookie("lng") == 'th') {
            if (getdataservice[i].pax_id == ctype) {
                // comparedata.push(datacaedervice.data1[i])
-               $('#select_pax_use').html(getdataservice[i].car_topic_th+' '+'<span style="    color: #f44336;">'+getdataservice[i].pax_th+'</span>')
+               $('#select_pax_use').html(getdataservice[i].car_topic_th+' '+'<span style="color: #f44336;">'+getdataservice[i].pax_th+'</span>')
            } else if (ctype == '0') {
                // comparedata.push(datacaedervice.data1[i])
                $('#select_pax_use').html( 'ทุกประเภท')

@@ -444,7 +444,7 @@ function a(map) {
     var inputStart = document.getElementById("current");
     inputStart.addEventListener('click', function() {
         document.getElementById("current").value = "";
-        //start = null;
+        start = null;
         console.log(start);
     });
 
@@ -458,6 +458,9 @@ function a(map) {
 
     /*******AUTO FROM******** */
     autocompleteStart.addListener('place_changed', function(ev) {
+        lat_f = '';
+        lng_f = '';
+        start = '';
         //alert('aaa')
         $('#boxRealtimeto').show(500)
         $('#boxRealtime').hide(500)
@@ -493,7 +496,9 @@ function a(map) {
 
     /*******AUTO TO***** */
     autocomplete.addListener('place_changed', function() {
-       
+        lat_t = '';
+        lng_t = '';
+        end = '';
         //        marker.setVisible(false);
         var place = autocomplete.getPlace();
         placeEnd = place;
@@ -539,7 +544,7 @@ function a(map) {
                 lat_t = response.routes[0].legs[0].end_location.lat();
                 lng_t = response.routes[0].legs[0].end_location.lng();
                 console.log('*********************AUTO FROM************************')
-
+                $('.typerel').remove();
                 console.log(start)
                 console.log(end)
                 console.log(lat_f);
@@ -815,7 +820,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 
                 datasort.sort(function(a, b){return a.person-b.person});
                 console.log(datasort)
-                $('#box-pax-use').show(500)  
+                $('#box-pax-rel').show(500)  
 
                   $.each(datasort, function(i, val) {
                     var index2 = parseInt(i) + 1;
@@ -850,7 +855,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 console.log(datasort)
                  
                 // label="' + type + '"
-                $('#paxuse').append('<li class="typeservice" id="typeservice'+datasort[i].pax_id+'"  onclick="sendpaxrel(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                $('#paxrel').append('<li class="typerel" id="typeservice'+datasort[i].pax_id+'"  onclick="sendpaxrel(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                 // $('#paxuse').append('<li class="typerel" value="' + datasort[i].pax_id + '" ><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                 
                     //$('#typecarservice').append('<li class="typeservice'+datasort[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
@@ -899,10 +904,41 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                 console.log(compae2private.length)
 
-                if (compae1join.length == 0) {
+                if (compae1join.length == 0 && compae1private.length != 0) {
                     $('#join-btn').hide();
                     $('#private-btn').css('width', '100%');
 
+                }
+                // else{
+                //     $('#join-btn').show();
+                   
+                // }
+                if (compae1private.length == 0 && compae1join.length != 0) {
+                    $('#private-btn').hide();
+                    $('#join-btn').css('width', '100%');
+                    $('#private').hide();
+                    $('#join').show();
+                    $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+
+                    );
+
+
+                }
+                //else                {
+                //     $('#private-btn').show();
+                // } 
+                // else {
+                //     $('#private').show();
+                //     $('#private-btn').show();
+                // }
+                if(compae1private.length != 0 && compae1join.length != 0 ){
+                    $('#private-btn').show();
+                    $('#join-btn').show();
+                    // $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+                }
+                if(compae1join.length == 0 && compae1private.length == 0){
+                    $('#box-pax-rel').hide();
+                    $('#select_pax_use').hide();
                 }
                 console.log(data.length)
                 dataproduct = data;
@@ -1098,7 +1134,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
 }
 function sendpaxrel(x) {
-    $('#box-pax-use').hide();
+    $('#box-pax-rel').hide();
     $('#loading').css('display', 'block');
     $('.a-link-item').remove();
     $('#box-prosearch').css('display', 'none');
@@ -1118,6 +1154,33 @@ function sendpaxrel(x) {
     ctype = x;
     getdataservice = dataRel.car_topic
     console.log(ctype)
+    if(x== 2 || x== 17){
+        $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+        
+        );
+        $("#private-btn").css({ "background-color": " #fff", "color": "#16b3b1 " }
+        
+        ); 
+        $('#private-btn').removeClass('active');
+        $('#join-btn').addClass('active');
+        $('#join').show();
+        $('#private').hide();
+       
+        
+    }
+    else{
+        $('#join-btn').css({ "background-color": "#fff", "color": "#16b3b1" }
+        
+        );
+        $("#private-btn").css({ "background-color": " #16b3b1", "color": "#fff " }
+        
+        ); 
+        $('#private-btn').addClass('active');
+        $('#join-btn').removeClass('active');
+        $('#join').hide();
+        $('#private').show();
+        
+    }
     console.log(getdataservice)
     console.log(dataRel)
 
@@ -1212,7 +1275,46 @@ function sendpaxrel(x) {
 
 
     })
+    // if (compae1join.length == 0 ) {
+    //     $('#join-btn').hide();
+    //     $('#private-btn').css('width', '100%');
+
+    // }
+    // // else{
+    // //     $('#join-btn').show();
+    // //     $('#private').show();
+       
+    // // }
+    // if (compae1private.length == 0) {
+    //     $('#private-btn').hide();
+    //     $('#join-btn').css('width', '100%');
+    //     $('#private').hide();
+    //     $('#join').show();
+    //     $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+
+    //     );
+
+
+
+    // }
+    // else{
+    //     $('#private-btn').show();
+    //     $('#join-btn').show();
+    // } 
+    // // else {
+    // //     $('#private').show();
+    // //     $('#private-btn').show();
+    // // }
+    // if(compae1private.length != 0 && compae1join.length != 0 ){
+    //     $('#private-btn').show();
+    //     // $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+    // }
+    if(compae1join.length == 0 && compae1private.length == 0){
+        $('#box-pax-rel').hide();
+        $('#select_pax_use').hide();
+    }
     console.log(compae1join);
+    console.log(compae1private)
 
     var car_topic, cartype, pax;
     var urlicon = base_url + 'files/images/carmodelicon/';
@@ -1305,7 +1407,7 @@ function sendpaxrel(x) {
     }); //end private
 
 
-
+    if (compae1join.length != 0) {
     $.each(compae1join, function(i, val) {
         var indexs = parseInt(i) + 1;
         if ($.cookie("lng") == 'cn') {
@@ -1390,6 +1492,7 @@ function sendpaxrel(x) {
 
 
     });
+}
 
 }
 

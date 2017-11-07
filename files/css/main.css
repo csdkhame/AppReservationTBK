@@ -308,20 +308,20 @@ body {
 }
 
 #show-hide-pro {
-    height: 36px;
+    text-align: center;
+    height: 38px;
+    width: 38px;
     border-radius: 100%;
     background: #fff;
     border: 2px solid rgb(22, 179, 177);
-    min-width: 2rem;
-    /* height: auto; */
-    z-index: 201;
-    left: 50vw;
-    /* top: 86vh; */
+    /* z-index: 201; */
+    left: 90vw;
     overflow: hidden;
     transform: translate(-50%, -50%);
-    position: fixed;
+    position: absolute;
     display: none;
-    bottom: 0;
+    bottom: -10px;
+    z-index: 201;
 }
 
 #show-hide-pro2 {

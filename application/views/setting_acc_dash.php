@@ -948,7 +948,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 
 													 <div style="margin-top: 12px;    padding: 0 12px;">
                                                     <div class="btn-change " id="submit" style="display: block;
-                                                    padding: 10px;
+                                                    padding: 12px;
                                                     text-decoration: none;
                                                     cursor: pointer;
                                                     min-width: 120px;
