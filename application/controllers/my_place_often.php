@@ -14,7 +14,7 @@ public function index(){
   
 public function save()
 	{	
-		$id = $_COOKIE['login'];
+		$id = $_POST['login'];
 		if($id==""){
 			echo "nologin";
 		}else{
@@ -22,10 +22,26 @@ public function save()
 			 echo json_encode($data);
 		}
 	}
+	public function delete()
+	{	
+		
+		
+			 $data = $this->Often_model->delete_often();
+			 echo json_encode($data);
+		
+	}
+	public function edit()
+	{	
+		
+		
+			 $data = $this->Often_model->edit_often();
+			 echo json_encode($data);
+		
+	}
 	
 public function update()
 	{	
-		$id = $_COOKIE['login'];
+		$id = $_POST['login'];
 		if($id==""){
 			echo "nologin";
 		}else{

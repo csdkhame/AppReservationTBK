@@ -22,6 +22,7 @@
         $bank = "Bank";
         $depart_store = "Department Store";
         $h_r = "Hotel,Resort";
+        $newname = 'New name';
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -44,6 +45,8 @@
         $bank = "Bank";
         $depart_store = "Department Store";
         $h_r = "Hotel,Resort";
+        $newname = 'New name';
+        
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
@@ -66,6 +69,8 @@
         $bank = "Bank";
         $depart_store = "Department Store";
         $h_r = "Hotel,Resort";
+        $newname = 'ชื่อใหม่';
+        
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
@@ -89,6 +94,8 @@
         $bank = "Bank";
         $depart_store = "Department Store";
         $h_r = "Hotel,Resort";
+        $newname = '新名称';
+        
        
     }
 ?>
@@ -302,7 +309,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                            <span class="lng-car-service" style="font-size: 13px;">Car service</span>
+                            <span class="lng-car-service" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -322,7 +329,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <span class="lng-management" style="font-size: 13px;">Management</span>
+                                <span class="lng-management" style="font-size: 13px;"></span>
                             </td>
                         </tr>
                     </table>
@@ -332,21 +339,22 @@
     </table>
 <style>
     .box_option{
+        color: red;
         background-color: #fff;
         width: 40px;
         height: 40px;
         border-radius: 100%;
-        box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+        box-shadow: rgba(241, 13, 13, 0.3) 0px 1px 4px;
         cursor: pointer;
         position: absolute;
-        bottom: 72px;
+        top: 120px;
         /* padding: 8px; */
-        right: 20px;
-        z-index: 101;
+        right: 17px;
+        z-index: 19;
         text-align: center;
         font-size: 26px;
         line-height: 1.3;
-        display:none;
+        display: none;
     }
 </style>
  </div>
@@ -372,7 +380,7 @@
                     </div>
                     <div class="box-searchto" id='boxRealtimeto' style="display:none">
                     <input type='text'  placeholder="<? echo $lag_go_txt;?>" id="pac-input"  
-                            style="border: 1px solid #16b3b1; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  height: 49px;border-radius: 25px" /> 
+                            style="border: 1px solid #16b3b1; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  border-radius: 25px" /> 
                     </div>
                     <div id="appendBox"></div>
                     
@@ -568,6 +576,11 @@
     position: absolute;
     right: 15px;
 }
+#setmap{
+    margin-bottom: 8px;
+    text-align: center;
+
+}
 
 /* #box-pax-use{
     list-style: none;
@@ -701,16 +714,41 @@
 			    background-size: 52px !important;
 			}
 			#marginBox{
-				/* margin-top: 90px; */
-				background-color: #fff;
-				position: relative;
+                overflow: scroll;
+                height: 62vh;
+                border-radius: 15px;
+                /* margin-bottom: 15px; */
+                /* margin-top: 90px; */
+                background-color: #fff;
+                position: relative;
 			}
 			 .pac-item-query{
 			 	    font-size: 13px;
-				    padding-right: 3px;
-				    padding: 7px;
-				    color: #000;
-			 }  
+				    /* padding-right: 3px;
+				    padding: 7px; */
+				    /* color: #000; */
+             }
+             .pac-matched {
+    font-weight: 700;
+    display: inline-block;
+    padding-left: 5px;
+    color:#333;
+}  
+.lng-yes-regularly{
+    
+}
+.pac-item {
+    cursor: default;
+    padding: 0 4px;
+    /* text-overflow: ellipsis; */
+    /* overflow: hidden; */
+    white-space: normal !important;
+    line-height: 30px;
+    text-align: left;
+    border-top: 1px solid #e6e6e6;
+    font-size: 11px;
+    color: #999;
+}
 		</style>
 
 		<div id="btn_CurrentLocation" style="z-index: 0; position: absolute; right: 20px; /*top: 275px;*/    bottom: 190px;display: none;color: rgb(35,35,35);">
@@ -732,56 +770,346 @@
 
         <div id="boxForAutoCom">
         	<div style="padding: 0 15px">
+            <div style="background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    box-shadow: rgb(22, 179, 177) 0px 1px 4px;
+    z-index: 262;
+    margin-top: -60px;
+    cursor: pointer;
+    position: absolute;
+    padding: 8px;
+    background: #fff;
+    color: #16b3b1;
+    font-size: 30px;
+    margin-bottom: 15px;display:none" id="outselect_often" >
+            <i class="material-icons" style="">reply_all</i>
+            </div>
+            <div style="background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    box-shadow: rgb(22, 179, 177) 0px 1px 4px;
+    z-index: 262;
+    margin-top: -60px;
+    cursor: pointer;
+    position: absolute;
+    padding: 8px;
+    background: #fff;
+    color: #16b3b1;
+    font-size: 30px;
+    margin-bottom: 15px;display:none" id="outNearby" >
+                                <i class="material-icons" style="">reply_all</i>
+                        </div>
+                        <div style="background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    box-shadow: rgb(22, 179, 177) 0px 1px 4px;
+    z-index: 262;
+    margin-top: -60px;
+    cursor: pointer;
+    position: absolute;
+    padding: 8px;
+    background: #fff;
+    color: #16b3b1;
+    font-size: 30px;
+    margin-bottom: 15px;display:none" id="outedit_often" >
+                                <i class="material-icons" style="">reply_all</i>
+                        </div>
         	<div id="marginBox">
            
             <div style="border-bottom: 4px solid rgba(51, 51, 51, 0.21);display:none;"></div>
-            <div id="otherBox">
-            	<div class="pac-item" id="currentPosId">
-                    <span class="material-icons" aria-hidden="true" style="font-size: 2.1em;line-height: .75em; vertical-align: -40%; margin-left: -3px;color: #4285F4;">my_location</span>
-                    <span class="pac-item-query" style="padding: 7px;">
-                        <span class="lng-current-pos pac-matched ">Current position</span>
-                    </span>
+           
+            <div id="otherBox" >
+                <div class="pac-item">
+                <table  width="100%">
+                    <tr  id="currentPosId">
+                        <td width="30">
+                            <span class="material-icons" aria-hidden="true" style="font-size: 2.1em;color: #4285F4;">my_location</span>
+                        </td>
+                        <td width="8px"></td>
+                        <td class="pac-item-query">
+                            <span class="lng-current-pos pac-matched ">Current position</span>
+                        </td>
+                    </tr>
+
+                </table>
                 </div>
-                <div class="pac-item" id="home-place-id" onclick="selectSavePlaceOfften(1,'save');">
-                    <span class="fa fa-home fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
-                    <span class="pac-item-query" style="padding: 7px;">
-                        <span class="lng-home-locat pac-matched ">Home</span>
-                        <!--<div id="text_check_home"></div>-->
-                        <button class="btn btn-xs" id="edit-home_select" style="right: 10px;margin: 3px;width: 1px;position: absolute;background-color: rgba(22, 179, 177, 0.81);display: none;" onclick="selectSavePlaceOfften(1,'edit')">
-                    	<i class="material-icons" style="right: 8px;">edit</i></button>
-                    </span>
+                
+                <div class="pac-item">
+                <table width="100%">
+                    <tr  id="home-place-id">
+                        <td width="30">
+                        <span class="fa fa-home fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
+                        </td>
+                        <td width="8px"></td>
+                        <td class="pac-item-query">
+                            <div class="lng-home-locat pac-matched ">Home</div>
+                        </td>
+                        <td width="50%"  >
+                            <div class="lng-save_home_place"></div>
+                        </td>
+                        <td align="center" width="15" style="color: #000; font-size: 15px;"><span class="numhome"></span></td>
+                        <td  width="30">
+                            <table width="100%">
+                            <tr>
+                                <td>
+                                <i class="material-icons pull-right" id="edit-home_select" onclick="addPlaceOfften(1,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                                </td>
+                            </tr>
+                            <tr id="often_edit_home" style="display:none">
+                                <td>
+                                <i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="selectEditPlaceOfften(1)">edit</i>
+                                </td>
+                            </tr>
+                            </table>
+                            
+                            
+                        </td>
+                        
+                    </tr>
+
+                </table>
                 </div>
-                <div class="pac-item"  id="office-place-id" onclick="selectSavePlaceOfften(2,'save');">
-                    <span class="fa fa-building fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
-                    <span class="pac-item-query" style="padding: 7px;">
-                        <span class="lng-office-locat pac-matched ">Office</span>
-                        <!--<div id="text_check_office"></div>-->
-                    	<button class="btn btn-xs" id="edit-office_select" style="right: 10px;margin: 3px;width: 1px;position: absolute;background-color: rgba(22, 179, 177, 0.81);display: none;" onclick="selectSavePlaceOfften(2,'edit');">
-                    	<i class="material-icons" style="right: 8px;">edit</i></button>
-                    </span>
-                </div> 
-                <div class="pac-item" id="setpinId" onclick="setPinLocation();">
-                    <span class="fa fa-map-pin fa-lg" aria-hidden="true" style="font-size: 2.1em;    margin: 3px;"></span>
-                    <span class="pac-item-query" style="padding: 7px;">
-                        <span class="lng-setpin-locat pac-matched ">Set location on map</span>
-                    </span>
+                
+               
+                <div class="pac-item">
+                <table width="100%">
+                    <tr  id="office-place-id" >
+                        <td width="30">
+                        <span class="fa fa-building fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
+                        </td>
+                        <td width="8px"></td>
+                        <td class="pac-item-query">
+                            <div class="lng-office-locat pac-matched ">Office</div>
+                        </td>
+                        <td width="50%">
+                            <div class="lng-save_Office_place"></div>
+                        </td>
+                        <td align="center" width="15" style="color: #000; font-size: 15px;"><span class="numoffice"></span></td>
+                        <td  width="30">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                                </td>
+                            </tr>
+                            <tr id="often_edit_office" style="display:none">
+                                <td>
+                                <i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="selectEditPlaceOfften(2)">edit</i>
+                                </td>
+                            </tr>
+                            </table> 
+                        </td>
+                        
+                    </tr>
+
+                </table>
                 </div>
-                <div class="pac-item" id="nearbyId">
-                    <span class="fa fa-arrow-right fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
-                    <span class="pac-item-query" style="padding: 7px;">
+                
+                <div class="pac-item">
+                <table width="100%">
+                    <tr  id="regularly-place-id" >
+                        <td width="30">
+                        <i class="material-icons" style="font-size: 2.1em;width:30px">star_rate</i>
+                        
+                        </td>
+                        <td width="8px"></td>
+                        <td class="pac-item-query">
+                            <div class="lng-yes-regularly pac-matched ">regularly</div>
+                        </td>
+                        <td width="50%">
+                            <div class="lng-save_regularly_place" ></div>
+                        </td>
+                        <td align="center" width="15" style="color: #000; font-size: 15px;"><span class="numregular"></span></td>
+                        <td  width="30">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                        <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                                <!-- <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i> -->
+                                </td>
+                            </tr>
+                            <tr id="often_edit_regular" style="display:none">
+                                <td>
+                                <i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="selectEditPlaceOfften(3)">edit</i>
+                                </td>
+                            </tr>
+                            </table>
+                            
+                        </td>
+                        
+                    </tr>
+
+                </table>
+                </div>
+                
+                <div class="pac-item">
+                <table  width="100%">
+                    <tr  id="setpinId" onclick="setPinLocation();">
+                        <td width="30">
+                        <span class="fa fa-map-pin fa-lg" aria-hidden="true" style="font-size: 2.1em;  "></span>
+                        </td>
+                        <td width="8px"></td>
+                        <td class="pac-item-query">
+                        <span class="lng-setpin-locat pac-matched "></span>
+                        </td>
+                    </tr>
+
+                </table>
+                </div>
+                <div class="pac-item">
+                <table  width="100%">
+                    <tr id="nearbyId" >
+                        <td width="30">
+                        <span class="fa fa-arrow-right fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
+                        </td>
+                        <td width="8px"></td>
+                        <td class="pac-item-query">
                         <span class="lng-nearby-locat pac-matched ">Nearby Places</span>
-                    </span>
+                        </td>
+                    </tr>
+
+                </table>
+                </div>
+                
+            </div>
+            <style>
+            #box-placeoften li{
+                list-style: none;
+                padding: 15px;
+                padding-left: 0;
+                margin-bottom: 15px;
+                font-size: 15px;
+                border-radius: 15px;
+                border: 1px solid #777;
+            }
+            #changesetname{
+                border: 1px solid #dfdfdf;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 25px;
+            }
+            #changesetname1{
+                border: 1px solid #dfdfdf;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 25px;
+            }
+            #box_editplaceoften li{
+                list-style: none;
+                padding: 8px 15px;
+                padding-left: 0;
+                margin-bottom: 15px;
+                font-size: 15px;
+                border-radius: 15px;
+                border: 1px solid #777;
+            }
+            .name{
+                padding-left: 15px;
+            }
+            </style>
+            <div id="select_often" style="display:none">
+                <div >
+                    <ul id="box-placeoften" style="margin-top: 15px;
+                    padding: 0 15px;"></ul>
+
                 </div>
             </div>
+            <div id="edit_often" style="display:none">
+                <div >
+                    <ul id="box_editplaceoften" style="margin-top: 15px;
+                    padding: 0 15px;"></ul>
+
+                </div>
+            </div>
+            <style>
+            #edit_often_pop{
+                z-index: 9999;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                /* display: none; */
+            }
+            .edit_often_pop_in{
+                /* height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 90vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .edit_often_pop_ln{
+                padding: 30px;
+            }
+            #newname{
+                border: 1px solid rgb(22, 179, 177);
+                padding: 8px;
+                margin: 8px 0;
+                width: 100%;
+                border-radius: 25px;
+                text-align:center;
+            }
+            #oldname{
+                text-align: center;
+                /* margin-top: 30px; */
+                margin-bottom: 15px;
+                font-size: 16px;
+            }
+            </style>
+            <div id="edit_often_pop" style="display: none;">
+            <div class="edit_often_pop_in">               
+                <div class="edit_often_pop_ln">
+                    <div id="oldname"></div>
+                    <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" >
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <div class="lng-cancel btn-close" style="background-color: #f44336;
+                    width: 100px;
+                    padding: 10px 20px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="btn_close()"></div>
+                    <div class="lng-save" style="    width: 100px;
+                    padding: 10px 20px;
+                    font-size: 15px;
+                    background-color: #4caf50;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;" onclick="btn_save()"></div>
+                    </div>
+                    
+                </div>        
+            
+            </div></div>
+            
             <div id="showNearbyPlace" style="display: none;">
                 <div style="margin: 8px;padding-top: 5px;padding-bottom: 2px;">
+                   
                     <table width="100%">
                         <tr>
-                            <td>
-                                <div style="/*border-top: 1px solid #e6e6e6;*/ font-size: 11px; color: #999;" id="outNearby" >
-                                    <i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>
-                                </div>
-                            </td>
+                            
                             <td>
                             <?php 
                             
@@ -798,15 +1126,7 @@
 									     $type_vale+=1;
 									 }
                                 	?>
-                                   <!-- <option value="">All Types</option>
-                                    <option value="hospital">Hospital</option>
-                                    <option value="store">Store</option>
-                                    <option value="airport">Airport</option>
-                                    <option value="cafe">Cafe</option>
-                                    <option value="spa">Spa</option>
-                                    <option value="bank">Bank</option>
-                                    <option value="department_store">Department Store</option>
-                                    <option value="lodging">Hotel,Resort</option>-->
+                                  
                                 </select>
                             </td>                            
                         </tr>

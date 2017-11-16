@@ -1,5 +1,6 @@
 <?php
-
+header('Access-Control-Allow-Origin: *');
+// if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Often_model extends CI_Model {
 
   public function __construct() {
@@ -15,6 +16,7 @@ class Often_model extends CI_Model {
 	$lat = $this->input->post('lat');
 	$lng = $this->input->post('lng');
 	$place_id = $this->input->post('place_id');
+	$topic = $this->input->post('topic');
 	$current = date('Y-m-d h:i:s a');
 	
 	$data['i_id_user'] = $id;
@@ -23,6 +25,7 @@ class Often_model extends CI_Model {
 	$data['i_place_id'] = $place_id;
 	$data['s_type'] = $this->input->post('type_place');
 	$data['d_last_update'] = $current;
+	$data['topic'] = $topic;
 	 
 	$result = $this->db->insert('ap_location_often', $data);
 	
@@ -33,6 +36,31 @@ class Often_model extends CI_Model {
 	return $array;
 
 	}
+	public function delete_often(){
+		$delte = $this->input->post('id');		 
+		$result = $this->db->where('id', $delte);
+		$result = $this->db->delete('ap_location_often');
+		
+		$array['status']= $result;
+	
+		$array['data']=$data;
+		
+		return $array;
+	
+		}
+		public function edit_often(){
+			$data['topic'] = $this->input->post('topic');		 
+			$id = $this->input->post('id');		 
+			$this->db->where('id', $id);
+			$result = $this->db->update('ap_location_often',$data);
+			
+			$array['status']= $result;
+		
+			$array['data']=$data;
+			
+			return $array;
+		
+			}
 	
 	public function update_often($id){
 	$lat = $this->input->post('lat');
@@ -91,7 +119,7 @@ class Often_model extends CI_Model {
 //      $this->db->select('count(s_type) as count');      
       $this->db->from('ap_location_often');
       $this->db->where('i_id_user',''.$id.'');
-      $this->db->where('i_deleted','0');
+      //$this->db->where('i_deleted','1');
      /* $this->db->group_by("s_type");*/
       $query = $this->db->get();
     if($query->num_rows() > 0) {

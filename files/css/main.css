@@ -41,9 +41,11 @@ body {
 }*/
 
 #boxForAutoCom {
+    /* height: 64vh; */
     width: 100%;
     position: absolute;
-    bottom: 125px;
+    top: 180px;
+    border-radius: 15px;
     display: none;
 }
 #boxForAutoCom:before {
@@ -53,11 +55,11 @@ body {
     height: 0;
     vertical-align: middle;
     content: "";
-    bottom: -10px;
+    top: -11px;
     right: 26px;
     left: auto;
     color: #FFFFFF;
-    border-top: 0.8em solid;
+    border-bottom: 1em solid #ff2828;
     border-right: 0.8em solid transparent;
     border-left: .8em solid transparent;
 }
@@ -444,6 +446,7 @@ a:link {
     padding: 0 !important;
 }
 .box-searchto {
+    margin-top: -5px;
     padding: 0 !important;
 }
 

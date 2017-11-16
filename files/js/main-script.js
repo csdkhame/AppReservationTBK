@@ -485,6 +485,7 @@ $(document).ready(function() {
             $('.box_from').show(500)
             $('#box-car-service').hide();
             $('#map').show(500);
+            $('#current-addr').show(500);
             // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
             //$(this).hide(); 
             //$("#iconhome").fadeIn(1000);
@@ -517,6 +518,7 @@ $(document).ready(function() {
 
     $('.btn-realtime').click(function() {
         reltimeclick = 1;
+        placeRecord();
         //	  $('#selectPlace').show();
         $('#loading').css('display', 'block');
         //       $('#btn-real-res').css('display', 'none');
@@ -1319,6 +1321,7 @@ function sendproto(x){
 function sendValue(x) {
     $('.box_to').show(500);
     $('.box_from').hide(500)
+    $('#current-addr').hide();
     id_placefrom = x;
     pro_from = $('#transferplace' + x).attr('datapro');
     var name = $('#transferplace' + x).attr('dataname');
@@ -1381,6 +1384,7 @@ function sendpaxuse(x) {
     compae1join = [];
     data2 = [];
     ctype = x;
+    
     
     getdataservice = dataUse.car_topic
     console.log(ctype)
@@ -1656,6 +1660,35 @@ function sendpaxuse(x) {
 
 
     });
+    if(x== 2 || x== 17){
+        $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+        
+        );
+        $("#private-btn").css({ "background-color": " #fff", "color": "#16b3b1 " }
+        
+        ); 
+        $('#private-btn').removeClass('active');
+        $('#join-btn').addClass('active');
+        $('#join').show();
+        $('#private').hide();
+       
+        
+    }
+    else{
+        $('#join-btn').css({ "background-color": "#fff", "color": "#16b3b1" }
+        
+        );
+        $("#private-btn").css({ "background-color": " #16b3b1", "color": "#fff " }
+        
+        ); 
+        $('#private-btn').addClass('active');
+        $('#join-btn').removeClass('active');
+        $('#join').hide();
+        $('#private').show();
+        
+    }
+    console.log(getdataservice)
+    console.log(dataRel)
 
 }
 
@@ -2270,9 +2303,10 @@ $(document).ready(function() {
 
 
                     });
-                } else {
-                    $('#product_c').append('<div class="not-found">' + notfound + '</div>');
-                }
+                } 
+                //else {
+                //     $('#product_c').append('<div class="not-found">' + notfound + '</div>');
+                // }
 
 
 
@@ -2762,6 +2796,10 @@ function getAddress(address) {
     $('#lat_from').val(latitude)
     $('#lng_from').val(longitude)
     console.log(addrcurent)
+    $('.box_from').hide()
+    $('#current-addr').hide()
+    $('.box_to').show(500)
+
         // var x = Math.PI * (latitude / 180);
         // var y = Math.PI * (longitude / 180);
         // console.log('Math.PI' + '-' + Math.PI);

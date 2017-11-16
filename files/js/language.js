@@ -157,6 +157,10 @@ $(document).ready(function() {
         $('.lng-plese-login').html('请登录');
         $('.lng-please-select-type').html('請選擇類型');
         $('.lng-a-place').html('请选择上车地点');
+        $('.lng-save').html('保存');
+        $('.lng-yes-regularly').html('常用');
+        
+        
         
 
 
@@ -309,6 +313,10 @@ $(document).ready(function() {
         $('.lng-remark').html('Remark');
         $('.lng-please-select-type').html('	Please select type');
         $('.lng-a-place').html('Please select a place to ride');
+        $('.lng-save').html('Save');
+        $('.lng-yes-regularly').html('Commonly used');
+        
+        
         
         
         
@@ -463,6 +471,10 @@ $(document).ready(function() {
         $('.lng-payment').html('การชำระเงิน');
         $('.lng-plese-login').html('กรุณาเข้าสู่ระบบ');
         $('.lng-remark').html('ข้อสังเกต');
+        $('.lng-save').html('บันทึก');
+        $('.lng-yes-regularly').html('ใช่เป็นประจำ');
+        
+        
 
 
 
@@ -604,6 +616,11 @@ $(document).ready(function() {
         $('.lng-remark').html('Remark');
         $('.lng-please-select-type').html('	Please select type');
         $('.lng-a-place').html('Please select a place to ride');
+        $('.lng-save').html('Save');
+        $('.lng-yes-regularly').html('Commonly used');
+        
+        
+        
         
 
 

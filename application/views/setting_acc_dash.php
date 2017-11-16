@@ -956,7 +956,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                     text-align: center;
                                                     color: #ffffff;
                                                     background-color: #16B3B1;" >
-                                                        <span class="lng-send">Send</span>
+                                                        <span class="lng-save">Send</span>
                                                     </div>
                             </div>
                                                   </div>

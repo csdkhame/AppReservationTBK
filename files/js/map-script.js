@@ -29,8 +29,24 @@ var checkshow = false;
 var datacaedervice,dataRel;
 var dataPlacefrom;
 var dataPlaceto;
+var homecheck = false;
+var officecheck = false;
+var regularcheck = false;
+var sHome =0;
+var sOffice = 0;
+var sRegular = 0;
+var dataHome = [];
+var dataOffice = [];
+var dataRegular = [];
+var DataType = [];
+var changename= '';
+var chTypeplace;
+var id_edit_often;
+var namesend = '';
+
 
 var curentFromTo = '';
+
 if ($.cookie("lng") == 'cn') {
     please_login_txt = "请登录";
     click_save_place_txt = "没有记录 (按保存)";
@@ -38,14 +54,14 @@ if ($.cookie("lng") == 'cn') {
     lng_distance = '距离';
     lng_usetime = '使用时间';
     choose = '选择';
-    $('.lng-home-locat').text('房子');
-    $('.lng-office-locat').text('在工作中');
+    $('.lng-home-locat').text('住家');
+    $('.lng-office-locat').text('办公室');
     $('.lng-setpin-locat').text('在地图上设置位置');
     $('.lng-nearby-locat').text('附近的地方');
     $('.lng-current-pos').text('当前位置');
     success = '成功';
     error = '错误';
-    document.getElementById("current").value = "你的立場...";
+    document.getElementById("current").value = "你的位置...";
 } else if ($.cookie("lng") == 'th') {
     please_login_txt = "กรุณาเข้าสู่ระบบ";
     click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
@@ -54,7 +70,7 @@ if ($.cookie("lng") == 'cn') {
     lng_usetime = 'ใช้เวลา';
     choose = 'เลือก';
     $('.lng-home-locat').text('บ้าน');
-    $('.lng-office-locat').text('ที่ทำงาน');
+    $('.lng-office-locat').text('สำนักงาน');
     $('.lng-setpin-locat').text('ตั้งตำแหน่งบนแผนที่');
     $('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
     success = 'สำเร็จ';
@@ -72,8 +88,11 @@ if ($.cookie("lng") == 'cn') {
     error = 'error';
     document.getElementById("current").value = "Your position...";
     $('.lng-current-pos').text('Current Position');
+    $('.lng-office-locat').text('Office');
+    $('.lng-home-locat').text('House');
     /*$('.lng-home-locat').text('Home');
     $('.lng-office-locat').text('');
+    
     $('.lng-setpin-locat').text('');
     $('.lng-nearby-locat').text('');*/
 } else if ($.cookie("lng") == undefined) {
@@ -90,11 +109,15 @@ if ($.cookie("lng") == 'cn') {
 }
 
 if ($.cookie("login") == undefined) {
-    $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">' + please_login_txt + '</span>');
-    $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">' + please_login_txt + '</span>');
+    $('.lng-save_home_place').html(please_login_txt);
+    $('.lng-save_Office_place').html(please_login_txt);
+    $('.lng-save_regularly_place').html(please_login_txt);
+    
 } else {
-    $('#home-place-id').append('<span class="lng-save_home_place" style="font-weight: 600;">' + click_save_place_txt + '</span>');
-    $('#office-place-id').append('<span class="lng-save_Office_place" style="font-weight: 600;">' + click_save_place_txt + '</span>');
+    $('.lng-save_home_place').html(click_save_place_txt);
+    $('.lng-save_Office_place').html( click_save_place_txt);
+    $('.lng-save_regularly_place').html( click_save_place_txt);
+    
 }
 
 
@@ -114,14 +137,14 @@ function showHeader() {
 
 }
 
-function hideHeader() {
-    $('#sectionsNav').hide();
-    $('#btn-real-res').hide(700);
-    $('.box-menu-select').hide();
+// function hideHeader() {
+//     $('#sectionsNav').hide();
+//     $('#btn-real-res').hide(700);
+//     $('.box-menu-select').hide();
 
-    $('#to-remove-class').removeClass();
-    // $('#search-raeltime').css('margin-top', '0px');
-}
+//     $('#to-remove-class').removeClass();
+//     // $('#search-raeltime').css('margin-top', '0px');
+// }
 
 function outSearchRealtime() {
 
@@ -164,6 +187,8 @@ $('.box_option').click(function(){
 
     
 })
+
+
 $('#search-raeltime input').focus(function() {
     //alert('aaaaaa')
     $('#boxForAutoCom').hide(500)
@@ -185,7 +210,7 @@ $('#search-raeltime input').focus(function() {
     $('.typerel').remove();
 
     $('#to-remove-class').removeClass();
-    $('#sectionsNav').hide();
+    // $('#sectionsNav').hide();
 
     // $("#search-raeltime").animate({
     //     marginTop: "0px"
@@ -240,15 +265,62 @@ $('#search-raeltime input').focus(function() {
     end = null;
     //    $('#btn_CurrentLocation').show(700);
 });
+/********************************* */
+/*************input from to ****** */
+/********************************* */
+$('#current').keyup(function() {
+    
+    inputcheck = document.getElementById("current");
+    //var 
+    console.log(inputcheck.value)
+    if(inputcheck.value == ''){
+        $('#boxForAutoCom').show(500)
+    }
+    else{
+        $('#boxForAutoCom').hide(500)
+    }
+});
+
+$('#pac-input').keyup(function() {
+    
+    inputcheck2 = document.getElementById("pac-input");
+    //var 
+    console.log(inputcheck2.value)
+    if(inputcheck.value == ''){
+        $('#boxForAutoCom').show(500)
+    }
+    else{
+        $('#boxForAutoCom').hide(500)
+    }
+});
+$("#pac-input").click(function() {
+    $('#boxForAutoCom').show(500)
+});
+
 
 $("#nearbyId").click(function() {
     $('#otherBox').hide();
-    $('#showNearbyPlace').show(250);
+    $('#outNearby').show(500)
+    $('#showNearbyPlace').show(500);
 });
 
 $("#outNearby").click(function() {
+    $(this).hide(500)
     $('#showNearbyPlace').hide();
-    $('#otherBox').show(250);
+    $('#otherBox').show(500);
+
+});
+$("#outselect_often").click(function() {
+    $(this).hide(500)
+    $('#select_often').hide();
+    $('#otherBox').show(500);
+
+});
+$("#outedit_often").click(function() {
+    $(this).hide(500)
+    $('#edit_often').hide();
+    $('#otherBox').show(500);
+    placeRecord();
 
 });
 
@@ -446,7 +518,16 @@ function a(map) {
         document.getElementById("current").value = "";
         start = null;
         console.log(start);
+        $('#boxForAutoCom').show(500)
     });
+    // var inputStart = document.getElementById("current");
+    // inputStart.addEventListener('change', function() {
+    //    if(inputStart.value != ''){
+        
+    //    }
+        
+    // });
+    
 
 
     /************************************************************************ */
@@ -1589,7 +1670,11 @@ function eventPlace(lat, lng, placeName) {
 
 }
 
+
 function placeRecord() {
+    dataHome = [];
+    dataOffice = [];
+    dataRegular = [];
     var id = $.cookie("login");
 
     $.post("my_place_often/place_often", { "id": id }, function(results) {
@@ -1599,47 +1684,250 @@ function placeRecord() {
         } else {
             if (results) {
                 var obj = JSON.parse(results);
-                //                console.log(obj);
-
-                $.each(obj, function(key, data) {
+                               console.log(obj);
+                $.each(obj, function(i, val) {
+                            if (obj[i].s_type == '1') {
+                            dataHome.push(obj)
+                            
+                            }
+                            if (obj[i].s_type == '2') {
+                            dataOffice.push(obj)
+                            
+                            }
+                            if (obj[i].s_type == '3') {
+                            dataRegular.push(obj)                            
+                            
+                            }
+                        });
+                $.each(obj, function(i, data) {
 
                     var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
                     $.post(url, function(data_place) {
                         console.log(data_place);
+                        if(dataHome.length == 1){
+                            $('.lng-save_home_place').attr('onclick', 'selectMyPlace(1,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
+                            $('.lng-save_Office_place').html(data_place.results[0].formatted_address)
+                            
+                            $('#often_edit_home').show()
+                             
+                                                    
+                         }
+                         else if(dataHome.length == 0){
+                            $('.lng-save_home_place').attr('onclick', 'addPlaceOfften(2,"edit")');
+                            $('.lng-save_home_place').html(click_save_place_txt);
+                            $('#often_edit_home').hide()
+                            
+                             
+                         }
+                         else{
+                             $('.lng-save_home_place').attr('onclick', 'selectSavePlaceOfften(1)');
+                             $('#often_edit_home').show()
+                             
+                         }
+                         if(dataOffice.length == 1){
+                            
+                             $('.lng-save_Office_place').attr('onclick', 'selectMyPlace(2,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
+                             $('.lng-save_Office_place').html(data_place.results[0].formatted_address)
+                             $('#often_edit_office').show()
+                                              
+                         }
+                         else if(dataOffice.length == 0){
+                            $('.lng-save_Office_place').attr('onclick', 'addPlaceOfften(2,"edit")');
+                           
+                            $('.lng-save_Office_place').html( click_save_place_txt);
+                            $('#often_edit_office').hide()
+                             
+                         }
+                         else{
+                             $('.lng-save_Office_place').attr('onclick', 'selectSavePlaceOfften(2)');
+                             $('#often_edit_office').show()
+                             
+                             
+                         }
+                         if(dataRegular.length == 1){
+                            
+                             $('.lng-save_regularly_place').attr('onclick', 'selectMyPlace(3,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
+                             $('.lng-save_Office_place').html(data_place.results[0].formatted_address)
+                             
+                             $('#often_edit_home').show()
+                            
+                                                
+                             
+                         }
+                         else if(dataRegular.length == 0){
+                            $('.lng-save_regularly_place').attr('onclick', 'addPlaceOfften(3,"edit")');
+                           
+                            $('.lng-save_regularly_place').html( click_save_place_txt);
+                            $('#often_edit_home').hide()
+                             
+                         }
+                         else{
+                             $('.lng-save_regularly_place').attr('onclick', 'selectSavePlaceOfften(3)');
+                            $('#often_edit_home').show()
+                            
+                         }
 
                         if (data.s_type == '1') {
+                           
+                            homecheck = true;
+                            // $('#home-place-id').attr('onclick', 'selectMyPlace(1,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
 
-                            $('#home-place-id').attr('onclick', 'selectMyPlace(1,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
-
-                            $('.lng-save_home_place').html('<span class="lng-save_home_place" style="font-weight: 600;">' + data_place.results[0].formatted_address + '</span>');
+                            $('.lng-save_home_place').html(data_place.results[0].formatted_address);
                             $('#edit-home_select').show();
+                            $('#often_edit_home').show();
+                            
                         }
                         if (data.s_type == '2') {
-
-                            $('#office-place-id').attr('onclick', 'selectMyPlace(2,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
+                            
+                            officecheck = true;
+                            // $('#office-place-id').attr('onclick', 'selectMyPlace(2,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
                             //		                       
-                            $('.lng-save_Office_place').html('<span class="lng-save_Office_place" style="font-weight: 600;">' + data_place.results[0].formatted_address + '</span>');
+                            $('.lng-save_Office_place').html( data_place.results[0].formatted_address );
                             $('#edit-office_select').show();
+                            $('#often_edit_office').show();
                         }
+                        if (data.s_type == '3') {
+                            
+                            regularcheck = true;
+                            $('#often_edit_regular').show();
+                            // $('#regularly-place-id').attr('onclick', 'selectMyPlace(3,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
+                                //		                       
+                            $('.lng-save_regularly_place').html(data_place.results[0].formatted_address);
+                            $('#edit_regularly_select').show();
+                        }
+                        
+                        
+                        
+                        
+
+                        //if(homecheck == true){}
                     });
                 });
+                console.log(dataHome)
+                console.log(dataOffice)
+                console.log(dataRegular)
+                // console.log(sHome)
+                // console.log(sOffice)
+                // console.log(sRegular)
+                console.log(dataHome.length)
+                console.log(dataOffice.length)
+                console.log(dataRegular.length)
+                $('.numhome').html( '(' + dataHome.length + ')' );
+                $('.numoffice').html( '(' + dataOffice.length + ')' );
+                $('.numregular').html( '(' + dataRegular.length + ')' );
+                
 
             }
         }
 
     });
 }
+/************************** */
+//change set name
+/****************************/ 
+$(document).ready(function() {
+$('#changesetname').on('input', function(){
+    alert(document.getElementById('changesetname').value);
+});
+$('#changesetname1').on('input', function(){
+    alert(document.getElementById('changesetname1').value);
+});
+});
+// $('#changesetname').keyup(function() {
+    
+//     inputcheck2 = $('#changesetname').value;
+//     //var 
+//     console.log(inputcheck)
+//     changename = inputcheck2
+    
+// });
+// $('#changesetname1').keyup(function() {
+    
+//     inputcheck3 = inputcheck = $('#changesetname1').value;
+//     //var 
+//     console.log(inputcheck3)
+//     changename = inputcheck3
+    
+// });
+function changesetname(changesetname) {
+    // if(document.getElementById('changesetname').value == undefined){
+    //     changename = document.getElementById('changesetname1').value;
+    // }
+    // else{
+    //     changename = document.getElementById('changesetname').value; 
+    // }
+    changename = document.getElementById('changesetname').value; 
+    console.log(changename)
 
-function selectSavePlaceOfften(type_place, type_call) {
+    
+}
+function changesetname2(changesetname) {
+    // if(document.getElementById('changesetname').value == undefined){
+    //     changename = document.getElementById('changesetname1').value;
+    // }
+    // else{
+    //     changename = document.getElementById('changesetname').value; 
+    // }
+    changename = document.getElementById('changesetname1').value; 
+    console.log(changename)
 
+    
+}
+function addPlaceOfften(type_place,type_call) {
     if ($.cookie("login") == undefined) {
 
-        return;
-    } else {
+        $('#loading').css('display', 'block');
+        setTimeout(function() {
 
+            window.location.href = base_url + "register";
+        }, 500);
+        $('#often_edit_home').hide()
+        $('#often_edit_office').hide()
+        $('#often_edit_regular').hide()
+    } else {
+        markerPlaceOfften.setMap(map);
+        //marker2.setVisible(false);
+
+        markerPlaceOfften.setVisible(true);
+        var newPos2 = {
+                        lat: lat_f,
+                        lng: lng_f
+                    };
+            
+                    markerPlaceOfften.setPosition(newPos2);
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_f + ',' + lng_f + '&sensor=true&language=' + lang_to_map;
+        
+                    $.post(url, function(data) {
+                        console.log(data);
+                        infowindow.close();
+                        infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                        infowindow.open(map, markerPlaceOfften);
+        //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
+        
+                    });
+// google.maps.event.addListener(map, 'center_changed', function() {
+//         Newlat = map.getCenter().lat();
+//         Newlng = map.getCenter().lng();
+//         var newPos = {
+//             lat: Newlat,
+//             lng: Newlng
+//         };
+
+//         markerPlaceOfften.setPosition(newPos);
+//         console.log(newPos);
+//         url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Newlat + ',' + Newlng + '&sensor=true&language=' + lang_to_map;
+
+//         $.post(url, function(data) {
+//             console.log(data);
+//             //            infowindow.close();
+//             var addr = data.results[0].formatted_address;
+//             infowindow.setContent('<div id="setmap">' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: rgb(22, 179, 177);" onclick="selectMyPlace(3,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div>');
+//             infowindow.open(map, markerPlaceOfften);
+//         });
+//     });
         if (type_call == "save") {
             type_call = 1;
-            var btn_color = "btn-danger";
+            var btn_color = "btn-success";
             if ($.cookie("lng") == 'cn') {
                 txt_save = "记录";
             } else if ($.cookie("lng") == 'th') {
@@ -1651,23 +1939,36 @@ function selectSavePlaceOfften(type_place, type_call) {
             }
         } else if (type_call == "edit") {
             type_call = 2;
-            var btn_color = "btn-warning";
+            var btn_color = "btn-success";
+            // if ($.cookie("lng") == 'cn') {
+            //     txt_save = "更新";
+            // } else if ($.cookie("lng") == 'th') {
+            //     txt_save = "อัพเดท";
+            // } else if ($.cookie("lng") == 'en') {
+            //     txt_save = "Update";
+            // } else if ($.cookie("lng") == undefined) {
+            //     txt_save = "Update";
+            // }
             if ($.cookie("lng") == 'cn') {
-                txt_save = "更新";
+                txt_save = "记录";
+                set_name = '集名称';
             } else if ($.cookie("lng") == 'th') {
-                txt_save = "อัพเดท";
+                txt_save = "บันทึก";
+                set_name = 'ตั้งชื่อ';
             } else if ($.cookie("lng") == 'en') {
-                txt_save = "Update";
+                txt_save = "Record";
+                set_name = 'Set name';
             } else if ($.cookie("lng") == undefined) {
-                txt_save = "Update";
+                txt_save = "Record";
+                set_name = 'Set name';
             }
         }
-        hideHeader();
+        //hideHeader();
         $('#boxForAutoCom').hide();
         $('#clear-all').show(500);
         $('#map').show();
         infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
-        $('#search-raeltime').hide(700);
+        $('#search-raeltime').hide(500);
         $('#btn_CurrentLocation').show(500);
         markerPlaceOfften.setMap(map);
         //marker2.setVisible(false);
@@ -1678,6 +1979,7 @@ function selectSavePlaceOfften(type_place, type_call) {
         var url;
         var Newlat;
         var Newlng;
+        $(this).trigger('center_changed');
         google.maps.event.addListener(map, 'center_changed', function() {
             Newlat = map.getCenter().lat();
             Newlng = map.getCenter().lng();
@@ -1693,14 +1995,432 @@ function selectSavePlaceOfften(type_place, type_call) {
             $.post(url, function(data) {
                 console.log(data);
                 infowindow.close();
-                infowindow.setContent('<div>' + data.results[0].formatted_address + '</div><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname" name="changesetname"  onchange="changesetname(changesetname)" placeholder="'+set_name+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
                 infowindow.open(map, markerPlaceOfften);
-
+//<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
 
             });
 
         });
     }
+}
+function Klsetname(){
+    //alert('aaaa')
+    //$('#setmap').attr('<input id="changesetname" type="text">');
+    $('#changesetname').show();
+}
+function selectSavePlaceOfften(type_place) {
+    $('#select_often').show(500)
+    $('#otherBox').hide()
+    $('#outselect_often').show(500)
+    $('.placeoften').remove();
+    DataType = [];
+    
+    var id = $.cookie("login");
+    var placeoften;
+    $.post("my_place_often/place_often", { "id": id }, function(results) {
+
+        if (results === 'false') {
+
+        } else {
+            if (results) {
+                var obj = JSON.parse(results);
+                               console.log(obj);
+                $.each(obj, function(i, data) {
+                 
+                        if (data.s_type == type_place) { //1
+                            console.log(data.s_type)
+                            console.log(data.topic)
+                            var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
+                            if(data.topic != ''){
+
+                                $('#box-placeoften').append('<li class="placeoften" id="placeoften' + data.id + '"onclick="selectMyPlace('+type_place+',\'' + data.topic + '\',' + data.i_lat + ',' + data.i_lng + ');"><i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data.topic + '</span></div></li>');
+                             
+                            }
+                            else{
+                                $.post(url, function(data_place) {
+                                    console.log(data_place);
+                                 //DataType.push(obj)
+                                 $('#box-placeoften').append('<li class="placeoften" id="placeoften' + data.id + '"onclick="selectMyPlace('+type_place+',\'' + data_place.results[0].formatted_address + '\',' + data.i_lat + ',' + data.i_lng + ');"><i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span></div></li>');
+                                console.log(placeoften)
+                                });
+                            }
+                            
+                         }
+                        //  if (obj[i].s_type == type_place) {//2
+                        //      //DataType.push(obj)
+                        //      placeoften += '<li class="placeoften" id="placeoften' + obj[i].id + '"onclick="sendValue(\'' + obj[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;    font-size: 30px; color: #16b3b1;">add_location</i><div style="margin-left: 40px;"><span class="name">' +data_place.results[0].formatted_address + '</span></div></li>'
+                             
+                         
+                        //  }
+                        //  if (obj[i].s_type == type_place) {//3
+                        //      //DataType.push(obj) 
+                        //      placeoften += '<li class="placeoften" id="placeoften' + obj[i].id + '"onclick="sendValue(\'' + obj[i].id + '\');"><i class="material-icons " style="float: left; margin-right: 15px;    font-size: 30px; color: #16b3b1;">add_location</i><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span></div></li>'
+                             
+                         
+                        //  }
+                    
+                            
+                        });
+                        console.log(placeoften)
+                        $('#box-placeoften').html(placeoften)
+                        
+                // $.each(obj, function(i, data) {
+
+                //     var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
+                //     $.post(url, function(data_place) {
+                //         console.log(data_place);
+                       
+
+                //         if (data.s_type == '1') {
+                           
+                           
+                //             // $('#home-place-id').attr('onclick', 'selectMyPlace(1,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
+
+                //            // $('.lng-save_home_place').html(data_place.results[0].formatted_address);
+                //            // $('#edit-home_select').show();
+                //         }
+                //         if (data.s_type == '2') {
+                            
+                            
+                //             // $('#office-place-id').attr('onclick', 'selectMyPlace(2,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
+                //             //		                       
+                //             //$('.lng-save_Office_place').html( data_place.results[0].formatted_address );
+                //             //$('#edit-office_select').show();
+                //         }
+                //         if (data.s_type == '3') {
+                            
+                           
+                //             // $('#regularly-place-id').attr('onclick', 'selectMyPlace(3,"' + data_place.results[0].formatted_address + '",' + data.i_lat + ',' + data.i_lng + ')');
+                //                 //		                       
+                //             //$('.lng-save_regularly_place').html(data_place.results[0].formatted_address);
+                //             //$('#edit_regularly_select').show();
+                //         }
+                        
+                        
+                        
+
+                //         //if(homecheck == true){}
+                //     });
+                // });
+                // console.log(dataHome)
+                // console.log(dataOffice)
+                // console.log(dataRegular)
+                // // console.log(sHome)
+                // // console.log(sOffice)
+                // // console.log(sRegular)
+                // console.log(dataHome.length)
+                // console.log(dataOffice.length)
+                // console.log(dataRegular.length)
+                // $('.numhome').html( '(' + dataHome.length + ')' );
+                // $('.numoffice').html( '(' + dataOffice.length + ')' );
+                // $('.numregular').html( '(' + dataRegular.length + ')' );
+
+            }
+        }
+
+    });
+    // if ($.cookie("login") == undefined) {
+
+    //     return;
+    // } else {
+
+    //     if (type_call == "save") {
+    //         type_call = 1;
+    //         var btn_color = "btn-success";
+    //         if ($.cookie("lng") == 'cn') {
+    //             txt_save = "记录";
+    //         } else if ($.cookie("lng") == 'th') {
+    //             txt_save = "บันทึก";
+    //         } else if ($.cookie("lng") == 'en') {
+    //             txt_save = "Record";
+    //         } else if ($.cookie("lng") == undefined) {
+    //             txt_save = "Record";
+    //         }
+    //     } else if (type_call == "edit") {
+    //         type_call = 2;
+    //         var btn_color = "btn-success";
+    //         // if ($.cookie("lng") == 'cn') {
+    //         //     txt_save = "更新";
+    //         // } else if ($.cookie("lng") == 'th') {
+    //         //     txt_save = "อัพเดท";
+    //         // } else if ($.cookie("lng") == 'en') {
+    //         //     txt_save = "Update";
+    //         // } else if ($.cookie("lng") == undefined) {
+    //         //     txt_save = "Update";
+    //         // }
+    //         if ($.cookie("lng") == 'cn') {
+    //             txt_save = "记录";
+    //         } else if ($.cookie("lng") == 'th') {
+    //             txt_save = "บันทึก";
+    //         } else if ($.cookie("lng") == 'en') {
+    //             txt_save = "Record";
+    //         } else if ($.cookie("lng") == undefined) {
+    //             txt_save = "Record";
+    //         }
+    //     }
+    //     //hideHeader();
+    //     $('#boxForAutoCom').hide();
+    //     $('#clear-all').show(500);
+    //     $('#map').show();
+    //     infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
+    //     $('#search-raeltime').hide(700);
+    //     $('#btn_CurrentLocation').show(500);
+    //     markerPlaceOfften.setMap(map);
+    //     //marker2.setVisible(false);
+
+    //     markerPlaceOfften.setVisible(true);
+    //     /*       markerPlaceOfften.setPosition(pos);
+    //            console.log(pos);*/
+    //     var url;
+    //     var Newlat;
+    //     var Newlng;
+    //     google.maps.event.addListener(map, 'center_changed', function() {
+    //         Newlat = map.getCenter().lat();
+    //         Newlng = map.getCenter().lng();
+    //         var newPos = {
+    //             lat: Newlat,
+    //             lng: Newlng
+    //         };
+
+    //         markerPlaceOfften.setPosition(newPos);
+    //         console.log(newPos);
+    //         url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Newlat + ',' + Newlng + '&sensor=true&language=' + lang_to_map;
+
+    //         $.post(url, function(data) {
+    //             console.log(data);
+    //             infowindow.close();
+    //             infowindow.setContent('<div>' + data.results[0].formatted_address + '</div><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+    //             infowindow.open(map, markerPlaceOfften);
+
+
+    //         });
+
+    //     });
+    // }
+   
+
+}
+function newname(newname) {
+    
+    namesend = document.getElementById('newname').value; 
+    console.log(namesend)
+
+    
+}
+function btn_save(){
+    //$('#loading').show();
+    console.log(id_edit_often)
+    DataType = [];
+    $('.placeeditften').remove()
+    
+    var iduser = $.cookie("login");
+    $.post("my_place_often/edit", { "id": id_edit_often,"topic": namesend }, function(results) {
+        console.log(results)
+        if (results === 'false') {
+
+        } else {
+           
+        
+   
+                $.post("my_place_often/place_often", { "id": iduser }, function(results) {
+                    
+                            if (results === 'false') {
+                    
+                            } else {
+                                if (results) {
+                                    $('#loading').hide();
+                                    var obj = JSON.parse(results);
+                                                   console.log(obj);
+                                    $.each(obj, function(i, data) {
+                                     
+                                            if (data.s_type == chTypeplace) { //1
+                                                console.log(data.s_type)
+                                                console.log(data.topic)
+                                                var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
+                                                if(data.topic != ''){
+                    
+                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">' + data.topic + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
+                                                 //<i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i>
+                                                }
+                                                else{
+                                                    $.post(url, function(data_place) {
+                                                        console.log(data_place);
+                                                     //DataType.push(obj)
+                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">'  + data_place.results[0].formatted_address + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
+                                                    
+                                                    //  $('#box_editplaceoften').append('<li class="placeoften" id="placeoften' + data.id + '"><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span><i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="editMyPlace('+type_place+',\'' + data.topic + '\');">edit</i><i class="material-icons pull-right" style="color: #f44336; font-weight: 700; line-height: inherit;" onclick="deleteMyPlace(' + data.id + ');">delete</i></div></li>');
+                                                    //console.log(placeoften)
+                                                    });
+                                                }
+                                                
+                                             }
+                                       
+                                                
+                                            });
+                                            $('#edit_often_pop').hide(500)
+                                          
+                                  
+                    
+                                }
+                            }
+                    
+                        });
+              
+
+           
+        }
+
+    });
+}
+function btn_close(){
+    $('#edit_often_pop').hide(500)
+}
+function editMyPlace(x,text,lat,lng){
+    console.log(text)
+    if(text == ''){
+        var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&sensor=true&language=' + lang_to_map;
+       
+        
+            $.post(url, function(data_place) {
+                console.log(data_place);
+            
+             $('#oldname').html(data_place.results[0].formatted_address)
+            
+            });
+        
+    }
+    else{
+        $('#oldname').html(text)
+    }
+
+    $('#edit_often_pop').show(500)
+    
+    id_edit_often = x;
+    
+}
+function selectEditPlaceOfften(type_place) {
+    chTypeplace = type_place;
+    $('#edit_often').show(500)
+    $('#otherBox').hide()
+    $('#outedit_often').show(500)
+    $('.placeeditften').remove();
+    
+    $('#select_often').hide()
+    DataType = [];
+    
+    var id = $.cookie("login");
+    var placeoften;
+    $.post("my_place_often/place_often", { "id": id }, function(results) {
+
+        if (results === 'false') {
+
+        } else {
+            if (results) {
+                var obj = JSON.parse(results);
+                               console.log(obj);
+                $.each(obj, function(i, data) {
+                 
+                        if (data.s_type == type_place) { //1
+                            console.log(data.s_type)
+                            console.log(data.topic)
+                            var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
+                            if(data.topic != ''){
+
+                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">' + data.topic + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
+                             //<i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i>
+                            }
+                            else{
+                                $.post(url, function(data_place) {
+                                    console.log(data_place);
+                                 //DataType.push(obj)
+                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">'  + data_place.results[0].formatted_address + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
+                                
+                                //  $('#box_editplaceoften').append('<li class="placeoften" id="placeoften' + data.id + '"><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span><i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="editMyPlace('+type_place+',\'' + data.topic + '\');">edit</i><i class="material-icons pull-right" style="color: #f44336; font-weight: 700; line-height: inherit;" onclick="deleteMyPlace(' + data.id + ');">delete</i></div></li>');
+                                console.log(placeoften)
+                                });
+                            }
+                            
+                         }
+                   
+                            
+                        });
+                        console.log(placeoften)
+                        $('#box-placeoften').html(placeoften)
+              
+
+            }
+        }
+
+    });
+   
+   
+
+}
+function deleteMyPlace(id,type_place) {
+   $('#loading').show();
+    DataType = [];
+    $('.placeeditften').remove()
+    
+    var iduser = $.cookie("login");
+    $.post("my_place_often/delete", { "id": id }, function(results) {
+        console.log(results)
+        if (results === 'false') {
+
+        } else {
+           
+        
+   
+                $.post("my_place_often/place_often", { "id": iduser }, function(results) {
+                    
+                            if (results === 'false') {
+                    
+                            } else {
+                                if (results) {
+                                    $('#loading').hide();
+                                    var obj = JSON.parse(results);
+                                                   console.log(obj);
+                                    $.each(obj, function(i, data) {
+                                     
+                                            if (data.s_type == type_place) { //1
+                                                console.log(data.s_type)
+                                                console.log(data.topic)
+                                                var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
+                                                if(data.topic != ''){
+                    
+                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">' + data.topic + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+type_place+');">delete</i></td></tr></table></div></li>');
+                                                 //<i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i>
+                                                }
+                                                else{
+                                                    $.post(url, function(data_place) {
+                                                        console.log(data_place);
+                                                     //DataType.push(obj)
+                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">'  + data_place.results[0].formatted_address + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+type_place+');">delete</i></td></tr></table></div></li>');
+                                                    
+                                                    //  $('#box_editplaceoften').append('<li class="placeoften" id="placeoften' + data.id + '"><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span><i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="editMyPlace('+type_place+',\'' + data.topic + '\');">edit</i><i class="material-icons pull-right" style="color: #f44336; font-weight: 700; line-height: inherit;" onclick="deleteMyPlace(' + data.id + ');">delete</i></div></li>');
+                                                    //console.log(placeoften)
+                                                    });
+                                                }
+                                                
+                                             }
+                                       
+                                                
+                                            });
+                                          
+                                  
+                    
+                                }
+                            }
+                    
+                        });
+              
+
+           
+        }
+
+    });
+   
+   
 
 }
 
@@ -1764,41 +2484,109 @@ function createAllMarker() {
 }
 
 function savePlaceOften(type_call, lat, lng, place_id, type_place) {
-    if (type_call == 1) {
-        var url_placeoften = 'https://welovetaxi.com/app/booking/my_place_often/save';
-        console.log(url_placeoften);
-        $.post(url_placeoften, { lat: lat, lng: lng, place_id: place_id, type_place: type_place }, function(results) {
-            var obj = JSON.parse(results);
-            console.log(obj.status);
-            if (obj.status == true) {
+    var getname;
+ //alert(changename)
+    // if (type_call == 1) {
+        //var url_placeoften = '';
+        // console.log($('#changesetname').value);
+        // console.log($('#changesetname1').value);
+        // if($('#changesetname1').value == '' || $('#changesetname1').value == undefined){
+        //     getname = $('#changesetname').value
+        // }
+        // else{
+        //     getname = $('#changesetname1').value
+            
+        // }
+        console.log(changename)
+        
+        var datasend = {
+            "lat": lat,
+            "lng": lng,
+            "place_id": place_id,
+            "type_place": type_place,
+            "login": $.cookie("login"),
+            "topic": changename
+            
+        };
+        console.log(datasend)
+        $.ajax({
+            type: 'POST',
+            url: 'https://welovetaxi.com/app/booking/my_place_often/save',
+            data: datasend,
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+                $('#changesetname').val('');
+                $('#changesetname1').val('');
 
+
+        // $.post(url_placeoften, { lat: lat, lng: lng, place_id: place_id, type_place: type_place },
+        //     function(results) {
+        //     var obj = JSON.parse(results);
+        //     console.log(obj.status);
+            if (data.status == true) {
+                //placeRecord();
                 swal('' + success + '', "", "success");
                 resetMap();
                 placeRecord();
             } else {
                 swal('' + error + '', "", "success");
             }
+        }
         });
-    } else if (type_call == 2) {
-        var url_placeoften = 'https://welovetaxi.com/app/booking/my_place_often/update';
-        console.log(url_placeoften);
-        $.post(url_placeoften, { lat: lat, lng: lng, place_id: place_id, type_place: type_place }, function(results) {
-            var obj = JSON.parse(results);
-            console.log(results);
-            if (obj.status == true) {
-                swal('' + success + '', "", "success");
-                resetMap();
-                placeRecord();
-            } else {
-                swal('' + error + '', "", "success");
-            }
-        });
-    }
+    // } else if (type_call == 2) {
+
+
+
+    //     var datasend2 = {
+    //         "lat": lat,
+    //         "lng": lng,
+    //         "place_id": place_id,
+    //         "type_place": type_place,
+    //         "login": $.cookie("login")
+            
+    //     };
+    //     console.log(datasend2)
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'https://welovetaxi.com/app/booking/my_place_often/update',
+    //         data: datasend2,
+    //         //contentType: "application/json",
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             console.log(data)
+    //             //var obj = JSON.parse(data);
+    //             // console.log(data.status)
+    //     //var url_placeoften = '';
+    //     //console.log(url_placeoften);
+    //     //$.post(url_placeoften, { lat: lat, lng: lng, place_id: place_id, type_place: type_place }, function(results) {
+    //         //var obj = JSON.parse(results);
+    //         //console.log(results);
+    //         if (data.status == true) {
+    //             swal('' + success + '', "", "success");
+    //             resetMap();
+    //             placeRecord();
+    //         } else {
+    //             swal('' + error + '', "", "success");
+    //         }
+    //     }
+    //     });
+    // }
 }
 
-function selectMyPlace(type_place, txtAdd, latti, lngti) {
-    //    console.log($(this).is(':focus'));
+function selectMyPlace(type_place,txtAdd, latti, lngti) {
+    console.log(type_place);
+    //document.getElementById('changesetname').value
     //    alert(txtAdd);
+    var getplace;
+    var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latti + ',' +lngti + '&sensor=true&language=' + lang_to_map;
+    $.post(url, function(data_place) {
+        console.log(data_place);
+        getplace = data_place.results[0].formatted_address;
+    
+    });
+                        
     if($('#boxRealtimeto').css('display') == 'none'){
         curentFromTo = 'From';
     }
@@ -1820,7 +2608,7 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
         google.maps.event.clearListeners(map, 'center_changed');
         //        google.maps.event.clearListeners(map, 'dragend');
         showHeader();
-        $('#search-raeltime').show(700);
+        $('#search-raeltime').show(500);
         $('#clear-all').hide(500);
         $('#show-hide-pro2').hide(500);
         outSearchRealtime();
@@ -1853,7 +2641,7 @@ function selectMyPlace(type_place, txtAdd, latti, lngti) {
     else if(curentFromTo == 'To'){
         console.log('in case to')
 
-        $('#pac-input').val(txtAdd);
+        $('#pac-input').val(getplace);
         end = {
             lat: parseFloat(latti),
             lng: parseFloat(lngti)
@@ -1953,11 +2741,33 @@ console.log(lng_f)
 }
 
 function setPinLocation() {
-
-    hideHeader();
+    //alert('asasas')
+    //hideHeader();
     checkshow = false;
+    markerPlaceOfften.setMap(map);
+    //marker2.setVisible(false);
+
+    markerPlaceOfften.setVisible(true);
+    var newPos2 = {
+                    lat: lat_f,
+                    lng: lng_f
+                };
+        
+                markerPlaceOfften.setPosition(newPos2);
+    url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_f + ',' + lng_f + '&sensor=true&language=' + lang_to_map;
+    
+                $.post(url, function(data) {
+                    console.log(data);
+                    infowindow.close();
+                    infowindow.setContent('<div>' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: rgb(22, 179, 177);" onclick="selectMyPlace(3,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div>');
+                    infowindow.open(map, markerPlaceOfften);
+    //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
+    
+                });
     $('#boxForAutoCom').hide();
     $('#clear-all').show(500);
+    $('#outNearby').show(500);
+    
     $('#map').show();
     infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
     $('#search-raeltime').hide(700);
