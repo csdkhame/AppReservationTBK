@@ -23,6 +23,8 @@
         $depart_store = "Department Store";
         $h_r = "Hotel,Resort";
         $newname = 'New name';
+        $phoneplace = 'Phone';
+        
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -46,6 +48,7 @@
         $depart_store = "Department Store";
         $h_r = "Hotel,Resort";
         $newname = 'New name';
+        $phoneplace = 'Phone';
         
     }
     else if($_COOKIE['lng'] == 'th'){
@@ -70,6 +73,7 @@
         $depart_store = "Department Store";
         $h_r = "Hotel,Resort";
         $newname = 'ชื่อใหม่';
+        $phoneplace = 'โทรศัพท์';
         
     }
     else if($_COOKIE['lng'] == 'cn'){
@@ -95,6 +99,8 @@
         $depart_store = "Department Store";
         $h_r = "Hotel,Resort";
         $newname = '新名称';
+        $phoneplace = '电话';
+        
         
        
     }
@@ -1041,6 +1047,7 @@
                 <div class="edit_often_pop_ln">
                     <div id="oldname"></div>
                     <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" >
+                    <input type="text" class="textInput" placeholder="<? echo $phoneplace;?>" id="phoneplace" name="phoneplace" onchange="phoneplace(phoneplace)" >
                     
                     <div style="text-align: center;
                     margin-top: 25px;">
@@ -1300,7 +1307,7 @@
                 pointer-events: none;
             }
             .edit_pin_pop_in{
-                height: 220px; */
+               /* height: 220px; */
                 /* border-radius: 4px; */
                 background: #fff;
                 min-width: 80vw;
@@ -1317,6 +1324,14 @@
                 pointer-events: auto;
             }
             #newname{
+                border: 1px solid rgb(22, 179, 177);
+                padding: 8px;
+                margin: 8px 0;
+                width: 100%;
+                border-radius: 25px;
+                text-align:center;
+            }
+            #phoneplace{
                 border: 1px solid rgb(22, 179, 177);
                 padding: 8px;
                 margin: 8px 0;
