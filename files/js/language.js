@@ -159,6 +159,10 @@ $(document).ready(function() {
         $('.lng-a-place').html('请选择上车地点');
         $('.lng-save').html('保存');
         $('.lng-yes-regularly').html('常用');
+        $('.lng_position').html('你的位置正确吗？');
+        $('.lng_find_again').html('再次查找');
+        
+        
         
         
         
@@ -315,6 +319,10 @@ $(document).ready(function() {
         $('.lng-a-place').html('Please select a place to ride');
         $('.lng-save').html('Save');
         $('.lng-yes-regularly').html('Commonly used');
+        $('.lng_position').html('Your position correct?');
+        $('.lng_find_again').html('Find again');
+        
+        
         
         
         
@@ -473,6 +481,8 @@ $(document).ready(function() {
         $('.lng-remark').html('ข้อสังเกต');
         $('.lng-save').html('บันทึก');
         $('.lng-yes-regularly').html('ใช่เป็นประจำ');
+        $('.lng_position').html('ตำแหน่งของคุณถูกต้องหรือไม่?');
+        $('.lng_find_again').html('ค้นหาอีกครั้ง');
         
         
 
@@ -618,6 +628,10 @@ $(document).ready(function() {
         $('.lng-a-place').html('Please select a place to ride');
         $('.lng-save').html('Save');
         $('.lng-yes-regularly').html('Commonly used');
+        $('.lng_position').html('Your position correct?');
+        $('.lng_find_again').html('Find again');
+        
+        
         
         
         

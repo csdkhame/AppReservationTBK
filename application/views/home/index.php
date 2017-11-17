@@ -103,7 +103,8 @@
     <button class="btn" id="open_map"  style="display: none;">Open Map</button>
     <!-- <button class="btn" id="open_mapsss" data-toggle="modal" data-target="#updatelat" style="display: nones;">updatelat-lng</button> -->
     <div id="show-hide-pro">
-    <i class="fa fa-angle-double-left" style="color: rgb(22, 179, 177); font-size: 30px;"></i>
+    <i class="material-icons" style="">reply_all</i>
+    <i class="fa fa-angle-double-left" style=""></i>
         <!-- <i class="material-icons" style="color: rgb(22, 179, 177); font-size: 35px;">keyboard_arrow_down</i> -->
     </div>
     <!-- <div id="show-hide-pro2">
@@ -160,7 +161,7 @@
     border-bottom: 1px solid #ddd;
 }
 #box-pax-rel{
-    z-index: 20; 
+    z-index: 250; 
     position: fixed; 
     /* width: 100vw; 
     height: 100vh;  */
@@ -845,15 +846,17 @@
                         <span class="fa fa-home fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
                         </td>
                         <td width="8px"></td>
-                        <td class="pac-item-query">
+                        <td  onclick="selectEditPlaceOfften(1)" class="pac-item-query">
                             <div class="lng-home-locat pac-matched ">Home</div>
                         </td>
-                        <td width="50%"  >
+                        <!-- <td width="50%"  >
                             <div class="lng-save_home_place"></div>
-                        </td>
-                        <td align="center" width="15" style="color: #000; font-size: 15px;"><span class="numhome"></span></td>
+                        </td> -->
+                        <td onclick="selectEditPlaceOfften(1)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numhome"></span></td>
                         <td  width="30">
-                            <table width="100%">
+                        <i class="material-icons pull-right" id="edit-home_select" onclick="addPlaceOfften(1,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                        
+                            <!-- <table width="100%">
                             <tr>
                                 <td>
                                 <i class="material-icons pull-right" id="edit-home_select" onclick="addPlaceOfften(1,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
@@ -864,7 +867,7 @@
                                 <i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="selectEditPlaceOfften(1)">edit</i>
                                 </td>
                             </tr>
-                            </table>
+                            </table> -->
                             
                             
                         </td>
@@ -882,15 +885,18 @@
                         <span class="fa fa-building fa-lg" aria-hidden="true" style="font-size: 2.1em;"></span>
                         </td>
                         <td width="8px"></td>
-                        <td class="pac-item-query">
+                        <td  onclick="selectEditPlaceOfften(2)" class="pac-item-query">
                             <div class="lng-office-locat pac-matched ">Office</div>
                         </td>
-                        <td width="50%">
+                        <!-- <td width="50%">
                             <div class="lng-save_Office_place"></div>
-                        </td>
-                        <td align="center" width="15" style="color: #000; font-size: 15px;"><span class="numoffice"></span></td>
+                        </td> -->
+                        <td onclick="selectEditPlaceOfften(2)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numoffice"></span></td>
                         <td  width="30">
-                        <table width="100%">
+                        <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                        
+                        <!-- <table width="100%">
+                        
                             <tr>
                                 <td>
                                 <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
@@ -901,7 +907,7 @@
                                 <i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="selectEditPlaceOfften(2)">edit</i>
                                 </td>
                             </tr>
-                            </table> 
+                            </table>  -->
                         </td>
                         
                     </tr>
@@ -917,19 +923,21 @@
                         
                         </td>
                         <td width="8px"></td>
-                        <td class="pac-item-query">
+                        <td onclick="selectEditPlaceOfften(3)" class="pac-item-query">
                             <div class="lng-yes-regularly pac-matched ">regularly</div>
                         </td>
-                        <td width="50%">
+                        <!-- <td width="50%">
                             <div class="lng-save_regularly_place" ></div>
-                        </td>
-                        <td align="center" width="15" style="color: #000; font-size: 15px;"><span class="numregular"></span></td>
+                        </td> -->
+                        <td onclick="selectEditPlaceOfften(3)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numregular"></span></td>
                         <td  width="30">
-                        <table width="100%">
+                        <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                        
+                        <!-- <table width="100%">
                             <tr>
                                 <td>
                         <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
-                                <!-- <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i> -->
+                                
                                 </td>
                             </tr>
                             <tr id="often_edit_regular" style="display:none">
@@ -937,7 +945,7 @@
                                 <i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="selectEditPlaceOfften(3)">edit</i>
                                 </td>
                             </tr>
-                            </table>
+                            </table> -->
                             
                         </td>
                         
@@ -1027,48 +1035,7 @@
 
                 </div>
             </div>
-            <style>
-            #edit_often_pop{
-                z-index: 9999;
-                position: fixed;
-                width: 100vw;
-                height: 100vh;
-                left: 0;
-                top: 0;
-                background: rgba(0, 0, 0, 0.59);
-                /* display: none; */
-            }
-            .edit_often_pop_in{
-                /* height: 220px; */
-                /* border-radius: 4px; */
-                background: #fff;
-                min-width: 90vw;
-                /* height: auto; */
-                left: 50vw;
-                top: 50vh;
-                transform: translate(-50%,-50%);
-                position: fixed;
-                z-index: 10;
-                border-radius: 15px;
-            }
-            .edit_often_pop_ln{
-                padding: 30px;
-            }
-            #newname{
-                border: 1px solid rgb(22, 179, 177);
-                padding: 8px;
-                margin: 8px 0;
-                width: 100%;
-                border-radius: 25px;
-                text-align:center;
-            }
-            #oldname{
-                text-align: center;
-                /* margin-top: 30px; */
-                margin-bottom: 15px;
-                font-size: 16px;
-            }
-            </style>
+            
             <div id="edit_often_pop" style="display: none;">
             <div class="edit_often_pop_in">               
                 <div class="edit_often_pop_ln">
@@ -1259,4 +1226,108 @@
 
 <input type="hidden" id="for_check_currentInput" value="0"/>
 <input type="hidden" id="for_check_endInput" value="0"/>
-
+<!-- popup comfirm pin -->
+<div id="edit_pin_pop" style="display: none;">
+            <div class="edit_pin_pop_in">               
+                <div class="edit_pin_pop_ln">
+                    <div class="lng_position" style="text-align: center; font-size: 16px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <div class="lng_find_again btn-close" style="background-color: #f44336;
+                    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="btn_no_position()"></div>
+                    <div class="lng-yes" style="    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #4caf50;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;" onclick="btn_yes_position()"></div>
+                    </div>
+                    
+                </div>        
+            
+            </div></div>
+<style>
+            #edit_often_pop{
+                z-index: 9999;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                /* display: none; */
+            }
+            .edit_often_pop_in{
+                /* height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 90vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .edit_often_pop_ln{
+                padding: 30px;
+            }
+            #edit_pin_pop{
+                z-index: 9999;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                /* background: rgba(0, 0, 0, 0.59); */
+                /* display: none; */
+                pointer-events: none;
+            }
+            .edit_pin_pop_in{
+                height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 80vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 80vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .edit_pin_pop_ln{
+                padding: 20px;
+                pointer-events: auto;
+            }
+            #newname{
+                border: 1px solid rgb(22, 179, 177);
+                padding: 8px;
+                margin: 8px 0;
+                width: 100%;
+                border-radius: 25px;
+                text-align:center;
+            }
+            #oldname{
+                text-align: center;
+                /* margin-top: 30px; */
+                margin-bottom: 15px;
+                font-size: 16px;
+            }
+            </style>

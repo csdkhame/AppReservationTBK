@@ -795,6 +795,7 @@ $(document).ready(function() {
         $('#foget-password').show(500);
     });
     $('#select_pax_use').click(function(){
+        $('#show-hide-pro').hide()
         if(reltimeclick == 1){
             $('#box-pax-rel').show(500);
         }
