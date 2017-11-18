@@ -26,6 +26,8 @@ class Often_model extends CI_Model {
 	$data['s_type'] = $this->input->post('type_place');
 	$data['d_last_update'] = $current;
 	$data['topic'] = $topic;
+	$data['phone'] = $this->input->post('phone');		 
+	
 	 
 	$result = $this->db->insert('ap_location_often', $data);
 	
@@ -50,6 +52,7 @@ class Often_model extends CI_Model {
 		}
 		public function edit_often(){
 			$data['topic'] = $this->input->post('topic');		 
+			$data['phone'] = $this->input->post('phone');		 
 			$id = $this->input->post('id');		 
 			$this->db->where('id', $id);
 			$result = $this->db->update('ap_location_often',$data);

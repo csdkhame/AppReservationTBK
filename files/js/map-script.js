@@ -44,9 +44,12 @@ var chTypeplace;
 var id_edit_often;
 var namesend = '';
 var dist;
-
-
+var phonesend;
+var changephone;
+var getnewnamenull;
+var changephone;
 var curentFromTo = '';
+var getnewphonenull;
 
 if ($.cookie("lng") == 'cn') {
     please_login_txt = "请登录";
@@ -1705,7 +1708,7 @@ function filterPlace(map, location) {
 function eventPlace(lat, lng, placeName) {
 
 
-    selectMyPlace(3, placeName, lat, lng);
+    selectMyPlace(4, placeName, lat, lng);
 
 }
 
@@ -1955,6 +1958,30 @@ function changesetname2(changesetname) {
 
     
 }
+function changesetphone(changesetphone) {
+    // if(document.getElementById('changesetname').value == undefined){
+    //     changename = document.getElementById('changesetname1').value;
+    // }
+    // else{
+    //     changename = document.getElementById('changesetname').value; 
+    // }
+    changephone = document.getElementById('changesetphone').value; 
+    console.log(changephone)
+
+    
+}
+function changesetphone2(changesetname) {
+    // if(document.getElementById('changesetname').value == undefined){
+    //     changename = document.getElementById('changesetname1').value;
+    // }
+    // else{
+    //     changename = document.getElementById('changesetname').value; 
+    // }
+    changephone = document.getElementById('changesetphone2').value; 
+    console.log(changephone)
+
+    
+}
 function addPlaceOfften(type_place,type_call) {
     if ($.cookie("login") == undefined) {
 
@@ -1982,7 +2009,7 @@ function addPlaceOfften(type_place,type_call) {
                     $.post(url, function(data) {
                         console.log(data);
                         infowindow.close();
-                        infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                        infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone2" name="changesetphone2" onchange="changesetphone2(changesetphone2)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
                         infowindow.open(map, markerPlaceOfften);
         //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
         
@@ -2034,15 +2061,23 @@ function addPlaceOfften(type_place,type_call) {
             if ($.cookie("lng") == 'cn') {
                 txt_save = "记录";
                 set_name = '集名称';
+                phoneplace = '电话';
+                
             } else if ($.cookie("lng") == 'th') {
                 txt_save = "บันทึก";
                 set_name = 'ตั้งชื่อ';
+                phoneplace = 'โทรศัพท์';
+                
             } else if ($.cookie("lng") == 'en') {
                 txt_save = "Record";
                 set_name = 'Set name';
+                phoneplace = 'Phone';
+                
             } else if ($.cookie("lng") == undefined) {
                 txt_save = "Record";
                 set_name = 'Set name';
+                phoneplace = 'Phone';
+                
             }
         }
         //hideHeader();
@@ -2077,7 +2112,7 @@ function addPlaceOfften(type_place,type_call) {
             $.post(url, function(data) {
                 console.log(data);
                 infowindow.close();
-                infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname" name="changesetname"  onchange="changesetname(changesetname)" placeholder="'+set_name+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname" name="changesetname"  onchange="changesetname(changesetname)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone" name="changesetphone" onchange="changesetphone(changesetphone)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
                 infowindow.open(map, markerPlaceOfften);
 //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
 
@@ -2290,14 +2325,34 @@ function newname(newname) {
 
     
 }
+function phoneplace(phoneplace) {
+    
+    phonesend = document.getElementById('phoneplace').value; 
+    console.log(phonesend)
+
+    
+}
+// function changephoneplace(changephoneplace) {
+    
+//     changephune = document.getElementById('changephoneplace').value; 
+//     console.log(changephune)
+
+    
+// }
 function btn_save(){
     //$('#loading').show();
     console.log(id_edit_often)
     DataType = [];
     $('.placeeditften').remove()
+    if(namesend == '' || namesend == undefined){
+        namesend = getnewnamenull;
+    }
+    if(phonesend == '' || phonesend == undefined){
+        phonesend = getnewphonenull;
+    }
     
     var iduser = $.cookie("login");
-    $.post("my_place_often/edit", { "id": id_edit_often,"topic": namesend }, function(results) {
+    $.post("my_place_often/edit", { "id": id_edit_often,"topic": namesend,"phone":phonesend }, function(results) {
         console.log(results)
         if (results === 'false') {
 
@@ -2319,17 +2374,25 @@ function btn_save(){
                                             if (data.s_type == chTypeplace) { //1
                                                 console.log(data.s_type)
                                                 console.log(data.topic)
+                                                var textphone;
+                                                if(data.phone == ''){
+                                                    textphone = '';
+                    
+                                                }
+                                                else{
+                                                    textphone =  '('+data.phone+')';
+                                                }
                                                 var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
                                                 if(data.topic != ''){
                     
-                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">' + data.topic + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
+                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">' + data.topic + textphone + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
                                                  //<i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i>
                                                 }
                                                 else{
                                                     $.post(url, function(data_place) {
                                                         console.log(data_place);
                                                      //DataType.push(obj)
-                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">'  + data_place.results[0].formatted_address + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
+                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">'  + data_place.results[0].formatted_address + textphone +'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
                                                     
                                                     //  $('#box_editplaceoften').append('<li class="placeoften" id="placeoften' + data.id + '"><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span><i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="editMyPlace('+type_place+',\'' + data.topic + '\');">edit</i><i class="material-icons pull-right" style="color: #f44336; font-weight: 700; line-height: inherit;" onclick="deleteMyPlace(' + data.id + ');">delete</i></div></li>');
                                                     //console.log(placeoften)
@@ -2358,8 +2421,10 @@ function btn_save(){
 function btn_close(){
     $('#edit_often_pop').hide(500)
 }
-function editMyPlace(x,text,lat,lng){
+function editMyPlace(x,text,lat,lng,phone){
     console.log(text)
+    getnewnamenull = text;
+    getnewphonenull = phone;
     if(text == ''){
         var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&sensor=true&language=' + lang_to_map;
        
@@ -2407,17 +2472,26 @@ function selectEditPlaceOfften(type_place) {
                         if (data.s_type == type_place) { //1
                             console.log(data.s_type)
                             console.log(data.topic)
+                            console.log(data.phone)
+                            var textphone;
+                            if(data.phone == ''){
+                                textphone = '';
+
+                            }
+                            else{
+                                textphone = '('+data.phone+')';
+                            }
                             var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
                             if(data.topic != ''){
 
-                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td  onclick="selectMyPlace('+type_place+',\'' + data.topic + '\',' + data.i_lat + ',' + data.i_lng + ');"width="70%"><div class="name">' + data.topic + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
+                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td  onclick="selectMyPlace('+type_place+',\'' + data.topic + '\',' + data.i_lat + ',' + data.i_lng + ');"width="70%"><div class="name">' + data.topic + textphone+'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
                              //<i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i>
                             }
                             else{
                                 $.post(url, function(data_place) {
                                     console.log(data_place);
                                  //DataType.push(obj)
-                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td onclick="selectMyPlace('+type_place+',\'' + data_place.results[0].formatted_address + '\',' + data.i_lat + ',' + data.i_lng + ');" width="70%"><div class="name">'  + data_place.results[0].formatted_address + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
+                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td onclick="selectMyPlace('+type_place+',\'' + data_place.results[0].formatted_address + '\',' + data.i_lat + ',' + data.i_lng + ');" width="70%"><div class="name">'  + data_place.results[0].formatted_address + textphone+'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
                                 
                                 //  $('#box_editplaceoften').append('<li class="placeoften" id="placeoften' + data.id + '"><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span><i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="editMyPlace('+type_place+',\'' + data.topic + '\');">edit</i><i class="material-icons pull-right" style="color: #f44336; font-weight: 700; line-height: inherit;" onclick="deleteMyPlace(' + data.id + ');">delete</i></div></li>');
                                 console.log(placeoften)
@@ -2581,6 +2655,7 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
             
         // }
         console.log(changename)
+        console.log(changephone)
         
         var datasend = {
             "lat": lat,
@@ -2588,7 +2663,8 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
             "place_id": place_id,
             "type_place": type_place,
             "login": $.cookie("login"),
-            "topic": changename
+            "topic": changename,
+            "phone": changephone
             
         };
         console.log(datasend)
@@ -2693,24 +2769,24 @@ function selectMyPlace(type_place,txtAdd, latti, lngti) {
     }
     directionsService = new google.maps.DirectionsService;
     directionsDisplay = new google.maps.DirectionsRenderer();
-    // if (type_place == 3) {
-    //     if (infowindow) {
-    //         console.log(infowindow);
-    //         infowindow.close();
-    //         infowindow.setMap(null);
-    //         infowindow = null;
-    //     }
-    //     // directionsDisplay.setMap(null);
-    //     // markerPlaceOfften.setMap(null);
-    //     google.maps.event.clearListeners(map, 'bounds_changed');
-    //     google.maps.event.clearListeners(map, 'center_changed');
-    //     //        google.maps.event.clearListeners(map, 'dragend');
-    //     showHeader();
-    //     $('#search-raeltime').show(500);
-    //     $('#clear-all').hide(500);
-    //     $('#show-hide-pro2').hide(500);
-    //     outSearchRealtime();
-    // }
+    if (type_place == 4) {
+        if (infowindow) {
+            console.log(infowindow);
+            infowindow.close();
+            infowindow.setMap(null);
+            infowindow = null;
+        }
+        // directionsDisplay.setMap(null);
+        // markerPlaceOfften.setMap(null);
+        google.maps.event.clearListeners(map, 'bounds_changed');
+        google.maps.event.clearListeners(map, 'center_changed');
+        //        google.maps.event.clearListeners(map, 'dragend');
+        showHeader();
+        $('#search-raeltime').show(500);
+        $('#clear-all').hide(500);
+        $('#show-hide-pro2').hide(500);
+        outSearchRealtime();
+    }
     // alert(curentFromTo)
     if (curentFromTo == 'From') {
         
