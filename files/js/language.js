@@ -162,6 +162,14 @@ $(document).ready(function() {
         $('.lng_position').html('你的位置正确吗？');
         $('.lng_find_again').html('再次查找');
         
+        $('.lng-home-locat').html('住家');
+        $('.lng-office-locat').html('办公室');
+        $('.lng-setpin-locat').html('在地图上设置位置');
+        $('.lng-nearby-locat').html('附近的地方');
+        $('.lng-current-pos').html('当前位置');
+
+        
+        
         
         
         
@@ -321,6 +329,11 @@ $(document).ready(function() {
         $('.lng-yes-regularly').html('Commonly used');
         $('.lng_position').html('Your position correct?');
         $('.lng_find_again').html('Find again');
+        $('.lng-setpin-locat').html('Set the location on the map');
+        $('.lng-current-pos').html('Current Position');
+        $('.lng-nearby-locat').html('Near the place');
+        $('.lng-office-locat').html('Office');
+        $('.lng-home-locat').html('House');
         
         
         
@@ -483,6 +496,11 @@ $(document).ready(function() {
         $('.lng-yes-regularly').html('ใช่เป็นประจำ');
         $('.lng_position').html('ตำแหน่งของคุณถูกต้องหรือไม่?');
         $('.lng_find_again').html('ค้นหาอีกครั้ง');
+        $('.lng-home-locat').html('บ้าน');
+        $('.lng-office-locat').html('สำนักงาน');
+        $('.lng-setpin-locat').html('ตั้งตำแหน่งบนแผนที่');
+        $('.lng-nearby-locat').html('สถานที่ใกล้เคียง');
+        $('.lng-current-pos').html('ตำแหน่งปัจจุบัน');
         
         
 
@@ -630,7 +648,11 @@ $(document).ready(function() {
         $('.lng-yes-regularly').html('Commonly used');
         $('.lng_position').html('Your position correct?');
         $('.lng_find_again').html('Find again');
-        
+        $('.lng-setpin-locat').html('Set the location on the map');
+        $('.lng-current-pos').html('Current Position');
+        $('.lng-nearby-locat').html('Near the place');
+        $('.lng-office-locat').html('Office');
+        $('.lng-home-locat').html('House');
         
         
         

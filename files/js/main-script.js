@@ -457,6 +457,7 @@ $(document).ready(function() {
     });
     $('.btn-reservation').click(function() {
         // alert("aaaa");
+        $('#clear-all').click();
         reltimeclick = 0;
         if ($.cookie("lng") == "en") {
             $('#search-from').val('From: Type airport,hotel name, or location.');
@@ -671,6 +672,7 @@ $(document).ready(function() {
     });
     $('.btn-car-service').click(function() {
         //	  $('#selectPlace').show();
+        $('#clear-all').click();
         $('#btn_CurrentLocation').hide();
         $('#clear-all').hide();
         
@@ -1012,7 +1014,7 @@ $(document).ready(function() {
 
         // }); 
     });
-
+     
     $('#search-to').keyup(function() {
         //console.log(dataProvince)
 

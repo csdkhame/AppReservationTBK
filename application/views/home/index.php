@@ -24,6 +24,7 @@
         $h_r = "Hotel,Resort";
         $newname = 'New name';
         $phoneplace = 'Phone';
+        $search_position = 'Find a location';
         
     }
     else if($_COOKIE['lng'] == 'en'){
@@ -49,6 +50,8 @@
         $h_r = "Hotel,Resort";
         $newname = 'New name';
         $phoneplace = 'Phone';
+        $search_position = 'Find a location';
+        
         
     }
     else if($_COOKIE['lng'] == 'th'){
@@ -74,6 +77,8 @@
         $h_r = "Hotel,Resort";
         $newname = 'ชื่อใหม่';
         $phoneplace = 'โทรศัพท์';
+        $search_position = 'ค้นหาตำแหน่ง';
+        
         
     }
     else if($_COOKIE['lng'] == 'cn'){
@@ -100,6 +105,8 @@
         $h_r = "Hotel,Resort";
         $newname = '新名称';
         $phoneplace = '电话';
+        $search_position = '找到一个位置';
+        
         
         
        
@@ -369,7 +376,15 @@
         <div class="box_option">
         <i class="material-icons" style="line-height: 1.7; font-size: 25px;">place</i>
         </div>
-        <div id="search-raeltime">
+        <div id="search-often" style="    position: absolute;
+  
+    width: 100%;
+    z-index: 5;
+    padding: 0 15px;" class="box-shadow-customize">
+    <input type="text" placeholder="<?php echo $search_position?>" id="often-input2" style="display:none">
+    <div id="appendBoxoften" style="position: absolute;
+    top: 48vh;"></div></div>
+        <div id="search-raeltime" >
             <div class="" id="to-remove-class" >
                 <div class="" style="">
                <!-- <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
@@ -390,6 +405,7 @@
                             style="border: 1px solid #16b3b1; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  border-radius: 25px" /> 
                     </div>
                     <div id="appendBox"></div>
+                    
                     
                 </div>
             </div>
@@ -584,7 +600,7 @@
     right: 15px;
 }
 #setmap{
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-align: center;
 
 }
@@ -1045,7 +1061,7 @@
             <div id="edit_often_pop" style="display: none;">
             <div class="edit_often_pop_in">               
                 <div class="edit_often_pop_ln">
-                    <div id="oldname"></div>
+                    <!-- <div id="oldname"></div> -->
                     <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" >
                     <input type="text" class="textInput" placeholder="<? echo $phoneplace;?>" id="phoneplace" name="phoneplace" onchange="phoneplace(phoneplace)" >
                     
@@ -1293,7 +1309,7 @@
                 border-radius: 15px;
             }
             .edit_often_pop_ln{
-                padding: 30px;
+                padding: 15px;
             }
             #edit_pin_pop{
                 z-index: 9999;
@@ -1358,5 +1374,38 @@
     margin: 8px 0;
     width: 100%;
     border-radius: 25px; 
+            }
+            #often-input{
+                border: 1px solid #dfdfdf;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 25px; 
+            }
+            #often-input2{
+                transform: translate(-50%,-50%);
+                border: 1px solid #ddd;
+                padding: 5px;
+                margin: 8px 0;
+                width: 91%;
+                /* right: -15px; */
+                left: 50vw;
+                border-radius: 25px;
+                top: 54vh;
+                position: fixed;
+                
+            }
+            #appendBoxoften{
+                left: 50vw;
+                /* margin-top: 70px; */
+                width: 92%;
+                /* z-index: 5; */
+                /* padding: 0 10px 6px 15px; */
+                position: absolute;
+                top: 74vh !important;
+                height: 32vh;
+                transform: translate(-50%,-50%);
+                /* right: 50px; */
+                pointer-events: none;
             }
             </style>

@@ -54,15 +54,15 @@
                   
                         <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
                         <span style="    margin-left: 30px;
-    font-size: 14px;" class="lng-login"></span>
+    font-size: 14px;    pointer-events: auto;" class="lng-login"></span>
 </div>
                  
-                    <div class="box-login" style="width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">
+                    <div class="box-login" style="pointer-events: auto;width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">
                         <!-- <img style="width: 35px;  height: 35px;    border-radius: 50px;" src="https://dotdotdottrip.com/pic/default-avatar.png" alt=""> -->
                     </div>
                 </div>
                    
-               <button type="button" class="navbar-toggle" data-toggle="collapse" style="background: rgba(255, 255, 255, 0) !important; color:#000 !important;;">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" style="pointer-events: auto;background: rgba(255, 255, 255, 0) !important; color:#000 !important;;">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar BT"  style="color:#000"></span>
                         <span class="icon-bar BT"  style="color:#000"></span>
@@ -70,9 +70,7 @@
                     </button>
                    
                 </div>
-        	    <div class="navbar-collapse" style="
-    margin-top: 10px;
-">            
+        	    <div class="navbar-collapse" style=" margin-top: 10px;pointer-events: auto;">            
         		    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown" id="btnuser">
                             <div class="user">
@@ -256,6 +254,7 @@
     padding-bottom: 0;
     padding-top: 0;
     box-shadow: none;
+    pointer-events: none;
     /* background: #07c284; */
 }
 .loading-in{

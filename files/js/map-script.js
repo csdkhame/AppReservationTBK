@@ -57,12 +57,10 @@ if ($.cookie("lng") == 'cn') {
     lang_to_map = 'zh-CN';
     lng_distance = '距离';
     lng_usetime = '使用时间';
+    search_position = '找到一个位置';
     choose = '选择';
-    $('.lng-home-locat').text('住家');
-    $('.lng-office-locat').text('办公室');
-    $('.lng-setpin-locat').text('在地图上设置位置');
-    $('.lng-nearby-locat').text('附近的地方');
-    $('.lng-current-pos').text('当前位置');
+   
+
     success = '成功';
     error = '错误';
     document.getElementById("current").value = "你的位置...";
@@ -73,14 +71,13 @@ if ($.cookie("lng") == 'cn') {
     lng_distance = 'ระยะทาง';
     lng_usetime = 'ใช้เวลา';
     choose = 'เลือก';
-    $('.lng-home-locat').text('บ้าน');
-    $('.lng-office-locat').text('สำนักงาน');
-    $('.lng-setpin-locat').text('ตั้งตำแหน่งบนแผนที่');
-    $('.lng-nearby-locat').text('สถานที่ใกล้เคียง');
+    search_position = 'ค้นหาตำแหน่ง';
+    
+   
+    
     success = 'สำเร็จ';
     error = 'ผิดพลาด';
     document.getElementById("current").value = "ตำแหน่งของคุณ...";
-    $('.lng-current-pos').text('ตำแหน่งปัจจุบัน');
 } else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
@@ -90,15 +87,15 @@ if ($.cookie("lng") == 'cn') {
     choose = 'Choose';
     success = 'success';
     error = 'error';
+    search_position = 'Find a location';
+    
     document.getElementById("current").value = "Your position...";
-    $('.lng-current-pos').text('Current Position');
-    $('.lng-office-locat').text('Office');
-    $('.lng-home-locat').text('House');
+    
     /*$('.lng-home-locat').text('Home');
     $('.lng-office-locat').text('');
     
-    $('.lng-setpin-locat').text('');
-    $('.lng-nearby-locat').text('');*/
+   
+    */
 } else if ($.cookie("lng") == undefined) {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
@@ -108,7 +105,8 @@ if ($.cookie("lng") == 'cn') {
     choose = 'Choose';
     success = 'success';
     error = 'error';
-    $('.lng-current-pos').text('Current Position');
+    search_position = 'Find a location';
+   
     document.getElementById("current").value = "Your position...";
 }
 
@@ -205,9 +203,11 @@ $('#pac-input').focus(function() {
 
     $('#listPleacItem_0').appendTo('#appendBox');
     $('#listPleacItem_1').appendTo('#appendBox');
-});    
+});
+
+   
 $('#current').focus(function() {
-//     //alert('aaaaaa')
+//alert('aaaaaa')
 //     $('#boxForAutoCom').hide(500)
 //     checkshow = false;
 //     if (this.id == "current") {
@@ -309,6 +309,47 @@ $('#pac-input').keyup(function() {
     else{
         $('#boxForAutoCom').hide(500)
     }
+});
+$('#often-input2').keyup(function() {
+    
+    inputcheck2 = document.getElementById("often-input2");
+    //var 
+    console.log(inputcheck2.value)
+    // if(inputcheck2.value == ''){
+    //     $('#appendBoxoften').show(500)
+    // }
+    // else{
+    //     $('#appendBoxoften').hide(500)
+    // }
+});
+$('#often-input2').focus(function() {
+        //alert("asasasasa")
+        $(this).val('');
+        console.log('===============')
+        // $('#search-raeltime').addClass('box-shadow-customize');
+        // $('#boxRealtime').css('margin-left', '25px');
+        // $('#boxRealtime').css('padding', '0 0px');
+        // $('#out-search').show(650);
+    //     // $("#boxForAutoCom").show();///******************************************************************************* */
+        $(".pac-container").each(function(index) {
+            console.log(index)
+            $(this).attr("id", "listPleacItem_" + index);
+        });
+    
+        $('#listPleacItem_0').appendTo('#appendBoxoften');
+        $('#listPleacItem_1').appendTo('#appendBoxoften');
+    }); 
+$('#often-input2').keyup(function() {
+    
+    inputcheck2 = document.getElementById("often-input2");
+    //var 
+    console.log(inputcheck2.value)
+    // if(inputcheck.value == ''){
+    //     $('#boxForAutoCom').show(500)
+    // }
+    // else{
+    //     $('#boxForAutoCom').hide(500)
+    // }
 });
 $("#pac-input").click(function() {
     $('#boxForAutoCom').show(500)
@@ -536,6 +577,20 @@ function a(map) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
     };
 
+
+    /************************************/
+    /************** CLOSE ***************/
+    /************************************/
+    // google.maps.event.addListener(infoWindow,'closeclick',function(){
+    //     //currentMark.setMap(null); //removes the marker
+    //     $('#often-input2').hide()
+    //     // then, remove the infowindows name from the array
+    //  });
+    
+
+
+
+
     var inputStart = document.getElementById("current");
     inputStart.addEventListener('click', function() {
         document.getElementById("current").value = "";
@@ -556,8 +611,49 @@ function a(map) {
     /************************************************************************ */
     /***********************AUTO COMMPLETE SEARCH LOCATION******************* */
     /************************************************************************ */
+    var inputsearch = document.getElementById('often-input2');
+        
+            var autocompletesearch = new google.maps.places.Autocomplete(inputsearch);
+            autocompletesearch.bindTo('bounds', map);
+            /*******AUTO SEARCH******** */
+        autocompletesearch.addListener('place_changed', function(ev) {
+        //     lat_f = '';
+        //     lng_f = '';
+        //    start = '';
+           placesearch = [];
+            //alert('aaa')
+            //$('#boxRealtimeto').show(500)
+            //$('#boxRealtime').hide(500)
+            placesearch = autocompletesearch.getPlace();
+            map.panTo(placesearch.geometry.location);
+            //        start = placeStart.geometry.location;
+            var current = {
+                lat: parseFloat(placesearch.geometry.location.lat()),
+                lng: parseFloat(placesearch.geometry.location.lng())
+            };
+           
+            startMarker.setVisible(true);
+            startMarker.setPosition(start);
+            //$('#often-input2').hide()
+            //lat_f = placesearch.geometry.location.lat();
+            //lng_f = placesearch.geometry.location.lng();
+            var latlng = new google.maps.LatLng(placesearch.geometry.location.lat(), placesearch.geometry.location.lng());
+            //            markerTest.setPosition(latlng);
+                        map.panTo(latlng);
+                        markerCircle.setPosition(latlng);
+                        // setTimeout(function() {
+            
+                            //document.getElementById("current").value = placeStart[1].formatted_address;
+            
+                            smoothZoom(map, 15, map.getZoom());
+            
+            //$('#clear-all').show(500);
+        });
+
+
     var autocompleteStart = new google.maps.places.Autocomplete(inputStart);
     autocompleteStart.bindTo('bounds', map);
+
 
 
     /*******AUTO FROM******** */
@@ -597,6 +693,7 @@ function a(map) {
 
     var autocomplete = new google.maps.places.Autocomplete(inputEnd);
     autocomplete.bindTo('bounds', map);
+   
 
 
     /*******AUTO TO***** */
@@ -796,6 +893,7 @@ $('#clear-all').click(function() {
     $('.not-found').remove();
     $('.typerel').remove();
     $('#boxRealtimeto').hide(500)
+    $('#often-input2').hide(500)
     $('#boxRealtime').show(500)
     curentFromTo ='';
     if ($.cookie("lng") == 'cn') {
@@ -1983,6 +2081,9 @@ function changesetphone2(changesetname) {
     
 }
 function addPlaceOfften(type_place,type_call) {
+    $('#appendBoxoften').show();
+    
+    console.log('sssss');
     if ($.cookie("login") == undefined) {
 
         $('#loading').css('display', 'block');
@@ -1994,6 +2095,8 @@ function addPlaceOfften(type_place,type_call) {
         $('#often_edit_office').hide()
         $('#often_edit_regular').hide()
     } else {
+
+        
         markerPlaceOfften.setMap(map);
         //marker2.setVisible(false);
 
@@ -2009,8 +2112,9 @@ function addPlaceOfften(type_place,type_call) {
                     $.post(url, function(data) {
                         console.log(data);
                         infowindow.close();
-                        infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone2" name="changesetphone2" onchange="changesetphone2(changesetphone2)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                        infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div> <input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone2" name="changesetphone2" onchange="changesetphone2(changesetphone2)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" border-radius: 25px;style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
                         infowindow.open(map, markerPlaceOfften);
+                        $('#often-input2').show(500);
         //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
         
                     });
@@ -2100,6 +2204,7 @@ function addPlaceOfften(type_place,type_call) {
         google.maps.event.addListener(map, 'center_changed', function() {
             Newlat = map.getCenter().lat();
             Newlng = map.getCenter().lng();
+            $('#often-input2').show()
             var newPos = {
                 lat: Newlat,
                 lng: Newlng
@@ -2112,8 +2217,9 @@ function addPlaceOfften(type_place,type_call) {
             $.post(url, function(data) {
                 console.log(data);
                 infowindow.close();
-                infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname" name="changesetname"  onchange="changesetname(changesetname)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone" name="changesetphone" onchange="changesetphone(changesetphone)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname" name="changesetname"  onchange="changesetname(changesetname)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone" name="changesetphone" onchange="changesetphone(changesetphone)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="border-radius: 25px;display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
                 infowindow.open(map, markerPlaceOfften);
+                $('#often-input2').show(500);
 //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
 
             });
@@ -2432,13 +2538,32 @@ function editMyPlace(x,text,lat,lng,phone){
             $.post(url, function(data_place) {
                 console.log(data_place);
             
-             $('#oldname').html(data_place.results[0].formatted_address)
-            
+            //  $('#oldname').html(data_place.results[0].formatted_address)
+             $('#newname').val(data_place.results[0].formatted_address)
+             
             });
         
     }
     else{
-        $('#oldname').html(text)
+        // $('#oldname').html(text)
+        $('#newname').val(text)
+    }
+    if(phone == ''){
+        // if ($.cookie("lng") == 'cn') {
+           
+        // } else if ($.cookie("lng") == 'en' || $.cookie("lng") == undefined) {
+           
+
+        // } else if ($.cookie("lng") == 'th') {
+            
+
+        // } 
+        $('#phoneplace').val('');
+        
+    }
+    else{
+        $('#phoneplace').val(phone)
+        
     }
     
 
@@ -2452,6 +2577,8 @@ function selectEditPlaceOfften(type_place) {
     $('#edit_often').show(500)
     $('#otherBox').hide()
     $('#outedit_often').show(500)
+    $('#often-input2').hide()
+    
     $('.placeeditften').remove();
     
     $('#select_often').hide()

@@ -83,6 +83,17 @@ body {
     /* display: none; */
     height: 100% !important;
     box-shadow: none;
+    border-radius:25px;
+    pointer-events: auto !important; 
+}
+.search-container{
+    width: 100% !important;
+    position: unset !important;
+    left: 0px !important;
+    top: 0px !important;
+    /* display: none; */
+    height: 100% !important;
+    box-shadow: none;
     border-radius:25px 
 }
 
@@ -655,7 +666,7 @@ a[href^="https://www.google.com/maps"] {
     display: none;
 }
 
-</style><style>.nav-tabs {
+.nav-tabs {
     background: #ffffff;
     border: 0;
     border-radius: 3px;
@@ -1194,6 +1205,9 @@ input:after {
         margin-right: 20px !important;
         margin-top: 100px !important;
         padding: 0;
+    }
+    #marginBox{
+        height: 57vh !important;  
     }
 }
 
