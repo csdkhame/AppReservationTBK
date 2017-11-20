@@ -45,9 +45,9 @@ var id_edit_often;
 var namesend = '';
 var dist;
 var phonesend;
-var changephone = '';
+var changephone;
 var getnewnamenull;
-var changephone = '';
+var changephone;
 var curentFromTo = '';
 var getnewphonenull;
 
@@ -63,7 +63,7 @@ if ($.cookie("lng") == 'cn') {
 
     success = '成功';
     error = '错误';
-    // document.getElementById("current").value = "你的位置...";
+    document.getElementById("current").value = "你的位置...";
 } else if ($.cookie("lng") == 'th') {
     please_login_txt = "กรุณาเข้าสู่ระบบ";
     click_save_place_txt = "ไม่มีบันทึก (กดเพื่อบันทึก)";
@@ -77,7 +77,7 @@ if ($.cookie("lng") == 'cn') {
     
     success = 'สำเร็จ';
     error = 'ผิดพลาด';
-    // document.getElementById("current").value = "ตำแหน่งของคุณ...";
+    document.getElementById("current").value = "ตำแหน่งของคุณ...";
 } else if ($.cookie("lng") == 'en') {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
@@ -89,7 +89,7 @@ if ($.cookie("lng") == 'cn') {
     error = 'error';
     search_position = 'Find a location';
     
-    // document.getElementById("current").value = "Your position...";
+    document.getElementById("current").value = "Your position...";
     
     /*$('.lng-home-locat').text('Home');
     $('.lng-office-locat').text('');
@@ -107,7 +107,7 @@ if ($.cookie("lng") == 'cn') {
     error = 'error';
     search_position = 'Find a location';
    
-    // document.getElementById("current").value = "Your position...";
+    document.getElementById("current").value = "Your position...";
 }
 
 if ($.cookie("login") == undefined) {
@@ -196,19 +196,18 @@ $('#pac-input').focus(function() {
         curentFromTo = 'To';
         console.log(curentFromTo)
     
-        $('#search-raeltime').addClass('box-shadow-customize');
-        // $('#boxRealtime').css('margin-left', '25px');
-        $('#boxRealtime').css('padding', '0 0px');
-        $('#out-search').show(650);
+    $('#search-raeltime').addClass('box-shadow-customize');
+    // $('#boxRealtime').css('margin-left', '25px');
+    $('#boxRealtime').css('padding', '0 0px');
+    $('#out-search').show(650);
 //     // $("#boxForAutoCom").show();///******************************************************************************* */
     $(".pac-container").each(function(index) {
-        console.log(index)
+
         $(this).attr("id", "listPleacItem_" + index);
     });
 
     $('#listPleacItem_0').appendTo('#appendBox');
     $('#listPleacItem_1').appendTo('#appendBox');
-    $('#listPleacItem_2').appendTo('#appendBox');
 });
 
    
@@ -671,7 +670,7 @@ function a(map) {
         lng_f = '';
        start = '';
        placeStart = [];
-    // alert('aaa')
+        //alert('aaa')
         //$('#boxRealtimeto').show(500)
         //$('#boxRealtime').hide(500)
         placeStart = autocompleteStart.getPlace();
@@ -697,23 +696,15 @@ function a(map) {
         console.log('********************************************************')
         $('#clear-all').show(500);
     });
-    var inputEnd2 = document.getElementById('pac-input');
-    inputEnd2.addEventListener('click', function() {
-        // document.getElementById("pac-input").value = "";
-        End = null;
-        console.log(End);
-        $('#boxForAutoCom').show(500)
-    });
-   
 
-    var autocomplete = new google.maps.places.Autocomplete(inputEnd2);
-    console.log(autocomplete)
+    var inputEnd = document.getElementById('pac-input');
+
+    var autocomplete = new google.maps.places.Autocomplete(inputEnd);
     autocomplete.bindTo('bounds', map);
    
 
 
     /*******AUTO TO***** */
-    
     autocomplete.addListener('place_changed', function() {
         lat_t = '';
         lng_t = '';
@@ -909,7 +900,7 @@ $('#clear-all').click(function() {
     $('.a-link-item').remove();
     $('.not-found').remove();
     $('.typerel').remove();
-    $('#search-often').hide(500)
+    // $('#boxRealtimeto').hide(500)
     // $('#often-input2').hide(500)
     $('#boxRealtime').show(500)
     curentFromTo ='';
@@ -2832,7 +2823,6 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
         //     console.log(obj.status);
             if (data.status == true) {
                 //placeRecord();
-                $('#search-often').hide()
                 swal('' + success + '', "", "success");
                 resetMap();
                 placeRecord();

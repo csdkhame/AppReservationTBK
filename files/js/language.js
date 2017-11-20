@@ -114,6 +114,7 @@ $(document).ready(function() {
         $('.lng-booking-infomation').html('预订信息');
         $('.lng-none').html('没有');
         $('.lng-yes').html('是的');
+        $('.lng-yes2').html('正确');
         $('.lng-no').html('不是');
         $('.lng-or').html('或者');
         $('.lng-password').html('密碼');
@@ -159,8 +160,8 @@ $(document).ready(function() {
         $('.lng-a-place').html('请选择上车地点');
         $('.lng-save').html('保存');
         $('.lng-yes-regularly').html('常用');
-        $('.lng_position').html('你的位置正确吗？');
-        $('.lng_find_again').html('再次查找');
+        $('.lng_position').html('您选择的路线正确吗？');
+        $('.lng_find_again').html('编辑路线');
         
         $('.lng-home-locat').html('住家');
         $('.lng-office-locat').html('办公室');
@@ -281,6 +282,7 @@ $(document).ready(function() {
         $('.lng-booking-infomation').html('Booking infomation');
         $('.lng-none').html('None');
         $('.lng-yes').html('Yes');
+        $('.lng-yes2').html('Correct');
         $('.lng-no').html('No');
         $('.lng-or').html('or');
         $('.lng-password').html('Password');
@@ -327,8 +329,8 @@ $(document).ready(function() {
         $('.lng-a-place').html('Please select a place to ride');
         $('.lng-save').html('Save');
         $('.lng-yes-regularly').html('Commonly used');
-        $('.lng_position').html('Your position correct?');
-        $('.lng_find_again').html('Find again');
+        $('.lng_position').html('Did you choose the correct route?');
+        $('.lng_find_again').html('Edit route');
         $('.lng-setpin-locat').html('Set the location on the map');
         $('.lng-current-pos').html('Current Position');
         $('.lng-nearby-locat').html('Near the place');
@@ -445,6 +447,8 @@ $(document).ready(function() {
         $('.lng-booking-infomation').html('ข้อมูลการจอง');
         $('.lng-none').html('ไม่มี');
         $('.lng-yes').html('ใช่');
+        $('.lng-yes2').html('ถูกต้อง');
+        
         $('.lng-no').html('ไม่');
         $('.lng-or').html('หรือ');
         $('.lng-password').html('รหัสผ่าน');
@@ -494,8 +498,8 @@ $(document).ready(function() {
         $('.lng-remark').html('ข้อสังเกต');
         $('.lng-save').html('บันทึก');
         $('.lng-yes-regularly').html('ใช่เป็นประจำ');
-        $('.lng_position').html('ตำแหน่งของคุณถูกต้องหรือไม่?');
-        $('.lng_find_again').html('ค้นหาอีกครั้ง');
+        $('.lng_position').html('เส้นทางที่คุณเลือกถูกต้องหรือไม่?');
+        $('.lng_find_again').html('แก้ไขเส้นทาง');
         $('.lng-home-locat').html('บ้าน');
         $('.lng-office-locat').html('สำนักงาน');
         $('.lng-setpin-locat').html('ตั้งตำแหน่งบนแผนที่');
@@ -595,6 +599,8 @@ $(document).ready(function() {
         $('.lng-booking-infomation').html('Booking infomation');
         $('.lng-none').html('None');
         $('.lng-yes').html('Yes');
+        $('.lng-yes2').html('Correct');
+        
         $('.lng-no').html('No');
         $('.lng-or').html('or');
         $('.lng-password').html('Password');
@@ -646,8 +652,8 @@ $(document).ready(function() {
         $('.lng-a-place').html('Please select a place to ride');
         $('.lng-save').html('Save');
         $('.lng-yes-regularly').html('Commonly used');
-        $('.lng_position').html('Your position correct?');
-        $('.lng_find_again').html('Find again');
+        $('.lng_position').html('Did you choose the correct route?');
+        $('.lng_find_again').html('Edit route');
         $('.lng-setpin-locat').html('Set the location on the map');
         $('.lng-current-pos').html('Current Position');
         $('.lng-nearby-locat').html('Near the place');

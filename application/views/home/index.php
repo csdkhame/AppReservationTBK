@@ -7,6 +7,7 @@
         $lag_search_from = 'From: Type airport,hotel name, or location.';
         $lag_search_to = 'To: Type airport,hotel name, or location.';
         $lag_go_txt = 'where you go ?';
+        $lag_from_txt = 'Your position...';
         $lng_from = 'From';
         $lng_to = 'To';
         $lng_from_pro = 'From Province';
@@ -33,6 +34,8 @@
         $lag_search_from = 'From: Type airport,hotel name, or location.';
         $lag_search_to = 'To: Type airport,hotel name, or location.';
         $lag_go_txt = 'where you go ?';
+        $lag_from_txt = 'Your position...';
+        
         $lng_from = 'From';
         $lng_to = 'To';
         $lng_from_pro = 'From Province';
@@ -60,6 +63,8 @@
         $lag_search_from = 'จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
         $lag_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
         $lag_go_txt = 'คุณต้องการไปไหน ?';
+        $lag_from_txt = 'ตำแหน่งของคุณ...';
+
         $lng_from = 'จาก';
         $lng_to = 'ไปยัง';
         $lng_from_pro = 'จากจังหวัด';
@@ -88,6 +93,7 @@
        $lag_search_from = '从: 机场，酒店名称或位置。';
        $lag_search_to = '至: 机场，酒店名称或位置。';
        $lag_go_txt = '你去哪裡 ?';
+       $lag_from_txt = '你的立場...';
        $lng_from = '从';
        $lng_to = '至';
        $lng_from_pro = '從省';
@@ -373,9 +379,10 @@
 </style>
  </div>
         <div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
-        <div class="box_option">
+        <!-- BOX OPTION  -->
+        <!-- <div class="box_option">
         <i class="material-icons" style="line-height: 1.7; font-size: 25px;">place</i>
-        </div>
+        </div> -->
         <div id="search-often" style="    position: absolute;
   
     width: 100%;
@@ -386,25 +393,39 @@
     top: 48vh;"></div></div>
         <div id="search-raeltime" >
             <div class="" id="to-remove-class" >
-                <div class="" style="">
+                <div style="position: absolute;margin-top: 10px;">
+                <div style="width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    background: #555;"></div>
+    <div style="width: 2px;
+    height: 42px;
+    background: #fff;margin-left: 4px;"></div>
+    <div style="width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    background: #16b3b1;"></div>
+                </div>
+                <div class="" style="    margin-left: 25px;">
                <!-- <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
                 <i class="material-icons" style="margin-top: 30px;" >chevron_left</i>
                 </div> -->
-                    
+                
                     <div class="box-search" id='boxRealtime' >
                       <!-- <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>-->
-                        <input type='text'    placeholder=""  id='current' style="border: 1px solid #16b3b1;padding: 10px; width: 100%;background: #fff;display:nones;margin: auto;color:#333;border-radius: 25px"/>
+                        <input type='text'    placeholder="<? echo $lag_from_txt;?>"  id='current' style="    margin-bottom: 10px;border: 1px solid #16b3b1;padding: 8px; width: 100%;background: #fff;display:nones;color:#333;border-radius: 25px"/>
                         
                             <!-- <div style="border-bottom: 1px solid #333;display:nones;"></div> -->
                           
-                                      
-                               
+                                  
                     </div>
                     <div class="box-searchto" id='boxRealtimeto' style="display:none">
-                    <input type='text'  placeholder="<? echo $lag_go_txt;?>" id="pac-input"  
-                            style="border: 1px solid #16b3b1; padding: 10px; width: 100%;  background: #fff; margin: auto;  color: #333;  border-radius: 25px" /> 
+                                   
+                            <input type='text'  placeholder="<? echo $lag_go_txt;?>" id="pac-input"  
+                            style="border: 1px solid #16b3b1; padding: 8px; width: 100%;  background: #fff; margin: auto;  color: #333;  border-radius: 25px" /> 
                     </div>
                     <div id="appendBox"></div>
+                    <!-- <div id="appendBox2" style="border-radius: 25px;"></div> -->
                     
                     
                 </div>
@@ -1268,7 +1289,7 @@
                     border-radius: 25px;
                     margin-right: 15px;
                    " onclick="btn_no_position()"></div>
-                    <div class="lng-yes" style="    width: 120px;
+                    <div class="lng-yes2" style="    width: 120px;
                     padding: 10px 0px;
                     font-size: 15px;
                     background-color: #4caf50;
@@ -1312,7 +1333,7 @@
                 padding: 15px;
             }
             #edit_pin_pop{
-                z-index: 9999;
+                z-index: 19;
                 position: fixed;
                 width: 100vw;
                 height: 100vh;

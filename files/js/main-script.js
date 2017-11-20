@@ -280,23 +280,23 @@ $(document).ready(function() {
         $('.a-link-item').remove();
         $('.not-found').remove();
         $('.typerel').remove();
-        $('#boxRealtimeto').hide(500)
+        $('#boxRealtimeto').show(500)
         $('#boxRealtime').show(500)
         curentFromTo ='';
-        if ($.cookie("lng") == 'cn') {
+        // if ($.cookie("lng") == 'cn') {
            
-            document.getElementById("current").value = "你的立場...";
-        } else if ($.cookie("lng") == 'th') {
-            document.getElementById("current").value = "ตำแหน่งของคุณ...";
+        //     document.getElementById("current").value = "你的立場...";
+        // } else if ($.cookie("lng") == 'th') {
+        //     document.getElementById("current").value = "ตำแหน่งของคุณ...";
            
-        } else if ($.cookie("lng") == 'en') {
+        // } else if ($.cookie("lng") == 'en') {
            
-            document.getElementById("current").value = "Your position...";
+        //     document.getElementById("current").value = "Your position...";
             
-        } else if ($.cookie("lng") == undefined) {
+        // } else if ($.cookie("lng") == undefined) {
             
-            document.getElementById("current").value = "Your position...";
-        }
+        //     document.getElementById("current").value = "Your position...";
+        // }
         // lat_t = '';
         // lng_t = '';
         // lat_f = '';
@@ -528,7 +528,7 @@ $(document).ready(function() {
         setTimeout(function() {
             $('#boxRealtime').show(500);
             
-            $('#boxRealtimeto').hide(500);
+            $('#boxRealtimeto').show(500);
             $('#box-car-service').hide();
             $('#map').show(500);
             $('.box_option').show(500)
