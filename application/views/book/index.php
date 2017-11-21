@@ -100,7 +100,7 @@
     }
 ?>
     <div id="loading" style="z-index: 9999;  position: fixed;  width: 100vw;   height: 100vh;   left: 0;    top: 0;   background: rgba(0, 0, 0, 0.59);    display: nones;">
-        <div style="height: 115px;  border-radius: 4px;  background: #fff;  min-width: 15rem;   /* height: auto; */    left: 50vw;   top: 50vh;   transform: translate(-50%,-50%);   position: fixed;    z-index: 10000;">
+        <div style="border-radius: 25px !important;height: 115px;  border-radius: 4px;  background: #fff;  min-width: 15rem;   /* height: auto; */    left: 50vw;   top: 50vh;   transform: translate(-50%,-50%);   position: fixed;    z-index: 10000;">
             <div>
                 <div style="font-weight: 500;  color: #000; padding: 35px; text-align: center;">
                     <div style="font-size: 15px">Loading</div>
@@ -502,7 +502,7 @@
 
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr id="box_price">
                                             <td valign="top"  style="padding: 5px 0;"> 
                                                 <label style="text-align:left" ><span class="lng-price"></span><span>:</span></label>
 
@@ -524,6 +524,17 @@
 
                                             </td>
                                         </tr>
+                                        <tr id="Rondate">
+                                            <td valign="top"  style="padding: 5px 0;"> 
+                                            <label style="text-align:left" ><span class="lng_departure "></span><span>:</span></label>
+
+                                            </td>
+                                            <td width="10px"></td>
+                                            <td>
+                                            <span id="Rondatetext"></span>                             
+
+                                            </td>
+                                        </tr>
                                     </table>
                                     </div>
                                     <div class="box-list-cars " >
@@ -531,7 +542,7 @@
                                         <span style="color: red" class="ng-binding" >(<span id="selectcar"></span>) </span> <span class="lng-car"></span>
                                         <span style="color:#000" class="ng-binding">1- <span id="checksum"></span><span class="lng-person"></span><span style="color: red" > (<span id="sumnum"></span>) </span></span>
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group form-inline" id="select_date">
                                         <table width="100%">
                                             <tr>
                                                 <td width="100px">
@@ -569,7 +580,7 @@
                                         </table>
                                     </div> 
                                     
-                                    <div class="form-group form-inline">
+                                    <div class="form-group form-inline" id="selece_time">
                                         <table width="100%">
                                             <tr>
                                                 <td width="100px">
@@ -655,7 +666,7 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="form-person form-group " style="">
+                                    <div class="form-person form-group " style="" id="select_adult_child">
                                         <table width="100%">
                                             <tr>
                                                 <td>
@@ -873,7 +884,7 @@
                                 </div>
                                 <div class="col-md-12">
                                 
-                                     <div class="checkbox">
+                                     <div class="checkbox" id="checkbox">
                                          <label>
                                              <input type="checkbox" name="optionsCheckboxes" value="check1" id="acceptance">
                                              <span class="lng-acceptance-of-terms"></span>
@@ -881,7 +892,7 @@
                                      </div>
                                  </div>
                                  <div class="col-md-12">
-                                     <div  class="addbook" id="addbook" value='Book' style=" background: #009688; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px; display:none;border-radius: 25px;" />book
+                                     <div  class="lng_addbook" id="addbook" value='Book' style=" background: #009688; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px;border-radius: 25px;" />book
                                      </div>                                    
                                  </div>
                             </div>
@@ -951,9 +962,80 @@
             #table1{
                 margin-top: 10px !important;
             }
+            #acceptance_pin_pop{
+                z-index: 19;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                display: none;
+                /* pointer-events: none; */
+            }
+            .acceptance_pin_pop_in{
+               /* height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 80vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .acceptance_pin_pop_ln{
+                padding: 20px;
+                pointer-events: auto;
+            }
+            @keyframes blink { 
+						   50% { border-color: #ff0000; } 
+						}
+            #checkbox .checkbox-material .check {
+    animation-name: blink;
+    animation-duration: .5s;
+    animation-timing-function: step-end;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
         </style> 
-                  
+         <div id="acceptance_pin_pop" style="">
+            <div class="acceptance_pin_pop_in">               
+                <div class="acceptance_pin_pop_ln">
+                    <div class="lng_please_accept" style="text-align: center; font-size: 16px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="New name" id="newname" name="newname" onchange="newname(newname)" > -->
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <!-- <div class="lng_find_again btn-close" style="background-color: #f44336;
+                    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="btn_no_position()">Edit route</div> -->
+                    <div class="lng-close icon-close" style="    width: 100%;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #4caf50;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;" >Correct</div>
+                    </div>
+                    
+                </div>        
+            
+            </div></div>         
         <div class="modal fade" id="login">
             <div class="modal-dialog col-md-8">
                 <div class="modal-content">
@@ -1073,7 +1155,7 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 1px solid rgb(0, 150, 136)!important;
+    border: 2px solid rgb(0, 150, 136)!important;
     overflow: hidden;
     z-index: 1;
     border-radius: 5px;

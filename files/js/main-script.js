@@ -4,9 +4,11 @@ var dataplaceSend, id_placefrom, id_placeto, pro_from, pro_to, aum_from, aum_to,
 compae1join = [],
 compae2private = [],
 compae2join = [],
+
 lat_from, lng_from,proFrom,proTo,dataUse;
 
 var start_st, end_st;
+var booking = '';
 // var base_url = 'https://dotdotdottrip.com/';
 // alert('asdsadas')
 var base_url = 'https://www.welovetaxi.com/app/booking/';
@@ -457,68 +459,114 @@ $(document).ready(function() {
     });
     $('.btn-reservation').click(function() {
         // alert("aaaa");
+        booking = 'Reservation'
         $('#clear-all').click();
-        reltimeclick = 0;
-        if ($.cookie("lng") == "en") {
-            $('#search-from').val('From: Type airport,hotel name, or location.');
-            // $lag_search_to = 'To: Type airport,hotel name, or location.';
-           
-        } else if ($.cookie("lng") == "cn") {
-            $('#search-from').val('从: 机场，酒店名称或位置。');
-            // $lag_search_to = '至: 机场，酒店名称或位置。';
-        } else if ($.cookie("lng") == "th") {
-            $('#search-from').val('จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง');
-            // $lag_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
-        } else if ($.cookie("lng") == undefined) {
-            $('#search-from').val('From: Type airport,hotel name, or location.');
-            // $lag_search_to = 'To: Type airport,hotel name, or location.';
-        }
+        placeRecord();
+        //	  $('#selectPlace').show();
         $('#loading').css('display', 'block');
-       
-       
-
+        //       $('#btn-real-res').css('display', 'none');
+        $('#opennut').click();
         //$('#content').css('display','none');
         setTimeout(function() {
-            $('#boxForAutoCom').hide(500)
+            $('#boxRealtime').show(500);
             
-            $('.box_option').hide(500)
-            $('.box_to').hide(500)
-            $('.box_from').show(500)
+            $('#boxRealtimeto').show(500);
             $('#box-car-service').hide();
             $('#map').show(500);
-            $('#current-addr').show(500);
-            // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
-            //$(this).hide(); 
-            //$("#iconhome").fadeIn(1000);
-            // $("#iconleft").fadeIn(1000);
-            // $("#iconleft2").hide();
-            //  //$('#show-hide-pro2').show(); 
-            // $(".btn-real-res").css({ 'text-align': 'center' });
-            // $(".btn-realtime").hide();
-            $("#show-hide-pro2").hide();
+            $('.box_option').show(500)
+            
             $('.btn-reservation').css({ 'background': '#16B3B1', 'color': '#ffffff' });
+            
+            
+                        $('.btn-home').css({ 'background': '#ffffff', 'color': '#333' });
+                        $('.btn-management').css({ 'background': '#ffffff', 'color': '#333' });
+                        $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#333' });
+                        $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#333' });
 
-
-            $('.btn-home').css({ 'background': '#ffffff', 'color': '#333' });
-            $('.btn-management').css({ 'background': '#ffffff', 'color': '#333' });
-            $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#333' });
-            $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#333' });
-
-            $("#search-show").fadeIn(1000);
-
-            //});
-            $('#search-raeltime').css('display', 'none');
+            //$("#iconhome").fadeIn(1000);
             // $('#map').css('display', 'none');
+            //$("#iconleft2").fadeIn(1000);
+            //$("#iconleft").hide();
+            $("#pro-search").hide();
+            $("#search-raeltime").fadeIn(1000);
+
+            $("#list_place").fadeIn(1000);
+            //$(".btn-reservation").hide();
+            $("#show-hide-pro2").hide();
+            //             $('#selectPlace').css('z-index','1');
             $('#loading').css('display', 'none');
-            //$('').css('display', 'block')
+            $('#search-show').css('display', 'none')
+            $('#pac-input').css('display', '');
+            //$('#search-raeltime').css('display', 'block');
+
+
+
+
+
             //$('#content').css('display','block'); 
         }, 500);
+        // reltimeclick = 0;
+        // if ($.cookie("lng") == "en") {
+        //     $('#search-from').val('From: Type airport,hotel name, or location.');
+        //     // $lag_search_to = 'To: Type airport,hotel name, or location.';
+           
+        // } else if ($.cookie("lng") == "cn") {
+        //     $('#search-from').val('从: 机场，酒店名称或位置。');
+        //     // $lag_search_to = '至: 机场，酒店名称或位置。';
+        // } else if ($.cookie("lng") == "th") {
+        //     $('#search-from').val('จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง');
+        //     // $lag_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
+        // } else if ($.cookie("lng") == undefined) {
+        //     $('#search-from').val('From: Type airport,hotel name, or location.');
+        //     // $lag_search_to = 'To: Type airport,hotel name, or location.';
+        // }
+        // $('#loading').css('display', 'block');
+       
+       
+
+        // //$('#content').css('display','none');
+        // setTimeout(function() {
+        //     $('#boxForAutoCom').hide(500)
+            
+        //     $('.box_option').hide(500)
+        //     $('.box_to').hide(500)
+        //     $('.box_from').show(500)
+        //     $('#box-car-service').hide();
+        //     $('#map').show(500);
+        //     $('#current-addr').show(500);
+        //     // $(".btn-real-res").animate({'text-align':'center'}, 'slow', function(){ 
+        //     //$(this).hide(); 
+        //     //$("#iconhome").fadeIn(1000);
+        //     // $("#iconleft").fadeIn(1000);
+        //     // $("#iconleft2").hide();
+        //     //  //$('#show-hide-pro2').show(); 
+        //     // $(".btn-real-res").css({ 'text-align': 'center' });
+        //     // $(".btn-realtime").hide();
+        //     $("#show-hide-pro2").hide();
+        //     $('.btn-reservation').css({ 'background': '#16B3B1', 'color': '#ffffff' });
+
+
+        //     $('.btn-home').css({ 'background': '#ffffff', 'color': '#333' });
+        //     $('.btn-management').css({ 'background': '#ffffff', 'color': '#333' });
+        //     $('.btn-realtime').css({ 'background': '#ffffff', 'color': '#333' });
+        //     $('.btn-car-service').css({ 'background': '#ffffff', 'color': '#333' });
+
+        //     $("#search-show").fadeIn(1000);
+
+        //     //});
+        //     $('#search-raeltime').css('display', 'none');
+        //     // $('#map').css('display', 'none');
+        //     $('#loading').css('display', 'none');
+        //     //$('').css('display', 'block')
+        //     //$('#content').css('display','block'); 
+        // }, 500);
 
 
     });
 
     $('.btn-realtime').click(function() {
         reltimeclick = 1;
+        booking = 'Reltime'
         placeRecord();
         //	  $('#selectPlace').show();
         $('#loading').css('display', 'block');

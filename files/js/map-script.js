@@ -1255,7 +1255,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                         '</div>' +
                         '<div class="views-item" >' +
-                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '" > <span >' + lngbook + '</span></a>' +
+                        '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" > <span >' + lngbook + '</span></a>' +
 
                         '</div>' +
                         '</div>' +
@@ -1333,7 +1333,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
                             '</div>' +
                             '<div class="views-item" >' +
-                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + data[0].data1.from + '&to=' + data[0].data1.to + '" > <span >' + lngbook + '</span></a>' +
+                            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + data[0].data1.from + '&to=' + data[0].data1.to + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" > <span >' + lngbook + '</span></a>' +
 
                             '</div>' +
                             '</div>' +
@@ -1629,7 +1629,7 @@ function sendpaxrel(x) {
 
             '</div>' +
             '<div class="views-item" >' +
-            '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '" > <span >' + lngbook + '</span></a>' +
+            '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" > <span >' + lngbook + '</span></a>' +
 
             '</div>' +
             '</div>' +
@@ -1716,7 +1716,7 @@ function sendpaxrel(x) {
 
             '</div>' +
             '<div class="views-item" >' +
-            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '" > <span >' + lngbook + '</span></a>' +
+            '<a  href="book?data=' + compae1join[i].transfer_id + '&from=' + id_placefrom + '&to=' + id_placeto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" > <span >' + lngbook + '</span></a>' +
 
             '</div>' +
             '</div>' +

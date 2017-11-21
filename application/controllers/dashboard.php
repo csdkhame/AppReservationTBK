@@ -17,7 +17,7 @@ public function index()
 		$this->load->view('index_dash');
 		$this->load->view('footer_dash');*/
 //		redirect('https://dotdotdottrip.com/dashboard/view_user', 'refresh');
-		redirect('https://www.welovetaxi.com/app/booking//view_user', 'refresh');
+		redirect('https://www.welovetaxi.com/app/booking/view_user', 'refresh');
 /*		$this->load->view('header');
 		$this->load->view('index_dash');
 		$this->load->view('footer');*/

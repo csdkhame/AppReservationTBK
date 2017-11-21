@@ -6,8 +6,8 @@
         $lng_all_type = 'All Type';
         $lag_search_from = 'From: Type airport,hotel name, or location.';
         $lag_search_to = 'To: Type airport,hotel name, or location.';
-        $lag_go_txt = 'where you go ?';
-        $lag_from_txt = 'Your position...';
+        $lag_go_txt = 'Where are you going? (English)?';
+        $lag_from_txt = 'Departure Location (English)...';
         $lng_from = 'From';
         $lng_to = 'To';
         $lng_from_pro = 'From Province';
@@ -33,8 +33,8 @@
         $lng_all_type = 'All Type';
         $lag_search_from = 'From: Type airport,hotel name, or location.';
         $lag_search_to = 'To: Type airport,hotel name, or location.';
-        $lag_go_txt = 'where you go ?';
-        $lag_from_txt = 'Your position...';
+        $lag_go_txt = 'Where are you going? (English)';
+        $lag_from_txt = 'Departure Location (English)...';
         
         $lng_from = 'From';
         $lng_to = 'To';
@@ -62,8 +62,8 @@
         $lng_all_type = 'ทุกประเภท';
         $lag_search_from = 'จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
         $lag_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
-        $lag_go_txt = 'คุณต้องการไปไหน ?';
-        $lag_from_txt = 'ตำแหน่งของคุณ...';
+        $lag_go_txt = 'คุณจะไปที่ไหน (อังกฤษ)';
+        $lag_from_txt = 'จุดเริ่มต้น (อังกฤษ)...';
 
         $lng_from = 'จาก';
         $lng_to = 'ไปยัง';
@@ -92,8 +92,8 @@
        $lng_all_type = '所有類型';
        $lag_search_from = '从: 机场，酒店名称或位置。';
        $lag_search_to = '至: 机场，酒店名称或位置。';
-       $lag_go_txt = '你去哪裡 ?';
-       $lag_from_txt = '你的立場...';
+       $lag_go_txt = '您去哪里？ （英文）';
+       $lag_from_txt = '出发地点 （英文）...';
        $lng_from = '从';
        $lng_to = '至';
        $lng_from_pro = '從省';
@@ -1350,7 +1350,7 @@
                 min-width: 80vw;
                 /* height: auto; */
                 left: 50vw;
-                top: 80vh;
+                bottom: 1vh;
                 transform: translate(-50%,-50%);
                 position: fixed;
                 z-index: 10;

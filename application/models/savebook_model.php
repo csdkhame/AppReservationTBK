@@ -30,6 +30,11 @@ class Savebook_model extends CI_Model {
       $data['s_code'] = $this->input->post('code');
       $data['s_code_ref'] = $this->input->post('code_ref');
       $data['cost_a_nett'] = $this->input->post('cost_a_nett');
+      $data['lat_from'] = $this->input->post('lat_f');
+      $data['lng_from'] = $this->input->post('lng_f');
+      $data['lat_to'] = $this->input->post('lat_t');
+      $data['lng_to'] = $this->input->post('lng_t');
+      $data['fashion'] = $this->input->post('book');
       //return $times;
      
       

@@ -1209,6 +1209,16 @@ input:after {
     #marginBox{
         height: 57vh !important;  
     }
+    .lng_find_again{
+        width: 100% !important;
+        margin-right: 0px !important;
+        margin-bottom: 15px !important;
+    }
+    .lng-yes2{
+        width: 100% !important;
+        /* margin-right: 0px !important;
+        margin-bottom: 15px !important; */
+    }
 }
 
 @media screen and (min-height: 600px) {

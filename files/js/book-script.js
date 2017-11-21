@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var data, from, to;
+    var Checkacceptance = false;
     var base_url = 'https://www.welovetaxi.com/app/booking/';
     $('#loading').css('display', 'block');
     $('#content').css('display', 'none');
@@ -33,7 +34,7 @@ $(document).ready(function() {
         place_name, toplace_name, adress, adress_to, terminal, car_model,
         service, code, visa, guestcountry, datauser,
         code_r, code_ref, s_email,
-        flight, cost_a_nett, lng_getcountry, adresss;
+        flight, cost_a_nett, lng_getcountry, adresss,newDate = '',getcosereltime = 0;
 
     if ($.cookie("lng") == 'cn') {
         lng_getcountry = '请选择国家';
@@ -75,7 +76,15 @@ $(document).ready(function() {
     }
 
     $('#sumnum').html(parseInt(sum_adult_child));
-
+    var s = new Date();
+    console.log(s.getDate())
+    console.log(s.getMonth())
+    console.log(s.getFullYear())
+    console.log(s.getMonth()+1)
+    newmonth = s.getMonth()+1;
+    newDate = s.getFullYear()+'-'+newmonth +'-'+s.getDate();
+    console.log(newDate)
+    $('#Rondatetext').html(newDate)
 
     // if ($.cookie("login")) {
     //     console.log($.cookie("login"))
@@ -180,9 +189,12 @@ $(document).ready(function() {
     })
     $('#acceptance').change(function() {
         if (this.checked) {
-            $('#addbook').css('display', 'block');
+            Checkacceptance = true;
+            // $('#addbook').css('display', 'block');
         } else {
-            $('#addbook').css('display', 'none');
+            Checkacceptance = false;
+            
+            // $('#addbook').css('display', 'none');
             // the checkbox is now no longer checked
         }
     })
@@ -347,9 +359,34 @@ $(document).ready(function() {
     console.log(getParameterByName('data'))
     console.log(getParameterByName('from'))
     console.log(getParameterByName('to'))
+    console.log(getParameterByName('lat_f'))
+    console.log(getParameterByName('lng_f'))
+    console.log(getParameterByName('lat_t'))
+    console.log(getParameterByName('lng_t'))
+    console.log(getParameterByName('book'))
     var data = getParameterByName('data');
     var from = getParameterByName('from');
     var to = getParameterByName('to');
+    if(getParameterByName('book') == 'Reltime'){
+        $('#car-show').hide();
+        $('#select_date').hide();
+        // $('#select_date').disabled = true;
+        $('#selece_time').hide()
+        $('#select_adult_child').hide()
+        
+        $('.box-list-cars ').hide()
+        $('#Rondatetext ').show()
+        $('#visa-show ').hide();
+        $('#box_price ').hide();
+        
+        
+        
+    }
+    else{
+        $('#Rondate').hide()
+        $('#Rondatetext ').hide()
+        
+    }
 
     $('.box-login-non').click(function() {
 
@@ -469,6 +506,7 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(data) {
             console.log(data)
+            getcosereltime = data[0].cost_a_sell;
             if (data[0].area == "Service") {
                 $('.box-program').hide();
                 $('.boxs-to').hide();
@@ -1105,6 +1143,13 @@ $(document).ready(function() {
     $('.btn-close').on('click', function() {
         $('#waning-flight').hide(500);
     });
+    // $('#addbook').on('click', function() {
+    //     console.log(new Date('YYYY-mm-dd'))
+       
+    // });
+    $('.icon-close').on('click', function() {
+        $('#acceptance_pin_pop').hide(500)
+    })
     $('#addbook').on('click', function() {
         $('.loader-wrapper').css('display', 'block')
 
@@ -1119,384 +1164,422 @@ $(document).ready(function() {
             email = getemail;
             phone = getphone;
         }
-        console.log(code)
-        console.log(namecountry)
-        console.log(num_cars)
-        console.log(selectcar)
-        console.log(num_adult)
-        console.log(num_child)
-        console.log(ondate)
-        console.log(ontime)
-        console.log(time_h)
-        console.log(time_m)
-        console.log(name)
-        console.log(phone)
-        console.log($.cookie("phonecode"))
-        console.log(other)
-        console.log(email)
-        console.log(place)
-        console.log(to_place)
-        console.log(costdotcars)
-        console.log(code_r + 'code')
-        console.log(code_ref + 'code_ref');
-        console.log(area)
-        console.log(cost_a_nett)
-        var url2 = 'https://welovetaxi.com/app/booking/';
-
-        console.log(flight)
-        console.log(area)
-        console.log($.cookie("phonecode"))
-        //console.log(flight)
-        if ((area == 'In' || area == 'Out') && flight == undefined ) {
-            // && $.cookie("phonecode") == undefined
-
-            $('#waning-flight').fadeIn(500);
-            //alert("aaaa");
-
-
-        } else {
-
-            $.ajax({
-                type: 'POST',
-                url: 'https://www.welovetaxi.com/app/booking/savebook_control/process',
-                data: {
-                    'from': getParameterByName('from'),
-                    'to': getParameterByName('to'),
-                    'numcar': num_cars,
-                    'program': getParameterByName('data'),
-                    'adult': num_adult,
-                    'child': num_child,
-                    'onndate': ondate,
-                    'ontime': ontime,
-                    'name': name,
-                    'phone': phone,
-                    'phonecode': $.cookie("phonecode"),
-                    'email': email,
-                    'cost': total_price,
-                    'other': other,
-                    'guest_other': namecountry,
-                    'arrival_flight': flight,
-                    'visa': visa,
-                    'code': code_r,
-                    'code_ref': code_ref,
-                    'cost_a_nett': cost_a_nett
-
-                },
-                // contentType: "application/json",
-                dataType: 'json',
-                success: function(data) {
-                    console.log(data)
-                    $('.loader-wrapper').css('display', 'none')
-                    if (type == 'Join') {
-                        if (area == 'Point' || area == 'In') {
-                            var param = {
-                                "agent_ref": data,
-                                "guest_english": name,
-                                "guest_other": namecountry,
-                                "phone": '+' + $.cookie("phonecode") + phone,
-                                "email": email,
-                                "social_wechat": "",
-                                "social_qq": "",
-                                "social_wangwang": "",
-                                "social_line": "",
-                                "social_skype": "",
-                                "social_whatapp": "",
-                                "social_facebook": "",
-                                "product": code,
-                                "arrival_date": ondate,
-                                "arrival_time": ontime,
-                                "arrival_flight": flight,
-                                "arrival_visa": 0,
-                                "total_pax": sum_adult_child,
-                                "baggage": 0,
-                                "to_place": toplace_name,
-                                "to_place_address": adress_to,
-                                "remark": other,
-                                "type": type,
-                                "area": area,
-                                'code': code_r,
-                                'code_ref': code_ref,
-                                'cost_a_nett': cost_a_nett
-
-
-                            };
-                        }
-
-                    }
-                    if (type == 'Join') {
-                        if (area == 'Out') {
-                            var param = {
-                                "agent_ref": data,
-                                "guest_english": name,
-                                "guest_other": namecountry,
-                                "phone": '+' + $.cookie("phonecode") + phone,
-                                "email": email,
-                                "social_wechat": "",
-                                "social_qq": "",
-                                "social_wangwang": "",
-                                "social_line": "",
-                                "social_skype": "",
-                                "social_whatapp": "",
-                                "social_facebook": "",
-                                "product": code,
-                                "departure_date": ondate,
-                                "departure_time": ontime,
-                                "departure_flight": flight,
-                                "departure_terminal": terminal,
-                                "total_pax": sum_adult_child,
-                                "baggage": "3",
-                                "pickup_place": place_name,
-                                "pickup_place_address": adresss,
-                                "service_time": ontime,
-                                "remark": other,
-                                "type": type,
-                                "area": area,
-                                'code': code_r,
-                                'code_ref': code_ref,
-                                'cost_a_nett': cost_a_nett
-
-
-                            };
-                        }
-                    }
-                    if (type == 'Private') {
-                        if (area == 'In') {
-                            var param = {
-                                "agent_ref": data,
-                                "guest_english": name,
-                                "guest_other": namecountry,
-                                "phone": '+' + $.cookie("phonecode") + phone,
-                                "email": email,
-                                "social_wechat": "",
-                                "social_qq": "",
-                                "social_wangwang": "",
-                                "social_line": "",
-                                "social_skype": "",
-                                "social_whatapp": "",
-                                "social_facebook": "",
-                                "product": code,
-                                "arrival_date": ondate,
-                                "arrival_time": ontime,
-                                "arrival_flight": flight,
-                                "total_pax": sum_adult_child,
-                                "baggage": "",
-                                "to_place": toplace_name,
-                                "to_place_address": adress_to,
-                                "number_car": num_cars,
-                                "remark": other,
-                                "type": type,
-                                "area": area,
-                                'visa': visa,
-                                'code': code_r,
-                                'code_ref': code_ref,
-                                'cost_a_nett': cost_a_nett
-
-
-
-                            };
-                        }
-                    }
-                    if (type == 'Private') {
-                        if (area == 'Out') {
-                            var param = {
-                                "agent_ref": data,
-                                "guest_english": name,
-                                "guest_other": namecountry,
-                                "phone": '+' + $.cookie("phonecode") + phone,
-                                "email": email,
-                                "social_wechat": "",
-                                "social_qq": "",
-                                "social_wangwang": "",
-                                "social_line": "",
-                                "social_skype": "",
-                                "social_whatapp": "",
-                                "social_facebook": "",
-                                "product": code,
-                                "departure_date": ondate,
-                                "departure_time": ontime,
-                                "departure_flight": flight,
-                                "departure_terminal": terminal,
-                                "total_pax": sum_adult_child,
-                                "baggage": "",
-                                "pickup_place": place_name,
-                                "pickup_place_address": adresss,
-                                "service_time": service,
-                                "number_car": num_cars,
-                                "remark": other,
-                                "type": type,
-                                "area": area,
-                                'code': code_r,
-                                'code_ref': code_ref,
-                                'cost_a_nett': cost_a_nett
-
-
-                            };
-                        }
-                    }
-                    if (type == 'Point To Point') {
-
-                        var param = {
-                            "agent_ref": data,
-                            "guest_english": name,
-                            "guest_other": namecountry,
-                            "phone": '+' + $.cookie("phonecode") + phone,
-
-                            "email": email,
-                            "social_wechat": "",
-                            "social_qq": "",
-                            "social_wangwang": "",
-                            "social_line": "",
-                            "social_skype": "",
-                            "social_whatapp": "",
-                            "social_facebook": "",
-                            "product": code,
-                            "service_date": ondate,
-                            "service_time": ontime,
-                            "total_pax": sum_adult_child,
-                            "number_car": num_cars,
-                            "pickup_place": place_name,
-                            "to_place": toplace_name,
-                            "remark": other,
-                            "type": type,
-                            "area": area,
-                            'code': code_r,
-                            'code_ref': code_ref,
-                            'cost_a_nett': cost_a_nett
-
-
-
-
-
-
-
-                        };
-
-                    }
-                    if (type == 'Private' && area == 'Service') {
-
-                        var param = {
-                            "agent_ref": data,
-                            "guest_english": name,
-                            "guest_other": namecountry,
-                            "phone": '+' + $.cookie("phonecode") + phone,
-                            "email": email,
-                            "social_wechat": "",
-                            "social_qq": "",
-                            "social_wangwang": "",
-                            "social_line": "",
-                            "social_skype": "",
-                            "social_whatapp": "",
-                            "social_facebook": "",
-                            "product": code,
-                            "service_date": ondate,
-                            "service_time": ontime,
-                            "total_pax": sum_adult_child,
-                            "number_car": num_cars,
-                            "pickup_place": place_name,
-                            "pickup_place_address": adresss,
-                            "to_place": toplace_name,
-                            "to_place_address": adress_to,
-                            "car_use_plan": "",
-                            "remark": other,
-                            "type": type,
-                            "area": area,
-                            'code': code_r,
-                            'code_ref': code_ref,
-                            'cost_a_nett': cost_a_nett
-
-
-
-
-
-
-
-                        };
-
-                    }
-                    if (type == 'Private' && area == 'Point') {
-
-                        var param = {
-                            "agent_ref": data,
-                            "guest_english": name,
-                            "guest_other": namecountry,
-                            "phone": '+' + $.cookie("phonecode") + phone,
-                            "email": email,
-                            "product": code,
-                            "service_date": ondate,
-                            "service_time": ontime,
-                            "departure_terminal": terminal,
-                            "total_pax": sum_adult_child,
-                            "social_wechat": "",
-                            "social_qq": "",
-                            "social_wangwang": "",
-                            "social_line": "",
-                            "social_skype": "",
-                            "social_whatapp": "",
-                            "social_facebook": "",
-                            "pickup_place": place_name,
-                            "pickup_place_address": adresss,
-                            "to_place": toplace_name,
-                            "to_place_address": adress_to,
-                            "number_car": num_cars,
-                            "remark": other,
-                            "type": type,
-                            "area": area,
-                            'code': code_r,
-                            'code_ref': code_ref,
-                            'cost_a_nett': cost_a_nett
-
-
-
-
-
-
-
-                        };
-
-                    }
-                    console.log(param)
-                    $.ajax({
-                        type: 'POST',
-                        url: 'https://www.welovetaxi.com/app/booking/savebook_control/saveapi',
-                        data: param,
-                        //contentType: "application/json",
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log(data);
-                            console.log(s_email);
-                            if (data.status == 202) {
-                                $.ajax({
-                                    type: 'POST',
-                                    url: 'https://www.welovetaxi.com/app/booking/sendemail.php',
-                                    data: { 'mail': s_email, 'voucher': data.invoice },
-                                    //contentType: "application/json",
-                                    dataType: 'json',
-                                    success: function(data) {
-                                        console.log(data);
-                                        //console.log(s_email);
-
-                                    }
-                                });
-                                window.location.href = "https://www.welovetaxi.com/app/booking/dashboard/view_user";
-
-                            } else {
-                                alert("please input data ");
-                            }
-
-
-                        }
-                    });
-
-                }
-            });
+        if(getParameterByName('book') == 'Reltime'){
+            ondate = newDate;
+            var newHours;
+            var newMinutes;
+            num_cars = 1;
+            console.log(s.getHours().length)
+            console.log(s.getMinutes().length)
+            if(s.getHours()<10){
+                newHours = '0'+s.getHours()
+            }
+            else{
+                newHours = s.getHours()
+            }
+            if(s.getMinutes() <10){
+                newMinutes = '0'+s.getMinutes()
+            }
+            else{
+                newMinutes = s.getMinutes()
+                
+            }
+               
+            ontime =newHours+':'+newMinutes;
+            console.log(ontime)
+            total_price = getcosereltime;
         }
+        if(Checkacceptance != false){
+            console.log(code)
+            console.log(namecountry)
+            console.log(num_cars)
+            console.log(selectcar)
+            console.log(num_adult)
+            console.log(num_child)
+            console.log(ondate)
+            console.log(ontime)
+            console.log(time_h)
+            console.log(time_m)
+            console.log(name)
+            console.log(phone)
+            console.log($.cookie("phonecode"))
+            console.log(other)
+            console.log(email)
+            console.log(place)
+            console.log(to_place)
+            console.log(costdotcars)
+            console.log(code_r + 'code')
+            console.log(code_ref + 'code_ref');
+            console.log(area)
+            console.log(cost_a_nett)
+            var url2 = 'https://welovetaxi.com/app/booking/';
+    
+            console.log(flight)
+            console.log(area)
+            console.log($.cookie("phonecode"))
+            //console.log(flight)
+            if ((area == 'In' || area == 'Out') && flight == undefined ) {
+                // && $.cookie("phonecode") == undefined
+                $('#flight').focus();
+                $('#flight').css('border','1px solid #f44336')
+                
+                // $('#waning-flight').fadeIn(500);
+                //alert("aaaa");
+    
+    
+            } else {
+    
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://www.welovetaxi.com/app/booking/savebook_control/process',
+                    data: {
+                        'from': getParameterByName('from'),
+                        'to': getParameterByName('to'),
+                        'numcar': num_cars,
+                        'program': getParameterByName('data'),
+                        'adult': num_adult,
+                        'child': num_child,
+                        'onndate': ondate,
+                        'ontime': ontime,
+                        'name': name,
+                        'phone': phone,
+                        'phonecode': $.cookie("phonecode"),
+                        'email': email,
+                        'cost': total_price,
+                        'other': other,
+                        'guest_other': namecountry,
+                        'arrival_flight': flight,
+                        'visa': visa,
+                        'code': code_r,
+                        'code_ref': code_ref,
+                        'cost_a_nett': cost_a_nett,
+                        'lat_f': getParameterByName('lat_f'),
+                        'lng_f': getParameterByName('lng_f'),
+                        'lat_t': getParameterByName('lat_t'),
+                        'lng_f': getParameterByName('lng_f'),
+                        'book': getParameterByName('book'),
+    
+                    },
+                    // contentType: "application/json",
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data)
+                        $('.loader-wrapper').css('display', 'none')
+                        if (type == 'Join') {
+                            if (area == 'Point' || area == 'In') {
+                                var param = {
+                                    "agent_ref": data,
+                                    "guest_english": name,
+                                    "guest_other": namecountry,
+                                    "phone": '+' + $.cookie("phonecode") + phone,
+                                    "email": email,
+                                    "social_wechat": "",
+                                    "social_qq": "",
+                                    "social_wangwang": "",
+                                    "social_line": "",
+                                    "social_skype": "",
+                                    "social_whatapp": "",
+                                    "social_facebook": "",
+                                    "product": code,
+                                    "arrival_date": ondate,
+                                    "arrival_time": ontime,
+                                    "arrival_flight": flight,
+                                    "arrival_visa": 0,
+                                    "total_pax": sum_adult_child,
+                                    "baggage": 0,
+                                    "to_place": toplace_name,
+                                    "to_place_address": adress_to,
+                                    "remark": other,
+                                    "type": type,
+                                    "area": area,
+                                    'code': code_r,
+                                    'code_ref': code_ref,
+                                    'cost_a_nett': cost_a_nett
+    
+    
+                                };
+                            }
+    
+                        }
+                        if (type == 'Join') {
+                            if (area == 'Out') {
+                                var param = {
+                                    "agent_ref": data,
+                                    "guest_english": name,
+                                    "guest_other": namecountry,
+                                    "phone": '+' + $.cookie("phonecode") + phone,
+                                    "email": email,
+                                    "social_wechat": "",
+                                    "social_qq": "",
+                                    "social_wangwang": "",
+                                    "social_line": "",
+                                    "social_skype": "",
+                                    "social_whatapp": "",
+                                    "social_facebook": "",
+                                    "product": code,
+                                    "departure_date": ondate,
+                                    "departure_time": ontime,
+                                    "departure_flight": flight,
+                                    "departure_terminal": terminal,
+                                    "total_pax": sum_adult_child,
+                                    "baggage": "3",
+                                    "pickup_place": place_name,
+                                    "pickup_place_address": adresss,
+                                    "service_time": ontime,
+                                    "remark": other,
+                                    "type": type,
+                                    "area": area,
+                                    'code': code_r,
+                                    'code_ref': code_ref,
+                                    'cost_a_nett': cost_a_nett
+    
+    
+                                };
+                            }
+                        }
+                        if (type == 'Private') {
+                            if (area == 'In') {
+                                var param = {
+                                    "agent_ref": data,
+                                    "guest_english": name,
+                                    "guest_other": namecountry,
+                                    "phone": '+' + $.cookie("phonecode") + phone,
+                                    "email": email,
+                                    "social_wechat": "",
+                                    "social_qq": "",
+                                    "social_wangwang": "",
+                                    "social_line": "",
+                                    "social_skype": "",
+                                    "social_whatapp": "",
+                                    "social_facebook": "",
+                                    "product": code,
+                                    "arrival_date": ondate,
+                                    "arrival_time": ontime,
+                                    "arrival_flight": flight,
+                                    "total_pax": sum_adult_child,
+                                    "baggage": "",
+                                    "to_place": toplace_name,
+                                    "to_place_address": adress_to,
+                                    "number_car": num_cars,
+                                    "remark": other,
+                                    "type": type,
+                                    "area": area,
+                                    'visa': visa,
+                                    'code': code_r,
+                                    'code_ref': code_ref,
+                                    'cost_a_nett': cost_a_nett
+    
+    
+    
+                                };
+                            }
+                        }
+                        if (type == 'Private') {
+                            if (area == 'Out') {
+                                var param = {
+                                    "agent_ref": data,
+                                    "guest_english": name,
+                                    "guest_other": namecountry,
+                                    "phone": '+' + $.cookie("phonecode") + phone,
+                                    "email": email,
+                                    "social_wechat": "",
+                                    "social_qq": "",
+                                    "social_wangwang": "",
+                                    "social_line": "",
+                                    "social_skype": "",
+                                    "social_whatapp": "",
+                                    "social_facebook": "",
+                                    "product": code,
+                                    "departure_date": ondate,
+                                    "departure_time": ontime,
+                                    "departure_flight": flight,
+                                    "departure_terminal": terminal,
+                                    "total_pax": sum_adult_child,
+                                    "baggage": "",
+                                    "pickup_place": place_name,
+                                    "pickup_place_address": adresss,
+                                    "service_time": service,
+                                    "number_car": num_cars,
+                                    "remark": other,
+                                    "type": type,
+                                    "area": area,
+                                    'code': code_r,
+                                    'code_ref': code_ref,
+                                    'cost_a_nett': cost_a_nett
+    
+    
+                                };
+                            }
+                        }
+                        if (type == 'Point To Point') {
+    
+                            var param = {
+                                "agent_ref": data,
+                                "guest_english": name,
+                                "guest_other": namecountry,
+                                "phone": '+' + $.cookie("phonecode") + phone,
+    
+                                "email": email,
+                                "social_wechat": "",
+                                "social_qq": "",
+                                "social_wangwang": "",
+                                "social_line": "",
+                                "social_skype": "",
+                                "social_whatapp": "",
+                                "social_facebook": "",
+                                "product": code,
+                                "service_date": ondate,
+                                "service_time": ontime,
+                                "total_pax": sum_adult_child,
+                                "number_car": num_cars,
+                                "pickup_place": place_name,
+                                "to_place": toplace_name,
+                                "remark": other,
+                                "type": type,
+                                "area": area,
+                                'code': code_r,
+                                'code_ref': code_ref,
+                                'cost_a_nett': cost_a_nett
+    
+    
+    
+    
+    
+    
+    
+                            };
+    
+                        }
+                        if (type == 'Private' && area == 'Service') {
+    
+                            var param = {
+                                "agent_ref": data,
+                                "guest_english": name,
+                                "guest_other": namecountry,
+                                "phone": '+' + $.cookie("phonecode") + phone,
+                                "email": email,
+                                "social_wechat": "",
+                                "social_qq": "",
+                                "social_wangwang": "",
+                                "social_line": "",
+                                "social_skype": "",
+                                "social_whatapp": "",
+                                "social_facebook": "",
+                                "product": code,
+                                "service_date": ondate,
+                                "service_time": ontime,
+                                "total_pax": sum_adult_child,
+                                "number_car": num_cars,
+                                "pickup_place": place_name,
+                                "pickup_place_address": adresss,
+                                "to_place": toplace_name,
+                                "to_place_address": adress_to,
+                                "car_use_plan": "",
+                                "remark": other,
+                                "type": type,
+                                "area": area,
+                                'code': code_r,
+                                'code_ref': code_ref,
+                                'cost_a_nett': cost_a_nett
+    
+    
+    
+    
+    
+    
+    
+                            };
+    
+                        }
+                        if (type == 'Private' && area == 'Point') {
+    
+                            var param = {
+                                "agent_ref": data,
+                                "guest_english": name,
+                                "guest_other": namecountry,
+                                "phone": '+' + $.cookie("phonecode") + phone,
+                                "email": email,
+                                "product": code,
+                                "service_date": ondate,
+                                "service_time": ontime,
+                                "departure_terminal": terminal,
+                                "total_pax": sum_adult_child,
+                                "social_wechat": "",
+                                "social_qq": "",
+                                "social_wangwang": "",
+                                "social_line": "",
+                                "social_skype": "",
+                                "social_whatapp": "",
+                                "social_facebook": "",
+                                "pickup_place": place_name,
+                                "pickup_place_address": adresss,
+                                "to_place": toplace_name,
+                                "to_place_address": adress_to,
+                                "number_car": num_cars,
+                                "remark": other,
+                                "type": type,
+                                "area": area,
+                                'code': code_r,
+                                'code_ref': code_ref,
+                                'cost_a_nett': cost_a_nett
+    
+    
+    
+    
+    
+    
+    
+                            };
+    
+                        }
+                        console.log(param)
+                        $.ajax({
+                            type: 'POST',
+                            url: 'https://www.welovetaxi.com/app/booking/savebook_control/saveapi',
+                            data: param,
+                            //contentType: "application/json",
+                            dataType: 'json',
+                            success: function(data) {
+                                console.log(data);
+                                console.log(s_email);
+                                if (data.status == 202) {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: 'https://www.welovetaxi.com/app/booking/sendemail.php',
+                                        data: { 'mail': s_email, 'voucher': data.invoice },
+                                        //contentType: "application/json",
+                                        dataType: 'json',
+                                        success: function(data) {
+                                            console.log(data);
+                                            //console.log(s_email);
+    
+                                        }
+                                    });
+                                    window.location.href = "https://www.welovetaxi.com/app/booking/dashboard/view_user";
+    
+                                } else {
+                                    alert("please input data ");
+                                }
+    
+    
+                            }
+                        });
+    
+                    }
+                });
+            }
+        }
+        else{
+            $('#acceptance_pin_pop').show(500)
+        }
+        
 
 
 
 
-    });
+});
 
-    function phonecodesend(x) {
+function phonecodesend(x) {
         phonecode = x;
         console.log(phonecode)
     }

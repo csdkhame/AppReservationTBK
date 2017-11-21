@@ -77,6 +77,7 @@ $(document).ready(function() {
         $('.lng-logout').html('登出');
         //$('.lng-advance-use').html('提前使用');
         $('.lng-advance-use').html('提前使用');
+        // $('.lng-now-use').html('现在使用');
         $('.lng-now-use').html('现在使用');
         $('.lng-search').html('搜索');
         $('.lng-dashboard').html('报告与管理');
@@ -168,6 +169,12 @@ $(document).ready(function() {
         $('.lng-setpin-locat').html('在地图上设置位置');
         $('.lng-nearby-locat').html('附近的地方');
         $('.lng-current-pos').html('当前位置');
+        $('.lng_departure').html('使用日期')
+        $('.lng_addbook').html('预订车')
+        $('.lng_please_accept').html('请接受协议。')
+        
+        
+        
 
         
         
@@ -247,7 +254,7 @@ $(document).ready(function() {
         $('.lng-logout').html('Logout');
         //home
         $('.lng-advance-use').html('Advance use');
-        $('.lng-now-use').html('Pick Up Here');
+        $('.lng-now-use').html('Use now');
         $('.lng-search').html('Search');
         $('.lng-dashboard').html('Report&management');
         $('.lng-car-type').html('Car type');
@@ -336,6 +343,12 @@ $(document).ready(function() {
         $('.lng-nearby-locat').html('Near the place');
         $('.lng-office-locat').html('Office');
         $('.lng-home-locat').html('House');
+        $('.lng_departure').html('Use date')
+        $('.lng_addbook').html('Booking car')
+        $('.lng_please_accept').html('Please accept the agreement.')
+        
+        
+        
         
         
         
@@ -412,7 +425,7 @@ $(document).ready(function() {
         $('.lng-logout').html(' ออกจากระบบ');
         //        $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
         $('.lng-advance-use').html('ใช้ล่วงหน้า');
-        $('.lng-now-use').html('รับที่นี่');
+        $('.lng-now-use').html('ใช้ตอนนี้');
         $('.lng-search').html(' ค้นหา');
         $('.lng-dashboard').html('รายงานและการจัดการ');
         $('.lng-car-type').html('ประเภทรถ');
@@ -505,6 +518,10 @@ $(document).ready(function() {
         $('.lng-setpin-locat').html('ตั้งตำแหน่งบนแผนที่');
         $('.lng-nearby-locat').html('สถานที่ใกล้เคียง');
         $('.lng-current-pos').html('ตำแหน่งปัจจุบัน');
+        $('.lng_departure').html('วันที่ใช้บริการ')
+        $('.lng_please_accept').html('กรุณายอมรับข้อตกลง')
+        
+        
         
         
 
@@ -544,6 +561,8 @@ $(document).ready(function() {
         $('.lng-paynow').html('ชำระตอนนี้');
         $('.lng-please-select-type').html('โปรดเลือกประเภท');
         $('.lng-a-place').html('กรุณาเลือกสถานที่ขึ้นรถ');
+        $('.lng_addbook').html('จองรถ')
+        
         
         
 
@@ -564,7 +583,7 @@ $(document).ready(function() {
         //home
         //        $('.lng-advance-use').html('Find transfer');
         $('.lng-advance-use').html('Advance use');
-        $('.lng-now-use').html('Pick Up Here');
+        $('.lng-now-use').html('Use now');
         $('.lng-search').html('Search');
         $('.lng-dashboard').html('Report&management');
         $('.lng-car-type').html('Car type');
@@ -659,6 +678,10 @@ $(document).ready(function() {
         $('.lng-nearby-locat').html('Near the place');
         $('.lng-office-locat').html('Office');
         $('.lng-home-locat').html('House');
+        $('.lng_departure').html('Use date')
+        $('.lng_please_accept').html('Please accept the agreement.')
+        
+        
         
         
         
@@ -714,6 +737,7 @@ $(document).ready(function() {
         $('.lng-old-password').html('Old Password');
         $('.lng-other').html('Other');
         $('.lng-paynow').html('Pay Now');
+        $('.lng_addbook').html('Booking car')
 
 
 

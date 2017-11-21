@@ -310,7 +310,8 @@ $(window).scroll(function() {
     display:none;
 }
 .btn-custom-pay{
-	background-color: rgba(0, 188, 212, 0.98); 
+	border-radius: 25px;
+    background-color: #4caf50;
     display: block;
     text-decoration: none;
     cursor: pointer;
