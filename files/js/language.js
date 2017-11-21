@@ -94,6 +94,8 @@ $(document).ready(function() {
         $('.lng-total-prices').html('总价');
         $('.lng-person').html('人');
         $('.lng-car').html('车');
+        $('.lng-carnum').html('发痒');
+        
         $('.lng-you-choose').html('你选择');
         $('.lng-adult').html('成人');
         $('.lng-child').html('儿童');
@@ -172,6 +174,10 @@ $(document).ready(function() {
         $('.lng_departure').html('使用日期')
         $('.lng_addbook').html('预订车')
         $('.lng_please_accept').html('请接受协议。')
+        $('.lng_chosen_car').html('你选择了一辆车。')
+        $('.lng_confirm').html('确认')
+        $('.lng_new_selection').html('新')
+        
         
         
         
@@ -270,6 +276,8 @@ $(document).ready(function() {
         $('.lng-total-prices').html('Total price');
         $('.lng-person').html('Person');
         $('.lng-car').html('Car');
+        $('.lng-carnum').html('Car');
+        
         $('.lng-you-choose').html('You choose');
         $('.lng-adult').html('Adult');
         $('.lng-child').html('Child');
@@ -346,6 +354,11 @@ $(document).ready(function() {
         $('.lng_departure').html('Use date')
         $('.lng_addbook').html('Booking car')
         $('.lng_please_accept').html('Please accept the agreement.')
+        $('.lng_chosen_car').html('You have chosen a car.')
+        $('.lng_confirm').html('Confirm')
+        $('.lng_new_selection').html('New selection')
+        
+        
         
         
         
@@ -411,6 +424,7 @@ $(document).ready(function() {
 
 
 
+
     } else if ($.cookie("lng") == 'th') {
         $('.lng-private').html('รถส่วนตัว');
         $('.lng-join').html('รถร่วมบริการ');
@@ -441,6 +455,7 @@ $(document).ready(function() {
         $('.lng-total-prices').html('ราคารวม');
         $('.lng-person').html('คน');
         $('.lng-car').html('รถ');
+        $('.lng-carnum').html('คัน');
         $('.lng-you-choose').html('คุณเลือก');
         $('.lng-adult').html('ผู้ใหญ่');
         $('.lng-child').html('เด็ก');
@@ -520,6 +535,12 @@ $(document).ready(function() {
         $('.lng-current-pos').html('ตำแหน่งปัจจุบัน');
         $('.lng_departure').html('วันที่ใช้บริการ')
         $('.lng_please_accept').html('กรุณายอมรับข้อตกลง')
+        $('.lng_chosen_car').html('คุณได้เลือกรถ.')
+        $('.lng_confirm').html('ยืนยัน')
+        $('.lng_new_selection').html('เลือกใหม่')
+        
+        
+        
         
         
         
@@ -599,6 +620,8 @@ $(document).ready(function() {
         $('.lng-total-prices').html('Total price');
         $('.lng-person').html('Person');
         $('.lng-car').html('Car');
+        $('.lng-carnum').html('Car');
+        
         $('.lng-you-choose').html('You choose');
         $('.lng-adult').html('Adult');
         $('.lng-child').html('Child');
@@ -680,6 +703,11 @@ $(document).ready(function() {
         $('.lng-home-locat').html('House');
         $('.lng_departure').html('Use date')
         $('.lng_please_accept').html('Please accept the agreement.')
+        $('.lng_chosen_car').html('You have chosen a car.')
+        $('.lng_confirm').html('Confirm')
+        $('.lng_new_selection').html('New selection')
+        
+        
         
         
         

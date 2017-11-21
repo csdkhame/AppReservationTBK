@@ -990,6 +990,34 @@
                 padding: 20px;
                 pointer-events: auto;
             }
+            #selsect_car_pop{
+                z-index: 19;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                display: none;
+                /* pointer-events: none; */
+            }
+            .selsect_car_pop_in{
+               /* height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 80vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .selsect_car_pop_ln{
+                padding: 20px;
+                pointer-events: auto;
+            }
             @keyframes blink { 
 						   50% { border-color: #ff0000; } 
 						}
@@ -1035,7 +1063,43 @@
                     
                 </div>        
             
-            </div></div>         
+            </div>
+        </div>
+        <div id="selsect_car_pop" style="">
+            <div class="selsect_car_pop_in">               
+                <div class="selsect_car_pop_ln">
+                    <div style="text-align: center; font-size: 16px;"><span class="lng_chosen_car"></span><span id="checknumcar" style="margin-left:15px;margin-right:15px"></span><span class="lng-carnum"></span></div>
+                    <!-- <input type="text" class="textInput" placeholder="New name" id="newname" name="newname" onchange="newname(newname)" > -->
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <div class="lng_new_selection icon-close" style="background-color: #f44336;
+                    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="btn_no_position()">Edit route</div>
+                    <div class="lng_confirm icon-close" style="    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #4caf50;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;" ></div>
+                    </div>
+                    
+                </div>        
+            
+            </div>
+        </div>          
         <div class="modal fade" id="login">
             <div class="modal-dialog col-md-8">
                 <div class="modal-content">

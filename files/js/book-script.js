@@ -945,37 +945,20 @@ $(document).ready(function() {
         }
         if (sum_adult_child > parseInt(person) && (checksumperson != sum_adult_child)) {
             selectcar = parseInt(s) + 1;
+            $('#checknumcar').html(selectcar)
+            $('#selsect_car_pop').show(500)
 
         }
         if ((parseInt(s) * parseInt(person)) == sum_adult_child) {
             selectcar = parseInt(s);
 
         }
-        // if(sum_adult_child  parseInt(person)){
-
-        // }
-        //if (checksumperson < sum_adult_child) {
-        // var s = sum_adult_child / parseInt(person);
-        //selectcar = parseInt(s) + 1;
+       
         console.log(selectcar)
         checksumperson = parseInt(person) * parseInt(selectcar)
         console.log('sumperson-' + checksumperson)
 
         total_price = parseInt(costproduct) * parseInt(selectcar);
-
-        //} 
-        //else if (checksumperson >= sum_adult_child) {
-        //     if (sum_adult_child == parseInt(person)) {
-        //         selectcar = 1;
-        //     } else {
-        //         selectcar = parseInt(s);
-
-        //     }
-        //     checksumperson = parseInt(person) * parseInt(selectcar)
-        //     console.log('sumperson2-' + checksumperson)
-
-        //     total_price = parseInt(costproduct) * parseInt(selectcar);
-        // }
         if (type == 'Join') {
             total_price = parseInt(costproduct) * parseInt(sum_adult_child);
             $('#numsumprice').html(total_price + ' ' + '฿')
@@ -1020,34 +1003,20 @@ $(document).ready(function() {
         }
         if (sum_adult_child > parseInt(person) && (checksumperson != sum_adult_child)) {
             selectcar = parseInt(s) + 1;
-
+            $('#checknumcar').html(selectcar)
+            $('#selsect_car_pop').show(500)
         }
         if ((parseInt(s) * parseInt(person)) == sum_adult_child) {
             selectcar = parseInt(s);
 
         }
 
-        // if (checksumperson < sum_adult_child) {
-        //     selectcar = parseInt(s) + 1;
-        //     console.log(selectcar)
-
-        //     checksumperson = parseInt(person) * parseInt(selectcar)
-        //     console.log('sumperson-' + checksumperson)
-
-        //     total_price = parseInt(costproduct) * parseInt(selectcar);
-        // }
-        //if (checksumperson >= sum_adult_child) {
-        // if (sum_adult_child == parseInt(person)) {
-        //     selectcar = 1;
-        // } else {
-        //     selectcar = parseInt(s);
-
-        // }
+       
         checksumperson = parseInt(person) * parseInt(selectcar)
         console.log('sumperson2-' + checksumperson)
 
         total_price = parseInt(costproduct) * parseInt(selectcar);
-        // }
+        
 
 
 
@@ -1062,7 +1031,19 @@ $(document).ready(function() {
             $('#sumnum').html(parseInt(sum_adult_child));
             $('#selectcar').html(selectcar)
             $('#checksum').html(checksumperson)
-            $('#numsumprice').html(parseInt(costproduct) * parseInt(selectcar) + ' ' + '฿')
+            // $('#numsumprice').html(parseInt(costproduct) * parseInt(selectcar) + ' ' + '฿')
+            $('#num_cars').html('')
+            $('#num_cars').append('<option value="' + selectcar + '" label="' + selectcar + '" none=""></option>');
+            for (var i = 1; i <= 5; i++) {
+                console.log(i)
+                $('#num_cars').append('<option value="' + i + '" label="' + i + '"></option>');
+                //dataProvince.push(data[i])
+                //$('#select-name').append('<li id="ct'+data[i].phonecode+'" value="'+data[i].phonecode+'" dataname ="'+data[i].name_en+'" img="'+data[i].country_code+'" onclick="sendCountry('+data[i].phonecode+');"><img id="imgcountry" src="'+url+'files/img/flag/icon/'+data[i].country_code+'.png'+'">'+'<span id="span-phonecode">('+'+'+data[i].phonecode+')</span>'+data[i].name_en+'</li>');
+
+
+            }
+            // $('#checksum').html(checksumperson)
+            $('#numsumprice').html(total_price + ' ' + '฿')
 
         }
 
@@ -1149,6 +1130,8 @@ $(document).ready(function() {
     // });
     $('.icon-close').on('click', function() {
         $('#acceptance_pin_pop').hide(500)
+        $('#selsect_car_pop').hide(500)
+        
     })
     $('#addbook').on('click', function() {
         $('.loader-wrapper').css('display', 'block')

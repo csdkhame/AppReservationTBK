@@ -720,6 +720,7 @@ $(document).ready(function() {
     });
     $('.btn-car-service').click(function() {
         //	  $('#selectPlace').show();
+        booking = 'Service';
         $('#clear-all').click();
         $('#btn_CurrentLocation').hide();
         $('#clear-all').hide();
@@ -1342,7 +1343,7 @@ function sendproto(x){
 
                         '</div>' +
                         '<div class="views-item" >' +
-                        '<a  href="book?data=' + data[0].data1[i].transfer_id + '" > <span >' + lngbook + '</span></a>' +
+                        '<a  href="book?data=' + data[0].data1[i].transfer_id + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" > <span >' + lngbook + '</span></a>' +
 
                         '</div>' +
                         '</div>' +
