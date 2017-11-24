@@ -330,7 +330,7 @@
 }
 .btn-reservation {
     line-height: 0.8;
-    /* padding: 8px 0; */
+    padding: 8px 0;
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
@@ -346,7 +346,7 @@
 
 .btn-realtime {
     line-height: 0.8;
-    /* padding: 8px 0; */
+    padding: 8px 0;
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
@@ -377,7 +377,7 @@
 
 .btn-management {
     line-height: 0.8;
-    /* padding: 8px 0; */
+    padding: 8px 0;
     font-size: 16px;
     /* font-weight: 400; */
     /* position: absolute; */
@@ -429,7 +429,10 @@
                 <div class="row">
                     <div class="container">
                         <div class="row">
-                            <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;"> 
+                            <div style="padding: 10px 4px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 15px;"> 
                                 <div class="lng-booking-infomation" style="display:inline-block"></div>
                                 <!-- <div class="" id="acceptancecheckw" style="    display: inline-block;
     position: absolute;
@@ -806,7 +809,9 @@
                         </div>
                                 
                         <div class="row">
-                            <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;">
+                            <div style="padding: 10px 4px;
+    font-weight: 600;
+    font-size: 16px;">
                                 <span class="lng-contact-infomation"></span>
                             </div>
                             <div class="card">
@@ -874,7 +879,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div style="font-size: 15px; padding: 10px 4px;font-weight: 500;">
+                            <div style="padding: 10px 4px;
+    font-weight: 600;
+    font-size: 16px;">
                             <span class="lng-terms-of-use"></span>
                             </div>
                             <div class="card">
@@ -892,7 +899,7 @@
                                      </div>
                                  </div>
                                  <div class="col-md-12">
-                                     <div  class="lng_addbook" id="addbook" value='Book' style=" background: #009688; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px;border-radius: 25px;" />book
+                                     <div  class="lng_addbook" id="addbook" value='Book' style=" background: #3b5998; width: 100%; color: #ffffff;  text-align: center;  padding: 10px; font-size: 17px;border-radius: 25px;" />book
                                      </div>                                    
                                  </div>
                             </div>
@@ -1182,11 +1189,27 @@
   
 </body>
 <style>
+ input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #333;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #333;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #333;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #333;
+}
     #terms-of-use {
     padding: 10px;
     border-radius: 15px;
     font-size: 16px;
-    border: 1px solid #81C8D3;
+    border: 1px solid #3b5998;
     margin-top: 5px;
     background-color: #fff;
 }
@@ -1212,7 +1235,7 @@
     border-radius: 25px;
 }
 .checkbox input[type=checkbox]:checked+.checkbox-material .check {
-    background: #009688 !important;
+    background: #3b5998 !important;
 }
 .checkbox .checkbox-material .check {
     position: relative;
@@ -1317,8 +1340,8 @@
     box-shadow: none;
 }
 .box-program{
-    border-top: dashed 2px #81C8D3;
-    border-bottom: dashed 2px #81C8D3;
+    border-top: dashed 2px #3b5998;
+    border-bottom: dashed 2px #3b5998;
     text-align: center;
     /* background: #ff9800; */
     padding: 12px 2px;
@@ -1565,10 +1588,11 @@
                         padding-right: 10px;
                     }
                     .box-country ul li:hover{
-                        background-color:#009688;
+                        background-color:#3b5998;
                         color: #000;
                     }
                     #textcountry{
+                        color: #333;
                         text-align: center;
                     }
                     #code{

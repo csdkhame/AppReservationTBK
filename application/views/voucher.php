@@ -133,10 +133,11 @@ $( document ).ready(function() {
     font-size: x-large;
 }
 #terms-of-use {
+	border-radius: 15px;
 	padding: 10px;
     /* border-radius: 4px; */
     font-size: 16px;
-    border: 1px solid #81C8D3;
+    border: 1px solid #3b5998;
     margin-top: 5px;
     background-color: #fff;
 }	
@@ -168,17 +169,17 @@ $( document ).ready(function() {
 	border: none !important;	
 }
 .btn-custom-me{
-	background-color: rgba(0, 188, 212, 0.98); 
+	background-color: #4caf50; 
 	bottom: 8px; 
 	color: #fff;
 /*	z-index: -1;*/
-    border-radius: 0px;
+    border-radius: 25px;
     text-transform: capitalize;
 }
 </style>
 
 	<div class="" style="
-    background: #16B3B1;
+    background: #3b5998;
     padding: 13px;
     padding-bottom: 0;
     width: 100%;

@@ -229,14 +229,14 @@ $(window).scroll(function() {
 																		<td width="49%">
 			 <input id="date1"   class="datepicker"  name="date" type="text" value="<?=$date;?>" style="    width: 100%;
     padding: 10px;
-    border: 1px solid #16B3B1;
+    border: 1px solid #3b5998;
     border-radius: 25px;">  
 																		</td>
 																		<td width="2%"></td>
 																		<td  width="49%">
 				<input id="date2"   class="datepicker"  name="date" type="text" value="<?=$latedate;?>"  style="    width: 100%;
     padding: 10px;
-    border: 1px solid #16B3B1;
+    border: 1px solid #3b5998;
     border-radius: 25px;">  
 																		</td>
 																</tr>
@@ -244,7 +244,7 @@ $(window).scroll(function() {
 														<div style="  margin: 15px 0;
     margin-bottom: 0;">
 																<input id="search_order"   class=""  name="date" type="text" value="" onkeyup="search()" placeholder="<? echo $lng_search_order;?>"  style="padding: 10px;
-    border: 1px solid #16B3B1;
+    border: 1px solid #3b5998;
     border-radius: 25px;
     width: 100%;">  
 							
@@ -255,7 +255,7 @@ $(window).scroll(function() {
    					<div class="">
                 <div style="padding: 8px;
     border-radius: 12px;
-    border: 1px solid #ddd;">
+    border: 1px solid #3b5998;">
                     
 <style>
 .tr-hover:hover {
@@ -303,7 +303,7 @@ $(window).scroll(function() {
 
     text-align: center;
     color: #ffffff;
-	background-color: #16B3B1;
+	background-color: #3b5998;
 	border-radius: 25px;
 }
 .display-none{
@@ -317,6 +317,22 @@ $(window).scroll(function() {
     cursor: pointer;
     text-align: center;
     color: #ffffff;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #333;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #333;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #333;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #333;
 }
 </style>	
 							
@@ -379,7 +395,7 @@ $(window).scroll(function() {
 										if($show['status_pay_driver']==1)	{
 									$status_pay = $paydriver;
 										}else{	
-$status_pay = '<a class=" btn-xs btn-custom-pay" style="font-size: 13px;" href="https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
+$status_pay = '<a class=" btn-xs btn-custom-pay" style="font-size: 15px;" href="https://www.welovetaxi.com/app/booking/dashboard/payment?data='.$show['invoice'].'"><span class="lng-paynow">Pay Now</span></a>';
 										}
 									}else if($show['status_pay']==1){
 										$status_pay = $paysuccess;

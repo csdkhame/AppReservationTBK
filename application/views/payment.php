@@ -58,7 +58,7 @@
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 40px;
-    border-bottom: dashed 2px #16b3b1;" >
+    border-bottom: dashed 3px #3b5998;" >
             <span class="lng-payment"></span>
         </div>
 </div>
@@ -520,7 +520,7 @@
     text-align: center;
     color: #ffffff;
     /* border: 1px solid #16B3B1; */
-    background-color: #16B3B1;"><span class="lng-paynow"></span></div>
+    background-color: #3b5998;"><span class="lng-paynow"></span></div>
                 </td>
             </tr>
             <tr>

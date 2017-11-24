@@ -207,13 +207,31 @@ class Login_model extends CI_Model {
      
   }
    function signup() {
-
-
+         
       // $username = 'ozaclever@gmail.com';
       // $password = '123';
       $username = $this->input->post('username');
       $password = $this->input->post('password');
       
+      $this->db->select('*');      
+      //$this->db->limit(100);
+      $this->db->from('ap_users');
+      $this->db->where('s_username', ''.$username.'');
+     $query = $this->db->get();
+
+          if ($query->num_rows() > 0 )
+          {
+            
+                  
+                 
+                        $rtn = '{"status":"1"}';
+
+                        return $rtn;
+                 
+                  
+     
+    }
+    else{
       $num0 = (rand(10,100));
       $num1 = date("Ymd");
       //$num2 = (rand(100,1000));
@@ -230,16 +248,52 @@ class Login_model extends CI_Model {
       $getid = $this->db->insert_id();
       if ($getid) {
        
-                        $rtn = '{"status":"0","username":"'.$getid.'"}';
+            $rtn = '{"status":"0","username":"'.$getid.'"}';
 
-                        return $rtn;
+            return $rtn;
                   
                          
-        }
-        else{
+      }
+      else{
             $rtn = '{"status":"1"}';
             return $rtn;
-        }
+      }
+      // $rtn = '{"status":"1"}';
+      // return $rtn;
+    }
+
+
+      // $username = 'ozaclever@gmail.com';
+      // $password = '123';
+      // $username = $this->input->post('username');
+      // $password = $this->input->post('password');
+      
+      // $num0 = (rand(10,100));
+      // $num1 = date("Ymd");
+      // //$num2 = (rand(100,1000));
+      // //$num3 = time();
+      // $randnum = $num0 . $num1 . $num2 . $num3;
+      // //echo $randnum;
+      
+      // $data['s_username'] = $this->input->post('username');
+      // $data['s_password'] = $this->input->post('password');
+      // $data['i_rating'] = '2';      
+      // $data['s_code'] = $randnum;      
+      // //$this->db->limit(100);
+      // $this->db->insert('ap_users',$data);
+      // $getid = $this->db->insert_id();
+      // if ($getid) {
+       
+      //                   $rtn = '{"status":"0","username":"'.$getid.'"}';
+
+      //                   return $rtn;
+                  
+                         
+      //   }
+      //   else{
+      //       $rtn = '{"status":"1"}';
+      //       return $rtn;
+      //   }
           
     
      

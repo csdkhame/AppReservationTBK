@@ -84,6 +84,22 @@
     background: rgba(0, 0, 0, 0.59);
     display: nones;
 }
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #333;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #333;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #333;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #333;
+}
 
     </style>
 
@@ -91,6 +107,11 @@
 <input type="hidden" id="data" value="<?=$data;?>"/>
 <input type="hidden" id="from" value="<?=$from;?>"/>
 <input type="hidden" id="to" value="<?=$to;?>"/>
+<input type="hidden" id="lat_f" value="<?=$lat_f;?>"/>
+<input type="hidden" id="lng_f" value="<?=$lng_f;?>"/>
+<input type="hidden" id="lat_t" value="<?=$lat_t;?>"/>
+<input type="hidden" id="lng_t" value="<?=$lng_t;?>"/>
+<input type="hidden" id="book" value="<?=$book;?>"/>
 
     <div id="loading" style="display: none;">
             <div class="loading-in">               
@@ -212,9 +233,9 @@
                                 <span class="input-group-addon">
                                     <i class="material-icons">face</i>
                                 </span>
-                                <button class="btn btn-warning btn-sm" id="checkmail" style="position: absolute; right: 0; z-index: 100;  margin-top: 2px; padding: 5px 10px;border-radius: 15px;">
+                                <!-- <button class="btn btn-warning btn-sm" id="checkmail" style="position: absolute; right: 0; z-index: 100;  margin-top: 2px; padding: 5px 10px;border-radius: 15px;">
                                     <span class="lng-check"></span>
-                                </button>
+                                </button> -->
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"> 
                                         <span class="lng-email"></span> 
@@ -236,9 +257,13 @@
                                     <span class="material-input"></span>
                                 </div>
                             </div>
-                            <div id="messagecheck" style="text-align: center;"></div>
+                            <div class="lng_email_have" style="text-align: center;color:red;display: none;"></div>
+                            <div class="lng_email_available"  style="text-align: center;color:#2c9930;display: none;"></div>
+                            
+
 
                             </div>
+                           
                             <div class="col-md-12">
                                 <div class="btn-signup" style="" id="registered" ><span class="lng-sign-in"></span></div>
                             </div>
@@ -1193,6 +1218,11 @@ $(document).ready(function(){
 	var data = '<?=$_SESSION["data"];?>';
 	var from = '<?=$_SESSION["from"];?>';
 	var to = '<?=$_SESSION["to"];?>';
+	var lat_f = '<?=$_SESSION["lat_f"];?>';
+	var lng_f = '<?=$_SESSION["lng_fto"];?>';
+	var lat_t = '<?=$_SESSION["lat_t"];?>';
+	var lng_t = '<?=$_SESSION["lng_t"];?>';
+	var book = '<?=$_SESSION["book"];?>';
 	
 	console.log('ValueSession : '+data+' '+from+' '+to);*/
 	
@@ -1301,10 +1331,15 @@ $.ajax({
     	
     	
     $('#login').on('click', function() {
-var type_login = $('#by').val();
+        var type_login = $('#by').val();
     	var param_data = $('#data').val();
     	var param_from = $('#from').val();
     	var param_to = $('#to').val();
+    	var lat_f = $('#lat_f').val();
+    	var lng_f = $('#lng_f').val();
+    	var lat_t = $('#lat_t').val();
+    	var lng_t = $('#lng_t').val();
+    	var book = $('#book').val();
 //    	alert(type_login);
        console.log(password+username);
 //    alert('<?php echo base_url(); ?>login_control/process');
@@ -1325,7 +1360,7 @@ var type_login = $('#by').val();
 				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
 				 }else if(type_login=='book'){
 //						alert(param_data+" "+param_from+" "+param_to);
-				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to;
+				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to+"&lat_f="+lat_f+"&lng_f="+lng_f+"&lat_t="+lat_t+"&lng_t="+lng_t+"&book="+book;
 					
 				 }else{
 				 	window.location.href = "<?php echo base_url(); ?>";
@@ -1426,7 +1461,7 @@ var type_login = $('#by').val();
      $('#registered').on('click', function() {
         console.log('in case signup')
         console.log(text_check)
-        if (text_check == 1) {
+        //if (text_check == 1) {
             $.ajax({
             type: 'POST',
             url: '<?php echo base_url(); ?>login_control/signup',
@@ -1437,20 +1472,28 @@ var type_login = $('#by').val();
                 console.log(res)
                 if(res.status == 0){
                     $.cookie("login",res.username);
+                    $('.lng_email_available').show()
+                    $('.lng_email_have').hide()
+                    
+                   
                     window.location.href = "<?php echo base_url(); ?>home";
                     
                    
                 }
                 else{
-                    console.log("incomplete insert")
+                    // console.log("incomplete insert")
+                    $('.lng_email_available').hide()
+                    
+                    $('.lng_email_have').show()
+
                 }
                 
             }
         });
-    }
-    else{
-        console.log("incomplete")
-    }
+    // }
+    // else{
+    //     console.log("incomplete")
+    // }
         
     });
     
@@ -1507,7 +1550,12 @@ window.fbAsyncInit = function() {
   	var type_login = $('#by').val();
     	var param_data = $('#data').val();
     	var param_from = $('#from').val();
-    	var param_to = $('#to').val();
+        var param_to = $('#to').val();
+        var lat_f = $('#lat_f').val();
+    	var lng_f = $('#lng_f').val();
+    	var lat_t = $('#lat_t').val();
+    	var lng_t = $('#lng_t').val();
+    	var book = $('#book').val();
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=name,email', function(response) {
         console.log(response)
@@ -1529,7 +1577,7 @@ window.fbAsyncInit = function() {
 				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
 				 }else if(type_login=='book'){
 //						alert(param_data+" "+param_from+" "+param_to);
-				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to;
+				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to+"&lat_f="+lat_f+"&lng_f="+lng_f+"&lat_t="+lat_t+"&lng_t="+lng_t+"&book="+book;
 					
 				 }else{
 				 	window.location.href = "<?php echo base_url(); ?>";
@@ -1599,9 +1647,14 @@ window.fbAsyncInit = function() {
 				  var url = '<?php echo base_url(); ?>login_control/processsocial';
 //				  alert(url);
 				  var type_login = $('#by').val();
-    	var param_data = $('#data').val();
-    	var param_from = $('#from').val();
-    	var param_to = $('#to').val();
+                var param_data = $('#data').val();
+                var param_from = $('#from').val();
+                var param_to = $('#to').val();
+                var lat_f = $('#lat_f').val();
+                var lng_f = $('#lng_f').val();
+                var lat_t = $('#lat_t').val();
+                var lng_t = $('#lng_t').val();
+                var book = $('#book').val();
 				  $.post( url, {'username': profile.getEmail(),'name':profile.getName(),'password':profile.getId(),'type':'google','img':profile.getImageUrl() } ,function( data ) {
 //					 	console.log(data);
 					 	var obj_c = JSON.parse(data);
@@ -1616,7 +1669,7 @@ if(type_login=='dasboard'){
 				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
 				 }else if(type_login=='book'){
 //						alert(param_data+" "+param_from+" "+param_to);
-				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to;
+				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to+"&lat_f="+lat_f+"&lng_f="+lng_f+"&lat_t="+lat_t+"&lng_t="+lng_t+"&book="+book;
 					
 				 }else{
 				 	window.location.href = "<?php echo base_url(); ?>";
@@ -1624,7 +1677,8 @@ if(type_login=='dasboard'){
 				              }
 				              else 
 				              {    
-				               $('#message').html('Login not complete').css('color', 'red');
+                               $('#message').html('Login not complete').css('color', 'red');
+                               
 				              }
 					});
 				 

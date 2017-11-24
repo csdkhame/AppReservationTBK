@@ -209,6 +209,7 @@
 #paxrel{
     list-style: none;
     padding-left: 0;
+    font-size: 15px;
 }
 #paxrel li{
     padding: 15px;
@@ -241,9 +242,10 @@
             <div class="box-pax-rel-in" >               
                    <div  id="pax-box">                      
                       
-                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                        <div style="background: #3b5998; color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-please-select-type"></span>
-                            <i class="material-icons closepop">close</i>
+                            <i class="material-icons closepoptype" style="position: absolute;
+    right: 15px;">close</i>
 
                         </div>
                         <div class="col-md-12 boxpax" style="text-align: left;" > 
@@ -367,7 +369,7 @@
         box-shadow: rgba(241, 13, 13, 0.3) 0px 1px 4px;
         cursor: pointer;
         position: absolute;
-        top: 120px;
+        top: 140px;
         /* padding: 8px; */
         right: 17px;
         z-index: 19;
@@ -380,9 +382,9 @@
  </div>
         <div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
         <!-- BOX OPTION  -->
-        <!-- <div class="box_option">
+        <div class="box_option">
         <i class="material-icons" style="line-height: 1.7; font-size: 25px;">place</i>
-        </div> -->
+        </div>
         <div id="search-often" style="    position: absolute;
   
     width: 100%;
@@ -404,7 +406,7 @@
     <div style="width: 10px;
     height: 10px;
     border-radius: 1px;
-    background: #16b3b1;"></div>
+    background: #3b5998;"></div>
                 </div>
                 <div class="" style="    margin-left: 25px;">
                <!-- <div id="out-search" onclick="outSearchRealtime();" style="position: absolute;font-weight: 600;height: 100%;display: none;">
@@ -413,7 +415,7 @@
                 
                     <div class="box-search" id='boxRealtime' >
                       <!-- <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>-->
-                        <input type='text'    placeholder="<? echo $lag_from_txt;?>"  id='current' style="    margin-bottom: 10px;border: 1px solid #16b3b1;padding: 8px; width: 100%;background: #fff;display:nones;color:#333;border-radius: 25px"/>
+                        <input type='text'    placeholder="<? echo $lag_from_txt;?>"  id='current' style="    margin-bottom: 10px;border: 1px solid #3b5998;padding: 8px; width: 100%;background: #fff;display:nones;color:#333;border-radius: 25px"/>
                         
                             <!-- <div style="border-bottom: 1px solid #333;display:nones;"></div> -->
                           
@@ -422,7 +424,7 @@
                     <div class="box-searchto" id='boxRealtimeto' style="display:none">
                                    
                             <input type='text'  placeholder="<? echo $lag_go_txt;?>" id="pac-input"  
-                            style="border: 1px solid #16b3b1; padding: 8px; width: 100%;  background: #fff; margin: auto;  color: #333;  border-radius: 25px" /> 
+                            style="border: 1px solid #3b5998; padding: 8px; width: 100%;  background: #fff; margin: auto;  color: #333;  border-radius: 25px" /> 
                     </div>
                     <div id="appendBox"></div>
                     <!-- <div id="appendBox2" style="border-radius: 25px;"></div> -->
@@ -443,7 +445,7 @@
                             <i class="material-icons">gps_fixed</i>
                         </div>
                         <div class="box_from">
-                            <input type='text' class="" placeholder="<? echo  $lag_search_from;?>"  id='search-from' style="border: 1px solid #16b3b1;
+                            <input type='text' class="" placeholder="<? echo  $lag_search_from;?>"  id='search-from' style="border: 1px solid #3b5998;
     padding: 10px;
     width: 100%;
     background: #fff;
@@ -457,7 +459,7 @@
                             </div> 
                         </div>
                         <div class="box_to" style="display:none">
-                        <input  type='text' class="" placeholder="<? echo  $lag_search_to;?>" id='search-to' style="border: 1px solid #16b3b1;
+                        <input  type='text' class="" placeholder="<? echo  $lag_search_to;?>" id='search-to' style="border: 1px solid #3b5998;
     padding: 10px;
     width: 100%;
     background: #fff;
@@ -481,7 +483,7 @@
         </div>
         <div id="box-car-service" style="width: 100%;height: 100vh;display:none;background: #fff;    position: relative;
      overflow: hidden;z-index: 100; ">
-           <div style="text-align:center; background: #16b3b1;
+           <div style="text-align:center; background: #3b5998;
     padding: 5px;
     color: #fff;
     font-weight: 600;
@@ -490,7 +492,7 @@
            </div>
            <style>
            .textInput {
-            border: 1px solid #16b3b1;
+            border: 1px solid #3b5998;
             padding: 12px;
             margin: 8px 0;
             width: 100%;
@@ -595,6 +597,7 @@
 #province{
     list-style: none;
     padding-left: 0;
+    font-size: 15px;
 }
 #province li{
     padding: 15px;
@@ -603,6 +606,7 @@
 #provinceto{
     list-style: none;
     padding-left: 0;
+    font-size: 15px;
 }
 #provinceto li{
     padding: 15px;
@@ -611,6 +615,7 @@
 #typecarservice{
     list-style: none;
     padding-left: 0;
+    font-size: 15px;
 }
 #typecarservice li{
     padding: 15px;
@@ -655,7 +660,7 @@
             <div class="box-in-foget" >               
                    <div  id="pax-box">                      
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
-                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                        <div style="background: #3b5998; color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-please-select-type"></span>
                             <i class="material-icons closepop">close</i>
 
@@ -675,7 +680,7 @@
             <div class="box-province-in" >               
                    <div  id="pax-box">                      
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
-                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                        <div style="background: #3b5998; color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-from">From</span>
                             <i class="material-icons closepop">close</i>
                         </div>
@@ -695,7 +700,7 @@
             <div class="box-provinceto-in" >               
                    <div  id="pax-box">                      
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
-                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                        <div style="background: #3b5998; color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-to">To</span>
                             <i class="material-icons closepop">close</i>
 
@@ -730,7 +735,7 @@
     right: 20px;
     bottom: 130px;
     color: rgb(255, 255, 255);display: none;">
-		<button title="Your Location" style="    background-color: #4285F4;
+		<button title="Your Location" style="    background-color: #3b5998;
     border: none;
     outline: none;
     width: 40px;
@@ -759,7 +764,7 @@
 			}
 			#marginBox{
                 overflow: scroll;
-                height: 62vh;
+                height: 60vh;
                 border-radius: 15px;
                 /* margin-bottom: 15px; */
                 /* margin-top: 90px; */
@@ -767,7 +772,7 @@
                 position: relative;
 			}
 			 .pac-item-query{
-			 	    font-size: 13px;
+			 	    font-size: 15px;
 				    /* padding-right: 3px;
 				    padding: 7px; */
 				    /* color: #000; */
@@ -818,14 +823,14 @@
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    box-shadow: rgb(22, 179, 177) 0px 1px 4px;
+    box-shadow: rgb(59, 89, 152) 0px 1px 4px;
     z-index: 262;
     margin-top: -60px;
     cursor: pointer;
     position: absolute;
     padding: 8px;
     background: #fff;
-    color: #16b3b1;
+    color: #3b5998;
     font-size: 30px;
     margin-bottom: 15px;display:none" id="outselect_often" >
             <i class="material-icons" style="">reply_all</i>
@@ -834,14 +839,14 @@
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    box-shadow: rgb(22, 179, 177) 0px 1px 4px;
+    box-shadow: rgb(59, 89, 152) 0px 1px 4px;
     z-index: 262;
     margin-top: -60px;
     cursor: pointer;
     position: absolute;
     padding: 8px;
     background: #fff;
-    color: #16b3b1;
+    color: #3b5998;
     font-size: 30px;
     margin-bottom: 15px;display:none" id="outNearby" >
                                 <i class="material-icons" style="">reply_all</i>
@@ -850,14 +855,14 @@
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    box-shadow: rgb(22, 179, 177) 0px 1px 4px;
+    box-shadow: rgb(59, 89, 152) 0px 1px 4px;
     z-index: 262;
     margin-top: -60px;
     cursor: pointer;
     position: absolute;
     padding: 8px;
     background: #fff;
-    color: #16b3b1;
+    color: #3b5998;
     font-size: 30px;
     margin-bottom: 15px;display:none" id="outedit_often" >
                                 <i class="material-icons" style="">reply_all</i>
@@ -897,12 +902,12 @@
                         </td> -->
                         <td onclick="selectEditPlaceOfften(1)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numhome"></span></td>
                         <td  width="30">
-                        <i class="material-icons pull-right" id="edit-home_select" onclick="addPlaceOfften(1,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                        <i class="material-icons pull-right" id="edit-home_select" onclick="addPlaceOfften(1,'edit')" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i>
                         
                             <!-- <table width="100%">
                             <tr>
                                 <td>
-                                <i class="material-icons pull-right" id="edit-home_select" onclick="addPlaceOfften(1,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                                <i class="material-icons pull-right" id="edit-home_select" onclick="addPlaceOfften(1,'edit')" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i>
                                 </td>
                             </tr>
                             <tr id="often_edit_home" style="display:none">
@@ -936,13 +941,13 @@
                         </td> -->
                         <td onclick="selectEditPlaceOfften(2)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numoffice"></span></td>
                         <td  width="30">
-                        <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                        <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i>
                         
                         <!-- <table width="100%">
                         
                             <tr>
                                 <td>
-                                <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                                <i class="material-icons pull-right" id="edit-office_select" onclick="addPlaceOfften(2,'edit')" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i>
                                 </td>
                             </tr>
                             <tr id="often_edit_office" style="display:none">
@@ -974,12 +979,12 @@
                         </td> -->
                         <td onclick="selectEditPlaceOfften(3)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numregular"></span></td>
                         <td  width="30">
-                        <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                        <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i>
                         
                         <!-- <table width="100%">
                             <tr>
                                 <td>
-                        <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #16b3b1; font-weight: 700; line-height: inherit;" >add</i>
+                        <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i>
                                 
                                 </td>
                             </tr>
@@ -1063,6 +1068,22 @@
             .name{
                 padding-left: 15px;
             }
+            input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #000;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #000;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #000;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #000;
+}
             </style>
             <div id="select_often" style="display:none">
                 <div >
@@ -1206,13 +1227,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <div align="left" style="padding: 2px 5px;font-size: 15px;text-shadow: none">
+                <div align="left" style="padding: 2px 5px;font-size: 16px;
+    font-weight: 600;
+    text-shadow: none;">
 			        <span class="lng-seating"></span>
 			    </div>                                    
                 <div id="getcapa"></div>
                 <div id="getcapa2"></div>
                 <div id="facilities">
-                    <div align="left" style="padding: 2px 5px;font-size: 15px;text-shadow: none" >
+                    <div align="left" style="padding: 2px 5px;font-size: 16px;
+    font-weight: 600;
+    text-shadow: none;" >
 			            <span class="lng-facilitiy"> </span>
 			        </div>
 			        <div style="padding: 3px 3px;  border-radius: 8px; background: #fff;">
@@ -1228,13 +1253,17 @@
 			            </div>
 			        </div>
                 </div>
-                <div style="padding: 2px 5px;font-size: 15px;">
+                <div style="padding: 2px 5px;font-size: 16px;
+    font-weight: 600;
+    text-shadow: none;
+    margin-top: 15px;">
                     <span  class="lng-terms-of-use" >Terms of Use</span>
 				</div>
                 <div id="terms-of-use"></div>
             </div>
             <div class="modal-footer" style="padding: 12px;">
-                <div type="button" class="btn-close lng-close" data-dismiss="modal" ></div>
+                <div type="button" class="btn-close lng-close" style="    border-radius: 25px;
+    font-size: 15px;" data-dismiss="modal" ></div>
             </div>
         </div>
     </div>

@@ -101,7 +101,7 @@ $(document).ready(function() {
         $('.lng-child').html('儿童');
         $('.lng-visa').html('落地签证');
         $('.lng-departure-terminal').html('出发航站楼');
-        $('.lng-get-detail').html('获取注册的详细信息');
+        $('.lng-get-detail').html('来自注册的详细信息。');
         $('.lng-product-name').html('产品');
         $('.lng-pick-up-from').html('接客地点');
         $('.lng-pick-up-to').html('送客地点');
@@ -177,6 +177,8 @@ $(document).ready(function() {
         $('.lng_chosen_car').html('你选择了一辆车。')
         $('.lng_confirm').html('确认')
         $('.lng_new_selection').html('新')
+        $('.lng_email_have').html('在系统中有这个电子邮件')
+        $('.lng_email_available').html('此电子邮件是可用的')
         
         
         
@@ -283,7 +285,7 @@ $(document).ready(function() {
         $('.lng-child').html('Child');
         $('.lng-visa').html('Visa on Arrival');
         $('.lng-departure-terminal').html('Departure terminal');
-        $('.lng-get-detail').html('Get Detail for register');
+        $('.lng-get-detail').html('Details from the register.');
         $('.lng-product-name').html('Product name');
         $('.lng-pick-up-from').html('Pick up from');
         $('.lng-pick-up-to').html('Pick up to');
@@ -357,6 +359,8 @@ $(document).ready(function() {
         $('.lng_chosen_car').html('You have chosen a car.')
         $('.lng_confirm').html('Confirm')
         $('.lng_new_selection').html('New selection')
+        $('.lng_email_have').html('Have this email in system')
+        $('.lng_email_available').html('This email is available')
         
         
         
@@ -461,7 +465,7 @@ $(document).ready(function() {
         $('.lng-child').html('เด็ก');
         $('.lng-visa').html('วีซ่าเมื่อมาถึง');
         $('.lng-departure-terminal').html('อาคารขาออก');
-        $('.lng-get-detail').html('รับรายละเอียดเพื่อลงทะเบียน');
+        $('.lng-get-detail').html('รายละเอียดจากที่ลงทะเบียน');
         $('.lng-product-name').html('สินค้า');
         $('.lng-pick-up-from').html('รับจาก');
         $('.lng-pick-up-to').html('สถานที่ส่ง');
@@ -523,7 +527,7 @@ $(document).ready(function() {
         $('.lng-no-record').html('ไม่มีการบันทึก');
         $('.lng-payment').html('การชำระเงิน');
         $('.lng-plese-login').html('กรุณาเข้าสู่ระบบ');
-        $('.lng-remark').html('ข้อสังเกต');
+        $('.lng-remark').html('หมายเหตุ');
         $('.lng-save').html('บันทึก');
         $('.lng-yes-regularly').html('ใช่เป็นประจำ');
         $('.lng_position').html('เส้นทางที่คุณเลือกถูกต้องหรือไม่?');
@@ -538,6 +542,8 @@ $(document).ready(function() {
         $('.lng_chosen_car').html('คุณได้เลือกรถ.')
         $('.lng_confirm').html('ยืนยัน')
         $('.lng_new_selection').html('เลือกใหม่')
+        $('.lng_email_have').html('มีอีเมลนี้ในระบบ')
+        $('.lng_email_available').html('อีเมลนี้พร้อมใช้งาน')
         
         
         
@@ -627,7 +633,7 @@ $(document).ready(function() {
         $('.lng-child').html('Child');
         $('.lng-visa').html('Visa on Arrival');
         $('.lng-departure-terminal').html('Departure terminal');
-        $('.lng-get-detail').html('Get Detail for register');
+        $('.lng-get-detail').html('Details from the register.');
         $('.lng-product-name').html('Product name');
         $('.lng-pick-up-from').html('Pick up from');
         $('.lng-pick-up-to').html('Pick up to');
@@ -706,6 +712,8 @@ $(document).ready(function() {
         $('.lng_chosen_car').html('You have chosen a car.')
         $('.lng_confirm').html('Confirm')
         $('.lng_new_selection').html('New selection')
+        $('.lng_email_have').html('Have this email in system')
+        $('.lng_email_available').html('This email is available')
         
         
         

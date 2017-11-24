@@ -134,7 +134,7 @@ function showHeader() {
     $('.box-menu-select').show();
 
     // $('#to-remove-class').addClass('col-md-12 ');
-    $('#search-raeltime').css('margin-top', '70px');
+    // $('#search-raeltime').css('margin-top', '70px');
 
 
 }
@@ -154,10 +154,10 @@ function outSearchRealtime() {
     // $('#to-remove-class').addClass('col-md-12');
 
 
-    $("#search-raeltime").animate({
-        marginTop: "70px"
-            //	    ,	   	position : "absolute"
-    }, 200);
+    // $("#search-raeltime").animate({
+    //     marginTop: "70px"
+    //         //	    ,	   	position : "absolute"
+    // }, 200);
 
     /*$('#search-raeltime').css('margin-top','70px');*/
     $('#search-raeltime').css('position', 'absolute');
@@ -195,7 +195,8 @@ $('#pac-input').focus(function() {
   
         curentFromTo = 'To';
         console.log(curentFromTo)
-    
+        $(this).val('');
+        
         $('#search-raeltime').addClass('box-shadow-customize');
         // $('#boxRealtime').css('margin-left', '25px');
         $('#boxRealtime').css('padding', '0 0px');
@@ -218,7 +219,7 @@ $('#current').focus(function() {
     
 //alert('aaaaaa')
 //     $('#boxForAutoCom').hide(500)
-//     checkshow = false;
+     checkshow = true;
 //     if (this.id == "current") {
 //         $('#for_check_currentInput').val(1);
 //         $('#for_check_endInput').val(0);
@@ -286,6 +287,7 @@ $('#current').focus(function() {
 //     $('#clear-all').hide(500);
 //     $('#show-hide-pro2').hide(500);
 //     map.panTo(pos);
+
 
 //     start = pos;
 //     end = null;
@@ -406,7 +408,7 @@ $("#currentPosId").click(function() {
     else{
         end = pos;
         
-        // checkshow = false;
+        checkshow = false;
         
         console.log(lat_f)
         console.log(lng_f)
@@ -1155,7 +1157,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     $('#join-btn').css('width', '100%');
                     $('#private').hide();
                     $('#join').show();
-                    $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+                    $('#join-btn').css({ "background-color": "#3b5998", "color": "#fff" }
 
                     );
 
@@ -1393,10 +1395,10 @@ function sendpaxrel(x) {
     getdataservice = dataRel.car_topic
     console.log(ctype)
     if(x== 2 || x== 17){
-        $('#join-btn').css({ "background-color": "#16b3b1", "color": "#fff" }
+        $('#join-btn').css({ "background-color": "#3b5998", "color": "#fff" }
         
         );
-        $("#private-btn").css({ "background-color": " #fff", "color": "#16b3b1 " }
+        $("#private-btn").css({ "background-color": " #fff", "color": "#3b5998 " }
         
         ); 
         $('#private-btn').removeClass('active');
@@ -1407,10 +1409,10 @@ function sendpaxrel(x) {
         
     }
     else{
-        $('#join-btn').css({ "background-color": "#fff", "color": "#16b3b1" }
+        $('#join-btn').css({ "background-color": "#fff", "color": "#3b5998" }
         
         );
-        $("#private-btn").css({ "background-color": " #16b3b1", "color": "#fff " }
+        $("#private-btn").css({ "background-color": " #3b5998", "color": "#fff " }
         
         ); 
         $('#private-btn').addClass('active');
