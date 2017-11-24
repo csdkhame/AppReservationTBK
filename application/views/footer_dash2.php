@@ -459,34 +459,24 @@ $( document ).ready(function() {
 	
 	$('.btn-car-service').click(function(){
 
-<?php
-session_start();
-$_SESSION["active"] = "service";
-?>
-    		window.location.href = '<?php echo base_url(); ?>?active=service';
-//    		$( "#serviceAction" ).submit();
+    		window.location.href = '<?php echo base_url(); ?>?section=service';
+
     		
-    	});
-    	$('.btn-realtime').click(function(){
-<?php
-session_start();
-$_SESSION["active"] = "realtime";
-?>
-    		window.location.href = '<?php echo base_url(); ?>?active=realtime';
-//			$( "#realtimeAction" ).submit();
+    });
+    $('.btn-realtime').click(function(){
+
+    		window.location.href = '<?php echo base_url(); ?>?section=realtime';
+
 			
-    	});
-    	$('.btn-reservation').click(function(){
- <?php
-session_start();
-$_SESSION["active"] = "reservation";
-?>   		
-    		window.location.href = '<?php echo base_url(); ?>?active=reservation';
+    });
+    $('.btn-reservation').click(function(){
+  		
+    	window.location.href = '<?php echo base_url(); ?>?section=reservation';
 //			$( "#reservationAction" ).submit();
-    	});
-    	$('.btn-management').click(function(){
+    });
+    $('.btn-management').click(function(){
     		window.location.href = '<?php echo base_url(); ?>dashboard/view_user';
-    	});
+    });
 	
 	
 	$('.navbar-collapse .feed').click( function(){

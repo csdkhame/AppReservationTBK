@@ -1266,7 +1266,7 @@ $.ajax({
         setTimeout(function() {
             console.log("aaaaa")
             $('#loading').css('display', 'none');
-            window.location.href = base_url + "?section=picuphere";
+            window.location.href = base_url + "?section=realtime";
         }, 3000);
 
 
@@ -1276,7 +1276,7 @@ $.ajax({
         setTimeout(function() {
             console.log("aaaaa")
             $('#loading').css('display', 'none');
-            window.location.href = base_url + "?section=search";
+            window.location.href = base_url + "?section=reservation";
         }, 3000);
     })
     $('.btn-car-service').click(function() {

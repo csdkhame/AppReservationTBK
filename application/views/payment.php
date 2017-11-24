@@ -501,8 +501,8 @@
     /* border-radius: 4px; */
     text-align: center;
     color: #ffffff;
-    /* border: 1px solid #16B3B1; */
-    background-color: #16B3B1;">Pay Driver</div>
+    /* border: 1px solid #3b5998; */
+    background-color: #3b5998;">Pay Driver</div>
                 </td>
             </tr> -->
              <tr class="box-pay">
@@ -519,7 +519,7 @@
     border-radius: 25px; 
     text-align: center;
     color: #ffffff;
-    /* border: 1px solid #16B3B1; */
+    /* border: 1px solid #3b5998; */
     background-color: #3b5998;"><span class="lng-paynow"></span></div>
                 </td>
             </tr>
@@ -581,7 +581,7 @@
     border-radius: 0;
     background: -o-linear-gradient(#ebaf00, #f1a100);
     background: -moz-linear-gradient(#ebaf00, #f1a100);
-    background: linear-gradient(#16B3B1, #16B3B1);
+    background: linear-gradient(#3b5998, #3b5998);
     }
 .img-bank{
     width: 30px;
@@ -682,7 +682,9 @@
                 font-size: 16px;
                 padding: 8px 20px;
                 margin-bottom: 20px;
-                border: 1px solid #16B3B1;
+                border: 1px solid #3b5998;
+                border-radius: 25px;
+
 			    
 
 			}
@@ -718,9 +720,10 @@
                 font-size: 16px;
                 text-align: center;
                 display: block;
-                border: 1px solid #16B3B1;
+                border: 1px solid #3b5998;
                 padding: 8px 0;
                 color: #000;
+                border-radius: 25px;
 			}
 			.cardnumber{
 				
@@ -728,9 +731,10 @@
                 text-align: center;
                 box-sizing: border-box;
                 margin-bottom: 20px;
-                border: 1px solid #16B3B1;
+                border: 1px solid #3b5998;
                 padding: 8px;
                 color: #000;
+                border-radius: 25px;
 			    
 
 
@@ -745,7 +749,7 @@
 			    margin-bottom: 20px;
 			    margin-left: 10px;
 			    /* border-radius: 26px; */
-			    border: 1px solid #16B3B1;
+			    border: 1px solid #3b5998;
 			    padding: 20px 38px;
 			    font-size: 16px;
 			    color: #000;
@@ -756,7 +760,7 @@
 				width: 115px;
 				height: 43px;
 				/* border-radius: 26px; */
-				border: 1px solid #16B3B1;
+				border: 1px solid #3b5998;
 				padding: 20px 38px;
 				font-size: 16px;
 				color: #000;
@@ -777,7 +781,7 @@
                 border-radius: 0;
                 background: -o-linear-gradient(#ebaf00, #f1a100);
                 background: -moz-linear-gradient(#ebaf00, #f1a100);
-                background: linear-gradient(#16B3B1, #16B3B1);
+                background: linear-gradient(#3b5998, #3b5998);
 
 
 
@@ -797,7 +801,8 @@
     border-radius: 0;
     background: -o-linear-gradient(#ebaf00, #f1a100);
     background: -moz-linear-gradient(#ebaf00, #f1a100);
-    background: linear-gradient(#16B3B1, #16B3B1);
+    background: linear-gradient(#3b5998, #3b5998);
+    border-radius: 25px;
 }
 			.btn-submit:focus{
 
@@ -852,11 +857,12 @@
                 font-size: 16px;
                 box-sizing: border-box;
                 margin-bottom: 20px;
-                border: 1px solid #16B3B1;
+                border: 1px solid #3b5998;
                 padding: 8px;
                 text-align: center;
                 margin-right: 8px;
                 color: #000;
+                border-radius: 25px;
 			}
 			.numyear{
                 width: 68%;
@@ -865,9 +871,10 @@
                 font-size: 16px;
                 box-sizing: border-box;
                 margin-bottom: 20px;
-                border: 1px solid #16B3B1;
+                border: 1px solid #3b5998;
                 padding: 8px 20px;
                 color: #000;
+                border-radius: 25px;
 			}
 			.label_slad{
 				display: inline-block;

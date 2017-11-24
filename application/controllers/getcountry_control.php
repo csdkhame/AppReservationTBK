@@ -17,6 +17,12 @@ class Getcountry_control extends CI_Controller {
 	  echo json_encode($data);
 
 	}
+	function getcountry_by_id(){
+		$data = $this->Getcountry_model->getcountry_by_id();
+	//$array = array($age);
+		echo json_encode($data);
+
+}
 	
 	
 	

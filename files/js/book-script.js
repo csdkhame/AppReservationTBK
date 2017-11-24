@@ -263,6 +263,30 @@ $(document).ready(function() {
             if (this.checked) {
                 console.log('in case user')
                 console.log(datauser)
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://www.welovetaxi.com/app/booking/getcountry_control/getcountry_by_id',
+                    data: { 'id': datauser[0].i_country },
+                    //contentType: "application/json",
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data)
+                        $('#phonecode').html('+'+data[0].phonecode)
+                        if ($.cookie("lng") == 'cn') {
+                        $('#select-country').html(data[0].name_cn)
+                        
+                           
+                        } else if ($.cookie("lng") == 'en' || $.cookie("lng") == undefined) {
+                        $('#select-country').html(data[0].name_en)
+                        
+                    
+                        } else if ($.cookie("lng") == 'th') {
+                        $('#select-country').html(data[0].name_th)
+                        
+                    
+                        } 
+                    }
+                });
                     // $('#numbercountry').append('<span id="select"><img id="imgcountry" src="' + urlimg + 'files/img/flag/icon/' + img + '.png' + '">' + '<span>(+' + x + ')' + ' ' + name + '</span></span>');
                 console.log($('#email').val(datauser[0].s_email))
                 getemail = datauser[0].s_email;
@@ -270,8 +294,9 @@ $(document).ready(function() {
                 $('#s_username').val(datauser[0].s_email);
                 $('#email').val(datauser[0].s_username);
                 $('#phone').val(' ' + datauser[0].s_phone);
-                $('#phonecode').html(datauser[0].s_phone_code);
-                $('#guestcountry').val(datauser[0].i_country);
+                // $('#phonecode').html(datauser[0].s_phone_code);
+                // $('#guestcountry').val(datauser[0].i_country);
+                
                 $('#name_lastname').val(datauser[0].s_first_name + ' ' + datauser[0].s_last_name);
                 $('.label-floating').addClass('is-focused');
                 $('#summaryphone').html('+' + datauser[0].s_phone_code + datauser[0].s_phone);
@@ -286,6 +311,22 @@ $(document).ready(function() {
                 $('#guestcountry').val('');
                 $('#name_lastname').val('');
                 $('.label-floating').removeClass('is-focused');
+                $('#phonecode').html('')
+                if ($.cookie("lng") == 'cn') {
+                    $('#select-country').html('请选择国家')
+                    
+                       
+                } else if ($.cookie("lng") == 'en' || $.cookie("lng") == undefined) {
+                        $('#select-country').html('Please select country')
+                    
+                
+                } else if ($.cookie("lng") == 'th') {
+                        $('#select-country').html('โปรดเลือกประเทศ');
+                    
+                
+                } 
+                
+               
             }
         } else {
             console.log(this.checked)
@@ -310,7 +351,7 @@ $(document).ready(function() {
         setTimeout(function() {
             console.log("aaaaa")
             $('#loading').css('display', 'none');
-            window.location.href = base_url + "?section=picuphere";
+            window.location.href = base_url + "?section=realtime";
         }, 3000);
 
 
@@ -320,7 +361,7 @@ $(document).ready(function() {
         setTimeout(function() {
             console.log("aaaaa")
             $('#loading').css('display', 'none');
-            window.location.href = base_url + "?section=search";
+            window.location.href = base_url + "?section=reservation";
         }, 3000);
     })
     $('.btn-car-service').click(function() {
@@ -367,7 +408,7 @@ $(document).ready(function() {
     var data = getParameterByName('data');
     var from = getParameterByName('from');
     var to = getParameterByName('to');
-    if(getParameterByName('book') == 'Reltime'){
+    if(getParameterByName('book') == 'Realtime'){
         $('#car-show').hide();
         $('#select_date').hide();
         // $('#select_date').disabled = true;

@@ -77,15 +77,15 @@
 	</script>
 	<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
 <script>
-		var paramURL = $('#paramUrl').val();
-console.log("::::"+paramURL);
-if(paramURL=="realtime"){
-	$('.btn-realtime').click();
-	console.log("::::1");
-}else if(paramURL=="reservation"){
-	$('.btn-reservation').click();
-	console.log("::::2");
-}
+// 		var paramURL = $('#paramUrl').val();
+// console.log("::::"+paramURL);
+// if(paramURL=="realtime"){
+// 	$('.btn-realtime').click();
+// 	console.log("::::1");
+// }else if(paramURL=="reservation"){
+// 	$('.btn-reservation').click();
+// 	console.log("::::2");
+// }
 	</script>
 <style>
 
@@ -241,23 +241,23 @@ $( document ).ready(function() {
 	}
 	active = '';
 	 }, 4000);*/
-<?php
-session_start();
-?>
-	var active = '<?=$_SESSION["active"];?>';
-	console.log('Session : '+active);
-	setTimeout(function(){ 
-	if( active=='realtime'){
-		$('.btn-realtime').click();
-	}else if( active=='reservation'){
-		$('.btn-reservation').click();
-	}
-	else if( active=='service'){
-		$('.btn-car-service').click();
-	}
+// <?php
+// session_start();
+// ?>
+// 	var active = '<?=$_SESSION["active"];?>';
+// 	console.log('Session : '+active);
+// 	setTimeout(function(){ 
+// 	if( active=='realtime'){
+// 		$('.btn-realtime').click();
+// 	}else if( active=='reservation'){
+// 		$('.btn-reservation').click();
+// 	}
+// 	else if( active=='service'){
+// 		$('.btn-car-service').click();
+// 	}
 	
-	 }, 4000);
-<?php session_unset(); ?>	
+// 	 }, 4000);
+// <?php session_unset(); ?>	
 });	
 </script>
 </html>

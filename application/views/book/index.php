@@ -150,13 +150,19 @@
                     
                                     </a>
                                 </li> -->
-                                
+                                <li class="box-setting">
+                            <a href="https://www.welovetaxi.com/app/booking/dashboard/account_settings" class="feed">
+                              <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
+                                <i class="material-icons">settings</i><span style="text-transform: initial;" class="lng-sa_d textmenu">ตั้งค่าบัญชี</span>                  
+                            </a>
+                        </li>
                                 <li id="btn-logout-user">
                                     <a>
                                         <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
                     
                                     </a>
                                 </li>
+                                
                         
                             </ul>
                         </li>
@@ -517,7 +523,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td valign="top"  style="padding: 5px 0;"> 
+                                            <td width="100" valign="top"  style="padding: 5px 0;"> 
                                             <label style="text-align:left" ><span class="lng-total-prices "></span><span>:</span></label>
 
                                             </td>
@@ -850,7 +856,8 @@
                                                     padding: 8px;
                                                     width: 80px;
                                                     height: 39px;
-                                                    margin: 8px 0;"  id="phonecode" value="phonecode">
+                                                    margin: 8px 0;
+                                                    text-align: center;"  id="phonecode" value="phonecode">
                                                         <!-- <label class="textInput" > </label> -->
                                                     </div>
                                                     <div id="tphone">
@@ -1040,7 +1047,7 @@
          <div id="acceptance_pin_pop" style="">
             <div class="acceptance_pin_pop_in">               
                 <div class="acceptance_pin_pop_ln">
-                    <div class="lng_please_accept" style="text-align: center; font-size: 16px;"></div>
+                    <div class="lng_please_accept" style="text-align: center; font-size: 18px;"></div>
                     <!-- <input type="text" class="textInput" placeholder="New name" id="newname" name="newname" onchange="newname(newname)" > -->
                     
                     <div style="text-align: center;
@@ -1058,7 +1065,7 @@
                     <div class="lng-close icon-close" style="    width: 100%;
                     padding: 10px 0px;
                     font-size: 15px;
-                    background-color: #4caf50;
+                    background-color: #3b5998;
                     color: #FFF;
                     text-align: center;
                     display: inline-block;
@@ -1191,19 +1198,19 @@
 <style>
  input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #333;
+  color: #333 !important;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  color: #333;
+  color: #333 !important;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: #333;
+  color: #333 !important;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #333;
+  color: #333 !important;
 }
     #terms-of-use {
     padding: 10px;
@@ -1234,15 +1241,22 @@ textarea:-ms-input-placeholder {
     bottom: 15px;
     border-radius: 25px;
 }
+.form-group .checkbox label, .form-group .radio label, .form-group label{
+    font-size: 15px !important; 
+    color: #333 !important;
+}
 .checkbox input[type=checkbox]:checked+.checkbox-material .check {
     background: #3b5998 !important;
+}
+#acceptancecheck span{
+    font-size:15px;
 }
 .checkbox .checkbox-material .check {
     position: relative;
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 2px solid rgb(0, 150, 136)!important;
+    border: 2px solid #3b5998!important;
     overflow: hidden;
     z-index: 1;
     border-radius: 5px;
@@ -1348,6 +1362,9 @@ textarea:-ms-input-placeholder {
     font-weight: 400;
     /* border-radius: 4px; */
     margin-bottom: 20px;
+}
+table{
+    font-size: 15px;
 }
  </style>
         
@@ -1692,7 +1709,7 @@ textarea:-ms-input-placeholder {
     border-radius: 50px;  
 }
 .user {
-    background: #16B3B1;
+    background: #3b5998;
     text-align: center;
     padding-bottom: 20px;
     /* margin: 25px auto 0; */
