@@ -402,6 +402,7 @@ $("#currentPosId").click(function() {
         // $('#boxRealtimeto').css('display') == 'none'
         
         start = pos;
+        console.log(pos)
     selectMyPlace('current', addr, start.lat, start.lng)
     
     }

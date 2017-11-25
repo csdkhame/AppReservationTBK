@@ -803,6 +803,7 @@
     background: -moz-linear-gradient(#ebaf00, #f1a100);
     background: linear-gradient(#3b5998, #3b5998);
     border-radius: 25px;
+    
 }
 			.btn-submit:focus{
 
