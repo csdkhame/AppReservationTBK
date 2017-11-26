@@ -50,6 +50,8 @@ var getnewnamenull;
 var changephone = '';
 var curentFromTo = '';
 var getnewphonenull;
+var typeFrom = '';
+var typeTo = '';
 
 if ($.cookie("lng") == 'cn') {
     please_login_txt = "请登录";
@@ -198,6 +200,8 @@ $('#pac-input').focus(function() {
         $(this).val('');
         
         $('#search-raeltime').addClass('box-shadow-customize');
+        $('#current').removeClass('search_focus');
+        $('#pac-input').addClass('search_focus');
         // $('#boxRealtime').css('margin-left', '25px');
         $('#boxRealtime').css('padding', '0 0px');
         $('#out-search').show(650);
@@ -216,6 +220,8 @@ $('#pac-input').focus(function() {
 $('#current').focus(function() {
     curentFromTo = 'From';
     console.log(curentFromTo)
+    $('#current').addClass('search_focus');
+    $('#pac-input').removeClass('search_focus');
     
 //alert('aaaaaa')
 //     $('#boxForAutoCom').hide(500)
@@ -400,17 +406,18 @@ $("#currentPosId").click(function() {
     
     if (curentFromTo == 'From') {
         // $('#boxRealtimeto').css('display') == 'none'
-        
+        typeFrom = addr;
         start = pos;
         console.log(pos)
+        // typeFrom = addr;
     selectMyPlace('current', addr, start.lat, start.lng)
     
     }
     else{
         end = pos;
-        
+        typeTo = addr;
         checkshow = false;
-        
+        // typeTo = addr;
         console.log(lat_f)
         console.log(lng_f)
     selectMyPlace('current', addr, end.lat, end.lng)
@@ -651,6 +658,7 @@ function a(map) {
             //lng_f = placesearch.geometry.location.lng();
             var latlng = new google.maps.LatLng(placesearch.geometry.location.lat(), placesearch.geometry.location.lng());
             //            markerTest.setPosition(latlng);
+            
                         map.panTo(latlng);
                         markerCircle.setPosition(latlng);
                         // setTimeout(function() {
@@ -660,6 +668,7 @@ function a(map) {
                             smoothZoom(map, 15, map.getZoom());
             
             //$('#clear-all').show(500);
+            
         });
 
 
@@ -678,6 +687,10 @@ function a(map) {
         //$('#boxRealtimeto').show(500)
         //$('#boxRealtime').hide(500)
         placeStart = autocompleteStart.getPlace();
+        console.log(placeStart)
+        // typeFrom = placeStart[1].formatted_address;
+        // console.log(typeFrom)
+        
         map.panTo(placeStart.geometry.location);
         //        start = placeStart.geometry.location;
         var current = {
@@ -685,6 +698,7 @@ function a(map) {
             lng: parseFloat(placeStart.geometry.location.lng())
         };
         start = current;
+        console.log()
         startMarker.setVisible(true);
         startMarker.setPosition(start);
         lat_f = placeStart.geometry.location.lat();
@@ -696,6 +710,8 @@ function a(map) {
         console.log(lng_f);
         console.log(lat_t);
         console.log(lng_t);
+        console.log($('#current').val())
+        typeFrom = $('#current').val();
 
         console.log('********************************************************')
         $('#clear-all').show(500);
@@ -773,6 +789,7 @@ function a(map) {
                 console.log(lng_f);
                 console.log(lat_t);
                 console.log(lng_t);
+                typeTo = $('#pac-input').val();
         
                 console.log('********************************************************')
                 var radlat1 = Math.PI * lat_f / 180
@@ -880,6 +897,8 @@ $('#btn_CurrentLocation').click(function() {
             setTimeout(function() {
 
                 document.getElementById("current").value = placeStart[1].formatted_address;
+                typeFrom = placeStart[1].formatted_address;
+                console.log(typeFrom)
 
                 smoothZoom(map, 15, map.getZoom());
 
@@ -916,20 +935,20 @@ $('#clear-all').click(function() {
     // $('#often-input2').hide(500)
     $('#boxRealtime').show(500)
     curentFromTo ='';
-    if ($.cookie("lng") == 'cn') {
+    // if ($.cookie("lng") == 'cn') {
        
-        document.getElementById("current").value = "你的立場...";
-    } else if ($.cookie("lng") == 'th') {
-        document.getElementById("current").value = "ตำแหน่งของคุณ...";
+    //     document.getElementById("current").value = "你的立場...";
+    // } else if ($.cookie("lng") == 'th') {
+    //     document.getElementById("current").value = "ตำแหน่งของคุณ...";
        
-    } else if ($.cookie("lng") == 'en') {
+    // } else if ($.cookie("lng") == 'en') {
        
-        document.getElementById("current").value = "Your position...";
+    //     document.getElementById("current").value = "Your position...";
         
-    } else if ($.cookie("lng") == undefined) {
+    // } else if ($.cookie("lng") == undefined) {
         
-        document.getElementById("current").value = "Your position...";
-    }
+    //     document.getElementById("current").value = "Your position...";
+    // }
     // lat_t = '';
     // lng_t = '';
     // lat_f = '';
@@ -1019,12 +1038,13 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     console.log(data2.length)
                     console.log(data2.status)
                     console.log(data2.size)
+
             $('.a-link-item').remove();
             $('.not-found').remove();
             $('.typerel').remove();
             $('.typeservice').remove();
             //            console.log(data.detail);
-            if (data2.status == '200. bad request') {
+            if (data2.status == '200. bad request' || data2.size == 0) {
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
                 $('#loading').css('display', 'block');
@@ -1093,6 +1113,9 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 }
                 console.log(type)
                 console.log(datasort)
+        
+                $('#typeFrom').html(typeFrom)                
+                $('#typeTo').html(typeTo)                
                  
                 // label="' + type + '"
                 $('#paxrel').append('<li class="typerel" id="typeservice'+datasort[i].pax_id+'"  onclick="sendpaxrel(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
@@ -2943,7 +2966,7 @@ function selectMyPlace(type_place,txtAdd, latti, lngti) {
             lat: parseFloat(latti),
             lng: parseFloat(lngti)
         }
-
+        typeFrom = txtAdd;
         //console.log(start);
         startMarker.setVisible(true);
         startMarker.setPosition(start);
@@ -2969,6 +2992,8 @@ function selectMyPlace(type_place,txtAdd, latti, lngti) {
         console.log('in case to')
 
         $('#pac-input').val(txtAdd);
+        typeTo = txtAdd;
+        
         end = {
             lat: parseFloat(latti),
             lng: parseFloat(lngti)
@@ -3000,7 +3025,8 @@ console.log(lng_t)
 console.log(lat_f)
 console.log(lng_f)
     if (start != undefined && end != undefined)  {
-
+        // $('#typeFrom').html(typeFrom)
+        // $('#typeTo').html(typeTo)
         var destination = new google.maps.LatLng(end);
         var origin = new google.maps.LatLng(start);
         var request = {

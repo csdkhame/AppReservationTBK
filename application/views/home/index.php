@@ -6,8 +6,8 @@
         $lng_all_type = 'All Type';
         $lag_search_from = 'From: Type airport,hotel name, or location.';
         $lag_search_to = 'To: Type airport,hotel name, or location.';
-        $lag_go_txt = 'Where are you going? (English)?';
-        $lag_from_txt = 'Departure Location (English)...';
+        $lag_go_txt = 'Where are you going? ';
+        $lag_from_txt = 'Departure Location...';
         $lng_from = 'From';
         $lng_to = 'To';
         $lng_from_pro = 'From Province';
@@ -33,8 +33,8 @@
         $lng_all_type = 'All Type';
         $lag_search_from = 'From: Type airport,hotel name, or location.';
         $lag_search_to = 'To: Type airport,hotel name, or location.';
-        $lag_go_txt = 'Where are you going? (English)';
-        $lag_from_txt = 'Departure Location (English)...';
+        $lag_go_txt = 'Where are you going? ';
+        $lag_from_txt = 'Departure Location...';
         
         $lng_from = 'From';
         $lng_to = 'To';
@@ -62,8 +62,8 @@
         $lng_all_type = 'ทุกประเภท';
         $lag_search_from = 'จาก: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
         $lag_search_to = 'ไปยัง: สนามบินประเภทชื่อโรงแรมหรือสถานที่ตั้ง';
-        $lag_go_txt = 'คุณจะไปที่ไหน (อังกฤษ)';
-        $lag_from_txt = 'จุดเริ่มต้น (อังกฤษ)...';
+        $lag_go_txt = 'คุณจะไปที่ไหน';
+        $lag_from_txt = 'จุดเริ่มต้น...';
 
         $lng_from = 'จาก';
         $lng_to = 'ไปยัง';
@@ -92,8 +92,8 @@
        $lng_all_type = '所有類型';
        $lag_search_from = '从: 机场，酒店名称或位置。';
        $lag_search_to = '至: 机场，酒店名称或位置。';
-       $lag_go_txt = '您去哪里？ （英文）';
-       $lag_from_txt = '出发地点 （英文）...';
+       $lag_go_txt = '您去哪里？）';
+       $lag_from_txt = '出发地点...';
        $lng_from = '从';
        $lng_to = '至';
        $lng_from_pro = '從省';
@@ -248,6 +248,20 @@
     right: 15px;">close</i>
 
                         </div>
+                        <div class="col-md-12">
+                            <div style="font-size: 15px;
+                            padding-bottom: 15px;
+    border-bottom: dashed 2px #3b5998;">
+                            <table width="100%">
+                                <tr>
+                                <td width="48%"><span id="typeFrom" ></span></td>
+                                <td align="center" width="4%" style="font-size: 30px;
+    font-weight: 700;">-</td>
+                                <td width="48%"><span id="typeTo" ></span></td>
+                                </tr>
+                            </table>
+</div>
+                        </div>
                         <div class="col-md-12 boxpax" style="text-align: left;" > 
                         <ul class="" name="typecarservice" id="paxrel" >
                             <li value="All Type" onclick="sendpaxrel(0)" style="padding: 15px; border-bottom: 1px solid #ddd;"><?php echo  $lng_all_type;?>
@@ -382,9 +396,9 @@
  </div>
         <div id="back-home" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
         <!-- BOX OPTION  -->
-        <div class="box_option">
+        <!-- <div class="box_option">
         <i class="material-icons" style="line-height: 1.7; font-size: 25px;">place</i>
-        </div>
+        </div> -->
         <div id="search-often" style="    position: absolute;
   
     width: 100%;
@@ -415,7 +429,7 @@
                 
                     <div class="box-search" id='boxRealtime' >
                       <!-- <button class="btn btn-success btn-xs" id="delete_text" style=" color: #fff; z-index: 1;display:none;   right: 25px; padding: 6px; position: absolute;  background-color: #3b5998;    margin: 5px 0; width: 25px;"><span>X</span></button>-->
-                        <input type='text'    placeholder="<? echo $lag_from_txt;?>"  id='current' style="    margin-bottom: 10px;border: 1px solid #3b5998;padding: 8px; width: 100%;background: #fff;display:nones;color:#333;border-radius: 25px"/>
+                        <input type='text' class=""    placeholder="<? echo $lag_from_txt;?>"  id='current' style="    margin-bottom: 10px;border: 1px solid #3b5998;padding: 8px; width: 100%;background: #fff;display:nones;color:#333;border-radius: 25px"/>
                         
                             <!-- <div style="border-bottom: 1px solid #333;display:nones;"></div> -->
                           
@@ -423,7 +437,7 @@
                     </div>
                     <div class="box-searchto" id='boxRealtimeto' style="display:none">
                                    
-                            <input type='text'  placeholder="<? echo $lag_go_txt;?>" id="pac-input"  
+                            <input type='text' class=""  placeholder="<? echo $lag_go_txt;?>" id="pac-input"  
                             style="border: 1px solid #3b5998; padding: 8px; width: 100%;  background: #fff; margin: auto;  color: #333;  border-radius: 25px" /> 
                     </div>
                     <div id="appendBox"></div>

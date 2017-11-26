@@ -641,7 +641,8 @@ $(document).ready(function() {
     
     
     
-    
+                $('#current').focus();
+                $('#current').addClass('search_focus');
                 //$('#content').css('display','block'); 
             }, 500);
             checkshowhome = true;
@@ -684,7 +685,8 @@ $(document).ready(function() {
                     $('#pac-input').css('display', '');
                     //$('#search-raeltime').css('display', 'block');
         
-        
+                    $('#current').focus();
+                    $('#current').addClass('search_focus');
         
         
         
@@ -829,7 +831,8 @@ $(document).ready(function() {
                 $('#loading').css('display', 'none');
                 $('#search-show').css('display', 'none')
                 $('#pac-input').css('display', '');
-                //$('#search-raeltime').css('display', 'block');
+                $('#current').focus();
+                $('#current').addClass('search_focus');
     
     
     
@@ -874,6 +877,8 @@ $(document).ready(function() {
                     $('#loading').css('display', 'none');
                     $('#search-show').css('display', 'none')
                     $('#pac-input').css('display', '');
+                    $('#current').focus();
+                    $('#current').addClass('search_focus');
                     //$('#search-raeltime').css('display', 'block');
         
         

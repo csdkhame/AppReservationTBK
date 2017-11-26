@@ -1987,7 +1987,7 @@ select.form-control {
     padding-top: 15px;
     padding-bottom: 15px;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 15px !important;
     text-transform: uppercase;
     border-radius: 3px
 }

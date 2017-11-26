@@ -410,6 +410,10 @@ label.control-label {
   color: #AAAAAA;
   font-weight: 400;
 }
+.form-control, .form-group .form-control{
+  font-size: 15px !important;
+
+}
 .form-group .checkbox label,
 .form-group .radio label,
 .form-group label,
@@ -439,7 +443,7 @@ label.control-label {
 .form-group.label-static label.control-label, .form-group.label-floating.is-focused label.control-label, .form-group.label-floating:not(.is-empty) label.control-label {
   top: -28px;
   left: 0;
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.07143;
 }
 .form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
@@ -777,11 +781,11 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px #555;
 }
 .wizard-card[data-color="blue"] .moving-tab {
-    background-color: #16B3B1;
+    background-color: #3b5998;
     box-shadow: 0 16px 26px -10px rgba(118, 202, 213, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 188, 212, 0.2);
 }
 .btn-tem{
-	background-color: #16B3B1;
+	background-color: #3b5998;
 }.btn-sil{
 	    background-color: #999;
 }
@@ -941,6 +945,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                     border-radius: 25px;
                                                     text-align: center;
                                                     color: #ffffff;
+                                                    font-size: 15px;
                                                     background-color: #333;" >
                                                         <span class="lng-change-password">Change password</span>
                                                     </div>
@@ -955,7 +960,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
                                                     border-radius: 25px;
                                                     text-align: center;
                                                     color: #ffffff;
-                                                    background-color: #16B3B1;" >
+                                                    font-size: 15px;
+                                                    background-color: #3b5998;" >
                                                         <span class="lng-save">Send</span>
                                                     </div>
                             </div>
@@ -989,7 +995,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
     right: 15px;
     padding: 12px 20px;
     bottom: 15px;
-    background: #16B3B1;
+    background: #3b5998;
     display: none;
 }
 .btn-close {
@@ -1006,7 +1012,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 }
 .btn-send {
     padding: 12px 20px;
-    background: #16B3B1;
+    background: #3b5998;
     color: #fff;
     width: 140px;
     position: absolute;

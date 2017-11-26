@@ -976,6 +976,16 @@
             #table1{
                 margin-top: 10px !important;
             }
+            #input_data_pop{
+                z-index: 19;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                display: none;
+            }
             #acceptance_pin_pop{
                 z-index: 19;
                 position: fixed;
@@ -1043,7 +1053,42 @@
     animation-direction: alternate;
 }
 
-        </style> 
+        </style>
+        <div id="input_data_pop" >
+            <div class="acceptance_pin_pop_in">               
+                <div class="acceptance_pin_pop_ln">
+                    <div class="lng_please_input_data " style="text-align: center; font-size: 18px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="New name" id="newname" name="newname" onchange="newname(newname)" > -->
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <!-- <div class="lng_find_again btn-close" style="background-color: #f44336;
+                    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="btn_no_position()">Edit route</div> -->
+                    <div class="lng-close icon-close" style="    width: 100%;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #3b5998;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;">ปิด</div>
+                    </div>
+                    
+                </div>        
+            
+            </div>
+        </div> 
          <div id="acceptance_pin_pop" style="">
             <div class="acceptance_pin_pop_in">               
                 <div class="acceptance_pin_pop_ln">
@@ -1262,6 +1307,8 @@ textarea:-ms-input-placeholder {
     border-radius: 5px;
 }
 .textInput{
+    font-size: 15px;
+    color: #333;
     border: 1px solid #dfdfdf;
     padding: 8px;
     margin: 8px 0;

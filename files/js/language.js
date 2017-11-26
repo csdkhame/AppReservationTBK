@@ -179,6 +179,7 @@ $(document).ready(function() {
         $('.lng_new_selection').html('新')
         $('.lng_email_have').html('在系统中有这个电子邮件')
         $('.lng_email_available').html('此电子邮件是可用的')
+        $('.lng_please_input_data').html('请输入数据')
         
         
         
@@ -361,6 +362,8 @@ $(document).ready(function() {
         $('.lng_new_selection').html('New selection')
         $('.lng_email_have').html('Have this email in system')
         $('.lng_email_available').html('This email is available')
+        $('.lng_please_input_data').html('Please input data')
+        
         
         
         
@@ -544,6 +547,8 @@ $(document).ready(function() {
         $('.lng_new_selection').html('เลือกใหม่')
         $('.lng_email_have').html('มีอีเมลนี้ในระบบ')
         $('.lng_email_available').html('อีเมลนี้พร้อมใช้งาน')
+        $('.lng_please_input_data').html('กรุณาใส่ข้อมูล')
+        
         
         
         
@@ -714,6 +719,7 @@ $(document).ready(function() {
         $('.lng_new_selection').html('New selection')
         $('.lng_email_have').html('Have this email in system')
         $('.lng_email_available').html('This email is available')
+        $('.lng_please_input_data').html('Please input data')
         
         
         
