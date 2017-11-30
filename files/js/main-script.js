@@ -16,6 +16,7 @@ var base_url = 'https://www.welovetaxi.com/app/booking/';
 //var base_url = 'http://localhost/AppReservationTBK/';
 var  reltimeclick;
 var checkreal_or_res = '';
+var lngbook ;
 $(document).ready(function() {
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
@@ -28,6 +29,7 @@ $(document).ready(function() {
     }
     console.log(getParameterByName('section'))
     if(getParameterByName('section') == 'realtime'){
+        booking = 'Realtime';
         setTimeout(function() {
             $('#boxRealtime').show(500);
             $('#boxForAutoCom').show(500);
@@ -72,6 +74,7 @@ $(document).ready(function() {
         checkreal_or_res = 'Real'
     }
     else if(getParameterByName('section') == 'reservation'){
+        booking = 'Reservation'
         setTimeout(function() {
             $('#boxRealtime').show(500);
             $('#boxForAutoCom').show(500);
@@ -116,6 +119,7 @@ $(document).ready(function() {
         checkreal_or_res = 'Res'
     }
     else if(getParameterByName('section') == 'service'){
+        booking = 'Service';
         $('#box-car-service').show(500)
         $('.btn-car-service').css({ 'background': '#3b5998', 'color': '#ffffff' });
         

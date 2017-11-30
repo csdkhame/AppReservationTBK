@@ -13,15 +13,16 @@
 .btn-close {
     /* width: 200px; */
 /*    background: #4BB1C1;*/
-    background: #009688;
+    background: #3b5998;
     /* text-transform: uppercase; */
     text-align: center;
     color: #ffffff;
-    border: 1px solid #4BB1C1;
+    border: 1px solid #3b5998;
     /* position: absolute; */
     right: 15px;
     padding: 12px 20px;
-    bottom: 15px;
+	bottom: 15px;
+	border-radius: 25px;
 }
 .btn-silver
 {

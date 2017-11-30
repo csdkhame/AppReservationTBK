@@ -1352,6 +1352,7 @@ $(document).ready(function() {
                         addbooking();
                     }
                     
+                    
                 }
                 
             

@@ -221,7 +221,11 @@ $( document ).ready(function() {
   <!--<h3>View Order</h3>-->
    <div style="    
    "> 
-  
+  <style>
+	  .card {
+    border-radius: 15px !important;
+}
+  </style>
    <div style="width: 100%">
    <table width="100%"><tr><td>
    <h4 style="margin: 8px;"><span class="lng-detail-order"></span></h4></td>     
@@ -232,7 +236,7 @@ $( document ).ready(function() {
    </tr>
    </table>
    </div>                                                                                        
-  <div class="" style="padding: 8px;
+  <div class="card" style="padding: 8px;
     background-color: #fff;">         
   <table class="table ">
   		<tr>
@@ -346,7 +350,7 @@ $( document ).ready(function() {
   
   
   <h4 style="margin: 8px;"><span class="lng-seating"></span></h4>
-  <div class="" style="    background: #fff; ">
+  <div class="card" style="    background: #fff; ">
   		<table class="table " id="show_carmodel">
   			<tr class="head-table-dialog" align="center" style="background-color: #ddd;">
   				<td ><span class="lng-plan"></span></td>

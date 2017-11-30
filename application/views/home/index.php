@@ -264,7 +264,7 @@
                         </div>
                         <div class="col-md-12 boxpax" style="text-align: left;" > 
                         <ul class="" name="typecarservice" id="paxrel" >
-                            <li value="All Type" onclick="sendpaxrel(0)" style="padding: 15px; border-bottom: 1px solid #ddd;"><?php echo  $lng_all_type;?>
+                            <li value="All Type" onclick="sendpaxrel(0)" id="firstrel" style="padding: 15px; border-bottom: 1px solid #ddd;"><?php echo  $lng_all_type;?>
                             </li>                                                                
                         </ul>
                     </div>
@@ -871,7 +871,7 @@
     border-radius: 100%;
     box-shadow: rgb(59, 89, 152) 0px 1px 4px;
     z-index: 262;
-    margin-top: -60px;
+    margin-top: -50px;
     cursor: pointer;
     position: absolute;
     padding: 8px;

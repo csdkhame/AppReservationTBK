@@ -146,9 +146,10 @@
 .picker__button--close {
     /* display: none!important; */
     width: 95%!important;
-    background: #16b3b1!important;
+    background: #3b5998 !important;
     color: #fff!important;
     padding: 12px!important;
+    border-radius: 25px;
 }
 
 .box-cale {
@@ -160,7 +161,7 @@
 
 .btn-cale {
     margin: auto;
-    background: #16b3b1;
+    background: #3b5998 !important;
     color: #fff;
     z-index: 100;
     /* background-color: #333; */
@@ -168,6 +169,7 @@
     padding: 12px;
     width: 100%;
     display: inline-block;
+    border-radius:50%; 
 }
 
 .picker__holder {
@@ -218,15 +220,19 @@
 }
 
 .picker__day--highlighted {
-    border-color: #009688 !important;
+    border-color: #3b5998 !important;
+    border-radius: 50%;
 }
 
 .picker__day--selected,
 .picker__day--selected:hover,
 .picker--focused .picker__day--selected {
-    background: rgb(0, 150, 136)!important;
+    background: #3b5998 !important;
+    border-radius: 50%;
 }
 
 .picker__day--today:before {
     border-top: 0.7em solid #FF5722 !important;
+    display: none !important;
+
 }

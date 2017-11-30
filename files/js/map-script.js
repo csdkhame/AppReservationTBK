@@ -1052,12 +1052,18 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                     $('#loading').css('display', 'none');
                     // $('#show-hide-pro').css('display', 'block');
                     $("#pro-search").slideDown('4000');
-                    $('#product_a').append('<div class="not-found">' + notfound + '</div>');
+                    $('#box-pax-rel').show(500)
+                    $('#firstrel').hide()  
+                    
+                    $('#paxrel').append('<div class="not-found">' + notfound + '</div>');
                     $('#search-from').val('');
                     $('#search-to').val('');
-                    $("#pro-search").animate({ 'margin-top': '0vh' });
+                    $('#typeFrom').html(typeFrom)                
+                    $('#typeTo').html(typeTo) 
+                    // $("#pro-search").animate({ 'margin-top': '0vh' });
                 }, 2000);
             } else {
+                $('#firstrel').show() 
                 $('#ul-header2').css('display', 'block');
                 $('#container-product').css('display', 'block');
                 $('#loading').css('display', 'block');
@@ -1208,7 +1214,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 var urlicon = 'https://dotdotdottrip.com/files/images/carmodelicon/';
 
                 //if (data[0].data1.length != 0) {
-                var car_topic, cartype, pax;
+                var car_topic, cartype, pax,lngcapacityinfo,lngfacilities ;
                 $.each(compae1private, function(i, val) {
                     var indexs = parseInt(i) + 1;
                     if ($.cookie("lng") == 'cn') {
@@ -1580,7 +1586,7 @@ function sendpaxrel(x) {
     console.log(compae1join);
     console.log(compae1private)
 
-    var car_topic, cartype, pax;
+    var car_topic, cartype, pax,lngcapacityinfo,lngfacilities;
     var urlicon = base_url + 'files/images/carmodelicon/';
     //if (data[0].data1.length != 0) {
     $.each(compae1private, function(i, val) {

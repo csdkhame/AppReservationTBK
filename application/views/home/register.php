@@ -415,7 +415,7 @@ textarea:-ms-input-placeholder {
 
     <div id="foget-password">
             <div class="box-in-foget" >
-            <div style="    background: rgb(22, 179, 177);
+            <div style="    background: #3b5998;
     color: #fff;
     padding: 18px;
     text-align: center;
@@ -464,7 +464,7 @@ textarea:-ms-input-placeholder {
 <style>
 .btn-send{
     padding: 12px 20px;
-    background: #16B3B1;
+    background: #3b5998;
     color: #fff;
     width: 140px;
     position: absolute;
@@ -481,7 +481,7 @@ textarea:-ms-input-placeholder {
     right: 15px;
     padding: 12px 20px;
     bottom: 15px;
-    background: #16B3B1;
+    background: #3b5998;
     display: none;
 }
     #sectionsNav {
@@ -523,7 +523,7 @@ textarea:-ms-input-placeholder {
 }
 
 .btn-login{
-    font-weight: 700;
+    font-weight: 500;
     display: block;
     padding: 10px;
     text-decoration: none;
@@ -532,7 +532,7 @@ textarea:-ms-input-placeholder {
     border-radius: 25px;
     text-align: center;
     color: #ffffff;
-    background-color: #16B3B1;
+    background-color: #3b5998;
 
 
 }
@@ -546,9 +546,9 @@ textarea:-ms-input-placeholder {
 } */
 .btn-signup{
     color: #3b5998;
-    border: 1px solid #16B3B1;
-    background-color: #16B3B1;
-    font-weight: 700;
+    border: 1px solid #3b5998;
+    background-color: #3b5998;
+    font-weight: 500;
     display: block;
     line-height: 36px;
     padding: 0 10px 0 0;
@@ -576,6 +576,7 @@ textarea:-ms-input-placeholder {
     text-align: center;
     padding: 12px;
     border-radius: 25px;
+    font-weight: 500;
 }
 
 .social-column .fb-wrapper .inner {
@@ -1147,7 +1148,7 @@ font-size: 16px;
 width: 100%;
 /* border-radius: 4px; */
 /* padding: 12px; */
-color: #16B3B1;
+color: #3b5998;
 text-align: center;
 /* display: inline-block; */
 /* background-color: #2196f3; */
