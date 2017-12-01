@@ -135,7 +135,8 @@ textarea:-ms-input-placeholder {
                     <i class="material-icons" id="iconhome" style="    position: absolute;
     font-size: 30px;
     right: 20px;
-    margin-top: 15px;">home</i> 
+    margin-top: 8px;
+    color: #fff;">home</i> 
                 </div>            
             </div>
         </nav>
@@ -333,7 +334,7 @@ textarea:-ms-input-placeholder {
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-bottom: 62px;">
                 <div class="box-regispro" style="display: none;">
                     <h3 id="title-info" class="lng-why-become"></h3>
                     <div class="special">
@@ -341,21 +342,21 @@ textarea:-ms-input-placeholder {
                             <i class="fa fa-tags" style="font-size: 30px;"></i>
                         </div>
                         <h4 class="lng-special-product"></h4>
-                        <p>You'll get lower price for every Product booking, as a member.</p>
+                        <p class="lng_get_lower_price">You'll get lower price for every Product booking, as a member.</p>
                     </div>
                     <div class="exclusive">
                         <div class="box-icon">
                             <i class="fa fa-user-md" aria-hidden="true" style="font-size: 30px;"></i>
                         </div>               
                         <h4 class="lng-exclusive-discount"></h4>
-                        <p>You'll get the latest promo info and special member discount.</p>
+                        <p class="lng_get_latest_promo">You'll get the latest promo info and special member discount.</p>
                     </div>
                     <div class="fast">
                         <div class="box-icon">
                             <i class="fa fa-gavel" aria-hidden="true" id="special" style="font-size: 30px;"></i>
                         </div>              
                         <h4 class="lng-fast-booking"></h4>
-                        <p>As a member using Go HolidayQuick, your booking is our priority.</p>
+                        <p class="lng_member_using">As a member using Go HolidayQuick, your booking is our priority.</p>
                     </div>
                 </div>
                 
@@ -365,15 +366,9 @@ textarea:-ms-input-placeholder {
                             <div class="fb-wrapper">
                                 <a id="facebook-login-button"  class="fb-auth inner facebook-login-auth" scope="public_profile,email" onclick="login();" return false>
                                     <!-- <i class=" fa fa-facebook-official " style="font-size: 36px; position: absolute; left: 16px;"></i> -->
-                                    <div class=" pull-left" style=" position: absolute;
-    left: 20px;
-    width: 35px;
-    height: 35px;
-    color: #fff;
-    border-radius: 50%;
-    background: #3b5998;">
+                                    <div class=" pull-left" style=" position: absolute; left: 20px; width: 35px; height: 35px; color: #fff; border-radius: 50%; background: #3b5998;">
                                                 <i class="fa fa-facebook"> </i>
-</div>
+                                    </div>
                                     <span>Facebook</span>
                                 </a>
                             </div>
@@ -382,15 +377,9 @@ textarea:-ms-input-placeholder {
 								  <div id="gSignInWrapper">
 								    <!--<span class="label">Sign in with:</span>-->
 								    <div id="customBtn" class="google-auth inner google-login-auth">
-                                    <div class="" style="position: absolute;
-    left: 20px;
-    width: 35px;
-    height: 35px;
-    color: #fff;
-    border-radius: 50%;
-    background: #dd4b39;">
+                                    <div class="" style="position: absolute; left: 20px; width: 35px; height: 35px; color: #fff; border-radius: 50%; background: #dd4b39;">
                                                 <i class="fa fa-google"> </i>
-</div>
+                                    </div>
 								      <!-- <i class="fa fa-google-plus-square" style="font-size: 36px; position: absolute; left: 16px;"></i> -->
 								      <span >Google</span>
 								    </div>
@@ -415,12 +404,7 @@ textarea:-ms-input-placeholder {
 
     <div id="foget-password">
             <div class="box-in-foget" >
-            <div style="    background: #3b5998;
-    color: #fff;
-    padding: 18px;
-    text-align: center;
-    font-size: 19px;
-    margin-bottom: 10px;">
+            <div style="background: #3b5998; color: #fff; padding: 18px; text-align: center; font-size: 19px;   margin-bottom: 10px;">
                
                     <span style="text-align: center;" class="lng-foget-pass">ลืมรหัสผ่าน </span>
                     <i class="material-icons btn-close">close</i>
@@ -486,14 +470,14 @@ textarea:-ms-input-placeholder {
 }
     #sectionsNav {
     position: absolute;
-    background: rgba(255, 255, 255, 0) !important;
+    /* background: rgba(255, 255, 255, 0) !important; */
     margin: auto;
     z-index: 20;
     width: 100%;
     padding-bottom: 0;
     padding-top: 0;
     box-shadow: none;
-    /* background: #07c284; */
+    background: #3b5998 !important;;
 }
 #foget-password{
     z-index: 20; 

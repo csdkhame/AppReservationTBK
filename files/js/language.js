@@ -180,6 +180,12 @@ $(document).ready(function() {
         $('.lng_email_have').html('在系统中有这个电子邮件')
         $('.lng_email_available').html('此电子邮件是可用的')
         $('.lng_please_input_data').html('请输入数据')
+        $('.lng_get_lower_price').html("作为会员，每一个产品预订都会得到较低的价格")
+        $('.lng_get_latest_promo').html("你会得到最新的促销信息和特殊会员折扣。")
+        $('.lng_member_using').html("作为使用Go Holiday Quick的会员，您的预订是我们的首要任务。")
+        
+        
+        
         
         
         
@@ -363,6 +369,14 @@ $(document).ready(function() {
         $('.lng_email_have').html('Have this email in system')
         $('.lng_email_available').html('This email is available')
         $('.lng_please_input_data').html('Please input data')
+        $('.lng_get_lower_price').html("You'll get lower price for every Product booking, as a member.")
+        $('.lng_get_latest_promo').html("You'll get the latest promo info and special member discount.")
+        $('.lng_member_using').html("As a member using Go Holiday Quick, your booking is our priority.")
+        $('.lng-exclusive-discount').html('Offer via email');
+        
+        
+        
+        
         
         
         
@@ -548,6 +562,14 @@ $(document).ready(function() {
         $('.lng_email_have').html('มีอีเมลนี้ในระบบ')
         $('.lng_email_available').html('อีเมลนี้พร้อมใช้งาน')
         $('.lng_please_input_data').html('กรุณาใส่ข้อมูล')
+        $('.lng_get_lower_price').html("คุณจะได้รับราคาต่ำกว่าสำหรับการจองสินค้าทุกครั้งในฐานะสมาชิก")
+        $('.lng_get_latest_promo').html("คุณจะได้รับข้อมูลโปรโมชั่นล่าสุดและส่วนลดสมาชิกพิเศษ")
+        $('.lng_member_using').html("ในฐานะสมาชิกที่ใช้ Go Holiday Quick การจองของคุณเป็นสิ่งสำคัญที่สุด")
+        $('.lng-exclusive-discount').html('ข้อเสนอทางอีเมล');
+        
+        
+        
+        
         
         
         
@@ -720,6 +742,14 @@ $(document).ready(function() {
         $('.lng_email_have').html('Have this email in system')
         $('.lng_email_available').html('This email is available')
         $('.lng_please_input_data').html('Please input data')
+        $('.lng_get_lower_price').html("You'll get lower price for every Product booking, as a member.")
+        $('.lng_get_latest_promo').html("You'll get the latest promo info and special member discount.")
+        $('.lng_member_using').html("As a member using Go Holiday Quick, your booking is our priority.")
+        $('.lng-exclusive-discount').html('Offer via email');
+        
+        
+        
+        
         
         
         
