@@ -3115,21 +3115,21 @@ function setPinLocation() {
                 markerPlaceOfften.setPosition(newPos2);
     url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_f + ',' + lng_f + '&sensor=true&language=' + lang_to_map;
     
-                $.post(url, function(data) {
-                    console.log(data);
-                    infowindow.close();
-                    infowindow.setContent('<div>' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: rgb(22, 179, 177);" onclick="selectMyPlace(3,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div>');
-                    infowindow.open(map, markerPlaceOfften);
-    //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
+    //             $.post(url, function(data) {
+    //                 console.log(data);
+    //                 infowindow.close();
+    //                 infowindow.setContent('<div>' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: #3b5998" onclick="selectMyPlace(3,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div>');
+    //                 infowindow.open(map, markerPlaceOfften);
+    // //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
     
-                });
+    //             });
     $('#boxForAutoCom').hide();
     $('#clear-all').show(500);
     $('#outNearby').show(500);
     
     $('#map').show();
     infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
-    $('#search-raeltime').hide(700);
+    // $('#search-raeltime').hide(700);
     $('#btn_CurrentLocation').show(500);
     markerPlaceOfften.setMap(map);
     markerPlaceOfften.setVisible(true);
@@ -3152,7 +3152,7 @@ function setPinLocation() {
             console.log(data);
             //            infowindow.close();
             var addr = data.results[0].formatted_address;
-            infowindow.setContent('<div>' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: rgb(22, 179, 177);" onclick="selectMyPlace(3,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div>');
+            infowindow.setContent('<div>' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: #3b5998" onclick="selectMyPlace(3,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div>');
             infowindow.open(map, markerPlaceOfften);
         });
     });

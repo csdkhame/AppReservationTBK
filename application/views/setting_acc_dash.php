@@ -1028,7 +1028,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   				                                  
                  <div id="change-password" style="display: none;">
             <div class="box-in-foget">
-            <div style="background: rgb(22, 179, 177);
+            <div style="background:#3b5998;
     color: #fff;
     padding: 18px;
     text-align: center;

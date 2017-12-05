@@ -132,11 +132,7 @@ textarea:-ms-input-placeholder {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>-->
-                    <i class="material-icons" id="iconhome" style="    position: absolute;
-    font-size: 30px;
-    right: 20px;
-    margin-top: 8px;
-    color: #fff;">home</i> 
+                    <i class="material-icons" id="iconhome" style="position: absolute; font-size: 30px; right: 20px; margin-top: 8px; color: #fff;">home</i> 
                 </div>            
             </div>
         </nav>

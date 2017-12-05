@@ -220,7 +220,7 @@
             <div class="box-pax-use-in" >               
                    <div  id="pax-box">                      
                        <!-- <h4 style="    text-align: center;" class="lng-foget-pass">Please input your email</h4> -->
-                        <div style="background: rgb(22, 179, 177); color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
+                        <div style="background: #3b5998, color: #fff; padding: 18px; text-align: center; font-size: 19px; margin-bottom: 10px;">
                             <span class="lng-please-select-type"></span>
                             <i class="material-icons closepop">close</i>
 
@@ -495,7 +495,7 @@
                 </div>                          
             </div>            
         </div>
-        <div id="box-car-service" style="width: 100%;height: 100vh;display:none;background: #fff;    position: relative;
+        <div id="box-car-service" style="width: 100%;height: 100vh;display:none;background: #fff;    position: absolute;
      overflow: hidden;z-index: 100; ">
            <div style="text-align:center; background: #3b5998;
     padding: 5px;
