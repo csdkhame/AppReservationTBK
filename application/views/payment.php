@@ -143,19 +143,23 @@
 
 <div id="foget-password">
             <div class="box-in-foget" >
-            <div style="text-align: center;
-    padding: 30px 10px;
-    font-size: 16px;" class="lng-omise-gateway">   
+            <i class="material-icons " id="close" style="position: absolute;  right: 15px;top: 15px;color:#fff">close</i>
+            <div style="    text-align: center;
+            padding: 20px 10px;
+            font-size: 16px;
+            background: #3b5998;
+            color: #fff;" class="lng-omise-gateway">   
      <!-- <i class="fa fa-money pad" style="font-size: 35px; color: #4caf50;" aria-hidden="true"></i> -->
-     <span style="    text-align: center;vertical-align: super;" class="lng-omise-gateway">Payment Channel</span><i class="fa fa-times pull-right" style="font-size: 22px;
-    position: fixed;
-    right: 15px;
-    top: 15px;" id="close" aria-hidden="true"></i></div>
+     <span style="    text-align: center;vertical-align: super;font-size: 18px;
+    font-weight: 400;" class="lng-omise-gateway">Payment Channel</span>
+     
+        <!-- <i class="fa fa-times pull-right" style="font-size: 22px; position: fixed;right: 15px; top: 15px;" id="close" aria-hidden="true"></i> -->
+     </div>
     
     <!-- <div align="center" style="margin-top:30px;">
  
     </div> -->
-                <div style="padding: 12px;padding-top:0">
+                <div style="padding: 12px;padding-top:8px">
                    <div class="col-md-12" id="forget">
                    <!-- <i class="fa fa-chevron-left" aria-hidden="true"></i><span>Back</span> -->
                       

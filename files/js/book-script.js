@@ -18,6 +18,7 @@ $(document).ready(function() {
             $date.attr('data-' + v, +date[i]);
         });
     });
+    
     var area, namecountry, datacountry, program_name, num_cars = 1,
         selectcar = 1,
         num_adult = 1,
@@ -26,7 +27,7 @@ $(document).ready(function() {
         ontime, time_h = '00',
         time_m = '00',
         name, phone, phonecode,
-        other, total_adult = 0,
+        other = '', total_adult = 0,
         total_child = 0,
         total_price = 0,
         person = 0,
@@ -389,7 +390,7 @@ $(document).ready(function() {
     console.log("readysss!");
     //console.log($.cookie("login"))
     $('#selectcar').html('1')
-    var costproduct, costdotcars, type, costdotcars, pro_id, place, to_place;
+    var costproduct, costdotcars, type, costdotcars, pro_id, place, to_place,lang_to_map;
 
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
@@ -399,6 +400,16 @@ $(document).ready(function() {
         if (!results) return null;
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    if ($.cookie("lng") == 'cn') {
+        lang_to_map = 'zh-CN';
+        // document.getElementById("current").value = "你的位置...";
+    } else if ($.cookie("lng") == 'th') {
+        lang_to_map = 'th';
+    } else if ($.cookie("lng") == 'en' || $.cookie("lng") == undefined) {
+       
+        lang_to_map = 'en';
+       
     }
     console.log(getParameterByName('data'))
     console.log(getParameterByName('from'))
@@ -411,6 +422,30 @@ $(document).ready(function() {
     var data = getParameterByName('data');
     var from = getParameterByName('from');
     var to = getParameterByName('to');
+    url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + getParameterByName('lat_f') + ',' + getParameterByName('lng_f') + '&sensor=true&language=' + lang_to_map;
+    
+                $.post(url, function(data) {
+                    console.log(data);
+                    $('#placefrom').html(data.results[0].formatted_address)
+                    // infowindow.close();
+                    // infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div> <input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone2" name="changesetphone2" onchange="changesetphone2(changesetphone2)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" border-radius: 25px;style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                    // infowindow.open(map, markerPlaceOfften);
+                    //$('#often-input2').show(500);
+    //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
+    url2 = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + getParameterByName('lat_t') + ',' + getParameterByName('lng_t') + '&sensor=true&language=' + lang_to_map;
+    
+                $.post(url2, function(data) {
+                    console.log(data);
+                    $('#placeto').html(data.results[0].formatted_address)
+                    // infowindow.close();
+                    // infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div> <input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone2" name="changesetphone2" onchange="changesetphone2(changesetphone2)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" border-radius: 25px;style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                    // infowindow.open(map, markerPlaceOfften);
+                    //$('#often-input2').show(500);
+    //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
+    
+                });
+                });
+               
     if(getParameterByName('book') == 'Realtime'){
         $('#car-show').hide();
         $('#select_date').hide();
@@ -482,8 +517,8 @@ $(document).ready(function() {
             toplace_name = data[1].topic;
             adresss = data[0].address;
             adress_to = data[1].address;
-            $('#placefrom').html(data[0].topic);
-            $('#placeto').html(data[1].topic);
+            // $('#placefrom').html(data[0].topic);
+            // $('#placeto').html(data[1].topic);
             $('#province').html(data[0].name);
             $('#province_to').html(data[1].name);
 
@@ -1217,6 +1252,7 @@ $(document).ready(function() {
             email = getemail;
             phone = getphone;
         }
+       
         if(getParameterByName('book') == 'Reservation' || getParameterByName('book') == 'Service'){
             
             console.log(ontime)
@@ -1329,6 +1365,27 @@ $(document).ready(function() {
             console.log(area)
             console.log($.cookie("phonecode"))
             //console.log(flight)
+            var o = ondate.split('-');
+            var m,d ;
+            console.log(o[2].length)
+            if(o[2].length == 1  || o[1].length == 1){
+                if(o[1].length == 1){
+                    m = '0'+o[1];
+                }
+                else{
+                    m = o[1];
+                }
+                if(o[2].length == 1){
+                    d = '0'+o[2];
+                }
+                else{
+                    d = o[2];
+                }
+                ondate = o[0]+'-'+m+'-'+d;
+            }
+            
+            console.log(ondate)
+
            
             
                 
@@ -1346,10 +1403,13 @@ $(document).ready(function() {
                             //$('#time_h option:selected').focus();
                         }
                         addbooking();
+                        //$('#loading').show()
                         
                     }
                     else{
                         addbooking();
+                        //$('#loading').show()
+                        
                     }
                     
                     
@@ -1691,6 +1751,8 @@ function addbooking(){
 
                             }
                         });
+                        //$('#loading').hide()
+                        
                         window.location.href = "https://www.welovetaxi.com/app/booking/dashboard/view_user";
 
                     } else {

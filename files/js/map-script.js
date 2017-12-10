@@ -52,6 +52,7 @@ var curentFromTo = '';
 var getnewphonenull;
 var typeFrom = '';
 var typeTo = '';
+var lng_price;
 
 if ($.cookie("lng") == 'cn') {
     please_login_txt = "请登录";
@@ -61,6 +62,8 @@ if ($.cookie("lng") == 'cn') {
     lng_usetime = '使用时间';
     search_position = '找到一个位置';
     choose = '选择';
+    lng_price = '价格';
+
    
 
     success = '成功';
@@ -74,13 +77,15 @@ if ($.cookie("lng") == 'cn') {
     lng_usetime = 'ใช้เวลา';
     choose = 'เลือก';
     search_position = 'ค้นหาตำแหน่ง';
+    lng_price = 'Price';
+    
     
    
     
     success = 'สำเร็จ';
     error = 'ผิดพลาด';
     // document.getElementById("current").value = "ตำแหน่งของคุณ...";
-} else if ($.cookie("lng") == 'en') {
+} else if ($.cookie("lng") == 'en' || $.cookie("lng") == undefined) {
     please_login_txt = "Please login";
     click_save_place_txt = "No record (Click to save)";
     lang_to_map = 'en';
@@ -89,6 +94,8 @@ if ($.cookie("lng") == 'cn') {
     choose = 'Choose';
     success = 'success';
     error = 'error';
+    lng_price = 'Price';
+    
     search_position = 'Find a location';
     
     // document.getElementById("current").value = "Your position...";
@@ -98,19 +105,7 @@ if ($.cookie("lng") == 'cn') {
     
    
     */
-} else if ($.cookie("lng") == undefined) {
-    please_login_txt = "Please login";
-    click_save_place_txt = "No record (Click to save)";
-    lang_to_map = 'en';
-    lng_distance = 'Distance';
-    lng_usetime = 'Use time';
-    choose = 'Choose';
-    success = 'success';
-    error = 'error';
-    search_position = 'Find a location';
-   
-    // document.getElementById("current").value = "Your position...";
-}
+} 
 
 if ($.cookie("login") == undefined) {
     $('.lng-save_home_place').html(please_login_txt);
@@ -398,7 +393,10 @@ $("#outedit_often").click(function() {
     placeRecord();
 
 });
-
+$(".icon-close").click(function() {
+    $('#no_pin_pop').hide(500)
+    $('#clear-all').click();
+});
 $("#currentPosId").click(function() {
     console.log(curentFromTo)
     
@@ -771,7 +769,8 @@ function a(map) {
             console.log(response);
             console.log(status);
             if (status == 'ZERO_RESULTS') {
-                alert('no Directions Display');
+                // alert('no Directions Display');
+                $('#no_pin_pop').show(500)
             } else {
 
                 var distance = response.routes[0].legs[0].distance.text;
@@ -1124,7 +1123,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 $('#typeTo').html(typeTo)                
                  
                 // label="' + type + '"
-                $('#paxrel').append('<li class="typerel" id="typeservice'+datasort[i].pax_id+'"  onclick="sendpaxrel(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                $('#paxrel').append('<li class="typerel" id="typeservice'+datasort[i].pax_id+'"  onclick="sendpaxrel(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span><div style="float: right;display: inline-block;"><span style="padding-right: 15px;">'+lng_price+':'+'</span>'+datasort[i].cost_a+'</div></li>');
                 // $('#paxuse').append('<li class="typerel" value="' + datasort[i].pax_id + '" ><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
                 
                     //$('#typecarservice').append('<li class="typeservice'+datasort[i].transfer_id+'"  onclick="sendpax(\'' + cartype[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
@@ -1222,14 +1221,17 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         cartype = compae1private[i].car_topic_cn;
                         pax = compae1private[i].pax_cn;
                         lngbook = '預訂';
-                        lngcapacityinfo = '容量信息';
+                        lngcapacityinfo = '車容量';
+                        lngdetails = '细节';
                         lngfacilities = '设施';
                     } else if ($.cookie("lng") == 'en') {
                         car_topic = compae1private[i].topic_en;
                         cartype = compae1private[i].car_topic_en;
                         pax = compae1private[i].pax_en;
                         lngbook = 'Book';
-                        lngcapacityinfo = 'Capacity info';
+                        lngcapacityinfo = 'Capacity';
+                        lngdetails = 'details';
+                        
                         lngfacilities = 'Facilities';
                         // $('.lng-book').html('Facilities')
                         // $('.lng-capacity-info').html('Capacity info')
@@ -1240,7 +1242,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         cartype = compae1private[i].car_topic_th;
                         pax = compae1private[i].pax_th;
                         lngbook = 'จอง';
-                        lngcapacityinfo = 'ข้อมูลความจุ';
+                        lngcapacityinfo = 'ความจุรถ ';
+                        lngdetails = 'รายละเอียด';
                         lngfacilities = 'สิ่งอำนวยความสะดวก';
                         // $('.lng-book').html('จอง')
                         // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -1251,7 +1254,9 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         cartype = compae1private[i].car_topic_en;
                         pax = compae1private[i].pax_en;
                         lngbook = 'Book';
-                        lngcapacityinfo = 'Capacity info';
+                        lngcapacityinfo = 'Capacity';
+                        lngdetails = 'details';
+                        
                         lngfacilities = 'Facilities';
                         // $('.lng-book').html('Book')
                         // $('.lng-capacity-info').html('Capacity info')
@@ -1292,7 +1297,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                         '</div>' +
                         '</div>' +
                         '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-                        '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
+                        '<p id="capacity"><div>' + lngcapacityinfo + '</div><div>' + lngdetails + '</div></p>' +
                         '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
                         '</div>' +
                         '</div>'
@@ -1370,7 +1375,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                             '</div>' +
                             '</div>' +
                             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-                            '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+                            '<p id="capacity"><div>' + lngcapacityinfo + '</div><div>' + lngdetails + '</div></p>' +
                             '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
                             '</div>' +
                             '</div>'
@@ -1596,14 +1601,17 @@ function sendpaxrel(x) {
             cartype = compae1private[i].car_topic_cn;
             pax = compae1private[i].pax_cn;
             lngbook = '預訂';
-            lngcapacityinfo = '容量信息';
+            lngcapacityinfo = '車容量';
+            lngdetails = '细节';
             lngfacilities = '设施';
         } else if ($.cookie("lng") == 'en') {
             car_topic = compae1private[i].topic_en;
             cartype = compae1private[i].car_topic_en;
             pax = compae1private[i].pax_en;
             lngbook = 'Book';
-            lngcapacityinfo = 'Capacity info';
+            lngcapacityinfo = 'Capacity';
+            lngdetails = 'details';
+            
             lngfacilities = 'Facilities';
             // $('.lng-book').html('Facilities')
             // $('.lng-capacity-info').html('Capacity info')
@@ -1614,7 +1622,8 @@ function sendpaxrel(x) {
             cartype = compae1private[i].car_topic_th;
             pax = compae1private[i].pax_th;
             lngbook = 'จอง';
-            lngcapacityinfo = 'ข้อมูลความจุ';
+            lngcapacityinfo = 'ความจุรถ ';
+            lngdetails = 'รายละเอียด';
             lngfacilities = 'สิ่งอำนวยความสะดวก';
             // $('.lng-book').html('จอง')
             // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -1625,7 +1634,9 @@ function sendpaxrel(x) {
             cartype = compae1private[i].car_topic_en;
             pax = compae1private[i].pax_en;
             lngbook = 'Book';
-            lngcapacityinfo = 'Capacity info';
+            lngcapacityinfo = 'Capacity';
+            lngdetails = 'details';
+            
             lngfacilities = 'Facilities';
             // $('.lng-book').html('Book')
             // $('.lng-capacity-info').html('Capacity info')
@@ -1666,7 +1677,7 @@ function sendpaxrel(x) {
             '</div>' +
             '</div>' +
             '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-            '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
+            '<p id="capacity"><div>' + lngcapacityinfo + '</div><div>' + lngdetails + '</div></p>' +
             '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
             '</div>' +
             '</div>'
@@ -1685,14 +1696,17 @@ function sendpaxrel(x) {
             cartype = compae1join[i].car_topic_cn;
             pax = compae1join[i].pax_cn;
             lngbook = '預訂';
-            lngcapacityinfo = '容量信息';
+            lngcapacityinfo = '車容量';
+            lngdetails = '细节';
             lngfacilities = '设施';
         } else if ($.cookie("lng") == 'en') {
             car_topic = compae1join[i].topic_en;
             cartype = compae1join[i].car_topic_en;
             pax = compae1join[i].pax_en;
             lngbook = 'Book';
-            lngcapacityinfo = 'Capacity info';
+            lngcapacityinfo = 'Capacity';
+            lngdetails = 'details';
+            
             lngfacilities = 'Facilities';
             // $('.lng-book').html('Facilities')
             // $('.lng-capacity-info').html('Capacity info')
@@ -1703,7 +1717,8 @@ function sendpaxrel(x) {
             cartype = compae1join[i].car_topic_th;
             pax = compae1join[i].pax_th;
             lngbook = 'จอง';
-            lngcapacityinfo = 'ข้อมูลความจุ';
+            lngcapacityinfo = 'ความจุรถ ';
+            lngdetails = 'รายละเอียด';
             lngfacilities = 'สิ่งอำนวยความสะดวก';
             // $('.lng-book').html('จอง')
             // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -1714,7 +1729,9 @@ function sendpaxrel(x) {
             cartype = compae1join[i].car_topic_en;
             pax = compae1join[i].pax_en;
             lngbook = 'Book';
-            lngcapacityinfo = 'Capacity info';
+            lngcapacityinfo = 'Capacity';
+            lngdetails = 'details';
+            
             lngfacilities = 'Facilities';
             // $('.lng-book').html('Book')
             // $('.lng-capacity-info').html('Capacity info')
@@ -1753,7 +1770,7 @@ function sendpaxrel(x) {
             '</div>' +
             '</div>' +
             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-            '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+            '<p id="capacity"><div>' + lngcapacityinfo + '</div><div>' + lngdetails + '</div></p>' +
             '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
             '</div>' +
             '</div>'
@@ -2924,6 +2941,16 @@ function selectMyPlace(type_place,txtAdd, latti, lngti) {
     $('#edit_often').hide()
     
     $('#otherBox').show(500)
+    // $('#box_pin_search').remove()
+    if( type_place == 5){
+    infowindow.close();
+    google.maps.event.clearListeners(map, 'center_changed');
+    
+    
+    }
+   
+    
+    
     
     
     //document.getElementById('changesetname').value
@@ -3030,6 +3057,7 @@ function selectMyPlace(type_place,txtAdd, latti, lngti) {
 console.log(lng_t)
 console.log(lat_f)
 console.log(lng_f)
+// google.maps.event.clearListeners(map, 'center_changed');
     if (start != undefined && end != undefined)  {
         // $('#typeFrom').html(typeFrom)
         // $('#typeTo').html(typeTo)
@@ -3052,7 +3080,8 @@ console.log(lng_f)
         directionsDisplay.setMap(map);
         directionsService.route(request, function(response, status) {
             if (status == 'ZERO_RESULTS') {
-                alert('no Directions Display');
+                // alert('no Directions Display');
+                $('#no_pin_pop').show(500)
             } else {
                 console.log(response.routes[0].legs);
                 var distance = response.routes[0].legs[0].distance.text;
@@ -3086,9 +3115,9 @@ console.log(lng_f)
                 });
 
                 if (response.routes[0].legs[0].distance.value >= 25000) {
-                    map.setZoom(11);
+                    map.setZoom(10);
                 } else {
-                    map.setZoom(13);
+                    map.setZoom(10);
                 }
                 $('#clear-all').show(500);
                 outSearchRealtime();
@@ -3152,7 +3181,7 @@ function setPinLocation() {
             console.log(data);
             //            infowindow.close();
             var addr = data.results[0].formatted_address;
-            infowindow.setContent('<div>' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: #3b5998" onclick="selectMyPlace(3,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div>');
+            infowindow.setContent('<div class="box_pin_search"><div >' + addr + '</div><div class="btn btn-sm pull-right btn-part" style="background-color: #3b5998" onclick="selectMyPlace(5,\'' + addr + '\',' + Newlat + ',' + Newlng + ');">' + choose + '</div></div>');
             infowindow.open(map, markerPlaceOfften);
         });
     });

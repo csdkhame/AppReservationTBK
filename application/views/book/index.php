@@ -459,9 +459,44 @@
                                 </div>
                                 <div class="col-md-12 ">        
                                     <div class="box-program">
-                                        <span id="placefrom" style="text-align: center;"></span>
-                                        <span> - </span>
-                                        <span id="placeto" style="text-align: center;"></span>
+                                        <table  width="100%">
+                                            <tr>
+                                                <td width="10">
+                                                <!-- <div style="">
+                
+    <div style="width: 2px;
+    height: 30px;
+    background: #ddd;margin-left: 4px;"></div>
+    
+                </div> -->
+                                                </td>
+                                                <td>
+                                                 <table width="100%">
+                                                    <tr>
+                                                        <td width="10"><div style="width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    background: #555;"></div></td>
+                                                        <td align="left" style="padding-left: 15px;"><span id="placefrom" style="text-align: center;"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td colspan="2"><br/></td>
+                                                    <!-- <td></td> -->
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="10"><div style="width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    background: #3b5998;"></div></td>
+                                                        <td align="left" style="padding-left: 15px;"><span id="placeto" style="text-align: center;"></span></td>
+                                                    </tr>
+                                                 </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        
+                                        
+                                        
                                     </div>
                                     <div class="form-group form-inline">
                                     <table width="100%">

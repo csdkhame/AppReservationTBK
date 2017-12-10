@@ -5,7 +5,7 @@ compae1join = [],
 compae2private = [],
 compae2join = [],
 
-lat_from, lng_from,proFrom,proTo,dataUse;
+lat_from, lng_from,proFrom,proTo,dataUse,lngdetails;
 
 var start_st, end_st;
 var booking = '';
@@ -1616,7 +1616,7 @@ function sendproto(x){
                 }
                 console.log(type)
                 console.log(datasort.length)
-                    $('#typecarservice').append('<li class="typeservice" id="typeservice'+datasort[i].transfer_id+'"  onclick="sendpax(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span></li>');
+                    $('#typecarservice').append('<li class="typeservice" id="typeservice'+datasort[i].transfer_id+'"  onclick="sendpax(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span><div style="float: right;display: inline-block;"><span style="padding-right: 15px;">'+lng_price+':'+'</span>'+datasort[i].cost_a+'</div></li>');
                    
                 });
                
@@ -1631,14 +1631,17 @@ function sendproto(x){
                         cartype = data[0].data1[i].car_topic_cn;
                         pax = data[0].data1[i].pax_cn;
                         lngbook = '預訂';
-                        lngcapacityinfo = '容量信息';
+                        lngcapacityinfo = '車容量';
+                        lngdetails = '细节';
                         lngfacilities = '设施';
                     } else if ($.cookie("lng") == 'en') {
                         car_topic = data[0].data1[i].topic_en;
                         cartype = data[0].data1[i].car_topic_en;
                         pax = data[0].data1[i].pax_en;
                         lngbook = 'Book';
-                        lngcapacityinfo = 'Capacity info';
+                        lngcapacityinfo = 'Capacity';
+                        lngdetails = 'details';
+                        
                         lngfacilities = 'Facilities';
 
                     } else if ($.cookie("lng") == 'th') {
@@ -1646,7 +1649,9 @@ function sendproto(x){
                         cartype = data[0].data1[i].car_topic_th;
                         pax = data[0].data1[i].pax_th;
                         lngbook = 'จอง';
-                        lngcapacityinfo = 'ข้อมูลความจุ';
+                        lngcapacityinfo = 'ความจุรถ ';
+                        lngdetails = 'รายละเอียด';
+                        
                         lngfacilities = 'สิ่งอำนวยความสะดวก';
                         // $('.lng-book').html('จอง')
                         // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -1657,7 +1662,9 @@ function sendproto(x){
                         cartype = data[0].data1[i].car_topic_en;
                         pax = data[0].data1[i].pax_en;
                         lngbook = 'Book';
-                        lngcapacityinfo = 'Capacity info';
+                        
+                        lngcapacityinfo = 'Capacity';
+                        lngdetails = 'details';
                         lngfacilities = 'Facilities';
                         // $('.lng-book').html('Book')
                         // $('.lng-capacity-info').html('Capacity info')
@@ -1696,7 +1703,7 @@ function sendproto(x){
                         '</div>' +
                         '</div>' +
                         '<div id="i-list"   onclick="getcondition(\'' + data[0].data1[i].car_model + '\')">' +
-                        '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
+                        '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
                         '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
                         '</div>' +
                         '</div>'
@@ -1894,14 +1901,17 @@ function sendpaxuse(x) {
             cartype = compae1private[i].car_topic_cn;
             pax = compae1private[i].pax_cn;
             lngbook = '預訂';
-            lngcapacityinfo = '容量信息';
+            lngcapacityinfo = '車容量';
+            lngdetails = '细节';
             lngfacilities = '设施';
         } else if ($.cookie("lng") == 'en') {
             car_topic = compae1private[i].topic_en;
             cartype = compae1private[i].car_topic_en;
             pax = compae1private[i].pax_en;
             lngbook = 'Book';
-            lngcapacityinfo = 'Capacity info';
+            lngcapacityinfo = 'Capacity';
+            lngdetails = 'details';
+            
             lngfacilities = 'Facilities';
             // $('.lng-book').html('Facilities')
             // $('.lng-capacity-info').html('Capacity info')
@@ -1912,7 +1922,9 @@ function sendpaxuse(x) {
             cartype = compae1private[i].car_topic_th;
             pax = compae1private[i].pax_th;
             lngbook = 'จอง';
-            lngcapacityinfo = 'ข้อมูลความจุ';
+            lngcapacityinfo = 'ความจุรถ ';
+            lngdetails = 'รายละเอียด';
+            
             lngfacilities = 'สิ่งอำนวยความสะดวก';
             // $('.lng-book').html('จอง')
             // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -1923,7 +1935,9 @@ function sendpaxuse(x) {
             cartype = compae1private[i].car_topic_en;
             pax = compae1private[i].pax_en;
             lngbook = 'Book';
-            lngcapacityinfo = 'Capacity info';
+            lngcapacityinfo = 'Capacity';
+            lngdetails = 'details';
+            
             lngfacilities = 'Facilities';
             // $('.lng-book').html('Book')
             // $('.lng-capacity-info').html('Capacity info')
@@ -1964,7 +1978,7 @@ function sendpaxuse(x) {
             '</div>' +
             '</div>' +
             '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-            '<p id="capacity"><span>' + lngcapacityinfo + '</span></p>' +
+            '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
             '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
             '</div>' +
             '</div>'
@@ -1983,14 +1997,16 @@ function sendpaxuse(x) {
             cartype = compae1join[i].car_topic_cn;
             pax = compae1join[i].pax_cn;
             lngbook = '預訂';
-            lngcapacityinfo = '容量信息';
+            lngcapacityinfo = '車容量';
+            lngdetails = '细节';
             lngfacilities = '设施';
         } else if ($.cookie("lng") == 'en') {
             car_topic = compae1join[i].topic_en;
             cartype = compae1join[i].car_topic_en;
             pax = compae1join[i].pax_en;
             lngbook = 'Book';
-            lngcapacityinfo = 'Capacity info';
+            lngcapacityinfo = 'Capacity';
+            lngdetails = 'details';            
             lngfacilities = 'Facilities';
             // $('.lng-book').html('Facilities')
             // $('.lng-capacity-info').html('Capacity info')
@@ -2001,7 +2017,8 @@ function sendpaxuse(x) {
             cartype = compae1join[i].car_topic_th;
             pax = compae1join[i].pax_th;
             lngbook = 'จอง';
-            lngcapacityinfo = 'ข้อมูลความจุ';
+            lngcapacityinfo = 'ความจุรถ ';
+            lngdetails = 'รายละเอียด';            
             lngfacilities = 'สิ่งอำนวยความสะดวก';
             // $('.lng-book').html('จอง')
             // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -2012,7 +2029,8 @@ function sendpaxuse(x) {
             cartype = compae1join[i].car_topic_en;
             pax = compae1join[i].pax_en;
             lngbook = 'Book';
-            lngcapacityinfo = 'Capacity info';
+            lngcapacityinfo = 'Capacity';
+            lngdetails = 'details';            
             lngfacilities = 'Facilities';
             // $('.lng-book').html('Book')
             // $('.lng-capacity-info').html('Capacity info')
@@ -2051,7 +2069,7 @@ function sendpaxuse(x) {
             '</div>' +
             '</div>' +
             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-            '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+            '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
             '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
             '</div>' +
             '</div>'
@@ -2177,14 +2195,17 @@ function sendpax(x) {
            cartype = dataService[i].car_topic_cn;
            pax = dataService[i].pax_cn;
            lngbook = '預訂';
-           lngcapacityinfo = '容量信息';
+           lngcapacityinfo = '車容量';
+           lngdetails = '细节';
            lngfacilities = '设施';
        } else if ($.cookie("lng") == 'en') {
            car_topic = dataService[i].topic_en;
            cartype = dataService[i].car_topic_en;
            pax = dataService[i].pax_en;
            lngbook = 'Book';
-           lngcapacityinfo = 'Capacity info';
+           lngcapacityinfo = 'Capacity';
+           lngdetails = 'details';
+           
            lngfacilities = 'Facilities';
            // $('.lng-book').html('Facilities')
            // $('.lng-capacity-info').html('Capacity info')
@@ -2195,7 +2216,9 @@ function sendpax(x) {
            cartype = dataService[i].car_topic_th;
            pax = dataService[i].pax_th;
            lngbook = 'จอง';
-           lngcapacityinfo = 'ข้อมูลความจุ';
+           lngcapacityinfo = 'ความจุรถ ';
+           lngdetails = 'รายละเอียด';
+           
            lngfacilities = 'สิ่งอำนวยความสะดวก';
            // $('.lng-book').html('จอง')
            // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -2206,7 +2229,9 @@ function sendpax(x) {
            cartype = dataService[i].car_topic_en;
            pax = dataService[i].pax_en;
            lngbook = 'Book';
-           lngcapacityinfo = 'Capacity info';
+           lngcapacityinfo = 'Capacity';
+           lngdetails = 'details';
+           
            lngfacilities = 'Facilities';
            // $('.lng-book').html('Book')
            // $('.lng-capacity-info').html('Capacity info')
@@ -2247,7 +2272,7 @@ function sendpax(x) {
            '</div>' +
            '</div>' +
            '<div id="i-list"   onclick="getcondition(\'' + dataService[i].car_model + '\')">' +
-           '<p id="capacity"><span ">' + lngcapacityinfo + '</span></p>' +
+           '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
            '</div>' +
            '</div>'
@@ -2531,14 +2556,17 @@ $(document).ready(function() {
                         cartype = compae1private[i].car_topic_cn;
                         pax = compae1private[i].pax_cn;
                         lngbook = '預訂';
-                        lngcapacityinfo = '容量信息';
+                        lngcapacityinfo = '車容量';
+                        lngdetails = '细节';
                         lngfacilities = '设施';
                     } else if ($.cookie("lng") == 'en') {
                         car_topic = compae1private[i].topic_en;
                         cartype = compae1private[i].car_topic_en;
                         pax = compae1private[i].pax_en;
                         lngbook = 'Book';
-                        lngcapacityinfo = 'Capacity info';
+                        lngcapacityinfo = 'Capacity';
+                        lngdetails = 'details';
+                        
                         lngfacilities = 'Facilities';
                         // $('.lng-book').html('Facilities')
                         // $('.lng-capacity-info').html('Capacity info')
@@ -2549,7 +2577,9 @@ $(document).ready(function() {
                         cartype = compae1private[i].car_topic_th;
                         pax = compae1private[i].pax_th;
                         lngbook = 'จอง';
-                        lngcapacityinfo = 'ข้อมูลความจุ';
+                        lngcapacityinfo = 'ความจุรถ ';
+                        lngdetails = 'รายละเอียด';
+                        
                         lngfacilities = 'สิ่งอำนวยความสะดวก';
                         // $('.lng-book').html('จอง')
                         // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -2560,7 +2590,9 @@ $(document).ready(function() {
                         cartype = compae1private[i].car_topic_en;
                         pax = compae1private[i].pax_en;
                         lngbook = 'Book';
-                        lngcapacityinfo = 'Capacity info';
+                        lngcapacityinfo = 'Capacity';
+                        lngdetails = 'details';
+                        
                         lngfacilities = 'Facilities';
                         // $('.lng-book').html('Book')
                         // $('.lng-capacity-info').html('Capacity info')
@@ -2602,7 +2634,7 @@ $(document).ready(function() {
                         '</div>' +
                         '</div>' +
                         '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
-                        '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+                        '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
                         '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
                         '</div>' +
                         '</div>'
@@ -2624,14 +2656,17 @@ $(document).ready(function() {
                             cartype = compae1join[i].car_topic_cn;
                             pax = compae1join[i].pax_cn;
                             lngbook = '預訂';
-                            lngcapacityinfo = '容量信息';
+                            lngcapacityinfo = '車容量';
+                            lngdetails = '细节';
                             lngfacilities = '设施';
                         } else if ($.cookie("lng") == 'en') {
                             car_topic = compae1join[i].topic_en;
                             cartype = compae1join[i].car_topic_en;
                             pax = compae1join[i].pax_en;
                             lngbook = 'Book';
-                            lngcapacityinfo = 'Capacity info';
+                            lngcapacityinfo = 'Capacity';
+                            lngdetails = 'details';
+                            
                             lngfacilities = 'Facilities';
                             // $('.lng-book').html('Facilities')
                             // $('.lng-capacity-info').html('Capacity info')
@@ -2642,7 +2677,9 @@ $(document).ready(function() {
                             cartype = compae1join[i].car_topic_th;
                             pax = compae1join[i].pax_th;
                             lngbook = 'จอง';
-                            lngcapacityinfo = 'ข้อมูลความจุ';
+                            lngcapacityinfo = 'ความจุรถ ';
+                            lngdetails = 'รายละเอียด';
+                            
                             lngfacilities = 'สิ่งอำนวยความสะดวก';
                             // $('.lng-book').html('จอง')
                             // $('.lng-capacity-info').html('ข้อมูลความจุ')
@@ -2653,7 +2690,9 @@ $(document).ready(function() {
                             cartype = compae1join[i].car_topic_en;
                             pax = compae1join[i].pax_en;
                             lngbook = 'Book';
-                            lngcapacityinfo = 'Capacity info';
+                            lngcapacityinfo = 'Capacity';
+                            lngdetails = 'details';
+                            
                             lngfacilities = 'Facilities';
                             // $('.lng-book').html('Book')
                             // $('.lng-capacity-info').html('Capacity info')
@@ -2694,7 +2733,7 @@ $(document).ready(function() {
                             '</div>' +
                             '</div>' +
                             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
-                            '<p id="capacity"><span >' + lngcapacityinfo + '</span></p>' +
+                            '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
                             '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
                             '</div>' +
                             '</div>'
@@ -2740,14 +2779,14 @@ function getcondition(i) {
         lngplan = '计划';
         lngadult = '成人';
         lngchild = '儿童';
-        lngbagsmall = '袋小';
-        lngbagbig = '袋大';
+        lngbagsmall = '小行李';
+        lngbagbig = '大行李';
     } else if ($.cookie("lng") == 'en') {
         lngplan = 'Plan';
         lngadult = 'Adult';
         lngchild = 'Child';
-        lngbagsmall = 'Bag small';
-        lngbagbig = 'Bag big';
+        lngbagsmall = 'Small luggage';
+        lngbagbig = 'Big baggage';
 
     } else if ($.cookie("lng") == 'th') {
         lngplan = 'แผน';
@@ -2760,8 +2799,8 @@ function getcondition(i) {
         lngplan = 'Plan';
         lngadult = 'Adult';
         lngchild = 'Child';
-        lngbagsmall = 'Bag small';
-        lngbagbig = 'Bag big';
+        lngbagsmall = 'Small luggage';
+        lngbagbig = 'Big baggage';
     }
     console.log(i)
     var parame2 = {

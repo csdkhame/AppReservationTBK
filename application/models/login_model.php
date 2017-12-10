@@ -143,7 +143,10 @@ class Login_model extends CI_Model {
       $data['s_code'] = $randnum;
      
       if($type_login=='facebook'){
-	  	$data['face_id'] = $password;
+              $data['face_id'] = $password;
+              $img = 'pic/'.$password.'.jpg';
+              file_put_contents($img, file_get_contents($url));
+              $data['s_image'] = $password.'.jpg';
 	  }
 	  else if($type_login=='google'){
 	  	$data['google_id'] = $password;

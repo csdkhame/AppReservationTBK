@@ -252,14 +252,54 @@
                             <div style="font-size: 15px;
                             padding-bottom: 15px;
     border-bottom: dashed 2px #3b5998;">
-                            <table width="100%">
+    <table  width="100%">
+                                            <tr>
+                                                <td width="10">
+                                                <!-- <div style="">
+                
+    <div style="width: 2px;
+    height: 30px;
+    background: #ddd;margin-left: 4px;"></div>
+    
+                </div> -->
+                                                </td>
+                                                <td>
+                                                 <table width="100%">
+                                                    <tr>
+                                                        <td width="10"><div style="width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    background: #555;"></div></td>
+                                                        <td align="left" style="padding-left: 15px;"><span id="typeFrom" style="text-align: center;"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td colspan="2"><br/></td>
+                                                    <!-- <td></td> -->
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="10"><div style="width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    background: #3b5998;"></div></td>
+                                                        <td align="left" style="padding-left: 15px;"><span id="typeTo" style="text-align: center;"></span></td>
+                                                    </tr>
+                                                 </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                            <!-- <table width="100%">
                                 <tr>
-                                <td width="48%"><span id="typeFrom" ></span></td>
-                                <td align="center" width="4%" style="font-size: 30px;
-    font-weight: 700;">-</td>
-                                <td width="48%"><span id="typeTo" ></span></td>
+                                <td align="left" width="50"><span class="lng-from"></span></td>
+                                <td align="left" width=""><span id="typeFrom" ></span></td>
+                               
+                                
                                 </tr>
-                            </table>
+
+                                <tr>
+                                <td align="left" width="50"><span class="lng-to"></span></td>
+                                
+                                <td align="left" width=""><span id="typeTo" ></span></td></tr>
+                            </table> -->
 </div>
                         </div>
                         <div class="col-md-12 boxpax" style="text-align: left;" > 
@@ -1348,6 +1388,31 @@ textarea:-ms-input-placeholder {
                 </div>        
             
             </div></div>
+            <div id="no_pin_pop" style="display: none;">
+            <div class="no_pin_pop_in">               
+                <div class="no_pin_pop_ln">
+                    <div class="lng_location_no" style="text-align: center; font-size: 16px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                   
+                    <div class="lng_find_again icon-close" style="    width: 100%;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #3b5998;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;" onclick="btn_no_position()"></div>
+                    </div>
+                    
+                </div>        
+            
+            </div></div>
 <style>
             #edit_often_pop{
                 z-index: 9999;
@@ -1400,6 +1465,34 @@ textarea:-ms-input-placeholder {
                 border-radius: 15px;
             }
             .edit_pin_pop_ln{
+                padding: 20px;
+                pointer-events: auto;
+            }
+            #no_pin_pop{
+                z-index: 19;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                /* background: rgba(0, 0, 0, 0.59); */
+                /* display: none; */
+                pointer-events: none;
+            }
+            .no_pin_pop_in{
+               /* height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 80vw;
+                /* height: auto; */
+                left: 50vw;
+                bottom: 1vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .no_pin_pop_ln{
                 padding: 20px;
                 pointer-events: auto;
             }

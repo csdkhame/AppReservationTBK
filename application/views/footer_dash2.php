@@ -269,7 +269,7 @@ line-height: 0.8;
     position: fixed;
     width: 100%;
     bottom: 0;
-    z-index: 15;
+    z-index: 25;
     background: #fff;
     box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52);
 

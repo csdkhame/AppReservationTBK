@@ -350,7 +350,7 @@ $( document ).ready(function() {
   
   
   <h4 style="margin: 8px;"><span class="lng-seating"></span></h4>
-  <div class="card" style="    background: #fff; ">
+  <div class="card" style="    background: #fff; padding: 8px;">
   		<table class="table " id="show_carmodel">
   			<tr class="head-table-dialog" align="center" style="background-color: #ddd;">
   				<td ><span class="lng-plan"></span></td>
@@ -366,7 +366,7 @@ $( document ).ready(function() {
   </div>
   
   <h4 style="margin: 8px;"><span class="lng-facilitiy"></span></h4>  
-  				  <div style="padding: 3px 3px;  background: #fff;">
+  				  <div class="card" style="padding: 3px 3px;  background: #fff;">
   					<div style="margin-left: 3%; padding-top: 9px;">
 			                <b>1.</b> 
                             <img src="https://dotdotdottrip.com/files/img/air.png" style="margin: 8px;"> 

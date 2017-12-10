@@ -76,9 +76,9 @@ $(document).ready(function() {
         $('.lng-settings-account').html('设置帐户');
         $('.lng-logout').html('登出');
         //$('.lng-advance-use').html('提前使用');
-        $('.lng-advance-use').html('提前使用');
+        $('.lng-advance-use').html('提前预订');
         // $('.lng-now-use').html('现在使用');
-        $('.lng-now-use').html('现在使用');
+        $('.lng-now-use').html('立即预订');
         $('.lng-search').html('搜索');
         $('.lng-dashboard').html('报告与管理');
         $('.lng-car-type').html('车型');
@@ -141,7 +141,7 @@ $(document).ready(function() {
         $('.lng-terms-of-use').html('服务条款');
         $('.picker__button--close').html('密切');
 
-        $('.lng-close').html('密切');
+        $('.lng-close').html('关');
         $('.lng-home').html('主頁');
         $('.lng-management').html('我的预订');
         $('.lng-new-password').html('新密码');
@@ -164,7 +164,7 @@ $(document).ready(function() {
         $('.lng-save').html('保存');
         $('.lng-yes-regularly').html('常用');
         $('.lng_position').html('您选择的路线正确吗？');
-        $('.lng_find_again').html('编辑路线');
+        $('.lng_find_again').html('重新编辑路线');
         
         $('.lng-home-locat').html('住家');
         $('.lng-office-locat').html('办公室');
@@ -183,6 +183,8 @@ $(document).ready(function() {
         $('.lng_get_lower_price').html("作为会员，每一个产品预订都会得到较低的价格")
         $('.lng_get_latest_promo').html("你会得到最新的促销信息和特殊会员折扣。")
         $('.lng_member_using').html("作为使用Go Holiday Quick的会员，您的预订是我们的首要任务。")
+        $('.lng_location_no').html("您選擇的路線無效。")
+        
         
         
         
@@ -268,8 +270,8 @@ $(document).ready(function() {
         $('.lng-settings-account').html('Settings Account');
         $('.lng-logout').html('Logout');
         //home
-        $('.lng-advance-use').html('Advance use');
-        $('.lng-now-use').html('Use now');
+        $('.lng-advance-use').html('Adv Booking');
+        $('.lng-now-use').html('Book Now');
         $('.lng-search').html('Search');
         $('.lng-dashboard').html('Report&management');
         $('.lng-car-type').html('Car type');
@@ -354,7 +356,7 @@ $(document).ready(function() {
         $('.lng-save').html('Save');
         $('.lng-yes-regularly').html('Commonly used');
         $('.lng_position').html('Did you choose the correct route?');
-        $('.lng_find_again').html('Edit route');
+        $('.lng_find_again').html('Re-edit route');
         $('.lng-setpin-locat').html('Set the location on the map');
         $('.lng-current-pos').html('Current Position');
         $('.lng-nearby-locat').html('Near the place');
@@ -373,6 +375,8 @@ $(document).ready(function() {
         $('.lng_get_latest_promo').html("You'll get the latest promo info and special member discount.")
         $('.lng_member_using').html("As a member using Go Holiday Quick, your booking is our priority.")
         $('.lng-exclusive-discount').html('Offer via email');
+        $('.lng_location_no').html("The route you selected is not valid.")
+        
         
         
         
@@ -459,8 +463,8 @@ $(document).ready(function() {
         $('.lng-settings-account').html('ตั้งค่าบัญชี');
         $('.lng-logout').html(' ออกจากระบบ');
         //        $('.lng-advance-use').html('ค้นหาสถานที่รับส่ง');
-        $('.lng-advance-use').html('ใช้ล่วงหน้า');
-        $('.lng-now-use').html('ใช้ตอนนี้');
+        $('.lng-advance-use').html('จองล่วงหน้า');
+        $('.lng-now-use').html('จองตอนนี้');
         $('.lng-search').html(' ค้นหา');
         $('.lng-dashboard').html('รายงานและการจัดการ');
         $('.lng-car-type').html('ประเภทรถ');
@@ -548,7 +552,7 @@ $(document).ready(function() {
         $('.lng-save').html('บันทึก');
         $('.lng-yes-regularly').html('ใช่เป็นประจำ');
         $('.lng_position').html('เส้นทางที่คุณเลือกถูกต้องหรือไม่?');
-        $('.lng_find_again').html('แก้ไขเส้นทาง');
+        $('.lng_find_again').html('แก้ไขเส้นทางใหม่');
         $('.lng-home-locat').html('บ้าน');
         $('.lng-office-locat').html('สำนักงาน');
         $('.lng-setpin-locat').html('ตั้งตำแหน่งบนแผนที่');
@@ -566,6 +570,8 @@ $(document).ready(function() {
         $('.lng_get_latest_promo').html("คุณจะได้รับข้อมูลโปรโมชั่นล่าสุดและส่วนลดสมาชิกพิเศษ")
         $('.lng_member_using').html("ในฐานะสมาชิกที่ใช้ Go Holiday Quick การจองของคุณเป็นสิ่งสำคัญที่สุด")
         $('.lng-exclusive-discount').html('ข้อเสนอทางอีเมล');
+        $('.lng_location_no').html("เส้นทางที่คุณเลือกไม่ถูกต้อง")
+        
         
         
         
@@ -636,8 +642,8 @@ $(document).ready(function() {
         $('.lng-logout').html('Logout');
         //home
         //        $('.lng-advance-use').html('Find transfer');
-        $('.lng-advance-use').html('Advance use');
-        $('.lng-now-use').html('Use now');
+        $('.lng-advance-use').html('Adv Booking');
+        $('.lng-now-use').html('Book Now');
         $('.lng-search').html('Search');
         $('.lng-dashboard').html('Report&management');
         $('.lng-car-type').html('Car type');
@@ -728,7 +734,7 @@ $(document).ready(function() {
         $('.lng-save').html('Save');
         $('.lng-yes-regularly').html('Commonly used');
         $('.lng_position').html('Did you choose the correct route?');
-        $('.lng_find_again').html('Edit route');
+        $('.lng_find_again').html('Re-edit route');
         $('.lng-setpin-locat').html('Set the location on the map');
         $('.lng-current-pos').html('Current Position');
         $('.lng-nearby-locat').html('Near the place');
@@ -746,6 +752,8 @@ $(document).ready(function() {
         $('.lng_get_latest_promo').html("You'll get the latest promo info and special member discount.")
         $('.lng_member_using').html("As a member using Go Holiday Quick, your booking is our priority.")
         $('.lng-exclusive-discount').html('Offer via email');
+        $('.lng_location_no').html("The route you selected is not valid.")
+        
         
         
         

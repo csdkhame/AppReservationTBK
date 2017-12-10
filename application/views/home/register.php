@@ -1538,13 +1538,15 @@ window.fbAsyncInit = function() {
     	var lng_t = $('#lng_t').val();
     	var book = $('#book').val();
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me?fields=name,email', function(response) {
+    FB.api('/me',{fields:'name,email,picture'}, function(response) {
         console.log(response)
+        console.log(response.picture.data.url)
+        //console.log(response.getImageUrl())
         // $.cookie("idface", response.id);
         $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>login_control/processsocial',
-        data: {'username': response.email,'name':response.name,'password':response.id,'type':'facebook'},
+        data: {'username': response.email,'name':response.name,'password':response.id,'type':'facebook','img':response.picture.data.url},
         //contentType: "application/json; application/x-www-form-urlencoded; charset=UTF-8",
         dataType: 'json',
         success: function(res) { 

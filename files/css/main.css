@@ -850,7 +850,7 @@ input:after {
     text-align: center;
     width: 82px;
     color: #000;
-    height: 62px;
+    height: 85px;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -860,6 +860,10 @@ input:after {
     font-size: 12px;
     padding: 0;
     margin-bottom: 0;
+}
+#i-list div{
+    font-size: 15px;
+    color: #333;
 }
 
 .type-t {
@@ -1050,7 +1054,7 @@ input:after {
     }
     #i-list {
         margin-right: 20px !important;
-        margin-top: 15px !important;
+        margin-top: 5px !important;
         float: right;
     }
     .main-raised {
@@ -1160,7 +1164,7 @@ input:after {
     }
     #i-list {
         margin-right: 20px !important;
-        margin-top: 15px !important;
+        margin-top: 5px !important;
         float: right;
     }
     #private-btn {
