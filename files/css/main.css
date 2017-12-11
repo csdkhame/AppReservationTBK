@@ -1,6 +1,9 @@
 body {
     height: 100vh;
 }
+#i-list i{
+    line-height: 0;
+}
 #select_pax_use{
     border: 1px solid #dfdfdf;
     padding: 12px;
@@ -100,6 +103,9 @@ body {
 .box-menu-select {
     box-shadow: 0 0 4px 2px rgba(221, 221, 221, 0.68);
 }
+#map{
+    height: 90vh;  
+}
 
 #img-car {
     z-index: 201;
@@ -157,7 +163,7 @@ body {
     bottom: 0;
     z-index: 1;
     background: #fff;
-    /* height: 90px; */
+    height: 10vh;
 }
 
 .btn-car-service {
@@ -206,7 +212,7 @@ body {
     z-index: 1;
     background: #fff;
     text-transform: capitalize;
-    /* height: 90px; */
+    /* height: 9vh; */
     z-index: 200;
 }
 
@@ -764,6 +770,8 @@ input:after {
     /* margin-left: 52%; */
     width: 30%;
     color: #100f0f;
+    position: absolute;
+    bottom: 10px;
     /* margin-top: -35px; */
 }
 
@@ -798,7 +806,8 @@ input:after {
     position: absolute;
     margin-right: 20px;
     /*padding: 0 12px;*/
-    margin-top: 62px;
+    /* margin-top: 62px; */
+    bottom: 15px;
 }
 
 .product_r {
@@ -1049,6 +1058,11 @@ input:after {
 
 
 @media screen and (max-width: 767px) {
+    .box-menu-select {
+        
+        /* height: 11vh  !important; */
+       
+    }
     #bodyClick {
         right: 229px !important;
     }
@@ -1094,7 +1108,7 @@ input:after {
         /* position: relative; */
         /* font-size: 17px; */
         /* margin-left: 14%; */
-        width: 86%;
+        width: 100%;
         /* margin-top: 15px; */
         font-size: 15px !important;
         font-weight: 500;
@@ -1103,7 +1117,7 @@ input:after {
         display: inline-block;
         width: 150px;
         margin-left: 3px;
-        margin-top: 140px;
+        /* margin-top: 140px; */
         float: left;
         text-align: center;
     }

@@ -8,7 +8,7 @@ header('Content-type: text/html; charset=utf-8');
 //$request = stripslashes( $_POST[car_model]);
 //$field = stripslashes( $_POST[field]);
 $curl_post_data = '{"request":{"car_model":"'.$_POST[car_model].'"},
-					"field" :{"0":"bag_big","1":"bag_small","2":"adult","3":"child","4":"plan","5":"car_model"},
+					"field" :{"0":"bag_big","1":"bag_small","2":"adult","3":"child","4":"plan","5":"car_model","6":"bag_big2","7":"bag_big_w","8":"bag_big_h","9":"bag_big_w2","10":"bag_big_h2","11":"bag_small_w","12":"bag_small_h"},
         			
         			"from": "web_car_capacity"}';
 $curl_response = '';

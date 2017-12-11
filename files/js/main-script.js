@@ -1704,7 +1704,7 @@ function sendproto(x){
                         '</div>' +
                         '<div id="i-list"   onclick="getcondition(\'' + data[0].data1[i].car_model + '\')">' +
                         '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
-                        '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                        '<i class="material-icons">search</i>' +
                         '</div>' +
                         '</div>'
 
@@ -1979,7 +1979,7 @@ function sendpaxuse(x) {
             '</div>' +
             '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
             '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
-            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+            '<i class="material-icons">search</i>' +
             '</div>' +
             '</div>'
 
@@ -2070,7 +2070,7 @@ function sendpaxuse(x) {
             '</div>' +
             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
             '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
-            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+            '<i class="material-icons">search</i>' +
             '</div>' +
             '</div>'
 
@@ -2273,7 +2273,7 @@ function sendpax(x) {
            '</div>' +
            '<div id="i-list"   onclick="getcondition(\'' + dataService[i].car_model + '\')">' +
            '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
-           '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+           '<i class="material-icons">search</i>' +
            '</div>' +
            '</div>'
 
@@ -2635,7 +2635,7 @@ $(document).ready(function() {
                         '</div>' +
                         '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
                         '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
-                        '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                        '<i class="material-icons">search</i>' +
                         '</div>' +
                         '</div>'
 
@@ -2734,7 +2734,7 @@ $(document).ready(function() {
                             '</div>' +
                             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
                             '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
-                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                            '<i class="material-icons">search</i>' +
                             '</div>' +
                             '</div>'
 

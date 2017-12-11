@@ -1376,7 +1376,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                             '</div>' +
                             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
                             '<p id="capacity"><div>' + lngcapacityinfo + '</div><div>' + lngdetails + '</div></p>' +
-                            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+                            '<i class="material-icons">search</i>' +
                             '</div>' +
                             '</div>'
 
@@ -1678,7 +1678,7 @@ function sendpaxrel(x) {
             '</div>' +
             '<div id="i-list"   onclick="getcondition(\'' + compae1private[i].car_model + '\')">' +
             '<p id="capacity"><div>' + lngcapacityinfo + '</div><div>' + lngdetails + '</div></p>' +
-            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+            '<i class="material-icons">search</i>' +
             '</div>' +
             '</div>'
 
@@ -1771,7 +1771,7 @@ function sendpaxrel(x) {
             '</div>' +
             '<div id="i-list"   onclick="getcondition(\'' + compae1join[i].car_model + '\')">' +
             '<p id="capacity"><div>' + lngcapacityinfo + '</div><div>' + lngdetails + '</div></p>' +
-            '<i class="fa fa-list-alt"   aria-hidden="true"></i>' +
+            '<i class="material-icons">search</i>' +
             '</div>' +
             '</div>'
 

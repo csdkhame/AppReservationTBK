@@ -1279,8 +1279,11 @@ textarea:-ms-input-placeholder {
 
 <div class="modal fade" id="capacityss" role="dialog">
     <div class="modal-dialog">
+   
         <div class="modal-content">
             <div class="modal-body">
+        <i class="material-icons" data-dismiss="modal" style="position: absolute;top: 10px; right: 15px;">close</i>
+                
                 <div align="left" style="padding: 2px 5px;font-size: 16px;
     font-weight: 600;
     text-shadow: none;">
