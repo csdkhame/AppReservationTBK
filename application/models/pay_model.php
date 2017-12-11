@@ -67,6 +67,7 @@ class Pay_model extends CI_Model {
             $data[$key]['s_code_ref'] = $row->s_code_ref;
             $data[$key]['s_code'] = $row->s_code;
             $data[$key]['voucher_url'] = $row->voucher_url;
+            $data[$key]['fashion'] = $row->fashion;
             
             
     $this->db->select('s_name');

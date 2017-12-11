@@ -254,7 +254,7 @@ $( document ).ready(function() {
   			<span id="voucher"></span>
   			</td>
   		</tr>
-  		<tr>
+  		<tr id="amout_num">
   			<td>
   			<span class="amount-lang lng-amount"></span>
   			</td>
@@ -415,6 +415,9 @@ $( document ).ready(function() {
     	if(data.other=="" || data.other==undefined){
 			$('#other_row').hide();
 		}
+		if(data.fashion == 'Realtime'){                    
+                $('#amout_num').hide()                    
+        }
     	
     	
     	

@@ -441,7 +441,7 @@
                 <span id="voucher"></span>
                 </td>
             </tr>
-            <tr>
+            <tr id="amout_num">
                 <td>
                 <span class="amount-lang lng-amount"></span>
                 </td>
@@ -1364,7 +1364,11 @@ function getParameterByName(name, url) {
                    
                     
                 }
-                
+                if(data[0].fashion == 'Realtime'){
+                    
+                $('#amout_num').hide()
+                    
+                }
                 $('#pdname').html(product_name)
                 $('#item_number').val(data[0].invoice)
                 $('#reference').val(data[0].s_code)
