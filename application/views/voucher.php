@@ -137,7 +137,7 @@ $( document ).ready(function() {
 	padding: 10px;
     /* border-radius: 4px; */
     font-size: 16px;
-    border: 1px solid #3b5998;
+    /* border: 1px solid #3b5998; */
     margin-top: 5px;
     background-color: #fff;
 }	
@@ -367,12 +367,12 @@ $( document ).ready(function() {
   
   <h4 style="margin: 8px;"><span class="lng-facilitiy"></span></h4>  
   				  <div class="card" style="padding: 3px 3px;  background: #fff;">
-  					<div style="margin-left: 3%; padding-top: 9px;">
+  					<div style="margin-left: 3%; padding-top: 9px;    font-size: 15px;">
 			                <b>1.</b> 
-                            <img src="https://dotdotdottrip.com/files/img/air.png" style="margin: 8px;"> 
+                            <img src="https://www.welovetaxi.com/app/booking/files/img/air.png" style="margin: 8px; width:15px;"> 
 			                <span class="lng-conditioner"></span>			                            
 			            </div>
-			            <div style="margin-left: 3%;padding-bottom: 9px;">
+			            <div style="margin-left: 3%;padding-bottom: 9px;    font-size: 15px;">
 			                <b>2.</b> 
                             <i class="fa fa-music" aria-hidden="true" style="margin: 8px;"></i> 
 			                <span class="lng-audio-player"></span>
@@ -391,8 +391,11 @@ $( document ).ready(function() {
 	$( document ).ready(function() {
 		
     	var obj = <?=$json_data?>;
-    	var data = obj[0];
+		var data = obj[0];
+		
+    	console.log("--------------------");
     	console.log(obj);
+    	console.log('-------------------');
     	$('#to_pay').attr('href','https://www.welovetaxi.com/app/booking/dashboard/payment?data='+data.invoice);
     	$('#voucher').html('<a href="'+data.voucher_url+'" target="_blank">'+data.invoice+'</a>');
     	$('#adult').text(data.adult);
@@ -406,7 +409,7 @@ $( document ).ready(function() {
     	var book_date_f = data.booking_date;
     	var res = data.booking_date.replace(" ", "/"); 
     	$('#transfer_date').text(res);
-    	$('#book_by').text(data.book_by);
+    	$('#book_by').text(data.guest_english);
     	$('#price').text(data.total_price);
     	$('#other').text(data.other);
     	if(data.other=="" || data.other==undefined){

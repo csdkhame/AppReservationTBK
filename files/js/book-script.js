@@ -170,6 +170,9 @@ $(document).ready(function() {
         });
 
     } else {
+        
+        $('#acceptancecheck').hide();
+        
         $('#photo_non-login').html('<img class="imgmemu" src="' + base_url + 'pic/default-avatar.png">');
         $('.box-login').hide();
         $('.box-desboard').hide();
@@ -1452,7 +1455,7 @@ function addbooking(){
             'lat_f': getParameterByName('lat_f'),
             'lng_f': getParameterByName('lng_f'),
             'lat_t': getParameterByName('lat_t'),
-            'lng_f': getParameterByName('lng_f'),
+            'lng_t': getParameterByName('lng_t'),
             'book': getParameterByName('book'),
 
         },
@@ -1752,8 +1755,13 @@ function addbooking(){
                             }
                         });
                         //$('#loading').hide()
-                        
+                        if($.cookie("login") != undefined){
                         window.location.href = "https://www.welovetaxi.com/app/booking/dashboard/view_user";
+                        
+                        }
+                        else{
+                            window.location.href = "https://www.welovetaxi.com/app/booking/dashboard/query_transfer_byuser?order_id="+data.invoice;
+                        }
 
                     } else {
 $('#input_data_pop').show(500)

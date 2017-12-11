@@ -5,104 +5,22 @@
     <link rel="apple-touch-icon" sizes="76x76" href="">
     <link rel="icon" type="image/png" href="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
     <title>App booking</title>
-
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
-    <!-- Canonical SEO -->
-
     <?php echo link_tag('files/css/bootstrapre.min.css'); ?>
-    <!-- <?php echo link_tag('files/css/material-dashboard'); ?> -->
-    
-    <?php echo link_tag('files/css/materialre-kit.min.css?v=1.1.1'); ?>
-    
-    
+    <!-- <?php echo link_tag('files/css/material-dashboard'); ?> -->    
+    <?php echo link_tag('files/css/materialre-kit.min.css?v=1.1.1'); ?>    
     <?php echo link_tag('files/assets/css/materialre-bootstrap-wizard.css'); ?>
-    
-    
-
-    <!-- CSS Just for demo purpose, don't include it in your project -->
     <?php echo link_tag('files/assets/css/demo.css'); ?>
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+    <?php echo link_tag('files/css/register.css'); ?>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
-    <!-- CSS Files -->
-    
-
-    <!--  Social tags      -->
-    
-
 </head>
  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   <script src="https://apis.google.com/js/api:client.js"></script>
 <body style="background-color: #fff ">
-
-    <style>
-        .page-header .container {
-    padding-top:0;
-    color: #000;
-    background-color: #fff;
-    border-bottom: 1px solid #C8E1F5;
-}
-.navbar.navbar-transparent{
-    background-color: #fff;
-    color: #000;
-    border-bottom: 1px solid #C8E1F5;
-}
-.navbar {
-    box-shadow: none;
-}
-.loading-in{
-    height: 115px;
-    border-radius: 25px;
-    background: #fff;
-    min-width: 15rem;
-    /* height: auto; */
-    left: 50vw;
-    top: 50vh;
-    transform: translate(-50%,-50%);
-    position: fixed;
-    z-index: 10;
-}
-.loading-ld{
-    font-weight: 500;
-    color: #000;
-    padding: 35px;
-    text-align: center;
-}
-#loading{
-    z-index: 9999;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    background: rgba(0, 0, 0, 0.59);
-    display: nones;
-}
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: #333;
-}
-input:-moz-placeholder,
-textarea:-moz-placeholder {
-  color: #333;
-}
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-  color: #333;
-}
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  color: #333;
-}
-
-    </style>
-
 <input type="hidden" id="by" value="<?=$by;?>"/>
 <input type="hidden" id="data" value="<?=$data;?>"/>
 <input type="hidden" id="from" value="<?=$from;?>"/>
@@ -432,376 +350,12 @@ textarea:-ms-input-placeholder {
                     </div>
                     
                 </div>
-                <!-- <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;"> 
-                    <div  class="btn-close lng-close" ></div>
-                    <div class="btn-login-forget lng-login" ></div>
-                </div> -->
             </div>
         </div>
 </section>
-
-    
-<style>
-.btn-send{
-    padding: 12px 20px;
-    background: #3b5998;
-    color: #fff;
-    width: 140px;
-    position: absolute;
-    text-align: center;
-    right: 0px;
-    margin-top: 15px;
-    border-radius: 25px;   
-}
-.btn-login-forget{
-    text-transform: uppercase;
-    text-align: center;
-    color: #ffffff;
-    border: 1px solid #4BB1C1;
-    right: 15px;
-    padding: 12px 20px;
-    bottom: 15px;
-    background: #3b5998;
-    display: none;
-}
-    #sectionsNav {
-    position: absolute;
-    /* background: rgba(255, 255, 255, 0) !important; */
-    margin: auto;
-    z-index: 20;
-    width: 100%;
-    padding-bottom: 0;
-    padding-top: 0;
-    box-shadow: none;
-    background: #3b5998 !important;;
-}
-#foget-password{
-    z-index: 20; 
-    position: fixed; 
-    /* width: 100vw; 
-    height: 100vh;  */
-    left: 0px; top: 0px; 
-    /* background: rgba(0, 0, 0, 0.59); */
-    display:none;
-}
-.box-in-foget{
-    height: 100vh;
-        /* border-radius: 4px; */
-        background: #fff;
-        min-width: 100%;
-        /* height: auto; */
-        left: 50vw;
-        top: 50vh;
-        
-        transform: translate(-50%,-50%);
-        position: fixed;
-        z-index: 3;
-}
-.btn-close {
-    position: absolute; 
-    right: 15px;
-}
-
-.btn-login{
-    font-weight: 500;
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    cursor: pointer;
-    min-width: 120px;
-    border-radius: 25px;
-    text-align: center;
-    color: #ffffff;
-    background-color: #3b5998;
-
-
-}
-#checkmail{
-    background-color: #FF5722;
-}
-/* .btn-login:hover{
-     border: 1px solid #3b5998;
-     background-color: #3b5998;
-     color: #ffffff;
-} */
-.btn-signup{
-    color: #3b5998;
-    border: 1px solid #3b5998;
-    background-color: #3b5998;
-    font-weight: 500;
-    display: block;
-    line-height: 36px;
-    padding: 0 10px 0 0;
-    text-decoration: none;
-    cursor: pointer;
-    min-width: 120px;
-    border-radius: 25px;
-    text-align: center;
-     color: #ffffff;
-
-}
-.btn-signup:hover{
-     border: 1px solid #3b5998;
-     background-color: #3b5998;
-     color: #ffffff;
-}
-.col-sign{
-    /*margin-top: 20px;*/
-    font-size: 13px;
-
-}
-.btn-foget-pass {
-    color: #ffffff;
-    background: #333333;
-    text-align: center;
-    padding: 12px;
-    border-radius: 25px;
-    font-weight: 500;
-}
-
-.social-column .fb-wrapper .inner {
-    color: #3b5998;
-    border: 1px solid #3b5998;
-    font-weight: 700;
-    display: block;
-    line-height: 36px;
-    /* padding: 0 10px 0 0; */
-    padding: 3px;
-    text-decoration: none;
-    cursor: pointer;
-    min-width: 120px;
-    border-radius: 25px;
-}
-.social-column .google-wrapper .inner {
-    color: #ea4335;
-    border: 1px solid #ea4335;
-    
-    font-weight: 700;
-    display: block;
-    line-height: 36px;
-    /* padding: 0 10px 0 0; */
-    padding: 3px;
-    text-decoration: none;
-    cursor: pointer;
-    min-width: 120px;
-    border-radius: 25px;
-}
-.social-column .fb-wrapper {
-    text-align: center;
-}
- .notification {
-    position: absolute;
-    top: 2px;
-    border: 1px solid #FFF;
-        left: 22px;
-    font-size: 9px;
-    background: #f44336;
-    color: #FFFFFF;
-    min-width: 20px;
-    padding: 0px 5px;
-    height: 20px;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 19px;
-    vertical-align: middle;
-    display: block;
-}
-.social-column .fa-google-plus-square, .social-column .fa-facebook-official {
-    display: inline-block;
-    vertical-align: text-top;
-    padding: 0;
-    /*background-image: url(/images/2014/sprites/icons-header-336d99fe71.png);*/
-    width: 37px;
-    height: 38px;
-    padding-left: 0;
-    float: left;
-}
-.social-column .google-wrapper {
-    text-align: center;
-    margin-top: 20px;
-/*    display: none;*/
-}
-.social-column .social-inner {
-    display: table-cell;
-    vertical-align: middle;
-}
-.social-column{
-    padding: 100px 120px;
-}
-.dropdown-menu.dropdown-with-icons li>a:hover {
-    /*padding: 12px 20px 12px 12px;*/
-    background: #F44336 !important;
-}
-.dropdown-menu:after, .dropdown-menu-container:after {
-    border-bottom: 11px solid #FFFFFF;
-    border-left: 11px solid rgba(0,0,0,0);
-    border-right: 11px solid rgba(0,0,0,0);
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: 30px;
-    top: -10px;
-}
-.index-page .page-header, .presentation-page .page-header {
-    height: 12vh !important;
-    overflow: hidden;
-}
-.box-regispro {
-    /*letter-spacing: 1px;*/
-    color: #555555;
-    padding: 2px 10px;
-}
-#special {
-    display: inline-block;
-    position: absolute;
-}
-#exclusive {
-    display: inline-block;
-    position: absolute;
-}
-#fast {
-    display: inline-block;
-    position: absolute;
-}
-.special {
-    font-size: 14px;
-    /*margin-left: 5%;*/
-    margin-bottom: 20px;
-}
-.exclusive {
-    font-size: 14px;
-    /*margin-left: 5%;*/
-    margin-bottom: 20px;
-}
-.fast {
-    font-size: 14px;
-    /*margin-left: 5%;*/
-}
-.section_title{
-     /*font-size: 20px;*/
-
-        position: relative;
-    /*font-size: 170%;*/
-    font-weight: normal;
-    /*margin-left: 0px;*/
-    
-}
-.special p {
-    display: inline-block;
-    margin-left: 70px;
-        font-size: 13px;
-
-
-}
-.special h4 {
-    display: inline-block;
-    margin-left: 70px;
-        font-size: 16px;
-}
-.exclusive p {
-    display: inline-block;
-    margin-left: 70px;
-        font-size: 13px;
-
-}
-.exclusive h4 {
-    display: inline-block;
-    margin-left: 70px;
-        font-size: 16px;
-}
-.fast p {
-    display: inline-block;
-    margin-left: 70px;
-        font-size: 13px;
-}
-.fast h4 {
-    display: inline-block;
-    margin-left: 70px;
-        font-size: 16px;
-}
-#box-left{
-    border-right: 1px solid #ccc;
-    margin-top:75px;
-}
-.box-icon{
-    width: 50px;
-    border-radius: 50%;
-    padding: 10px;
-    height: 50px;
-    border: 1px solid #555;
-    position: absolute;
-}
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-    
-   
-    color: #FFF;
-    box-shadow: none;
-}
-.wizard-card{
-    margin-bottom: 0;
-   
-}
-
-.wizard-card{
-    box-shadow: none;
-}
-#title-regis{
-    color: #E47911;
-     font-size: 20px;
-
-    /*margin-top: 50px;*/
-
-}
-#title-info{
-     font-size: 20px;
-
-     margin-top: 20px;
-}
-.loginReg__or{
-    right: 0;
-    margin: 10px 0;
-    position: absolute;
-    font-size: 10px;
-    width: 2em;
-    height: 2em;
-    text-align: center;
-    /* line-height: 2.2; */
-    background: #dcdcdc;
-    border-radius: 50%;
-    color: #666;
-    margin-right: -10px;
-    margin-top: -172px;
-}
- @media screen and (max-width: 767px){
-    #title-regis{
-        color: #E47911;
-        margin-top: 0;
-
-} 
-#title-info{
-        margin-top: 30px;
-    font-size: 18px;
-} 
-#box-left{
-    border-right: none;
-} 
-
-
-                
-
-}
- </style>
-<!-- <a class="made-with-mk">
-            <div class="brand"><i class="material-icons">home</i></div>
-            <div class="made-with">App <strong>booking</strong></div>
-        </a> -->
         <style>
            
         </style>
-        <!--   Big container   -->
-
-
-
     <div class="modal fade" id="capacityss" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
@@ -844,27 +398,7 @@ textarea:-ms-input-placeholder {
                         </div>
                     </div>
                 </div>
-                <style>
-                    #getcapa{
-                        background-color: #ddd;
-                        height: 35px;
-                    }
-                    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-                        border-top: none;
-                    }
-                    #table1{
-                        margin-top: 10px !important;
-                    }
-                    .footer a{
-                        color: #000;
-                        font-weight:normal;
-                    }
-
-                </style>
-             
-   
-
-    <!--     *********    END PRICING 5      *********      -->
+                
 </body>
     <!--   Core JS Files   -->
     <!-- <script src="https://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script> -->
@@ -920,275 +454,7 @@ textarea:-ms-input-placeholder {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/jquery.sharrre.js"></script>
     <!-- <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js"></script>  -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script> 
- 
-<style>
-        .index-page .header-filter:after, .presentation-page .header-filter:after {
-    background: rgba(132,13,121,.88);
-    background: linear-gradient(45deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%);
-    background: -moz-linear-gradient(135deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%);
-    /* background: -webkit-linear-gradient(135deg,rgba(132,13,121,.88) 0,rgba(208,44,180,.31) 100%); */
-    /* background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgb(16, 15, 204)); */
-    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-}
-.index-page .page-header, .presentation-page .page-header {
-    height: 50vh;
-    overflow: hidden;
-}
-.main-raised {
-    margin: -60px 30px 0;
-    border-radius: 6px;
-    box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
-    margin-bottom: 50px;
-}
-#imgcountry{
-    width: 25px;
-    margin-right: 15px;
-}
-.modal .modal-dialog {
-    margin-top: 20px !important;
-}
-.box-country ul{
-                        padding-left: 0;
-
-                    }
-                    .box-country ul li{
-                            list-style: none;
-    padding: 8px 20px;
-                    }
-                    #span-phonecode{
-                        padding-right: 10px;
-                    }
-                    .box-country ul li:hover{
-                        background-color: #ffd000;
-                        color: #000;
-                    }
-                    #textcountry{
-                        text-align: center;
-                    }
-                    #code{
-                        text-align: center;
-                    }
-                    label.form-control
-                    {
-                        margin-top: 20px;
-                    }
-                    #calen{
-                       margin-top: -15px;
-                        margin-right: 2px;
-                        position: absolute;
-                        font-size: 20px;
-                        color: #9E9E9E; 
-                    }
-.btn-login{
-   margin-left: 40px;
-    margin-top: 30px;
-}
-.btn-signup{
-        margin-left: 40px;
-    margin-top: 30px;
-}
-.text-sign{
-    margin-left: 55px;
-}
-
-                     @media screen and (max-width: 767px){
-                    
-
-
-                #textcountry{
-                        text-align: left;
-                    }
-                     #code{
-                        text-align: left;
-                    }
-                    #tphone{
-                        padding: 0;
-                    }
-                    .btn-login{
-    margin-left:0;
-    margin-top: 30px;
-}
-
-.text-sign{
-        margin-left: 0;
-    text-align: center;
-}
-.loginReg__or{
-    display: none !important;
-}
-.social-column .social-inner{
-    display: block;
-}
-.social-column {
-    padding: 30px 0;
-}
-.btn-signup {
-    margin-left: 0;
-    margin-top: 30px;
-}
-
-                }
-
-</style>
-<style>
-    .navbar-right{
-    /* background: #000; */
-}
-.textmenu{
-    margin-left: 10px;
-}
-.imgmem-log{
-    
-}
-.imgmemu{
-    width: 35px;  
-    height: 35px; 
-    border-radius: 50px;  
-}
-.user {
-    background: #07c284;
-    text-align: center;
-    padding-bottom: 20px;
-    /* margin: 25px auto 0; */
-    position: relative;
-    height: 160px;
-    display:none;
-}
-.user .photo {
-    width: 100%;
-    /* height: 110px; */
-    overflow: hidden;
-    border-radius: 4px;
-    /* margin: 0 auto; */
-    /* margin-top: 50px; */
-    /* box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); */
-}
-.user .photo img {
-    width: 50px;
-    height: 50px;
-    margin-top: 30px;
-    border-radius: 50px;                       
-}
-
-#usernamess{
-    display: inline-block;
-    text-transform: initial;
-}
-
-
-.box-menu-select {
-position: fixed;
-width: 100%;
-bottom: 0;
-z-index: 1;
-background: #fff;
-/* box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52); */
-box-shadow: 0px 0px 0.9px #888, 0px 0px 0px rgba(136, 136, 136, 0.52);
-
-/* height: 90px; */
-}
-.btn-reservation {
-    line-height: 0.8;
-    padding: 8px 0;
-font-size: 16px;
-/* font-weight: 400; */
-/* position: absolute; */
-width: 100%;
-/* border-radius: 4px; */
-/* padding: 12px; */
-color: #333;
-text-align: center;
-/* display: inline-block; */
-/* background-color: #2196f3; */
-z-index: 1;
-}
-
-.btn-realtime {
-    line-height: 0.8;
-    padding: 8px 0;
-font-size: 16px;
-/* font-weight: 400; */
-/* position: absolute; */
-width: 100%;
-/* border-radius: 4px; */
-/* padding: 12px; */
-color: #333;
-text-align: center;
-/* display: inline-block; */
-/* background-color: #2196f3; */
-z-index: 1;
-}
-
-.btn-home {
-padding: 8px 0;
-font-size: 16px;
-/* font-weight: 400; */
-/* position: absolute; */
-width: 100%;
-/* border-radius: 4px; */
-/* padding: 12px; */
-color: #3b5998;
-text-align: center;
-/* display: inline-block; */
-/* background-color: #2196f3; */
-z-index: 1;
-}
-
-.btn-management {
-    line-height: 0.8;
-    padding: 8px 0;
-font-size: 16px;
-/* font-weight: 400; */
-/* position: absolute; */
-width: 100%;
-/* border-radius: 4px; */
-/* padding: 12px; */
-color: #333;
-text-align: center;
-/* display: inline-block; */
-/* background-color: #2196f3; */
-z-index: 1;
-}
-
-.btn-management a {
-color: #999999;
-}
-.btn-car-service {
-    line-height: 0.8;
-    padding: 8px 0;
-font-size: 16px;
-/* font-weight: 400; */
-/* position: absolute; */
-width: 100%;
-/* border-radius: 4px; */
-/* padding: 12px; */
-color: #333;
-text-align: center;
-/* display: inline-block; */
-/* background-color: #2196f3; */
-z-index: 1;
-}
-
-
-/*.btn-reservation:hover{
-   background-color: #FFC107;
-}*/
-
-.btn-real-res {
-position: absolute;
-margin-top: 50px;
-width: 100%;
-z-index: 5;
-text-align: center;
-}
-
-@media screen and (max-width: 767px){
-    .user {        
-        display:block;
-    }
-}
-                    </style>
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/language.js?v=<?=time()?>"></script>
 
 <script>
 $(document).ready(function(){
@@ -1217,24 +483,15 @@ $.ajax({
         dataType: 'json',
         success: function(data) { 
         //   console.log(data)
-          
-        
-           
-          
         }
     });
     $('#username').on('change', function() {
         username = this.value ;
         console.log(username)
-        
-    //alert( this.value );
     })
     $('#password').on('change', function() {
         password = this.value ;
         console.log(password)
-
-        
-    //alert( this.value );
     })
     $('.btn-foget-pass').on('click', function() {
         $('#foget-password').fadeIn(500)
@@ -1249,8 +506,6 @@ $.ajax({
             $('#loading').css('display', 'none');
             window.location.href = base_url + "?section=realtime";
         }, 3000);
-
-
     })
     $('.btn-reservation').click(function() {
         $('#loading').css('display', 'block');
@@ -1275,8 +530,6 @@ $.ajax({
             $('#loading').css('display', 'none');
             window.location.href = base_url + "dashboard/view_user";
         }, 3000);
-
-
     })
     $('.btn-send').on('click', function() {
        forget = $('#email-forget').val();
@@ -1296,21 +549,14 @@ $.ajax({
             $('.btn-close').hide();
             $('.btn-login-forget').show();
             $('#check-email').show();
-
-           
-
             }
         });
         }
-        
-        
     });
     $('.btn-login-forget').on('click', function() {
        // $('#foget-password').fadeOut(500)
         window.location.reload();
-    });
-    	
-    	
+    });    	
     $('#login').on('click', function() {
         var type_login = $('#by').val();
     	var param_data = $('#data').val();
@@ -1357,10 +603,6 @@ $.ajax({
                   console.log('status==2')
                 $('#message').html('Password is Invalid').css('color', 'red');
               }
-          
-        
-           
-          
         }
     });
        
@@ -1376,8 +618,6 @@ $.ajax({
            // $('#loading').css('display', 'none');
             window.location.href = base_url+"";
         }, 2000);
-
-
     });
     $('.iconhome').click(function() {
         $('#loading').css('display', 'block');
@@ -1389,21 +629,14 @@ $.ajax({
             $('#loading').css('display', 'none');
             window.location.href = base_url+"";
         }, 2000);
-
-
     });
     $('#username-signup').on('change', function() {
         username_signup = this.value ;
-        console.log(username_signup)
-        
-    //alert( this.value );
+        console.log(username_signup) 
     })
     $('#password-signup').on('change', function() {
         password_signup = this.value ;
         console.log(password_signup)
-
-        
-    //alert( this.value );
     })
     $('#checkmail').on('click', function() {
         console.log('in case')
@@ -1419,8 +652,6 @@ $.ajax({
               { //have mail
                 text_check = 0; 
                $('#messagecheck').html('Have this mail in system').css('color', 'red');
-                
-               
               }
               else if(res.status==1)
               {
@@ -1428,14 +659,8 @@ $.ajax({
                 $('#messagecheck').html('This mail is available.').css('color', '#2c9930');
                 console.log('status==1')
               }
-              
-              
-          
-        
-           
-          
         }
-    });
+        });
     
     });
     
@@ -1455,31 +680,16 @@ $.ajax({
                     $.cookie("login",res.username);
                     $('.lng_email_available').show()
                     $('.lng_email_have').hide()
-                    
-                   
                     window.location.href = "<?php echo base_url(); ?>home";
-                    
-                   
                 }
                 else{
-                    // console.log("incomplete insert")
-                    $('.lng_email_available').hide()
-                    
+                    $('.lng_email_available').hide()                    
                     $('.lng_email_have').show()
-
-                }
-                
+                }                
             }
         });
-    // }
-    // else{
-    //     console.log("incomplete")
-    // }
-        
-    });
     
-
-
+    });
 });//END
 window.fbAsyncInit = function() {
     FB.init({
@@ -1490,8 +700,6 @@ window.fbAsyncInit = function() {
     });
     FB.AppEvents.logPageView();   
   };
-   
-
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -1499,32 +707,15 @@ window.fbAsyncInit = function() {
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-    function login(){
-        
+    function login(){        
    FB.login(function (response) { statusChangeCallback(response); }, { scope: 'email,public_profile', return_scopes: true });
-// FB.getLoginStatus(function(response) 
-//     {statusChangeCallback(response)},{ scope: 'email,user_likes' 
-// });
-// function checkLoginState() {
-//   FB.getLoginStatus(function(response) {
-//     statusChangeCallback(response);
-//   });
-// }
-  // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       checkLoginState();
     } else {
-      // The person is not logged into your app or we are unable to tell.
-    //   document.getElementById('status').innerHTML = 'Please log ' +
-    //     'into this app.';
     }
   }
   function checkLoginState() {
@@ -1572,9 +763,6 @@ window.fbAsyncInit = function() {
               }
         }
     });
-       
-      //console.log('Successful login for: ' + response.name);
-      
     });
   }
     }
@@ -1595,8 +783,6 @@ window.fbAsyncInit = function() {
        $('.box-signin').css('display','block');
     })
 </script>
-
-
 <script>
 /**
 * Login with Google Account *
@@ -1663,47 +849,11 @@ if(type_login=='dasboard'){
                                $('#message').html('Login not complete').css('color', 'red');
                                
 				              }
-					});
-				 
-				  
-       
-       
-       
+					});      
         }, function(error) {
           		   console.log(JSON.stringify(error, undefined, 2));
         });
   }
   </script>
 <script>startApp();</script>
-
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

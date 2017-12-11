@@ -1383,7 +1383,7 @@ function getParameterByName(name, url) {
                 var book_date_f = data[0].booking_date;
                 var res = data[0].booking_date.replace(" ", "/"); 
                 $('#transfer_date').text(res);
-                $('#book_by').text(data[0].book_by);
+                $('#book_by').text(data[0].guest_english);
                 $('#price').text(data[0].total_price);
                 $('#total_amount').text(data[0].total_price);
                 console.log(data[0].total_price*4.4)
