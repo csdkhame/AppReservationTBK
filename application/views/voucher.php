@@ -349,7 +349,7 @@ $( document ).ready(function() {
   </div>
   
   
-  <h4 style="margin: 8px;"><span class="lng-seating"></span></h4>
+  <h4 style="margin: 8px;"><span class="lng-seating"></span></h4>  
   <div class="card" style="    background: #fff; padding: 8px;">
   		<table class="table " id="show_carmodel">
   			<tr class="head-table-dialog" align="center" style="background-color: #ddd;">

@@ -17,6 +17,7 @@
     <?php echo link_tag('files/css/bootstrap3.min.css'); ?>
     <!-- <?php echo link_tag('files/css/material-dashboard'); ?> -->
     
+    
     <?php echo link_tag('files/css/material-kit.min.css?v='.time().'>'); ?>	
     
     
@@ -24,40 +25,27 @@
     <?php echo link_tag('files/css/normalize.css'); ?>
     <?php echo link_tag('files/css/classic.css?v='.time()); ?>	
     <?php echo link_tag('files/css/classic.date.css?v='.time()); ?>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>files/sweetalert-master/dist/sweetalert.css">
     <?php //echo link_tag('files/css/jquery.mobile.datepicker.css'); ?>
     <?php// echo link_tag('files/css/load.css'); ?>
-     
-
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <?php echo link_tag('files/assets/css/demo.css'); ?>
      <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/git/jquery.mobile-git.css" /> -->
-    
-    <!-- CSS Files -->
-    
-
-    <!--  Social tags      -->
-    
-
 </head>
 
 <body class="presentation-page">
 <?php 
     if(!$_COOKIE['lng']){
-
-       // echo  $_COOKIE['lng'].'unde';
         $lng_your_country = 'Your country';
         $lng_fiast_name = 'First Name';
         $lng_last_name = 'Last Name';
         $lng_phone = 'Phone';
         $lng_email = 'Email';
         $lng_other = 'Other';
-       $lng_flight = 'Flight';
-       
+       $lng_flight = 'Flight';       
     }
     else if($_COOKIE['lng'] == 'en'){
         //echo 'en';
@@ -68,9 +56,6 @@
         $lng_email = 'Email';
         $lng_other = 'Other';
         $lng_flight = 'Flight';
-       
-        
-        
     }
     else if($_COOKIE['lng'] == 'th'){
         //echo 'th';
@@ -80,10 +65,7 @@
         $lng_phone = 'โทรศัพท์';
         $lng_email = 'อีเมล์';
         $lng_other = 'อื่น ๆ';
-       $lng_flight = 'เที่ยวบิน';
-       
-        
-        
+       $lng_flight = 'เที่ยวบิน'; 
     }
     else if($_COOKIE['lng'] == 'cn'){
        // echo 'cn';
@@ -94,9 +76,6 @@
        $lng_email = '电子邮件';
        $lng_other = '其他';
        $lng_flight = '航班';
-       
-       
-       
     }
 ?>
     <div id="loading" style="z-index: 9999;  position: fixed;  width: 100vw;   height: 100vh;   left: 0;    top: 0;   background: rgba(0, 0, 0, 0.59);    display: nones;">
@@ -334,6 +313,19 @@
 
     /* height: 90px; */
 }
+.confirm{
+                text-align: center;
+                background-color: rgb(35, 53, 91) !important;
+                width: 100px !important;
+                border-radius: 25px !important;
+            }
+            .cancel{
+                padding: 10px 0 !important;
+                text-align: center;
+                background-color: #C1C1C1 !important;
+                width: 100px !important;
+                border-radius: 25px !important;
+            }
 .btn-reservation {
     line-height: 0.8;
     padding: 8px 0;
@@ -1590,12 +1582,15 @@ table{
     <script src="<?php echo base_url(); ?>files/js/material.min.js"></script>
       <script src="<?php echo base_url(); ?>files/js/jquery.cookie.js" type="text/javascript"></script>
 
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> 
-     <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
+      <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>  -->
+      <script src="<?php echo base_url(); ?>files/js/jquery-ui.js" type="text/javascript"></script>
+      <script src="<?php echo base_url(); ?>files/js/hammer.js" type="text/javascript"></script>
+     <script src="<?php echo base_url(); ?>files/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
      <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
       <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
-     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>files/js/jquery-migrate-3.0.0.min.js"></script>
+     <!-- <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" type="text/javascript"></script> -->
 
 
     <!--    Plugin for Date Time Picker and Full Calendar Plugin   -->
@@ -1637,7 +1632,9 @@ table{
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.js?v=<?=time()?>"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/picker.date.js?v=<?=time()?>"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>files/js/legacy.js?v=<?=time()?>"></script> 
-    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js?v=<?=time()?>"></script> 
+    <script src="<?php echo base_url(); ?>files/sweetalert-master/dist/sweetalert-dev.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>files/js/book-script.js?v=<?=time()?>"></script>
+
     
     <!-- <script src="https://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>  -->
     

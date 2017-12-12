@@ -818,7 +818,7 @@
 			}
 			#marginBox{
                 overflow: scroll;
-                height: 60vh;
+                min-height: 50vh;
                 border-radius: 15px;
                 /* margin-bottom: 15px; */
                 /* margin-top: 90px; */
@@ -1283,7 +1283,11 @@ textarea:-ms-input-placeholder {
         <div class="modal-content">
             <div class="modal-body">
         <i class="material-icons" data-dismiss="modal" style="position: absolute;top: 10px; right: 15px;">close</i>
-                
+                <style>
+                    .table-striped>tbody>tr:nth-of-type(odd){
+                        background-color: #ddd0 !important;
+                    }
+                </style>
                 <div align="left" style="padding: 2px 5px;font-size: 16px;
     font-weight: 600;
     text-shadow: none;">
@@ -1291,6 +1295,13 @@ textarea:-ms-input-placeholder {
 			    </div>                                    
                 <div id="getcapa"></div>
                 <div id="getcapa2"></div>
+                <div style="border: 1px solid #999; border-top: none; width: 45vw; padding: 5px;border-radius: 0 0 15px 15px;">
+                    <label style="color: red; font-size: 15px;" ><span>*</span><span class="lng-remark"></span></label>
+                    <div style="padding-left: 15px;">
+                        <div><i class="fa fa-suitcase fa-2x" aria-hidden="true" style="width: 40px;display:none;"></i><span class="lng-bag-big"></span> : <span id="size_bag_big"></span></div>
+                        <div><i class="fa fa-suitcase" aria-hidden="true" style="width: 40px;display:none;"></i><span class="lng-bag-small"></span> : <span id="size_bag_small"></span></div>
+                    </div>
+                </div>
                 <div id="facilities">
                     <div align="left" style="padding: 2px 5px;font-size: 16px;
     font-weight: 600;
@@ -1298,12 +1309,12 @@ textarea:-ms-input-placeholder {
 			            <span class="lng-facilitiy"> </span>
 			        </div>
 			        <div style="padding: 3px 3px;  border-radius: 8px; background: #fff;">
-			            <div style="margin-left: 3%; padding-top: 9px;">
+			            <div style="margin-left: 3%; padding-top: 9px;    font-size: 15px;">
 			                <B >1.</B> 
                             <img src="<?php echo base_url(); ?>/files/img/air.png"  style="margin: 8px;"> 
 			                <span class="lng-conditioner"></span>			                            
 			            </div>
-			            <div style="margin-left: 3%;padding-bottom: 9px;">
+			            <div style="margin-left: 3%;padding-bottom: 9px;    font-size: 15px;">
 			                <B >2.</B> 
                             <i class="fa fa-music" aria-hidden="true"  style="margin: 8px;"></i> 
 			                <span class="lng-audio-player"></span>
@@ -1417,6 +1428,20 @@ textarea:-ms-input-placeholder {
             
             </div></div>
 <style>
+    /*  rgb(13, 107, 106) */
+            .confirm{
+                text-align: center;
+                background-color: rgb(35, 53, 91) !important;
+                width: 100px !important;
+                border-radius: 25px !important;
+            }
+            .cancel{
+                padding: 10px 0 !important;
+                text-align: center;
+                background-color: #C1C1C1 !important;
+                width: 100px !important;
+                border-radius: 25px !important;
+            }
             #edit_often_pop{
                 z-index: 9999;
                 position: fixed;
@@ -1545,7 +1570,7 @@ textarea:-ms-input-placeholder {
             #often-input2{
                 transform: translate(-50%,-50%);
                 border: 1px solid #ddd;
-                padding: 5px;
+                padding: 8px;
                 margin: 8px 0;
                 width: 91%;
                 /* right: -15px; */

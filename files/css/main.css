@@ -285,9 +285,10 @@ body {
 }
 
 #getcapa2 {
-    border: 0.1px solid #999;
+    border: 1px solid #999;
     border-top: none;
     margin-top: -10px;
+    border-radius: 0 0 15px 0;
     /* border-radius: 4px; */
 }
 
@@ -1228,7 +1229,7 @@ input:after {
         padding: 0;
     }
     #marginBox{
-        height: 54vh !important;  
+        /* height: 54vh !important;   */
     }
     .lng_find_again{
         width: 100% !important;

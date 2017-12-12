@@ -1151,25 +1151,29 @@ $(document).ready(function() {
     // $('body').addClass('loaded');
     //          $('#text-load').css('display','none') 
     var quotations = [];
-    if ($.cookie("lng") == "en") {
+    
+    $('#btn-logout-user').on('click', function() {
+        if ($.cookie("lng") == "en") {
         var title_logout = "Logout ?";
         var text_logout = "Do you want to logout?";
         var yes = "Yes";
+        var cancel = "Cancel"
     } else if ($.cookie("lng") == "cn") {
         var title_logout = "登出 ?";
-        var text_logout = "คุณต้องการออกจากระบบ ?";
+        var text_logout = "您需要注销 ?";
         var yes = "是";
+        var cancel = "取消";
     } else if ($.cookie("lng") == "th") {
         var title_logout = "ออกจากระบบ ?";
-        var text_logout = "你要退出吗？";
+        var text_logout = "คุณต้องการออกจากระบบหรือไม่?";
         var yes = "ใช่";
+        var cancel = "ยกเลิก";
     } else if ($.cookie("lng") == undefined) {
         var title_logout = "Logout ?";
         var text_logout = "Do you want to logout?";
         var yes = "Yes";
+        var cancel = "Cancel";
     }
-    $('#btn-logout-user').on('click', function() {
-
         swal({
                 title: '' + title_logout + '',
                 text: '' + text_logout + '',
@@ -1177,6 +1181,7 @@ $(document).ready(function() {
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
                 confirmButtonText: yes,
+                cancelButtonText: cancel,
                 closeOnConfirm: false
             },
             function() {
@@ -2804,7 +2809,7 @@ function getcondition(i) {
     }
     console.log(i)
     var parame2 = {
-        'field': { "0": "bag_big", "1": "bag_small", "2": "adult", "3": "child", "4": "plan", "5": "car_model" },
+        'field': { "0": "bag_big", "1": "bag_small", "2": "adult", "3": "child", "4": "plan", "5": "car_model", "6": "bag_big2", "7": "bag_big_w", "8": "bag_big_h", "9": "bag_big_w2", "10": "bag_big_h2", "11": "bag_small_w", "12": "bag_small_h" },
         "request": { "car_model": i },
         "from": "web_car_capacity"
     };
@@ -2818,6 +2823,8 @@ function getcondition(i) {
 
 
             console.log(data)
+            $('#size_bag_big').html(data[0].bag_big_h + 'x' + data[0].bag_big_w)
+            $('#size_bag_small').html(data[0].bag_small_h + 'x' + data[0].bag_small_w)
 
 
             //var ss = data[i].adult;
@@ -2884,7 +2891,7 @@ function getcondition(i) {
                     for (var y = 0; y < data[i].adult; y++) {
 
 
-                        $('#adult' + data[i].plan + '').append('<i class="fa fa-child " aria-hidden="true" ></i>');
+                        $('#adult' + data[i].plan + '').append('<i class="fa fa-male fa-lg " aria-hidden="true" ></i>');
 
                     }
                 }

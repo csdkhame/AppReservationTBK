@@ -120,7 +120,10 @@
         display: none;
 }
 #getcapa{
-    background-color: #ddd;
+    background: #ddd;
+    border: 1px solid;
+    /* height: 35px; */
+    border-radius: 15px 15px 0 0;
     /* height: 35px; */
 }
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{

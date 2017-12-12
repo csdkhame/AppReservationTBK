@@ -2178,9 +2178,10 @@ function addPlaceOfften(type_place,type_call) {
                     $.post(url, function(data) {
                         console.log(data);
                         infowindow.close();
-                        infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div> <input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone2" name="changesetphone2" onchange="changesetphone2(changesetphone2)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" border-radius: 25px;style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                        infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div> <input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone2" name="changesetphone2" onchange="changesetphone2(changesetphone2)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm pull-right btn-part" style="display: inline-block;border-radius: 25px; background: #3b5998;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
                         infowindow.open(map, markerPlaceOfften);
                         $('#often-input2').show(500);
+                        $('#search-often').show(500);
         //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
         
                     });
@@ -2285,7 +2286,7 @@ function addPlaceOfften(type_place,type_call) {
             $.post(url, function(data) {
                 console.log(data);
                 infowindow.close();
-                infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname" name="changesetname"  onchange="changesetname(changesetname)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone" name="changesetphone" onchange="changesetphone(changesetphone)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" style="border-radius: 25px;display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div><input id="changesetname" name="changesetname"  onchange="changesetname(changesetname)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone" name="changesetphone" onchange="changesetphone(changesetphone)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm pull-right btn-part" style="border-radius: 25px;display: inline-block;background: #3b5998;" onclick="savePlaceOften(' + type_call + ',' + Newlat + ',' + Newlng + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
                 infowindow.open(map, markerPlaceOfften);
                 $('#often-input2').show(500);
 //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
@@ -2882,6 +2883,7 @@ function savePlaceOften(type_call, lat, lng, place_id, type_place) {
             if (data.status == true) {
                 //placeRecord();
                 $('#search-often').hide()
+                $('#search-often').hide();
                 swal('' + success + '', "", "success");
                 resetMap();
                 placeRecord();

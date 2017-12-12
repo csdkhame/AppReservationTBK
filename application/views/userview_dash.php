@@ -594,7 +594,7 @@ function search() {
 			$('#loading').css('display', 'block');
 	    	$('#content').css('display', 'none');
 
-			$.post( "https://www.welovetaxi.com/app/booking/dashboard/query_transfer_byuser?order_id="+order_id,{ check : "yes" } ,function( data ) {
+			$.post( "https://www.welovetaxi.com/app/booking/dashboard/voucher?order_id="+order_id,{ check : "yes" } ,function( data ) {
 			$('#loading').css('display', 'none');
 	        $('#content').css('display', 'block');
 				$( "#show_order" ).html( data);

@@ -210,7 +210,8 @@
             <div class="box-in-foget2" >
             <div style=" border-bottom: 1px solid #ddd;  text-align: center;  padding: 10px; font-size: 16px;" class="lng-omise-gateway">
             <img src="https://assets.omise.co/assets/omise-logo-a86debcb438f41aa395a868ff43fe67090e277d44dea080cd2d51baec405ea71.svg" alt="" width="100">    
-            <i class="fa fa-times pull-right" style="    font-size: 22px;" id="close-credit-card" aria-hidden="true"></i>
+            <i class="material-icons" id="close-credit-card" style="position: absolute;top: 10px; right: 15px;">close</i>
+            <!-- <i class="fa fa-times pull-right" style="    font-size: 22px;" id="close-credit-card" aria-hidden="true"></i> -->
 </div>
     
     <!-- <div align="center" style="margin-top: 40px; margin-bottom: 20px;"> -->

@@ -335,22 +335,27 @@ line-height: 0.8;
 // var text_logout = "Do you want to logout?";
 // }
 if ($.cookie("lng") == "en") {
-        var title_logout = "Logout ?";
-        var text_logout = "Do you want to logout?";
-		var yes = "Yes";
-    } else if ($.cookie("lng") == "cn") {
-        var title_logout = "登出 ?";
-        var text_logout = "คุณต้องการออกจากระบบ ?";
-        var yes = "是";
-    } else if ($.cookie("lng") == "th") {
-        var title_logout = "ออกจากระบบ ?";
-        var text_logout = "你要退出吗？";
-        var yes = "ใช่";
-    } else if ($.cookie("lng") == undefined) {
-        var title_logout = "Logout ?";
-        var text_logout = "Do you want to logout?";
-        var yes = "Yes";
-    }	 
+    var title_logout = "Logout ?";
+    var text_logout = "Do you want to logout?";
+    var yes = "Yes";
+    var cancel = "Cancel"
+} else if ($.cookie("lng") == "cn") {
+    var title_logout = "登出 ?";
+    var text_logout = "您需要注销 ?";
+    var yes = "是";
+    var cancel = "取消";
+} else if ($.cookie("lng") == "th") {
+    var title_logout = "ออกจากระบบ ?";
+    var text_logout = "คุณต้องการออกจากระบบหรือไม่?";
+    var yes = "ใช่";
+    var cancel = "ยกเลิก";
+} else if ($.cookie("lng") == undefined) {
+    var title_logout = "Logout ?";
+    var text_logout = "Do you want to logout?";
+    var yes = "Yes";
+    var cancel = "Cancel";
+}
+   
 var base_url = 'https://www.welovetaxi.com/app/booking/';
 $( document ).ready(function() {
     $('#loading').css('display', 'block');
@@ -367,15 +372,16 @@ $( document ).ready(function() {
 	});
 	$('#btn-logout-user').on('click', function() {
 		
-swal({
-  title: ''+title_logout+'',
-  text: ''+text_logout+'',
-  type: "warning",
-  showCancelButton: true,
-  confirmButtonClass: "btn-danger",
-  confirmButtonText: yes,
-  closeOnConfirm: false
-},
+        swal({
+            title: '' + title_logout + '',
+            text: '' + text_logout + '',
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: yes,
+            cancelButtonText: cancel,
+            closeOnConfirm: false
+        },
 function(){
 	console.log('logout');
         $.removeCookie("login");

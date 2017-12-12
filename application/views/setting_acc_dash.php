@@ -23,6 +23,19 @@
 .card{
   box-shadow:none !important;
 }
+/*****************************************/
+.confirm{
+                background-color: rgb(59, 89, 152) !important;
+                width: 100px !important;
+                border-radius: 25px !important;
+            }
+            .cancel{
+                padding: 10px 0px !important;
+                background-color: #C1C1C1 !important;
+                width: 100px !important;
+                border-radius: 25px !important;
+            }
+            /***********************************************/
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="date"].form-control,
   input[type="time"].form-control,

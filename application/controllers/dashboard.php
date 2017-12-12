@@ -572,7 +572,7 @@ echo json_encode($aaaa);
 // 	}
 // }
 
-public function query_transfer_byuser(){
+public function voucher(){
 	
   		$id = $this->input->get('order_id');
   		$lng = $this->input->get('lng');
@@ -598,7 +598,7 @@ public function query_transfer_byuser(){
 			
 		if($id=="" or $id==null){
 			echo '<h1>Please check your value set</h1><br/>';
-			echo '<h2>Ex. URL : dashboard/query_transfer_byuser?order_id=voucher_number</h2>';
+			echo '<h2>Ex. URL : dashboard/voucher?order_id=voucher_number</h2>';
 			
 		}else{
 			$data['results'] = $this->Userview_model_dash->order_detail($id);
