@@ -42,7 +42,7 @@
         <div style="height: 115px;  border-radius: 4px;  background: #fff;  min-width: 15rem;   /* height: auto; */    left: 50vw;   top: 50vh;   transform: translate(-50%,-50%);   position: fixed;    z-index: 10000;">
             <div>
                 <div style="font-weight: 500;  color: #000; padding: 35px; text-align: center;">
-                    <div style="font-size: 15px">Loading</div>
+                    <div style="font-size: 15px" >Loading</div>
                     <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i>
                 </div>            
             </div>
@@ -954,7 +954,20 @@
                 position: absolute;
                 margin-top: 10px;
                 font-size: 16px;
-			}
+            }
+            .confirm{
+                text-align: center;
+                background-color: rgb(35, 53, 91) !important;
+                width: 100px !important;
+                border-radius: 25px !important;
+            }
+            .cancel{
+                padding: 10px 0 !important;
+                text-align: center;
+                background-color: #C1C1C1 !important;
+                width: 100px !important;
+                border-radius: 25px !important;
+            }
     </style>
     <script>
     var base_url = 'https://www.welovetaxi.com/app/booking/';
@@ -1161,12 +1174,55 @@ $( document ).ready(function() {
         $('#foget-password3').fadeOut(500)
         $('#foget-password').show();
     });
-	$('#btn-logout-user').on('click', function() {
-        console.log('logout')
-        $.removeCookie("login");
-        window.location.href = base_url + "register";
-    })
-    $('.pay-driver').on('click', function() {
+	// $('#btn-logout-user').on('click', function() {
+    //     if ($.cookie("lng") == "en") {
+    //         var title_logout = "Logout ?";
+    //         var text_logout = "Do you want to logout?";
+    //         var yes = "Yes";
+    //         var cancel = "Cancel"
+    //     } else if ($.cookie("lng") == "cn") {
+    //         var title_logout = "登出 ?";
+    //         var text_logout = "您需要注销 ?";
+    //         var yes = "是";
+    //         var cancel = "取消";
+    //     } else if ($.cookie("lng") == "th") {
+    //         var title_logout = "ออกจากระบบ ?";
+    //         var text_logout = "คุณต้องการออกจากระบบหรือไม่?";
+    //         var yes = "ใช่";
+    //         var cancel = "ยกเลิก";
+    //     } else if ($.cookie("lng") == undefined) {
+    //         var title_logout = "Logout ?";
+    //         var text_logout = "Do you want to logout?";
+    //         var yes = "Yes";
+    //         var cancel = "Cancel";
+    //     }
+    //         swal({
+    //                 title: '' + title_logout + '',
+    //                 text: '' + text_logout + '',
+    //                 type: "warning",
+    //                 showCancelButton: true,
+    //                 confirmButtonClass: "btn-danger",
+    //                 confirmButtonText: yes,
+    //                 cancelButtonText: cancel,
+    //                 closeOnConfirm: false
+    //             },
+    //             function() {
+    //                 console.log('logout');
+    //                 $.removeCookie("login");
+    
+    //                 window.location.href = base_url + "register";
+    
+    //             });
+    // })
+    $('.box-login-non').click(function() {
+
+
+
+        // console.log(data + " " + from + " " + to);
+        window.location.href = "https://www.welovetaxi.com/app/booking/register";
+
+    });
+    $('.pay-driver').on('click', function(){
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url(); ?>dashboard/paydriver',
