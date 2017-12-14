@@ -1,6 +1,10 @@
 body {
     height: 100vh;
 }
+/* #paxrel{
+    height: 65vh;
+    overflow: scroll; 
+} */
 #i-list i{
     line-height: 0;
 }
@@ -1064,6 +1068,10 @@ input:after {
         /* height: 11vh  !important; */
        
     }
+    #paxrel{
+        height: 65vh;
+        overflow: scroll;
+    }
     #bodyClick {
         right: 229px !important;
     }
@@ -1169,6 +1177,10 @@ input:after {
     /*@media only screen and (max-device-width: 568px) and (min-device-width: 320px) and (orientation: portrait){*/
     #box-pro-service {
         height: 45vh;
+    }
+    #paxrel{
+        height: 55vh;
+        overflow: scroll;
     }
     .box-province {
         margin-left: 3px;

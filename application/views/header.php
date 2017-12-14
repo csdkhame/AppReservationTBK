@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-	<title>App booking</title>
+	<title>Booking</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	<script>
 		// var base_url = '<?php echo base_url(); ?>';
@@ -54,7 +54,7 @@
                   
                         <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
                         <span style="    margin-left: 30px;
-    font-size: 14px;    pointer-events: auto;" class="lng-login"></span>
+    font-size: 15px;    pointer-events: auto;" class="lng-login"></span>
 </div>
                  
                     <div class="box-login" style="pointer-events: auto;width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">

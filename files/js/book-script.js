@@ -542,7 +542,7 @@ $(document).ready(function() {
 
 
         console.log(data + " " + from + " " + to);
-        window.location.href = "https://www.welovetaxi.com/app/booking/register?by=book&data=" + data + "&from=" + from + "&to=" + to;
+        window.location.href = "https://www.welovetaxi.com/app/booking/register?by=book&data=" + data + "&from=" + from + "&to=" + to + "&lat_f=" + getParameterByName('lat_f')+ "&lng_f=" + getParameterByName('lng_f')+ "&lat_t=" + getParameterByName('lat_t')+ "&lng_t=" + getParameterByName('lng_t') + "&book=" + getParameterByName('book');
 
     });
 

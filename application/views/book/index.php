@@ -95,7 +95,7 @@
                     <div class="" style="    padding: 9px 10px;   margin-left: 15px;     font-size: 25px;   display: inline-block;">
                         <div class="box-login-non">
                             <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
-                            <span style="  margin-left: 30px;  font-size: 14px;" class="lng-login"></span>
+                            <span style="  margin-left: 30px;  font-size: 15px;" class="lng-login"></span>
                         </div>
                         <div class="box-login" style="width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">            
                         </div>

@@ -57,7 +57,7 @@
     padding-bottom: 12px;
     font-size: 18px;
     font-weight: 400;
-    margin-bottom: 40px;
+    margin-bottom: 5px;
     border-bottom: dashed 3px #3b5998;" >
             <span class="lng-payment"></span>
         </div>
@@ -424,8 +424,12 @@
 <!-- <form class="paypal" action="./payments" method="post" id="paypal_form" target="_blank"> -->
         <table class="table " width="100%">
             <tr>
-                <td colspan="2" align="center"><div class="status-pay" style="font-weight: 400;
-    font-size: 16px;"></div></td>
+                <td colspan="2" align="center"><div class="status-pay" style="position: absolute;
+                font-weight: 400;
+                font-size: 16px;
+                top: 51px;
+                color: rgb(255, 0, 0);
+                right: 73px;"></div></td>
             </tr>
             <tr>
                 <td>
@@ -434,7 +438,16 @@
                 <td>
                 <span id="pdname"></span>
                 </td>
-            </tr><tr>
+            </tr>
+            <tr>
+  			<td>
+  			<span class="lng-car_type"></span>
+  			</td>
+  			<td>
+  			<span id="car_type"></span>
+  			</td>
+  		</tr>
+            <tr>
                 <td>
                 <span class="voucher-lang lng-voucher-no"></span>
                 </td>
@@ -480,7 +493,8 @@
                 <span class="lng-amount"></span> (THB.)
                 </td>
                 <td>
-                <span id="total_amount"></span> 
+                <span id="total_amount"></span>
+                <span class="currency"></span> 
                 <!-- <input type="number" name="txt_amount" class="textInput" holder="" id="amount" /> -->
                 <!-- disabled -->
                 </td>
@@ -1292,6 +1306,7 @@ function getParameterByName(name, url) {
                         $('.box-pay').hide()
                           
                     }
+                    $('#car_type').html(data[0].product_detail[0].car_topic_en+data[0].product_detail[0].pax_en)
                     product_name = data[0].product_detail[0].topic_en;
                    
                   
@@ -1316,6 +1331,8 @@ function getParameterByName(name, url) {
                         $('.box-pay').hide()
                     }
                     product_name = data[0].product_detail[0].topic_cn;
+                    $('#car_type').html(data[0].product_detail[0].car_topic_cn+data[0].product_detail[0].pax_cn)
+                    
                   
                    
                 }else if ($.cookie("lng")=="th"){
@@ -1339,6 +1356,8 @@ function getParameterByName(name, url) {
                         $('.box-pay').hide()
                     }
                     product_name = data[0].product_detail[0].topic_th;
+                    $('#car_type').html(data[0].product_detail[0].car_topic_th+data[0].product_detail[0].pax_th)
+                    
                     
                    
                 }else if($.cookie("lng")==undefined){
@@ -1361,6 +1380,8 @@ function getParameterByName(name, url) {
                         $('.box-pay').hide()
                         
                     }
+                    $('#car_type').html(data[0].product_detail[0].car_topic_en+data[0].product_detail[0].pax_en)
+                    
                     product_name = data[0].product_detail[0].topic_en;
                    
                     

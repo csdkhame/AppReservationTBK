@@ -475,6 +475,7 @@ $(document).ready(function(){
 	
     var username, password , username_signup ,password_signup,text_check,forget = '';
     var base_url = "https://www.welovetaxi.com/app/booking/";
+   
 $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>getuserlog_control/process',
@@ -691,6 +692,15 @@ $.ajax({
     
     });
 });//END
+function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '1865903040340223',
@@ -751,7 +761,7 @@ window.fbAsyncInit = function() {
 				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
 				 }else if(type_login=='book'){
 //						alert(param_data+" "+param_from+" "+param_to);
-				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to+"&lat_f="+lat_f+"&lng_f="+lng_f+"&lat_t="+lat_t+"&lng_t="+lng_t+"&book="+book;
+				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to + "&lat_f=" + getParameterByName('lat_f')+ "&lng_f=" + getParameterByName('lng_f')+ "&lat_t=" + getParameterByName('lat_t')+ "&lng_t=" + getParameterByName('lng_t') + "&book=" + getParameterByName('book');
 					
 				 }else{
 				 	window.location.href = "<?php echo base_url(); ?>";
@@ -838,7 +848,7 @@ if(type_login=='dasboard'){
 				 	window.location.href = "<?php echo base_url(); ?>dashboard/view_user";
 				 }else if(type_login=='book'){
 //						alert(param_data+" "+param_from+" "+param_to);
-				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to+"&lat_f="+lat_f+"&lng_f="+lng_f+"&lat_t="+lat_t+"&lng_t="+lng_t+"&book="+book;
+				 	window.location.href = "<?php echo base_url(); ?>book?data="+param_data+"&from="+param_from+"&to="+param_to + "&lat_f=" + getParameterByName('lat_f')+ "&lng_f=" + getParameterByName('lng_f')+ "&lat_t=" + getParameterByName('lat_t')+ "&lng_t=" + getParameterByName('lng_t') + "&book=" + getParameterByName('book');
 					
 				 }else{
 				 	window.location.href = "<?php echo base_url(); ?>";
