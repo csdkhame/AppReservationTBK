@@ -1025,15 +1025,15 @@
                         
                         </td>
                         <td width="8px"></td>
-                        <td onclick="selectEditPlaceOfften(3)" class="pac-item-query">
-                            <div class="lng-yes-regularly pac-matched ">regularly</div>
+                        <td colspan="3"  class="pac-item-query box-history">
+                            <div class="lng_favorites pac-matched ">regularly</div>
                         </td>
                         <!-- <td width="50%">
                             <div class="lng-save_regularly_place" ></div>
                         </td> -->
-                        <td onclick="selectEditPlaceOfften(3)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numregular"></span></td>
-                        <td  width="30">
-                        <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i>
+                        <!-- <td onclick="selectEditPlaceOfften(3)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numregular"></span></td>
+                        <td  width="30"> -->
+                        <!-- <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i> -->
                         
                         <!-- <table width="100%">
                             <tr>
@@ -1049,7 +1049,7 @@
                             </tr>
                             </table> -->
                             
-                        </td>
+                        <!-- </td> -->
                         
                     </tr>
 
@@ -1427,8 +1427,125 @@ textarea:-ms-input-placeholder {
                 </div>        
             
             </div></div>
+
+            <div id="history_pop" style="display: none;">
+            <div class="history_pop_in">               
+                <div class="history_pop_ln">
+                    <div class="lng_history" style="text-align: center; font-size: 16px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
+                    <div style="font-size: 15px;  padding-bottom: 15px; border-bottom: dashed 2px #3b5998;">
+                        <table width="100%">                           
+                            <tr>
+                                <td width="10"></td>
+                                <td>
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="10">
+                                                <div style="width: 10px;  height: 10px;  border-radius: 1px; background: #555;"></div>
+                                            </td>
+                                            <td align="left" style="padding-left: 15px;">
+                                                <span id="locationfrom" style="text-align: center;"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><br></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10">
+                                                <div style="width: 10px;  height: 10px; border-radius: 1px; background: #3b5998;"></div>
+                                            </td>
+                                            <td align="left" style="padding-left: 15px;">
+                                                <span id="locationto" style="text-align: center;">Home2</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>             
+                    </div>
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <div class="lng-no" style="background-color: #f44336;
+                    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="cancelhistory()"></div>
+                    <div class="lng-save" style="    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #4caf50;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;" onclick="confirmhistory()"></div>
+                    </div>
+                    
+                </div>        
+            
+            </div></div>
+           
+
+            <div id="get_history_pop" style="display: none;">
+            <div class="get_history_pop_in">               
+                <div class="get_history_pop_ln">
+                <i class="material-icons" id="close_get_history" style="position: absolute;top: 10px; right: 15px;">close</i>
+                    <div class="lng_favorites" style="text-align: center; font-size: 16px;    margin-bottom: 20px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
+                    <ul id="list_history" >
+
+                    </ul>
+                    
+                    
+                    
+                </div>        
+            
+            </div></div>
+            <div id="get_historylist_pop" style="display: none;">
+            <div class="get_historylist_pop_in">               
+                <div class="get_historylist_pop_ln">
+                <i class="material-icons" id="close_get_historylist" style="position: absolute;top: 10px; right: 15px;">close</i>
+                    <div class="lng_list" style="text-align: center; font-size: 16px;    margin-bottom: 20px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
+                    <ul id="list_historylist" >
+
+                    </ul>
+                    
+                    
+                    
+                </div>        
+            
+            </div></div>
+            
 <style>
     /*  rgb(13, 107, 106) */
+    #list_history{
+        list-style: none;
+    padding-left: 0;
+    overflow: scroll;
+    max-height: 85vh;
+
+    }
+    #list_historylist{
+        list-style: none;
+    padding-left: 0;
+    overflow: scroll;
+    max-height: 85vh;
+
+    }
+    #list_historylist li {
+        margin-bottom: 8px;
+    }
+    #list_history li {
+        margin-bottom: 8px;
+    }
             .confirm{
                 text-align: center;
                 background-color: rgb(35, 53, 91) !important;
@@ -1592,5 +1709,85 @@ textarea:-ms-input-placeholder {
                 transform: translate(-50%,-50%);
                 /* right: 50px; */
                 pointer-events: none;
+            }
+            #history_pop{
+                z-index: 9999;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                /* display: none; */
+            }
+            .history_pop_in{
+                /* height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 90vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .history_pop_ln{
+                padding: 15px;
+            }
+            #get_history_pop{
+                z-index: 9999;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                /* display: none; */
+            }
+            .get_history_pop_in{
+                /* height: 220px; */
+                max-height: 95vh;
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 90vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .get_history_pop_ln{
+                padding: 15px;
+            }
+            #get_historylist_pop{
+                z-index: 9999;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                /* display: none; */
+            }
+            .get_historylist_pop_in{
+                /* height: 220px; */
+                max-height: 95vh;
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 90vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .get_historylist_pop_ln{
+                padding: 15px;
             }
             </style>

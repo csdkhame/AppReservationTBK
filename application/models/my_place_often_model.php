@@ -27,6 +27,7 @@ class My_place_often_model extends CI_Model {
 	return $result;
 
 	}
+	
   
 }
 ?>

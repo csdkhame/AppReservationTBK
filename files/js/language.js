@@ -17,25 +17,10 @@ $(document).ready(function() {
             }
         }
     });
-    var x = false;
-    $('.navbar-toggle').click(function() {
-
-        if (x == false) {
-            // $('.BT').css('display', 'none');
-
-        }
-        // else {
-        //     $('.BT').css('display', 'block');
-        // }
-
-
-    });
+    var x = false;    
     $("#bodyClick").click(function() {
-
         // $('.BT').show()
         x = true;
-
-
     });
     $("#bodyClick").swipe({
         swipeStatus: function(event, phase, direction, distance, duration, fingers) {
@@ -55,12 +40,7 @@ $(document).ready(function() {
         }
     });
     $('.box-login-non').click(function() {
-        $('#loading').css('display', 'block');
-//        setTimeout(function() {
-
-//            window.location.href = base_url + "register";
-//        }, 2000);
-
+        $('#loading').css('display', 'block');    
     });
     // console.log($.cookie("lng"));
     if ($.cookie("lng") == 'cn') {
@@ -94,8 +74,7 @@ $(document).ready(function() {
         $('.lng-total-prices').html('总价');
         $('.lng-person').html('人');
         $('.lng-car').html('车');
-        $('.lng-carnum').html('发痒');
-        
+        $('.lng-carnum').html('发痒');        
         $('.lng-you-choose').html('你选择');
         $('.lng-adult').html('成人');
         $('.lng-child').html('儿童');
@@ -109,8 +88,7 @@ $(document).ready(function() {
         $('.lng-phone').html('电话');
         $('.lng-email').html('电子邮件');
         $('.lng-other').html('其他');
-        $('.lng-remark').html('備註');
-        
+        $('.lng-remark').html('備註');        
         $('.lng-flight').html('航班');
         $('.lng-sum-total').html('总计');
         $('.lng-acceptance-of-terms').html('接受条款');
@@ -140,7 +118,6 @@ $(document).ready(function() {
         $('.lng-seating').html('座位数');
         $('.lng-terms-of-use').html('服务条款');
         $('.picker__button--close').html('密切');
-
         $('.lng-close').html('关');
         $('.lng-home').html('主頁');
         $('.lng-management').html('我的预订');
@@ -164,8 +141,7 @@ $(document).ready(function() {
         $('.lng-save').html('保存');
         $('.lng-yes-regularly').html('常用');
         $('.lng_position').html('您选择的路线正确吗？');
-        $('.lng_find_again').html('重新编辑路线');
-        
+        $('.lng_find_again').html('重新编辑路线');        
         $('.lng-home-locat').html('住家');
         $('.lng-office-locat').html('办公室');
         $('.lng-setpin-locat').html('在地图上设置位置');
@@ -184,30 +160,15 @@ $(document).ready(function() {
         $('.lng_get_latest_promo').html("你会得到最新的促销信息和特殊会员折扣。")
         $('.lng_member_using').html("作为使用Go Holiday Quick的会员，您的预订是我们的首要任务。")
         $('.lng_location_no').html("您選擇的路線無效。")
+        $('.lng_history').html("你想定期保存你的位置吗？")
+        $('.lng_history_get').html("历史")
+        $('.lng_favorites').html("我的最爱")
+        $('.lng_list').html("历史记录列表")
+        $('.lng_notifications').html("通知")
+        $('.lng_drive').html("通知")
         
         
         
-        
-        
-        
-        
-        
-
-        
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
 
 
         /////////////// Dash ///////////////////////////////////////
@@ -248,16 +209,7 @@ $(document).ready(function() {
         $('.lng-paynow').html('现在付款');
 
 
-
-
-
-
-
-
-
-
-
-    } else if ($.cookie("lng") == 'en') {
+    } else if ($.cookie("lng") == 'en' || $.cookie("lng") == undefined) {
         $('.lng-private').html('Private');
         $('.lng-join').html('Join');
         //menu
@@ -287,8 +239,7 @@ $(document).ready(function() {
         $('.lng-total-prices').html('Total price');
         $('.lng-person').html('Person');
         $('.lng-car').html('Car');
-        $('.lng-carnum').html('Car');
-        
+        $('.lng-carnum').html('Car');        
         $('.lng-you-choose').html('You choose');
         $('.lng-adult').html('Adult');
         $('.lng-child').html('Child');
@@ -331,7 +282,6 @@ $(document).ready(function() {
         $('.lng-seating').html('Seating');
         $('.lng-terms-of-use').html('Terms of Use');
         $('.picker__button--close').html('Close');
-
         $('.lng-close').html('Close');
         $('.lng-home').html('Home');
         $('.lng-management').html('My Booking');
@@ -376,36 +326,16 @@ $(document).ready(function() {
         $('.lng_member_using').html("As a member using Go Holiday Quick, your booking is our priority.")
         $('.lng-exclusive-discount').html('Offer via email');
         $('.lng_location_no').html("The route you selected is not valid.")
+        $('.lng_history_get').html("History")
+        $('.lng_history').html("Do you want to save your location on a regular basis?")
+        $('.lng_favorites').html("Favorites")
+        $('.lng_list').html("History list")
+        $('.lng_notifications').html("Notifications")
+        $('.lng_drive').html("Drive with us")
         
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         /////////////// Dash ///////////////////////////////////////
@@ -444,11 +374,6 @@ $(document).ready(function() {
         $('.lng-old-password').html('Old Password');
         $('.lng-other').html('Other');
         $('.lng-paynow').html('Pay Now');
-
-
-
-
-
 
     } else if ($.cookie("lng") == 'th') {
         $('.lng-private').html('รถส่วนตัว');
@@ -500,8 +425,7 @@ $(document).ready(function() {
         $('.lng-booking-infomation').html('ข้อมูลการจอง');
         $('.lng-none').html('ไม่มี');
         $('.lng-yes').html('ใช่');
-        $('.lng-yes2').html('ถูกต้อง');
-        
+        $('.lng-yes2').html('ถูกต้อง');        
         $('.lng-no').html('ไม่');
         $('.lng-or').html('หรือ');
         $('.lng-password').html('รหัสผ่าน');
@@ -524,7 +448,6 @@ $(document).ready(function() {
         $('.lng-seating').html('ที่นั่ง');
         $('.lng-terms-of-use').html('ข้อกำหนดการใช้งาน');
         $('.picker__button--close').html('ปิด');
-
         $('.lng-close').html('ปิด');
         $('.lng-home').html('หน้าหลัก');
         $('.lng-management').html('การจองของฉัน');
@@ -571,24 +494,17 @@ $(document).ready(function() {
         $('.lng_member_using').html("ในฐานะสมาชิกที่ใช้ Go Holiday Quick การจองของคุณเป็นสิ่งสำคัญที่สุด")
         $('.lng-exclusive-discount').html('ข้อเสนอทางอีเมล');
         $('.lng_location_no').html("เส้นทางที่คุณเลือกไม่ถูกต้อง")
+        $('.lng_history_get').html("ประวัติ ใช้ประจำ")
+        $('.lng_history').html("คุณต้องการบันทึกตำแหน่งลงในประวัติใช้ประจำหรือไม่?")
+        $('.lng_favorites').html("รายการโปรด")
+        $('.lng_list').html("ประวัตรายการ")
+        $('.lng_notifications').html("การแจ้งเตือน")
+        $('.lng_drive').html("ขับรถกับเรา")
         
         
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-
-
-
 
         /////////////// Dash ///////////////////////////////////////
         $('#terms-of-use').html('<span >' +
@@ -612,7 +528,6 @@ $(document).ready(function() {
         $('.lng-book-by').html('คนจอง');
         $('.lng-date').html('วันที่');
         $('.lng-order').html('ใบสั่ง');
-
         $('.lng-last-name').html('นามสกุล');
         $('.lng-address').html('ที่อยู่');
         $('.lng-country').html('ประเทศ');
@@ -622,239 +537,9 @@ $(document).ready(function() {
         $('.lng-please-select-type').html('โปรดเลือกประเภท');
         $('.lng-a-place').html('กรุณาเลือกสถานที่ขึ้นรถ');
         $('.lng_addbook').html('จองรถ')
-        
-        
-        
-
-
-
-    } else if ($.cookie("lng") == undefined) {
-        $('.lng-private').html('Private');
-        $('.lng-join').html('Join');
-        //menu
-        $('.lng-register').html('Register');
-        $('.lng-login').html('Login');
-        $('.lng-product').html('Product');
-        $('.lng-transports').html('Transports');
-        $('.lng-tours').html('Transports');
-        $('.lng-language').html('Language');
-        $('.lng-settings-account').html('Settings Account');
-        $('.lng-logout').html('Logout');
-        //home
-        //        $('.lng-advance-use').html('Find transfer');
-        $('.lng-advance-use').html('Adv Booking');
-        $('.lng-now-use').html('Book Now');
-        $('.lng-search').html('Search');
-        $('.lng-dashboard').html('Report&management');
-        $('.lng-car-type').html('Car type');
-        $('.lng-book').html('Book');
-        $('.lng-capacity-info').html('Capacity info');
-        $('.lng-facilities').html('Capacity info');
-        $('.lng-summary').html('Summary');
-        $('.lng-contact-infomation').html('Contact infomation');
-        $('.lng-from').html('From');
-        $('.lng-to').html('To');
-        $('.lng-type').html('Type');
-        $('.lng-price').html('Price');
-        $('.lng-total-prices').html('Total price');
-        $('.lng-person').html('Person');
-        $('.lng-car').html('Car');
-        $('.lng-carnum').html('Car');
-        
-        $('.lng-you-choose').html('You choose');
-        $('.lng-adult').html('Adult');
-        $('.lng-child').html('Child');
-        $('.lng-visa').html('Visa on Arrival');
-        $('.lng-departure-terminal').html('Departure terminal');
-        $('.lng-get-detail').html('Details from the register.');
-        $('.lng-product-name').html('Product name');
-        $('.lng-pick-up-from').html('Pick up from');
-        $('.lng-pick-up-to').html('Pick up to');
-        $('.lng-first-name').html('First Name');
-        $('.lng-phone').html('Phone');
-        $('.lng-email').html('Email');
-        $('.lng-other').html('Other');
-        $('.lng-flight').html('Flight');
-        $('.lng-sum-total').html('Sum total');
-        $('.lng-acceptance-of-terms').html('Acceptance of terms');
-        $('.lng-booking-infomation').html('Booking infomation');
-        $('.lng-none').html('None');
-        $('.lng-yes').html('Yes');
-        $('.lng-yes2').html('Correct');
-        
-        $('.lng-no').html('No');
-        $('.lng-or').html('or');
-        $('.lng-password').html('Password');
-        $('.lng-not-member').html('Not a member?');
-        $('.lng-sign-up-now').html('Sign Up Now');
-        $('.lng-why-become').html('Why become a App Booking member?');
-        $('.lng-special-product').html('Special Product Price');
-        $('.lng-exclusive discount').html('Exclusive Discount via Email');
-        $('.lng-fast-booking').html('Fast Booking with Only One-Click');
-        $('.lng-have-member').html('Have a member?');
-        $('.lng-registered-customers').html('Registered customers');
-        $('.lng-sign-create').html('Sign In or Create an Account');
-        $('.lng-what-is-your-email').html(' What is your email (phone for mobile accounts)?');
-        $('.lng-sign-in').html('Sign in');
-
-        $('.lng-check').html('Check');
-        $('.lng-facilitiy').html('Facilitiy')
-        $('.lng-conditioner').html('Air Conditioner');
-        $('.lng-audio-player').html('Audio Player');
-        $('.lng-cancel').html('Cancel')
-        $('.lng-seating').html('Seating');
-        $('.lng-terms-of-use').html('Terms of Use');
-        $('.lng-close').html('Close');
-        $('.picker__button--close').html('Close');
-
-        $('.lng-home').html('Home');
-        $('.lng-management').html('My Booking');
-        $('.lng-new-password').html('New Password');
-        $('.lng-confirm-password').html('Confirm Password');
-        $('.lng-arrival-date').html('Arrival date');
-        $('.lng-arrival-time').html('Arrival time');
-        $('.lng-foget-pass').html('Forgot your password');
-        $('.lng-please-input-email').html('Please input your email');
-        $('.lng-send').html('Send');
-        $('.lng-change-password').html('Change password');
-        $('.lng-change').html('Change');
-        $('.lng-not-same').html('Password not same');
-        $('.lng-date').html('date');
-        // $('.lng-car-service').html('Car service');
-        $('.lng-car-service').html('Rent hour');
-        
-        $('.lng-loading').html('Loading..');
-        $('.lng-not-found').html('Product not Found');
-        $('.lng-no-record').html('No Record');
-        $('.lng-payment').html('Payment');
-        $('.lng-plese-login').html('Please sign in');
-        $('.lng-remark').html('Remark');
-        $('.lng-please-select-type').html('	Please select type');
-        $('.lng-a-place').html('Please select a place to ride');
-        $('.lng-save').html('Save');
-        $('.lng-yes-regularly').html('Commonly used');
-        $('.lng_position').html('Did you choose the correct route?');
-        $('.lng_find_again').html('Re-edit route');
-        $('.lng-setpin-locat').html('Set the location on the map');
-        $('.lng-current-pos').html('Current Position');
-        $('.lng-nearby-locat').html('Near the place');
-        $('.lng-office-locat').html('Office');
-        $('.lng-home-locat').html('House');
-        $('.lng_departure').html('Use date')
-        $('.lng_please_accept').html('Please accept the agreement.')
-        $('.lng_chosen_car').html('You have chosen a car.')
-        $('.lng_confirm').html('Confirm')
-        $('.lng_new_selection').html('New selection')
-        $('.lng_email_have').html('Have this email in system')
-        $('.lng_email_available').html('This email is available')
-        $('.lng_please_input_data').html('Please input data')
-        $('.lng_get_lower_price').html("You'll get lower price for every Product booking, as a member.")
-        $('.lng_get_latest_promo').html("You'll get the latest promo info and special member discount.")
-        $('.lng_member_using').html("As a member using Go Holiday Quick, your booking is our priority.")
-        $('.lng-exclusive-discount').html('Offer via email');
-        $('.lng_location_no').html("The route you selected is not valid.")
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /////////////// Dash ///////////////////////////////////////
-        $('#terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
-
-            '<B>2.</B> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br /><br>' +
-
-            '<B>3.</B> Please check your belongings before leaving. We are not responsible for any loss.<br /><br>' +
-
-            '<B>4.</B> If the driver did not arrive on time in 5-15 minutes, please contact our 24-hour hotline,Such as waiting for more than 30 minutes, please kindly get another taxi. We will refund the cost of the order, if the guest able to provide the taxi voucher that they took, we will refund the taxi costs. Please be noticed the other fees are not responsible for refund..</span>');
-        $('.lng-name_d').html('Name');
-        $('.lng-username_d').html('Username');
-        $('.lng-email_d').html('Email');
-        $('.lng-cr_d').html('Cutomer Reference');
-        $('.lng-code_d').html('Code');
-        $('.lng-amount_d').html('Amount');
-        $('.lng-search_d').html('<input type="text" value="" class="form-control" placeholder="Search name..." onkeyup="myFunction()" id="myInput"  style="margin-left: -6px;" />');
-
-        $('.lng-sa_d').html('Settings Account');
-        $('.lng-customer_d').html('Customer');
-        $('.lng-payment_d').html('Payment');
-        $('.lng-bag-big').html('Bag big');
-        $('.lng-plan').html('Plan');
-        $('.lng-bag-small').html('Bag small');
-        $('.lng-detail-order').html('Detail Order');
-        $('.lng-amount').html('Amount ');
-        $('.lng-book-by').html('Book by');
-        $('.lng-voucher-no').html('Voucher No.');
-        $('.lng-order').html('Order');
-
-        $('.lng-last-name').html('Last Name');
-        $('.lng-address').html('Address');
-        $('.lng-country').html('Country');
-        $('.lng-old-password').html('Old Password');
-        $('.lng-other').html('Other');
-        $('.lng-paynow').html('Pay Now');
-        $('.lng_addbook').html('Booking car')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
-    //     $.ajax({
-    //             type: 'POST',
-    //             url: '../service/getLanguage.php',
-    //             data: { 'id': $.cookie("login") },
-    //             //contentType: "application/json",
-    //             dataType: 'json',
-    //             success: function(data) {
-    //                 console.log(data)
-
-
-    //         }
-    //     });
-    // });
+   
 });
 
 function language(lng) {

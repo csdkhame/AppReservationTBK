@@ -405,6 +405,7 @@ $("#currentPosId").click(function() {
     if (curentFromTo == 'From') {
         // $('#boxRealtimeto').css('display') == 'none'
         typeFrom = addr;
+        $('#locationfrom').html(addr)
         start = pos;
         console.log(pos)
         // typeFrom = addr;
@@ -414,6 +415,8 @@ $("#currentPosId").click(function() {
     else{
         end = pos;
         typeTo = addr;
+        $('#locationto').html(addr)
+        
         checkshow = false;
         // typeTo = addr;
         console.log(lat_f)
@@ -710,6 +713,7 @@ function a(map) {
         console.log(lng_t);
         console.log($('#current').val())
         typeFrom = $('#current').val();
+        $('#locationfrom').html($('#current').val())
 
         console.log('********************************************************')
         $('#clear-all').show(500);
@@ -789,6 +793,8 @@ function a(map) {
                 console.log(lat_t);
                 console.log(lng_t);
                 typeTo = $('#pac-input').val();
+            $('#locationto').html($('#pac-input').val())
+        
         
                 console.log('********************************************************')
                 var radlat1 = Math.PI * lat_f / 180
@@ -926,6 +932,9 @@ $('#btn_CurrentLocation').click(function() {
 $('#clear-all').click(function() {
     $('#pac-input').val('');
     $('#current').val('');
+    $('#locationfrom').val('');
+    $('#locationto').val('');
+    
     console.log(placeStart);
     $('.a-link-item').remove();
     $('.not-found').remove();
@@ -966,10 +975,14 @@ $('#clear-all').click(function() {
 
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var notfound;
+    lat_f = lat_f;
+    lng_f = lng_f;
+    lat_t =lng_t;
+    lng = lng_t;
     console.log('in case')
     compae1private = [];
     compae1join = [];
-
+    console.log(lat_f+'-'+lng_f+'-'+dist+'-'+lat_t+'-'+lng_t)
     if ($.cookie("lng") == 'cn') {
         notfound = '产品没有找到';
 
@@ -1085,7 +1098,23 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 
                 datasort.sort(function(a, b){return a.person-b.person});
                 console.log(datasort)
-                $('#box-pax-rel').show(500)  
+                $('#get_history_pop').hide()
+                $('#box-pax-rel').show(500)
+                if(check_his == true){
+                   
+                    console.log(his_place_from)
+                    console.log(his_place_to)
+                    $('#typeFrom').html(his_place_from);
+                    $('#typeTo').html(his_place_to); 
+                    check_his = false; 
+                }
+                else{
+                   
+                        $('#typeFrom').html(typeFrom)                
+                        $('#typeTo').html(typeTo)    
+                    
+                }
+               
 
                   $.each(datasort, function(i, val) {
                     var index2 = parseInt(i) + 1;
@@ -1118,9 +1147,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 }
                 console.log(type)
                 console.log(datasort)
-        
-                $('#typeFrom').html(typeFrom)                
-                $('#typeTo').html(typeTo)                
+                
+                            
                  
                 // label="' + type + '"
                 $('#paxrel').append('<li class="typerel" id="typeservice'+datasort[i].pax_id+'"  onclick="sendpaxrel(\'' + datasort[i].pax_id + '\') "><span>' + typeshow + '</span>&nbsp;<span class="pax-person" >' + pax + '</span><div style="float: right;display: inline-block;"><span style="padding-right: 5px;">'+lng_price+':'+'</span>'+datasort[i].cost_a+'</div></li>');
@@ -1407,7 +1435,25 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 
 
 }
+var his_place_from = '',his_place_to = '',check_his = false,check_type_book = '';
+function sendplace(from,to,u,v,x,y,type) {
+     check_type_book = 'his';
+    his_place_from = from;
+    his_place_to = to;
+    check_his = true;
+    console.log(from+'-'+to)
+    lat_f = u;
+    lng_f = v;
+    lat_t = x;
+    lng_t = y;
+    booking = type; 
+    // $('#typeFrom').html(from);
+    // $('#typeTo').html(to);
+    
+
+}
 function sendpaxrel(x) {
+    console.log(lat_t+'-'+lng_t)
     $('#box-pax-rel').hide();
     $('#show-hide-pro').show(500);
     $('#loading').css('display', 'block');
@@ -1672,7 +1718,7 @@ function sendpaxrel(x) {
 
             '</div>' +
             '<div class="views-item" >' +
-            '<a  href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" > <span >' + lngbook + '</span></a>' +
+            '<a onclick="bookingdetail('+ compae1private[i].transfer_id+',' + dataPlacefrom + ',' + dataPlaceto + ','+lat_f+','+lng_f+','+lat_t+','+lng_t+',\''+booking+'\')"> <span >' + lngbook + '</span></a>' +
 
             '</div>' +
             '</div>' +
@@ -1828,7 +1874,129 @@ function callback(results, status) {
         console.log(status);
     }
 }
+var his_transfer_id,his_from,his_to,his_lat_f,his_lng_f,his_lat_t,his_lng_t,his_fashion;
+function confirmhistory(){
+    $('#history_pop').hide()
+    console.log($('#current').val())
+    console.log($('#pac-input').val())
+    console.log(his_transfer_id+'-'+his_from+'-'+his_to+'-'+his_lat_f+'-'+his_lng_f+'-'+his_lat_t+'-'+his_lng_t+'-'+his_fashion)
+    datalocation = { "user": $.cookie("login"), "topic_from":$('#current').val(), "topic_to":$('#pac-input').val(),"from": dataPlacefrom,"to": dataPlaceto,"lat_f": lat_f,"lng_f": lng_f,"lat_t": lat_t,"lng_t": lng_t,"fashion":booking};
+    
+    $.ajax({
+        type: 'POST',
+        url: 'https://www.welovetaxi.com/app/booking/my_place_often/savehistory',
+        data: datalocation,
+        //contentType: "application/json",
+        dataType: 'json',
+        success: function(data) {
+            console.log(data)
+    window.location.href = base_url + 'book?data=' + his_transfer_id + '&from=' + his_from + '&to=' + his_to + '&lat_f='+his_lat_t+'&lng_f='+his_lng_f+'&lat_t='+his_lat_t+'&lng_t='+his_lng_t+'&book='+his_fashion;
+    
+            
+                                       
+        }
+    });
+}
+function cancelhistory(){
+    $('#history_pop').hide()     
+    console.log(his_transfer_id+'-'+his_from+'-'+his_to+'-'+his_lat_f+'-'+his_lng_f+'-'+his_lat_t+'-'+his_lng_t+'-'+his_fashion)
+    window.location.href = base_url + 'book?data=' + his_transfer_id + '&from=' + his_from + '&to=' + his_to + '&lat_f='+his_lat_t+'&lng_f='+his_lng_f+'&lat_t='+his_lat_t+'&lng_t='+his_lng_t+'&book='+his_fashion;
+    
+}
+function bookingdetail(transfer_id,from,to,lat_f,lng_f,lat_t,lng_t,book){
+    console.log(transfer_id+'-'+from+'-'+to+'-'+lat_f+'-'+lng_f+'-'+lat_t+'-'+lng_t+'-'+book)
+    var datalocation;
+    his_transfer_id = transfer_id;
+    his_from = from;
+    his_to = to;
+    his_lat_f = lat_f;
+    his_lng_f = lng_f;
+    his_lat_t = lat_t;
+    his_lng_t = lng_t
+    his_fashion = book;
+    // $('#history_pop').show(500)
+    // href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" >
+    if ($.cookie("login") && check_type_book != 'his') {
+        $('#history_pop').show(500)
+//         if ($.cookie("lng") == "en" || $.cookie("lng") == undefined) {
+//             var title_save = "Save location ?";
+//             var text_save = "Do you want to save your location on a regular basis?";
+//             var bt_save = "Yes";
+//             var bt_cancel = "No"
+//         } else if ($.cookie("lng") == "cn") {
+//             var title_save = "保存位置?";
+//             var text_save = "你想定期保存你的位置吗？";
+//             var bt_save = "是";
+//             var bt_cancel = "不是";
+//         } else if ($.cookie("lng") == "th") {
+//             var title_save = "บันทึกตำแหน่ง ?";
+//             var text_save = "คุณต้องการบันทึกตำแหน่งลงในประวิตใช้ประจำหรือไม่?";
+//             var bt_save = "ใช่";
+//             var bt_cancel = "ไม่";
+//         }
+//             swal({
+//                     title: '' + text_save + '',
+//                     text: '<input id="addtopic" autofocus minlength="3" class="form-control wedding-input-text wizard-input-pad" type="text" name="taxCode" placeholder="Input Topic">',
+//                     // text: '<input id="addtopic" class="form-control " type="text" name="" placeholder="Input Topic">',
+//                     type: "warning",
+//                     showCancelButton: true,
+//                     confirmButtonClass: "btn-danger",
+//                     confirmButtonText: bt_save,
+//                     cancelButtonText: bt_cancel,
+//                     closeOnConfirm: false,
+//                     closeOnCancel: false
+//                     // closeOnConfirm: true
+//                 },
+//                 function(isConfirm) {
+//                     if (isConfirm 
+//                     ) {
+//                         console.log('confirm');
+//                         console.log($.cookie("login"))
+//                         console.log($('#addtopic').val())
+//                         console.log(base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
+//                         datalocation = { "user": $.cookie("login"), "topic":$('#addtopic').val(),"from": dataPlacefrom,"to": dataPlaceto,"lat_f": lat_f,"lng_f": lng_f,"lat_t": lat_t,"lng_t": lng_t,"fashion":booking};
+//                         console.log(datalocation)
+//                         $.ajax({
+//                             type: 'POST',
+//                             url: 'https://www.welovetaxi.com/app/booking/my_place_often/savehistory',
+//                             data: datalocation,
+//                             //contentType: "application/json",
+//                             dataType: 'json',
+//                             success: function(data) {
+//                                 console.log(data)
+                               
+//                             }
+//                         });
+//                     } else {
+//                         console.log('cancel');
+//                         //$.removeCookie("login");
+//                         console.log(base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
+//                     }
+                    
+//                 // window.location.href = base_url + 'book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking;
 
+//                 },
+//                 // function() {
+//                 //     console.log('bt_cancel');
+//                 //    // $.removeCookie("login");
+//                 //     console.log(base_url + 'book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
+//                 //    // window.location.href = base_url + 'book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking;
+
+//                 // }
+//             );
+//         }
+//         else{
+//             console.log(base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
+//             console.log($.cookie("login"))
+//         }
+// }
+    }
+    else{
+                    console.log(base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
+                    console.log($.cookie("login"))
+                    window.location.href = base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking;
+                }
+}
 function appendPlace(place) {
     //    console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';
@@ -2997,6 +3165,7 @@ function selectMyPlace(type_place,txtAdd, latti, lngti) {
         
         console.log('in case from')
         $('#current').val(txtAdd);
+        $('#locationfrom').html(txtAdd);
         start = {
             lat: parseFloat(latti),
             lng: parseFloat(lngti)
@@ -3027,6 +3196,8 @@ function selectMyPlace(type_place,txtAdd, latti, lngti) {
         console.log('in case to')
 
         $('#pac-input').val(txtAdd);
+        $('#locationto').html(txtAdd);
+        
         typeTo = txtAdd;
         
         end = {

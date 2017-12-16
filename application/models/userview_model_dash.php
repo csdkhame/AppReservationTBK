@@ -317,7 +317,19 @@ class Userview_model_dash extends CI_Model {
 			return ; 	
 		}
   }
-
+  public function historylist(){
+	$s_code = $this->input->post('s_code');
+	$this->db->select('id,place,to_place,lat_from,lng_from,lat_to,lng_to,s_code');
+  	$this->db->where('s_code',$s_code);
+  	$query = $this->db->from('ap_order')->get();
+	  if($query->num_rows() > 0) {
+		foreach($query->result() as $row) {
+		  $data[] = $row;
+		}
+		return $data;
+	  }
+	  return FALSE;
+  }
 }
 
 ?>

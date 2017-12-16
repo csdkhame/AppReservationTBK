@@ -71,7 +71,7 @@
                    
                 </div>
         	    <div class="navbar-collapse" style=" margin-top: 10px;pointer-events: auto;">            
-        		    <ul class="nav navbar-nav navbar-right">
+        		    <ul class="nav navbar-nav navbar-right" style="  ">
                         <li class="dropdown" id="btnuser">
                             <div class="user">
                                 <div class="photo" id="photo_profile" >
@@ -152,15 +152,43 @@
                         </li>-->
                         <li class="box-desboard">
                             <a href="<?php echo base_url(); ?>dashboard/view_user" class="feed">
-                            <i class="material-icons" >dvr</i>
+                            <i class="material-icons" style="font-size: 22px;">dvr</i>
                             <span style="text-transform: initial;" class="lng-management textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
+                            </a>
+                        </li>
+                        <li class="box-list">
+                            <a  class="list_link">
+                            <i class="material-icons" style="font-size: 22px;">av_timer</i>
+                            <span style="text-transform: initial;" class="lng_list textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
+                            </a>
+                        </li>
+                        <li class="box-history">
+                            <a  class="history_link">
+                            <i class="material-icons" style="font-size: 22px;">star_rate</i>
+                            <span style="text-transform: initial;" class="lng_favorites textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
+                            </a>
+                        </li>
+                        <li class="box-notifications">
+                            <a  class="notifications_link">
+                            <i class="material-icons" style="font-size: 22px;">notifications_active</i>
+                            <span style="text-transform: initial;" class="lng_notifications textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
+                            </a>
+                        </li>
+                        <li class="box-drive">
+                            <a  class="drive_link">
+                            <i class="material-icons" style="font-size: 22px;">directions_car</i>
+                            <span style="text-transform: initial;" class="lng_drive textmenu"></span>
                                 <!-- <i class="material-icons">dashboard</i>                     -->
                             </a>
                         </li>
                         <li class="dropdown" id="btnusers">
                             <a  class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- <div style="width: 100%;text-align: center;"> -->
-                                <i class="material-icons">language</i><span style="text-transform: initial;" class="lng-language textmenu"></span>                                
+                                <i class="material-icons" style="font-size: 22px;">language</i><span style="text-transform: initial;" class="lng-language textmenu"></span>                                
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">

@@ -136,5 +136,50 @@ class Often_model extends CI_Model {
 	}
     
   }
+  public function savehistory(){
+	// $lat = $this->input->post('lat');
+	// $lag = $this->input->post('lng');
+	// $place_id = $this->input->post('place_id');
+	$current = date('Y-m-d h:i:s a');
+	
+	$data['user'] = $this->input->post('user');
+	$data['topic_from'] = $this->input->post('topic_from');
+	$data['topic_to'] = $this->input->post('topic_to');
+	$data['lat_f'] = $this->input->post('lat_f');
+	$data['lng_f'] = $this->input->post('lng_f');
+	$data['lat_t'] = $this->input->post('lat_t');
+	$data['lng_t'] = $this->input->post('lng_t');
+	$data['place_from'] = $this->input->post('from');
+	$data['place_to'] =$this->input->post('to');
+	$data['fashion'] = $this->input->post('fashion');
+	$data['post_date'] = $current;
+	 
+	$result = $this->db->insert('ap_history_location', $data);
+	
+	return $result;
+
+	}
+	public function gethistory() { 
+		
+		$id = $this->input->post('id');
+		
+		 $this->db->select('*');      
+   //      $this->db->select('count(s_type) as count');      
+		 $this->db->from('ap_history_location');
+		 $this->db->where('user',''.$id.'');
+		 //$this->db->where('i_deleted','1');
+		/* $this->db->group_by("s_type");*/
+		 $query = $this->db->get();
+	   if($query->num_rows() > 0) {
+			 foreach($query->result() as $row) {
+			   $data[] = $row;
+			 }
+		 return $data;
+	   }
+	   else{
+			 return FALSE;
+	   }
+	   
+	 }
 }
 ?>

@@ -5,7 +5,7 @@ compae1join = [],
 compae2private = [],
 compae2join = [],
 
-lat_from, lng_from,proFrom,proTo,dataUse,lngdetails;
+lat_from, lng_from,proFrom,proTo,dataUse,lngdetails,addtopic = "",isConfirm = false;
 
 var start_st, end_st;
 var booking = '';
@@ -169,6 +169,17 @@ $(document).ready(function() {
             //contentType: "application/json",
             dataType: 'json',
             success: function(data) {
+                console.log(data)
+                $.ajax({
+                    type: 'POST',
+                    url: base_url + 'dashboard/historylist',
+                    data: { 's_code': data[0].s_code },
+                    //contentType: "application/json",
+                    dataType: 'json',
+                    success: function(datahis) {
+                        console.log(datahis)
+                    }
+                });
                 // console.log(data)
                 // console.log(data[0].s_image)
                 $('.box-login').show();
@@ -197,7 +208,7 @@ $(document).ready(function() {
         $('.box-desboard').hide();
 
         $('.box-login-non').show();
-        //$('#usernamess').html("Login")
+        $('.placeeditften').remove()
         // $('#textlogout').html("Login/Register")
         $('#btnlogin').css('display', 'block')
         $('#btnuser').css('display', 'none')
@@ -297,6 +308,128 @@ $(document).ready(function() {
 
     //     }
     // });
+    $('.box-list').click( function() {
+        
+         $('html').removeClass('nav-open');
+         setTimeout(function() {
+             $toggle.removeClass('toggled');
+             $('#bodyClick').remove();
+             $('.navbar-toggle').css('display', 'block');
+         }, 250);
+ 
+         $('#get_historylist_pop').show();
+         $('.li_list_historylist').remove()
+        });
+    $('.box-history').click( function() {
+       
+        $('html').removeClass('nav-open');
+        setTimeout(function() {
+            $toggle.removeClass('toggled');
+            $('#bodyClick').remove();
+            $('.navbar-toggle').css('display', 'block');
+        }, 250);
+
+        $('#get_history_pop').show();
+        $('.li_list_history').remove()
+        $.ajax({
+            type: 'POST',
+            url: 'https://www.welovetaxi.com/app/booking/my_place_often/gethistory',
+            data: { 'id': $.cookie("login") },
+            //contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+
+                $.each(data, function(i, val) {
+                  
+                    $('#list_history').append('<li class="li_list_history" style="font-size: 16px; padding: 5px; border-radius: 15px; border: 1px solid #3b5998;" onclick="getProduct('+ data[i].lat_f+',' + data[i].lng_f + ',' + dist + ','+data[i].lat_t+','+data[i].lng_t+');sendplace(\''+ data[i].topic_from+'\',\'' + data[i].topic_to + '\','+ data[i].lat_f+','+data[i].lng_f+','+ data[i].lat_t+','+data[i].lng_t+',\''+data[i].fashion+'\')">'+
+                    '<table width="100%">'+                           
+                        '<tr>'+
+                            '<td width="10"></td>'+
+                            '<td>'+
+                                '<table width="100%">'+
+                                    '<tr>'+
+                                        '<td width="10">'+
+                                            '<div style="width: 10px;  height: 10px;  border-radius: 1px; background: #555;"></div>'+
+                                        '</td>'+
+                                        '<td align="left" style="padding-left: 15px;">'+
+                                            '<span  style="text-align: center;">' + data[i].topic_from + '</span>'+
+                                        '</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<td colspan="2"><br></td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<td width="10">'+
+                                            '<div style="width: 10px;  height: 10px; border-radius: 1px; background: #3b5998;"></div>'+
+                                        '</td>'+
+                                        '<td align="left" style="padding-left: 15px;">'+
+                                            '<span  style="text-align: center;">' + data[i].topic_to + '</span>'+
+                                        '</td>'+
+                                    '</tr>'+
+                                '</table>'+
+                            '</td>'+
+                        '</tr>'+
+                    '</table>'+             
+            '</li>'
+            );
+                //     $('#list_history').append('<div class="a-link-item col-lg-12" >' +
+                //     '<div class="item-thumbnail2" onclick="getimage(\'' + data[0].data1[i].car_model + '\')">' +
+                //     '<img src="' + urlicon + data[0].data1[i].transfer_icon + '.jpg">' +
+                //     '</div>' +
+                //     '<table width="100%">' +
+                //     '<tr>' +
+                //     '<td style="width: 30px;">' +
+                //     '<span class="hotel_num">' + indexs + '</span>' +
+                //     '</td>' +
+
+                //     '<td>' +
+                //     '<h2 class="searchresult_name"title="product name"><span>' + car_topic + '</span></h2>' +
+                //     '</td>' +
+                //     '</tr>' +
+                //     '</table>' +
+                //     '<div class="box-province">' +
+                //     '<p class="type-t">' +
+                //     '<span class="car-type" >' + cartype + pax + '</span>' +
+                //     '</p>' +
+                //     '</div>' +
+                //     '<div id="box-cost-view">' +
+                //     '<div class="product_r">' +
+                //     '<span class="base_price"></span>' +
+                //     '<span class="sala">' + data[0].data1[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
+
+                //     '</div>' +
+                //     '<div class="views-item" >' +
+                //     '<a  href="book?data=' + data[0].data1[i].transfer_id + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" > <span >' + lngbook + '</span></a>' +
+
+                //     '</div>' +
+                //     '</div>' +
+                //     '<div id="i-list"   onclick="getcondition(\'' + data[0].data1[i].car_model + '\')">' +
+                //     '<p id="capacity"><div ">' + lngcapacityinfo + '</div><div ">' + lngdetails + '</div></p>' +
+                //     '<i class="material-icons">search</i>' +
+                //     '</div>' +
+                //     '</div>'
+
+                // );
+                });
+                    //window.location.href = base_url + 'book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking;
+                
+                                           
+            }
+        });
+        
+    });
+    $('#close_get_history').click( function() {
+        $('#get_history_pop').hide();
+    });
+    $('#close_get_historylist').click( function() {
+        $('#get_historylist_pop').hide();
+    });
+    $('#addtopic').on('change', function() {
+        addtopic = this.value;
+        console.log(addtopic)
+    });
+
     $('#province').on('change', function() {
         pro_id = this.value;
         console.log(pro_id)

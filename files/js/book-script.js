@@ -1413,6 +1413,7 @@ $(document).ready(function() {
             //console.log(flight)
             var o = ondate.split('-');
             var m,d ;
+            name = $('#name_lastname').val();
             console.log(o[2].length)
             if(o[2].length == 1  || o[1].length == 1){
                 if(o[1].length == 1){
@@ -1436,7 +1437,7 @@ $(document).ready(function() {
             
                 
                
-                if(($('#email').val() != '' && Checkacceptance != false) && ($('#phone').val() != '' && $('#name_lastname').val() != '')){
+                if(($('#email').val() != '' && Checkacceptance != false) && ($('#phone').val() != '' && $('#name_lastname').val() != '') && flight != undefined){
                     if(getParameterByName('book') == 'Reservation' || getParameterByName('book') == 'Service'){
                         
                         console.log(ontime)

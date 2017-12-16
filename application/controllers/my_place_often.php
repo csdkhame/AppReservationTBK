@@ -56,7 +56,21 @@ public function place_often(){
 	  //$array = array($age);
 	  echo json_encode($data);
 
-	}	
+	}
+public function savehistory()
+	{	
+		
+		$data = $this->Often_model->savehistory();
+		//$array = array($age);
+		echo json_encode($data);
+}
+public function gethistory()
+{	
+	
+	$data = $this->Often_model->gethistory();
+	//$array = array($age);
+	echo json_encode($data);
+}	
 
 
 }?>

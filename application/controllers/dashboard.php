@@ -571,7 +571,11 @@ echo json_encode($aaaa);
 // 		echo json_encode(array('error' => 'Please select a bank from the list.'));
 // 	}
 // }
-
+public function historylist(){
+		  $data = $this->Userview_model_dash->historylist();		
+		  echo json_encode($data);
+	
+}
 public function voucher(){
 	
   		$id = $this->input->get('order_id');
