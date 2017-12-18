@@ -185,6 +185,14 @@
                                 <!-- <i class="material-icons">dashboard</i>                     -->
                             </a>
                         </li>
+                        <li class="box-help">
+                            <a  class="drive_link">
+                            <i class="material-icons" style="font-size: 22px;">headset_mic</i>
+                            <!-- <i class="material-icons" style="font-size: 22px;">directions_car</i> -->
+                            <span style="text-transform: initial;" class="lng_help_center textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
+                            </a>
+                        </li>
                         <li class="dropdown" id="btnusers">
                             <a  class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- <div style="width: 100%;text-align: center;"> -->

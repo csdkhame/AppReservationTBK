@@ -1437,27 +1437,58 @@ $(document).ready(function() {
             
                 
                
-                if(($('#email').val() != '' && Checkacceptance != false) && ($('#phone').val() != '' && $('#name_lastname').val() != '') && flight != undefined){
-                    if(getParameterByName('book') == 'Reservation' || getParameterByName('book') == 'Service'){
-                        
-                        console.log(ontime)
-                        if(ontime == undefined){
-                            ontime = '00:00';
-                            $('#time_h option:selected').focus();
+                if(($('#email').val() != '' && Checkacceptance != false) && ($('#phone').val() != '' && $('#name_lastname').val() != '') ){
+                    if((area == 'In' || area == 'Out') ) {
+                        if(flight != undefined){
+                            if(getParameterByName('book') == 'Reservation' || getParameterByName('book') == 'Service'){
+                                
+                                console.log(ontime)
+                                if(ontime == undefined){
+                                    ontime = '00:00';
+                                    $('#time_h option:selected').focus();
+                                }
+                                if(ondate == undefined){
+                                    ondate = $('#on_date').val();
+                                    //$('#time_h option:selected').focus();
+                                }
+                                addbooking();
+                                //$('#loading').show()
+                                
+                            }
+                            else{
+                                addbooking();
+                                //$('#loading').show()
+                                
+                            }  
                         }
-                        if(ondate == undefined){
-                            ondate = $('#on_date').val();
-                            //$('#time_h option:selected').focus();
+                        else{
+                            $('#input_data_pop').hide()
                         }
-                        addbooking();
-                        //$('#loading').show()
                         
                     }
                     else{
-                        addbooking();
-                        //$('#loading').show()
-                        
+                        if(getParameterByName('book') == 'Reservation' || getParameterByName('book') == 'Service'){
+                            
+                            console.log(ontime)
+                            if(ontime == undefined){
+                                ontime = '00:00';
+                                $('#time_h option:selected').focus();
+                            }
+                            if(ondate == undefined){
+                                ondate = $('#on_date').val();
+                                //$('#time_h option:selected').focus();
+                            }
+                            addbooking();
+                            //$('#loading').show()
+                            
+                        }
+                        else{
+                            addbooking();
+                            //$('#loading').show()
+                            
+                        }
                     }
+                   
                     
                     
                 }

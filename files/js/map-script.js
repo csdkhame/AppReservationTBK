@@ -49,7 +49,7 @@ var changephone = '';
 var getnewnamenull;
 var changephone = '';
 var curentFromTo = '';
-var getnewphonenull;
+var getnewphonenull = '';
 var typeFrom = '';
 var typeTo = '';
 var lng_price;
@@ -975,10 +975,10 @@ $('#clear-all').click(function() {
 
 function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
     var notfound;
-    lat_f = lat_f;
-    lng_f = lng_f;
-    lat_t =lng_t;
-    lng = lng_t;
+    // lat_f = lat_f;
+    // lng_f = lng_f;
+    // lat_t =lng_t;
+    // lng = lng_t;
     console.log('in case')
     compae1private = [];
     compae1join = [];
@@ -1006,6 +1006,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         //contentType: "application/json",
         dataType: 'json',
         success: function(data) {
+            console.log(data)
             id_placefrom = data.id;
         }
     });
@@ -1017,6 +1018,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
         //contentType: "application/json",
         dataType: 'json',
         success: function(data) {
+            console.log(data)
+            
             id_placeto = data.id;
         }
     });
@@ -1099,6 +1102,8 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
                 datasort.sort(function(a, b){return a.person-b.person});
                 console.log(datasort)
                 $('#get_history_pop').hide()
+                $('#get_historylist_pop').hide()
+                
                 $('#box-pax-rel').show(500)
                 if(check_his == true){
                    
@@ -1437,6 +1442,7 @@ function getProduct(lat_f, lng_f, dist, lat_t, lng_t) {
 }
 var his_place_from = '',his_place_to = '',check_his = false,check_type_book = '';
 function sendplace(from,to,u,v,x,y,type) {
+    
      check_type_book = 'his';
     his_place_from = from;
     his_place_to = to;
@@ -1447,6 +1453,7 @@ function sendplace(from,to,u,v,x,y,type) {
     lat_t = x;
     lng_t = y;
     booking = type; 
+    //alert(check_his)
     // $('#typeFrom').html(from);
     // $('#typeTo').html(to);
     
@@ -2728,14 +2735,14 @@ function btn_save(){
                                                 var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
                                                 if(data.topic != ''){
                     
-                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">' + data.topic + textphone + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
+                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">' + data.topic + textphone + '</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+',\''+data.phone+'\');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
                                                  //<i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i>
                                                 }
                                                 else{
                                                     $.post(url, function(data_place) {
                                                         console.log(data_place);
                                                      //DataType.push(obj)
-                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">'  + data_place.results[0].formatted_address + textphone +'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
+                                                    $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td width="70%"><div class="name">'  + data_place.results[0].formatted_address + textphone +'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+',\''+data.phone+'\');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ','+chTypeplace+');">delete</i></td></tr></table></div></li>');
                                                     
                                                     //  $('#box_editplaceoften').append('<li class="placeoften" id="placeoften' + data.id + '"><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span><i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="editMyPlace('+type_place+',\'' + data.topic + '\');">edit</i><i class="material-icons pull-right" style="color: #f44336; font-weight: 700; line-height: inherit;" onclick="deleteMyPlace(' + data.id + ');">delete</i></div></li>');
                                                     //console.log(placeoften)
@@ -2765,7 +2772,7 @@ function btn_close(){
     $('#edit_often_pop').hide(500)
 }
 function editMyPlace(x,text,lat,lng,phone){
-    console.log(text)
+    console.log(text+'-'+phone)
     getnewnamenull = text;
     getnewphonenull = phone;
     if(text == ''){
@@ -2848,14 +2855,14 @@ function selectEditPlaceOfften(type_place) {
                             var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.i_lat + ',' + data.i_lng + '&sensor=true&language=' + lang_to_map;
                             if(data.topic != ''){
 
-                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td  onclick="selectMyPlace('+type_place+',\'' + data.topic + '\',' + data.i_lat + ',' + data.i_lng + ');"width="70%"><div class="name">' + data.topic + textphone+'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
+                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td  onclick="selectMyPlace('+type_place+',\'' + data.topic + '\',' + data.i_lat + ',' + data.i_lng + ');"width="70%"><div class="name">' + data.topic + textphone+'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+',\''+data.phone+'\');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
                              //<i class="material-icons " style=" margin-right: 15px;    font-size: 30px; color: #16b3b1;    position: absolute;">add_location</i>
                             }
                             else{
                                 $.post(url, function(data_place) {
                                     console.log(data_place);
                                  //DataType.push(obj)
-                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td onclick="selectMyPlace('+type_place+',\'' + data_place.results[0].formatted_address + '\',' + data.i_lat + ',' + data.i_lng + ');" width="70%"><div class="name">'  + data_place.results[0].formatted_address + textphone+'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+','+data.phone+');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
+                                $('#box_editplaceoften').append('<li class="placeeditften" id="placeeditften' + data.id + '"><div><table width="100%"><tr><td onclick="selectMyPlace('+type_place+',\'' + data_place.results[0].formatted_address + '\',' + data.i_lat + ',' + data.i_lng + ');" width="70%"><div class="name">'  + data_place.results[0].formatted_address + textphone+'</div></td><td width="15%" align="center"><i class="material-icons " style="color: #ff9800; font-weight: 700;" onclick="editMyPlace('+data.id+',\'' + data.topic + '\','+data.i_lat+','+data.i_lng+',\''+data.phone+'\');">edit</i></td><td width="10%" align="center"><i class="material-icons" style="color: #f44336; font-weight: 700;" onclick="deleteMyPlace(' + data.id + ',' + chTypeplace + ');">delete</i></td></tr></table></div></li>');
                                 
                                 //  $('#box_editplaceoften').append('<li class="placeoften" id="placeoften' + data.id + '"><div style="margin-left: 40px;"><span class="name">' + data_place.results[0].formatted_address + '</span><i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="editMyPlace('+type_place+',\'' + data.topic + '\');">edit</i><i class="material-icons pull-right" style="color: #f44336; font-weight: 700; line-height: inherit;" onclick="deleteMyPlace(' + data.id + ');">delete</i></div></li>');
                                 console.log(placeoften)

@@ -160,12 +160,14 @@ $(document).ready(function() {
         $('.lng_get_latest_promo').html("你会得到最新的促销信息和特殊会员折扣。")
         $('.lng_member_using').html("作为使用Go Holiday Quick的会员，您的预订是我们的首要任务。")
         $('.lng_location_no').html("您選擇的路線無效。")
-        $('.lng_history').html("你想定期保存你的位置吗？")
+        $('.lng_history').html("你要保存此路线到我的最爱吗?")
         $('.lng_history_get').html("历史")
         $('.lng_favorites').html("我的最爱")
-        $('.lng_list').html("历史记录列表")
+        $('.lng_list').html("使用历史")
         $('.lng_notifications').html("通知")
         $('.lng_drive').html("通知")
+        $('.lng_help_center').html("帮助中心")
+        
         
         
         
@@ -327,11 +329,12 @@ $(document).ready(function() {
         $('.lng-exclusive-discount').html('Offer via email');
         $('.lng_location_no').html("The route you selected is not valid.")
         $('.lng_history_get').html("History")
-        $('.lng_history').html("Do you want to save your location on a regular basis?")
+        $('.lng_history').html("Do you want to save this route to my favorite?")
         $('.lng_favorites').html("Favorites")
-        $('.lng_list').html("History list")
+        $('.lng_list').html("Use history")
         $('.lng_notifications').html("Notifications")
         $('.lng_drive').html("Drive with us")
+        $('.lng_help_center').html("Help Center")
         
         
         
@@ -495,11 +498,13 @@ $(document).ready(function() {
         $('.lng-exclusive-discount').html('ข้อเสนอทางอีเมล');
         $('.lng_location_no').html("เส้นทางที่คุณเลือกไม่ถูกต้อง")
         $('.lng_history_get').html("ประวัติ ใช้ประจำ")
-        $('.lng_history').html("คุณต้องการบันทึกตำแหน่งลงในประวัติใช้ประจำหรือไม่?")
+        $('.lng_history').html("คุณต้องการบันทึกเส้นทางนี้ไปยังรายการโปรด?")
         $('.lng_favorites').html("รายการโปรด")
-        $('.lng_list').html("ประวัตรายการ")
+        $('.lng_list').html("ประวัติรายการ")
         $('.lng_notifications').html("การแจ้งเตือน")
         $('.lng_drive').html("ขับรถกับเรา")
+        $('.lng_help_center').html("ศูนย์ให้การช่วยเหลือ")
+        
         
         
         

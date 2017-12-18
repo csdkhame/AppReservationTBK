@@ -158,7 +158,7 @@ $(document).ready(function() {
     // $(this).attr("hiddenhref");
     // console.log("readysss!");
     // console.log($.cookie("login"))
-
+    var getdatahis;
     if ($.cookie("login")) {
         // console.log($.cookie("login"))
         //        alert(base_url+'getuser_control/mainpage');
@@ -178,6 +178,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     success: function(datahis) {
                         console.log(datahis)
+                        getdatahis = datahis;
                     }
                 });
                 // console.log(data)
@@ -318,8 +319,78 @@ $(document).ready(function() {
          }, 250);
  
          $('#get_historylist_pop').show();
-         $('.li_list_historylist').remove()
+         $('.li_list_history').remove()
+         
+         console.log(getdatahis)
+         if ($.cookie("lng") == 'en' || $.cookie("lng") == undefined) {
+            
+            lang_to_map = 'en';
+             
+         } else if ($.cookie("lng") == 'th') {
+            lang_to_map = 'th';
+                
+         } else if ($.cookie("lng") == 'cn') {
+            
+            lang_to_map = 'zh-CN'; 
+                 
+         }
+         $.each(getdatahis, function(i, val) {
+            url2 = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + getdatahis[i].lat_from + ',' + getdatahis[i].lng_from + '&sensor=true&language=' + lang_to_map;
+            
+                        $.post(url2, function(data) {
+                            console.log(data);
+                            var pl_his_from = data.results[0].formatted_address
+                            
+                            //$('#placeto').html(data.results[0].formatted_address)
+                            // infowindow.close();
+                            // infowindow.setContent('<div id="setmap">' + data.results[0].formatted_address + '</div> <input id="changesetname1" name="changesetname1" onchange="changesetname2(changesetname1)" placeholder="'+set_name+'" type="text" style=""  ><input id="changesetphone2" name="changesetphone2" onchange="changesetphone2(changesetphone2)" placeholder="'+phoneplace+'" type="text" style=""  ><div class="btn btn-sm ' + btn_color + ' pull-right btn-part" border-radius: 25px;style="display: inline-block;" onclick="savePlaceOften(' + type_call + ',' + lat_f + ',' + lng_f + ',\'' + data.results[0].place_id + '\',\'' + type_place + '\')">' + txt_save + '</div>');
+                            // infowindow.open(map, markerPlaceOfften);
+                            //$('#often-input2').show(500);
+            //<div class="btn btn-sm Klsetname" onclick="Klsetname();" style="display: inline-block;background: rgb(22, 179, 177);">' + set_name + '</div>
+            url3 = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + getdatahis[i].lat_to + ',' + getdatahis[i].lng_to + '&sensor=true&language=' + lang_to_map;
+            
+                        $.post(url3, function(data2) {
+                            console.log(data2);
+                            var pl_his_to = data2.results[0].formatted_address
+                            $('#list_historylist').append('<li class="li_list_history" style="font-size: 16px; padding: 5px; border-radius: 15px; border: 1px solid #3b5998;" onclick="getProduct('+getdatahis[i].lat_from+','+getdatahis[i].lng_from+','+dist+','+ getdatahis[i].lat_to+','+getdatahis[i].lng_to+');sendplace(\''+ pl_his_from+'\',\'' + pl_his_to + '\','+ getdatahis[i].lat_from+','+getdatahis[i].lng_from+','+ getdatahis[i].lat_to+','+getdatahis[i].lng_to+',\''+getdatahis[i].fashion+'\')">'+
+                            '<table width="100%">'+                           
+                                '<tr>'+
+                                    '<td width="10"></td>'+
+                                    '<td>'+
+                                        '<table width="100%">'+
+                                            '<tr>'+
+                                                '<td width="10">'+
+                                                    '<div style="width: 10px;  height: 10px;  border-radius: 1px; background: #555;"></div>'+
+                                                '</td>'+
+                                                '<td align="left" style="padding-left: 15px;">'+
+                                                    '<span  style="text-align: center;">' + pl_his_from + '</span>'+
+                                                '</td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                                '<td colspan="2"><br></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                                '<td width="10">'+
+                                                    '<div style="width: 10px;  height: 10px; border-radius: 1px; background: #3b5998;"></div>'+
+                                                '</td>'+
+                                                '<td align="left" style="padding-left: 15px;">'+
+                                                    '<span  style="text-align: center;">' + pl_his_to + '</span>'+
+                                                '</td>'+
+                                            '</tr>'+
+                                        '</table>'+
+                                    '</td>'+
+                                '</tr>'+
+                            '</table>'+             
+                    '</li>'
+                    );
+            
+                        });
+                        });
+                       
+              
+        
         });
+    });
     $('.box-history').click( function() {
        
         $('html').removeClass('nav-open');

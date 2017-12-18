@@ -1055,6 +1055,45 @@
 
                 </table>
                 </div>
+                <div class="pac-item">
+                <table width="100%">
+                    <tr  id="regularly-place-id" >
+                        <td width="30">
+                        <i class="material-icons" style="font-size: 2.1em;width:30px">av_timer</i>
+                        <!-- <i class="material-icons" style="font-size: 2.1em;width:30px">star_rate</i> -->
+                        
+                        </td>
+                        <td width="8px"></td>
+                        <td colspan="3"  class="pac-item-query box-list">
+                            <div class="lng_list pac-matched ">regularly</div>
+                        </td>
+                        <!-- <td width="50%">
+                            <div class="lng-save_regularly_place" ></div>
+                        </td> -->
+                        <!-- <td onclick="selectEditPlaceOfften(3)" align="center" width="20%" style="color: #000; font-size: 15px;"><span class="numregular"></span></td>
+                        <td  width="30"> -->
+                        <!-- <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i> -->
+                        
+                        <!-- <table width="100%">
+                            <tr>
+                                <td>
+                        <i class="material-icons pull-right" id="edit_regularly_select" onclick="addPlaceOfften(3,'edit');" style="color: #3b5998; font-weight: 700; line-height: inherit;" >add</i>
+                                
+                                </td>
+                            </tr>
+                            <tr id="often_edit_regular" style="display:none">
+                                <td>
+                                <i class="material-icons pull-right" style="color: #ff9800; font-weight: 700; line-height: inherit;" onclick="selectEditPlaceOfften(3)">edit</i>
+                                </td>
+                            </tr>
+                            </table> -->
+                            
+                        <!-- </td> -->
+                        
+                    </tr>
+
+                </table>
+                </div>
                 
                 <div class="pac-item">
                 <table  width="100%">
@@ -1488,6 +1527,7 @@ textarea:-ms-input-placeholder {
                     right: 125px;" onclick="confirmhistory()"></div>
                     </div>
                     
+
                 </div>        
             
             </div></div>
@@ -1497,7 +1537,7 @@ textarea:-ms-input-placeholder {
             <div class="get_history_pop_in">               
                 <div class="get_history_pop_ln">
                 <i class="material-icons" id="close_get_history" style="position: absolute;top: 10px; right: 15px;">close</i>
-                    <div class="lng_favorites" style="text-align: center; font-size: 16px;    margin-bottom: 20px;"></div>
+                    <div class="lng_favorites" style="text-align: center; font-size: 18px;font-weight: 400;    margin-bottom: 20px;"></div>
                     <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
                     <ul id="list_history" >
 
@@ -1512,7 +1552,7 @@ textarea:-ms-input-placeholder {
             <div class="get_historylist_pop_in">               
                 <div class="get_historylist_pop_ln">
                 <i class="material-icons" id="close_get_historylist" style="position: absolute;top: 10px; right: 15px;">close</i>
-                    <div class="lng_list" style="text-align: center; font-size: 16px;    margin-bottom: 20px;"></div>
+                    <div class="lng_list" style="text-align: center;font-size: 18px; font-weight: 400;margin-bottom: 20px;"></div>
                     <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
                     <ul id="list_historylist" >
 
