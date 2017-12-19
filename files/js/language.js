@@ -165,8 +165,18 @@ $(document).ready(function() {
         $('.lng_favorites').html("我的最爱")
         $('.lng_list').html("使用历史")
         $('.lng_notifications').html("通知")
-        $('.lng_drive').html("通知")
+        $('.lng_drive').html("成为(T Share)司机")
         $('.lng_help_center').html("帮助中心")
+        $('.lng_polic').html("通知警方")
+        $('.lng_calling_police').html("你在报警。")
+        $('.lng_really_need').html("继续，当你真的需要帮助。")
+        $('.lng_police_now').html("现在就报警")
+        $('.lng_canceled').html("取消")
+        
+        
+        
+        
+        
         
         
         
@@ -333,8 +343,18 @@ $(document).ready(function() {
         $('.lng_favorites').html("Favorites")
         $('.lng_list').html("Use history")
         $('.lng_notifications').html("Notifications")
-        $('.lng_drive').html("Drive with us")
+        $('.lng_drive').html("Drive with (T share)")
         $('.lng_help_center').html("Help Center")
+        $('.lng_polic').html("Call the police")
+        $('.lng_calling_police').html("You are calling the police")
+        $('.lng_really_need').html("Continue when you really need help.")
+        $('.lng_police_now').html("Call the police now")
+        $('.lng_canceled').html("Canceled")
+        
+        
+        
+        
+        
         
         
         
@@ -502,8 +522,18 @@ $(document).ready(function() {
         $('.lng_favorites').html("รายการโปรด")
         $('.lng_list').html("ประวัติรายการ")
         $('.lng_notifications').html("การแจ้งเตือน")
-        $('.lng_drive').html("ขับรถกับเรา")
+        $('.lng_drive').html("ขับรถกับ(ทีแชร์)")
         $('.lng_help_center').html("ศูนย์ให้การช่วยเหลือ")
+        $('.lng_polic').html("แจ้งตำรวจ")
+        $('.lng_calling_police').html("คุณกำลังโทรหาตำรวจ")
+        $('.lng_really_need').html("ดำเนินการต่อเมื่อคุณต้องการความช่วยเหลือจริงๆ")
+        $('.lng_police_now').html("เรียกตำรวจเดี๋ยวนี้")
+        $('.lng_canceled').html("ยกเลิก")
+        
+        
+        
+        
+        
         
         
         

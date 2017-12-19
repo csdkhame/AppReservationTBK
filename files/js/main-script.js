@@ -309,6 +309,23 @@ $(document).ready(function() {
 
     //     }
     // });
+    $('.box-polic').click( function() {
+        
+         $('html').removeClass('nav-open');
+         setTimeout(function() {
+             $toggle.removeClass('toggled');
+             $('#bodyClick').remove();
+             $('.navbar-toggle').css('display', 'block');
+         }, 250);
+         $('#police_pop').show(500);
+        
+    });
+    $('.lng_canceled').click( function() {
+        
+        
+         $('#police_pop').hide();
+        
+    });
     $('.box-list').click( function() {
         
          $('html').removeClass('nav-open');
@@ -318,7 +335,7 @@ $(document).ready(function() {
              $('.navbar-toggle').css('display', 'block');
          }, 250);
  
-         $('#get_historylist_pop').show();
+         $('#get_historylist_pop').show(500);
          $('.li_list_history').remove()
          
          console.log(getdatahis)

@@ -171,6 +171,13 @@
                                 <!-- <i class="material-icons">dashboard</i>                     -->
                             </a>
                         </li>
+                        <li class="btn-management" style="text-align: -webkit-left;">
+                            <a  class="history_link">
+                            <i class="material-icons" style="font-size: 22px;">dvr</i>
+                            <span style="text-transform: initial;" class="lng-management textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
+                            </a>
+                        </li>
                         <li class="box-notifications">
                             <a  class="notifications_link">
                             <i class="material-icons" style="font-size: 22px;">notifications_active</i>
@@ -190,6 +197,14 @@
                             <i class="material-icons" style="font-size: 22px;">headset_mic</i>
                             <!-- <i class="material-icons" style="font-size: 22px;">directions_car</i> -->
                             <span style="text-transform: initial;" class="lng_help_center textmenu"></span>
+                                <!-- <i class="material-icons">dashboard</i>                     -->
+                            </a>
+                        </li>
+                        <li class="box-polic">
+                            <a  class="polic_link">
+                            <i class="material-icons" style="font-size: 22px;">phone_in_talk</i>
+                            <!-- <i class="material-icons" style="font-size: 22px;">directions_car</i> -->
+                            <span style="text-transform: initial;" class="lng_polic textmenu"></span>
                                 <!-- <i class="material-icons">dashboard</i>                     -->
                             </a>
                         </li>
