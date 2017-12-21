@@ -1,4 +1,4 @@
-  <?php header('Content-type: text/html; charset=utf-8'); ?>
+<?php header('Content-type: text/html; charset=utf-8'); ?>
 
     <?php echo link_tag('files/css/classic.css'); ?>
     <?php echo link_tag('files/css/classic.date.css'); ?>
@@ -546,7 +546,10 @@ var date=$('#date1').val();
         "showButtonPanel": false,
         onStart: function() {
             this.set('select', date); // Set to current date on load
-        }
+        },
+		  onSet: function(context) {
+		 		findRowDate();
+		  }
         });
 
 </script>
@@ -561,7 +564,10 @@ var date=$('#date2').val();
         "showButtonPanel": false,
         onStart: function() {
             this.set('select', date); // Set to current date on load
-        }
+        },
+		  onSet: function(context) {
+		 		findRowDate();
+		  }
         });
 </script>
 
@@ -644,10 +650,11 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	
 	});
 	
-	$( "#date2" ).change(function() {
-//	  	alert(555);
+	
+	/*$( "#date2" ).change(function() {
+	  	alert(555);
 	  	findRowDate();
-	});
+	});*/
 	
 	function findRowDate(){
 //		alert(555);
@@ -664,6 +671,7 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 	    
 	      result = checkBetween(dateFrom,dataTo,dataCheck);
 	      
+	      console.log(dataCheck+" : "+result);
 	      if(result==false){
 //		  	$(this).css('background-color','red');
 		  	
@@ -703,9 +711,17 @@ $(".modal-fullscreen").on('hidden.bs.modal', function () {
 		var to   = new Date(d2[2], parseInt(d2[1])-1, d2[0]);
 		var check = new Date(c[2], parseInt(c[1])-1, c[0]);
 
-	/*	console.log(check >= from && check <= to);
-		console.log(dateFrom+' | '+dateCheck+' | '+dateTo);*/
-		return check > from && check < to;
+//	console.log(check <= to );
+//	console.log(" :::" + dateFrom+' | '+dateCheck+' | '+dateTo );
+		var date_before_to = check <= to;
+		var date_behind_from = check >= from;
+		console.log(date_before_to +" :: "+ date_behind_from );
+		var result_check = false;
+		if(date_before_to==true && date_behind_from==true){
+			result_check = true;
+		}
+//		return (check => from && check <= to);
+		return result_check;
 
 	}
 

@@ -279,7 +279,7 @@ $( document ).ready(function() {
   			<span id="num_of_car"></span>
   			</td>
   		</tr>
-  		<tr>
+  		<tr class="ck_arrival">
   			<td>
   			<span class="lng-typet_transfer">Arrival date</span>
   			</td>
@@ -287,7 +287,7 @@ $( document ).ready(function() {
   			<span id="arrival_date"></span>
   			</td>
   		</tr>
-  		<tr>
+  		<tr class="ck_arrival">
   			<td>
   			<span class="lng-typet_transfer_time">Arrival time</span>
   			</td>
@@ -417,7 +417,12 @@ $( document ).ready(function() {
 		}
 		if(data.fashion == 'Realtime'){                    
                 $('#amout_num').hide()                    
-        }
+		}
+		if(data.fashion  ==  'Service'){
+			$('#row_filght').hide()  
+			$('.ck_arrival').hide()             
+			           
+		}
     	
     	
     	
