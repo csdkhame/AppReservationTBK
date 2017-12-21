@@ -1724,8 +1724,8 @@ function sendpaxrel(x) {
             '<span class="sala">' + compae1private[i].cost_a.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '฿' + '</span>' +
 
             '</div>' +
-            '<div class="views-item" >' +
-            '<a onclick="bookingdetail('+ compae1private[i].transfer_id+',' + dataPlacefrom + ',' + dataPlaceto + ','+lat_f+','+lng_f+','+lat_t+','+lng_t+',\''+booking+'\')"> <span >' + lngbook + '</span></a>' +
+            '<div class="views-item" onclick="bookingdetail('+ compae1private[i].transfer_id+',' + dataPlacefrom + ',' + dataPlaceto + ','+lat_f+','+lng_f+','+lat_t+','+lng_t+',\''+booking+'\')">' +
+            '<a > <span >' + lngbook + '</span></a>' +
 
             '</div>' +
             '</div>' +
@@ -1884,6 +1884,7 @@ function callback(results, status) {
 var his_transfer_id,his_from,his_to,his_lat_f,his_lng_f,his_lat_t,his_lng_t,his_fashion;
 function confirmhistory(){
     $('#history_pop').hide()
+    $('#get_html_book').show(500)
     console.log($('#current').val())
     console.log($('#pac-input').val())
     console.log(his_transfer_id+'-'+his_from+'-'+his_to+'-'+his_lat_f+'-'+his_lng_f+'-'+his_lat_t+'-'+his_lng_t+'-'+his_fashion)
@@ -1897,7 +1898,8 @@ function confirmhistory(){
         dataType: 'json',
         success: function(data) {
             console.log(data)
-    window.location.href = base_url + 'book?data=' + his_transfer_id + '&from=' + his_from + '&to=' + his_to + '&lat_f='+his_lat_t+'&lng_f='+his_lng_f+'&lat_t='+his_lat_t+'&lng_t='+his_lng_t+'&book='+his_fashion;
+            getDetailbook(his_from,his_to,his_lat_f,his_lng_f,his_lat_t,his_lng_t,his_fashion,his_transfer_id)
+    //window.location.href = base_url + 'book?data=' + his_transfer_id + '&from=' + his_from + '&to=' + his_to + '&lat_f='+his_lat_t+'&lng_f='+his_lng_f+'&lat_t='+his_lat_t+'&lng_t='+his_lng_t+'&book='+his_fashion;
     
             
                                        
@@ -1905,105 +1907,13 @@ function confirmhistory(){
     });
 }
 function cancelhistory(){
-    $('#history_pop').hide()     
+    $('#history_pop').hide() 
+    $('#get_html_book').show(500)    
     console.log(his_transfer_id+'-'+his_from+'-'+his_to+'-'+his_lat_f+'-'+his_lng_f+'-'+his_lat_t+'-'+his_lng_t+'-'+his_fashion)
-    window.location.href = base_url + 'book?data=' + his_transfer_id + '&from=' + his_from + '&to=' + his_to + '&lat_f='+his_lat_t+'&lng_f='+his_lng_f+'&lat_t='+his_lat_t+'&lng_t='+his_lng_t+'&book='+his_fashion;
-    
+    //window.location.href = base_url + 'book?data=' + his_transfer_id + '&from=' + his_from + '&to=' + his_to + '&lat_f='+his_lat_t+'&lng_f='+his_lng_f+'&lat_t='+his_lat_t+'&lng_t='+his_lng_t+'&book='+his_fashion;
+    getDetailbook(his_from,his_to,his_lat_f,his_lng_f,his_lat_t,his_lng_t,his_fashion,his_transfer_id)
 }
-function bookingdetail(transfer_id,from,to,lat_f,lng_f,lat_t,lng_t,book){
-    console.log(transfer_id+'-'+from+'-'+to+'-'+lat_f+'-'+lng_f+'-'+lat_t+'-'+lng_t+'-'+book)
-    var datalocation;
-    his_transfer_id = transfer_id;
-    his_from = from;
-    his_to = to;
-    his_lat_f = lat_f;
-    his_lng_f = lng_f;
-    his_lat_t = lat_t;
-    his_lng_t = lng_t
-    his_fashion = book;
-    // $('#history_pop').show(500)
-    // href="book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking+'" >
-    if ($.cookie("login") && check_type_book != 'his') {
-        $('#history_pop').show(500)
-//         if ($.cookie("lng") == "en" || $.cookie("lng") == undefined) {
-//             var title_save = "Save location ?";
-//             var text_save = "Do you want to save your location on a regular basis?";
-//             var bt_save = "Yes";
-//             var bt_cancel = "No"
-//         } else if ($.cookie("lng") == "cn") {
-//             var title_save = "保存位置?";
-//             var text_save = "你想定期保存你的位置吗？";
-//             var bt_save = "是";
-//             var bt_cancel = "不是";
-//         } else if ($.cookie("lng") == "th") {
-//             var title_save = "บันทึกตำแหน่ง ?";
-//             var text_save = "คุณต้องการบันทึกตำแหน่งลงในประวิตใช้ประจำหรือไม่?";
-//             var bt_save = "ใช่";
-//             var bt_cancel = "ไม่";
-//         }
-//             swal({
-//                     title: '' + text_save + '',
-//                     text: '<input id="addtopic" autofocus minlength="3" class="form-control wedding-input-text wizard-input-pad" type="text" name="taxCode" placeholder="Input Topic">',
-//                     // text: '<input id="addtopic" class="form-control " type="text" name="" placeholder="Input Topic">',
-//                     type: "warning",
-//                     showCancelButton: true,
-//                     confirmButtonClass: "btn-danger",
-//                     confirmButtonText: bt_save,
-//                     cancelButtonText: bt_cancel,
-//                     closeOnConfirm: false,
-//                     closeOnCancel: false
-//                     // closeOnConfirm: true
-//                 },
-//                 function(isConfirm) {
-//                     if (isConfirm 
-//                     ) {
-//                         console.log('confirm');
-//                         console.log($.cookie("login"))
-//                         console.log($('#addtopic').val())
-//                         console.log(base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
-//                         datalocation = { "user": $.cookie("login"), "topic":$('#addtopic').val(),"from": dataPlacefrom,"to": dataPlaceto,"lat_f": lat_f,"lng_f": lng_f,"lat_t": lat_t,"lng_t": lng_t,"fashion":booking};
-//                         console.log(datalocation)
-//                         $.ajax({
-//                             type: 'POST',
-//                             url: 'https://www.welovetaxi.com/app/booking/my_place_often/savehistory',
-//                             data: datalocation,
-//                             //contentType: "application/json",
-//                             dataType: 'json',
-//                             success: function(data) {
-//                                 console.log(data)
-                               
-//                             }
-//                         });
-//                     } else {
-//                         console.log('cancel');
-//                         //$.removeCookie("login");
-//                         console.log(base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
-//                     }
-                    
-//                 // window.location.href = base_url + 'book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking;
 
-//                 },
-//                 // function() {
-//                 //     console.log('bt_cancel');
-//                 //    // $.removeCookie("login");
-//                 //     console.log(base_url + 'book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
-//                 //    // window.location.href = base_url + 'book?data=' + compae1private[i].transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking;
-
-//                 // }
-//             );
-//         }
-//         else{
-//             console.log(base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
-//             console.log($.cookie("login"))
-//         }
-// }
-    }
-    else{
-                    console.log(base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking)
-                    console.log($.cookie("login"))
-                    window.location.href = base_url + 'book?data=' + transfer_id + '&from=' + dataPlacefrom + '&to=' + dataPlaceto + '&lat_f='+lat_f+'&lng_f='+lng_f+'&lat_t='+lat_t+'&lng_t='+lng_t+'&book='+booking;
-                }
-}
 function appendPlace(place) {
     //    console.log(place);
     var icon = '<img src="' + place.icon + '" width="23"/>';

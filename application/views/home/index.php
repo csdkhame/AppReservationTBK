@@ -1,3 +1,537 @@
+<div id="get_html_book" style="display: none;">
+    <div class="get_html_pop_in">               
+        <div class="get_html_pop_ln">
+        <div class="btn_back_book" style="display: block;text-align: center;
+    left: 9vw;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    
+    top: 30px;
+    /* z-index: 200; */
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+    box-shadow: #3b5998 0px 1px 4px;
+    z-index: 262;
+    cursor: pointer;
+    position: absolute;
+    padding: 8px;
+    background: rgb(255, 255, 255);
+    color: #3b5998;
+    font-size: 30px;">
+    <i class="material-icons" style="">reply_all</i>
+    <!-- <i class="fa fa-angle-double-left" style=""></i> -->
+        <!-- <i class="material-icons" style="color: rgb(22, 179, 177); font-size: 35px;">keyboard_arrow_down</i> -->
+    </div>
+            <?php include "book.php"; ?>
+        </div>            
+    </div>
+</div>
+<style>
+ input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #333 !important;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #333 !important;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #333 !important;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #333 !important;
+}
+    #terms-of-use {
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 16px;
+    border: 1px solid #3b5998;
+    margin-top: 5px;
+    background-color: #fff;
+}
+.addbook{
+    background: #16B3B1;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px;
+    font-size: 17px;
+    display: none;
+}
+/* .btn-close{
+    width: 75px;
+    background: #4BB1C1;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    padding: 8px 20px;
+    bottom: 15px;
+    border-radius: 25px;
+} */
+.checkbox label, .radio label, label{
+    font-size: 15px !important;
+    line-height: 1.42857;
+    color: #333 !important;
+    font-weight: 400;
+}
+.form-group .checkbox label, .form-group .radio label, .form-group label{
+    font-size: 15px !important; 
+    color: #333 !important;
+}
+.checkbox input[type=checkbox]:checked+.checkbox-material .check {
+    background: #3b5998 !important;
+}
+#acceptancecheck span{
+    font-size:15px;
+}
+.checkbox .checkbox-material .check {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3b5998!important;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 5px;
+}
+.textInput{
+    font-size: 15px;
+    color: #333;
+    border: 1px solid #dfdfdf;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 25px;
+}
+.card {
+    
+    margin-bottom: 15px !important;
+    }
+.row {
+    margin-right: -12px !important;
+    margin-left: -12px !important;
+    margin-bottom: 4px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+   
+    color: #FFF;
+    box-shadow: none;
+}
+.card {
+    border-radius: 15px !important;
+    
+}
+.wizard-card{
+    margin-bottom: 0;
+   
+}
+#numsumprice {
+    color: #16B3B1;
+    font-weight: 600;
+}
+.sumprice {
+    position: relative !important;
+    position: relative;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+    /* border: 1px dashed #45c3da; */
+    display: inline-block;
+    padding: 12px 0;
+    border-radius: 3px;
+}
+.box-list-cars {
+    padding-top: 15px;
+    display: block;
+    padding-bottom: 23px;
+    /* background: #fff; */
+    /* top: 0; */
+    /* right: 0; */
+    /* bottom: 0; */
+    /* left: 0; */
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+}
+#title-around {
+    display: inline-block;
+}
+/*#num2 {
+    border: 1px solid #9E9E9E;
+    padding: 0 5px !important;
+}*/
+#title-car {
+    margin-left: 6%;
+    display: inline-block;
+}
+#cars {
+    float: right;
+    background: #fff;
+    border: 1px solid #9E9E9E !important;
+    border-radius: 3px;
+    padding: 7px 9px;
+    font-weight: 500;
+}
+ .form-group {
+    padding-bottom: 0;
+    margin: 0;
+ }
+#calen{
+    position: absolute;
+    color: #9E9E9E;
+    right: 0;
+    margin-top: -30px;
+    margin-right: 20px;
+                                   
+}
+.wizard-card{
+    box-shadow: none;
+}
+.box-program{
+    border-top: dashed 2px #3b5998;
+    border-bottom: dashed 2px #3b5998;
+    text-align: center;
+    /* background: #ff9800; */
+    padding: 12px 2px;
+    font-weight: 400;
+    /* border-radius: 4px; */
+    margin-bottom: 20px;
+}
+table{
+    font-size: 15px;
+}
+ </style>
+        
+
+<style>
+.moving-tab:after{
+    /*border-bottom: 11px solid #FFFFFF;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50px;
+    top: -10px;*/
+}
+.nav>li>a{
+    padding: 0px;
+}
+.toppic p {
+    display: inline-block;
+}
+.toppic p {
+    /*font-weight: 600;*/
+    color: #9E9E9E;
+    width: 120px;
+    display: inline-block;
+}
+.toppic span {
+    color: #000;
+    font-size: 13px;
+    /*font-weight: 600;*/
+}
+.firstname {
+    display: inline-block;
+    color: #9E9E9E;
+    /*font-weight: 600;*/
+}
+.orderBoxdetail {
+    /* border-top: 1px #ddd solid; */
+    width: 100%;
+    padding: 20px 0;
+    border-radius: 4px;
+    position: relative;
+    /*margin-bottom: 30px;*/
+}
+.phone {
+    display: inline-block;
+    color: #9E9E9E;
+    /*font-weight: 600;*/
+}
+.email {
+    display: inline-block;
+    color: #9E9E9E;
+    /*font-weight: 600;*/
+}
+.lastname {
+    display: inline-block;
+    color: #9E9E9E;
+    /*font-weight: 600;*/
+}
+.box-list-summery {
+    /*border: solid 1px #ccc; */
+    /* top: 74px; */
+    padding: 2px 10px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+}
+.topic_ens {
+    color: #616161;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+.adult {
+    /*margin-left: 35%;*/
+    color: #999;
+    display: block;
+}
+#book-info {
+    width: 75px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.child {
+    display: block;
+    color: #999;
+    /*margin-left: 35%;*/
+}
+.pricec {
+    color: #999;
+    margin-top: 20px;
+    /*margin-left: 35%;*/
+    margin-bottom: 20px;
+}
+.summtotal {
+    /*margin-left: 35%;*/
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #999;
+}
+.box-book-pay {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    color: #999;
+    display: none;
+}
+.box-info-item{
+    padding: 2px 10px;
+    /*border: solid 1px #ccc; */
+    margin-bottom: 20px;
+
+}
+.asd{
+    border: 0;
+    /* background-image: linear-gradient(#9c27b0,#9c27b0),linear-gradient(#D2D2D2,#D2D2D2);
+    background-size: 0 2px,100% 1px;
+    background-repeat: no-repeat;
+    background-position: center bottom,center calc(100% - 1px);
+    background-color: transparent; */
+    transition: background 0s ease-out;
+    float: none;
+    box-shadow: none;
+    border-radius: 0;
+    font-weight: 400;
+    width: 100%;
+    padding: 0 30px;
+}
+
+@media screen and (max-width: 767px){
+    #bodyClick {
+    right: 229px !important;
+}
+}
+</style>
+ <style>
+       
+.index-page .page-header, .presentation-page .page-header {
+    height:30vh;
+    overflow: hidden;
+}
+.main-raised {
+    margin: 0px 0 0;
+    border-radius: 6px;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+    /* margin-bottom: 50px; */
+}
+#imgcountry{
+    width: 25px;
+    margin-right: 15px;
+}
+.modal .modal-dialog {
+    margin-top: 10px !important;
+}
+#box-image{
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+#images-icon{
+    width: 200px;
+    margin-bottom: 20px;
+    
+}
+.box-country ul{
+                        padding-left: 0;
+
+                    }
+                    .box-country ul li{
+                        list-style: none;
+                        padding: 8px 20px;
+                    }
+                    #span-phonecode{
+                        padding-right: 10px;
+                    }
+                    .box-country ul li:hover{
+                        background-color:#3b5998;
+                        color: #000;
+                    }
+                    #textcountry{
+                        color: #333;
+                        text-align: center;
+                    }
+                    #code{
+                        text-align: center;
+                    }
+                    label.form-control
+                    {
+                              padding: 5px 8px;
+                       /* margin-top: 20px;*/
+                    }
+                    #calen{
+
+                        z-index: 5;
+                        margin-top: 1px;
+                        margin-right: 15px;
+                        position: absolute;
+                        font-size: 20px;
+                        color: #9E9E9E;
+                    }
+                    #usernamess{
+                        display: inline-block;
+                            text-transform: initial;
+                    }
+
+                     @media screen and (max-width: 767px){
+                    
+
+
+                    #textcountry{
+                        text-align: left;
+                    }
+                     #code{
+                        text-align: left;
+                    }
+                    #tphone{
+                        padding: 0;
+                    }
+                    #images-icon{
+                        width: 100%;
+                        margin-bottom: 20px;
+                        /*margin: auto;*/
+                    }
+                    #media-email{
+                        margin-top: 20px;
+                    }
+                    #box-detail-price{
+                        margin: 0;
+                    }
+
+                }
+
+</style>
+
+
+<style>
+    
+            #get_html_book{
+                z-index: 300;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                /* display: none; */
+            }
+            .get_html_pop_in{
+                /* height: 220px; */
+                max-height: 100vh;
+                /* border-radius: 4px; */
+                background: #ddd;
+                min-width: 100vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                /* border-radius: 15px; */
+            }
+            .get_html_pop_ln{
+                padding: 15px;
+                height: 100vh;
+    overflow: scroll;
+    padding-bottom: 51px;
+            }
+            .box-program{
+    border-top: dashed 2px #3b5998;
+    border-bottom: dashed 2px #3b5998;
+    text-align: center;
+    /* background: #ff9800; */
+    padding: 12px 2px;
+    font-weight: 400;
+    /* border-radius: 4px; */
+    margin-bottom: 20px;
+}
+.asd{
+    /* border: 0;
+    background-image: linear-gradient(#9c27b0,#9c27b0),linear-gradient(#D2D2D2,#D2D2D2);
+    background-size: 0 2px,100% 1px;
+    background-repeat: no-repeat;
+    background-position: center bottom,center calc(100% - 1px);
+    background-color: transparent; */
+    transition: background 0s ease-out;
+    float: none;
+    box-shadow: none;
+    border-radius: 0;
+    font-weight: 400;
+    width: 100%;
+    padding: 0 30px;
+}
+.checkbox input[type=checkbox]:checked+.checkbox-material .check {
+    background: #3b5998 !important;
+}
+#acceptancecheck span{
+    font-size:15px;
+}
+.checkbox .checkbox-material .check {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3b5998!important;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 5px;
+}
+.textInput{
+    font-size: 15px;
+    color: #333;
+    border: 1px solid #dfdfdf;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 25px;
+}
+</style>
+
+<!-- <div class="get_html_book" style="display:none">
+
+</div> -->
+<!-- START BOOK  -->
+
+<!-- book -->
 <?php 
    
     if(!$_COOKIE['lng']){
@@ -26,6 +560,15 @@
         $newname = 'New name';
         $phoneplace = 'Phone';
         $search_position = 'Find a location';
+
+        /************book********* */
+        $lng_your_country = 'Your country';
+        $lng_fiast_name = 'First Name';
+        $lng_last_name = 'Last Name';
+        $lng_phone = 'Phone';
+        $lng_email = 'Email';
+        $lng_other = 'Other';
+       $lng_flight = 'Flight';  
         
     }
     else if($_COOKIE['lng'] == 'en'){
@@ -54,6 +597,15 @@
         $newname = 'New name';
         $phoneplace = 'Phone';
         $search_position = 'Find a location';
+
+         /************book********* */
+         $lng_your_country = 'Your country';
+         $lng_fiast_name = 'First Name';
+         $lng_last_name = 'Last Name';
+         $lng_phone = 'Phone';
+         $lng_email = 'Email';
+         $lng_other = 'Other';
+        $lng_flight = 'Flight';  
         
         
     }
@@ -83,6 +635,16 @@
         $newname = 'ชื่อใหม่';
         $phoneplace = 'โทรศัพท์';
         $search_position = 'ค้นหาตำแหน่ง';
+
+
+        /************book********* */
+        $lng_your_country = 'ชื่อประเทศของคุณ';
+        $lng_fiast_name = 'ชื่อ';
+        $lng_last_name = 'นามสกุล';
+        $lng_phone = 'โทรศัพท์';
+        $lng_email = 'อีเมล์';
+        $lng_other = 'อื่น ๆ';
+       $lng_flight = 'เที่ยวบิน'; 
         
         
     }
@@ -112,6 +674,15 @@
         $newname = '新名称';
         $phoneplace = '电话';
         $search_position = '找到一个位置';
+
+        /************book********* */
+        $lng_your_country ="您的国家";
+        $lng_fiast_name = '名';
+        $lng_last_name = '姓';
+        $lng_phone = '电话';
+        $lng_email = '电子邮件';
+        $lng_other = '其他';
+        $lng_flight = '航班';
         
         
         
@@ -545,13 +1116,13 @@
                <h4 class="lng-a-place"></h4>
            </div>
            <style>
-           .textInput {
+           /* .textInput {
             border: 1px solid #3b5998;
             padding: 12px;
             margin: 8px 0;
             width: 100%;
             border-radius: 25px;
-}
+} */
            </style>
             <div style="    margin-top: 10px;">
                 <div class="col-md-12 col-sx-12">  
@@ -648,12 +1219,12 @@
         position: fixed;
         z-index: 3;
 }
-#province{
+#province_service{
     list-style: none;
     padding-left: 0;
     font-size: 15px;
 }
-#province li{
+#province_service li{
     padding: 15px;
     border-bottom: 1px solid #ddd;
 }
@@ -739,7 +1310,7 @@
                             <i class="material-icons closepop">close</i>
                         </div>
                         <div class="col-md-12 boxpax" > 
-                        <ul class="" name="typecarservice" id="province" >
+                        <ul class="" name="typecarservice" id="province_service" >
                             <!-- <li ><? echo  $lng_from;?>
                             </li>                                                                 -->
                         </ul>
@@ -1470,7 +2041,7 @@ textarea:-ms-input-placeholder {
             <div id="history_pop" style="display: none;">
             <div class="history_pop_in">               
                 <div class="history_pop_ln">
-                    <div class="lng_history" style="text-align: center; font-size: 16px;"></div>
+                    <div class="lng_history" style="text-align: center; font-size: 16px;    margin-bottom: 15px;"></div>
                     <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
                     <div style="font-size: 15px;  padding-bottom: 15px; border-bottom: dashed 2px #3b5998;">
                         <table width="100%">                           
@@ -1556,7 +2127,7 @@ textarea:-ms-input-placeholder {
                     <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
                     <div class="lng_really_need" style="text-align: center; font-size: 15px;font-weight: 400; margin-bottom: 20px;"></div>
                    
-                    <div class="lng_police_now" style="background: #3b5998;
+                    <div class="lng_police_now" style="background: #f44336;
                     /* text-transform: uppercase; */
                     text-align: center;
                     color: #fff;
@@ -1596,6 +2167,327 @@ textarea:-ms-input-placeholder {
                 </div>        
             
             </div></div>
+
+
+
+
+            <!-- POP_PAGE_BOOK -->
+            <div class="modal fade" id="capacityss" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>      
+                    <div class="modal-body">                                    
+                        <div id="getcapa"></div>
+                        <div id="getcapa2"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="codecountry" style="    z-index: 300;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 91vh;
+    background: #fff; display: none;">
+            <div class="" style="width: 100vw;
+            position: fixed;
+            z-index: 10;
+            overflow-y: scroll;
+            height: 91vh;">
+            <div class="" style="padding: 12px 15px 0; */">
+            <i class="material-icons" onclick="closepopup('country')" style="position: absolute;top: 15px; right: 15px;">close</i>
+                       <!-- <i class="material-icons" data-dismiss="modal" style="position: absolute;top: 10px; right: 15px;">close</i> -->
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button> -->
+                        <div class="box-country">
+                            <ul id="select-name"> </ul>
+                        </div>
+                    </div>
+                <!-- <div style=""> -->
+                    
+                  
+
+                   
+                <!-- </div> -->
+            </div>
+        </div> 
+        <div class="modal fade" id="" role="dialog">
+            <div class="modal-dialog" style="margin: 0; margin-top: 0 !important;">
+                <div class="modal-content" style="width: 100%; height: 100vh; overflow: hidden;  overflow-y: scroll;    border-radius: 0 !important;">
+                    <div class="modal-header" style="padding: 12px 15px 0; */">
+                        <button type="button" class="close" data-dismiss="modal" style="font-size:30px;">&times;</button>
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button> -->
+                    </div>    
+                    <div class="modal-body" style="padding: 0">                                    
+                        <!-- <div class="box-country">
+                            <ul id="select-name"> </ul>
+                        </div> -->
+                    </div>
+                    <div class="modal-footer">
+                                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()">Close</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            #getcapa{
+                background-color: #ddd;
+                height: 35px;
+            }
+            .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+                border-top: none;
+            }
+            #table1{
+                margin-top: 10px !important;
+            }
+            #input_data_pop{
+                z-index: 19;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                display: none;
+            }
+            #acceptance_pin_pop{
+                z-index: 300;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                display: none;
+                /* pointer-events: none; */
+            }
+            .acceptance_pin_pop_in{
+               /* height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 80vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .acceptance_pin_pop_ln{
+                padding: 20px;
+                pointer-events: auto;
+            }
+            #selsect_car_pop{
+                z-index: 300;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.59);
+                display: none;
+                /* pointer-events: none; */
+            }
+            .selsect_car_pop_in{
+               /* height: 220px; */
+                /* border-radius: 4px; */
+                background: #fff;
+                min-width: 80vw;
+                /* height: auto; */
+                left: 50vw;
+                top: 50vh;
+                transform: translate(-50%,-50%);
+                position: fixed;
+                z-index: 10;
+                border-radius: 15px;
+            }
+            .selsect_car_pop_ln{
+                padding: 20px;
+                pointer-events: auto;
+            }
+            @keyframes blink { 
+						   50% { border-color: #ff0000; } 
+						}
+            #checkbox .checkbox-material .check {
+    animation-name: blink;
+    animation-duration: .5s;
+    animation-timing-function: step-end;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+        </style>
+        <div id="input_data_pop" >
+            <div class="acceptance_pin_pop_in">               
+                <div class="acceptance_pin_pop_ln">
+                    <div class="lng_please_input_data " style="text-align: center; font-size: 18px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="New name" id="newname" name="newname" onchange="newname(newname)" > -->
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <!-- <div class="lng_find_again btn-close" style="background-color: #f44336;
+                    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="btn_no_position()">Edit route</div> -->
+                    <div class="lng-close icon-close" style="    width: 100%;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #3b5998;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;">ปิด</div>
+                    </div>
+                    
+                </div>        
+            
+            </div>
+        </div> 
+         <div id="acceptance_pin_pop" style="">
+            <div class="acceptance_pin_pop_in">               
+                <div class="acceptance_pin_pop_ln">
+                    <div class="lng_please_accept" style="text-align: center; font-size: 18px;"></div>
+                    <!-- <input type="text" class="textInput" placeholder="New name" id="newname" name="newname" onchange="newname(newname)" > -->
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <!-- <div class="lng_find_again btn-close" style="background-color: #f44336;
+                    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="btn_no_position()">Edit route</div> -->
+                    <div class="lng-close icon-close" style="    width: 100%;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #3b5998;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;" >Correct</div>
+                    </div>
+                    
+                </div>        
+            
+            </div>
+        </div>
+        <div id="selsect_car_pop" style="">
+            <div class="selsect_car_pop_in">               
+                <div class="selsect_car_pop_ln">
+                    <div style="text-align: center; font-size: 16px;"><span class="lng_chosen_car"></span><span id="checknumcar" style="margin-left:15px;margin-right:15px"></span><span class="lng-carnum"></span></div>
+                    <!-- <input type="text" class="textInput" placeholder="New name" id="newname" name="newname" onchange="newname(newname)" > -->
+                    
+                    <div style="text-align: center;
+                    margin-top: 25px;">
+                    <div class="lng_new_selection icon-close" style="background-color: #f44336;
+                    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                    margin-right: 15px;
+                   " onclick="btn_no_position()">Edit route</div>
+                    <div class="lng_confirm icon-close" style="    width: 120px;
+                    padding: 10px 0px;
+                    font-size: 15px;
+                    background-color: #4caf50;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    border-radius: 25px;
+                   
+                    bottom: 14px;
+                    right: 125px;" ></div>
+                    </div>
+                    
+                </div>        
+            
+            </div>
+        </div>          
+        <div class="modal fade" id="login">
+            <div class="modal-dialog col-md-8">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <!-- <h4 class="modal-title" >Logout</h4> -->
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="">
+                                <form >
+                                    <div class="card-header text-center" data-background-color="green">
+                                            <h4 class="card-title">Login</h4>
+                                    </div>
+                                    <div align="text-center">
+                                        <p id="message" style="text-align: center;"></p>
+                                    </div>
+                                    <div class="card-content col-sm-8 col-sm-offset-2" >
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">face</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Email or Phone</label>
+                                                <input type="text" class="form-control" ng-model="username" style="">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Password</label>
+                                                <input type="password" class="form-control" ng-model="password" style="    ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer text-center">
+                        <button type="submit" class="btn btn-rose btn-simple btn-wd btn-lg" ng-click="login()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="waning-flight" style="z-index: 9999; position: fixed; width: 100vw; height: 100vh; left: 0px; top: 0px; background: rgba(0, 0, 0, 0.59); display: none;">
+        <div style="height: 165px; border-radius: 15px; background: #fff; min-width: 30rem;  left: 50vw; top: 50vh; transform: translate(-50%,-50%); position: fixed; z-index: 10000;">
+            <div>
+                <div style="font-weight: 500; color: #000; margin-top: 39px; font-size: 18px;  text-align: center;">
+                <!-- <button type="button" class="close" style="font-size:30px;">×</button> -->
+                    <div >Please input flight</div>
+                    <!-- <div type="button" class="btn-close" >Close</div> -->
+                    <!-- <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i> -->
+                </div> 
+                <div type="button" class="btn-close lng-close" ></div>
+                           
+            </div>
+        </div>
+    </div>
             
 <style>
     /*  rgb(13, 107, 106) */
@@ -1818,6 +2710,9 @@ textarea:-ms-input-placeholder {
                 top: 0;
                 background: rgba(0, 0, 0, 0.59);
                 /* display: none; */
+            }
+            .get_historylist_pop_ln{
+                padding: 15px;
             }
             .get_history_pop_in{
                 /* height: 220px; */

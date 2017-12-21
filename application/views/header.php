@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <?php echo link_tag('files/css/swiper.css'); ?>	
     <?php echo link_tag('files/css/swiper.min.css'); ?>	
+    <?php echo link_tag('files/css/classic.css?v='.time()); ?>	
+    <?php echo link_tag('files/css/classic.date.css?v='.time()); ?>
 
 </head>
 

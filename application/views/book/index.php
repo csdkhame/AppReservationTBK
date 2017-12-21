@@ -223,97 +223,86 @@
         </nav>
         
         <div class="box-menu-select">
-    <table width="100%">
-        <tr>
-            <td width="20%" style="">
-                <div class="btn-realtime" >
-                    <table width="100%">
-                        <tr>
-                            <td align="center">
-                                <i class="material-icons" style="font-size: 30px;">room</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <span class="lng-now-use" style="font-size: 13px;"></span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                </div>
-            </td>
-            <td width="20%" style="">
-                <div class="btn-reservation" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                                <i class="material-icons" style="font-size: 30px;" style="">search</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <span class="lng-advance-use" style="font-size: 13px;"></span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
-            <td width="20%" style="">
-                <div class="btn-car-service" >
-                <table width="100%">
-                        <tr>
-                            <td align="center">
-                            <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
-                            <!-- <i class="material-icons" id="iconhome" style="font-size: 30px;">home</i>  -->
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                            <span class="lng-car-service" style="font-size: 13px;">Car service</span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                   
-                </div>
-            </td>
-            <td width="20%" >
-                <div class="btn-management" >
-                    <table width="100%">
-                        <tr>
-                            <td align="center">
-                            <!-- <i class="material-icons" style="font-size: 30px;">settings</i> -->
-                                
-                                <i class="material-icons" style="font-size: 30px;">dvr</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <span class="lng-management" style="font-size: 13px;">Management</span>
-                            </td>
-                        </tr>
-                    </table>
-                </div> 
-            </td>
-        </tr>
-    </table>
- </div>
- <style>
-     .box-menu-select {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 2;
-    background: #fff;
-    /* box-shadow: 0px 10px 5px #888, 0px 0px 5px rgba(136, 136, 136, 0.52); */
-
-
-
-    /* height: 90px; */
-}
-.confirm{
+            <table width="100%">
+                <tr>
+                    <td width="20%" style="">
+                        <div class="btn-realtime" >
+                            <table width="100%">
+                                <tr>
+                                    <td align="center">
+                                        <i class="material-icons" style="font-size: 30px;">room</i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <span class="lng-now-use" style="font-size: 13px;"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                           
+                        </div>
+                    </td>
+                    <td width="20%" style="">
+                        <div class="btn-reservation" >
+                        <table width="100%">
+                                <tr>
+                                    <td align="center">
+                                        <i class="material-icons" style="font-size: 30px;" style="">search</i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <span class="lng-advance-use" style="font-size: 13px;"></span>
+                                    </td>
+                                </tr>
+                            </table> 
+                        </div>
+                    </td>
+                    <td width="20%" style="">
+                        <div class="btn-car-service" >
+                        <table width="100%">
+                                <tr>
+                                    <td align="center">
+                                    <i class="material-icons" id="car-service" style="font-size: 30px;">directions_car</i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                    <span class="lng-car-service" style="font-size: 13px;">Car service</span>
+                                    </td>
+                                </tr>
+                            </table>
+                           
+                           
+                        </div>
+                    </td>
+                    <td width="20%" >
+                        <div class="btn-management" >
+                            <table width="100%">
+                                <tr>
+                                    <td align="center">
+                                        <i class="material-icons" style="font-size: 30px;">dvr</i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <span class="lng-management" style="font-size: 13px;">Management</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div> 
+                    </td>
+                </tr>
+            </table>
+            <style>
+            .box-menu-select {
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+                z-index: 2;
+                background: #fff;
+            }
+            .confirm{
                 text-align: center;
                 background-color: rgb(35, 53, 91) !important;
                 width: 100px !important;
@@ -326,125 +315,77 @@
                 width: 100px !important;
                 border-radius: 25px !important;
             }
-.btn-reservation {
-    line-height: 0.8;
-    padding: 8px 0;
-    font-size: 16px;
-    /* font-weight: 400; */
-    /* position: absolute; */
-    width: 100%;
-    /* border-radius: 4px; */
-    /* padding: 12px; */
-    color: #333;
-    text-align: center;
-    /* display: inline-block; */
-    /* background-color: #2196f3; */
-    z-index: 1;
-}
+            .btn-reservation {
+                line-height: 0.8;
+                padding: 8px 0;
+                font-size: 16px;
+                width: 100%;
+                color: #333;
+                text-align: center;
+                z-index: 1;
+            }
 
-.btn-realtime {
-    line-height: 0.8;
-    padding: 8px 0;
-    font-size: 16px;
-    /* font-weight: 400; */
-    /* position: absolute; */
-    width: 100%;
-    /* border-radius: 4px; */
-    /* padding: 12px; */
-    color: #333;
-    text-align: center;
-    /* display: inline-block; */
-    /* background-color: #2196f3; */
-    z-index: 1;
-}
+            .btn-realtime {
+                line-height: 0.8;
+                padding: 8px 0;
+                font-size: 16px;
+                width: 100%;
+                color: #333;
+                text-align: center;
+                z-index: 1;
+            }
 
-.btn-home {
-    padding: 8px 0;
-    font-size: 16px;
-    /* font-weight: 400; */
-    /* position: absolute; */
-    width: 100%;
-    /* border-radius: 4px; */
-    /* padding: 12px; */
-    color: #16B3B1;
-    text-align: center;
-    /* display: inline-block; */
-    /* background-color: #2196f3; */
-    z-index: 1;
-}
+            .btn-home {
+                padding: 8px 0;
+                font-size: 16px;
+                width: 100%;
+                color: #16B3B1;
+                text-align: center;
+                z-index: 1;
+            }
 
-.btn-management {
-    line-height: 0.8;
-    padding: 8px 0;
-    font-size: 16px;
-    /* font-weight: 400; */
-    /* position: absolute; */
-    width: 100%;
-    /* border-radius: 4px; */
-    /* padding: 12px; */
-    color: #333;
-    text-align: center;
-    /* display: inline-block; */
-    /* background-color: #2196f3; */
-    z-index: 1;
-}
+            .btn-management {
+                line-height: 0.8;
+                padding: 8px 0;
+                font-size: 16px;
+                width: 100%;
+                color: #333;
+                text-align: center;
+                z-index: 1;
+            }
 
-.btn-management a {
-    color: #999999;
-}
-.btn-car-service {
-    line-height: 0.8;
-    padding: 8px 0;
-    font-size: 16px;
-    /* font-weight: 400; */
-    /* position: absolute; */
-    width: 100%;
-    /* border-radius: 4px; */
-    /* padding: 12px; */
-    color: #333;
-    text-align: center;
-    /* display: inline-block; */
-    /* background-color: #2196f3; */
-    z-index: 1;
-}
+            .btn-management a {
+                color: #999999;
+            }
+            .btn-car-service {
+                line-height: 0.8;
+                padding: 8px 0;
+                font-size: 16px;
+                width: 100%;
+                color: #333;
+                text-align: center;
+                z-index: 1;
+            }
+            .btn-real-res {
+                line-height: 0.8;
+                position: absolute;
+                margin-top: 50px;
+                width: 100%;
+                z-index: 5;
+                text-align: center;
+            }
 
-
-/*.btn-reservation:hover{
-        background-color: #FFC107;
-    }*/
-
-.btn-real-res {
-    line-height: 0.8;
-    position: absolute;
-    margin-top: 50px;
-    width: 100%;
-    z-index: 5;
-    text-align: center;
-}
-
- </style>
+             </style>
+        </div>
+ 
             <div class="container-fluid" style="margin-bottom: 80px;">
                 <div class="row">
                     <div class="container">
                         <div class="row">
-                            <div style="padding: 10px 4px;
-    font-weight: 600;
-    font-size: 16px;
-    margin-top: 15px;"> 
+                            <div style="padding: 10px 4px; font-weight: 600; font-size: 16px; margin-top: 15px;"> 
                                 <div class="lng-booking-infomation" style="display:inline-block"></div>
-                                <!-- <div class="" id="acceptancecheckw" style="    display: inline-block;
-    position: absolute;
-    right: 30px;
-    margin-top: -12px;">
-                            <div class="checkbox" style="margin-bottom: 30px;">
-                                <label>
-                                    <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
-                                    <span class="">ไป-กลับ</span>
-                                </label>
-                            </div>
-                        </div> -->
-                            </div>
-                            
+                                
+                            </div>                            
                             <div class="card">                               
                                 <div class="col-md-4">
                                     <div id="images-icon"></div>
@@ -454,21 +395,11 @@
                                         <table  width="100%">
                                             <tr>
                                                 <td width="10">
-                                                <!-- <div style="">
-                
-    <div style="width: 2px;
-    height: 30px;
-    background: #ddd;margin-left: 4px;"></div>
-    
-                </div> -->
                                                 </td>
                                                 <td>
                                                  <table width="100%">
                                                     <tr>
-                                                        <td width="10"><div style="width: 10px;
-    height: 10px;
-    border-radius: 1px;
-    background: #555;"></div></td>
+                                                        <td width="10"><div style="width: 10px; height: 10px; border-radius: 1px;background: #555;"></div></td>
                                                         <td align="left" style="padding-left: 15px;"><span id="placefrom" style="text-align: center;"></span></td>
                                                     </tr>
                                                     <tr>
@@ -476,19 +407,13 @@
                                                     <!-- <td></td> -->
                                                     </tr>
                                                     <tr>
-                                                        <td width="10"><div style="width: 10px;
-    height: 10px;
-    border-radius: 1px;
-    background: #3b5998;"></div></td>
+                                                        <td width="10"><div style="width: 10px; height: 10px; border-radius: 1px;background: #3b5998;"></div></td>
                                                         <td align="left" style="padding-left: 15px;"><span id="placeto" style="text-align: center;"></span></td>
                                                     </tr>
                                                  </table>
                                                 </td>
                                             </tr>
                                         </table>
-                                        
-                                        
-                                        
                                     </div>
                                     <div class="form-group form-inline">
                                     <table width="100%">
@@ -842,16 +767,14 @@
                         </div>
                                 
                         <div class="row">
-                            <div style="padding: 10px 4px;
-    font-weight: 600;
-    font-size: 16px;">
+                            <div style="padding: 10px 4px; font-weight: 600; font-size: 16px;">
                                 <span class="lng-contact-infomation"></span>
                             </div>
-                            <div class="card">
+                            <div class="card" style="padding: 15px 0;">
                                 <div class="col-md-12 ">
                                     <div class="row">
                                         <div class="col-md-12" id="acceptancecheck">
-                                            <div class="checkbox" style="margin-bottom: 30px;">
+                                            <div class="checkbox" style="    margin: 0;">
                                                 <label>
                                                     <input type="checkbox" name="optionsCheckboxes" id="acceptanceuser">
                                                     <span class="lng-get-detail"></span>
@@ -859,13 +782,7 @@
                                                 <div id="pleselogin" class="lng-plese-login" style="color: red; text-align: center; font-weight: 400; font-size: 16px; margin-top: 12px;display:none">Plese login</div>
                                             </div>
                                         </div>    
-                                        <div class="col-md-6">                                            
-                                                <!-- <div class="form-group form-inline required ">
-                                                                           
-                                                    <select class="textInput" name="guestcountry" id="guestcountry" class="" style="  ">
-                                                        <option class="textInput" value="az_AZ" ><? echo $lng_your_country;?></option>
-                                                    </select>
-                                                </div> -->
+                                        <div class="col-md-6"> 
                                            
                                             <div class="contact_info">
                                                
@@ -913,9 +830,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div style="padding: 10px 4px;
-    font-weight: 600;
-    font-size: 16px;">
+                            <div style="padding: 10px 4px; font-weight: 600; font-size: 16px;">
                             <span class="lng-terms-of-use"></span>
                             </div>
                             <div class="card">
@@ -1234,23 +1149,9 @@
             </div>
         </div>
         <div id="waning-flight" style="z-index: 9999; position: fixed; width: 100vw; height: 100vh; left: 0px; top: 0px; background: rgba(0, 0, 0, 0.59); display: none;">
-        <div style="height: 165px;
-   border-radius: 15px; 
-    background: #fff;
-    min-width: 30rem;
-    /* height: auto; */
-    left: 50vw;
-    top: 50vh;
-    transform: translate(-50%,-50%);
-    position: fixed;
-    z-index: 10000;">
+        <div style="height: 165px; border-radius: 15px; background: #fff; min-width: 30rem;  left: 50vw; top: 50vh; transform: translate(-50%,-50%); position: fixed; z-index: 10000;">
             <div>
-                <div style="font-weight: 500;
-    color: #000;
-    margin-top: 39px;
-    font-size: 18px;
-    /* padding: 35px; */
-    text-align: center;">
+                <div style="font-weight: 500; color: #000; margin-top: 39px; font-size: 18px;  text-align: center;">
                 <!-- <button type="button" class="close" style="font-size:30px;">×</button> -->
                     <div >Please input flight</div>
                     <!-- <div type="button" class="btn-close" >Close</div> -->
