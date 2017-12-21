@@ -44,7 +44,7 @@ input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   color: #333 !important;
 }
-    #terms-of-use {
+    .terms-of-use {
     padding: 10px;
     border-radius: 15px;
     font-size: 16px;
@@ -1341,10 +1341,8 @@ table{
         </div>
         <!-- END -->
                         
-                        <div id="box-pro-service" style="  margin-bottom: 100px;">
-                            <div id="product_service" style="height: 58vh;
-    overflow-y: scroll;
-    width: 100%;">
+                        <div id="box-pro-service" style="  ">
+                            <div id="product_service" style="">
                             <div class="not-found lng-not-found" style="display:none"></div>
                             </div>
                         </div>
@@ -1937,7 +1935,7 @@ textarea:-ms-input-placeholder {
     margin-top: 15px;">
                     <span  class="lng-terms-of-use" >Terms of Use</span>
 				</div>
-                <div id="terms-of-use"></div>
+                <div class="terms-of-use"></div>
             </div>
             <div class="modal-footer" style="padding: 12px;">
                 <div type="button" class="btn-close lng-close" style="    border-radius: 25px;

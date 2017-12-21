@@ -32,13 +32,16 @@ $(document).ready(function() {
         booking = 'Realtime';
         setTimeout(function() {
             $('#boxRealtime').show(500);
-            $('#boxForAutoCom').show(500);
+            $('#boxForAutoCom').show(2000);
+            
             
             
             $('#boxRealtimeto').show(500);
             $('#box-car-service').hide();
             $('#map').show(500);
-            $('.box_option').show(500)
+            //$('#marginBox').hide(1000)
+            $('.box_option').show(1000)
+           
             
             $('.btn-realtime').css({ 'background': '#3b5998', 'color': '#ffffff' });
 
@@ -65,7 +68,7 @@ $(document).ready(function() {
             //$('#search-raeltime').css('display', 'block');
 
 
-
+            $('#current').focus();
 
 
             //$('#content').css('display','block'); 
@@ -77,8 +80,8 @@ $(document).ready(function() {
         booking = 'Reservation'
         setTimeout(function() {
             $('#boxRealtime').show(500);
-            $('#boxForAutoCom').show(500);
-            
+            $('#boxForAutoCom').show(2000);
+          
             
             $('#boxRealtimeto').show(500);
             $('#box-car-service').hide();
@@ -107,6 +110,7 @@ $(document).ready(function() {
             $('#loading').css('display', 'none');
             $('#search-show').css('display', 'none')
             $('#pac-input').css('display', '');
+            $('#current').focus();
             //$('#search-raeltime').css('display', 'block');
 
 
@@ -704,79 +708,10 @@ $(document).ready(function() {
     }, 3000);
 
 
-    $('#iconleft').click(function() {
-        $("#iconhome").fadeIn(1000);
-        $("#list_place").show(700);
-        $("#iconleft2").fadeIn(1000);
-        //$("").css('display','block');//.fadeIn(1000);
+    
 
-        $("#iconleft").css('display', 'none'); //.fadeIn(1000);
-        //$(this).hide(); 
-        //       $('#selectPlace').css('z-index','1');
-        $("#search-show").hide();
-        $("#search-raeltime").fadeIn(1000);
-        //$(".btn-realtime").hide(); 
-        $("#search-show").fadeOut(1000);
-        //$("").show();
-        //$("").show();
-        $(".btn-realtime").fadeIn(1000);
-        $(".btn-reservation").hide();
-        //$(".btn-realtime").hide();
-
-
-
-
-    });
-
-    $('#iconleft2').click(function() {
-        //$(this).css('display','none');
-        $("#iconhome").fadeIn(1000);
-        $("#iconleft").fadeIn(1000);
-        $("#list_place").hide(700);
-
-
-        //$("#iconleft").css('display','block');
-        $("#iconleft2").css('display', 'none'); //.fadeIn(1000);
-
-
-        //$('#selectPlace').css('z-index','-1');
-        $("#search-show").fadeIn(1000);
-        $("#search-raeltime").hide();
-        //$(".btn-reservation").show();
-        $("#pro-search").hide();
-        $("#search-raeltime").fadeOut(1000);
-        //$("").show();
-        $(".btn-reservation").fadeIn(1000);
-        $(".btn-realtime").hide();
-
-    });
-    $('#iconhome').click(function() {
-        // $("#iconhome").fadeOut(1000);
-        $('.a-link-item').remove();
-        $("#list_place").hide(700);
-        //$("#iconleft2").fadeOut(1000);
-        //$("#iconleft").fadeOut(1000);
-        //$("").css('display','block');//.fadeIn(1000);
-        //          $('#selectPlace').css('z-index','2');
-        //$("#iconleft").css('display','none');//.fadeIn(1000);
-        //$(this).hide(); 
-        $("#show-hide-pro2").hide();
-
-        $("#search-show").hide();
-        //$("#search-raeltime").fadeIn(500);
-        //$(".btn-realtime").hide(); 
-        $("#search-show").fadeOut(500);
-        $("#search-raeltime").fadeOut(1000);
-        //$("").show();
-        //$("").show();
-        $(".btn-realtime").fadeIn(1000);
-        //$(".btn-reservation").fadeIn(1000);
-        //$(".btn-realtime").hide();
-
-
-
-
-    });
+  
+    
 
     $('#search-from').click(function() {
         $(this).val('');
@@ -825,11 +760,18 @@ $(document).ready(function() {
         $('#loading').css('display', 'block');
         checkshow = true;
         booking = 'Reservation'
+        $('#box-pax-rel').hide(500);
+        $('#show-hide-pro').hide(500);
+        
+        $('#get_html_book').hide(500);
+        
         $('#clear-all').click();
         placeRecord();
         // alert(checkreal_or_res)
         if(checkreal_or_res == 'Real' || checkreal_or_res == ''){
             setTimeout(function() {
+               
+                
                 $('#boxRealtime').show(500);
                 $('#boxForAutoCom').show(500);
                 
@@ -1019,6 +961,11 @@ $(document).ready(function() {
         booking = 'Realtime';
         checkshow = true;
         placeRecord();
+        $('#box-pax-rel').hide(500);
+        $('#get_html_book').hide(500);
+        $('#show-hide-pro').hide(500);
+        
+        
         // alert(checkreal_or_res)
         
         //	  $('#selectPlace').show();
@@ -1287,6 +1234,10 @@ $(document).ready(function() {
         $('#btn_CurrentLocation').hide();
         $('#clear-all').hide();
         
+        
+        $('#box-pax-rel').hide(500);
+        $('#get_html_book').hide(500);
+        $('#show-hide-pro').hide(500);
         
         
         $('#loading').css('display', 'block');
@@ -3153,7 +3104,7 @@ function getcondition(i) {
 
     });
     if ($.cookie("lng") == 'cn') {
-        $('#terms-of-use').html('<span>' +
+        $('.terms-of-use').html('<span>' +
             '<B>一. </B> 请注意，黄色或者绿色车牌为合法运营车辆。如看到其他颜色牌照可拒绝上车，并请联系我们热线。<br /><br />' +
             '<B>二. </B> 上⻋车请系好安全带，不然如遇警察检查需自己付罚款，如有意外保险⽆无法赔偿。<br /><br />' +
             '<B>三. </B> 上下车请保管好自己的物品。如有遗失，概不负责。<br /><br />' +
@@ -3161,7 +3112,7 @@ function getcondition(i) {
             '我们会退还订单费用，如客人有打车凭证提供，我们将补偿打车费用，但是其他费用一律不负责赔偿，请知晓！</span>');
 
     } else if ($.cookie("lng") == 'en') {
-        $('#terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
+        $('.terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
 
             '<B>2.</B> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br /><br>' +
 
@@ -3170,7 +3121,7 @@ function getcondition(i) {
             '<B>4.</B> If the driver did not arrive on time in 5-15 minutes, please contact our 24-hour hotline,Such as waiting for more than 30 minutes, please kindly get another taxi. We will refund the cost of the order, if the guest able to provide the taxi voucher that they took, we will refund the taxi costs. Please be noticed the other fees are not responsible for refund..</span>');
 
     } else if ($.cookie("lng") == 'th') {
-        $('#terms-of-use').html('<span >' +
+        $('.terms-of-use').html('<span >' +
             '<B>1.</B> โปรดทราบว่ามีเพียงแผ่นป้ายทะเบียนรถสีเขียวหรือสีเหลืองเท่านั้นที่ใช้เป็นยานพาหนะขนส่งสาธารณะที่ถูกต้องตามกฎหมาย หากคุณเห็นป้ายทะเบียนรถเป็นสีอื่น คุณสามารถปฏิเสธการโดยสารได้ และโปรดติดต่อสายด่วนของเรา<br /><br />' +
             '<B >2.</B> กรุณาคาดเข็มขัดนิรภัย มิฉะนั้นในกรณีที่มีการเรียกตรวจสอบจากตำรวจ คุณต้องต้องจ่ายค่าปรับเอง และในกรณีที่เกิดอุบัติเหตุ คุณจะไม่สามารถได้รับค่าชดเชยจากบริษัทประกันภัย<br /><br />' +
             '<B>3.</B> โปรดตรวจสอบทรัพย์สินของคุณก่อนที่รถจะออกเดินทางหรือรถถึงที่หมาย เราจะไม่รับผิดชอบต่อความสูญเสียในกรณีใดๆ ทั้งสิ้น<br /><br />' +
@@ -3178,7 +3129,7 @@ function getcondition(i) {
 
 
     } else if ($.cookie("lng") == undefined) {
-        $('#terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
+        $('.terms-of-use').html('<span  ><B >1.</B>  Please note that only green or yellow license plates vehicle legally are used as public vehicles. If you see other colors license plates vehicle, could refuse to get on and please contact our hotline.<br /><br>' +
 
             '<B>2.</B> Please remember to fasten your seat belt in the vehicle. Otherwise, in case of police check required to pay fines by you own and in case of any traffic accident, you would be unable to get any insurance compensation.<br /><br>' +
 

@@ -455,7 +455,7 @@
                             <div class="card"  style="border-radius: 15px">
                                 
                                 <div class="col-md-12">
-                                <div id="terms-of-use" style="    margin-top: 15px;"></div>
+                                <div class="terms-of-use" style="    margin-top: 15px;"></div>
                                 </div>
                                 <div class="col-md-12">
                                 
