@@ -10,6 +10,7 @@
     <script src="<?php echo base_url(); ?>files/js/hammer.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>files/js/hammer-time.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>files/js/moment.min.js"></script>
+    <script src="<?php echo base_url(); ?>files/js/iscroll.js"></script>
 	<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.12.0.js"></script>
 	<!--    Plugin for Date Time Picker and Full Calendar Plugin   -->
 	<!-- <script src="<?php echo base_url(); ?>files/js/moment.min.js"></script> -->

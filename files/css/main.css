@@ -112,7 +112,7 @@ body {
 }
 
 #img-car {
-    z-index: 201;
+    z-index: 275;
     position: fixed;
     left: 0px;
     top: 0px;
@@ -711,6 +711,7 @@ input:after {
     overflow: hidden;
     z-index: 10;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     /* margin-top: 15px; */
 }
 
@@ -938,6 +939,7 @@ input:after {
     border-left: 1px solid rgb(221, 221, 221);*/
     border-radius: 0px 5px 5px;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     overflow-x: none;
 }
 
@@ -961,6 +963,7 @@ input:after {
     /* border-radius: 0px 5px 5px; */
     overflow-y: scroll;
     overflow-x: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 #box-plancefrom {
@@ -1055,10 +1058,12 @@ input:after {
 .boxpax{
     overflow-y: scroll;
     height: 80vh;
+    -webkit-overflow-scrolling: touch;
 }
 .boxpax2{
     overflow-y: scroll;
     height: 80vh;
+    -webkit-overflow-scrolling: touch;
 }
 
 
@@ -1066,6 +1071,7 @@ input:after {
     #product_service{
         height: 65vh;
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
         width: 100%;
 
     }
@@ -1188,11 +1194,13 @@ input:after {
         height: 61vh;
         overflow-y: scroll;
         width: 100%;
+        -webkit-overflow-scrolling: touch;
 
     }
     #paxrel{
         height: 55vh;
         overflow: scroll;
+        -webkit-overflow-scrolling: touch;
     }
     .box-province {
         margin-left: 3px;
@@ -1417,5 +1425,6 @@ animation-direction: alternate;
 #move-product{
     height: 71vh;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
 }

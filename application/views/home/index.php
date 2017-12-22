@@ -1836,7 +1836,7 @@ textarea:-ms-input-placeholder {
  
         <div id="img-car" >
             <div class="box-in-foget" style="">
-                <div  style="    background: rgb(22, 179, 177);
+                <div  style="    background: #3b5998;
     color: #fff;
     padding: 18px;
     text-align: center;
@@ -1868,7 +1868,7 @@ textarea:-ms-input-placeholder {
         </div>
 <div class="modal fade" id="updatelat" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content" style="max-height: 640px; overflow: hidden; overflow-y: scroll;">
+        <div class="modal-content" style="max-height: 640px; overflow: hidden; overflow-y: scroll;-webkit-overflow-scrolling: touch;">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>         
@@ -2196,6 +2196,7 @@ textarea:-ms-input-placeholder {
             position: fixed;
             z-index: 10;
             overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
             height: 91vh;">
             <div class="" style="padding: 12px 15px 0; */">
             <i class="material-icons" onclick="closepopup('country')" style="position: absolute;top: 15px; right: 15px;">close</i>
@@ -2215,7 +2216,7 @@ textarea:-ms-input-placeholder {
         </div> 
         <div class="modal fade" id="" role="dialog">
             <div class="modal-dialog" style="margin: 0; margin-top: 0 !important;">
-                <div class="modal-content" style="width: 100%; height: 100vh; overflow: hidden;  overflow-y: scroll;    border-radius: 0 !important;">
+                <div class="modal-content" style="width: 100%; height: 100vh; overflow: hidden;  overflow-y: scroll; -webkit-overflow-scrolling: touch;   border-radius: 0 !important;">
                     <div class="modal-header" style="padding: 12px 15px 0; */">
                         <button type="button" class="close" data-dismiss="modal" style="font-size:30px;">&times;</button>
                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal"  style="display: nones;" >Close</button> -->
@@ -2234,11 +2235,11 @@ textarea:-ms-input-placeholder {
         <style>
             #getcapa{
                 background-color: #ddd;
-                height: 35px;
+                height: 50px;
             }
-            .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+            /* .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
                 border-top: none;
-            }
+            } */
             #table1{
                 margin-top: 10px !important;
             }
