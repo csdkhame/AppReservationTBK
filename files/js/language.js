@@ -25,7 +25,7 @@ $(document).ready(function() {
     $("#bodyClick").swipe({
         swipeStatus: function(event, phase, direction, distance, duration, fingers) {
             if (phase == "move" && direction == "lng-register") {
-                alert("aaaa")
+                //alert("aaaa")
                 $(".navbar-toggle").addClass("toggled");
                 return false;;
             }
@@ -172,6 +172,8 @@ $(document).ready(function() {
         $('.lng_really_need').html("继续，当你真的需要帮助。")
         $('.lng_police_now').html("现在就报警")
         $('.lng_canceled').html("取消")
+        $('.lng-omise-gateway').html("付款頻道")
+        
         
         
         
@@ -350,6 +352,8 @@ $(document).ready(function() {
         $('.lng_really_need').html("Continue when you really need help.")
         $('.lng_police_now').html("Call the police now")
         $('.lng_canceled').html("Canceled")
+        $('.lng-omise-gateway').html("Payment Channels")
+        
         
         
         
@@ -529,15 +533,7 @@ $(document).ready(function() {
         $('.lng_really_need').html("ดำเนินการต่อเมื่อคุณต้องการความช่วยเหลือจริงๆ")
         $('.lng_police_now').html("เรียกตำรวจเดี๋ยวนี้")
         $('.lng_canceled').html("ยกเลิก")
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        $('.lng-omise-gateway').html("ช่องทางการชำระเงิน")
         
         
 
