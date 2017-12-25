@@ -495,70 +495,9 @@ $status_pay = '<a class=" btn-xs btn-custom-pay" style="font-size: 15px;" href="
 <br/>
 <br/>
 <br/>
-<div id="police_pop" style="display: none;">
-            <div class="police_pop_in">               
-                <div class="police_pop_ln">
-                <!-- <i class="material-icons" id="close_get_history" style="position: absolute;top: 10px; right: 15px;">close</i> -->
-                    <div class="lng_calling_police" style="text-align: center; font-size: 18px;font-weight: 400; margin-bottom: 20px;"></div>
-                    <!-- <input type="text" class="textInput" placeholder="<? echo $newname;?>" id="newname" name="newname" onchange="newname(newname)" > -->
-                    <div class="lng_really_need" style="text-align: center; font-size: 15px;font-weight: 400; margin-bottom: 20px;"></div>
-                   
-                    <div class="lng_police_now" style="background: #f44336;
-                    /* text-transform: uppercase; */
-                    text-align: center;
-                    color: #fff;
-                    /* position: absolute; */
-                    right: 15px;
-                    padding: 12px 20px;
-                    bottom: 15px;    border-radius: 15px;    border-radius: 15px;"></div>
-                    <div class="lng_canceled" style="
-                    /* text-transform: uppercase; */
-                    text-align: center;
-                    color: #333;
-                    /* position: absolute; */
-                    right: 15px;
-                    padding: 12px 20px;
-                    bottom: 15px;    border-radius: 15px;"></div>
-                    <!-- <ul id="list_history" >
 
-                    </ul> -->
-                    
-                    
-                    
-                </div>        
-            
-            </div></div>
 <style>
-.police_pop_ln{
-                padding: 15px;
-            }
-            #police_pop{
-                z-index: 9999;
-                position: fixed;
-                width: 100vw;
-                height: 100vh;
-                left: 0;
-                top: 0;
-                background: rgba(0, 0, 0, 0.59);
-                /* display: none; */
-            }
-            .police_pop_in{
-                /* height: 220px; */
-                max-height: 95vh;
-                /* border-radius: 4px; */
-                background: #fff;
-                min-width: 90vw;
-                /* height: auto; */
-                left: 50vw;
-                top: 50vh;
-                transform: translate(-50%,-50%);
-                position: fixed;
-                z-index: 10;
-                border-radius: 15px;
-            }
-            .police_pop_ln{
-                padding: 15px;
-            }
+
 	.dialog{
 	z-index: 300;
     position: fixed;
@@ -684,18 +623,7 @@ $(".modal-fullscreen").on('show.bs.modal', function () {
 $(".modal-fullscreen").on('hidden.bs.modal', function () {
   $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
 });
-$('.box-polic').click( function() {        
-         $('html').removeClass('nav-open');
-         setTimeout(function() {
-             $toggle.removeClass('toggled');
-             $('#bodyClick').remove();
-             $('.navbar-toggle').css('display', 'block');
-         }, 250);
-         $('#police_pop').show(500);        
-	});
-	$('.lng_canceled').click( function() {
-         $('#police_pop').hide();
-    });
+
 
 
 	
