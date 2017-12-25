@@ -163,7 +163,7 @@ $( document ).ready(function() {
     border-radius: 4px;
     border: 1px solid transparent;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, .14), 0 7px 12px -5px rgba(33, 33, 33, .46); */
-    color: white;
+    color: #333;
 }
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
 	border: none !important;	
@@ -180,8 +180,7 @@ $( document ).ready(function() {
 
 	<div class="" style="
     background: #3b5998;
-    padding: 13px;
-    padding-bottom: 0;
+    padding: 15px;
     width: 100%;
     z-index: 1;">
 		<div>
@@ -200,13 +199,7 @@ $( document ).ready(function() {
 							<? } ?>
 							
 				</div>
-				<div align="center" style="    margin-top: 10px;">
 				
-						<span class="textBox" style="font-size: 15px;"><b><span id="from"></span></b></span>
-							<strong style="font-size: 17px;color: white;"><span id="text" >-</span></strong>
-							<span class="textBox" style="font-size: 15px;"><b><span id="to"></span></b></span>
-						
-					</div>
 				
 				
 							
@@ -235,7 +228,16 @@ $( document ).ready(function() {
    </a></td> 
    </tr>
    </table>
-   </div>                                                                                        
+   </div> 
+   <div class="card" align="center" style="padding: 8px;
+    background-color: #fff;">
+				<table width="100%"><tbody><tr><td width="10"></td><td><table width="100%"><tbody><tr><td width="10"><div style="width: 10px;  height: 10px;  border-radius: 1px; background: #555;"></div></td><td align="left" style="padding-left: 15px;"><span id="from" style="text-align: center;"></span></td></tr><tr><td colspan="2"><br></td></tr><tr><td width="10"><div style="width: 10px;  height: 10px; border-radius: 1px; background: #3b5998;"></div></td><td align="left" style="padding-left: 15px;"><span id="to" style="text-align: center;"></span></td></tr></tbody></table></td></tr></tbody></table>
+				
+						<!-- <span class="textBox" style="font-size: 15px;"><b><span id="from"></span></b></span>
+							<strong style="font-size: 17px;color: #333;"><span id="text" >-</span></strong>
+							<span class="textBox" style="font-size: 15px;"><b><span id="to"></span></b></span> -->
+						
+					</div>                                                                                       
   <div class="card" style="padding: 8px;
     background-color: #fff;">         
   <table class="table ">
@@ -380,7 +382,7 @@ $( document ).ready(function() {
 			        </div>
   
   <h4 style="margin: 8px;"><span class="lng-terms-of-use"></span></h4>  
-  <div id="terms-of-use">
+  <div class="card" id="terms-of-use">
   </div>
   	
 	</div> 
@@ -403,8 +405,8 @@ $( document ).ready(function() {
     	$('#num_of_car').text(data.numcar);
     	$('#arrival_date').text(data.arrival_date);
     	$('#arrival_time').text(data.arrival_time);
-    	$('#from').text(data.from);
-    	$('#to').text(data.to);
+    	$('#from').text(data.address_en_from);
+    	$('#to').text(data.address_en_to);
     	$('#arrival_flight').text(data.arrival_flight);
     	var book_date_f = data.booking_date;
     	var res = data.booking_date.replace(" ", "/"); 

@@ -39,7 +39,7 @@ class Savebook_control extends CI_Controller {
                         "arrival_flight": "'.$_POST[arrival_flight].'", 
                         "arrival_visa": "'.$_POST[arrival_visa].'", 
                         "total_pax": "'.$_POST[total_pax].'",  
-                        "to_place": "'.$_POST[to_place].'", 
+                        "to_place": "'.trim($_POST[to_place]).'", 
                         "to_place_address": "'.trim($_POST[to_place_address]).'",  
                         "remark":"'.$_POST[remark].'"  
           
@@ -67,7 +67,7 @@ class Savebook_control extends CI_Controller {
                         "departure_flight": "'.$_POST[departure_flight].'", 
                         "departure_terminal": "'.$_POST[departure_terminal].'", 
                         "total_pax": "'.$_POST[total_pax].'",                          
-                        "pickup_place" : "'.$_POST[pickup_place].'", 
+                        "pickup_place" : "'.trim($_POST[pickup_place]).'", 
                         "pickup_place_address": "'.trim($_POST[pickup_place_address]).'",  
                         "service_time" : "'.$_POST[service_time].'", 
                         "remark" : "'.$_POST[remark].'"
@@ -94,7 +94,7 @@ class Savebook_control extends CI_Controller {
                         "arrival_time": "'.$_POST[arrival_time].'", 
                         "arrival_flight": "'.$_POST[arrival_flight].'",                        
                         "total_pax": "'.$_POST[total_pax].'",
-                        "to_place": "'.$_POST[to_place].'", 
+                        "to_place": "'.trim($_POST[to_place]).'", 
                         "to_place_address": "'.trim($_POST[to_place_address]).'", 
                         "number_car": "'.$_POST[number_car].'", 
                         "remark": "'.$_POST[remark].'"  
@@ -122,7 +122,7 @@ class Savebook_control extends CI_Controller {
                         "departure_flight" : "'.$_POST[departure_flight].'", 
                         "departure_terminal": "'.$_POST[departure_terminal].'",  
                         "total_pax": "'.$_POST[total_pax].'", 
-                        "pickup_place": "'.$_POST[pickup_place].'", 
+                        "pickup_place": "'.trim($_POST[pickup_place]).'", 
                         "pickup_place_address": "'.trim($_POST[pickup_place_address]).'",                       
                         "service_time": "'.$_POST[service_time].'",
                         "number_car": "'.$_POST[number_car].'", 
@@ -150,9 +150,9 @@ class Savebook_control extends CI_Controller {
                         "service_date": "'.$_POST[service_date].'",  
                         "service_time":  "'.$_POST[service_time].'", 
                         "total_pax": "'.$_POST[total_pax].'",  
-                        "number_car": "'.$_POST[number_car].'", 
-                        "pickup_place": "'.$_POST[to_place].'", 
-                        "to_place":"'.$_POST[to_place].'", 
+                        "number_car": "'.trim($_POST[number_car]).'", 
+                        "pickup_place": "'.trim($_POST[to_place]).'", 
+                        "to_place":"'.trim($_POST[to_place]).'", 
                         "remark": "'.$_POST[remark].'"
               }';
             
@@ -176,9 +176,9 @@ class Savebook_control extends CI_Controller {
                         "service_time":  "'.$_POST[service_time].'", 
                         "total_pax": "'.$_POST[total_pax].'",  
                         "number_car": "'.$_POST[number_car].'", 
-                        "pickup_place": "'.$_POST[pickup_place].'", 
+                        "pickup_place": "'.trim($_POST[pickup_place]).'", 
                         "pickup_place_address": "'.trim($_POST[pickup_place_address]).'",  
-                        "to_place" : "'.$_POST[to_place].'", 
+                        "to_place" : "'.trim($_POST[to_place]).'", 
                         "to_place_address": "'.trim($_POST[to_place_address]).'",  
                         "car_use_plan": "'.$_POST[remark].'"
               }';
@@ -202,16 +202,18 @@ class Savebook_control extends CI_Controller {
                         "social_skype" : "",  
                         "social_whatapp" : "",  
                         "social_facebook" : "",   
-                        "pickup_place": "'.$_POST[pickup_place].'", 
-                        "pickup_place_address": "'.trim($_POST[pickup_place_address]).'",  
-                        "to_place" : "'.$_POST[to_place].'", 
-                        "to_place_address": "'.trim($_POST[to_place_address]).'", 
+                        "pickup_place": "'.trim($_POST[pickup_place]).'",                         
+                        "to_place" : "'.trim($_POST[to_place]).'", 
+                        "to_place_address": "", 
+                        "pickup_place_address": "",
                         "number_car" : "'.$_POST[number_car].'", 
                        "remark": "'.$_POST[remark].'"
                         
               }';
         }
-        //echo $curl_post_data;
+        // "to_place_address": "'.trim($_POST[to_place_address]).'", 
+        // "pickup_place_address": "'.trim($_POST[pickup_place_address]).'",  
+       //echo $curl_post_data;
 $headers = array();
 
 $url = "http://www.t-booking.com/apiv2/book/create";

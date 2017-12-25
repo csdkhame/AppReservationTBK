@@ -359,7 +359,7 @@ table{
     margin-right: 15px;
 }
 .modal .modal-dialog {
-    margin-top: 10px !important;
+    /* margin-top: 10px !important; */
 }
 #box-image{
     width: 100%;

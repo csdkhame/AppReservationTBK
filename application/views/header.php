@@ -28,50 +28,37 @@
     <?php echo link_tag('files/css/classic.date.css?v='.time()); ?>
 
 </head>
-
-	
-
-    <body class="presentation-page" style="overflow-x: hidden;" >
-        <div id="loading">
-            <div class="loading-in" >               
-                <div class="loading-ld" >
-                    <div style="font-size: 15px">Loading</div>
-                        <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i></div>
+<body class="presentation-page" style="overflow-x: hidden;" >
+    <div id="loading">
+        <div class="loading-in" >               
+            <div class="loading-ld" >
+                <div style="font-size: 15px">Loading</div>
+                    <i class="fa fa-circle-o-notch fa-spin fa-fw" style=" margin-top: 10px; color: #5c5151; font-size: 35px"></i></div>
                 
-                    </div>        
-                </div>
+                </div>        
             </div>
         </div>
+    </div>
     <div id="content" >
 <!-- navbar -->
 	    <nav class=" navbar" id="sectionsNav" >
     	    <div class="container" style="margin-bottom: 0 ">        
                 <div class="navbar-header">
-               <div class="" style="    padding: 9px 10px;
-    margin-top: 8px;
-    margin-left: 15px;
-    margin-bottom: 8px;
-    font-size: 25px;
-    display: inline-block;">
-                        <div class="box-login-non">
-                  
-                        <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
-                        <span style="    margin-left: 30px;
-    font-size: 15px;    pointer-events: auto;" class="lng-login"></span>
-</div>
-                 
-                    <div class="box-login" style="pointer-events: auto;width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">
-                        <!-- <img style="width: 35px;  height: 35px;    border-radius: 50px;" src="https://dotdotdottrip.com/pic/default-avatar.png" alt=""> -->
-                    </div>
-                </div>
-                   
-               <button type="button" class="navbar-toggle" data-toggle="collapse" style="pointer-events: auto;background: rgba(255, 255, 255, 0) !important; color:#000 !important;;">
+                    <div style="padding: 9px 10px; margin-top: 8px; margin-left: 15px; margin-bottom: 8px; font-size: 25px; display: inline-block;">
+                        <div class="box-login-non">                  
+                            <i class="material-icons btn-login" style="    position: absolute;">account_circle  </i>
+                            <span style="margin-left: 30px; font-size: 15px; pointer-events: auto;" class="lng-login"></span>
+                        </div>                 
+                        <div class="box-login" style="pointer-events: auto;width: 35px;  height: 35px; border-radius: 50px;  margin-top: -4px;">
+                            <!-- <img style="width: 35px;  height: 35px;    border-radius: 50px;" src="https://dotdotdottrip.com/pic/default-avatar.png" alt=""> -->
+                        </div>
+                    </div>                   
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" style="pointer-events: auto;background: rgba(255, 255, 255, 0) !important; color:#000 !important;;">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar BT"  style="color:#000"></span>
                         <span class="icon-bar BT"  style="color:#000"></span>
                         <span class="icon-bar BT"  style="color:#000"></span>
-                    </button>
-                   
+                    </button>                   
                 </div>
         	    <div class="navbar-collapse" style=" margin-top: 10px;pointer-events: auto;">            
         		    <ul class="nav navbar-nav navbar-right" style="  ">
@@ -84,40 +71,30 @@
                                     <span id="getname"> </span>
                                 </div>                   
                             </div>
-                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
                                 <div id="usernamess"></div>                             
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
-                                <!-- <li>
-                                    <a href="" >
-                                    <i class="material-icons">contacts</i><span class="lng-settings-account"></span>
-                    
-                                    </a>
-                                </li> -->
-                                 <ul class="dropdown-menu dropdown-with-icons">
-                                
-                               <li class="box-setting">
-                            <a href="<? echo base_url(); ?>dashboard/account_settings" class="feed">
-                              <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
-                                <i class="material-icons">settings</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
-                            </a>
-                        </li>
-                        
-                            </ul>
+                                 <ul class="dropdown-menu dropdown-with-icons">                                
+                                    <li class="box-setting">
+                                        <a href="<? echo base_url(); ?>dashboard/account_settings" class="feed">
+                                        <!--  <i class="material-icons">dashboard</i><span style="text-transform: initial;" class="lng-dashboard textmenu"></span>  -->
+                                            <i class="material-icons">settings</i><span style="text-transform: initial;" class="lng-sa_d textmenu">Settings Account</span>                  
+                                        </a>
+                                    </li>                        
+                                </ul>
                                 <li id="btn-logout-user">
                                     <a>
                                         <i class="material-icons">power_settings_new</i><span class="lng-logout"></span>
                     
                                     </a>
-                                </li>
-                        
+                                </li>                        
                             </ul>
                         </li>
                         <li class="dropdown" id="btnlogin">
                             <div class="user">
-                                <div class="photo" id="photo_non-login" >
-                                    
+                                <div class="photo" id="photo_non-login" >                                    
                                 </div> 
                                 <div style="padding: 30px;color: #fff;font-size: 16px;">
                                     <span id="getname"> </span>

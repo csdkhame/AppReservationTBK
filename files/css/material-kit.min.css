@@ -3719,11 +3719,14 @@ footer ul li a, footer ul li a:hover {
 }
 
 .modal .modal-dialog {
-    margin-top: 100px
+    /* margin-top: 100px */
 }
 
 .modal .modal-dialog.modal-login {
     width: 360px
+}
+.modal-dialog{
+    margin: 0 !important;
 }
 
 .modal .modal-dialog.modal-login .modal-header .close {

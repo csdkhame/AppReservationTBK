@@ -1002,7 +1002,9 @@ function sendplace(from,to,u,v,x,y,type) {
     lng_f = v;
     lat_t = x;
     lng_t = y;
-    booking = type; 
+    booking = type;
+    place_from =  from;
+    place_to = to;
 }
 function sendpaxrel(x) {
     console.log(lat_t+'-'+lng_t)
