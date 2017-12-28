@@ -159,7 +159,7 @@
     <!-- <div align="center" style="margin-top:30px;">
  
     </div> -->
-                <div style="padding: 12px;padding-top:8px">
+                <div style="padding: 12px;padding-top:8px;padding-bottom: 0;">
                    <div class="col-md-12" id="forget">
                    <!-- <i class="fa fa-chevron-left" aria-hidden="true"></i><span>Back</span> -->
                       
@@ -168,9 +168,9 @@
                         </div> -->
                         <ul class="channel" style="list-style: none; padding-left: 6px;">
                             <li class="credit-card">
-                            <i class="fa fa-credit-card pad" aria-hidden="true"  style="color:#1a53f0;font-size: 30px;"></i>
+                            <i class="fa fa-credit-card pad" aria-hidden="true"  style="color:#1a53f0;font-size: 25px;  width: 40px;"></i>
                                 <!-- <img src="<?php echo base_url(); ?>files/img/omi.png" width="42" alt="" style="    margin-left: -5px;"> -->
-                                <span style="color:#333;   ">Credit Card</span></li>
+                                <span style="color:#333;   " class="lng_credit_card">Credit Card</span></li>
                         <li>
                         <form class="paypal" action="./payments" method="post" id="paypal_form" target="_blank">
                          
@@ -189,7 +189,8 @@
                <!-- <input type="hidden" name="return" value="https://dotdotdottrip.com/dashboard/payments/?payment=success" />
                 <input type="hidden" name="cancel_return" value="https://dotdotdottrip.com/dashboard/payments/?payment=cancelled" /> -->
                 <input type="hidden" name="txn_ids" value="Reference" id="reference" / >
-                        <i class="fa fa-paypal pad" aria-hidden="true" style="color:#253b80;    font-size: 30px;"></i><span><input style="background: #ffffff;  border: 0; color:#333; " type="image" name="submit" value="Paypal"   /></span>
+                        <i class="fa fa-paypal pad" aria-hidden="true" style="color:#253b80;    font-size: 30px;
+    width: 40px;"></i><span><input style="background: #ffffff;  border: 0; color:#333; " type="submit" name="submit" value="Paypal" id="paypal"  /></span>
                         </form></li>
                         <!-- <li class="internet-banking">
                             <i class="fa fa-university pad" aria-hidden="true" style="color:#e91e63;font-size: 30px;"></i>
@@ -200,6 +201,34 @@
                    
                     
                 </div>
+                 <div style="padding: 15px; overflow-y: scroll; height: 60vh; -webkit-overflow-scrolling: touch;">
+                    <div >
+                        <span class="lng_can_see" style="font-size: 16px;  font-weight: 400;"></span>
+                      
+                    </div>
+                    <div style="margin-top: 20px; padding: 0 15px;"> <span>1. </span> 
+                    <span class="lng_credit_card" style="font-size: 15px;  font-weight: 400;"></span>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="<?php echo base_url(); ?>files/images/omise.svg" alt="" style="width: 185px;
+    height: 75px;">
+                    </div>
+                    <div style="padding: 15px 40px; font-size: 15px;">
+                        <div><span class="lng_fee2"></span><span>: 3.65%</span></div>
+                        <div><span class="lng_vat"></span><span>: 7%</span></div>
+                    </div>
+                    <div style="margin-top: 20px; padding: 0 15px;"> <span>2. </span> 
+                    <span class="lng-paypal" style="font-size: 15px;  font-weight: 400;"></span>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="<?php echo base_url(); ?>files/images/paypal.png" alt="" style="height: 140px;">
+                    </div>
+                    <div style="padding: 15px 40px; font-size: 15px;">
+                        <div><span class="lng_fee"></span></div>
+                        <div><span class="lng_do_not_need"></span></div>
+                    </div>
+                    
+                </div>
                 <!-- <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;">  -->
                 <!-- <div  class="btn-close lng-close" ></div> -->
                    
@@ -208,11 +237,17 @@
         </div>
         <div id="foget-password2">
             <div class="box-in-foget2" >
-            <div style=" border-bottom: 1px solid #ddd;  text-align: center;  padding: 10px; font-size: 16px;" class="lng-omise-gateway">
-            <img src="https://assets.omise.co/assets/omise-logo-a86debcb438f41aa395a868ff43fe67090e277d44dea080cd2d51baec405ea71.svg" alt="" width="100">    
-            <i class="material-icons" id="close-credit-card" style="position: absolute;top: 10px; right: 15px;">close</i>
+            <div style="border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 16px;
+    color: #fff;
+    background: #3b5998;" class="lng-omise-gateway">
+            </div>  
+            <div style="text-align: center; padding: 15px;"><img src="https://assets.omise.co/assets/omise-logo-a86debcb438f41aa395a868ff43fe67090e277d44dea080cd2d51baec405ea71.svg" alt="" width="100">    </div>
+            <i class="material-icons" id="close-credit-card" style="position: absolute;top: 15px; right: 15px;color: #fff;">close</i>
             <!-- <i class="fa fa-times pull-right" style="    font-size: 22px;" id="close-credit-card" aria-hidden="true"></i> -->
-</div>
+
     
     <!-- <div align="center" style="margin-top: 40px; margin-bottom: 20px;"> -->
     <!-- <i class="fa fa-credit-card " aria-hidden="true" style="    font-size: 27px;
@@ -232,7 +267,7 @@
 
 				  <input type="hidden" name="omise_token">
 				  <input type="hidden" class="form-control" id="datain" name="data" >
-                  <input type="hidden" class="form-control" id="amount" name="amount">
+                  <!-- <input type="hidden" class="form-control" id="amount" name="amount"> -->
                   <!-- <input type="hidden" name="item_namec" value="Customer's First Name"  id="item_namec"> -->
 				  
                   
@@ -262,7 +297,10 @@
 				  <div class="control-group">
 		            <div class="control-label label_cardcvv">CVV</div>              
 		                  <input type="password" data-omise="security_code" class="ccv" id="cvv"autocomplete="off" maxlength="3" placeholder="***"pattern="\d{3}" title="Three digits at back of your card" required>
-		                  <img src="images/cvv2.png" style="width: 68px;margin-left: 20px;margin-top: -1px;position: absolute; " />	
+		                  <img src="<? echo base_url(); ?>/files/images/cvv2.png" style="width: 68px;
+    margin-left: 200px;
+    margin-top: -42px;
+    position: absolute; " />	
 		                  <p class="maxtext">Must be 4 digits!</p>
 		                  <p class="maxtext2">Must be 2 digits!</p>
 		                  <p class="maxtext3">Must be 3 digits!</p>
@@ -286,9 +324,7 @@
 
         <div id="foget-password3">
             <div class="box-in-foget3" >
-            <div style="    text-align: center;
-    padding: 30px 10px;
-    font-size: 16px;font-weight: 400;" class="lng-omise-gateway"> 
+            <div style="text-align: center; padding: 30px 10px; font-size: 16px;font-weight: 400;" class="lng-omise-gateway"> 
        
                  <!-- <i class="fa fa-linkedin-square pad"  style="    font-size: 35px; color: #e91e63;"></i> -->
                  <span style="text-align: center;color: #333;vertical-align: super;" class="lng-omise-gateway" >Internet Banking</span>
@@ -297,10 +333,8 @@
         <!-- </table> -->
             
        
-        <i class="fa fa-times pull-right" style="    font-size: 22px;
-    position: fixed;
-    right: 15px;
-    top: 15px;" id="close-internet-banking" aria-hidden="true"></i></div>
+        <i class="fa fa-times pull-right" style="font-size: 22px; position: fixed; right: 15px;  top: 15px;" id="close-internet-banking" aria-hidden="true"></i>
+        </div>
     
    
    
@@ -413,6 +447,7 @@
                    
                     
                 </div>
+               
                  <!-- Button -->
     
                 <!-- <div style="position: fixed; padding: 0 12px; width: 100%;bottom: 12px;">  -->
@@ -980,6 +1015,25 @@ $( document ).ready(function() {
             $('#loading').hide();
 		});
     });
+    if($.cookie("lng")=="en" || $.cookie("lng")==undefined){
+			
+            $('#paypal').attr('value', 'Paypal')
+			$('#create_token').attr('value', 'Confirm')
+            
+            
+		}else if ($.cookie("lng")=="cn"){
+			
+            $('#paypal').attr('value', '貝寶')
+			$('#create_token').attr('value', '确认')
+            
+            
+		}else if ($.cookie("lng")=="th"){
+			
+            $('#paypal').attr('value', 'เพย์พาล')
+			$('#create_token').attr('value', 'ยืนยัน')
+            
+            
+		}
 
     //===============================================
     // $("#omise-form-checkout").submit(function() {
@@ -1301,14 +1355,16 @@ function getParameterByName(name, url) {
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
     console.log(getParameterByName('data')+"data")
-    if($.cookie("lng")=="en"){
+    if($.cookie("lng")=="en" || $.cookie("lng")==undefined){
 			//product_name = data.product_detail[0].topic_en;
 			//cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
 			$('.lng-flight').text('Flight');
 			$('.lng-car_type').text('Car type');
 			$('.lng-transfer_date').text('Date/Time');
 			$('.lng-num_of_car').text('Number of car');
-			$('.currency').text("baht.");
+            $('.currency').text("baht.");
+			$('#paypal').attr('value', 'Paypal')
+            
 		}else if ($.cookie("lng")=="cn"){
 			//product_name = data.product_detail[0].topic_cn;
 			//cartype = data.product_detail[0].car_topic_cn+" "+data.product_detail[0].pax_cn;
@@ -1316,7 +1372,9 @@ function getParameterByName(name, url) {
 			$('.lng-car_type').text('车型');
 			$('.lng-transfer_date').text('日期/时间');
 			$('.lng-num_of_car').text('车数');
-			$('.currency').text('铢');
+            $('.currency').text('铢');
+			$('#paypal').attr('value', '貝寶')
+            
 		}else if ($.cookie("lng")=="th"){
 			//product_name = data.product_detail[0].topic_th;
 			//cartype = data.product_detail[0].car_topic_th+" "+data.product_detail[0].pax_th;
@@ -1324,15 +1382,9 @@ function getParameterByName(name, url) {
 			$('.lng-car_type').text('ประเภทรถ');
 			$('.lng-transfer_date').text('วัน/เวลา');
 			$('.lng-num_of_car').text('จำนวนรถ');
-			$('.currency').text('บาท');
-		}else if($.cookie("lng")==undefined){
-			//product_name = data.product_detail[0].topic_en;
-			//cartype = data.product_detail[0].car_topic_en+" "+data.product_detail[0].pax_en;
-			$('.lng-flight').text('Flight');
-			$('.lng-car_type').text('Car type');
-			$('.lng-transfer_date').text('Date/Time');
-			$('.lng-num_of_car').text('Number of car');
-			$('.currency').text("baht");
+            $('.currency').text('บาท');
+			$('#paypal').attr('value', 'เพย์พาล')
+            
 		}
     $.ajax({
             type: 'POST',
@@ -1472,7 +1524,15 @@ function getParameterByName(name, url) {
                 var charg = (parseInt(data[0].total_price)*4.4)/100;
                 var sumcost = parseInt(data[0].total_price)+charg;
                 console.log(sumcost)
-                $('#amount').val(data[0].total_price);
+                var baththai = 11;
+                console.log(data[0].total_price)
+                var free = (data[0].total_price*3.9)/100;
+                console.log(free)
+                console.log(baththai)
+                
+                var costpaypal = parseFloat(data[0].total_price)+parseFloat(free)+parseFloat(baththai);
+                console.log(costpaypal)
+                $('#amount').val(costpaypal);
                 total_amount = data[0].totalpay
                 
                

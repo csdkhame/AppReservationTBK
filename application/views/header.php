@@ -151,13 +151,13 @@
                                 <!-- <i class="material-icons">dashboard</i>                     -->
                             </a>
                         </li>
-                        <li class="btn-management" style="text-align: -webkit-left;">
+                        <!-- <li class="btn-management" >
                             <a  class="history_link">
                             <i class="material-icons" style="font-size: 22px;">dvr</i>
                             <span style="text-transform: initial;" class="lng-management textmenu"></span>
-                                <!-- <i class="material-icons">dashboard</i>                     -->
+                                               
                             </a>
-                        </li>
+                        </li> -->
                         <li class="box-notifications">
                             <a  class="notifications_link">
                             <i class="material-icons" style="font-size: 22px;">notifications_active</i>

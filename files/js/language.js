@@ -173,6 +173,19 @@ $(document).ready(function() {
         $('.lng_police_now').html("现在就报警")
         $('.lng_canceled').html("取消")
         $('.lng-omise-gateway').html("付款頻道")
+        $('.lng_can_see').html(" 您可以在底部看到每个付款渠道的详细信息。")
+        $('.lng_fee').html("- 手续费：3.9％+ 11泰铢")
+        $('.lng_fee2').html("- 手续费")
+        $('.lng_vat').html("- 增值稅 ")
+        $('.lng_do_not_need').html("- 通过PayPal付款，您不必支付。 该系统将立即为您处理。 付款完毕")
+        $('.lng_credit_card').html("信用卡(omise)")
+        $('.lng-paypal').html("貝寶")
+        
+       
+        
+        
+        
+        
         
         
         
@@ -353,6 +366,16 @@ $(document).ready(function() {
         $('.lng_police_now').html("Call the police now")
         $('.lng_canceled').html("Canceled")
         $('.lng-omise-gateway').html("Payment Channels")
+        $('.lng_can_see').html(" You can see the details of each payment channel at the bottom.")
+        $('.lng_fee').html("- Fee: 3.9% + 11 THB")
+        $('.lng_fee2').html("- Fee: ")
+        $('.lng_vat').html("- VAT ")        
+        $('.lng_do_not_need').html("- PayPal payments You do not need to make a payment. Because the system will handle you immediately. Your payment is complete.")
+        $('.lng_credit_card').html("Credit Card (omise)")
+        $('.lng-paypal').html("Paypal")
+        
+        
+        
         
         
         
@@ -534,6 +557,16 @@ $(document).ready(function() {
         $('.lng_police_now').html("เรียกตำรวจเดี๋ยวนี้")
         $('.lng_canceled').html("ยกเลิก")
         $('.lng-omise-gateway').html("ช่องทางการชำระเงิน")
+        $('.lng_can_see').html("ท่านสามารถดูรายละเอียดค่าธรรมเนียมของการชำระเงินแต่ละช่องทางได้ที่ด้านล่าง")
+        $('.lng_fee').html("- ค่าธรรมเนียม 3.9% + 11 THB")
+        $('.lng_fee2').html("- ค่าธรรมเนียม")
+        $('.lng_vat').html("- ภาษีมูลค่าเพิ่ม")
+        $('.lng_do_not_need').html("- การชำระผ่าน PayPal คุณไม่จำเป็นต้องแจ้งชำระเงิน เนื่องจากระบบจะจัดการให้คุณทันที ที่คุณชำระเงินเสร็จสมบูรณ")
+        $('.lng_credit_card').html("บัตรเครดิต (omise)")
+        $('.lng-paypal').html("เพย์พาล")
+        
+        
+        
         
         
 
@@ -568,6 +601,7 @@ $(document).ready(function() {
         $('.lng-please-select-type').html('โปรดเลือกประเภท');
         $('.lng-a-place').html('กรุณาเลือกสถานที่ขึ้นรถ');
         $('.lng_addbook').html('จองรถ')
+
 
     }
    

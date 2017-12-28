@@ -348,13 +348,15 @@ public function paycredit(){
 	// define('OMISE_SECRET_KEY', 'SECRET_KEY');
 	define('OMISE_PUBLIC_KEY', 'pkey_test_59iaxcc7zsr77n4nbkb');
 	define('OMISE_SECRET_KEY', 'skey_test_59iaxcc8idh2bqub4ia');
-	$x = $_POST[amount];
-	// $c = ($x*3.8)/100;
-	// $vat = ($c*7.0)/100;
+	$xx= $_POST[amount];
+	$c = ($xx*3.65)/100;
+	$vat = ($xx*7.0)/100;
+	
 	// //print_r($c);
-	// $charge = $c*100;
-	// $totalvat = $vat*100;
-	$totalamount = $x*100;
+	$charge = $c*100;
+	$totalvat = $vat*100;
+	$x = $_POST[amount]*100;
+	$totalamount = $x+$charge+$vat;
 	// $int = intval($totalamount);
 	//print_r($totalamount);
 	//print_r($totalamount);
