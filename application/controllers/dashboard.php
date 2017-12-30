@@ -609,14 +609,7 @@ public function voucher(){
 		}else{
 			$data['results'] = $this->Userview_model_dash->order_detail($id);
 			$this->load->view('voucher',$data);
-		}	
-		
-			
-			
-
-		
-
-	
+		}
 	
 }
 
